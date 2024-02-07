@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 context.Action = new Dictionary<System.String, Amazon.FIS.Model.UpdateExperimentTemplateActionInputItem>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Action.Keys)
                 {
-                    context.Action.Add((String)hashKey, (UpdateExperimentTemplateActionInputItem)(this.Action[hashKey]));
+                    context.Action.Add((String)hashKey, (Amazon.FIS.Model.UpdateExperimentTemplateActionInputItem)(this.Action[hashKey]));
                 }
             }
             context.Description = this.Description;
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 context.Target = new Dictionary<System.String, Amazon.FIS.Model.UpdateExperimentTemplateTargetInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Target.Keys)
                 {
-                    context.Target.Add((String)hashKey, (UpdateExperimentTemplateTargetInput)(this.Target[hashKey]));
+                    context.Target.Add((String)hashKey, (Amazon.FIS.Model.UpdateExperimentTemplateTargetInput)(this.Target[hashKey]));
                 }
             }
             

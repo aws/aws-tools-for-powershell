@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.AlertTarget = new Dictionary<System.String, Amazon.IoT.Model.AlertTarget>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AlertTarget.Keys)
                 {
-                    context.AlertTarget.Add((String)hashKey, (AlertTarget)(this.AlertTarget[hashKey]));
+                    context.AlertTarget.Add((String)hashKey, (Amazon.IoT.Model.AlertTarget)(this.AlertTarget[hashKey]));
                 }
             }
             if (this.Behavior != null)

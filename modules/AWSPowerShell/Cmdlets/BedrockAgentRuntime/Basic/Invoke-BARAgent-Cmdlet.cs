@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 context.SessionState_PromptSessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SessionState_PromptSessionAttribute.Keys)
                 {
-                    context.SessionState_PromptSessionAttribute.Add((String)hashKey, (String)(this.SessionState_PromptSessionAttribute[hashKey]));
+                    context.SessionState_PromptSessionAttribute.Add((String)hashKey, (System.String)(this.SessionState_PromptSessionAttribute[hashKey]));
                 }
             }
             if (this.SessionState_SessionAttribute != null)
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 context.SessionState_SessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SessionState_SessionAttribute.Keys)
                 {
-                    context.SessionState_SessionAttribute.Add((String)hashKey, (String)(this.SessionState_SessionAttribute[hashKey]));
+                    context.SessionState_SessionAttribute.Add((String)hashKey, (System.String)(this.SessionState_SessionAttribute[hashKey]));
                 }
             }
             

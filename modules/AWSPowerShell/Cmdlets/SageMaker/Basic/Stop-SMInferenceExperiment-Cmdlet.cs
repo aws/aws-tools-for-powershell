@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ModelVariantAction = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ModelVariantAction.Keys)
                 {
-                    context.ModelVariantAction.Add((String)hashKey, (String)(this.ModelVariantAction[hashKey]));
+                    context.ModelVariantAction.Add((String)hashKey, (System.String)(this.ModelVariantAction[hashKey]));
                 }
             }
             #if MODULAR

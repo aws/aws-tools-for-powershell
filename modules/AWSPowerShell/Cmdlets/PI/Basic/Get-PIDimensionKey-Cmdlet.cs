@@ -384,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
                 context.Filter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Filter.Keys)
                 {
-                    context.Filter.Add((String)hashKey, (String)(this.Filter[hashKey]));
+                    context.Filter.Add((String)hashKey, (System.String)(this.Filter[hashKey]));
                 }
             }
             if (this.GroupBy_Dimension != null)

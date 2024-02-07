@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 context.NewImageTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.NewImageTag.Keys)
                 {
-                    context.NewImageTag.Add((String)hashKey, (String)(this.NewImageTag[hashKey]));
+                    context.NewImageTag.Add((String)hashKey, (System.String)(this.NewImageTag[hashKey]));
                 }
             }
             

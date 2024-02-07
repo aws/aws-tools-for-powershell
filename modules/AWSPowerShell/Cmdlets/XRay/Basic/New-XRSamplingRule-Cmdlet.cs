@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 context.SamplingRule_Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SamplingRule_Attribute.Keys)
                 {
-                    context.SamplingRule_Attribute.Add((String)hashKey, (String)(this.SamplingRule_Attribute[hashKey]));
+                    context.SamplingRule_Attribute.Add((String)hashKey, (System.String)(this.SamplingRule_Attribute[hashKey]));
                 }
             }
             context.SamplingRule_FixedRate = this.SamplingRule_FixedRate;

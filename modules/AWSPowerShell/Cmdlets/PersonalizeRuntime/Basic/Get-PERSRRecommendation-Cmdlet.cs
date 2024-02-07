@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Context.Keys)
                 {
-                    context.Context.Add((String)hashKey, (String)(this.Context[hashKey]));
+                    context.Context.Add((String)hashKey, (System.String)(this.Context[hashKey]));
                 }
             }
             context.FilterArn = this.FilterArn;
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 context.FilterValue = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FilterValue.Keys)
                 {
-                    context.FilterValue.Add((String)hashKey, (String)(this.FilterValue[hashKey]));
+                    context.FilterValue.Add((String)hashKey, (System.String)(this.FilterValue[hashKey]));
                 }
             }
             context.ItemId = this.ItemId;

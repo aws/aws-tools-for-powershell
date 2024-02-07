@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.AnnotationField = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AnnotationField.Keys)
                 {
-                    context.AnnotationField.Add((String)hashKey, (String)(this.AnnotationField[hashKey]));
+                    context.AnnotationField.Add((String)hashKey, (System.String)(this.AnnotationField[hashKey]));
                 }
             }
             context.DestinationName = this.DestinationName;

@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.SceneMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SceneMetadata.Keys)
                 {
-                    context.SceneMetadata.Add((String)hashKey, (String)(this.SceneMetadata[hashKey]));
+                    context.SceneMetadata.Add((String)hashKey, (System.String)(this.SceneMetadata[hashKey]));
                 }
             }
             context.WorkspaceId = this.WorkspaceId;

@@ -1474,7 +1474,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 context.EnrichmentParameters_HttpParameters_HeaderParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EnrichmentParameters_HttpParameters_HeaderParameters.Keys)
                 {
-                    context.EnrichmentParameters_HttpParameters_HeaderParameters.Add((String)hashKey, (String)(this.EnrichmentParameters_HttpParameters_HeaderParameters[hashKey]));
+                    context.EnrichmentParameters_HttpParameters_HeaderParameters.Add((String)hashKey, (System.String)(this.EnrichmentParameters_HttpParameters_HeaderParameters[hashKey]));
                 }
             }
             if (this.EnrichmentParameters_HttpParameters_PathParameterValues != null)
@@ -1486,7 +1486,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 context.EnrichmentParameters_HttpParameters_QueryStringParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EnrichmentParameters_HttpParameters_QueryStringParameters.Keys)
                 {
-                    context.EnrichmentParameters_HttpParameters_QueryStringParameters.Add((String)hashKey, (String)(this.EnrichmentParameters_HttpParameters_QueryStringParameters[hashKey]));
+                    context.EnrichmentParameters_HttpParameters_QueryStringParameters.Add((String)hashKey, (System.String)(this.EnrichmentParameters_HttpParameters_QueryStringParameters[hashKey]));
                 }
             }
             context.EnrichmentParameters_InputTemplate = this.EnrichmentParameters_InputTemplate;
@@ -1586,7 +1586,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 context.BatchJobParameters_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BatchJobParameters_Parameter.Keys)
                 {
-                    context.BatchJobParameters_Parameter.Add((String)hashKey, (String)(this.BatchJobParameters_Parameter[hashKey]));
+                    context.BatchJobParameters_Parameter.Add((String)hashKey, (System.String)(this.BatchJobParameters_Parameter[hashKey]));
                 }
             }
             context.RetryStrategy_Attempt = this.RetryStrategy_Attempt;
@@ -1652,7 +1652,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 context.TargetParameters_HttpParameters_HeaderParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TargetParameters_HttpParameters_HeaderParameters.Keys)
                 {
-                    context.TargetParameters_HttpParameters_HeaderParameters.Add((String)hashKey, (String)(this.TargetParameters_HttpParameters_HeaderParameters[hashKey]));
+                    context.TargetParameters_HttpParameters_HeaderParameters.Add((String)hashKey, (System.String)(this.TargetParameters_HttpParameters_HeaderParameters[hashKey]));
                 }
             }
             if (this.TargetParameters_HttpParameters_PathParameterValues != null)
@@ -1664,7 +1664,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 context.TargetParameters_HttpParameters_QueryStringParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TargetParameters_HttpParameters_QueryStringParameters.Keys)
                 {
-                    context.TargetParameters_HttpParameters_QueryStringParameters.Add((String)hashKey, (String)(this.TargetParameters_HttpParameters_QueryStringParameters[hashKey]));
+                    context.TargetParameters_HttpParameters_QueryStringParameters.Add((String)hashKey, (System.String)(this.TargetParameters_HttpParameters_QueryStringParameters[hashKey]));
                 }
             }
             context.TargetParameters_InputTemplate = this.TargetParameters_InputTemplate;

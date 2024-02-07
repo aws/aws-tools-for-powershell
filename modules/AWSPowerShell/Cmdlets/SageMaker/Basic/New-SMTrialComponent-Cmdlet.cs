@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.InputArtifact = new Dictionary<System.String, Amazon.SageMaker.Model.TrialComponentArtifact>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InputArtifact.Keys)
                 {
-                    context.InputArtifact.Add((String)hashKey, (TrialComponentArtifact)(this.InputArtifact[hashKey]));
+                    context.InputArtifact.Add((String)hashKey, (Amazon.SageMaker.Model.TrialComponentArtifact)(this.InputArtifact[hashKey]));
                 }
             }
             context.MetadataProperties_CommitId = this.MetadataProperties_CommitId;
@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.OutputArtifact = new Dictionary<System.String, Amazon.SageMaker.Model.TrialComponentArtifact>(StringComparer.Ordinal);
                 foreach (var hashKey in this.OutputArtifact.Keys)
                 {
-                    context.OutputArtifact.Add((String)hashKey, (TrialComponentArtifact)(this.OutputArtifact[hashKey]));
+                    context.OutputArtifact.Add((String)hashKey, (Amazon.SageMaker.Model.TrialComponentArtifact)(this.OutputArtifact[hashKey]));
                 }
             }
             if (this.Parameter != null)
@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Parameter = new Dictionary<System.String, Amazon.SageMaker.Model.TrialComponentParameterValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (TrialComponentParameterValue)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (Amazon.SageMaker.Model.TrialComponentParameterValue)(this.Parameter[hashKey]));
                 }
             }
             context.StartTime = this.StartTime;

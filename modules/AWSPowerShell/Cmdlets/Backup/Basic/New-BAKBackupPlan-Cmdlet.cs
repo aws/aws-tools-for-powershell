@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.BackupPlanTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BackupPlanTag.Keys)
                 {
-                    context.BackupPlanTag.Add((String)hashKey, (String)(this.BackupPlanTag[hashKey]));
+                    context.BackupPlanTag.Add((String)hashKey, (System.String)(this.BackupPlanTag[hashKey]));
                 }
             }
             context.CreatorRequestId = this.CreatorRequestId;

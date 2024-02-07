@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.VoiceTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.VoiceTemplateRequest_Tag.Keys)
                 {
-                    context.VoiceTemplateRequest_Tag.Add((String)hashKey, (String)(this.VoiceTemplateRequest_Tag[hashKey]));
+                    context.VoiceTemplateRequest_Tag.Add((String)hashKey, (System.String)(this.VoiceTemplateRequest_Tag[hashKey]));
                 }
             }
             context.VoiceTemplateRequest_TemplateDescription = this.VoiceTemplateRequest_TemplateDescription;

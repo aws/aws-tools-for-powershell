@@ -325,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
-                    context.Attribute.Add((String)hashKey, (String)(this.Attribute[hashKey]));
+                    context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
                 }
             }
             context.ChatDurationInMinute = this.ChatDurationInMinute;
@@ -361,7 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.SegmentAttribute = new Dictionary<System.String, Amazon.Connect.Model.SegmentAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SegmentAttribute.Keys)
                 {
-                    context.SegmentAttribute.Add((String)hashKey, (SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
+                    context.SegmentAttribute.Add((String)hashKey, (Amazon.Connect.Model.SegmentAttributeValue)(this.SegmentAttribute[hashKey]));
                 }
             }
             if (this.SupportedMessagingContentType != null)

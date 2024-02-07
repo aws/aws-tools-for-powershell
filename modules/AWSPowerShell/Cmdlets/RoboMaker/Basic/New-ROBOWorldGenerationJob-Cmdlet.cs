@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Template = this.Template;
@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 context.WorldTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.WorldTag.Keys)
                 {
-                    context.WorldTag.Add((String)hashKey, (String)(this.WorldTag[hashKey]));
+                    context.WorldTag.Add((String)hashKey, (System.String)(this.WorldTag[hashKey]));
                 }
             }
             

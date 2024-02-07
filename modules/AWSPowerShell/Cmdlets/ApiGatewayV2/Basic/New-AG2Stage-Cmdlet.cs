@@ -310,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.RouteSetting = new Dictionary<System.String, Amazon.ApiGatewayV2.Model.RouteSettings>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RouteSetting.Keys)
                 {
-                    context.RouteSetting.Add((String)hashKey, (RouteSettings)(this.RouteSetting[hashKey]));
+                    context.RouteSetting.Add((String)hashKey, (Amazon.ApiGatewayV2.Model.RouteSettings)(this.RouteSetting[hashKey]));
                 }
             }
             context.StageName = this.StageName;
@@ -325,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.StageVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.StageVariable.Keys)
                 {
-                    context.StageVariable.Add((String)hashKey, (String)(this.StageVariable[hashKey]));
+                    context.StageVariable.Add((String)hashKey, (System.String)(this.StageVariable[hashKey]));
                 }
             }
             if (this.Tag != null)
@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.EventsRequest_BatchItem = new Dictionary<System.String, Amazon.Pinpoint.Model.EventsBatch>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EventsRequest_BatchItem.Keys)
                 {
-                    context.EventsRequest_BatchItem.Add((String)hashKey, (EventsBatch)(this.EventsRequest_BatchItem[hashKey]));
+                    context.EventsRequest_BatchItem.Add((String)hashKey, (Amazon.Pinpoint.Model.EventsBatch)(this.EventsRequest_BatchItem[hashKey]));
                 }
             }
             #if MODULAR

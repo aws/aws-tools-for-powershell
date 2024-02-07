@@ -453,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.ReferenceSets_IPSetReference = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSetReference>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ReferenceSets_IPSetReference.Keys)
                 {
-                    context.ReferenceSets_IPSetReference.Add((String)hashKey, (IPSetReference)(this.ReferenceSets_IPSetReference[hashKey]));
+                    context.ReferenceSets_IPSetReference.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSetReference)(this.ReferenceSets_IPSetReference[hashKey]));
                 }
             }
             context.RulesSourceList_GeneratedRulesType = this.RulesSourceList_GeneratedRulesType;
@@ -483,7 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.RuleVariables_IPSet = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RuleVariables_IPSet.Keys)
                 {
-                    context.RuleVariables_IPSet.Add((String)hashKey, (IPSet)(this.RuleVariables_IPSet[hashKey]));
+                    context.RuleVariables_IPSet.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSet)(this.RuleVariables_IPSet[hashKey]));
                 }
             }
             if (this.RuleVariables_PortSet != null)
@@ -491,7 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.RuleVariables_PortSet = new Dictionary<System.String, Amazon.NetworkFirewall.Model.PortSet>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RuleVariables_PortSet.Keys)
                 {
-                    context.RuleVariables_PortSet.Add((String)hashKey, (PortSet)(this.RuleVariables_PortSet[hashKey]));
+                    context.RuleVariables_PortSet.Add((String)hashKey, (Amazon.NetworkFirewall.Model.PortSet)(this.RuleVariables_PortSet[hashKey]));
                 }
             }
             context.StatefulRuleOptions_RuleOrder = this.StatefulRuleOptions_RuleOrder;

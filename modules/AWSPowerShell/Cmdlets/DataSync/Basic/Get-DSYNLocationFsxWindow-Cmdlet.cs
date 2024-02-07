@@ -28,8 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about an Amazon FSx for Windows File Server location, such as information
-    /// about its path.
+    /// Provides details about how an DataSync transfer location for an Amazon FSx for Windows
+    /// File Server file system is configured.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationFsxWindow")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationFsxWindowsResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the FSx for Windows File Server location to describe.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the FSx for Windows File Server location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

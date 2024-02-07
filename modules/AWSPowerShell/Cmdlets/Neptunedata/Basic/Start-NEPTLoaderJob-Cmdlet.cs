@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPT
                 context.ParserConfiguration = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ParserConfiguration.Keys)
                 {
-                    context.ParserConfiguration.Add((String)hashKey, (String)(this.ParserConfiguration[hashKey]));
+                    context.ParserConfiguration.Add((String)hashKey, (System.String)(this.ParserConfiguration[hashKey]));
                 }
             }
             context.QueueRequest = this.QueueRequest;

@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 context.Filter = new Dictionary<System.String, Amazon.AccessAnalyzer.Model.Criterion>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Filter.Keys)
                 {
-                    context.Filter.Add((String)hashKey, (Criterion)(this.Filter[hashKey]));
+                    context.Filter.Add((String)hashKey, (Amazon.AccessAnalyzer.Model.Criterion)(this.Filter[hashKey]));
                 }
             }
             #if MODULAR

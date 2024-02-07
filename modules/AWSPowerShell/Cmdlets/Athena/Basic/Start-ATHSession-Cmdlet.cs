@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 context.EngineConfiguration_AdditionalConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EngineConfiguration_AdditionalConfig.Keys)
                 {
-                    context.EngineConfiguration_AdditionalConfig.Add((String)hashKey, (String)(this.EngineConfiguration_AdditionalConfig[hashKey]));
+                    context.EngineConfiguration_AdditionalConfig.Add((String)hashKey, (System.String)(this.EngineConfiguration_AdditionalConfig[hashKey]));
                 }
             }
             context.EngineConfiguration_CoordinatorDpuSize = this.EngineConfiguration_CoordinatorDpuSize;
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 context.EngineConfiguration_SparkProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EngineConfiguration_SparkProperty.Keys)
                 {
-                    context.EngineConfiguration_SparkProperty.Add((String)hashKey, (String)(this.EngineConfiguration_SparkProperty[hashKey]));
+                    context.EngineConfiguration_SparkProperty.Add((String)hashKey, (System.String)(this.EngineConfiguration_SparkProperty[hashKey]));
                 }
             }
             context.NotebookVersion = this.NotebookVersion;

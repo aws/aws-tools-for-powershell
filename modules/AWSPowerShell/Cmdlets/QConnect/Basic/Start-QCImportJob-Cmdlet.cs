@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 context.Metadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Metadata.Keys)
                 {
-                    context.Metadata.Add((String)hashKey, (String)(this.Metadata[hashKey]));
+                    context.Metadata.Add((String)hashKey, (System.String)(this.Metadata[hashKey]));
                 }
             }
             context.UploadId = this.UploadId;

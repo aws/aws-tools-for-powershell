@@ -28,16 +28,16 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// A <i>location</i> is an endpoint for an Amazon S3 bucket. DataSync can use the location
-    /// as a source or destination for copying data.
+    /// Creates a transfer <i>location</i> for an Amazon S3 bucket. DataSync can use this
+    /// location as a source or destination for transferring data.
     /// 
     ///  <important><para>
-    /// Before you create your location, make sure that you read the following sections:
+    /// Before you begin, make sure that you read the following topics:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
     /// class considerations with Amazon S3 locations</a></para></li><li><para><a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">Evaluating
     /// S3 request costs when using DataSync</a></para></li></ul></important><para>
-    ///  For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Creating
-    /// an Amazon S3 location</a>.
+    ///  For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html">Configuring
+    /// transfers with Amazon S3</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter AgentArn
         /// <summary>
         /// <para>
-        /// <para>If you're using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource
-        /// Names (ARNs) of the DataSync agents deployed on your Outpost. For more information
-        /// about launching a DataSync agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy
+        /// <para>(Amazon S3 on Outposts only) Specifies the Amazon Resource Name (ARN) of the DataSync
+        /// agent on your Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy
         /// your DataSync agent on Outposts</a>.</para>
         /// </para>
         /// </summary>
@@ -69,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3Config_BucketAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role for accessing the S3 bucket. </para>
+        /// <para>Specifies the ARN of the IAM role that DataSync uses to access your S3 bucket.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,8 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3BucketArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon S3 bucket. If the bucket is on an Amazon Web Services Outpost,
-        /// this must be an access point ARN.</para>
+        /// <para>Specifies the ARN of the S3 bucket that you want to use as a location. (When creating
+        /// your DataSync task later, you specify whether this location is a transfer source or
+        /// destination.) </para><para>If your S3 bucket is located on an Outposts resource, you must specify an Amazon S3
+        /// access point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing
+        /// data access with Amazon S3 access points</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -104,13 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter S3StorageClass
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 storage class that you want to store your files in when this location
-        /// is used as a task destination. For buckets in Amazon Web Services Regions, the storage
-        /// class defaults to Standard. For buckets on Outposts, the storage class defaults to
-        /// Amazon Web Services S3 Outposts.</para><para>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon
-        /// S3 Storage Classes</a>. Some storage classes have behaviors that can affect your S3
-        /// storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-        /// when working with S3 storage classes in DataSync</a>.</para>
+        /// <para>Specifies the storage class that you want your objects to use when Amazon S3 is a
+        /// transfer destination.</para><para>For buckets in Amazon Web Services Regions, the storage class defaults to <c>STANDARD</c>.
+        /// For buckets on Outposts, the storage class defaults to <c>OUTPOSTS</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
+        /// class considerations with Amazon S3 transfers</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Subdirectory
         /// <summary>
         /// <para>
-        /// <para>A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to
-        /// read data from the S3 source location or write data to the S3 destination.</para>
+        /// <para>Specifies a prefix in the S3 bucket that DataSync reads from or writes to (depending
+        /// on whether the bucket is a source or destination location).</para><note><para>DataSync can't transfer objects with a prefix that begins with a slash (<c>/</c>)
+        /// or includes <c>//</c>, <c>/./</c>, or <c>/../</c> patterns. For example:</para><ul><li><para><c>/photos</c></para></li><li><para><c>photos//2006/January</c></para></li><li><para><c>photos/./2006/February</c></para></li><li><para><c>photos/../2006/March</c></para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The key-value pair that represents the tag that you want to add to the location. The
-        /// value can be an empty string. We recommend using tags to name your resources.</para>
+        /// <para>Specifies labels that help you categorize, filter, and search for your Amazon Web
+        /// Services resources. We recommend creating at least a name tag for your transfer location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

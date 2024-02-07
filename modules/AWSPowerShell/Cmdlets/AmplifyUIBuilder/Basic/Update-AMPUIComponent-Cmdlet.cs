@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.UpdatedComponent_BindingProperty = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentBindingPropertiesValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdatedComponent_BindingProperty.Keys)
                 {
-                    context.UpdatedComponent_BindingProperty.Add((String)hashKey, (ComponentBindingPropertiesValue)(this.UpdatedComponent_BindingProperty[hashKey]));
+                    context.UpdatedComponent_BindingProperty.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentBindingPropertiesValue)(this.UpdatedComponent_BindingProperty[hashKey]));
                 }
             }
             if (this.UpdatedComponent_Child != null)
@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.UpdatedComponent_CollectionProperty = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentDataConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdatedComponent_CollectionProperty.Keys)
                 {
-                    context.UpdatedComponent_CollectionProperty.Add((String)hashKey, (ComponentDataConfiguration)(this.UpdatedComponent_CollectionProperty[hashKey]));
+                    context.UpdatedComponent_CollectionProperty.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentDataConfiguration)(this.UpdatedComponent_CollectionProperty[hashKey]));
                 }
             }
             context.UpdatedComponent_ComponentType = this.UpdatedComponent_ComponentType;
@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.UpdatedComponent_Event = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdatedComponent_Event.Keys)
                 {
-                    context.UpdatedComponent_Event.Add((String)hashKey, (ComponentEvent)(this.UpdatedComponent_Event[hashKey]));
+                    context.UpdatedComponent_Event.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentEvent)(this.UpdatedComponent_Event[hashKey]));
                 }
             }
             context.UpdatedComponent_Id = this.UpdatedComponent_Id;
@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.UpdatedComponent_Override = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdatedComponent_Override.Keys)
                 {
-                    context.UpdatedComponent_Override.Add((String)hashKey, (Dictionary<String,String>)(this.UpdatedComponent_Override[hashKey]));
+                    context.UpdatedComponent_Override.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.UpdatedComponent_Override[hashKey]));
                 }
             }
             if (this.UpdatedComponent_Property != null)
@@ -361,7 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.UpdatedComponent_Property = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentProperty>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdatedComponent_Property.Keys)
                 {
-                    context.UpdatedComponent_Property.Add((String)hashKey, (ComponentProperty)(this.UpdatedComponent_Property[hashKey]));
+                    context.UpdatedComponent_Property.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentProperty)(this.UpdatedComponent_Property[hashKey]));
                 }
             }
             context.UpdatedComponent_SchemaVersion = this.UpdatedComponent_SchemaVersion;

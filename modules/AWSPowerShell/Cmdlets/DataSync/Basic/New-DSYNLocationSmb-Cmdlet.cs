@@ -28,13 +28,13 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for a Server Message Block (SMB) file server that DataSync can
-    /// use for a data transfer.
+    /// Creates a transfer <i>location</i> for a Server Message Block (SMB) file server. DataSync
+    /// can use this location as a source or destination for transferring data.
     /// 
     ///  
     /// <para>
-    /// Before you begin, make sure that you understand how DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">accesses
-    /// an SMB file server</a>.
+    /// Before you begin, make sure that you understand how DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb">accesses
+    /// SMB file servers</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationSmb", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>Specifies the Windows domain name that your SMB file server belongs to. </para><para>If you have multiple domains in your environment, configuring this parameter makes
-        /// sure that DataSync connects to the right file server.</para><para>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
-        /// permissions</a> for SMB locations.</para>
+        /// <para>Specifies the name of the Active Directory domain that your SMB file server belongs
+        /// to. </para><para>If you have multiple Active Directory domains in your environment, configuring this
+        /// parameter makes sure that DataSync connects to the right file server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>Specifies the name of the share exported by your SMB file server where DataSync will
         /// read or write data. You can include a subdirectory in the share path (for example,
         /// <c>/path/to/subdirectory</c>). Make sure that other SMB clients in your network can
-        /// also mount this path.</para><para>To copy all data in the specified subdirectory, DataSync must be able to mount the
-        /// SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
+        /// also mount this path.</para><para>To copy all data in the subdirectory, DataSync must be able to mount the SMB share
+        /// and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
         /// permissions</a> for SMB locations.</para>
         /// </para>
         /// </summary>
@@ -156,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter User
         /// <summary>
         /// <para>
-        /// <para>Specifies the user name that can mount your SMB file server and has permission to
-        /// access the files and folders involved in your transfer.</para><para>For information about choosing a user with the right level of access for your transfer,
+        /// <para>Specifies the user that can mount and access the files, folders, and file metadata
+        /// in your SMB file server.</para><para>For information about choosing a user with the right level of access for your transfer,
         /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required
         /// permissions</a> for SMB locations.</para>
         /// </para>

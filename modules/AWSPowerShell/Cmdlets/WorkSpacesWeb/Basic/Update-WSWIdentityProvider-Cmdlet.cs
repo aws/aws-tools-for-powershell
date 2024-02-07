@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 context.IdentityProviderDetail = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IdentityProviderDetail.Keys)
                 {
-                    context.IdentityProviderDetail.Add((String)hashKey, (String)(this.IdentityProviderDetail[hashKey]));
+                    context.IdentityProviderDetail.Add((String)hashKey, (System.String)(this.IdentityProviderDetail[hashKey]));
                 }
             }
             context.IdentityProviderName = this.IdentityProviderName;

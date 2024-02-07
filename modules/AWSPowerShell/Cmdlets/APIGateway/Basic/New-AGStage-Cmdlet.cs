@@ -285,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.CanarySettings_StageVariableOverride = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CanarySettings_StageVariableOverride.Keys)
                 {
-                    context.CanarySettings_StageVariableOverride.Add((String)hashKey, (String)(this.CanarySettings_StageVariableOverride[hashKey]));
+                    context.CanarySettings_StageVariableOverride.Add((String)hashKey, (System.String)(this.CanarySettings_StageVariableOverride[hashKey]));
                 }
             }
             context.CanarySettings_UseStageCache = this.CanarySettings_UseStageCache;
@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.TracingEnabled = this.TracingEnabled;
@@ -326,7 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.Variable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Variable.Keys)
                 {
-                    context.Variable.Add((String)hashKey, (String)(this.Variable[hashKey]));
+                    context.Variable.Add((String)hashKey, (System.String)(this.Variable[hashKey]));
                 }
             }
             

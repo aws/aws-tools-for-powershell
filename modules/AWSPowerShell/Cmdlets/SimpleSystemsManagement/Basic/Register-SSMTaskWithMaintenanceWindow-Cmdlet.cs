@@ -704,7 +704,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.TaskParameter = new Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TaskParameter.Keys)
                 {
-                    context.TaskParameter.Add((String)hashKey, (MaintenanceWindowTaskParameterValueExpression)(this.TaskParameter[hashKey]));
+                    context.TaskParameter.Add((String)hashKey, (Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression)(this.TaskParameter[hashKey]));
                 }
             }
             context.TaskType = this.TaskType;

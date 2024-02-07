@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.AdditionalPlanOptionsMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AdditionalPlanOptionsMap.Keys)
                 {
-                    context.AdditionalPlanOptionsMap.Add((String)hashKey, (String)(this.AdditionalPlanOptionsMap[hashKey]));
+                    context.AdditionalPlanOptionsMap.Add((String)hashKey, (System.String)(this.AdditionalPlanOptionsMap[hashKey]));
                 }
             }
             context.Language = this.Language;

@@ -479,7 +479,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
                 context.AirflowConfigurationOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AirflowConfigurationOption.Keys)
                 {
-                    context.AirflowConfigurationOption.Add((String)hashKey, (String)(this.AirflowConfigurationOption[hashKey]));
+                    context.AirflowConfigurationOption.Add((String)hashKey, (System.String)(this.AirflowConfigurationOption[hashKey]));
                 }
             }
             context.AirflowVersion = this.AirflowVersion;

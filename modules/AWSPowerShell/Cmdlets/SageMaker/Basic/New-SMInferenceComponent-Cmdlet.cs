@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Container_Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Container_Environment.Keys)
                 {
-                    context.Container_Environment.Add((String)hashKey, (String)(this.Container_Environment[hashKey]));
+                    context.Container_Environment.Add((String)hashKey, (System.String)(this.Container_Environment[hashKey]));
                 }
             }
             context.Container_Image = this.Container_Image;

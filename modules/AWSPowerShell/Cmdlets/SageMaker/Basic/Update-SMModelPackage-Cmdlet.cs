@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.CustomerMetadataProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CustomerMetadataProperty.Keys)
                 {
-                    context.CustomerMetadataProperty.Add((String)hashKey, (String)(this.CustomerMetadataProperty[hashKey]));
+                    context.CustomerMetadataProperty.Add((String)hashKey, (System.String)(this.CustomerMetadataProperty[hashKey]));
                 }
             }
             if (this.CustomerMetadataPropertiesToRemove != null)

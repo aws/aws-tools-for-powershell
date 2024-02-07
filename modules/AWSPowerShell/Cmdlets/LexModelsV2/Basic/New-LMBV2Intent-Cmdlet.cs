@@ -3339,7 +3339,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3347,7 +3347,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_Response_AllowInterrupt = this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3364,7 +3364,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_Intent_Slots.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_Intent_Slots[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_SessionAttributes != null)
@@ -3372,7 +3372,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_SessionAttributes.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_SessionAttributes.Add((String)hashKey, (String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_SessionAttributes[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.FailureResponse_AllowInterrupt = this.FailureResponse_AllowInterrupt;
@@ -3394,7 +3394,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3402,7 +3402,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_Response_AllowInterrupt = this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3419,7 +3419,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_Intent_Slots.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_Intent_Slots[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_SessionAttributes != null)
@@ -3427,7 +3427,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_SessionAttributes.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_SessionAttributes.Add((String)hashKey, (String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_SessionAttributes[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.SuccessResponse_AllowInterrupt = this.SuccessResponse_AllowInterrupt;
@@ -3449,7 +3449,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3457,7 +3457,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_Response_AllowInterrupt = this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3474,7 +3474,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_Intent_Slots.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_Intent_Slots[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_SessionAttributes != null)
@@ -3482,7 +3482,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_SessionAttributes.Keys)
                 {
-                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_SessionAttributes.Add((String)hashKey, (String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_SessionAttributes[hashKey]));
+                    context.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.TimeoutResponse_AllowInterrupt = this.TimeoutResponse_AllowInterrupt;
@@ -3507,7 +3507,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3515,7 +3515,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response_AllowInterrupt = this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3532,7 +3532,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes != null)
@@ -3540,7 +3540,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureResponse_AllowInterrupt = this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureResponse_AllowInterrupt;
@@ -3562,7 +3562,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3570,7 +3570,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response_AllowInterrupt = this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3587,7 +3587,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes != null)
@@ -3595,7 +3595,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_AllowInterrupt = this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_AllowInterrupt;
@@ -3617,7 +3617,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3625,7 +3625,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response_AllowInterrupt = this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3642,7 +3642,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes != null)
@@ -3650,7 +3650,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_AllowInterrupt = this.InitialResponseSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_AllowInterrupt;
@@ -3672,7 +3672,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_Conditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_Conditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_Conditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_Conditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_Conditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_Conditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_Conditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3680,7 +3680,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_Conditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_Conditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_Conditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_Conditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_Conditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_Conditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.InitialResponseSetting_Conditional_DefaultBranch_Response_AllowInterrupt = this.InitialResponseSetting_Conditional_DefaultBranch_Response_AllowInterrupt;
@@ -3702,7 +3702,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_NextStep_Intent_Slots.Keys)
                 {
-                    context.InitialResponseSetting_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.InitialResponseSetting_NextStep_Intent_Slots[hashKey]));
+                    context.InitialResponseSetting_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.InitialResponseSetting_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.InitialResponseSetting_NextStep_SessionAttributes != null)
@@ -3710,7 +3710,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.InitialResponseSetting_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialResponseSetting_NextStep_SessionAttributes.Keys)
                 {
-                    context.InitialResponseSetting_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.InitialResponseSetting_NextStep_SessionAttributes[hashKey]));
+                    context.InitialResponseSetting_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.InitialResponseSetting_NextStep_SessionAttributes[hashKey]));
                 }
             }
             if (this.InputContext != null)
@@ -3737,7 +3737,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentClosingSetting_Conditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentClosingSetting_Conditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentClosingSetting_Conditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentClosingSetting_Conditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.IntentClosingSetting_Conditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentClosingSetting_Conditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentClosingSetting_Conditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3745,7 +3745,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentClosingSetting_Conditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentClosingSetting_Conditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentClosingSetting_Conditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentClosingSetting_Conditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.IntentClosingSetting_Conditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentClosingSetting_Conditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentClosingSetting_Conditional_DefaultBranch_Response_AllowInterrupt = this.IntentClosingSetting_Conditional_DefaultBranch_Response_AllowInterrupt;
@@ -3762,7 +3762,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentClosingSetting_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentClosingSetting_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentClosingSetting_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentClosingSetting_NextStep_Intent_Slots[hashKey]));
+                    context.IntentClosingSetting_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentClosingSetting_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentClosingSetting_NextStep_SessionAttributes != null)
@@ -3770,7 +3770,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentClosingSetting_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentClosingSetting_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentClosingSetting_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentClosingSetting_NextStep_SessionAttributes[hashKey]));
+                    context.IntentClosingSetting_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentClosingSetting_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_Active = this.IntentConfirmationSetting_Active;
@@ -3791,7 +3791,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3799,7 +3799,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response_AllowInterrupt = this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3816,7 +3816,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes != null)
@@ -3824,7 +3824,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureResponse_AllowInterrupt = this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_FailureResponse_AllowInterrupt;
@@ -3846,7 +3846,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3854,7 +3854,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response_AllowInterrupt = this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3871,7 +3871,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes != null)
@@ -3879,7 +3879,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_AllowInterrupt = this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_SuccessResponse_AllowInterrupt;
@@ -3901,7 +3901,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3909,7 +3909,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response_AllowInterrupt = this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3926,7 +3926,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes != null)
@@ -3934,7 +3934,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_AllowInterrupt = this.IntentConfirmationSetting_CodeHook_PostCodeHookSpecification_TimeoutResponse_AllowInterrupt;
@@ -3956,7 +3956,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -3964,7 +3964,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_Response_AllowInterrupt = this.IntentConfirmationSetting_ConfirmationConditional_DefaultBranch_Response_AllowInterrupt;
@@ -3981,7 +3981,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_ConfirmationNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_ConfirmationNextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_ConfirmationNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_ConfirmationNextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_ConfirmationNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_ConfirmationNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.ConfirmationNextStep_SessionAttribute != null)
@@ -3989,7 +3989,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.ConfirmationNextStep_SessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ConfirmationNextStep_SessionAttribute.Keys)
                 {
-                    context.ConfirmationNextStep_SessionAttribute.Add((String)hashKey, (String)(this.ConfirmationNextStep_SessionAttribute[hashKey]));
+                    context.ConfirmationNextStep_SessionAttribute.Add((String)hashKey, (System.String)(this.ConfirmationNextStep_SessionAttribute[hashKey]));
                 }
             }
             context.ConfirmationResponse_AllowInterrupt = this.ConfirmationResponse_AllowInterrupt;
@@ -4011,7 +4011,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -4019,7 +4019,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_Response_AllowInterrupt = this.IntentConfirmationSetting_DeclinationConditional_DefaultBranch_Response_AllowInterrupt;
@@ -4036,7 +4036,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_DeclinationNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_DeclinationNextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_DeclinationNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_DeclinationNextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_DeclinationNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_DeclinationNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.DeclinationNextStep_SessionAttribute != null)
@@ -4044,7 +4044,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.DeclinationNextStep_SessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DeclinationNextStep_SessionAttribute.Keys)
                 {
-                    context.DeclinationNextStep_SessionAttribute.Add((String)hashKey, (String)(this.DeclinationNextStep_SessionAttribute[hashKey]));
+                    context.DeclinationNextStep_SessionAttribute.Add((String)hashKey, (System.String)(this.DeclinationNextStep_SessionAttribute[hashKey]));
                 }
             }
             context.DeclinationResponse_AllowInterrupt = this.DeclinationResponse_AllowInterrupt;
@@ -4068,7 +4068,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_SessionAttributes != null)
@@ -4076,7 +4076,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_FailureConditional_DefaultBranch_Response_AllowInterrupt = this.IntentConfirmationSetting_FailureConditional_DefaultBranch_Response_AllowInterrupt;
@@ -4093,7 +4093,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_FailureNextStep_Intent_Slots = new Dictionary<System.String, Amazon.LexModelsV2.Model.SlotValueOverride>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_FailureNextStep_Intent_Slots.Keys)
                 {
-                    context.IntentConfirmationSetting_FailureNextStep_Intent_Slots.Add((String)hashKey, (SlotValueOverride)(this.IntentConfirmationSetting_FailureNextStep_Intent_Slots[hashKey]));
+                    context.IntentConfirmationSetting_FailureNextStep_Intent_Slots.Add((String)hashKey, (Amazon.LexModelsV2.Model.SlotValueOverride)(this.IntentConfirmationSetting_FailureNextStep_Intent_Slots[hashKey]));
                 }
             }
             if (this.IntentConfirmationSetting_FailureNextStep_SessionAttributes != null)
@@ -4101,7 +4101,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.IntentConfirmationSetting_FailureNextStep_SessionAttributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IntentConfirmationSetting_FailureNextStep_SessionAttributes.Keys)
                 {
-                    context.IntentConfirmationSetting_FailureNextStep_SessionAttributes.Add((String)hashKey, (String)(this.IntentConfirmationSetting_FailureNextStep_SessionAttributes[hashKey]));
+                    context.IntentConfirmationSetting_FailureNextStep_SessionAttributes.Add((String)hashKey, (System.String)(this.IntentConfirmationSetting_FailureNextStep_SessionAttributes[hashKey]));
                 }
             }
             context.IntentConfirmationSetting_FailureResponse_AllowInterrupt = this.IntentConfirmationSetting_FailureResponse_AllowInterrupt;
@@ -4121,7 +4121,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.PromptSpecification_PromptAttemptsSpecification = new Dictionary<System.String, Amazon.LexModelsV2.Model.PromptAttemptSpecification>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PromptSpecification_PromptAttemptsSpecification.Keys)
                 {
-                    context.PromptSpecification_PromptAttemptsSpecification.Add((String)hashKey, (PromptAttemptSpecification)(this.PromptSpecification_PromptAttemptsSpecification[hashKey]));
+                    context.PromptSpecification_PromptAttemptsSpecification.Add((String)hashKey, (Amazon.LexModelsV2.Model.PromptAttemptSpecification)(this.PromptSpecification_PromptAttemptsSpecification[hashKey]));
                 }
             }
             context.IntentName = this.IntentName;

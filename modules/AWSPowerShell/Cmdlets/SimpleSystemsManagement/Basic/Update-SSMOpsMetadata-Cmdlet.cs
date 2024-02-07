@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.MetadataToUpdate = new Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.MetadataValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MetadataToUpdate.Keys)
                 {
-                    context.MetadataToUpdate.Add((String)hashKey, (MetadataValue)(this.MetadataToUpdate[hashKey]));
+                    context.MetadataToUpdate.Add((String)hashKey, (Amazon.SimpleSystemsManagement.Model.MetadataValue)(this.MetadataToUpdate[hashKey]));
                 }
             }
             context.OpsMetadataArn = this.OpsMetadataArn;

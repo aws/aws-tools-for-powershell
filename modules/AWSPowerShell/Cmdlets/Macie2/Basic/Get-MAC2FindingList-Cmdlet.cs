@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                 context.FindingCriteria_Criterion = new Dictionary<System.String, Amazon.Macie2.Model.CriterionAdditionalProperties>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FindingCriteria_Criterion.Keys)
                 {
-                    context.FindingCriteria_Criterion.Add((String)hashKey, (CriterionAdditionalProperties)(this.FindingCriteria_Criterion[hashKey]));
+                    context.FindingCriteria_Criterion.Add((String)hashKey, (Amazon.Macie2.Model.CriterionAdditionalProperties)(this.FindingCriteria_Criterion[hashKey]));
                 }
             }
             context.MaxResult = this.MaxResult;

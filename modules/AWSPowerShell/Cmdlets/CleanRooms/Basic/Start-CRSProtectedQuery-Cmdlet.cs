@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 context.SqlParameters_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SqlParameters_Parameter.Keys)
                 {
-                    context.SqlParameters_Parameter.Add((String)hashKey, (String)(this.SqlParameters_Parameter[hashKey]));
+                    context.SqlParameters_Parameter.Add((String)hashKey, (System.String)(this.SqlParameters_Parameter[hashKey]));
                 }
             }
             context.SqlParameters_QueryString = this.SqlParameters_QueryString;

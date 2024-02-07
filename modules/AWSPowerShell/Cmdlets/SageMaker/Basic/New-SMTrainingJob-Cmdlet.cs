@@ -680,7 +680,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.DebugHookConfig_HookParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DebugHookConfig_HookParameter.Keys)
                 {
-                    context.DebugHookConfig_HookParameter.Add((String)hashKey, (String)(this.DebugHookConfig_HookParameter[hashKey]));
+                    context.DebugHookConfig_HookParameter.Add((String)hashKey, (System.String)(this.DebugHookConfig_HookParameter[hashKey]));
                 }
             }
             context.DebugHookConfig_LocalPath = this.DebugHookConfig_LocalPath;
@@ -697,7 +697,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Environment.Keys)
                 {
-                    context.Environment.Add((String)hashKey, (String)(this.Environment[hashKey]));
+                    context.Environment.Add((String)hashKey, (System.String)(this.Environment[hashKey]));
                 }
             }
             context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;
@@ -709,7 +709,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.HyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.HyperParameter.Keys)
                 {
-                    context.HyperParameter.Add((String)hashKey, (String)(this.HyperParameter[hashKey]));
+                    context.HyperParameter.Add((String)hashKey, (System.String)(this.HyperParameter[hashKey]));
                 }
             }
             context.InfraCheckConfig_EnableInfraCheck = this.InfraCheckConfig_EnableInfraCheck;
@@ -731,7 +731,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ProfilerConfig_ProfilingParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ProfilerConfig_ProfilingParameter.Keys)
                 {
-                    context.ProfilerConfig_ProfilingParameter.Add((String)hashKey, (String)(this.ProfilerConfig_ProfilingParameter[hashKey]));
+                    context.ProfilerConfig_ProfilingParameter.Add((String)hashKey, (System.String)(this.ProfilerConfig_ProfilingParameter[hashKey]));
                 }
             }
             context.ProfilerConfig_S3OutputPath = this.ProfilerConfig_S3OutputPath;

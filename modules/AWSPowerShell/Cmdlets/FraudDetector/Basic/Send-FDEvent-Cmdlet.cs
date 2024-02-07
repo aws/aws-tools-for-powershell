@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 context.EventVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EventVariable.Keys)
                 {
-                    context.EventVariable.Add((String)hashKey, (String)(this.EventVariable[hashKey]));
+                    context.EventVariable.Add((String)hashKey, (System.String)(this.EventVariable[hashKey]));
                 }
             }
             #if MODULAR

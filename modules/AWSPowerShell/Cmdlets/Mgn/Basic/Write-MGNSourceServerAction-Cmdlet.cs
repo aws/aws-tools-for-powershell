@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.MGN
                 context.ExternalParameter = new Dictionary<System.String, Amazon.Mgn.Model.SsmExternalParameter>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ExternalParameter.Keys)
                 {
-                    context.ExternalParameter.Add((String)hashKey, (SsmExternalParameter)(this.ExternalParameter[hashKey]));
+                    context.ExternalParameter.Add((String)hashKey, (Amazon.Mgn.Model.SsmExternalParameter)(this.ExternalParameter[hashKey]));
                 }
             }
             context.MustSucceedForCutover = this.MustSucceedForCutover;

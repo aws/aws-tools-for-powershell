@@ -281,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Constraints_EncryptionContextEqual = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Constraints_EncryptionContextEqual.Keys)
                 {
-                    context.Constraints_EncryptionContextEqual.Add((String)hashKey, (String)(this.Constraints_EncryptionContextEqual[hashKey]));
+                    context.Constraints_EncryptionContextEqual.Add((String)hashKey, (System.String)(this.Constraints_EncryptionContextEqual[hashKey]));
                 }
             }
             if (this.Constraints_EncryptionContextSubset != null)
@@ -289,7 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.Constraints_EncryptionContextSubset = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Constraints_EncryptionContextSubset.Keys)
                 {
-                    context.Constraints_EncryptionContextSubset.Add((String)hashKey, (String)(this.Constraints_EncryptionContextSubset[hashKey]));
+                    context.Constraints_EncryptionContextSubset.Add((String)hashKey, (System.String)(this.Constraints_EncryptionContextSubset[hashKey]));
                 }
             }
             context.DryRun = this.DryRun;

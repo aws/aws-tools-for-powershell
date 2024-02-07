@@ -339,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 context.EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EnvironmentVariable.Keys)
                 {
-                    context.EnvironmentVariable.Add((String)hashKey, (String)(this.EnvironmentVariable[hashKey]));
+                    context.EnvironmentVariable.Add((String)hashKey, (System.String)(this.EnvironmentVariable[hashKey]));
                 }
             }
             context.Framework = this.Framework;

@@ -830,7 +830,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 context.CustomConnector_CustomProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CustomConnector_CustomProperty.Keys)
                 {
-                    context.CustomConnector_CustomProperty.Add((String)hashKey, (String)(this.CustomConnector_CustomProperty[hashKey]));
+                    context.CustomConnector_CustomProperty.Add((String)hashKey, (System.String)(this.CustomConnector_CustomProperty[hashKey]));
                 }
             }
             context.DataTransferApi_Name = this.DataTransferApi_Name;
@@ -867,7 +867,7 @@ namespace Amazon.PowerShell.Cmdlets.AF
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             if (this.Task != null)

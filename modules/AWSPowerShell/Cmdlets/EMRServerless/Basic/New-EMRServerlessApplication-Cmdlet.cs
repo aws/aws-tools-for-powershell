@@ -437,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 context.InitialCapacity = new Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InitialCapacity.Keys)
                 {
-                    context.InitialCapacity.Add((String)hashKey, (InitialCapacityConfig)(this.InitialCapacity[hashKey]));
+                    context.InitialCapacity.Add((String)hashKey, (Amazon.EMRServerless.Model.InitialCapacityConfig)(this.InitialCapacity[hashKey]));
                 }
             }
             context.MaximumCapacity_Cpu = this.MaximumCapacity_Cpu;
@@ -496,7 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Type = this.Type;
@@ -511,7 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 context.WorkerTypeSpecification = new Dictionary<System.String, Amazon.EMRServerless.Model.WorkerTypeSpecificationInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.WorkerTypeSpecification.Keys)
                 {
-                    context.WorkerTypeSpecification.Add((String)hashKey, (WorkerTypeSpecificationInput)(this.WorkerTypeSpecification[hashKey]));
+                    context.WorkerTypeSpecification.Add((String)hashKey, (Amazon.EMRServerless.Model.WorkerTypeSpecificationInput)(this.WorkerTypeSpecification[hashKey]));
                 }
             }
             

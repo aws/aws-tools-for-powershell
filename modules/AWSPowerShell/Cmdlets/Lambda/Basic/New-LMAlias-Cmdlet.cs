@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.RoutingConfig_AdditionalVersionWeight = new Dictionary<System.String, System.Double>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RoutingConfig_AdditionalVersionWeight.Keys)
                 {
-                    context.RoutingConfig_AdditionalVersionWeight.Add((String)hashKey, (Double)(this.RoutingConfig_AdditionalVersionWeight[hashKey]));
+                    context.RoutingConfig_AdditionalVersionWeight.Add((String)hashKey, (System.Double)(this.RoutingConfig_AdditionalVersionWeight[hashKey]));
                 }
             }
             

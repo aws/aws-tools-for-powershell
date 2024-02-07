@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             if (this.UserMetadata != null)
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 context.UserMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UserMetadata.Keys)
                 {
-                    context.UserMetadata.Add((String)hashKey, (String)(this.UserMetadata[hashKey]));
+                    context.UserMetadata.Add((String)hashKey, (System.String)(this.UserMetadata[hashKey]));
                 }
             }
             

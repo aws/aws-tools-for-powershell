@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.Metadata = new Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.MetadataValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Metadata.Keys)
                 {
-                    context.Metadata.Add((String)hashKey, (MetadataValue)(this.Metadata[hashKey]));
+                    context.Metadata.Add((String)hashKey, (Amazon.SimpleSystemsManagement.Model.MetadataValue)(this.Metadata[hashKey]));
                 }
             }
             context.ResourceId = this.ResourceId;

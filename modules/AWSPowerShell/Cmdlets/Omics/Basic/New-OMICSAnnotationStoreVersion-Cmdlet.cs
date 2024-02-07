@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.VersionName = this.VersionName;
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.TsvVersionOptions_FormatToHeader = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TsvVersionOptions_FormatToHeader.Keys)
                 {
-                    context.TsvVersionOptions_FormatToHeader.Add((String)hashKey, (String)(this.TsvVersionOptions_FormatToHeader[hashKey]));
+                    context.TsvVersionOptions_FormatToHeader.Add((String)hashKey, (System.String)(this.TsvVersionOptions_FormatToHeader[hashKey]));
                 }
             }
             if (this.TsvVersionOptions_Schema != null)

@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.GlobalSetting = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GlobalSetting.Keys)
                 {
-                    context.GlobalSetting.Add((String)hashKey, (String)(this.GlobalSetting[hashKey]));
+                    context.GlobalSetting.Add((String)hashKey, (System.String)(this.GlobalSetting[hashKey]));
                 }
             }
             

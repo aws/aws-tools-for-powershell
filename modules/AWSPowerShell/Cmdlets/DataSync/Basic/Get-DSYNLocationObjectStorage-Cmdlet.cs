@@ -28,7 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about your DataSync location for an object storage system.
+    /// Provides details about how an DataSync transfer location for an object storage system
+    /// is configured.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationObjectStorage")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationObjectStorageResponse")]
@@ -44,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the object storage system location that you want
-        /// information about.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the object storage system location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

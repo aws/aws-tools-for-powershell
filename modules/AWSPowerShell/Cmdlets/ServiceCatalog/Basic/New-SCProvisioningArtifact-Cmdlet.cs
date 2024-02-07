@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 context.Parameters_Info = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameters_Info.Keys)
                 {
-                    context.Parameters_Info.Add((String)hashKey, (String)(this.Parameters_Info[hashKey]));
+                    context.Parameters_Info.Add((String)hashKey, (System.String)(this.Parameters_Info[hashKey]));
                 }
             }
             context.Parameters_Name = this.Parameters_Name;

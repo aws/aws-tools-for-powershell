@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Deletes an DataSync transfer task.
+    /// Deletes a transfer task resource from DataSync.
     /// </summary>
     [Cmdlet("Remove", "DSYNTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

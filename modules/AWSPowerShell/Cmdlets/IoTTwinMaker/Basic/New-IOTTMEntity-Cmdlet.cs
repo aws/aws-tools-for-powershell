@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.Component = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.ComponentRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Component.Keys)
                 {
-                    context.Component.Add((String)hashKey, (ComponentRequest)(this.Component[hashKey]));
+                    context.Component.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.ComponentRequest)(this.Component[hashKey]));
                 }
             }
             if (this.CompositeComponent != null)
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.CompositeComponent = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CompositeComponent.Keys)
                 {
-                    context.CompositeComponent.Add((String)hashKey, (CompositeComponentRequest)(this.CompositeComponent[hashKey]));
+                    context.CompositeComponent.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.CompositeComponentRequest)(this.CompositeComponent[hashKey]));
                 }
             }
             context.Description = this.Description;
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.WorkspaceId = this.WorkspaceId;

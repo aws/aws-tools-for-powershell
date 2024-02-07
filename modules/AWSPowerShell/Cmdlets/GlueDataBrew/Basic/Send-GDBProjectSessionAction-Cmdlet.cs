@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.Action_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Action_Parameter.Keys)
                 {
-                    context.Action_Parameter.Add((String)hashKey, (String)(this.Action_Parameter[hashKey]));
+                    context.Action_Parameter.Add((String)hashKey, (System.String)(this.Action_Parameter[hashKey]));
                 }
             }
             if (this.RecipeStep_ConditionExpression != null)

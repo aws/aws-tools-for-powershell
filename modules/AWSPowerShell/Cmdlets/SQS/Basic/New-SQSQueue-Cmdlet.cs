@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
-                    context.Attribute.Add((String)hashKey, (String)(this.Attribute[hashKey]));
+                    context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
                 }
             }
             context.QueueName = this.QueueName;
@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

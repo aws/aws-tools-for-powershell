@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ProfilerConfig_ProfilingParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ProfilerConfig_ProfilingParameter.Keys)
                 {
-                    context.ProfilerConfig_ProfilingParameter.Add((String)hashKey, (String)(this.ProfilerConfig_ProfilingParameter[hashKey]));
+                    context.ProfilerConfig_ProfilingParameter.Add((String)hashKey, (System.String)(this.ProfilerConfig_ProfilingParameter[hashKey]));
                 }
             }
             context.ProfilerConfig_S3OutputPath = this.ProfilerConfig_S3OutputPath;

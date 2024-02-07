@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.PAN
                 context.TemplateParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TemplateParameter.Keys)
                 {
-                    context.TemplateParameter.Add((String)hashKey, (String)(this.TemplateParameter[hashKey]));
+                    context.TemplateParameter.Add((String)hashKey, (System.String)(this.TemplateParameter[hashKey]));
                 }
             }
             #if MODULAR

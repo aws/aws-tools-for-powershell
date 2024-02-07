@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.CampaignConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CampaignConfig_ItemExplorationConfig.Keys)
                 {
-                    context.CampaignConfig_ItemExplorationConfig.Add((String)hashKey, (String)(this.CampaignConfig_ItemExplorationConfig[hashKey]));
+                    context.CampaignConfig_ItemExplorationConfig.Add((String)hashKey, (System.String)(this.CampaignConfig_ItemExplorationConfig[hashKey]));
                 }
             }
             context.MinProvisionedTPS = this.MinProvisionedTPS;

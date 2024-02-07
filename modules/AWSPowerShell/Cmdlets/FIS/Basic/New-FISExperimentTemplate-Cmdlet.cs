@@ -274,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 context.Action = new Dictionary<System.String, Amazon.FIS.Model.CreateExperimentTemplateActionInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Action.Keys)
                 {
-                    context.Action.Add((String)hashKey, (CreateExperimentTemplateActionInput)(this.Action[hashKey]));
+                    context.Action.Add((String)hashKey, (Amazon.FIS.Model.CreateExperimentTemplateActionInput)(this.Action[hashKey]));
                 }
             }
             #if MODULAR
@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             if (this.Target != null)
@@ -327,7 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
                 context.Target = new Dictionary<System.String, Amazon.FIS.Model.CreateExperimentTemplateTargetInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Target.Keys)
                 {
-                    context.Target.Add((String)hashKey, (CreateExperimentTemplateTargetInput)(this.Target[hashKey]));
+                    context.Target.Add((String)hashKey, (Amazon.FIS.Model.CreateExperimentTemplateTargetInput)(this.Target[hashKey]));
                 }
             }
             

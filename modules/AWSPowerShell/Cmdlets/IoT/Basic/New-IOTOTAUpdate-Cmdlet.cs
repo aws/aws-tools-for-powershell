@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.AdditionalParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AdditionalParameter.Keys)
                 {
-                    context.AdditionalParameter.Add((String)hashKey, (String)(this.AdditionalParameter[hashKey]));
+                    context.AdditionalParameter.Add((String)hashKey, (System.String)(this.AdditionalParameter[hashKey]));
                 }
             }
             if (this.AwsJobAbortConfig_AbortCriteriaList != null)

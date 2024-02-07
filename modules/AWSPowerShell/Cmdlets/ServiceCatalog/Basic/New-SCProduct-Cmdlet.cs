@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 context.ProvisioningArtifactParameters_Info = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ProvisioningArtifactParameters_Info.Keys)
                 {
-                    context.ProvisioningArtifactParameters_Info.Add((String)hashKey, (String)(this.ProvisioningArtifactParameters_Info[hashKey]));
+                    context.ProvisioningArtifactParameters_Info.Add((String)hashKey, (System.String)(this.ProvisioningArtifactParameters_Info[hashKey]));
                 }
             }
             context.ProvisioningArtifactParameters_Name = this.ProvisioningArtifactParameters_Name;

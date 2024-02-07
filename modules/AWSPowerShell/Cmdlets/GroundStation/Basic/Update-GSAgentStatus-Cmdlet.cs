@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.GS
                 context.AggregateStatus_SignatureMap = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AggregateStatus_SignatureMap.Keys)
                 {
-                    context.AggregateStatus_SignatureMap.Add((String)hashKey, (Boolean)(this.AggregateStatus_SignatureMap[hashKey]));
+                    context.AggregateStatus_SignatureMap.Add((String)hashKey, (System.Boolean)(this.AggregateStatus_SignatureMap[hashKey]));
                 }
             }
             context.AggregateStatus_Status = this.AggregateStatus_Status;

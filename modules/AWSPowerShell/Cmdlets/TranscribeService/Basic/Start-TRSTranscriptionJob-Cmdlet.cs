@@ -628,7 +628,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.KMSEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.KMSEncryptionContext.Keys)
                 {
-                    context.KMSEncryptionContext.Add((String)hashKey, (String)(this.KMSEncryptionContext[hashKey]));
+                    context.KMSEncryptionContext.Add((String)hashKey, (System.String)(this.KMSEncryptionContext[hashKey]));
                 }
             }
             context.LanguageCode = this.LanguageCode;
@@ -637,7 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.LanguageIdSetting = new Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LanguageIdSetting.Keys)
                 {
-                    context.LanguageIdSetting.Add((String)hashKey, (LanguageIdSettings)(this.LanguageIdSetting[hashKey]));
+                    context.LanguageIdSetting.Add((String)hashKey, (Amazon.TranscribeService.Model.LanguageIdSettings)(this.LanguageIdSetting[hashKey]));
                 }
             }
             if (this.LanguageOption != null)

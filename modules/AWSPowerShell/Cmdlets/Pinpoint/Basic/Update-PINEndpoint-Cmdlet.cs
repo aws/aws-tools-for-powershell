@@ -490,7 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.EndpointRequest_Metric = new Dictionary<System.String, System.Double>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EndpointRequest_Metric.Keys)
                 {
-                    context.EndpointRequest_Metric.Add((String)hashKey, (Double)(this.EndpointRequest_Metric[hashKey]));
+                    context.EndpointRequest_Metric.Add((String)hashKey, (System.Double)(this.EndpointRequest_Metric[hashKey]));
                 }
             }
             context.EndpointRequest_OptOut = this.EndpointRequest_OptOut;

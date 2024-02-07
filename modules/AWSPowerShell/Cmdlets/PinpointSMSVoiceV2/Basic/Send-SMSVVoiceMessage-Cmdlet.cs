@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Context.Keys)
                 {
-                    context.Context.Add((String)hashKey, (String)(this.Context[hashKey]));
+                    context.Context.Add((String)hashKey, (System.String)(this.Context[hashKey]));
                 }
             }
             context.DestinationPhoneNumber = this.DestinationPhoneNumber;

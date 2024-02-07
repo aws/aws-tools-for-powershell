@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.DestinationEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DestinationEncryptionContext.Keys)
                 {
-                    context.DestinationEncryptionContext.Add((String)hashKey, (String)(this.DestinationEncryptionContext[hashKey]));
+                    context.DestinationEncryptionContext.Add((String)hashKey, (System.String)(this.DestinationEncryptionContext[hashKey]));
                 }
             }
             context.DestinationKeyId = this.DestinationKeyId;
@@ -338,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.SourceEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SourceEncryptionContext.Keys)
                 {
-                    context.SourceEncryptionContext.Add((String)hashKey, (String)(this.SourceEncryptionContext[hashKey]));
+                    context.SourceEncryptionContext.Add((String)hashKey, (System.String)(this.SourceEncryptionContext[hashKey]));
                 }
             }
             context.SourceKeyId = this.SourceKeyId;

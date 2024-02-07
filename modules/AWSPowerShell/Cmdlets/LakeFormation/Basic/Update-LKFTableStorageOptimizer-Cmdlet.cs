@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.StorageOptimizerConfig = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.StorageOptimizerConfig.Keys)
                 {
-                    context.StorageOptimizerConfig.Add((String)hashKey, (Dictionary<String,String>)(this.StorageOptimizerConfig[hashKey]));
+                    context.StorageOptimizerConfig.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.StorageOptimizerConfig[hashKey]));
                 }
             }
             #if MODULAR

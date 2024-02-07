@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 context.MemberConfiguration_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MemberConfiguration_Tag.Keys)
                 {
-                    context.MemberConfiguration_Tag.Add((String)hashKey, (String)(this.MemberConfiguration_Tag[hashKey]));
+                    context.MemberConfiguration_Tag.Add((String)hashKey, (System.String)(this.MemberConfiguration_Tag[hashKey]));
                 }
             }
             context.NetworkId = this.NetworkId;

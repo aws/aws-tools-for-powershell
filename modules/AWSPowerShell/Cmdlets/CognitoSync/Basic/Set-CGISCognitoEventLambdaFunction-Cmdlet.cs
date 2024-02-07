@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
                 context.Event = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Event.Keys)
                 {
-                    context.Event.Add((String)hashKey, (String)(this.Event[hashKey]));
+                    context.Event.Add((String)hashKey, (System.String)(this.Event[hashKey]));
                 }
             }
             #if MODULAR

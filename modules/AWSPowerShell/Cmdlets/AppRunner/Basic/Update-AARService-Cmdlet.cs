@@ -614,7 +614,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 context.CodeConfigurationValues_RuntimeEnvironmentSecret = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CodeConfigurationValues_RuntimeEnvironmentSecret.Keys)
                 {
-                    context.CodeConfigurationValues_RuntimeEnvironmentSecret.Add((String)hashKey, (String)(this.CodeConfigurationValues_RuntimeEnvironmentSecret[hashKey]));
+                    context.CodeConfigurationValues_RuntimeEnvironmentSecret.Add((String)hashKey, (System.String)(this.CodeConfigurationValues_RuntimeEnvironmentSecret[hashKey]));
                 }
             }
             if (this.CodeConfigurationValues_RuntimeEnvironmentVariable != null)
@@ -622,7 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 context.CodeConfigurationValues_RuntimeEnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CodeConfigurationValues_RuntimeEnvironmentVariable.Keys)
                 {
-                    context.CodeConfigurationValues_RuntimeEnvironmentVariable.Add((String)hashKey, (String)(this.CodeConfigurationValues_RuntimeEnvironmentVariable[hashKey]));
+                    context.CodeConfigurationValues_RuntimeEnvironmentVariable.Add((String)hashKey, (System.String)(this.CodeConfigurationValues_RuntimeEnvironmentVariable[hashKey]));
                 }
             }
             context.CodeConfigurationValues_StartCommand = this.CodeConfigurationValues_StartCommand;
@@ -637,7 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 context.ImageConfiguration_RuntimeEnvironmentSecret = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ImageConfiguration_RuntimeEnvironmentSecret.Keys)
                 {
-                    context.ImageConfiguration_RuntimeEnvironmentSecret.Add((String)hashKey, (String)(this.ImageConfiguration_RuntimeEnvironmentSecret[hashKey]));
+                    context.ImageConfiguration_RuntimeEnvironmentSecret.Add((String)hashKey, (System.String)(this.ImageConfiguration_RuntimeEnvironmentSecret[hashKey]));
                 }
             }
             if (this.ImageConfiguration_RuntimeEnvironmentVariable != null)
@@ -645,7 +645,7 @@ namespace Amazon.PowerShell.Cmdlets.AAR
                 context.ImageConfiguration_RuntimeEnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ImageConfiguration_RuntimeEnvironmentVariable.Keys)
                 {
-                    context.ImageConfiguration_RuntimeEnvironmentVariable.Add((String)hashKey, (String)(this.ImageConfiguration_RuntimeEnvironmentVariable[hashKey]));
+                    context.ImageConfiguration_RuntimeEnvironmentVariable.Add((String)hashKey, (System.String)(this.ImageConfiguration_RuntimeEnvironmentVariable[hashKey]));
                 }
             }
             context.ImageConfiguration_StartCommand = this.ImageConfiguration_StartCommand;

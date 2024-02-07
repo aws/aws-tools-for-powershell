@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
                 context.Specification = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Specification.Keys)
                 {
-                    context.Specification.Add((String)hashKey, (String)(this.Specification[hashKey]));
+                    context.Specification.Add((String)hashKey, (System.String)(this.Specification[hashKey]));
                 }
             }
             #if MODULAR

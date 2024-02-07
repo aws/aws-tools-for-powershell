@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.RecommenderConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RecommenderConfig_ItemExplorationConfig.Keys)
                 {
-                    context.RecommenderConfig_ItemExplorationConfig.Add((String)hashKey, (String)(this.RecommenderConfig_ItemExplorationConfig[hashKey]));
+                    context.RecommenderConfig_ItemExplorationConfig.Add((String)hashKey, (System.String)(this.RecommenderConfig_ItemExplorationConfig[hashKey]));
                 }
             }
             context.RecommenderConfig_MinRecommendationRequestsPerSecond = this.RecommenderConfig_MinRecommendationRequestsPerSecond;

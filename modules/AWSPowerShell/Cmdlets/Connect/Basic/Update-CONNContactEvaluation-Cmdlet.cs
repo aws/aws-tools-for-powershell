@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Answer = new Dictionary<System.String, Amazon.Connect.Model.EvaluationAnswerInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Answer.Keys)
                 {
-                    context.Answer.Add((String)hashKey, (EvaluationAnswerInput)(this.Answer[hashKey]));
+                    context.Answer.Add((String)hashKey, (Amazon.Connect.Model.EvaluationAnswerInput)(this.Answer[hashKey]));
                 }
             }
             context.EvaluationId = this.EvaluationId;
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Note = new Dictionary<System.String, Amazon.Connect.Model.EvaluationNote>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Note.Keys)
                 {
-                    context.Note.Add((String)hashKey, (EvaluationNote)(this.Note[hashKey]));
+                    context.Note.Add((String)hashKey, (Amazon.Connect.Model.EvaluationNote)(this.Note[hashKey]));
                 }
             }
             

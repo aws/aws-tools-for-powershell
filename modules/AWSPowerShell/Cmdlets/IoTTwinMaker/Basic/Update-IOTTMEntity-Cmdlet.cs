@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.ComponentUpdate = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.ComponentUpdateRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentUpdate.Keys)
                 {
-                    context.ComponentUpdate.Add((String)hashKey, (ComponentUpdateRequest)(this.ComponentUpdate[hashKey]));
+                    context.ComponentUpdate.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.ComponentUpdateRequest)(this.ComponentUpdate[hashKey]));
                 }
             }
             if (this.CompositeComponentUpdate != null)
@@ -215,7 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.CompositeComponentUpdate = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentUpdateRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CompositeComponentUpdate.Keys)
                 {
-                    context.CompositeComponentUpdate.Add((String)hashKey, (CompositeComponentUpdateRequest)(this.CompositeComponentUpdate[hashKey]));
+                    context.CompositeComponentUpdate.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.CompositeComponentUpdateRequest)(this.CompositeComponentUpdate[hashKey]));
                 }
             }
             context.Description = this.Description;

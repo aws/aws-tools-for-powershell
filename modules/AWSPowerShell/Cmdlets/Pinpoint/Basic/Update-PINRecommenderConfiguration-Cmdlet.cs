@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.UpdateRecommenderConfiguration_Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdateRecommenderConfiguration_Attribute.Keys)
                 {
-                    context.UpdateRecommenderConfiguration_Attribute.Add((String)hashKey, (String)(this.UpdateRecommenderConfiguration_Attribute[hashKey]));
+                    context.UpdateRecommenderConfiguration_Attribute.Add((String)hashKey, (System.String)(this.UpdateRecommenderConfiguration_Attribute[hashKey]));
                 }
             }
             context.UpdateRecommenderConfiguration_Description = this.UpdateRecommenderConfiguration_Description;

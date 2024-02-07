@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 context.Parameter = new Dictionary<System.String, Amazon.SecurityHub.Model.ParameterConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (ParameterConfiguration)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (Amazon.SecurityHub.Model.ParameterConfiguration)(this.Parameter[hashKey]));
                 }
             }
             #if MODULAR

@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.TsvStoreOptions_FormatToHeader = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TsvStoreOptions_FormatToHeader.Keys)
                 {
-                    context.TsvStoreOptions_FormatToHeader.Add((String)hashKey, (String)(this.TsvStoreOptions_FormatToHeader[hashKey]));
+                    context.TsvStoreOptions_FormatToHeader.Add((String)hashKey, (System.String)(this.TsvStoreOptions_FormatToHeader[hashKey]));
                 }
             }
             if (this.TsvStoreOptions_Schema != null)
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.VersionName = this.VersionName;

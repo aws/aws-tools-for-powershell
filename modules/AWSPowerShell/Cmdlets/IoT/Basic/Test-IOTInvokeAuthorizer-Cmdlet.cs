@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.HttpContext_Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.HttpContext_Header.Keys)
                 {
-                    context.HttpContext_Header.Add((String)hashKey, (String)(this.HttpContext_Header[hashKey]));
+                    context.HttpContext_Header.Add((String)hashKey, (System.String)(this.HttpContext_Header[hashKey]));
                 }
             }
             context.HttpContext_QueryString = this.HttpContext_QueryString;

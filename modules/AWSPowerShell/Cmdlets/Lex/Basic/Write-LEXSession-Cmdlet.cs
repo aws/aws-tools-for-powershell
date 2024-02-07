@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 context.DialogAction_Slot = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DialogAction_Slot.Keys)
                 {
-                    context.DialogAction_Slot.Add((String)hashKey, (String)(this.DialogAction_Slot[hashKey]));
+                    context.DialogAction_Slot.Add((String)hashKey, (System.String)(this.DialogAction_Slot[hashKey]));
                 }
             }
             context.DialogAction_SlotToElicit = this.DialogAction_SlotToElicit;
@@ -349,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 context.SessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SessionAttribute.Keys)
                 {
-                    context.SessionAttribute.Add((String)hashKey, (String)(this.SessionAttribute[hashKey]));
+                    context.SessionAttribute.Add((String)hashKey, (System.String)(this.SessionAttribute[hashKey]));
                 }
             }
             context.UserId = this.UserId;

@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Amis_TagMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Amis_TagMap.Keys)
                 {
-                    context.Amis_TagMap.Add((String)hashKey, (String)(this.Amis_TagMap[hashKey]));
+                    context.Amis_TagMap.Add((String)hashKey, (System.String)(this.Amis_TagMap[hashKey]));
                 }
             }
             context.ExecutionRole = this.ExecutionRole;

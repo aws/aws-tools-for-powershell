@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 context.PrincipalTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PrincipalTag.Keys)
                 {
-                    context.PrincipalTag.Add((String)hashKey, (String)(this.PrincipalTag[hashKey]));
+                    context.PrincipalTag.Add((String)hashKey, (System.String)(this.PrincipalTag[hashKey]));
                 }
             }
             context.UseDefault = this.UseDefault;

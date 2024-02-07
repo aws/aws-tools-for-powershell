@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 context.EncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EncryptionContext.Keys)
                 {
-                    context.EncryptionContext.Add((String)hashKey, (String)(this.EncryptionContext[hashKey]));
+                    context.EncryptionContext.Add((String)hashKey, (System.String)(this.EncryptionContext[hashKey]));
                 }
             }
             if (this.GrantToken != null)

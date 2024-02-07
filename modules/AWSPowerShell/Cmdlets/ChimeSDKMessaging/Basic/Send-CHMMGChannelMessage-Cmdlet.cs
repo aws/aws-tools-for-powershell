@@ -328,7 +328,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 context.MessageAttribute = new Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageAttribute.Keys)
                 {
-                    context.MessageAttribute.Add((String)hashKey, (MessageAttributeValue)(this.MessageAttribute[hashKey]));
+                    context.MessageAttribute.Add((String)hashKey, (Amazon.ChimeSDKMessaging.Model.MessageAttributeValue)(this.MessageAttribute[hashKey]));
                 }
             }
             context.Metadata = this.Metadata;

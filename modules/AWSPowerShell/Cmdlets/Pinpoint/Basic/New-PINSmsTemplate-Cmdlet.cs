@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.SMSTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SMSTemplateRequest_Tag.Keys)
                 {
-                    context.SMSTemplateRequest_Tag.Add((String)hashKey, (String)(this.SMSTemplateRequest_Tag[hashKey]));
+                    context.SMSTemplateRequest_Tag.Add((String)hashKey, (System.String)(this.SMSTemplateRequest_Tag[hashKey]));
                 }
             }
             context.SMSTemplateRequest_TemplateDescription = this.SMSTemplateRequest_TemplateDescription;

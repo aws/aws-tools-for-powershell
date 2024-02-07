@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 context.ChoiceUpdate = new Dictionary<System.String, Amazon.WellArchitected.Model.ChoiceUpdate>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ChoiceUpdate.Keys)
                 {
-                    context.ChoiceUpdate.Add((String)hashKey, (ChoiceUpdate)(this.ChoiceUpdate[hashKey]));
+                    context.ChoiceUpdate.Add((String)hashKey, (Amazon.WellArchitected.Model.ChoiceUpdate)(this.ChoiceUpdate[hashKey]));
                 }
             }
             context.IsApplicable = this.IsApplicable;

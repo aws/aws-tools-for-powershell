@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
                 context.CustomerDefinedValue = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CustomerDefinedValue.Keys)
                 {
-                    context.CustomerDefinedValue.Add((String)hashKey, (String)(this.CustomerDefinedValue[hashKey]));
+                    context.CustomerDefinedValue.Add((String)hashKey, (System.String)(this.CustomerDefinedValue[hashKey]));
                 }
             }
             context.DataSetPublicationDate = this.DataSetPublicationDate;

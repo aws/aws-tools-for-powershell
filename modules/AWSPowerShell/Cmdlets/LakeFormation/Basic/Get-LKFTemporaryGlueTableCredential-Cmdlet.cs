@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.QuerySessionContext_AdditionalContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.QuerySessionContext_AdditionalContext.Keys)
                 {
-                    context.QuerySessionContext_AdditionalContext.Add((String)hashKey, (String)(this.QuerySessionContext_AdditionalContext[hashKey]));
+                    context.QuerySessionContext_AdditionalContext.Add((String)hashKey, (System.String)(this.QuerySessionContext_AdditionalContext[hashKey]));
                 }
             }
             context.QuerySessionContext_ClusterId = this.QuerySessionContext_ClusterId;

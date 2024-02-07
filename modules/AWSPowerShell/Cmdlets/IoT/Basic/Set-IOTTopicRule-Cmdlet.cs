@@ -1462,7 +1462,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Kafka_ClientProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Kafka_ClientProperty.Keys)
                 {
-                    context.Kafka_ClientProperty.Add((String)hashKey, (String)(this.Kafka_ClientProperty[hashKey]));
+                    context.Kafka_ClientProperty.Add((String)hashKey, (System.String)(this.Kafka_ClientProperty[hashKey]));
                 }
             }
             context.Kafka_DestinationArn = this.Kafka_DestinationArn;

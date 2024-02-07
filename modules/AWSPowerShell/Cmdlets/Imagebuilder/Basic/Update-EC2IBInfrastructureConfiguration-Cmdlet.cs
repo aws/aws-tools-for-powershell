@@ -324,7 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.ResourceTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResourceTag.Keys)
                 {
-                    context.ResourceTag.Add((String)hashKey, (String)(this.ResourceTag[hashKey]));
+                    context.ResourceTag.Add((String)hashKey, (System.String)(this.ResourceTag[hashKey]));
                 }
             }
             if (this.SecurityGroupId != null)

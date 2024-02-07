@@ -663,7 +663,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Environment_Variable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Environment_Variable.Keys)
                 {
-                    context.Environment_Variable.Add((String)hashKey, (String)(this.Environment_Variable[hashKey]));
+                    context.Environment_Variable.Add((String)hashKey, (System.String)(this.Environment_Variable[hashKey]));
                 }
             }
             context.Environment_IsVariablesSet = this.Environment_IsVariablesSet;
@@ -729,7 +729,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Timeout = this.Timeout;

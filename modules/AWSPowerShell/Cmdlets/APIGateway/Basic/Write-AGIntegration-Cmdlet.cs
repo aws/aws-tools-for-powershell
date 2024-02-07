@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.RequestParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestParameter.Keys)
                 {
-                    context.RequestParameter.Add((String)hashKey, (String)(this.RequestParameter[hashKey]));
+                    context.RequestParameter.Add((String)hashKey, (System.String)(this.RequestParameter[hashKey]));
                 }
             }
             if (this.RequestTemplate != null)
@@ -384,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.RequestTemplate = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestTemplate.Keys)
                 {
-                    context.RequestTemplate.Add((String)hashKey, (String)(this.RequestTemplate[hashKey]));
+                    context.RequestTemplate.Add((String)hashKey, (System.String)(this.RequestTemplate[hashKey]));
                 }
             }
             context.ResourceId = this.ResourceId;

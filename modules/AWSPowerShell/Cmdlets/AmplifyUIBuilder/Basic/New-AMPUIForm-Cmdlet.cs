@@ -573,7 +573,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.FormToCreate_Field = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.FieldConfig>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FormToCreate_Field.Keys)
                 {
-                    context.FormToCreate_Field.Add((String)hashKey, (FieldConfig)(this.FormToCreate_Field[hashKey]));
+                    context.FormToCreate_Field.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.FieldConfig)(this.FormToCreate_Field[hashKey]));
                 }
             }
             #if MODULAR
@@ -609,7 +609,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.FormToCreate_SectionalElement = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.SectionalElement>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FormToCreate_SectionalElement.Keys)
                 {
-                    context.FormToCreate_SectionalElement.Add((String)hashKey, (SectionalElement)(this.FormToCreate_SectionalElement[hashKey]));
+                    context.FormToCreate_SectionalElement.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.SectionalElement)(this.FormToCreate_SectionalElement[hashKey]));
                 }
             }
             #if MODULAR
@@ -629,7 +629,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.FormToCreate_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FormToCreate_Tag.Keys)
                 {
-                    context.FormToCreate_Tag.Add((String)hashKey, (String)(this.FormToCreate_Tag[hashKey]));
+                    context.FormToCreate_Tag.Add((String)hashKey, (System.String)(this.FormToCreate_Tag[hashKey]));
                 }
             }
             

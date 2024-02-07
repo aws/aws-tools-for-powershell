@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 context.Policy = new Dictionary<System.String, Amazon.ResilienceHub.Model.FailurePolicy>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Policy.Keys)
                 {
-                    context.Policy.Add((String)hashKey, (FailurePolicy)(this.Policy[hashKey]));
+                    context.Policy.Add((String)hashKey, (Amazon.ResilienceHub.Model.FailurePolicy)(this.Policy[hashKey]));
                 }
             }
             context.PolicyArn = this.PolicyArn;

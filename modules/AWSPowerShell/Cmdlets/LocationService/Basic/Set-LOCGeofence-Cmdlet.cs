@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.GeofenceProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GeofenceProperty.Keys)
                 {
-                    context.GeofenceProperty.Add((String)hashKey, (String)(this.GeofenceProperty[hashKey]));
+                    context.GeofenceProperty.Add((String)hashKey, (System.String)(this.GeofenceProperty[hashKey]));
                 }
             }
             if (this.Geometry_Polygon != null)

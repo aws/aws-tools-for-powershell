@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.DomainEntry_Option = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DomainEntry_Option.Keys)
                 {
-                    context.DomainEntry_Option.Add((String)hashKey, (String)(this.DomainEntry_Option[hashKey]));
+                    context.DomainEntry_Option.Add((String)hashKey, (System.String)(this.DomainEntry_Option[hashKey]));
                 }
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute

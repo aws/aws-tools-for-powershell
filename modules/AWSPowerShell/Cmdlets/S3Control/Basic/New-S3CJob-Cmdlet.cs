@@ -1165,7 +1165,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 context.LambdaInvoke_UserArgument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LambdaInvoke_UserArgument.Keys)
                 {
-                    context.LambdaInvoke_UserArgument.Add((String)hashKey, (String)(this.LambdaInvoke_UserArgument[hashKey]));
+                    context.LambdaInvoke_UserArgument.Add((String)hashKey, (System.String)(this.LambdaInvoke_UserArgument[hashKey]));
                 }
             }
             context.Operation_S3DeleteObjectTagging = this.Operation_S3DeleteObjectTagging;
@@ -1202,7 +1202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 context.NewObjectMetadata_UserMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.NewObjectMetadata_UserMetadata.Keys)
                 {
-                    context.NewObjectMetadata_UserMetadata.Add((String)hashKey, (String)(this.NewObjectMetadata_UserMetadata[hashKey]));
+                    context.NewObjectMetadata_UserMetadata.Add((String)hashKey, (System.String)(this.NewObjectMetadata_UserMetadata[hashKey]));
                 }
             }
             if (this.S3PutObjectCopy_NewObjectTagging != null)

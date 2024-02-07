@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.InAppTemplateRequest_CustomConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InAppTemplateRequest_CustomConfig.Keys)
                 {
-                    context.InAppTemplateRequest_CustomConfig.Add((String)hashKey, (String)(this.InAppTemplateRequest_CustomConfig[hashKey]));
+                    context.InAppTemplateRequest_CustomConfig.Add((String)hashKey, (System.String)(this.InAppTemplateRequest_CustomConfig[hashKey]));
                 }
             }
             context.InAppTemplateRequest_Layout = this.InAppTemplateRequest_Layout;
@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.InAppTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InAppTemplateRequest_Tag.Keys)
                 {
-                    context.InAppTemplateRequest_Tag.Add((String)hashKey, (String)(this.InAppTemplateRequest_Tag[hashKey]));
+                    context.InAppTemplateRequest_Tag.Add((String)hashKey, (System.String)(this.InAppTemplateRequest_Tag[hashKey]));
                 }
             }
             context.InAppTemplateRequest_TemplateDescription = this.InAppTemplateRequest_TemplateDescription;

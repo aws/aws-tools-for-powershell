@@ -723,7 +723,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ModelBiasAppSpecification_Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ModelBiasAppSpecification_Environment.Keys)
                 {
-                    context.ModelBiasAppSpecification_Environment.Add((String)hashKey, (String)(this.ModelBiasAppSpecification_Environment[hashKey]));
+                    context.ModelBiasAppSpecification_Environment.Add((String)hashKey, (System.String)(this.ModelBiasAppSpecification_Environment[hashKey]));
                 }
             }
             context.ModelBiasAppSpecification_ImageUri = this.ModelBiasAppSpecification_ImageUri;

@@ -325,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Deployment_Container = new Dictionary<System.String, Amazon.Lightsail.Model.Container>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Deployment_Container.Keys)
                 {
-                    context.Deployment_Container.Add((String)hashKey, (Container)(this.Deployment_Container[hashKey]));
+                    context.Deployment_Container.Add((String)hashKey, (Amazon.Lightsail.Model.Container)(this.Deployment_Container[hashKey]));
                 }
             }
             context.PublicEndpoint_ContainerName = this.PublicEndpoint_ContainerName;

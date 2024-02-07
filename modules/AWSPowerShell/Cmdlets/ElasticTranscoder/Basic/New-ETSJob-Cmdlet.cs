@@ -853,7 +853,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 context.UserMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UserMetadata.Keys)
                 {
-                    context.UserMetadata.Add((String)hashKey, (String)(this.UserMetadata[hashKey]));
+                    context.UserMetadata.Add((String)hashKey, (System.String)(this.UserMetadata[hashKey]));
                 }
             }
             

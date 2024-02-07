@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 context.FederationParameters_AttributeMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FederationParameters_AttributeMap.Keys)
                 {
-                    context.FederationParameters_AttributeMap.Add((String)hashKey, (String)(this.FederationParameters_AttributeMap[hashKey]));
+                    context.FederationParameters_AttributeMap.Add((String)hashKey, (System.String)(this.FederationParameters_AttributeMap[hashKey]));
                 }
             }
             context.FederationParameters_FederationProviderName = this.FederationParameters_FederationProviderName;
@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

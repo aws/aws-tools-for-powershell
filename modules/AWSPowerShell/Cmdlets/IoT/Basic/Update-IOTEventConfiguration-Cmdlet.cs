@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.EventConfiguration = new Dictionary<System.String, Amazon.IoT.Model.Configuration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EventConfiguration.Keys)
                 {
-                    context.EventConfiguration.Add((String)hashKey, (Configuration)(this.EventConfiguration[hashKey]));
+                    context.EventConfiguration.Add((String)hashKey, (Amazon.IoT.Model.Configuration)(this.EventConfiguration[hashKey]));
                 }
             }
             

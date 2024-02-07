@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.ComponentToCreate_BindingProperty = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentBindingPropertiesValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentToCreate_BindingProperty.Keys)
                 {
-                    context.ComponentToCreate_BindingProperty.Add((String)hashKey, (ComponentBindingPropertiesValue)(this.ComponentToCreate_BindingProperty[hashKey]));
+                    context.ComponentToCreate_BindingProperty.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentBindingPropertiesValue)(this.ComponentToCreate_BindingProperty[hashKey]));
                 }
             }
             #if MODULAR
@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.ComponentToCreate_CollectionProperty = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentDataConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentToCreate_CollectionProperty.Keys)
                 {
-                    context.ComponentToCreate_CollectionProperty.Add((String)hashKey, (ComponentDataConfiguration)(this.ComponentToCreate_CollectionProperty[hashKey]));
+                    context.ComponentToCreate_CollectionProperty.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentDataConfiguration)(this.ComponentToCreate_CollectionProperty[hashKey]));
                 }
             }
             context.ComponentToCreate_ComponentType = this.ComponentToCreate_ComponentType;
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.ComponentToCreate_Event = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentEvent>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentToCreate_Event.Keys)
                 {
-                    context.ComponentToCreate_Event.Add((String)hashKey, (ComponentEvent)(this.ComponentToCreate_Event[hashKey]));
+                    context.ComponentToCreate_Event.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentEvent)(this.ComponentToCreate_Event[hashKey]));
                 }
             }
             context.ComponentToCreate_Name = this.ComponentToCreate_Name;
@@ -362,7 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.ComponentToCreate_Override = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentToCreate_Override.Keys)
                 {
-                    context.ComponentToCreate_Override.Add((String)hashKey, (Dictionary<String,String>)(this.ComponentToCreate_Override[hashKey]));
+                    context.ComponentToCreate_Override.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.ComponentToCreate_Override[hashKey]));
                 }
             }
             #if MODULAR
@@ -376,7 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.ComponentToCreate_Property = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.ComponentProperty>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentToCreate_Property.Keys)
                 {
-                    context.ComponentToCreate_Property.Add((String)hashKey, (ComponentProperty)(this.ComponentToCreate_Property[hashKey]));
+                    context.ComponentToCreate_Property.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.ComponentProperty)(this.ComponentToCreate_Property[hashKey]));
                 }
             }
             #if MODULAR
@@ -392,7 +392,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.ComponentToCreate_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentToCreate_Tag.Keys)
                 {
-                    context.ComponentToCreate_Tag.Add((String)hashKey, (String)(this.ComponentToCreate_Tag[hashKey]));
+                    context.ComponentToCreate_Tag.Add((String)hashKey, (System.String)(this.ComponentToCreate_Tag[hashKey]));
                 }
             }
             if (this.ComponentToCreate_Variant != null)

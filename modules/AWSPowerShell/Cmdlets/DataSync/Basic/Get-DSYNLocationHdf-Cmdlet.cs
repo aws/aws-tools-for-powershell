@@ -28,8 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata, such as the authentication information about the Hadoop Distributed
-    /// File System (HDFS) location.
+    /// Provides details about how an DataSync transfer location for a Hadoop Distributed
+    /// File System (HDFS) is configured.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationHdf")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationHdfsResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the HDFS cluster location to describe.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the HDFS location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

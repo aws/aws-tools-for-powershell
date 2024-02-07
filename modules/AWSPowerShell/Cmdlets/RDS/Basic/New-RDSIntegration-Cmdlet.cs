@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.AdditionalEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AdditionalEncryptionContext.Keys)
                 {
-                    context.AdditionalEncryptionContext.Add((String)hashKey, (String)(this.AdditionalEncryptionContext[hashKey]));
+                    context.AdditionalEncryptionContext.Add((String)hashKey, (System.String)(this.AdditionalEncryptionContext[hashKey]));
                 }
             }
             context.IntegrationName = this.IntegrationName;

@@ -312,7 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Oidc_RequiredClaim = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Oidc_RequiredClaim.Keys)
                 {
-                    context.Oidc_RequiredClaim.Add((String)hashKey, (String)(this.Oidc_RequiredClaim[hashKey]));
+                    context.Oidc_RequiredClaim.Add((String)hashKey, (System.String)(this.Oidc_RequiredClaim[hashKey]));
                 }
             }
             context.Oidc_UsernameClaim = this.Oidc_UsernameClaim;
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

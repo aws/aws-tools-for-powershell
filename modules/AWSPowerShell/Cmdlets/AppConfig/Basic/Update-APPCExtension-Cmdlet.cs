@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 context.Parameter = new Dictionary<System.String, Amazon.AppConfig.Model.Parameter>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (Parameter)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (Amazon.AppConfig.Model.Parameter)(this.Parameter[hashKey]));
                 }
             }
             context.VersionNumber = this.VersionNumber;

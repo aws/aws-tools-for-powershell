@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 context.Configuration = new Dictionary<System.String, Amazon.AccessAnalyzer.Model.Configuration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Configuration.Keys)
                 {
-                    context.Configuration.Add((String)hashKey, (Configuration)(this.Configuration[hashKey]));
+                    context.Configuration.Add((String)hashKey, (Amazon.AccessAnalyzer.Model.Configuration)(this.Configuration[hashKey]));
                 }
             }
             #if MODULAR

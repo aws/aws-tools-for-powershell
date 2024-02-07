@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.CompositeComponentType = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.CompositeComponentTypeRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CompositeComponentType.Keys)
                 {
-                    context.CompositeComponentType.Add((String)hashKey, (CompositeComponentTypeRequest)(this.CompositeComponentType[hashKey]));
+                    context.CompositeComponentType.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.CompositeComponentTypeRequest)(this.CompositeComponentType[hashKey]));
                 }
             }
             context.Description = this.Description;
@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.Function = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.FunctionRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Function.Keys)
                 {
-                    context.Function.Add((String)hashKey, (FunctionRequest)(this.Function[hashKey]));
+                    context.Function.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.FunctionRequest)(this.Function[hashKey]));
                 }
             }
             context.IsSingleton = this.IsSingleton;
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.PropertyDefinition = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyDefinitionRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PropertyDefinition.Keys)
                 {
-                    context.PropertyDefinition.Add((String)hashKey, (PropertyDefinitionRequest)(this.PropertyDefinition[hashKey]));
+                    context.PropertyDefinition.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.PropertyDefinitionRequest)(this.PropertyDefinition[hashKey]));
                 }
             }
             if (this.PropertyGroup != null)
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
                 context.PropertyGroup = new Dictionary<System.String, Amazon.IoTTwinMaker.Model.PropertyGroupRequest>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PropertyGroup.Keys)
                 {
-                    context.PropertyGroup.Add((String)hashKey, (PropertyGroupRequest)(this.PropertyGroup[hashKey]));
+                    context.PropertyGroup.Add((String)hashKey, (Amazon.IoTTwinMaker.Model.PropertyGroupRequest)(this.PropertyGroup[hashKey]));
                 }
             }
             context.WorkspaceId = this.WorkspaceId;

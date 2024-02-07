@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.BackupVaultTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BackupVaultTag.Keys)
                 {
-                    context.BackupVaultTag.Add((String)hashKey, (String)(this.BackupVaultTag[hashKey]));
+                    context.BackupVaultTag.Add((String)hashKey, (System.String)(this.BackupVaultTag[hashKey]));
                 }
             }
             context.CreatorRequestId = this.CreatorRequestId;

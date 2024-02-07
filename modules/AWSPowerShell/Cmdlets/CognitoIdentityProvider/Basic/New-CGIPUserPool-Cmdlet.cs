@@ -991,7 +991,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.UserPoolTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UserPoolTag.Keys)
                 {
-                    context.UserPoolTag.Add((String)hashKey, (String)(this.UserPoolTag[hashKey]));
+                    context.UserPoolTag.Add((String)hashKey, (System.String)(this.UserPoolTag[hashKey]));
                 }
             }
             context.VerificationMessageTemplate_DefaultEmailOption = this.VerificationMessageTemplate_DefaultEmailOption;

@@ -666,7 +666,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ComputeResources_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComputeResources_Tag.Keys)
                 {
-                    context.ComputeResources_Tag.Add((String)hashKey, (String)(this.ComputeResources_Tag[hashKey]));
+                    context.ComputeResources_Tag.Add((String)hashKey, (System.String)(this.ComputeResources_Tag[hashKey]));
                 }
             }
             context.ComputeResources_Type = this.ComputeResources_Type;
@@ -679,7 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Type = this.Type;

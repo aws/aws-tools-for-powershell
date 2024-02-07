@@ -407,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.FieldSourceProfileIds_Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FieldSourceProfileIds_Attribute.Keys)
                 {
-                    context.FieldSourceProfileIds_Attribute.Add((String)hashKey, (String)(this.FieldSourceProfileIds_Attribute[hashKey]));
+                    context.FieldSourceProfileIds_Attribute.Add((String)hashKey, (System.String)(this.FieldSourceProfileIds_Attribute[hashKey]));
                 }
             }
             context.FieldSourceProfileIds_BillingAddress = this.FieldSourceProfileIds_BillingAddress;

@@ -147,6 +147,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RSNodeConfigurationOption', 
         'Get-RSOrderableClusterOption', 
         'Get-RSPartner', 
+        'Get-RSRecommendationList', 
         'Get-RSRedshiftIdcApplication', 
         'Get-RSReservedNode', 
         'Get-RSReservedNodeExchangeConfigurationOption', 

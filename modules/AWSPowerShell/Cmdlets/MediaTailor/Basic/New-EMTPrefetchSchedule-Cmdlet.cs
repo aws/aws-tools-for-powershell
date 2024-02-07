@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Retrieval_DynamicVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Retrieval_DynamicVariable.Keys)
                 {
-                    context.Retrieval_DynamicVariable.Add((String)hashKey, (String)(this.Retrieval_DynamicVariable[hashKey]));
+                    context.Retrieval_DynamicVariable.Add((String)hashKey, (System.String)(this.Retrieval_DynamicVariable[hashKey]));
                 }
             }
             context.Retrieval_EndTime = this.Retrieval_EndTime;

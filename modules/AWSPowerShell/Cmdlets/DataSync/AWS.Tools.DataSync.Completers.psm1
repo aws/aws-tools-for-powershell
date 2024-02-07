@@ -165,6 +165,28 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.ManifestAction
+        {
+            ($_ -eq "New-DSYNTask/ManifestConfig_Action") -Or
+            ($_ -eq "Start-DSYNTaskExecution/ManifestConfig_Action") -Or
+            ($_ -eq "Update-DSYNTask/ManifestConfig_Action")
+        }
+        {
+            $v = "TRANSFER"
+            break
+        }
+
+        # Amazon.DataSync.ManifestFormat
+        {
+            ($_ -eq "New-DSYNTask/ManifestConfig_Format") -Or
+            ($_ -eq "Start-DSYNTaskExecution/ManifestConfig_Format") -Or
+            ($_ -eq "Update-DSYNTask/ManifestConfig_Format")
+        }
+        {
+            $v = "CSV"
+            break
+        }
+
         # Amazon.DataSync.NfsVersion
         {
             ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
@@ -264,6 +286,8 @@ $DSYN_map = @{
     "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
     "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "InTransitEncryption"=@("New-DSYNLocationEfs")
+    "ManifestConfig_Action"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "ManifestConfig_Format"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
     "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
     "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")

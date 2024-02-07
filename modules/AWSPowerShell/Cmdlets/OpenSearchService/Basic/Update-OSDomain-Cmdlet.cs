@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.AdvancedOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AdvancedOption.Keys)
                 {
-                    context.AdvancedOption.Add((String)hashKey, (String)(this.AdvancedOption[hashKey]));
+                    context.AdvancedOption.Add((String)hashKey, (System.String)(this.AdvancedOption[hashKey]));
                 }
             }
             context.DomainName = this.DomainName;

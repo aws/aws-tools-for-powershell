@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.BotVersionLocaleSpecification = new Dictionary<System.String, Amazon.LexModelsV2.Model.BotVersionLocaleDetails>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BotVersionLocaleSpecification.Keys)
                 {
-                    context.BotVersionLocaleSpecification.Add((String)hashKey, (BotVersionLocaleDetails)(this.BotVersionLocaleSpecification[hashKey]));
+                    context.BotVersionLocaleSpecification.Add((String)hashKey, (Amazon.LexModelsV2.Model.BotVersionLocaleDetails)(this.BotVersionLocaleSpecification[hashKey]));
                 }
             }
             #if MODULAR

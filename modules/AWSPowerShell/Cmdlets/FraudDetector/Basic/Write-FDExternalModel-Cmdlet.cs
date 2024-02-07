@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 context.OutputConfiguration_CsvIndexToVariableMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.OutputConfiguration_CsvIndexToVariableMap.Keys)
                 {
-                    context.OutputConfiguration_CsvIndexToVariableMap.Add((String)hashKey, (String)(this.OutputConfiguration_CsvIndexToVariableMap[hashKey]));
+                    context.OutputConfiguration_CsvIndexToVariableMap.Add((String)hashKey, (System.String)(this.OutputConfiguration_CsvIndexToVariableMap[hashKey]));
                 }
             }
             context.OutputConfiguration_Format = this.OutputConfiguration_Format;
@@ -345,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 context.OutputConfiguration_JsonKeyToVariableMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.OutputConfiguration_JsonKeyToVariableMap.Keys)
                 {
-                    context.OutputConfiguration_JsonKeyToVariableMap.Add((String)hashKey, (String)(this.OutputConfiguration_JsonKeyToVariableMap[hashKey]));
+                    context.OutputConfiguration_JsonKeyToVariableMap.Add((String)hashKey, (System.String)(this.OutputConfiguration_JsonKeyToVariableMap[hashKey]));
                 }
             }
             if (this.Tag != null)

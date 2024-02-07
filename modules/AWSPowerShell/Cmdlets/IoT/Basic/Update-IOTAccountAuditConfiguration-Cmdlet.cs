@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.AuditCheckConfiguration = new Dictionary<System.String, Amazon.IoT.Model.AuditCheckConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AuditCheckConfiguration.Keys)
                 {
-                    context.AuditCheckConfiguration.Add((String)hashKey, (AuditCheckConfiguration)(this.AuditCheckConfiguration[hashKey]));
+                    context.AuditCheckConfiguration.Add((String)hashKey, (Amazon.IoT.Model.AuditCheckConfiguration)(this.AuditCheckConfiguration[hashKey]));
                 }
             }
             if (this.AuditNotificationTargetConfiguration != null)
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.AuditNotificationTargetConfiguration = new Dictionary<System.String, Amazon.IoT.Model.AuditNotificationTarget>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AuditNotificationTargetConfiguration.Keys)
                 {
-                    context.AuditNotificationTargetConfiguration.Add((String)hashKey, (AuditNotificationTarget)(this.AuditNotificationTargetConfiguration[hashKey]));
+                    context.AuditNotificationTargetConfiguration.Add((String)hashKey, (Amazon.IoT.Model.AuditNotificationTarget)(this.AuditNotificationTargetConfiguration[hashKey]));
                 }
             }
             context.RoleArn = this.RoleArn;

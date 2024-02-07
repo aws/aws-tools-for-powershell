@@ -883,7 +883,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.LogConfiguration_Option = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LogConfiguration_Option.Keys)
                 {
-                    context.LogConfiguration_Option.Add((String)hashKey, (String)(this.LogConfiguration_Option[hashKey]));
+                    context.LogConfiguration_Option.Add((String)hashKey, (System.String)(this.LogConfiguration_Option[hashKey]));
                 }
             }
             if (this.LogConfiguration_SecretOption != null)
@@ -933,7 +933,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Metadata_Label = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Metadata_Label.Keys)
                 {
-                    context.Metadata_Label.Add((String)hashKey, (String)(this.Metadata_Label[hashKey]));
+                    context.Metadata_Label.Add((String)hashKey, (System.String)(this.Metadata_Label[hashKey]));
                 }
             }
             context.PodProperties_ServiceAccountName = this.PodProperties_ServiceAccountName;
@@ -959,7 +959,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (String)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (System.String)(this.Parameter[hashKey]));
                 }
             }
             if (this.PlatformCapability != null)
@@ -978,7 +978,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Timeout = this.Timeout;

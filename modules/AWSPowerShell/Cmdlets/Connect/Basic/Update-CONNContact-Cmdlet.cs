@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Reference = new Dictionary<System.String, Amazon.Connect.Model.Reference>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Reference.Keys)
                 {
-                    context.Reference.Add((String)hashKey, (Reference)(this.Reference[hashKey]));
+                    context.Reference.Add((String)hashKey, (Amazon.Connect.Model.Reference)(this.Reference[hashKey]));
                 }
             }
             

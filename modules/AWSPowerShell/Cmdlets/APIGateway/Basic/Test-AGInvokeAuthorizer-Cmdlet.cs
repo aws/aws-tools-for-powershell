@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.AdditionalContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AdditionalContext.Keys)
                 {
-                    context.AdditionalContext.Add((String)hashKey, (String)(this.AdditionalContext[hashKey]));
+                    context.AdditionalContext.Add((String)hashKey, (System.String)(this.AdditionalContext[hashKey]));
                 }
             }
             context.AuthorizerId = this.AuthorizerId;
@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.Header = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Header.Keys)
                 {
-                    context.Header.Add((String)hashKey, (String)(this.Header[hashKey]));
+                    context.Header.Add((String)hashKey, (System.String)(this.Header[hashKey]));
                 }
             }
             if (this.MultiValueHeader != null)
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.StageVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.StageVariable.Keys)
                 {
-                    context.StageVariable.Add((String)hashKey, (String)(this.StageVariable[hashKey]));
+                    context.StageVariable.Add((String)hashKey, (System.String)(this.StageVariable[hashKey]));
                 }
             }
             

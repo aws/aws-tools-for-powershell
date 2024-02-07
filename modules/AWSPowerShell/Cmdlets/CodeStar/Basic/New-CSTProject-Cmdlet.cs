@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Toolchain_RoleArn = this.Toolchain_RoleArn;
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
                 context.Toolchain_StackParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Toolchain_StackParameter.Keys)
                 {
-                    context.Toolchain_StackParameter.Add((String)hashKey, (String)(this.Toolchain_StackParameter[hashKey]));
+                    context.Toolchain_StackParameter.Add((String)hashKey, (System.String)(this.Toolchain_StackParameter[hashKey]));
                 }
             }
             

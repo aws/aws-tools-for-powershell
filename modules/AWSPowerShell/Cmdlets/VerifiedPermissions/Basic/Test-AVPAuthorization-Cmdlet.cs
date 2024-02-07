@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 context.Context_ContextMap = new Dictionary<System.String, Amazon.VerifiedPermissions.Model.AttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Context_ContextMap.Keys)
                 {
-                    context.Context_ContextMap.Add((String)hashKey, (AttributeValue)(this.Context_ContextMap[hashKey]));
+                    context.Context_ContextMap.Add((String)hashKey, (Amazon.VerifiedPermissions.Model.AttributeValue)(this.Context_ContextMap[hashKey]));
                 }
             }
             if (this.Entities_EntityList != null)

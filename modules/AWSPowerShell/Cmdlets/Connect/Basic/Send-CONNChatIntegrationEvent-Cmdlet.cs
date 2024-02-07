@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.NewSessionDetails_Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.NewSessionDetails_Attribute.Keys)
                 {
-                    context.NewSessionDetails_Attribute.Add((String)hashKey, (String)(this.NewSessionDetails_Attribute[hashKey]));
+                    context.NewSessionDetails_Attribute.Add((String)hashKey, (System.String)(this.NewSessionDetails_Attribute[hashKey]));
                 }
             }
             context.ParticipantDetails_DisplayName = this.ParticipantDetails_DisplayName;

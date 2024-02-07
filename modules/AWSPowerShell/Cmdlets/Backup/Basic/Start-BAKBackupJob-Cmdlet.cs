@@ -274,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.BackupOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BackupOption.Keys)
                 {
-                    context.BackupOption.Add((String)hashKey, (String)(this.BackupOption[hashKey]));
+                    context.BackupOption.Add((String)hashKey, (System.String)(this.BackupOption[hashKey]));
                 }
             }
             context.BackupVaultName = this.BackupVaultName;
@@ -301,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.RecoveryPointTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RecoveryPointTag.Keys)
                 {
-                    context.RecoveryPointTag.Add((String)hashKey, (String)(this.RecoveryPointTag[hashKey]));
+                    context.RecoveryPointTag.Add((String)hashKey, (System.String)(this.RecoveryPointTag[hashKey]));
                 }
             }
             context.ResourceArn = this.ResourceArn;

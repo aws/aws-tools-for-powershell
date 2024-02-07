@@ -722,7 +722,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.DataQualityAppSpecification_Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DataQualityAppSpecification_Environment.Keys)
                 {
-                    context.DataQualityAppSpecification_Environment.Add((String)hashKey, (String)(this.DataQualityAppSpecification_Environment[hashKey]));
+                    context.DataQualityAppSpecification_Environment.Add((String)hashKey, (System.String)(this.DataQualityAppSpecification_Environment[hashKey]));
                 }
             }
             context.DataQualityAppSpecification_ImageUri = this.DataQualityAppSpecification_ImageUri;

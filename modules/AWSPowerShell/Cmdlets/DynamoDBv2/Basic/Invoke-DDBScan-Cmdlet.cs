@@ -469,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ExclusiveStartKey = new Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ExclusiveStartKey.Keys)
                 {
-                    context.ExclusiveStartKey.Add((String)hashKey, (AttributeValue)(this.ExclusiveStartKey[hashKey]));
+                    context.ExclusiveStartKey.Add((String)hashKey, (Amazon.DynamoDBv2.Model.AttributeValue)(this.ExclusiveStartKey[hashKey]));
                 }
             }
             if (this.ExpressionAttributeName != null)
@@ -477,7 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ExpressionAttributeName = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ExpressionAttributeName.Keys)
                 {
-                    context.ExpressionAttributeName.Add((String)hashKey, (String)(this.ExpressionAttributeName[hashKey]));
+                    context.ExpressionAttributeName.Add((String)hashKey, (System.String)(this.ExpressionAttributeName[hashKey]));
                 }
             }
             if (this.ExpressionAttributeValue != null)
@@ -485,7 +485,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ExpressionAttributeValue = new Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ExpressionAttributeValue.Keys)
                 {
-                    context.ExpressionAttributeValue.Add((String)hashKey, (AttributeValue)(this.ExpressionAttributeValue[hashKey]));
+                    context.ExpressionAttributeValue.Add((String)hashKey, (Amazon.DynamoDBv2.Model.AttributeValue)(this.ExpressionAttributeValue[hashKey]));
                 }
             }
             context.FilterExpression = this.FilterExpression;
@@ -499,7 +499,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ScanFilter = new Dictionary<System.String, Amazon.DynamoDBv2.Model.Condition>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ScanFilter.Keys)
                 {
-                    context.ScanFilter.Add((String)hashKey, (Condition)(this.ScanFilter[hashKey]));
+                    context.ScanFilter.Add((String)hashKey, (Amazon.DynamoDBv2.Model.Condition)(this.ScanFilter[hashKey]));
                 }
             }
             context.Segment = this.Segment;

@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
                 context.FormatParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FormatParam.Keys)
                 {
-                    context.FormatParam.Add((String)hashKey, (String)(this.FormatParam[hashKey]));
+                    context.FormatParam.Add((String)hashKey, (System.String)(this.FormatParam[hashKey]));
                 }
             }
             #if MODULAR
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
                 context.SourceParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SourceParam.Keys)
                 {
-                    context.SourceParam.Add((String)hashKey, (String)(this.SourceParam[hashKey]));
+                    context.SourceParam.Add((String)hashKey, (System.String)(this.SourceParam[hashKey]));
                 }
             }
             #if MODULAR

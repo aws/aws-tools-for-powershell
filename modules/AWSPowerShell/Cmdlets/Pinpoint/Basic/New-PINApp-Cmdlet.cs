@@ -146,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.CreateApplicationRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CreateApplicationRequest_Tag.Keys)
                 {
-                    context.CreateApplicationRequest_Tag.Add((String)hashKey, (String)(this.CreateApplicationRequest_Tag[hashKey]));
+                    context.CreateApplicationRequest_Tag.Add((String)hashKey, (System.String)(this.CreateApplicationRequest_Tag[hashKey]));
                 }
             }
             

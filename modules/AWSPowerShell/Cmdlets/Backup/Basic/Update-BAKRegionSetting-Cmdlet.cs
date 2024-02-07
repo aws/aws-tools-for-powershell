@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.ResourceTypeManagementPreference = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResourceTypeManagementPreference.Keys)
                 {
-                    context.ResourceTypeManagementPreference.Add((String)hashKey, (Boolean)(this.ResourceTypeManagementPreference[hashKey]));
+                    context.ResourceTypeManagementPreference.Add((String)hashKey, (System.Boolean)(this.ResourceTypeManagementPreference[hashKey]));
                 }
             }
             if (this.ResourceTypeOptInPreference != null)
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.ResourceTypeOptInPreference = new Dictionary<System.String, System.Boolean>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResourceTypeOptInPreference.Keys)
                 {
-                    context.ResourceTypeOptInPreference.Add((String)hashKey, (Boolean)(this.ResourceTypeOptInPreference[hashKey]));
+                    context.ResourceTypeOptInPreference.Add((String)hashKey, (System.Boolean)(this.ResourceTypeOptInPreference[hashKey]));
                 }
             }
             

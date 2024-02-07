@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.AddArgument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AddArgument.Keys)
                 {
-                    context.AddArgument.Add((String)hashKey, (String)(this.AddArgument[hashKey]));
+                    context.AddArgument.Add((String)hashKey, (System.String)(this.AddArgument[hashKey]));
                 }
             }
             if (this.AddPublicKey != null)

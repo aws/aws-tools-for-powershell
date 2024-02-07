@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
                 context.OptionalParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.OptionalParameter.Keys)
                 {
-                    context.OptionalParameter.Add((String)hashKey, (String)(this.OptionalParameter[hashKey]));
+                    context.OptionalParameter.Add((String)hashKey, (System.String)(this.OptionalParameter[hashKey]));
                 }
             }
             if (this.QueryParameter != null)
@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
                 context.QueryParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.QueryParameter.Keys)
                 {
-                    context.QueryParameter.Add((String)hashKey, (String)(this.QueryParameter[hashKey]));
+                    context.QueryParameter.Add((String)hashKey, (System.String)(this.QueryParameter[hashKey]));
                 }
             }
             context.ServiceName = this.ServiceName;

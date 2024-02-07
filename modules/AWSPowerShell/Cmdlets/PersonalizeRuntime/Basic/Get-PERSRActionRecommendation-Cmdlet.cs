@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
                 context.FilterValue = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FilterValue.Keys)
                 {
-                    context.FilterValue.Add((String)hashKey, (String)(this.FilterValue[hashKey]));
+                    context.FilterValue.Add((String)hashKey, (System.String)(this.FilterValue[hashKey]));
                 }
             }
             context.NumResult = this.NumResult;

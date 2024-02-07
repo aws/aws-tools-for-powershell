@@ -364,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.JobTemplateParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.JobTemplateParameter.Keys)
                 {
-                    context.JobTemplateParameter.Add((String)hashKey, (String)(this.JobTemplateParameter[hashKey]));
+                    context.JobTemplateParameter.Add((String)hashKey, (System.String)(this.JobTemplateParameter[hashKey]));
                 }
             }
             context.Name = this.Name;
@@ -375,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.VirtualClusterId = this.VirtualClusterId;

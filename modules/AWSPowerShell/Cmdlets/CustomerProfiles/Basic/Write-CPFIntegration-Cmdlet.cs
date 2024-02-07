@@ -480,7 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.ObjectTypeNames = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ObjectTypeNames.Keys)
                 {
-                    context.ObjectTypeNames.Add((String)hashKey, (String)(this.ObjectTypeNames[hashKey]));
+                    context.ObjectTypeNames.Add((String)hashKey, (System.String)(this.ObjectTypeNames[hashKey]));
                 }
             }
             if (this.Tag != null)
@@ -488,7 +488,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Uri = this.Uri;

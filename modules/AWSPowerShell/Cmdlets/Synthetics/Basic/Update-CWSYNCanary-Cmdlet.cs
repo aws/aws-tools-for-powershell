@@ -431,7 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 context.RunConfig_EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RunConfig_EnvironmentVariable.Keys)
                 {
-                    context.RunConfig_EnvironmentVariable.Add((String)hashKey, (String)(this.RunConfig_EnvironmentVariable[hashKey]));
+                    context.RunConfig_EnvironmentVariable.Add((String)hashKey, (System.String)(this.RunConfig_EnvironmentVariable[hashKey]));
                 }
             }
             context.RunConfig_MemoryInMB = this.RunConfig_MemoryInMB;

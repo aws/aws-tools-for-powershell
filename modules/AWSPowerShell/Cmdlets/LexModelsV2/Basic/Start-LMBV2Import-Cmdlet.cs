@@ -496,7 +496,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.BotImportSpecification_BotTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BotImportSpecification_BotTag.Keys)
                 {
-                    context.BotImportSpecification_BotTag.Add((String)hashKey, (String)(this.BotImportSpecification_BotTag[hashKey]));
+                    context.BotImportSpecification_BotTag.Add((String)hashKey, (System.String)(this.BotImportSpecification_BotTag[hashKey]));
                 }
             }
             context.DataPrivacy_ChildDirected = this.DataPrivacy_ChildDirected;
@@ -507,7 +507,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.BotImportSpecification_TestBotAliasTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BotImportSpecification_TestBotAliasTag.Keys)
                 {
-                    context.BotImportSpecification_TestBotAliasTag.Add((String)hashKey, (String)(this.BotImportSpecification_TestBotAliasTag[hashKey]));
+                    context.BotImportSpecification_TestBotAliasTag.Add((String)hashKey, (System.String)(this.BotImportSpecification_TestBotAliasTag[hashKey]));
                 }
             }
             context.BotLocaleImportSpecification_BotId = this.BotLocaleImportSpecification_BotId;
@@ -533,7 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.TestSetImportResourceSpecification_TestSetTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TestSetImportResourceSpecification_TestSetTag.Keys)
                 {
-                    context.TestSetImportResourceSpecification_TestSetTag.Add((String)hashKey, (String)(this.TestSetImportResourceSpecification_TestSetTag[hashKey]));
+                    context.TestSetImportResourceSpecification_TestSetTag.Add((String)hashKey, (System.String)(this.TestSetImportResourceSpecification_TestSetTag[hashKey]));
                 }
             }
             

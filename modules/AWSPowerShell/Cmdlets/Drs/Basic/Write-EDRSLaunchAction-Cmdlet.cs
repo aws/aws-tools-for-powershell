@@ -349,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
                 context.Parameter = new Dictionary<System.String, Amazon.Drs.Model.LaunchActionParameter>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (LaunchActionParameter)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (Amazon.Drs.Model.LaunchActionParameter)(this.Parameter[hashKey]));
                 }
             }
             context.ResourceId = this.ResourceId;

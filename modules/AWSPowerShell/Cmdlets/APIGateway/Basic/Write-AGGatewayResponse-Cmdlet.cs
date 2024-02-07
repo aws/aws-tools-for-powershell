@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.ResponseParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResponseParameter.Keys)
                 {
-                    context.ResponseParameter.Add((String)hashKey, (String)(this.ResponseParameter[hashKey]));
+                    context.ResponseParameter.Add((String)hashKey, (System.String)(this.ResponseParameter[hashKey]));
                 }
             }
             if (this.ResponseTemplate != null)
@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 context.ResponseTemplate = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResponseTemplate.Keys)
                 {
-                    context.ResponseTemplate.Add((String)hashKey, (String)(this.ResponseTemplate[hashKey]));
+                    context.ResponseTemplate.Add((String)hashKey, (System.String)(this.ResponseTemplate[hashKey]));
                 }
             }
             context.ResponseType = this.ResponseType;

@@ -478,7 +478,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
                 context.ConnectorConfiguration = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ConnectorConfiguration.Keys)
                 {
-                    context.ConnectorConfiguration.Add((String)hashKey, (String)(this.ConnectorConfiguration[hashKey]));
+                    context.ConnectorConfiguration.Add((String)hashKey, (System.String)(this.ConnectorConfiguration[hashKey]));
                 }
             }
             #if MODULAR

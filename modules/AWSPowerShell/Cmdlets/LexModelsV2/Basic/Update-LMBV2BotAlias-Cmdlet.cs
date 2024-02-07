@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.BotAliasLocaleSetting = new Dictionary<System.String, Amazon.LexModelsV2.Model.BotAliasLocaleSettings>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BotAliasLocaleSetting.Keys)
                 {
-                    context.BotAliasLocaleSetting.Add((String)hashKey, (BotAliasLocaleSettings)(this.BotAliasLocaleSetting[hashKey]));
+                    context.BotAliasLocaleSetting.Add((String)hashKey, (Amazon.LexModelsV2.Model.BotAliasLocaleSettings)(this.BotAliasLocaleSetting[hashKey]));
                 }
             }
             context.BotAliasName = this.BotAliasName;

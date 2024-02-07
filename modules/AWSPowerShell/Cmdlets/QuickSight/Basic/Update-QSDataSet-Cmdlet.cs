@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.FieldFolder = new Dictionary<System.String, Amazon.QuickSight.Model.FieldFolder>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FieldFolder.Keys)
                 {
-                    context.FieldFolder.Add((String)hashKey, (FieldFolder)(this.FieldFolder[hashKey]));
+                    context.FieldFolder.Add((String)hashKey, (Amazon.QuickSight.Model.FieldFolder)(this.FieldFolder[hashKey]));
                 }
             }
             context.ImportMode = this.ImportMode;
@@ -414,7 +414,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.LogicalTableMap = new Dictionary<System.String, Amazon.QuickSight.Model.LogicalTable>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LogicalTableMap.Keys)
                 {
-                    context.LogicalTableMap.Add((String)hashKey, (LogicalTable)(this.LogicalTableMap[hashKey]));
+                    context.LogicalTableMap.Add((String)hashKey, (Amazon.QuickSight.Model.LogicalTable)(this.LogicalTableMap[hashKey]));
                 }
             }
             context.Name = this.Name;
@@ -429,7 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.PhysicalTableMap = new Dictionary<System.String, Amazon.QuickSight.Model.PhysicalTable>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PhysicalTableMap.Keys)
                 {
-                    context.PhysicalTableMap.Add((String)hashKey, (PhysicalTable)(this.PhysicalTableMap[hashKey]));
+                    context.PhysicalTableMap.Add((String)hashKey, (Amazon.QuickSight.Model.PhysicalTable)(this.PhysicalTableMap[hashKey]));
                 }
             }
             #if MODULAR

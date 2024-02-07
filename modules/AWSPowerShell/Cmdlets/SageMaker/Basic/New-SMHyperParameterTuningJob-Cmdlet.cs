@@ -978,7 +978,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.TrainingJobDefinition_Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TrainingJobDefinition_Environment.Keys)
                 {
-                    context.TrainingJobDefinition_Environment.Add((String)hashKey, (String)(this.TrainingJobDefinition_Environment[hashKey]));
+                    context.TrainingJobDefinition_Environment.Add((String)hashKey, (System.String)(this.TrainingJobDefinition_Environment[hashKey]));
                 }
             }
             if (this.HyperParameterRanges_AutoParameter != null)
@@ -1019,7 +1019,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.TrainingJobDefinition_StaticHyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TrainingJobDefinition_StaticHyperParameter.Keys)
                 {
-                    context.TrainingJobDefinition_StaticHyperParameter.Add((String)hashKey, (String)(this.TrainingJobDefinition_StaticHyperParameter[hashKey]));
+                    context.TrainingJobDefinition_StaticHyperParameter.Add((String)hashKey, (System.String)(this.TrainingJobDefinition_StaticHyperParameter[hashKey]));
                 }
             }
             context.StoppingCondition_MaxPendingTimeInSecond = this.StoppingCondition_MaxPendingTimeInSecond;

@@ -534,7 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.FRC
                 context.TrainingParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TrainingParameter.Keys)
                 {
-                    context.TrainingParameter.Add((String)hashKey, (String)(this.TrainingParameter[hashKey]));
+                    context.TrainingParameter.Add((String)hashKey, (System.String)(this.TrainingParameter[hashKey]));
                 }
             }
             

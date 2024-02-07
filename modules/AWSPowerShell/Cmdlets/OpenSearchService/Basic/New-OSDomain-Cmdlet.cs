@@ -788,7 +788,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.AdvancedOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AdvancedOption.Keys)
                 {
-                    context.AdvancedOption.Add((String)hashKey, (String)(this.AdvancedOption[hashKey]));
+                    context.AdvancedOption.Add((String)hashKey, (System.String)(this.AdvancedOption[hashKey]));
                 }
             }
             context.AdvancedSecurityOptions_AnonymousAuthEnabled = this.AdvancedSecurityOptions_AnonymousAuthEnabled;
@@ -853,7 +853,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 context.LogPublishingOption = new Dictionary<System.String, Amazon.OpenSearchService.Model.LogPublishingOption>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LogPublishingOption.Keys)
                 {
-                    context.LogPublishingOption.Add((String)hashKey, (LogPublishingOption)(this.LogPublishingOption[hashKey]));
+                    context.LogPublishingOption.Add((String)hashKey, (Amazon.OpenSearchService.Model.LogPublishingOption)(this.LogPublishingOption[hashKey]));
                 }
             }
             context.NodeToNodeEncryptionOptions_Enabled = this.NodeToNodeEncryptionOptions_Enabled;

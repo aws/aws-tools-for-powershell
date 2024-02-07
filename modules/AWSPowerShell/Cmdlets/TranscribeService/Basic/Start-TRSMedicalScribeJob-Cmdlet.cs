@@ -366,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.KMSEncryptionContext = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.KMSEncryptionContext.Keys)
                 {
-                    context.KMSEncryptionContext.Add((String)hashKey, (String)(this.KMSEncryptionContext[hashKey]));
+                    context.KMSEncryptionContext.Add((String)hashKey, (System.String)(this.KMSEncryptionContext[hashKey]));
                 }
             }
             context.Media_MediaFileUri = this.Media_MediaFileUri;

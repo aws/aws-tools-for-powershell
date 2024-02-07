@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 context.ArgumentsMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ArgumentsMap.Keys)
                 {
-                    context.ArgumentsMap.Add((String)hashKey, (String)(this.ArgumentsMap[hashKey]));
+                    context.ArgumentsMap.Add((String)hashKey, (System.String)(this.ArgumentsMap[hashKey]));
                 }
             }
             context.FromPhoneNumber = this.FromPhoneNumber;
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
                 context.SipHeader = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SipHeader.Keys)
                 {
-                    context.SipHeader.Add((String)hashKey, (String)(this.SipHeader[hashKey]));
+                    context.SipHeader.Add((String)hashKey, (System.String)(this.SipHeader[hashKey]));
                 }
             }
             context.SipMediaApplicationId = this.SipMediaApplicationId;

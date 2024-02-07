@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
                 context.Criterion = new Dictionary<System.String, Amazon.Macie2.Model.BucketCriteriaAdditionalProperties>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Criterion.Keys)
                 {
-                    context.Criterion.Add((String)hashKey, (BucketCriteriaAdditionalProperties)(this.Criterion[hashKey]));
+                    context.Criterion.Add((String)hashKey, (Amazon.Macie2.Model.BucketCriteriaAdditionalProperties)(this.Criterion[hashKey]));
                 }
             }
             context.MaxResult = this.MaxResult;

@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 context.AuthorizationResult = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AuthorizationResult.Keys)
                 {
-                    context.AuthorizationResult.Add((String)hashKey, (String)(this.AuthorizationResult[hashKey]));
+                    context.AuthorizationResult.Add((String)hashKey, (System.String)(this.AuthorizationResult[hashKey]));
                 }
             }
             #if MODULAR

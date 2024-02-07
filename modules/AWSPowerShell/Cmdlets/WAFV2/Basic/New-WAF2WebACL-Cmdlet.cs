@@ -346,7 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.AssociationConfig_RequestBody = new Dictionary<System.String, Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AssociationConfig_RequestBody.Keys)
                 {
-                    context.AssociationConfig_RequestBody.Add((String)hashKey, (RequestBodyAssociatedResourceTypeConfig)(this.AssociationConfig_RequestBody[hashKey]));
+                    context.AssociationConfig_RequestBody.Add((String)hashKey, (Amazon.WAFV2.Model.RequestBodyAssociatedResourceTypeConfig)(this.AssociationConfig_RequestBody[hashKey]));
                 }
             }
             context.CaptchaConfig_ImmunityTimeProperty_ImmunityTime = this.CaptchaConfig_ImmunityTimeProperty_ImmunityTime;
@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.CustomResponseBody = new Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CustomResponseBody.Keys)
                 {
-                    context.CustomResponseBody.Add((String)hashKey, (CustomResponseBody)(this.CustomResponseBody[hashKey]));
+                    context.CustomResponseBody.Add((String)hashKey, (Amazon.WAFV2.Model.CustomResponseBody)(this.CustomResponseBody[hashKey]));
                 }
             }
             context.DefaultAction_Allow = this.DefaultAction_Allow;

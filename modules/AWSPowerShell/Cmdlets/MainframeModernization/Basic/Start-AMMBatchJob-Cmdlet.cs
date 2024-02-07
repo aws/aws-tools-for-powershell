@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.AMM
                 context.JobParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.JobParam.Keys)
                 {
-                    context.JobParam.Add((String)hashKey, (String)(this.JobParam[hashKey]));
+                    context.JobParam.Add((String)hashKey, (System.String)(this.JobParam[hashKey]));
                 }
             }
             

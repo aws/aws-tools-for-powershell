@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.MessageAttribute = new Dictionary<System.String, Amazon.SQS.Model.MessageAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageAttribute.Keys)
                 {
-                    context.MessageAttribute.Add((String)hashKey, (MessageAttributeValue)(this.MessageAttribute[hashKey]));
+                    context.MessageAttribute.Add((String)hashKey, (Amazon.SQS.Model.MessageAttributeValue)(this.MessageAttribute[hashKey]));
                 }
             }
             context.MessageBody = this.MessageBody;
@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 context.MessageSystemAttribute = new Dictionary<System.String, Amazon.SQS.Model.MessageSystemAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageSystemAttribute.Keys)
                 {
-                    context.MessageSystemAttribute.Add((String)hashKey, (MessageSystemAttributeValue)(this.MessageSystemAttribute[hashKey]));
+                    context.MessageSystemAttribute.Add((String)hashKey, (Amazon.SQS.Model.MessageSystemAttributeValue)(this.MessageSystemAttribute[hashKey]));
                 }
             }
             context.QueueUrl = this.QueueUrl;

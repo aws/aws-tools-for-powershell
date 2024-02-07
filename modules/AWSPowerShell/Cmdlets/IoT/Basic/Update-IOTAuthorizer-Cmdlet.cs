@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.TokenSigningPublicKey = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TokenSigningPublicKey.Keys)
                 {
-                    context.TokenSigningPublicKey.Add((String)hashKey, (String)(this.TokenSigningPublicKey[hashKey]));
+                    context.TokenSigningPublicKey.Add((String)hashKey, (System.String)(this.TokenSigningPublicKey[hashKey]));
                 }
             }
             

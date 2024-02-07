@@ -397,7 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.RequestParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestParameter.Keys)
                 {
-                    context.RequestParameter.Add((String)hashKey, (String)(this.RequestParameter[hashKey]));
+                    context.RequestParameter.Add((String)hashKey, (System.String)(this.RequestParameter[hashKey]));
                 }
             }
             if (this.RequestTemplate != null)
@@ -405,7 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.RequestTemplate = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestTemplate.Keys)
                 {
-                    context.RequestTemplate.Add((String)hashKey, (String)(this.RequestTemplate[hashKey]));
+                    context.RequestTemplate.Add((String)hashKey, (System.String)(this.RequestTemplate[hashKey]));
                 }
             }
             if (this.ResponseParameter != null)
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.ResponseParameter = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResponseParameter.Keys)
                 {
-                    context.ResponseParameter.Add((String)hashKey, (Dictionary<String,String>)(this.ResponseParameter[hashKey]));
+                    context.ResponseParameter.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.ResponseParameter[hashKey]));
                 }
             }
             context.TemplateSelectionExpression = this.TemplateSelectionExpression;

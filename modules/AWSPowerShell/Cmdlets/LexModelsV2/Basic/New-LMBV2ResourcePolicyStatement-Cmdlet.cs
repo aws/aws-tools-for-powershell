@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.Condition = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Condition.Keys)
                 {
-                    context.Condition.Add((String)hashKey, (Dictionary<String,String>)(this.Condition[hashKey]));
+                    context.Condition.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.Condition[hashKey]));
                 }
             }
             context.Effect = this.Effect;

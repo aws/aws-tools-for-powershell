@@ -318,7 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.BatchInferenceJobConfig_ItemExplorationConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BatchInferenceJobConfig_ItemExplorationConfig.Keys)
                 {
-                    context.BatchInferenceJobConfig_ItemExplorationConfig.Add((String)hashKey, (String)(this.BatchInferenceJobConfig_ItemExplorationConfig[hashKey]));
+                    context.BatchInferenceJobConfig_ItemExplorationConfig.Add((String)hashKey, (System.String)(this.BatchInferenceJobConfig_ItemExplorationConfig[hashKey]));
                 }
             }
             context.BatchInferenceJobMode = this.BatchInferenceJobMode;

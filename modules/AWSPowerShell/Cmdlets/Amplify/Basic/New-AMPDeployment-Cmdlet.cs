@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 context.FileMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FileMap.Keys)
                 {
-                    context.FileMap.Add((String)hashKey, (String)(this.FileMap[hashKey]));
+                    context.FileMap.Add((String)hashKey, (System.String)(this.FileMap[hashKey]));
                 }
             }
             

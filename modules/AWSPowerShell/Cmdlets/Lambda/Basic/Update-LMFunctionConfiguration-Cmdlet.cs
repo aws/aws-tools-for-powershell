@@ -542,7 +542,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Environment_Variable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Environment_Variable.Keys)
                 {
-                    context.Environment_Variable.Add((String)hashKey, (String)(this.Environment_Variable[hashKey]));
+                    context.Environment_Variable.Add((String)hashKey, (System.String)(this.Environment_Variable[hashKey]));
                 }
             }
             context.Environment_IsVariablesSet = this.Environment_IsVariablesSet;

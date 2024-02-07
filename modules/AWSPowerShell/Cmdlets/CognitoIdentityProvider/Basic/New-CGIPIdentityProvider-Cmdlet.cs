@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.AttributeMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AttributeMapping.Keys)
                 {
-                    context.AttributeMapping.Add((String)hashKey, (String)(this.AttributeMapping[hashKey]));
+                    context.AttributeMapping.Add((String)hashKey, (System.String)(this.AttributeMapping[hashKey]));
                 }
             }
             if (this.IdpIdentifier != null)
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.ProviderDetail = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ProviderDetail.Keys)
                 {
-                    context.ProviderDetail.Add((String)hashKey, (String)(this.ProviderDetail[hashKey]));
+                    context.ProviderDetail.Add((String)hashKey, (System.String)(this.ProviderDetail[hashKey]));
                 }
             }
             #if MODULAR

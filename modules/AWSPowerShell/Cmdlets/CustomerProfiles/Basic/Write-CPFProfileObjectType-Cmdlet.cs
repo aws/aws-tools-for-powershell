@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.Field = new Dictionary<System.String, Amazon.CustomerProfiles.Model.ObjectTypeField>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Field.Keys)
                 {
-                    context.Field.Add((String)hashKey, (ObjectTypeField)(this.Field[hashKey]));
+                    context.Field.Add((String)hashKey, (Amazon.CustomerProfiles.Model.ObjectTypeField)(this.Field[hashKey]));
                 }
             }
             if (this.Key != null)
@@ -316,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.TemplateId = this.TemplateId;

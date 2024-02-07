@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
                 context.OnlineAbConfig_TreatmentWeight = new Dictionary<System.String, System.Int64>(StringComparer.Ordinal);
                 foreach (var hashKey in this.OnlineAbConfig_TreatmentWeight.Keys)
                 {
-                    context.OnlineAbConfig_TreatmentWeight.Add((String)hashKey, (Int64)(this.OnlineAbConfig_TreatmentWeight[hashKey]));
+                    context.OnlineAbConfig_TreatmentWeight.Add((String)hashKey, (System.Int64)(this.OnlineAbConfig_TreatmentWeight[hashKey]));
                 }
             }
             context.Project = this.Project;
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             if (this.Treatment != null)

@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.HC
                 context.Variable = new Dictionary<System.String, Amazon.Honeycode.Model.VariableValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Variable.Keys)
                 {
-                    context.Variable.Add((String)hashKey, (VariableValue)(this.Variable[hashKey]));
+                    context.Variable.Add((String)hashKey, (Amazon.Honeycode.Model.VariableValue)(this.Variable[hashKey]));
                 }
             }
             context.WorkbookId = this.WorkbookId;

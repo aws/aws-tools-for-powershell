@@ -405,7 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.LambdaFunction_ComponentDependency = new Dictionary<System.String, Amazon.GreengrassV2.Model.ComponentDependencyRequirement>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LambdaFunction_ComponentDependency.Keys)
                 {
-                    context.LambdaFunction_ComponentDependency.Add((String)hashKey, (ComponentDependencyRequirement)(this.LambdaFunction_ComponentDependency[hashKey]));
+                    context.LambdaFunction_ComponentDependency.Add((String)hashKey, (Amazon.GreengrassV2.Model.ComponentDependencyRequirement)(this.LambdaFunction_ComponentDependency[hashKey]));
                 }
             }
             if (this.ComponentLambdaParameters_EnvironmentVariable != null)
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.ComponentLambdaParameters_EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ComponentLambdaParameters_EnvironmentVariable.Keys)
                 {
-                    context.ComponentLambdaParameters_EnvironmentVariable.Add((String)hashKey, (String)(this.ComponentLambdaParameters_EnvironmentVariable[hashKey]));
+                    context.ComponentLambdaParameters_EnvironmentVariable.Add((String)hashKey, (System.String)(this.ComponentLambdaParameters_EnvironmentVariable[hashKey]));
                 }
             }
             if (this.ComponentLambdaParameters_EventSource != null)
@@ -454,7 +454,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

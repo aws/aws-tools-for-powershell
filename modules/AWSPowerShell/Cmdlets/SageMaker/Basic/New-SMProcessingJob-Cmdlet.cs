@@ -434,7 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Environment.Keys)
                 {
-                    context.Environment.Add((String)hashKey, (String)(this.Environment[hashKey]));
+                    context.Environment.Add((String)hashKey, (System.String)(this.Environment[hashKey]));
                 }
             }
             context.ExperimentConfig_ExperimentName = this.ExperimentConfig_ExperimentName;

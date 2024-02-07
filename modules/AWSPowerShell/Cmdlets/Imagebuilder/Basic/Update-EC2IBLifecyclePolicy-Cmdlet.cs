@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.ResourceSelection_TagMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResourceSelection_TagMap.Keys)
                 {
-                    context.ResourceSelection_TagMap.Add((String)hashKey, (String)(this.ResourceSelection_TagMap[hashKey]));
+                    context.ResourceSelection_TagMap.Add((String)hashKey, (System.String)(this.ResourceSelection_TagMap[hashKey]));
                 }
             }
             context.ResourceType = this.ResourceType;

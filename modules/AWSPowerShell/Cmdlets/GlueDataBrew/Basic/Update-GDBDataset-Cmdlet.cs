@@ -500,7 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.LastModifiedDateCondition_ValuesMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LastModifiedDateCondition_ValuesMap.Keys)
                 {
-                    context.LastModifiedDateCondition_ValuesMap.Add((String)hashKey, (String)(this.LastModifiedDateCondition_ValuesMap[hashKey]));
+                    context.LastModifiedDateCondition_ValuesMap.Add((String)hashKey, (System.String)(this.LastModifiedDateCondition_ValuesMap[hashKey]));
                 }
             }
             if (this.PathOptions_Parameter != null)
@@ -508,7 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.GDB
                 context.PathOptions_Parameter = new Dictionary<System.String, Amazon.GlueDataBrew.Model.DatasetParameter>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PathOptions_Parameter.Keys)
                 {
-                    context.PathOptions_Parameter.Add((String)hashKey, (DatasetParameter)(this.PathOptions_Parameter[hashKey]));
+                    context.PathOptions_Parameter.Add((String)hashKey, (Amazon.GlueDataBrew.Model.DatasetParameter)(this.PathOptions_Parameter[hashKey]));
                 }
             }
             

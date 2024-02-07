@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoScalingSchedule_Friday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Friday.Keys)
                 {
-                    context.AutoScalingSchedule_Friday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Friday[hashKey]));
+                    context.AutoScalingSchedule_Friday.Add((String)hashKey, (System.String)(this.AutoScalingSchedule_Friday[hashKey]));
                 }
             }
             if (this.AutoScalingSchedule_Monday != null)
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoScalingSchedule_Monday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Monday.Keys)
                 {
-                    context.AutoScalingSchedule_Monday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Monday[hashKey]));
+                    context.AutoScalingSchedule_Monday.Add((String)hashKey, (System.String)(this.AutoScalingSchedule_Monday[hashKey]));
                 }
             }
             if (this.AutoScalingSchedule_Saturday != null)
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoScalingSchedule_Saturday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Saturday.Keys)
                 {
-                    context.AutoScalingSchedule_Saturday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Saturday[hashKey]));
+                    context.AutoScalingSchedule_Saturday.Add((String)hashKey, (System.String)(this.AutoScalingSchedule_Saturday[hashKey]));
                 }
             }
             if (this.AutoScalingSchedule_Sunday != null)
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoScalingSchedule_Sunday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Sunday.Keys)
                 {
-                    context.AutoScalingSchedule_Sunday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Sunday[hashKey]));
+                    context.AutoScalingSchedule_Sunday.Add((String)hashKey, (System.String)(this.AutoScalingSchedule_Sunday[hashKey]));
                 }
             }
             if (this.AutoScalingSchedule_Thursday != null)
@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoScalingSchedule_Thursday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Thursday.Keys)
                 {
-                    context.AutoScalingSchedule_Thursday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Thursday[hashKey]));
+                    context.AutoScalingSchedule_Thursday.Add((String)hashKey, (System.String)(this.AutoScalingSchedule_Thursday[hashKey]));
                 }
             }
             if (this.AutoScalingSchedule_Tuesday != null)
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoScalingSchedule_Tuesday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Tuesday.Keys)
                 {
-                    context.AutoScalingSchedule_Tuesday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Tuesday[hashKey]));
+                    context.AutoScalingSchedule_Tuesday.Add((String)hashKey, (System.String)(this.AutoScalingSchedule_Tuesday[hashKey]));
                 }
             }
             if (this.AutoScalingSchedule_Wednesday != null)
@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 context.AutoScalingSchedule_Wednesday = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoScalingSchedule_Wednesday.Keys)
                 {
-                    context.AutoScalingSchedule_Wednesday.Add((String)hashKey, (String)(this.AutoScalingSchedule_Wednesday[hashKey]));
+                    context.AutoScalingSchedule_Wednesday.Add((String)hashKey, (System.String)(this.AutoScalingSchedule_Wednesday[hashKey]));
                 }
             }
             context.InstanceId = this.InstanceId;

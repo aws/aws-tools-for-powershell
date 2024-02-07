@@ -1601,7 +1601,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.SendUsersMessageRequest_Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SendUsersMessageRequest_Context.Keys)
                 {
-                    context.SendUsersMessageRequest_Context.Add((String)hashKey, (String)(this.SendUsersMessageRequest_Context[hashKey]));
+                    context.SendUsersMessageRequest_Context.Add((String)hashKey, (System.String)(this.SendUsersMessageRequest_Context[hashKey]));
                 }
             }
             context.ADMMessage_Action = this.ADMMessage_Action;
@@ -1612,7 +1612,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.ADMMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ADMMessage_Data.Keys)
                 {
-                    context.ADMMessage_Data.Add((String)hashKey, (String)(this.ADMMessage_Data[hashKey]));
+                    context.ADMMessage_Data.Add((String)hashKey, (System.String)(this.ADMMessage_Data[hashKey]));
                 }
             }
             context.ADMMessage_ExpiresAfter = this.ADMMessage_ExpiresAfter;
@@ -1657,7 +1657,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.APNSMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.APNSMessage_Data.Keys)
                 {
-                    context.APNSMessage_Data.Add((String)hashKey, (String)(this.APNSMessage_Data[hashKey]));
+                    context.APNSMessage_Data.Add((String)hashKey, (System.String)(this.APNSMessage_Data[hashKey]));
                 }
             }
             context.APNSMessage_MediaUrl = this.APNSMessage_MediaUrl;
@@ -1697,7 +1697,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.BaiduMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BaiduMessage_Data.Keys)
                 {
-                    context.BaiduMessage_Data.Add((String)hashKey, (String)(this.BaiduMessage_Data[hashKey]));
+                    context.BaiduMessage_Data.Add((String)hashKey, (System.String)(this.BaiduMessage_Data[hashKey]));
                 }
             }
             context.BaiduMessage_IconReference = this.BaiduMessage_IconReference;
@@ -1758,7 +1758,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.DefaultPushNotificationMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DefaultPushNotificationMessage_Data.Keys)
                 {
-                    context.DefaultPushNotificationMessage_Data.Add((String)hashKey, (String)(this.DefaultPushNotificationMessage_Data[hashKey]));
+                    context.DefaultPushNotificationMessage_Data.Add((String)hashKey, (System.String)(this.DefaultPushNotificationMessage_Data[hashKey]));
                 }
             }
             context.DefaultPushNotificationMessage_SilentPush = this.DefaultPushNotificationMessage_SilentPush;
@@ -1826,7 +1826,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.GCMMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GCMMessage_Data.Keys)
                 {
-                    context.GCMMessage_Data.Add((String)hashKey, (String)(this.GCMMessage_Data[hashKey]));
+                    context.GCMMessage_Data.Add((String)hashKey, (System.String)(this.GCMMessage_Data[hashKey]));
                 }
             }
             context.GCMMessage_IconReference = this.GCMMessage_IconReference;
@@ -1930,7 +1930,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.SendUsersMessageRequest_User = new Dictionary<System.String, Amazon.Pinpoint.Model.EndpointSendConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SendUsersMessageRequest_User.Keys)
                 {
-                    context.SendUsersMessageRequest_User.Add((String)hashKey, (EndpointSendConfiguration)(this.SendUsersMessageRequest_User[hashKey]));
+                    context.SendUsersMessageRequest_User.Add((String)hashKey, (Amazon.Pinpoint.Model.EndpointSendConfiguration)(this.SendUsersMessageRequest_User[hashKey]));
                 }
             }
             #if MODULAR

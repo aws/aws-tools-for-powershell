@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.NWFW
                 context.PolicyVariables_RuleVariable = new Dictionary<System.String, Amazon.NetworkFirewall.Model.IPSet>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PolicyVariables_RuleVariable.Keys)
                 {
-                    context.PolicyVariables_RuleVariable.Add((String)hashKey, (IPSet)(this.PolicyVariables_RuleVariable[hashKey]));
+                    context.PolicyVariables_RuleVariable.Add((String)hashKey, (Amazon.NetworkFirewall.Model.IPSet)(this.PolicyVariables_RuleVariable[hashKey]));
                 }
             }
             if (this.FirewallPolicy_StatefulDefaultAction != null)

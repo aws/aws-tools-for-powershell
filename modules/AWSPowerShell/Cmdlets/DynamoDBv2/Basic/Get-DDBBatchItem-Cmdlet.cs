@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.RequestItem = new Dictionary<System.String, Amazon.DynamoDBv2.Model.KeysAndAttributes>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestItem.Keys)
                 {
-                    context.RequestItem.Add((String)hashKey, (KeysAndAttributes)(this.RequestItem[hashKey]));
+                    context.RequestItem.Add((String)hashKey, (Amazon.DynamoDBv2.Model.KeysAndAttributes)(this.RequestItem[hashKey]));
                 }
             }
             #if MODULAR

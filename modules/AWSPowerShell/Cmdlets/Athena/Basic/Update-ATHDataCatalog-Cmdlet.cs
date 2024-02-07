@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 context.Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (String)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (System.String)(this.Parameter[hashKey]));
                 }
             }
             context.Type = this.Type;

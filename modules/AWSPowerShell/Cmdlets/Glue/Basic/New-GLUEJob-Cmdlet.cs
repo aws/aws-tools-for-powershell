@@ -506,7 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.CodeGenConfigurationNode = new Dictionary<System.String, Amazon.Glue.Model.CodeGenConfigurationNode>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CodeGenConfigurationNode.Keys)
                 {
-                    context.CodeGenConfigurationNode.Add((String)hashKey, (CodeGenConfigurationNode)(this.CodeGenConfigurationNode[hashKey]));
+                    context.CodeGenConfigurationNode.Add((String)hashKey, (Amazon.Glue.Model.CodeGenConfigurationNode)(this.CodeGenConfigurationNode[hashKey]));
                 }
             }
             context.Command = this.Command;
@@ -525,7 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.DefaultArgument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DefaultArgument.Keys)
                 {
-                    context.DefaultArgument.Add((String)hashKey, (String)(this.DefaultArgument[hashKey]));
+                    context.DefaultArgument.Add((String)hashKey, (System.String)(this.DefaultArgument[hashKey]));
                 }
             }
             context.Description = this.Description;
@@ -547,7 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.NonOverridableArgument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.NonOverridableArgument.Keys)
                 {
-                    context.NonOverridableArgument.Add((String)hashKey, (String)(this.NonOverridableArgument[hashKey]));
+                    context.NonOverridableArgument.Add((String)hashKey, (System.String)(this.NonOverridableArgument[hashKey]));
                 }
             }
             context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
@@ -573,7 +573,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Timeout = this.Timeout;

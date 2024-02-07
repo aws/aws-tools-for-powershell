@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 context.ProvisionedProductProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ProvisionedProductProperty.Keys)
                 {
-                    context.ProvisionedProductProperty.Add((String)hashKey, (String)(this.ProvisionedProductProperty[hashKey]));
+                    context.ProvisionedProductProperty.Add((String)hashKey, (System.String)(this.ProvisionedProductProperty[hashKey]));
                 }
             }
             #if MODULAR

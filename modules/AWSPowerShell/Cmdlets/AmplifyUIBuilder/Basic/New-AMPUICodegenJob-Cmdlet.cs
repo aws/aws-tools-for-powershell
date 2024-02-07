@@ -382,7 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.GenericDataSchema_Enum = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.CodegenGenericDataEnum>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GenericDataSchema_Enum.Keys)
                 {
-                    context.GenericDataSchema_Enum.Add((String)hashKey, (CodegenGenericDataEnum)(this.GenericDataSchema_Enum[hashKey]));
+                    context.GenericDataSchema_Enum.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.CodegenGenericDataEnum)(this.GenericDataSchema_Enum[hashKey]));
                 }
             }
             if (this.GenericDataSchema_Model != null)
@@ -390,7 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.GenericDataSchema_Model = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.CodegenGenericDataModel>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GenericDataSchema_Model.Keys)
                 {
-                    context.GenericDataSchema_Model.Add((String)hashKey, (CodegenGenericDataModel)(this.GenericDataSchema_Model[hashKey]));
+                    context.GenericDataSchema_Model.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.CodegenGenericDataModel)(this.GenericDataSchema_Model[hashKey]));
                 }
             }
             if (this.GenericDataSchema_NonModel != null)
@@ -398,7 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.GenericDataSchema_NonModel = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.CodegenGenericDataNonModel>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GenericDataSchema_NonModel.Keys)
                 {
-                    context.GenericDataSchema_NonModel.Add((String)hashKey, (CodegenGenericDataNonModel)(this.GenericDataSchema_NonModel[hashKey]));
+                    context.GenericDataSchema_NonModel.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.CodegenGenericDataNonModel)(this.GenericDataSchema_NonModel[hashKey]));
                 }
             }
             context.ApiConfiguration_DataStoreConfig = this.ApiConfiguration_DataStoreConfig;
@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.React_Dependency = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.React_Dependency.Keys)
                 {
-                    context.React_Dependency.Add((String)hashKey, (String)(this.React_Dependency[hashKey]));
+                    context.React_Dependency.Add((String)hashKey, (System.String)(this.React_Dependency[hashKey]));
                 }
             }
             context.React_InlineSourceMap = this.React_InlineSourceMap;
@@ -426,7 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.CodegenJobToCreate_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CodegenJobToCreate_Tag.Keys)
                 {
-                    context.CodegenJobToCreate_Tag.Add((String)hashKey, (String)(this.CodegenJobToCreate_Tag[hashKey]));
+                    context.CodegenJobToCreate_Tag.Add((String)hashKey, (System.String)(this.CodegenJobToCreate_Tag[hashKey]));
                 }
             }
             context.EnvironmentName = this.EnvironmentName;

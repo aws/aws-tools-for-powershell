@@ -483,7 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Metadata_Label = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Metadata_Label.Keys)
                 {
-                    context.Metadata_Label.Add((String)hashKey, (String)(this.Metadata_Label[hashKey]));
+                    context.Metadata_Label.Add((String)hashKey, (System.String)(this.Metadata_Label[hashKey]));
                 }
             }
             context.JobDefinition = this.JobDefinition;
@@ -517,7 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (String)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (System.String)(this.Parameter[hashKey]));
                 }
             }
             context.PropagateTag = this.PropagateTag;
@@ -533,7 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Timeout = this.Timeout;

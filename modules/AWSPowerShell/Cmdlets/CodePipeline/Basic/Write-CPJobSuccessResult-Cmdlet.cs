@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 context.OutputVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.OutputVariable.Keys)
                 {
-                    context.OutputVariable.Add((String)hashKey, (String)(this.OutputVariable[hashKey]));
+                    context.OutputVariable.Add((String)hashKey, (System.String)(this.OutputVariable[hashKey]));
                 }
             }
             

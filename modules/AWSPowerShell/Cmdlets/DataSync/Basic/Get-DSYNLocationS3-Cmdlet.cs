@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata, such as bucket name, about an Amazon S3 bucket location.
+    /// Provides details about how an DataSync transfer location for an S3 bucket is configured.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationS3")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationS3Response")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter LocationArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon S3 bucket location to describe.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the Amazon S3 location.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

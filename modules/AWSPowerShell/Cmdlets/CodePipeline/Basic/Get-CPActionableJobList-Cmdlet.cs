@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 context.QueryParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.QueryParam.Keys)
                 {
-                    context.QueryParam.Add((String)hashKey, (String)(this.QueryParam[hashKey]));
+                    context.QueryParam.Add((String)hashKey, (System.String)(this.QueryParam[hashKey]));
                 }
             }
             

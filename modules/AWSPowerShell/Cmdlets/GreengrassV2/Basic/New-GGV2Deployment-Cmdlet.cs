@@ -344,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.Component = new Dictionary<System.String, Amazon.GreengrassV2.Model.ComponentDeploymentSpecification>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Component.Keys)
                 {
-                    context.Component.Add((String)hashKey, (ComponentDeploymentSpecification)(this.Component[hashKey]));
+                    context.Component.Add((String)hashKey, (Amazon.GreengrassV2.Model.ComponentDeploymentSpecification)(this.Component[hashKey]));
                 }
             }
             context.DeploymentName = this.DeploymentName;
@@ -368,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.TargetArn = this.TargetArn;

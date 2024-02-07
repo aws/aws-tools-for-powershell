@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
-                    context.Attribute.Add((String)hashKey, (String)(this.Attribute[hashKey]));
+                    context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
                 }
             }
             context.ClientToken = this.ClientToken;
@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Reference = new Dictionary<System.String, Amazon.Connect.Model.Reference>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Reference.Keys)
                 {
-                    context.Reference.Add((String)hashKey, (Reference)(this.Reference[hashKey]));
+                    context.Reference.Add((String)hashKey, (Amazon.Connect.Model.Reference)(this.Reference[hashKey]));
                 }
             }
             context.RelatedContactId = this.RelatedContactId;

@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.HC
                 context.DestinationOptions_ColumnMap = new Dictionary<System.String, Amazon.Honeycode.Model.SourceDataColumnProperties>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DestinationOptions_ColumnMap.Keys)
                 {
-                    context.DestinationOptions_ColumnMap.Add((String)hashKey, (SourceDataColumnProperties)(this.DestinationOptions_ColumnMap[hashKey]));
+                    context.DestinationOptions_ColumnMap.Add((String)hashKey, (Amazon.Honeycode.Model.SourceDataColumnProperties)(this.DestinationOptions_ColumnMap[hashKey]));
                 }
             }
             context.WorkbookId = this.WorkbookId;

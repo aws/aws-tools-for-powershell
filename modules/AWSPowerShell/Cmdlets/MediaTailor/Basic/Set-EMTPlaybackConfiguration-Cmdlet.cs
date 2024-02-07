@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.ConfigurationAlias = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ConfigurationAlias.Keys)
                 {
-                    context.ConfigurationAlias.Add((String)hashKey, (Dictionary<String,String>)(this.ConfigurationAlias[hashKey]));
+                    context.ConfigurationAlias.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.ConfigurationAlias[hashKey]));
                 }
             }
             context.DashConfiguration = this.DashConfiguration;
@@ -374,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.TranscodeProfileName = this.TranscodeProfileName;

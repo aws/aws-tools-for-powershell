@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
                 context.TableProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TableProperty.Keys)
                 {
-                    context.TableProperty.Add((String)hashKey, (String)(this.TableProperty[hashKey]));
+                    context.TableProperty.Add((String)hashKey, (System.String)(this.TableProperty[hashKey]));
                 }
             }
             

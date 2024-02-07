@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.QueryPlanningContext_QueryParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.QueryPlanningContext_QueryParameter.Keys)
                 {
-                    context.QueryPlanningContext_QueryParameter.Add((String)hashKey, (String)(this.QueryPlanningContext_QueryParameter[hashKey]));
+                    context.QueryPlanningContext_QueryParameter.Add((String)hashKey, (System.String)(this.QueryPlanningContext_QueryParameter[hashKey]));
                 }
             }
             context.QueryPlanningContext_TransactionId = this.QueryPlanningContext_TransactionId;

@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
                 context.VersionRevision = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.VersionRevision.Keys)
                 {
-                    context.VersionRevision.Add((String)hashKey, (String)(this.VersionRevision[hashKey]));
+                    context.VersionRevision.Add((String)hashKey, (System.String)(this.VersionRevision[hashKey]));
                 }
             }
             if (this.Version != null)

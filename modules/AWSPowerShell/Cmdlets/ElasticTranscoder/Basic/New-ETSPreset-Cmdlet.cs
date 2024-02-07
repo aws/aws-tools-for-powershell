@@ -741,7 +741,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 context.Video_CodecOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Video_CodecOption.Keys)
                 {
-                    context.Video_CodecOption.Add((String)hashKey, (String)(this.Video_CodecOption[hashKey]));
+                    context.Video_CodecOption.Add((String)hashKey, (System.String)(this.Video_CodecOption[hashKey]));
                 }
             }
             context.Video_DisplayAspectRatio = this.Video_DisplayAspectRatio;

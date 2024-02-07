@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.StatusDetail = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.StatusDetail.Keys)
                 {
-                    context.StatusDetail.Add((String)hashKey, (String)(this.StatusDetail[hashKey]));
+                    context.StatusDetail.Add((String)hashKey, (System.String)(this.StatusDetail[hashKey]));
                 }
             }
             context.ThingName = this.ThingName;

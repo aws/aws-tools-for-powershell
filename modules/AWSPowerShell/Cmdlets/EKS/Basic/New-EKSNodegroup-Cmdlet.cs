@@ -501,7 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Label = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Label.Keys)
                 {
-                    context.Label.Add((String)hashKey, (String)(this.Label[hashKey]));
+                    context.Label.Add((String)hashKey, (System.String)(this.Label[hashKey]));
                 }
             }
             context.LaunchTemplate_Id = this.LaunchTemplate_Id;
@@ -545,7 +545,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             if (this.Taint != null)

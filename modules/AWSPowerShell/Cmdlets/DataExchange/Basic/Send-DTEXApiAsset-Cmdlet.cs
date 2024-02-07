@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
                 context.QueryStringParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.QueryStringParameter.Keys)
                 {
-                    context.QueryStringParameter.Add((String)hashKey, (String)(this.QueryStringParameter[hashKey]));
+                    context.QueryStringParameter.Add((String)hashKey, (System.String)(this.QueryStringParameter[hashKey]));
                 }
             }
             if (this.RequestHeader != null)
@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.DTEX
                 context.RequestHeader = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestHeader.Keys)
                 {
-                    context.RequestHeader.Add((String)hashKey, (String)(this.RequestHeader[hashKey]));
+                    context.RequestHeader.Add((String)hashKey, (System.String)(this.RequestHeader[hashKey]));
                 }
             }
             context.RevisionId = this.RevisionId;

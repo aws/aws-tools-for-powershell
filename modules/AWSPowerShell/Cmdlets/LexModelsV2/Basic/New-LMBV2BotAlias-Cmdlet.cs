@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.BotAliasLocaleSetting = new Dictionary<System.String, Amazon.LexModelsV2.Model.BotAliasLocaleSettings>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BotAliasLocaleSetting.Keys)
                 {
-                    context.BotAliasLocaleSetting.Add((String)hashKey, (BotAliasLocaleSettings)(this.BotAliasLocaleSetting[hashKey]));
+                    context.BotAliasLocaleSetting.Add((String)hashKey, (Amazon.LexModelsV2.Model.BotAliasLocaleSettings)(this.BotAliasLocaleSetting[hashKey]));
                 }
             }
             context.BotAliasName = this.BotAliasName;
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

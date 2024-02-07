@@ -255,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 context.IdentityPoolTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IdentityPoolTag.Keys)
                 {
-                    context.IdentityPoolTag.Add((String)hashKey, (String)(this.IdentityPoolTag[hashKey]));
+                    context.IdentityPoolTag.Add((String)hashKey, (System.String)(this.IdentityPoolTag[hashKey]));
                 }
             }
             if (this.OpenIdConnectProviderARNs != null)
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 context.SupportedLoginProvider = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SupportedLoginProvider.Keys)
                 {
-                    context.SupportedLoginProvider.Add((String)hashKey, (String)(this.SupportedLoginProvider[hashKey]));
+                    context.SupportedLoginProvider.Add((String)hashKey, (System.String)(this.SupportedLoginProvider[hashKey]));
                 }
             }
             

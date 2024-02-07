@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.VersionsToPublish = new Dictionary<System.String, Amazon.WAFV2.Model.VersionToPublish>(StringComparer.Ordinal);
                 foreach (var hashKey in this.VersionsToPublish.Keys)
                 {
-                    context.VersionsToPublish.Add((String)hashKey, (VersionToPublish)(this.VersionsToPublish[hashKey]));
+                    context.VersionsToPublish.Add((String)hashKey, (Amazon.WAFV2.Model.VersionToPublish)(this.VersionsToPublish[hashKey]));
                 }
             }
             

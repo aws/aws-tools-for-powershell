@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.TagsToAdd = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TagsToAdd.Keys)
                 {
-                    context.TagsToAdd.Add((String)hashKey, (String)(this.TagsToAdd[hashKey]));
+                    context.TagsToAdd.Add((String)hashKey, (System.String)(this.TagsToAdd[hashKey]));
                 }
             }
             #if MODULAR

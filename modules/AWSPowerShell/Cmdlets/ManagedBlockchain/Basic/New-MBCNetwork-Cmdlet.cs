@@ -387,7 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 context.MemberConfiguration_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MemberConfiguration_Tag.Keys)
                 {
-                    context.MemberConfiguration_Tag.Add((String)hashKey, (String)(this.MemberConfiguration_Tag[hashKey]));
+                    context.MemberConfiguration_Tag.Add((String)hashKey, (System.String)(this.MemberConfiguration_Tag[hashKey]));
                 }
             }
             context.Name = this.Name;
@@ -402,7 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.ApprovalThresholdPolicy_ProposalDurationInHour = this.ApprovalThresholdPolicy_ProposalDurationInHour;

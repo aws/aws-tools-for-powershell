@@ -667,7 +667,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.WriteJourneyRequest_Activity = new Dictionary<System.String, Amazon.Pinpoint.Model.Activity>(StringComparer.Ordinal);
                 foreach (var hashKey in this.WriteJourneyRequest_Activity.Keys)
                 {
-                    context.WriteJourneyRequest_Activity.Add((String)hashKey, (Activity)(this.WriteJourneyRequest_Activity[hashKey]));
+                    context.WriteJourneyRequest_Activity.Add((String)hashKey, (Amazon.Pinpoint.Model.Activity)(this.WriteJourneyRequest_Activity[hashKey]));
                 }
             }
             if (this.ClosedDays_CUSTOM != null)
@@ -824,7 +824,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Dimensions_Attribute = new Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Dimensions_Attribute.Keys)
                 {
-                    context.Dimensions_Attribute.Add((String)hashKey, (AttributeDimension)(this.Dimensions_Attribute[hashKey]));
+                    context.Dimensions_Attribute.Add((String)hashKey, (Amazon.Pinpoint.Model.AttributeDimension)(this.Dimensions_Attribute[hashKey]));
                 }
             }
             context.EventType_DimensionType = this.EventType_DimensionType;
@@ -837,7 +837,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Dimensions_Metric = new Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Dimensions_Metric.Keys)
                 {
-                    context.Dimensions_Metric.Add((String)hashKey, (MetricDimension)(this.Dimensions_Metric[hashKey]));
+                    context.Dimensions_Metric.Add((String)hashKey, (Amazon.Pinpoint.Model.MetricDimension)(this.Dimensions_Metric[hashKey]));
                 }
             }
             context.EventFilter_FilterType = this.EventFilter_FilterType;

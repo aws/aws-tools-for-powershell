@@ -412,7 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.DocumentParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DocumentParameter.Keys)
                 {
-                    context.DocumentParameter.Add((String)hashKey, (String)(this.DocumentParameter[hashKey]));
+                    context.DocumentParameter.Add((String)hashKey, (System.String)(this.DocumentParameter[hashKey]));
                 }
             }
             context.DocumentSource = this.DocumentSource;

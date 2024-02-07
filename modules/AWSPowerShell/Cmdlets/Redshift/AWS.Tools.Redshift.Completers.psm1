@@ -351,6 +351,7 @@ $RS_SelectMap = @{
                "Get-RSReservedNodeExchangeConfigurationOption",
                "Get-RSReservedNodeExchangeOffering",
                "Get-RSResourcePolicy",
+               "Get-RSRecommendationList",
                "Edit-RSAquaConfiguration",
                "Edit-RSAuthenticationProfile",
                "Edit-RSCluster",

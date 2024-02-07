@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
                 context.DestinationTypeParams_S3DestinationExportFileFormatOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DestinationTypeParams_S3DestinationExportFileFormatOption.Keys)
                 {
-                    context.DestinationTypeParams_S3DestinationExportFileFormatOption.Add((String)hashKey, (String)(this.DestinationTypeParams_S3DestinationExportFileFormatOption[hashKey]));
+                    context.DestinationTypeParams_S3DestinationExportFileFormatOption.Add((String)hashKey, (System.String)(this.DestinationTypeParams_S3DestinationExportFileFormatOption[hashKey]));
                 }
             }
             if (this.PartitionColumn != null)

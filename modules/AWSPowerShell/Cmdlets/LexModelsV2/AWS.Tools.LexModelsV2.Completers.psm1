@@ -145,6 +145,13 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.BotVersionReplicaSortAttribute
+        "Get-LMBV2BotVersionReplicaList/SortBy_Attribute"
+        {
+            $v = "BotVersion"
+            break
+        }
+
         # Amazon.LexModelsV2.BotVersionSortAttribute
         "Get-LMBV2BotVersionList/SortBy_Attribute"
         {
@@ -386,6 +393,7 @@ $LMBV2_Completers = {
             ($_ -eq "Get-LMBV2BotLocaleList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotResourceGenerationList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BotVersionList/SortBy_Order") -Or
+            ($_ -eq "Get-LMBV2BotVersionReplicaList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BuiltInIntentList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2BuiltInSlotTypeList/SortBy_Order") -Or
             ($_ -eq "Get-LMBV2ExportList/SortBy_Order") -Or
@@ -526,9 +534,9 @@ $LMBV2_map = @{
     "ResultFilterBy_ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
     "ResultFilterBy_ResultTypeFilter"=@("Get-LMBV2TestExecutionResultItemList")
     "SearchOrder"=@("Search-LMBV2AssociatedTranscript")
-    "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
+    "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
     "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
-    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
+    "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
     "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -606,6 +614,7 @@ $LMBV2_SelectMap = @{
                "New-LMBV2Bot",
                "New-LMBV2BotAlias",
                "New-LMBV2BotLocale",
+               "New-LMBV2BotReplica",
                "New-LMBV2BotVersion",
                "New-LMBV2Export",
                "New-LMBV2Intent",
@@ -618,6 +627,7 @@ $LMBV2_SelectMap = @{
                "Remove-LMBV2Bot",
                "Remove-LMBV2BotAlias",
                "Remove-LMBV2BotLocale",
+               "Remove-LMBV2BotReplica",
                "Remove-LMBV2BotVersion",
                "Remove-LMBV2CustomVocabulary",
                "Remove-LMBV2Export",
@@ -633,6 +643,7 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2BotAlias",
                "Get-LMBV2BotLocale",
                "Get-LMBV2BotRecommendation",
+               "Get-LMBV2BotReplica",
                "Get-LMBV2BotResourceGeneration",
                "Get-LMBV2BotVersion",
                "Get-LMBV2CustomVocabularyMetadata",
@@ -650,10 +661,13 @@ $LMBV2_SelectMap = @{
                "Get-LMBV2TestExecutionArtifactsUrl",
                "Get-LMBV2AggregatedUtteranceList",
                "Get-LMBV2BotAliasList",
+               "Get-LMBV2BotAliasReplicaList",
                "Get-LMBV2BotLocaleList",
                "Get-LMBV2BotRecommendationList",
+               "Get-LMBV2BotReplicaList",
                "Get-LMBV2BotResourceGenerationList",
                "Get-LMBV2BotList",
+               "Get-LMBV2BotVersionReplicaList",
                "Get-LMBV2BotVersionList",
                "Get-LMBV2BuiltInIntentList",
                "Get-LMBV2BuiltInSlotTypeList",

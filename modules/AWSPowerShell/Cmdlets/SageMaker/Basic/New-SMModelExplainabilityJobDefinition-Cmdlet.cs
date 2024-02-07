@@ -712,7 +712,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ModelExplainabilityAppSpecification_Environment = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ModelExplainabilityAppSpecification_Environment.Keys)
                 {
-                    context.ModelExplainabilityAppSpecification_Environment.Add((String)hashKey, (String)(this.ModelExplainabilityAppSpecification_Environment[hashKey]));
+                    context.ModelExplainabilityAppSpecification_Environment.Add((String)hashKey, (System.String)(this.ModelExplainabilityAppSpecification_Environment[hashKey]));
                 }
             }
             context.ModelExplainabilityAppSpecification_ImageUri = this.ModelExplainabilityAppSpecification_ImageUri;

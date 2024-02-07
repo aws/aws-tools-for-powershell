@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.CustomResponseBody = new Dictionary<System.String, Amazon.WAFV2.Model.CustomResponseBody>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CustomResponseBody.Keys)
                 {
-                    context.CustomResponseBody.Add((String)hashKey, (CustomResponseBody)(this.CustomResponseBody[hashKey]));
+                    context.CustomResponseBody.Add((String)hashKey, (Amazon.WAFV2.Model.CustomResponseBody)(this.CustomResponseBody[hashKey]));
                 }
             }
             context.Description = this.Description;

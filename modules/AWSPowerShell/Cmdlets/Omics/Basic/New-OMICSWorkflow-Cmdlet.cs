@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.ParameterTemplate = new Dictionary<System.String, Amazon.Omics.Model.WorkflowParameter>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ParameterTemplate.Keys)
                 {
-                    context.ParameterTemplate.Add((String)hashKey, (WorkflowParameter)(this.ParameterTemplate[hashKey]));
+                    context.ParameterTemplate.Add((String)hashKey, (Amazon.Omics.Model.WorkflowParameter)(this.ParameterTemplate[hashKey]));
                 }
             }
             context.RequestId = this.RequestId;
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

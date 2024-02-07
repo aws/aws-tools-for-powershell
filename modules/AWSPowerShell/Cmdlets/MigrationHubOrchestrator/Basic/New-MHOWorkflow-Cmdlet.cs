@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
                 context.InputParameter = new Dictionary<System.String, Amazon.MigrationHubOrchestrator.Model.StepInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InputParameter.Keys)
                 {
-                    context.InputParameter.Add((String)hashKey, (StepInput)(this.InputParameter[hashKey]));
+                    context.InputParameter.Add((String)hashKey, (Amazon.MigrationHubOrchestrator.Model.StepInput)(this.InputParameter[hashKey]));
                 }
             }
             #if MODULAR
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.TemplateId = this.TemplateId;

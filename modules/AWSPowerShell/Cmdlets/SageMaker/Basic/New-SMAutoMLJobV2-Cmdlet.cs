@@ -947,7 +947,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.TextGenerationJobConfig_TextGenerationHyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TextGenerationJobConfig_TextGenerationHyperParameter.Keys)
                 {
-                    context.TextGenerationJobConfig_TextGenerationHyperParameter.Add((String)hashKey, (String)(this.TextGenerationJobConfig_TextGenerationHyperParameter[hashKey]));
+                    context.TextGenerationJobConfig_TextGenerationHyperParameter.Add((String)hashKey, (System.String)(this.TextGenerationJobConfig_TextGenerationHyperParameter[hashKey]));
                 }
             }
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
@@ -976,7 +976,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Transformations_Aggregation = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Transformations_Aggregation.Keys)
                 {
-                    context.Transformations_Aggregation.Add((String)hashKey, (String)(this.Transformations_Aggregation[hashKey]));
+                    context.Transformations_Aggregation.Add((String)hashKey, (System.String)(this.Transformations_Aggregation[hashKey]));
                 }
             }
             if (this.Transformations_Filling != null)
@@ -984,7 +984,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Transformations_Filling = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Transformations_Filling.Keys)
                 {
-                    context.Transformations_Filling.Add((String)hashKey, (Dictionary<String,String>)(this.Transformations_Filling[hashKey]));
+                    context.Transformations_Filling.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.Transformations_Filling[hashKey]));
                 }
             }
             context.DataSplitConfig_ValidationFraction = this.DataSplitConfig_ValidationFraction;

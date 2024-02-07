@@ -323,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 context.IncidentTemplate_IncidentTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IncidentTemplate_IncidentTag.Keys)
                 {
-                    context.IncidentTemplate_IncidentTag.Add((String)hashKey, (String)(this.IncidentTemplate_IncidentTag[hashKey]));
+                    context.IncidentTemplate_IncidentTag.Add((String)hashKey, (System.String)(this.IncidentTemplate_IncidentTag[hashKey]));
                 }
             }
             if (this.IncidentTemplate_NotificationTarget != null)
@@ -354,7 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

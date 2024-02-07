@@ -422,7 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 context.Settings_LanguageIdSetting = new Dictionary<System.String, Amazon.TranscribeService.Model.LanguageIdSettings>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Settings_LanguageIdSetting.Keys)
                 {
-                    context.Settings_LanguageIdSetting.Add((String)hashKey, (LanguageIdSettings)(this.Settings_LanguageIdSetting[hashKey]));
+                    context.Settings_LanguageIdSetting.Add((String)hashKey, (Amazon.TranscribeService.Model.LanguageIdSettings)(this.Settings_LanguageIdSetting[hashKey]));
                 }
             }
             context.Settings_LanguageModelName = this.Settings_LanguageModelName;

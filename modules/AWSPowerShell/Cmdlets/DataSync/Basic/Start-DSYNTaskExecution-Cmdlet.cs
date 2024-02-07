@@ -53,17 +53,39 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter S3_BucketAccessRoleArn
+        #region Parameter ManifestConfig_Action
+        /// <summary>
+        /// <para>
+        /// <para>Specifies what DataSync uses the manifest for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.ManifestAction")]
+        public Amazon.DataSync.ManifestAction ManifestConfig_Action { get; set; }
+        #endregion
+        
+        #region Parameter ManifestConfig_Source_S3_BucketAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Identity and Access Management (IAM) role that allows DataSync to access
+        /// your manifest. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-access">Providing
+        /// DataSync access to your manifest</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ManifestConfig_Source_S3_BucketAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter TaskReportConfig_Destination_S3_BucketAccessRoleArn
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to
-        /// upload a task report to your S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Allowing
+        /// upload a task report to your S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Allowing
         /// DataSync to upload a task report to an Amazon S3 bucket</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TaskReportConfig_Destination_S3_BucketAccessRoleArn")]
-        public System.String S3_BucketAccessRoleArn { get; set; }
+        public System.String TaskReportConfig_Destination_S3_BucketAccessRoleArn { get; set; }
         #endregion
         
         #region Parameter Exclude
@@ -80,6 +102,18 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public Amazon.DataSync.Model.FilterRule[] Exclude { get; set; }
         #endregion
         
+        #region Parameter ManifestConfig_Format
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the file format of your manifest. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-create">Creating
+        /// a manifest</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.ManifestFormat")]
+        public Amazon.DataSync.ManifestFormat ManifestConfig_Format { get; set; }
+        #endregion
+        
         #region Parameter Include
         /// <summary>
         /// <para>
@@ -92,6 +126,30 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Includes")]
         public Amazon.DataSync.Model.FilterRule[] Include { get; set; }
+        #endregion
+        
+        #region Parameter S3_ManifestObjectPath
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon S3 object key of your manifest. This can include a prefix (for
+        /// example, <c>prefix/my-manifest.csv</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestConfig_Source_S3_ManifestObjectPath")]
+        public System.String S3_ManifestObjectPath { get; set; }
+        #endregion
+        
+        #region Parameter S3_ManifestObjectVersionId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the object version ID of the manifest that you want DataSync to use. If
+        /// you don't set this, DataSync uses the latest version of the object.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ManifestConfig_Source_S3_ManifestObjectVersionId")]
+        public System.String S3_ManifestObjectVersionId { get; set; }
         #endregion
         
         #region Parameter TaskReportConfig_ObjectVersionId
@@ -211,15 +269,25 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         public Amazon.DataSync.ReportLevel TaskReportConfig_ReportLevel { get; set; }
         #endregion
         
-        #region Parameter S3_S3BucketArn
+        #region Parameter ManifestConfig_Source_S3_S3BucketArn
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your
+        /// manifest.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ManifestConfig_Source_S3_S3BucketArn { get; set; }
+        #endregion
+        
+        #region Parameter TaskReportConfig_Destination_S3_S3BucketArn
         /// <summary>
         /// <para>
         /// <para>Specifies the ARN of the S3 bucket where DataSync uploads your report.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("TaskReportConfig_Destination_S3_S3BucketArn")]
-        public System.String S3_S3BucketArn { get; set; }
+        public System.String TaskReportConfig_Destination_S3_S3BucketArn { get; set; }
         #endregion
         
         #region Parameter S3_Subdirectory
@@ -333,6 +401,12 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             {
                 context.Include = new List<Amazon.DataSync.Model.FilterRule>(this.Include);
             }
+            context.ManifestConfig_Action = this.ManifestConfig_Action;
+            context.ManifestConfig_Format = this.ManifestConfig_Format;
+            context.ManifestConfig_Source_S3_BucketAccessRoleArn = this.ManifestConfig_Source_S3_BucketAccessRoleArn;
+            context.S3_ManifestObjectPath = this.S3_ManifestObjectPath;
+            context.S3_ManifestObjectVersionId = this.S3_ManifestObjectVersionId;
+            context.ManifestConfig_Source_S3_S3BucketArn = this.ManifestConfig_Source_S3_S3BucketArn;
             context.OverrideOption = this.OverrideOption;
             if (this.Tag != null)
             {
@@ -345,8 +419,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 WriteWarning("You are passing $null as a value for parameter TaskArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.S3_BucketAccessRoleArn = this.S3_BucketAccessRoleArn;
-            context.S3_S3BucketArn = this.S3_S3BucketArn;
+            context.TaskReportConfig_Destination_S3_BucketAccessRoleArn = this.TaskReportConfig_Destination_S3_BucketAccessRoleArn;
+            context.TaskReportConfig_Destination_S3_S3BucketArn = this.TaskReportConfig_Destination_S3_S3BucketArn;
             context.S3_Subdirectory = this.S3_Subdirectory;
             context.TaskReportConfig_ObjectVersionId = this.TaskReportConfig_ObjectVersionId;
             context.TaskReportConfig_OutputType = this.TaskReportConfig_OutputType;
@@ -378,6 +452,105 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (cmdletContext.Include != null)
             {
                 request.Includes = cmdletContext.Include;
+            }
+            
+             // populate ManifestConfig
+            var requestManifestConfigIsNull = true;
+            request.ManifestConfig = new Amazon.DataSync.Model.ManifestConfig();
+            Amazon.DataSync.ManifestAction requestManifestConfig_manifestConfig_Action = null;
+            if (cmdletContext.ManifestConfig_Action != null)
+            {
+                requestManifestConfig_manifestConfig_Action = cmdletContext.ManifestConfig_Action;
+            }
+            if (requestManifestConfig_manifestConfig_Action != null)
+            {
+                request.ManifestConfig.Action = requestManifestConfig_manifestConfig_Action;
+                requestManifestConfigIsNull = false;
+            }
+            Amazon.DataSync.ManifestFormat requestManifestConfig_manifestConfig_Format = null;
+            if (cmdletContext.ManifestConfig_Format != null)
+            {
+                requestManifestConfig_manifestConfig_Format = cmdletContext.ManifestConfig_Format;
+            }
+            if (requestManifestConfig_manifestConfig_Format != null)
+            {
+                request.ManifestConfig.Format = requestManifestConfig_manifestConfig_Format;
+                requestManifestConfigIsNull = false;
+            }
+            Amazon.DataSync.Model.SourceManifestConfig requestManifestConfig_manifestConfig_Source = null;
+            
+             // populate Source
+            var requestManifestConfig_manifestConfig_SourceIsNull = true;
+            requestManifestConfig_manifestConfig_Source = new Amazon.DataSync.Model.SourceManifestConfig();
+            Amazon.DataSync.Model.S3ManifestConfig requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3 = null;
+            
+             // populate S3
+            var requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3IsNull = true;
+            requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3 = new Amazon.DataSync.Model.S3ManifestConfig();
+            System.String requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_BucketAccessRoleArn = null;
+            if (cmdletContext.ManifestConfig_Source_S3_BucketAccessRoleArn != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_BucketAccessRoleArn = cmdletContext.ManifestConfig_Source_S3_BucketAccessRoleArn;
+            }
+            if (requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_BucketAccessRoleArn != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3.BucketAccessRoleArn = requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_BucketAccessRoleArn;
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3IsNull = false;
+            }
+            System.String requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectPath = null;
+            if (cmdletContext.S3_ManifestObjectPath != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectPath = cmdletContext.S3_ManifestObjectPath;
+            }
+            if (requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectPath != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3.ManifestObjectPath = requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectPath;
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3IsNull = false;
+            }
+            System.String requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectVersionId = null;
+            if (cmdletContext.S3_ManifestObjectVersionId != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectVersionId = cmdletContext.S3_ManifestObjectVersionId;
+            }
+            if (requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectVersionId != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3.ManifestObjectVersionId = requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_s3_ManifestObjectVersionId;
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3IsNull = false;
+            }
+            System.String requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_S3BucketArn = null;
+            if (cmdletContext.ManifestConfig_Source_S3_S3BucketArn != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_S3BucketArn = cmdletContext.ManifestConfig_Source_S3_S3BucketArn;
+            }
+            if (requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_S3BucketArn != null)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3.S3BucketArn = requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3_manifestConfig_Source_S3_S3BucketArn;
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3IsNull = false;
+            }
+             // determine if requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3 should be set to null
+            if (requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3IsNull)
+            {
+                requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3 = null;
+            }
+            if (requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3 != null)
+            {
+                requestManifestConfig_manifestConfig_Source.S3 = requestManifestConfig_manifestConfig_Source_manifestConfig_Source_S3;
+                requestManifestConfig_manifestConfig_SourceIsNull = false;
+            }
+             // determine if requestManifestConfig_manifestConfig_Source should be set to null
+            if (requestManifestConfig_manifestConfig_SourceIsNull)
+            {
+                requestManifestConfig_manifestConfig_Source = null;
+            }
+            if (requestManifestConfig_manifestConfig_Source != null)
+            {
+                request.ManifestConfig.Source = requestManifestConfig_manifestConfig_Source;
+                requestManifestConfigIsNull = false;
+            }
+             // determine if request.ManifestConfig should be set to null
+            if (requestManifestConfigIsNull)
+            {
+                request.ManifestConfig = null;
             }
             if (cmdletContext.OverrideOption != null)
             {
@@ -435,24 +608,24 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
              // populate S3
             var requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3IsNull = true;
             requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3 = new Amazon.DataSync.Model.ReportDestinationS3();
-            System.String requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_BucketAccessRoleArn = null;
-            if (cmdletContext.S3_BucketAccessRoleArn != null)
+            System.String requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_BucketAccessRoleArn = null;
+            if (cmdletContext.TaskReportConfig_Destination_S3_BucketAccessRoleArn != null)
             {
-                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_BucketAccessRoleArn = cmdletContext.S3_BucketAccessRoleArn;
+                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_BucketAccessRoleArn = cmdletContext.TaskReportConfig_Destination_S3_BucketAccessRoleArn;
             }
-            if (requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_BucketAccessRoleArn != null)
+            if (requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_BucketAccessRoleArn != null)
             {
-                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3.BucketAccessRoleArn = requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_BucketAccessRoleArn;
+                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3.BucketAccessRoleArn = requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_BucketAccessRoleArn;
                 requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3IsNull = false;
             }
-            System.String requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_S3BucketArn = null;
-            if (cmdletContext.S3_S3BucketArn != null)
+            System.String requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_S3BucketArn = null;
+            if (cmdletContext.TaskReportConfig_Destination_S3_S3BucketArn != null)
             {
-                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_S3BucketArn = cmdletContext.S3_S3BucketArn;
+                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_S3BucketArn = cmdletContext.TaskReportConfig_Destination_S3_S3BucketArn;
             }
-            if (requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_S3BucketArn != null)
+            if (requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_S3BucketArn != null)
             {
-                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3.S3BucketArn = requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_S3BucketArn;
+                requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3.S3BucketArn = requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_taskReportConfig_Destination_S3_S3BucketArn;
                 requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3IsNull = false;
             }
             System.String requestTaskReportConfig_taskReportConfig_Destination_taskReportConfig_Destination_S3_s3_Subdirectory = null;
@@ -668,11 +841,17 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         {
             public List<Amazon.DataSync.Model.FilterRule> Exclude { get; set; }
             public List<Amazon.DataSync.Model.FilterRule> Include { get; set; }
+            public Amazon.DataSync.ManifestAction ManifestConfig_Action { get; set; }
+            public Amazon.DataSync.ManifestFormat ManifestConfig_Format { get; set; }
+            public System.String ManifestConfig_Source_S3_BucketAccessRoleArn { get; set; }
+            public System.String S3_ManifestObjectPath { get; set; }
+            public System.String S3_ManifestObjectVersionId { get; set; }
+            public System.String ManifestConfig_Source_S3_S3BucketArn { get; set; }
             public Amazon.DataSync.Model.Options OverrideOption { get; set; }
             public List<Amazon.DataSync.Model.TagListEntry> Tag { get; set; }
             public System.String TaskArn { get; set; }
-            public System.String S3_BucketAccessRoleArn { get; set; }
-            public System.String S3_S3BucketArn { get; set; }
+            public System.String TaskReportConfig_Destination_S3_BucketAccessRoleArn { get; set; }
+            public System.String TaskReportConfig_Destination_S3_S3BucketArn { get; set; }
             public System.String S3_Subdirectory { get; set; }
             public Amazon.DataSync.ObjectVersionIds TaskReportConfig_ObjectVersionId { get; set; }
             public Amazon.DataSync.ReportOutputType TaskReportConfig_OutputType { get; set; }

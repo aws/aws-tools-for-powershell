@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.ResourceTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResourceTag.Keys)
                 {
-                    context.ResourceTag.Add((String)hashKey, (String)(this.ResourceTag[hashKey]));
+                    context.ResourceTag.Add((String)hashKey, (System.String)(this.ResourceTag[hashKey]));
                 }
             }
             if (this.SecurityGroupId != null)
@@ -348,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.TerminateInstanceOnFailure = this.TerminateInstanceOnFailure;

@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.DefaultRunProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DefaultRunProperty.Keys)
                 {
-                    context.DefaultRunProperty.Add((String)hashKey, (String)(this.DefaultRunProperty[hashKey]));
+                    context.DefaultRunProperty.Add((String)hashKey, (System.String)(this.DefaultRunProperty[hashKey]));
                 }
             }
             context.Description = this.Description;
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

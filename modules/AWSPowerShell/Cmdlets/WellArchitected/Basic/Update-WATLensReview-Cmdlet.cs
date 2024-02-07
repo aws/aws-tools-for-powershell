@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 context.PillarNote = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PillarNote.Keys)
                 {
-                    context.PillarNote.Add((String)hashKey, (String)(this.PillarNote[hashKey]));
+                    context.PillarNote.Add((String)hashKey, (System.String)(this.PillarNote[hashKey]));
                 }
             }
             context.WorkloadId = this.WorkloadId;

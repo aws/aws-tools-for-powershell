@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.TestSetTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TestSetTag.Keys)
                 {
-                    context.TestSetTag.Add((String)hashKey, (String)(this.TestSetTag[hashKey]));
+                    context.TestSetTag.Add((String)hashKey, (System.String)(this.TestSetTag[hashKey]));
                 }
             }
             

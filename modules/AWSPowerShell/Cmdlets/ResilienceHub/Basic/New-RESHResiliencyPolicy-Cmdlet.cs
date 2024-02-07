@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 context.Policy = new Dictionary<System.String, Amazon.ResilienceHub.Model.FailurePolicy>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Policy.Keys)
                 {
-                    context.Policy.Add((String)hashKey, (FailurePolicy)(this.Policy[hashKey]));
+                    context.Policy.Add((String)hashKey, (Amazon.ResilienceHub.Model.FailurePolicy)(this.Policy[hashKey]));
                 }
             }
             #if MODULAR
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.Tier = this.Tier;

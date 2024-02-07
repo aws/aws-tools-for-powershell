@@ -258,7 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.EmailTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EmailTemplateRequest_Tag.Keys)
                 {
-                    context.EmailTemplateRequest_Tag.Add((String)hashKey, (String)(this.EmailTemplateRequest_Tag[hashKey]));
+                    context.EmailTemplateRequest_Tag.Add((String)hashKey, (System.String)(this.EmailTemplateRequest_Tag[hashKey]));
                 }
             }
             context.EmailTemplateRequest_TemplateDescription = this.EmailTemplateRequest_TemplateDescription;

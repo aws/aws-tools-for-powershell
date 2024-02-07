@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.ContainerConfig_ContainerEnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ContainerConfig_ContainerEnvironmentVariable.Keys)
                 {
-                    context.ContainerConfig_ContainerEnvironmentVariable.Add((String)hashKey, (String)(this.ContainerConfig_ContainerEnvironmentVariable[hashKey]));
+                    context.ContainerConfig_ContainerEnvironmentVariable.Add((String)hashKey, (System.String)(this.ContainerConfig_ContainerEnvironmentVariable[hashKey]));
                 }
             }
             context.JupyterLabAppImageConfig_FileSystemConfig_DefaultGid = this.JupyterLabAppImageConfig_FileSystemConfig_DefaultGid;

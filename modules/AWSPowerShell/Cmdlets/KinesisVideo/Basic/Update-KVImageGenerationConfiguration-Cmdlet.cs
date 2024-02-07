@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 context.ImageGenerationConfiguration_FormatConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ImageGenerationConfiguration_FormatConfig.Keys)
                 {
-                    context.ImageGenerationConfiguration_FormatConfig.Add((String)hashKey, (String)(this.ImageGenerationConfiguration_FormatConfig[hashKey]));
+                    context.ImageGenerationConfiguration_FormatConfig.Add((String)hashKey, (System.String)(this.ImageGenerationConfiguration_FormatConfig[hashKey]));
                 }
             }
             context.ImageGenerationConfiguration_HeightPixel = this.ImageGenerationConfiguration_HeightPixel;

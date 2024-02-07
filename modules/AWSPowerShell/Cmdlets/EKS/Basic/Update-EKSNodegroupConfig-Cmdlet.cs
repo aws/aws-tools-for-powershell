@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 context.Labels_AddOrUpdateLabel = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Labels_AddOrUpdateLabel.Keys)
                 {
-                    context.Labels_AddOrUpdateLabel.Add((String)hashKey, (String)(this.Labels_AddOrUpdateLabel[hashKey]));
+                    context.Labels_AddOrUpdateLabel.Add((String)hashKey, (System.String)(this.Labels_AddOrUpdateLabel[hashKey]));
                 }
             }
             if (this.Labels_RemoveLabel != null)

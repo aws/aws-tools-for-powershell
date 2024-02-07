@@ -285,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.DataLakeSettings_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DataLakeSettings_Parameter.Keys)
                 {
-                    context.DataLakeSettings_Parameter.Add((String)hashKey, (String)(this.DataLakeSettings_Parameter[hashKey]));
+                    context.DataLakeSettings_Parameter.Add((String)hashKey, (System.String)(this.DataLakeSettings_Parameter[hashKey]));
                 }
             }
             if (this.DataLakeSettings_ReadOnlyAdmin != null)

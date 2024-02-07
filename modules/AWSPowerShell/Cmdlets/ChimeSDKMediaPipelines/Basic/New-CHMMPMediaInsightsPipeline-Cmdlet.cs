@@ -287,7 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
                 context.MediaInsightsRuntimeMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MediaInsightsRuntimeMetadata.Keys)
                 {
-                    context.MediaInsightsRuntimeMetadata.Add((String)hashKey, (String)(this.MediaInsightsRuntimeMetadata[hashKey]));
+                    context.MediaInsightsRuntimeMetadata.Add((String)hashKey, (System.String)(this.MediaInsightsRuntimeMetadata[hashKey]));
                 }
             }
             context.S3RecordingSinkRuntimeConfiguration_Destination = this.S3RecordingSinkRuntimeConfiguration_Destination;

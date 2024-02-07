@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
                 context.Probe_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Probe_Tag.Keys)
                 {
-                    context.Probe_Tag.Add((String)hashKey, (String)(this.Probe_Tag[hashKey]));
+                    context.Probe_Tag.Add((String)hashKey, (System.String)(this.Probe_Tag[hashKey]));
                 }
             }
             if (this.Tag != null)
@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

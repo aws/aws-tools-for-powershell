@@ -1608,7 +1608,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.MessageRequest_Address = new Dictionary<System.String, Amazon.Pinpoint.Model.AddressConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageRequest_Address.Keys)
                 {
-                    context.MessageRequest_Address.Add((String)hashKey, (AddressConfiguration)(this.MessageRequest_Address[hashKey]));
+                    context.MessageRequest_Address.Add((String)hashKey, (Amazon.Pinpoint.Model.AddressConfiguration)(this.MessageRequest_Address[hashKey]));
                 }
             }
             if (this.MessageRequest_Context != null)
@@ -1616,7 +1616,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.MessageRequest_Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageRequest_Context.Keys)
                 {
-                    context.MessageRequest_Context.Add((String)hashKey, (String)(this.MessageRequest_Context[hashKey]));
+                    context.MessageRequest_Context.Add((String)hashKey, (System.String)(this.MessageRequest_Context[hashKey]));
                 }
             }
             if (this.MessageRequest_Endpoint != null)
@@ -1624,7 +1624,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.MessageRequest_Endpoint = new Dictionary<System.String, Amazon.Pinpoint.Model.EndpointSendConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageRequest_Endpoint.Keys)
                 {
-                    context.MessageRequest_Endpoint.Add((String)hashKey, (EndpointSendConfiguration)(this.MessageRequest_Endpoint[hashKey]));
+                    context.MessageRequest_Endpoint.Add((String)hashKey, (Amazon.Pinpoint.Model.EndpointSendConfiguration)(this.MessageRequest_Endpoint[hashKey]));
                 }
             }
             context.ADMMessage_Action = this.ADMMessage_Action;
@@ -1635,7 +1635,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.ADMMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ADMMessage_Data.Keys)
                 {
-                    context.ADMMessage_Data.Add((String)hashKey, (String)(this.ADMMessage_Data[hashKey]));
+                    context.ADMMessage_Data.Add((String)hashKey, (System.String)(this.ADMMessage_Data[hashKey]));
                 }
             }
             context.ADMMessage_ExpiresAfter = this.ADMMessage_ExpiresAfter;
@@ -1680,7 +1680,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.APNSMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.APNSMessage_Data.Keys)
                 {
-                    context.APNSMessage_Data.Add((String)hashKey, (String)(this.APNSMessage_Data[hashKey]));
+                    context.APNSMessage_Data.Add((String)hashKey, (System.String)(this.APNSMessage_Data[hashKey]));
                 }
             }
             context.APNSMessage_MediaUrl = this.APNSMessage_MediaUrl;
@@ -1720,7 +1720,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.BaiduMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BaiduMessage_Data.Keys)
                 {
-                    context.BaiduMessage_Data.Add((String)hashKey, (String)(this.BaiduMessage_Data[hashKey]));
+                    context.BaiduMessage_Data.Add((String)hashKey, (System.String)(this.BaiduMessage_Data[hashKey]));
                 }
             }
             context.BaiduMessage_IconReference = this.BaiduMessage_IconReference;
@@ -1781,7 +1781,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.DefaultPushNotificationMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DefaultPushNotificationMessage_Data.Keys)
                 {
-                    context.DefaultPushNotificationMessage_Data.Add((String)hashKey, (String)(this.DefaultPushNotificationMessage_Data[hashKey]));
+                    context.DefaultPushNotificationMessage_Data.Add((String)hashKey, (System.String)(this.DefaultPushNotificationMessage_Data[hashKey]));
                 }
             }
             context.DefaultPushNotificationMessage_SilentPush = this.DefaultPushNotificationMessage_SilentPush;
@@ -1849,7 +1849,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.GCMMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GCMMessage_Data.Keys)
                 {
-                    context.GCMMessage_Data.Add((String)hashKey, (String)(this.GCMMessage_Data[hashKey]));
+                    context.GCMMessage_Data.Add((String)hashKey, (System.String)(this.GCMMessage_Data[hashKey]));
                 }
             }
             context.GCMMessage_IconReference = this.GCMMessage_IconReference;

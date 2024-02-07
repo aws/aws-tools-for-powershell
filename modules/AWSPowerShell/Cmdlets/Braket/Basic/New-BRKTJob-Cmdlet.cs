@@ -372,7 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
                 context.HyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.HyperParameter.Keys)
                 {
-                    context.HyperParameter.Add((String)hashKey, (String)(this.HyperParameter[hashKey]));
+                    context.HyperParameter.Add((String)hashKey, (System.String)(this.HyperParameter[hashKey]));
                 }
             }
             if (this.InputDataConfig != null)
@@ -422,7 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.BRKT
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

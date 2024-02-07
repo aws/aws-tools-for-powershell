@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 context.Platform_Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Platform_Attribute.Keys)
                 {
-                    context.Platform_Attribute.Add((String)hashKey, (String)(this.Platform_Attribute[hashKey]));
+                    context.Platform_Attribute.Add((String)hashKey, (System.String)(this.Platform_Attribute[hashKey]));
                 }
             }
             context.Platform_Name = this.Platform_Name;

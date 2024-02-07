@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.BotTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.BotTag.Keys)
                 {
-                    context.BotTag.Add((String)hashKey, (String)(this.BotTag[hashKey]));
+                    context.BotTag.Add((String)hashKey, (System.String)(this.BotTag[hashKey]));
                 }
             }
             context.BotType = this.BotType;
@@ -297,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
                 context.TestBotAliasTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TestBotAliasTag.Keys)
                 {
-                    context.TestBotAliasTag.Add((String)hashKey, (String)(this.TestBotAliasTag[hashKey]));
+                    context.TestBotAliasTag.Add((String)hashKey, (System.String)(this.TestBotAliasTag[hashKey]));
                 }
             }
             

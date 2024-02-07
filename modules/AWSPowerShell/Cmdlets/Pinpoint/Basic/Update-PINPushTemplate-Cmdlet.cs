@@ -765,7 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.PushNotificationTemplateRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PushNotificationTemplateRequest_Tag.Keys)
                 {
-                    context.PushNotificationTemplateRequest_Tag.Add((String)hashKey, (String)(this.PushNotificationTemplateRequest_Tag[hashKey]));
+                    context.PushNotificationTemplateRequest_Tag.Add((String)hashKey, (System.String)(this.PushNotificationTemplateRequest_Tag[hashKey]));
                 }
             }
             context.PushNotificationTemplateRequest_TemplateDescription = this.PushNotificationTemplateRequest_TemplateDescription;

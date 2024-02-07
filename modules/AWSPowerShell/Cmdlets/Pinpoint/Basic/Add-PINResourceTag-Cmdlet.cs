@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.TagsModel_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.TagsModel_Tag.Keys)
                 {
-                    context.TagsModel_Tag.Add((String)hashKey, (String)(this.TagsModel_Tag[hashKey]));
+                    context.TagsModel_Tag.Add((String)hashKey, (System.String)(this.TagsModel_Tag[hashKey]));
                 }
             }
             #if MODULAR

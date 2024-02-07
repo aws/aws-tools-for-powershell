@@ -527,7 +527,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.UpdatedForm_Field = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.FieldConfig>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdatedForm_Field.Keys)
                 {
-                    context.UpdatedForm_Field.Add((String)hashKey, (FieldConfig)(this.UpdatedForm_Field[hashKey]));
+                    context.UpdatedForm_Field.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.FieldConfig)(this.UpdatedForm_Field[hashKey]));
                 }
             }
             context.UpdatedForm_FormActionType = this.UpdatedForm_FormActionType;
@@ -539,7 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.UpdatedForm_SectionalElement = new Dictionary<System.String, Amazon.AmplifyUIBuilder.Model.SectionalElement>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UpdatedForm_SectionalElement.Keys)
                 {
-                    context.UpdatedForm_SectionalElement.Add((String)hashKey, (SectionalElement)(this.UpdatedForm_SectionalElement[hashKey]));
+                    context.UpdatedForm_SectionalElement.Add((String)hashKey, (Amazon.AmplifyUIBuilder.Model.SectionalElement)(this.UpdatedForm_SectionalElement[hashKey]));
                 }
             }
             context.HorizontalGap_TokenReference = this.HorizontalGap_TokenReference;

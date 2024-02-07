@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.ClientMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ClientMetadata.Keys)
                 {
-                    context.ClientMetadata.Add((String)hashKey, (String)(this.ClientMetadata[hashKey]));
+                    context.ClientMetadata.Add((String)hashKey, (System.String)(this.ClientMetadata[hashKey]));
                 }
             }
             context.ConfirmationCode = this.ConfirmationCode;

@@ -338,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 context.HyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.HyperParameter.Keys)
                 {
-                    context.HyperParameter.Add((String)hashKey, (String)(this.HyperParameter[hashKey]));
+                    context.HyperParameter.Add((String)hashKey, (System.String)(this.HyperParameter[hashKey]));
                 }
             }
             #if MODULAR

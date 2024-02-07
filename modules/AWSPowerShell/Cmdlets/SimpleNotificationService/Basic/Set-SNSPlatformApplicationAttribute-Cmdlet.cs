@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Attribute.Keys)
                 {
-                    context.Attribute.Add((String)hashKey, (String)(this.Attribute[hashKey]));
+                    context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
                 }
             }
             #if MODULAR

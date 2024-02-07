@@ -393,7 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
                 context.RequestAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestAttribute.Keys)
                 {
-                    context.RequestAttribute.Add((String)hashKey, (String)(this.RequestAttribute[hashKey]));
+                    context.RequestAttribute.Add((String)hashKey, (System.String)(this.RequestAttribute[hashKey]));
                 }
             }
             context.ResponseContentType = this.ResponseContentType;
@@ -419,7 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
                 context.Intent_Slot = new Dictionary<System.String, Amazon.LexRuntimeV2.Model.Slot>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Intent_Slot.Keys)
                 {
-                    context.Intent_Slot.Add((String)hashKey, (Slot)(this.Intent_Slot[hashKey]));
+                    context.Intent_Slot.Add((String)hashKey, (Amazon.LexRuntimeV2.Model.Slot)(this.Intent_Slot[hashKey]));
                 }
             }
             context.Intent_State = this.Intent_State;
@@ -429,7 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
                 context.RuntimeHints_SlotHint = new Dictionary<System.String, Dictionary<System.String, Amazon.LexRuntimeV2.Model.RuntimeHintDetails>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RuntimeHints_SlotHint.Keys)
                 {
-                    context.RuntimeHints_SlotHint.Add((String)hashKey, (Dictionary<String,RuntimeHintDetails>)(this.RuntimeHints_SlotHint[hashKey]));
+                    context.RuntimeHints_SlotHint.Add((String)hashKey, (Dictionary<System.String,Amazon.LexRuntimeV2.Model.RuntimeHintDetails>)(this.RuntimeHints_SlotHint[hashKey]));
                 }
             }
             if (this.SessionStateValue_SessionAttribute != null)
@@ -437,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
                 context.SessionStateValue_SessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SessionStateValue_SessionAttribute.Keys)
                 {
-                    context.SessionStateValue_SessionAttribute.Add((String)hashKey, (String)(this.SessionStateValue_SessionAttribute[hashKey]));
+                    context.SessionStateValue_SessionAttribute.Add((String)hashKey, (System.String)(this.SessionStateValue_SessionAttribute[hashKey]));
                 }
             }
             

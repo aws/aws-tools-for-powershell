@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.FormsInput = new Dictionary<System.String, Amazon.DataZone.Model.FormEntryInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FormsInput.Keys)
                 {
-                    context.FormsInput.Add((String)hashKey, (FormEntryInput)(this.FormsInput[hashKey]));
+                    context.FormsInput.Add((String)hashKey, (Amazon.DataZone.Model.FormEntryInput)(this.FormsInput[hashKey]));
                 }
             }
             #if MODULAR

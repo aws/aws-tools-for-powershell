@@ -249,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Filters_Property = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Filters_Property.Keys)
                 {
-                    context.Filters_Property.Add((String)hashKey, (String)(this.Filters_Property[hashKey]));
+                    context.Filters_Property.Add((String)hashKey, (System.String)(this.Filters_Property[hashKey]));
                 }
             }
             if (this.Filters_Type != null)

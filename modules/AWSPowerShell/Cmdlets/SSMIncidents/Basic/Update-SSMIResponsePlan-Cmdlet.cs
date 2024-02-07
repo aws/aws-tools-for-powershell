@@ -299,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 context.IncidentTemplateTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IncidentTemplateTag.Keys)
                 {
-                    context.IncidentTemplateTag.Add((String)hashKey, (String)(this.IncidentTemplateTag[hashKey]));
+                    context.IncidentTemplateTag.Add((String)hashKey, (System.String)(this.IncidentTemplateTag[hashKey]));
                 }
             }
             context.IncidentTemplateTitle = this.IncidentTemplateTitle;

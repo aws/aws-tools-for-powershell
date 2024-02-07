@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
                 context.MetricDefinition_DimensionKey = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MetricDefinition_DimensionKey.Keys)
                 {
-                    context.MetricDefinition_DimensionKey.Add((String)hashKey, (String)(this.MetricDefinition_DimensionKey[hashKey]));
+                    context.MetricDefinition_DimensionKey.Add((String)hashKey, (System.String)(this.MetricDefinition_DimensionKey[hashKey]));
                 }
             }
             context.MetricDefinition_EventPattern = this.MetricDefinition_EventPattern;

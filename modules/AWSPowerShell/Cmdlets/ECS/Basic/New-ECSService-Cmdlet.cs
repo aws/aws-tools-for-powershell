@@ -852,7 +852,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.LogConfiguration_Option = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.LogConfiguration_Option.Keys)
                 {
-                    context.LogConfiguration_Option.Add((String)hashKey, (String)(this.LogConfiguration_Option[hashKey]));
+                    context.LogConfiguration_Option.Add((String)hashKey, (System.String)(this.LogConfiguration_Option[hashKey]));
                 }
             }
             if (this.LogConfiguration_SecretOption != null)

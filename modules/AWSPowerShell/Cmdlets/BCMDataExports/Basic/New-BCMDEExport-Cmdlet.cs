@@ -344,7 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.BCMDE
                 context.DataQuery_TableConfiguration = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DataQuery_TableConfiguration.Keys)
                 {
-                    context.DataQuery_TableConfiguration.Add((String)hashKey, (Dictionary<String,String>)(this.DataQuery_TableConfiguration[hashKey]));
+                    context.DataQuery_TableConfiguration.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.DataQuery_TableConfiguration[hashKey]));
                 }
             }
             context.Export_Description = this.Export_Description;

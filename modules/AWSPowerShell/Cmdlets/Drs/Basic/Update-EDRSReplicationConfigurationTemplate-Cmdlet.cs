@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.EDRS
                 context.StagingAreaTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.StagingAreaTag.Keys)
                 {
-                    context.StagingAreaTag.Add((String)hashKey, (String)(this.StagingAreaTag[hashKey]));
+                    context.StagingAreaTag.Add((String)hashKey, (System.String)(this.StagingAreaTag[hashKey]));
                 }
             }
             context.UseDedicatedReplicationServer = this.UseDedicatedReplicationServer;

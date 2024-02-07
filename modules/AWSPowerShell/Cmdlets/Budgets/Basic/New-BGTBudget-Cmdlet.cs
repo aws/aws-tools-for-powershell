@@ -592,7 +592,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 context.Budget_PlannedBudgetLimit = new Dictionary<System.String, Amazon.Budgets.Model.Spend>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Budget_PlannedBudgetLimit.Keys)
                 {
-                    context.Budget_PlannedBudgetLimit.Add((String)hashKey, (Spend)(this.Budget_PlannedBudgetLimit[hashKey]));
+                    context.Budget_PlannedBudgetLimit.Add((String)hashKey, (Amazon.Budgets.Model.Spend)(this.Budget_PlannedBudgetLimit[hashKey]));
                 }
             }
             context.TimePeriod_End = this.TimePeriod_End;

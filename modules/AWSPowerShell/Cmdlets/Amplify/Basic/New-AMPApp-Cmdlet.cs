@@ -444,7 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 context.AutoBranchCreationConfig_EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AutoBranchCreationConfig_EnvironmentVariable.Keys)
                 {
-                    context.AutoBranchCreationConfig_EnvironmentVariable.Add((String)hashKey, (String)(this.AutoBranchCreationConfig_EnvironmentVariable[hashKey]));
+                    context.AutoBranchCreationConfig_EnvironmentVariable.Add((String)hashKey, (System.String)(this.AutoBranchCreationConfig_EnvironmentVariable[hashKey]));
                 }
             }
             context.AutoBranchCreationConfig_Framework = this.AutoBranchCreationConfig_Framework;
@@ -471,7 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 context.EnvironmentVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EnvironmentVariable.Keys)
                 {
-                    context.EnvironmentVariable.Add((String)hashKey, (String)(this.EnvironmentVariable[hashKey]));
+                    context.EnvironmentVariable.Add((String)hashKey, (System.String)(this.EnvironmentVariable[hashKey]));
                 }
             }
             context.IamServiceRoleArn = this.IamServiceRoleArn;
@@ -490,7 +490,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

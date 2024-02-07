@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
                 context.ThemeToCreate_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ThemeToCreate_Tag.Keys)
                 {
-                    context.ThemeToCreate_Tag.Add((String)hashKey, (String)(this.ThemeToCreate_Tag[hashKey]));
+                    context.ThemeToCreate_Tag.Add((String)hashKey, (System.String)(this.ThemeToCreate_Tag[hashKey]));
                 }
             }
             if (this.ThemeToCreate_Value != null)

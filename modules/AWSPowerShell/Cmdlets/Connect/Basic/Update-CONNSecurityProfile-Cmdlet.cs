@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.AllowedAccessControlTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.AllowedAccessControlTag.Keys)
                 {
-                    context.AllowedAccessControlTag.Add((String)hashKey, (String)(this.AllowedAccessControlTag[hashKey]));
+                    context.AllowedAccessControlTag.Add((String)hashKey, (System.String)(this.AllowedAccessControlTag[hashKey]));
                 }
             }
             if (this.Application != null)

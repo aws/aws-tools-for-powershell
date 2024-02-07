@@ -1720,7 +1720,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.InAppMessage_CustomConfig = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InAppMessage_CustomConfig.Keys)
                 {
-                    context.InAppMessage_CustomConfig.Add((String)hashKey, (String)(this.InAppMessage_CustomConfig[hashKey]));
+                    context.InAppMessage_CustomConfig.Add((String)hashKey, (System.String)(this.InAppMessage_CustomConfig[hashKey]));
                 }
             }
             context.InAppMessage_Layout = this.InAppMessage_Layout;
@@ -1738,7 +1738,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Dimensions_Attribute = new Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Dimensions_Attribute.Keys)
                 {
-                    context.Dimensions_Attribute.Add((String)hashKey, (AttributeDimension)(this.Dimensions_Attribute[hashKey]));
+                    context.Dimensions_Attribute.Add((String)hashKey, (Amazon.Pinpoint.Model.AttributeDimension)(this.Dimensions_Attribute[hashKey]));
                 }
             }
             context.EventType_DimensionType = this.EventType_DimensionType;
@@ -1751,7 +1751,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Dimensions_Metric = new Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Dimensions_Metric.Keys)
                 {
-                    context.Dimensions_Metric.Add((String)hashKey, (MetricDimension)(this.Dimensions_Metric[hashKey]));
+                    context.Dimensions_Metric.Add((String)hashKey, (Amazon.Pinpoint.Model.MetricDimension)(this.Dimensions_Metric[hashKey]));
                 }
             }
             context.EventFilter_FilterType = this.EventFilter_FilterType;
@@ -1768,7 +1768,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.WriteCampaignRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.WriteCampaignRequest_Tag.Keys)
                 {
-                    context.WriteCampaignRequest_Tag.Add((String)hashKey, (String)(this.WriteCampaignRequest_Tag[hashKey]));
+                    context.WriteCampaignRequest_Tag.Add((String)hashKey, (System.String)(this.WriteCampaignRequest_Tag[hashKey]));
                 }
             }
             context.EmailTemplate_Name = this.EmailTemplate_Name;

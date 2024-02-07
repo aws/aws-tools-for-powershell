@@ -350,7 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.JobTemplateData_JobTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.JobTemplateData_JobTag.Keys)
                 {
-                    context.JobTemplateData_JobTag.Add((String)hashKey, (String)(this.JobTemplateData_JobTag[hashKey]));
+                    context.JobTemplateData_JobTag.Add((String)hashKey, (System.String)(this.JobTemplateData_JobTag[hashKey]));
                 }
             }
             if (this.JobTemplateData_ParameterConfiguration != null)
@@ -358,7 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.JobTemplateData_ParameterConfiguration = new Dictionary<System.String, Amazon.EMRContainers.Model.TemplateParameterConfiguration>(StringComparer.Ordinal);
                 foreach (var hashKey in this.JobTemplateData_ParameterConfiguration.Keys)
                 {
-                    context.JobTemplateData_ParameterConfiguration.Add((String)hashKey, (TemplateParameterConfiguration)(this.JobTemplateData_ParameterConfiguration[hashKey]));
+                    context.JobTemplateData_ParameterConfiguration.Add((String)hashKey, (Amazon.EMRContainers.Model.TemplateParameterConfiguration)(this.JobTemplateData_ParameterConfiguration[hashKey]));
                 }
             }
             context.JobTemplateData_ReleaseLabel = this.JobTemplateData_ReleaseLabel;
@@ -381,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

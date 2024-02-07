@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 context.Record = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Record.Keys)
                 {
-                    context.Record.Add((String)hashKey, (String)(this.Record[hashKey]));
+                    context.Record.Add((String)hashKey, (System.String)(this.Record[hashKey]));
                 }
             }
             #if MODULAR

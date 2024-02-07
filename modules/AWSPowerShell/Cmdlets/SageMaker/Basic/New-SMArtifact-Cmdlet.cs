@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Property = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Property.Keys)
                 {
-                    context.Property.Add((String)hashKey, (String)(this.Property[hashKey]));
+                    context.Property.Add((String)hashKey, (System.String)(this.Property[hashKey]));
                 }
             }
             if (this.Source_SourceType != null)

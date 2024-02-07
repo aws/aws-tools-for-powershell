@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 context.SipHeader = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SipHeader.Keys)
                 {
-                    context.SipHeader.Add((String)hashKey, (String)(this.SipHeader[hashKey]));
+                    context.SipHeader.Add((String)hashKey, (System.String)(this.SipHeader[hashKey]));
                 }
             }
             context.SipMediaApplicationId = this.SipMediaApplicationId;

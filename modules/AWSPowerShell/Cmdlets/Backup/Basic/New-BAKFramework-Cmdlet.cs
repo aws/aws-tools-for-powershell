@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.FrameworkTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.FrameworkTag.Keys)
                 {
-                    context.FrameworkTag.Add((String)hashKey, (String)(this.FrameworkTag[hashKey]));
+                    context.FrameworkTag.Add((String)hashKey, (System.String)(this.FrameworkTag[hashKey]));
                 }
             }
             context.IdempotencyToken = this.IdempotencyToken;

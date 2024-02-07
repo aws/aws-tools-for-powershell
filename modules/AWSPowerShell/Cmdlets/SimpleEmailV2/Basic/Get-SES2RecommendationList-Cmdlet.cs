@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Filter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Filter.Keys)
                 {
-                    context.Filter.Add((String)hashKey, (String)(this.Filter[hashKey]));
+                    context.Filter.Add((String)hashKey, (System.String)(this.Filter[hashKey]));
                 }
             }
             context.NextToken = this.NextToken;

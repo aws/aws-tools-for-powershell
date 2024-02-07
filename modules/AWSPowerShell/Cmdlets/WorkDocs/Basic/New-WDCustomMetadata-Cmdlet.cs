@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                 context.CustomMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.CustomMetadata.Keys)
                 {
-                    context.CustomMetadata.Add((String)hashKey, (String)(this.CustomMetadata[hashKey]));
+                    context.CustomMetadata.Add((String)hashKey, (System.String)(this.CustomMetadata[hashKey]));
                 }
             }
             #if MODULAR

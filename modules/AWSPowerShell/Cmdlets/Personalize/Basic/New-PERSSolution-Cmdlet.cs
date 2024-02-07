@@ -442,7 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.SolutionConfig_AlgorithmHyperParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SolutionConfig_AlgorithmHyperParameter.Keys)
                 {
-                    context.SolutionConfig_AlgorithmHyperParameter.Add((String)hashKey, (String)(this.SolutionConfig_AlgorithmHyperParameter[hashKey]));
+                    context.SolutionConfig_AlgorithmHyperParameter.Add((String)hashKey, (System.String)(this.SolutionConfig_AlgorithmHyperParameter[hashKey]));
                 }
             }
             context.AutoMLConfig_MetricName = this.AutoMLConfig_MetricName;
@@ -456,7 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 context.SolutionConfig_FeatureTransformationParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SolutionConfig_FeatureTransformationParameter.Keys)
                 {
-                    context.SolutionConfig_FeatureTransformationParameter.Add((String)hashKey, (String)(this.SolutionConfig_FeatureTransformationParameter[hashKey]));
+                    context.SolutionConfig_FeatureTransformationParameter.Add((String)hashKey, (System.String)(this.SolutionConfig_FeatureTransformationParameter[hashKey]));
                 }
             }
             if (this.AlgorithmHyperParameterRanges_CategoricalHyperParameterRange != null)

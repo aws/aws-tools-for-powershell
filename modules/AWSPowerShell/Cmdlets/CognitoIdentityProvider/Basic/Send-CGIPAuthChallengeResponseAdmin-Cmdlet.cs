@@ -337,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.ChallengeResponse = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ChallengeResponse.Keys)
                 {
-                    context.ChallengeResponse.Add((String)hashKey, (String)(this.ChallengeResponse[hashKey]));
+                    context.ChallengeResponse.Add((String)hashKey, (System.String)(this.ChallengeResponse[hashKey]));
                 }
             }
             context.ClientId = this.ClientId;
@@ -352,7 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.ClientMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ClientMetadata.Keys)
                 {
-                    context.ClientMetadata.Add((String)hashKey, (String)(this.ClientMetadata[hashKey]));
+                    context.ClientMetadata.Add((String)hashKey, (System.String)(this.ClientMetadata[hashKey]));
                 }
             }
             context.ContextData_EncodedData = this.ContextData_EncodedData;

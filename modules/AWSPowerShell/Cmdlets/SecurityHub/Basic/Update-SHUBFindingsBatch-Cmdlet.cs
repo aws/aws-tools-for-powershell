@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 context.UserDefinedField = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.UserDefinedField.Keys)
                 {
-                    context.UserDefinedField.Add((String)hashKey, (String)(this.UserDefinedField[hashKey]));
+                    context.UserDefinedField.Add((String)hashKey, (System.String)(this.UserDefinedField[hashKey]));
                 }
             }
             context.VerificationState = this.VerificationState;

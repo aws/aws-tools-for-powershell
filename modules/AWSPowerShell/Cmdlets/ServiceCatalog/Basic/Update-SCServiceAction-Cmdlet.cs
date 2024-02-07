@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 context.Definition = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Definition.Keys)
                 {
-                    context.Definition.Add((String)hashKey, (String)(this.Definition[hashKey]));
+                    context.Definition.Add((String)hashKey, (System.String)(this.Definition[hashKey]));
                 }
             }
             context.Description = this.Description;

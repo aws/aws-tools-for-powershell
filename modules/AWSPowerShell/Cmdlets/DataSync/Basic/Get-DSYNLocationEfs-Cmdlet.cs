@@ -28,7 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns metadata about your DataSync location for an Amazon EFS file system.
+    /// Provides details about how an DataSync transfer location for an Amazon EFS file system
+    /// is configured.
     /// </summary>
     [Cmdlet("Get", "DSYNLocationEfs")]
     [OutputType("Amazon.DataSync.Model.DescribeLocationEfsResponse")]

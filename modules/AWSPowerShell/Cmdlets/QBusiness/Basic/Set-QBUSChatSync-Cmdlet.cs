@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 context.ActionExecution_Payload = new Dictionary<System.String, Amazon.QBusiness.Model.ActionExecutionPayloadField>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ActionExecution_Payload.Keys)
                 {
-                    context.ActionExecution_Payload.Add((String)hashKey, (ActionExecutionPayloadField)(this.ActionExecution_Payload[hashKey]));
+                    context.ActionExecution_Payload.Add((String)hashKey, (Amazon.QBusiness.Model.ActionExecutionPayloadField)(this.ActionExecution_Payload[hashKey]));
                 }
             }
             context.ActionExecution_PayloadFieldNameSeparator = this.ActionExecution_PayloadFieldNameSeparator;

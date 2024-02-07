@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 context.Parameter = new Dictionary<System.String, Amazon.AppConfig.Model.Parameter>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Parameter.Keys)
                 {
-                    context.Parameter.Add((String)hashKey, (Parameter)(this.Parameter[hashKey]));
+                    context.Parameter.Add((String)hashKey, (Amazon.AppConfig.Model.Parameter)(this.Parameter[hashKey]));
                 }
             }
             if (this.Tag != null)
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

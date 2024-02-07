@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 context.ReplicationSetRegions = new Dictionary<System.String, Amazon.SSMIncidents.Model.RegionMapInputValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ReplicationSetRegions.Keys)
                 {
-                    context.ReplicationSetRegions.Add((String)hashKey, (RegionMapInputValue)(this.ReplicationSetRegions[hashKey]));
+                    context.ReplicationSetRegions.Add((String)hashKey, (Amazon.SSMIncidents.Model.RegionMapInputValue)(this.ReplicationSetRegions[hashKey]));
                 }
             }
             #if MODULAR
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SSMI
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

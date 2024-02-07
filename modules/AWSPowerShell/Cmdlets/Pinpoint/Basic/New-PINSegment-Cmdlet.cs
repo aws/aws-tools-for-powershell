@@ -469,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Dimensions_Attribute = new Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Dimensions_Attribute.Keys)
                 {
-                    context.Dimensions_Attribute.Add((String)hashKey, (AttributeDimension)(this.Dimensions_Attribute[hashKey]));
+                    context.Dimensions_Attribute.Add((String)hashKey, (Amazon.Pinpoint.Model.AttributeDimension)(this.Dimensions_Attribute[hashKey]));
                 }
             }
             context.Recency_Duration = this.Recency_Duration;
@@ -517,7 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Dimensions_Metric = new Dictionary<System.String, Amazon.Pinpoint.Model.MetricDimension>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Dimensions_Metric.Keys)
                 {
-                    context.Dimensions_Metric.Add((String)hashKey, (MetricDimension)(this.Dimensions_Metric[hashKey]));
+                    context.Dimensions_Metric.Add((String)hashKey, (Amazon.Pinpoint.Model.MetricDimension)(this.Dimensions_Metric[hashKey]));
                 }
             }
             if (this.Dimensions_UserAttribute != null)
@@ -525,7 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.Dimensions_UserAttribute = new Dictionary<System.String, Amazon.Pinpoint.Model.AttributeDimension>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Dimensions_UserAttribute.Keys)
                 {
-                    context.Dimensions_UserAttribute.Add((String)hashKey, (AttributeDimension)(this.Dimensions_UserAttribute[hashKey]));
+                    context.Dimensions_UserAttribute.Add((String)hashKey, (Amazon.Pinpoint.Model.AttributeDimension)(this.Dimensions_UserAttribute[hashKey]));
                 }
             }
             context.WriteSegmentRequest_Name = this.WriteSegmentRequest_Name;
@@ -539,7 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.WriteSegmentRequest_Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.WriteSegmentRequest_Tag.Keys)
                 {
-                    context.WriteSegmentRequest_Tag.Add((String)hashKey, (String)(this.WriteSegmentRequest_Tag[hashKey]));
+                    context.WriteSegmentRequest_Tag.Add((String)hashKey, (System.String)(this.WriteSegmentRequest_Tag[hashKey]));
                 }
             }
             

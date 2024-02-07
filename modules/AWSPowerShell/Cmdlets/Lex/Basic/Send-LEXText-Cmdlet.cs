@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 context.RequestAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RequestAttribute.Keys)
                 {
-                    context.RequestAttribute.Add((String)hashKey, (String)(this.RequestAttribute[hashKey]));
+                    context.RequestAttribute.Add((String)hashKey, (System.String)(this.RequestAttribute[hashKey]));
                 }
             }
             if (this.SessionAttribute != null)
@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 context.SessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.SessionAttribute.Keys)
                 {
-                    context.SessionAttribute.Add((String)hashKey, (String)(this.SessionAttribute[hashKey]));
+                    context.SessionAttribute.Add((String)hashKey, (System.String)(this.SessionAttribute[hashKey]));
                 }
             }
             context.UserId = this.UserId;

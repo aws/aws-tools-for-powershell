@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
                 context.InputParameter = new Dictionary<System.String, Amazon.MigrationHubOrchestrator.Model.StepInput>(StringComparer.Ordinal);
                 foreach (var hashKey in this.InputParameter.Keys)
                 {
-                    context.InputParameter.Add((String)hashKey, (StepInput)(this.InputParameter[hashKey]));
+                    context.InputParameter.Add((String)hashKey, (Amazon.MigrationHubOrchestrator.Model.StepInput)(this.InputParameter[hashKey]));
                 }
             }
             context.Name = this.Name;

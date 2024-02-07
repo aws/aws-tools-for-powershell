@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Argument = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Argument.Keys)
                 {
-                    context.Argument.Add((String)hashKey, (String)(this.Argument[hashKey]));
+                    context.Argument.Add((String)hashKey, (System.String)(this.Argument[hashKey]));
                 }
             }
             context.EndpointName = this.EndpointName;
@@ -347,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             context.WorkerType = this.WorkerType;

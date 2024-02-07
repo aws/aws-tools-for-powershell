@@ -550,7 +550,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.DeviceTypeAndroid_LoginMessage = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DeviceTypeAndroid_LoginMessage.Keys)
                 {
-                    context.DeviceTypeAndroid_LoginMessage.Add((String)hashKey, (String)(this.DeviceTypeAndroid_LoginMessage[hashKey]));
+                    context.DeviceTypeAndroid_LoginMessage.Add((String)hashKey, (System.String)(this.DeviceTypeAndroid_LoginMessage[hashKey]));
                 }
             }
             context.DeviceTypeAndroid_Logo = this.DeviceTypeAndroid_Logo;
@@ -562,7 +562,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.DeviceTypeIos_LoginMessage = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DeviceTypeIos_LoginMessage.Keys)
                 {
-                    context.DeviceTypeIos_LoginMessage.Add((String)hashKey, (String)(this.DeviceTypeIos_LoginMessage[hashKey]));
+                    context.DeviceTypeIos_LoginMessage.Add((String)hashKey, (System.String)(this.DeviceTypeIos_LoginMessage[hashKey]));
                 }
             }
             context.DeviceTypeIos_Logo = this.DeviceTypeIos_Logo;
@@ -576,7 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.DeviceTypeLinux_LoginMessage = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DeviceTypeLinux_LoginMessage.Keys)
                 {
-                    context.DeviceTypeLinux_LoginMessage.Add((String)hashKey, (String)(this.DeviceTypeLinux_LoginMessage[hashKey]));
+                    context.DeviceTypeLinux_LoginMessage.Add((String)hashKey, (System.String)(this.DeviceTypeLinux_LoginMessage[hashKey]));
                 }
             }
             context.DeviceTypeLinux_Logo = this.DeviceTypeLinux_Logo;
@@ -588,7 +588,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.DeviceTypeOsx_LoginMessage = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DeviceTypeOsx_LoginMessage.Keys)
                 {
-                    context.DeviceTypeOsx_LoginMessage.Add((String)hashKey, (String)(this.DeviceTypeOsx_LoginMessage[hashKey]));
+                    context.DeviceTypeOsx_LoginMessage.Add((String)hashKey, (System.String)(this.DeviceTypeOsx_LoginMessage[hashKey]));
                 }
             }
             context.DeviceTypeOsx_Logo = this.DeviceTypeOsx_Logo;
@@ -600,7 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.DeviceTypeWeb_LoginMessage = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DeviceTypeWeb_LoginMessage.Keys)
                 {
-                    context.DeviceTypeWeb_LoginMessage.Add((String)hashKey, (String)(this.DeviceTypeWeb_LoginMessage[hashKey]));
+                    context.DeviceTypeWeb_LoginMessage.Add((String)hashKey, (System.String)(this.DeviceTypeWeb_LoginMessage[hashKey]));
                 }
             }
             context.DeviceTypeWeb_Logo = this.DeviceTypeWeb_Logo;
@@ -612,7 +612,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 context.DeviceTypeWindows_LoginMessage = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DeviceTypeWindows_LoginMessage.Keys)
                 {
-                    context.DeviceTypeWindows_LoginMessage.Add((String)hashKey, (String)(this.DeviceTypeWindows_LoginMessage[hashKey]));
+                    context.DeviceTypeWindows_LoginMessage.Add((String)hashKey, (System.String)(this.DeviceTypeWindows_LoginMessage[hashKey]));
                 }
             }
             context.DeviceTypeWindows_Logo = this.DeviceTypeWindows_Logo;

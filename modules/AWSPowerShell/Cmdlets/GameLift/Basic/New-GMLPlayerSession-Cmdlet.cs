@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 context.PlayerDataMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.PlayerDataMap.Keys)
                 {
-                    context.PlayerDataMap.Add((String)hashKey, (String)(this.PlayerDataMap[hashKey]));
+                    context.PlayerDataMap.Add((String)hashKey, (System.String)(this.PlayerDataMap[hashKey]));
                 }
             }
             if (this.PlayerId != null)

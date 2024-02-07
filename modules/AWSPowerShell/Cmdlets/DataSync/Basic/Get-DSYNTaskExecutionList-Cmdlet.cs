@@ -28,7 +28,7 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Returns a list of executed tasks.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of executions for an DataSync transfer task.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DSYNTaskExecutionList")]
     [OutputType("Amazon.DataSync.Model.TaskExecutionListEntry")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the task whose tasks you want to list.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the task that you want execution information
+        /// about.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of executed tasks to list.</para>
+        /// <para>Specifies how many results you want in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.
@@ -72,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An opaque string that indicates the position at which to begin the next list of the
-        /// executed tasks.</para>
+        /// <para>Specifies an opaque string that indicates the position at which to begin the next
+        /// list of results in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

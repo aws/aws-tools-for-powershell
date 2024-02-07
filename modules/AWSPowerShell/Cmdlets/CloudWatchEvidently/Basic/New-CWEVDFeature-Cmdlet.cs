@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
                 context.EntityOverride = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EntityOverride.Keys)
                 {
-                    context.EntityOverride.Add((String)hashKey, (String)(this.EntityOverride[hashKey]));
+                    context.EntityOverride.Add((String)hashKey, (System.String)(this.EntityOverride[hashKey]));
                 }
             }
             context.EvaluationStrategy = this.EvaluationStrategy;
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CWEVD
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             if (this.Variation != null)

@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.OperationalData = new Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.OpsItemDataValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.OperationalData.Keys)
                 {
-                    context.OperationalData.Add((String)hashKey, (OpsItemDataValue)(this.OperationalData[hashKey]));
+                    context.OperationalData.Add((String)hashKey, (Amazon.SimpleSystemsManagement.Model.OpsItemDataValue)(this.OperationalData[hashKey]));
                 }
             }
             if (this.OperationalDataToDelete != null)

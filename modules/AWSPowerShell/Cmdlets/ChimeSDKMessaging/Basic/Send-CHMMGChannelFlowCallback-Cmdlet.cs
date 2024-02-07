@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMG
                 context.ChannelMessage_MessageAttribute = new Dictionary<System.String, Amazon.ChimeSDKMessaging.Model.MessageAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ChannelMessage_MessageAttribute.Keys)
                 {
-                    context.ChannelMessage_MessageAttribute.Add((String)hashKey, (MessageAttributeValue)(this.ChannelMessage_MessageAttribute[hashKey]));
+                    context.ChannelMessage_MessageAttribute.Add((String)hashKey, (Amazon.ChimeSDKMessaging.Model.MessageAttributeValue)(this.ChannelMessage_MessageAttribute[hashKey]));
                 }
             }
             context.ChannelMessage_MessageId = this.ChannelMessage_MessageId;

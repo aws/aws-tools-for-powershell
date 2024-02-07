@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 context.ObjectConfiguration = new Dictionary<System.String, Dictionary<System.String, List<System.String>>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ObjectConfiguration.Keys)
                 {
-                    context.ObjectConfiguration.Add((String)hashKey, (Dictionary<String,List<String>>)(this.ObjectConfiguration[hashKey]));
+                    context.ObjectConfiguration.Add((String)hashKey, (Dictionary<System.String,List<System.String>>)(this.ObjectConfiguration[hashKey]));
                 }
             }
             context.ScheduleConfig_FirstExecutionFrom = this.ScheduleConfig_FirstExecutionFrom;
@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
-                    context.Tag.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
             

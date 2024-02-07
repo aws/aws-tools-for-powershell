@@ -28,7 +28,14 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for a Hadoop Distributed File System (HDFS).
+    /// Creates a transfer <i>location</i> for a Hadoop Distributed File System (HDFS). DataSync
+    /// can use this location as a source or destination for transferring data.
+    /// 
+    ///  
+    /// <para>
+    /// Before you begin, make sure that you understand how DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs">accesses
+    /// HDFS clusters</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationHdf", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

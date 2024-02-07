@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 context.MessageAttribute = new Dictionary<System.String, Amazon.SimpleNotificationService.Model.MessageAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.MessageAttribute.Keys)
                 {
-                    context.MessageAttribute.Add((String)hashKey, (MessageAttributeValue)(this.MessageAttribute[hashKey]));
+                    context.MessageAttribute.Add((String)hashKey, (Amazon.SimpleNotificationService.Model.MessageAttributeValue)(this.MessageAttribute[hashKey]));
                 }
             }
             context.MessageDeduplicationId = this.MessageDeduplicationId;

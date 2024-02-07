@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.GlueTable_AdditionalOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.GlueTable_AdditionalOption.Keys)
                 {
-                    context.GlueTable_AdditionalOption.Add((String)hashKey, (String)(this.GlueTable_AdditionalOption[hashKey]));
+                    context.GlueTable_AdditionalOption.Add((String)hashKey, (System.String)(this.GlueTable_AdditionalOption[hashKey]));
                 }
             }
             context.GlueTable_CatalogId = this.GlueTable_CatalogId;

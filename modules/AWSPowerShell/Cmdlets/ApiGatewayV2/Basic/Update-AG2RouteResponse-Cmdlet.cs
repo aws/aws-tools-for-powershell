@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.ResponseModel = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResponseModel.Keys)
                 {
-                    context.ResponseModel.Add((String)hashKey, (String)(this.ResponseModel[hashKey]));
+                    context.ResponseModel.Add((String)hashKey, (System.String)(this.ResponseModel[hashKey]));
                 }
             }
             if (this.ResponseParameter != null)
@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 context.ResponseParameter = new Dictionary<System.String, Amazon.ApiGatewayV2.Model.ParameterConstraints>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ResponseParameter.Keys)
                 {
-                    context.ResponseParameter.Add((String)hashKey, (ParameterConstraints)(this.ResponseParameter[hashKey]));
+                    context.ResponseParameter.Add((String)hashKey, (Amazon.ApiGatewayV2.Model.ParameterConstraints)(this.ResponseParameter[hashKey]));
                 }
             }
             context.RouteId = this.RouteId;

@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.RunProperty = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RunProperty.Keys)
                 {
-                    context.RunProperty.Add((String)hashKey, (String)(this.RunProperty[hashKey]));
+                    context.RunProperty.Add((String)hashKey, (System.String)(this.RunProperty[hashKey]));
                 }
             }
             

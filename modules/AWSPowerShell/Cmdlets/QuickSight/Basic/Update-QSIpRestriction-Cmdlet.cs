@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 context.IpRestrictionRuleMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.IpRestrictionRuleMap.Keys)
                 {
-                    context.IpRestrictionRuleMap.Add((String)hashKey, (String)(this.IpRestrictionRuleMap[hashKey]));
+                    context.IpRestrictionRuleMap.Add((String)hashKey, (System.String)(this.IpRestrictionRuleMap[hashKey]));
                 }
             }
             

@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.RestoreTestingSelection_RestoreMetadataOverride = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RestoreTestingSelection_RestoreMetadataOverride.Keys)
                 {
-                    context.RestoreTestingSelection_RestoreMetadataOverride.Add((String)hashKey, (String)(this.RestoreTestingSelection_RestoreMetadataOverride[hashKey]));
+                    context.RestoreTestingSelection_RestoreMetadataOverride.Add((String)hashKey, (System.String)(this.RestoreTestingSelection_RestoreMetadataOverride[hashKey]));
                 }
             }
             context.RestoreTestingSelection_ValidationWindowHour = this.RestoreTestingSelection_ValidationWindowHour;

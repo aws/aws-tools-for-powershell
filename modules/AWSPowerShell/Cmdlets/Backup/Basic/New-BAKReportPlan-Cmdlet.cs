@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.ReportPlanTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ReportPlanTag.Keys)
                 {
-                    context.ReportPlanTag.Add((String)hashKey, (String)(this.ReportPlanTag[hashKey]));
+                    context.ReportPlanTag.Add((String)hashKey, (System.String)(this.ReportPlanTag[hashKey]));
                 }
             }
             if (this.ReportSetting_Account != null)

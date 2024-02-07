@@ -529,7 +529,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 context.Test_Parameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Test_Parameter.Keys)
                 {
-                    context.Test_Parameter.Add((String)hashKey, (String)(this.Test_Parameter[hashKey]));
+                    context.Test_Parameter.Add((String)hashKey, (System.String)(this.Test_Parameter[hashKey]));
                 }
             }
             context.Test_TestPackageArn = this.Test_TestPackageArn;

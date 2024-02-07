@@ -28,13 +28,13 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can
-    /// use for a data transfer.
+    /// Creates a transfer <i>location</i> for an Amazon FSx for NetApp ONTAP file system.
+    /// DataSync can use this location as a source or destination for transferring data.
     /// 
     ///  
     /// <para>
     /// Before you begin, make sure that you understand how DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">accesses
-    /// an FSx for ONTAP file system</a>.
+    /// FSx for ONTAP file systems</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "DSYNLocationFsxOntap", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <summary>
         /// <para>
         /// <para>Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory
-        /// that your storage virtual machine (SVM) belongs to.</para>
+        /// that your storage virtual machine (SVM) belongs to.</para><para>If you have multiple domains in your environment, configuring this setting makes sure
+        /// that DataSync connects to the right SVM.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,16 +143,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter SMB_User
         /// <summary>
         /// <para>
-        /// <para>Specifies a user name that can mount the location and access the files, folders, and
-        /// metadata that you need in the SVM.</para><para>If you provide a user in your Active Directory, note the following:</para><ul><li><para>If you're using Directory Service for Microsoft Active Directory, the user must be
-        /// a member of the Amazon Web Services Delegated FSx Administrators group.</para></li><li><para>If you're using a self-managed Active Directory, the user must be a member of either
-        /// the Domain Admins group or a custom group that you specified for file system administration
-        /// when you created your file system.</para></li></ul><para>Make sure that the user has the permissions it needs to copy the data you want:</para><ul><li><para><c>SE_TCB_NAME</c>: Required to set object ownership and file metadata. With this
-        /// privilege, you also can copy NTFS discretionary access lists (DACLs).</para></li><li><para><c>SE_SECURITY_NAME</c>: May be needed to copy NTFS system access control lists (SACLs).
-        /// This operation specifically requires the Windows privilege, which is granted to members
-        /// of the Domain Admins group. If you configure your task to copy SACLs, make sure that
-        /// the user has the required privileges. For information about copying SACLs, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html#configure-ownership-and-permissions">Ownership
-        /// and permissions-related options</a>.</para></li></ul>
+        /// <para>Specifies a user that can mount and access the files, folders, and metadata in your
+        /// SVM.</para><para>For information about choosing a user with the right level of access for your transfer,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-smb">Using
+        /// the SMB protocol</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

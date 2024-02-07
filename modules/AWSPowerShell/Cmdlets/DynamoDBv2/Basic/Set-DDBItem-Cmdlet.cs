@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.Expected = new Dictionary<System.String, Amazon.DynamoDBv2.Model.ExpectedAttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Expected.Keys)
                 {
-                    context.Expected.Add((String)hashKey, (ExpectedAttributeValue)(this.Expected[hashKey]));
+                    context.Expected.Add((String)hashKey, (Amazon.DynamoDBv2.Model.ExpectedAttributeValue)(this.Expected[hashKey]));
                 }
             }
             if (this.ExpressionAttributeName != null)
@@ -321,7 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ExpressionAttributeName = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ExpressionAttributeName.Keys)
                 {
-                    context.ExpressionAttributeName.Add((String)hashKey, (String)(this.ExpressionAttributeName[hashKey]));
+                    context.ExpressionAttributeName.Add((String)hashKey, (System.String)(this.ExpressionAttributeName[hashKey]));
                 }
             }
             if (this.ExpressionAttributeValue != null)
@@ -329,7 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.ExpressionAttributeValue = new Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ExpressionAttributeValue.Keys)
                 {
-                    context.ExpressionAttributeValue.Add((String)hashKey, (AttributeValue)(this.ExpressionAttributeValue[hashKey]));
+                    context.ExpressionAttributeValue.Add((String)hashKey, (Amazon.DynamoDBv2.Model.AttributeValue)(this.ExpressionAttributeValue[hashKey]));
                 }
             }
             if (this.Item != null)
@@ -337,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 context.Item = new Dictionary<System.String, Amazon.DynamoDBv2.Model.AttributeValue>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Item.Keys)
                 {
-                    context.Item.Add((String)hashKey, (AttributeValue)(this.Item[hashKey]));
+                    context.Item.Add((String)hashKey, (Amazon.DynamoDBv2.Model.AttributeValue)(this.Item[hashKey]));
                 }
             }
             #if MODULAR

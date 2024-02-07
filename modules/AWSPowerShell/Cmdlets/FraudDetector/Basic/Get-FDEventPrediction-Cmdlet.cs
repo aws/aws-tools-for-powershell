@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 context.EventVariable = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.EventVariable.Keys)
                 {
-                    context.EventVariable.Add((String)hashKey, (String)(this.EventVariable[hashKey]));
+                    context.EventVariable.Add((String)hashKey, (System.String)(this.EventVariable[hashKey]));
                 }
             }
             #if MODULAR
@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.FD
                 context.ExternalModelEndpointDataBlob = new Dictionary<System.String, Amazon.FraudDetector.Model.ModelEndpointDataBlob>(StringComparer.Ordinal);
                 foreach (var hashKey in this.ExternalModelEndpointDataBlob.Keys)
                 {
-                    context.ExternalModelEndpointDataBlob.Add((String)hashKey, (ModelEndpointDataBlob)(this.ExternalModelEndpointDataBlob[hashKey]));
+                    context.ExternalModelEndpointDataBlob.Add((String)hashKey, (Amazon.FraudDetector.Model.ModelEndpointDataBlob)(this.ExternalModelEndpointDataBlob[hashKey]));
                 }
             }
             

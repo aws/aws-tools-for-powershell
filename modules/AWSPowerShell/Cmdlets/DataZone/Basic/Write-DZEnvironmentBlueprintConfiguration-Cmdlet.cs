@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.RegionalParameter = new Dictionary<System.String, Dictionary<System.String, System.String>>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RegionalParameter.Keys)
                 {
-                    context.RegionalParameter.Add((String)hashKey, (Dictionary<String,String>)(this.RegionalParameter[hashKey]));
+                    context.RegionalParameter.Add((String)hashKey, (Dictionary<System.String,System.String>)(this.RegionalParameter[hashKey]));
                 }
             }
             

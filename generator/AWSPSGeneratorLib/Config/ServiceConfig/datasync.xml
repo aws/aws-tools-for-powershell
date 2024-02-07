@@ -85,7 +85,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTask" OutputProperty="TaskArn" Verb="New" Noun="Task" ShouldProcessTarget="SourceLocationArn" PipelineParameter="SourceLocationArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ManifestConfig_Source_S3_S3BucketArn" NewName="ManifestConfig_Source_S3_S3BucketArn" />
+                <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
+                <Param Name="ManifestConfig_Source_S3_BucketAccessRoleArn" NewName="ManifestConfig_Source_S3_BucketAccessRoleArn" />
+                <Param Name="TaskReportConfig_Destination_S3_BucketAccessRoleArn" NewName="TaskReportConfig_Destination_S3_BucketAccessRoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAgent" Verb="Remove" Noun="Agent" ShouldProcessTarget="AgentArn" PipelineParameter="AgentArn" NoPipelineParameter="false">
@@ -213,7 +218,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartTaskExecution" OutputProperty="TaskExecutionArn" Verb="Start" Noun="TaskExecution" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ManifestConfig_Source_S3_S3BucketArn" NewName="ManifestConfig_Source_S3_S3BucketArn" />
+                <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
+                <Param Name="ManifestConfig_Source_S3_BucketAccessRoleArn" NewName="ManifestConfig_Source_S3_BucketAccessRoleArn" />
+                <Param Name="TaskReportConfig_Destination_S3_BucketAccessRoleArn" NewName="TaskReportConfig_Destination_S3_BucketAccessRoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopDiscoveryJob" Verb="Stop" Noun="DiscoveryJob" ShouldProcessTarget="DiscoveryJobArn" PipelineParameter="DiscoveryJobArn" NoPipelineParameter="false">
@@ -264,7 +274,12 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTask" Verb="Update" Noun="Task" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="ManifestConfig_Source_S3_S3BucketArn" NewName="ManifestConfig_Source_S3_S3BucketArn" />
+                <Param Name="TaskReportConfig_Destination_S3_S3BucketArn" NewName="TaskReportConfig_Destination_S3_S3BucketArn" />
+                <Param Name="ManifestConfig_Source_S3_BucketAccessRoleArn" NewName="ManifestConfig_Source_S3_BucketAccessRoleArn" />
+                <Param Name="TaskReportConfig_Destination_S3_BucketAccessRoleArn" NewName="TaskReportConfig_Destination_S3_BucketAccessRoleArn" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTaskExecution" Verb="Update" Noun="TaskExecution" ShouldProcessTarget="TaskExecutionArn" PipelineParameter="TaskExecutionArn" NoPipelineParameter="false">

@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 context.RoleMapping = new Dictionary<System.String, Amazon.CognitoIdentity.Model.RoleMapping>(StringComparer.Ordinal);
                 foreach (var hashKey in this.RoleMapping.Keys)
                 {
-                    context.RoleMapping.Add((String)hashKey, (RoleMapping)(this.RoleMapping[hashKey]));
+                    context.RoleMapping.Add((String)hashKey, (Amazon.CognitoIdentity.Model.RoleMapping)(this.RoleMapping[hashKey]));
                 }
             }
             if (this.Role != null)
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 context.Role = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Role.Keys)
                 {
-                    context.Role.Add((String)hashKey, (String)(this.Role[hashKey]));
+                    context.Role.Add((String)hashKey, (System.String)(this.Role[hashKey]));
                 }
             }
             #if MODULAR

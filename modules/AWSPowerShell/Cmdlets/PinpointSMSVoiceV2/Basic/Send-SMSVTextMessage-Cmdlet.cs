@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 context.Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Context.Keys)
                 {
-                    context.Context.Add((String)hashKey, (String)(this.Context[hashKey]));
+                    context.Context.Add((String)hashKey, (System.String)(this.Context[hashKey]));
                 }
             }
             if (this.DestinationCountryParameter != null)
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 context.DestinationCountryParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.DestinationCountryParameter.Keys)
                 {
-                    context.DestinationCountryParameter.Add((String)hashKey, (String)(this.DestinationCountryParameter[hashKey]));
+                    context.DestinationCountryParameter.Add((String)hashKey, (System.String)(this.DestinationCountryParameter[hashKey]));
                 }
             }
             context.DestinationPhoneNumber = this.DestinationPhoneNumber;
