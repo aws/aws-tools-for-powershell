@@ -146,6 +146,13 @@ $CP_Completers = {
             break
         }
 
+        # Amazon.CodePipeline.StartTimeRange
+        "Get-CPActionExecutionList/Filter_LatestInPipelineExecution_StartTimeRange"
+        {
+            $v = "All","Latest"
+            break
+        }
+
         # Amazon.CodePipeline.WebhookAuthenticationType
         "Write-CPWebhook/Webhook_Authentication"
         {
@@ -169,6 +176,7 @@ $CP_map = @{
     "ActionTypeId_Owner"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "Category"=@("Get-CPActionTypeDeclaration","New-CPCustomActionType","Remove-CPCustomActionType")
     "FailureDetails_Type"=@("Write-CPJobFailureResult","Write-CPThirdPartyJobFailureResult")
+    "Filter_LatestInPipelineExecution_StartTimeRange"=@("Get-CPActionExecutionList")
     "Result_Status"=@("Write-CPApprovalResult")
     "RetryMode"=@("Redo-CPStageExecution")
     "TransitionType"=@("Disable-CPStageTransition","Enable-CPStageTransition")

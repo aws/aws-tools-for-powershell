@@ -95,6 +95,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String[] WorkspaceId { get; set; }
         #endregion
         
+        #region Parameter WorkspaceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the user-decoupled WorkSpace.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceName { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -180,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 context.WorkspaceId = new List<System.String>(this.WorkspaceId);
             }
+            context.WorkspaceName = this.WorkspaceName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -218,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.WorkspaceId != null)
             {
                 request.WorkspaceIds = cmdletContext.WorkspaceId;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             // Initialize loop variant and commence piping
@@ -289,6 +304,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.WorkspaceId != null)
             {
                 request.WorkspaceIds = cmdletContext.WorkspaceId;
+            }
+            if (cmdletContext.WorkspaceName != null)
+            {
+                request.WorkspaceName = cmdletContext.WorkspaceName;
             }
             
             // Initialize loop variants and commence piping
@@ -415,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String NextToken { get; set; }
             public System.String UserName { get; set; }
             public List<System.String> WorkspaceId { get; set; }
+            public System.String WorkspaceName { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.DescribeWorkspacesResponse, GetWKSWorkspaceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Workspaces;
         }

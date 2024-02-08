@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter GrantPermission
         /// <summary>
         /// <para>
-        /// <para>The permissions that you want to grant on a resource.</para>
+        /// <para>The permissions that you want to grant on a resource. Namespace ARNs are not supported
+        /// <c>Principal</c> values for folder permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter RevokePermission
         /// <summary>
         /// <para>
-        /// <para>The permissions that you want to revoke from a resource.</para>
+        /// <para>The permissions that you want to revoke from a resource. Namespace ARNs are not supported
+        /// <c>Principal</c> values for folder permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

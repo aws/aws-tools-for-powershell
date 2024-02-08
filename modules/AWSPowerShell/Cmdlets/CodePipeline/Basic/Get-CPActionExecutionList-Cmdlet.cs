@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter LatestInPipelineExecution_PipelineExecutionId
+        /// <summary>
+        /// <para>
+        /// <para>The execution ID for the latest execution in the pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_LatestInPipelineExecution_PipelineExecutionId")]
+        public System.String LatestInPipelineExecution_PipelineExecutionId { get; set; }
+        #endregion
+        
         #region Parameter Filter_PipelineExecutionId
         /// <summary>
         /// <para>
@@ -67,6 +78,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PipelineName { get; set; }
+        #endregion
+        
+        #region Parameter LatestInPipelineExecution_StartTimeRange
+        /// <summary>
+        /// <para>
+        /// <para>The start time to filter on for the latest execution in the pipeline. Valid options:</para><ul><li><para>All</para></li><li><para>Latest</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_LatestInPipelineExecution_StartTimeRange")]
+        [AWSConstantClassSource("Amazon.CodePipeline.StartTimeRange")]
+        public Amazon.CodePipeline.StartTimeRange LatestInPipelineExecution_StartTimeRange { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -155,6 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 context.Select = (response, cmdlet) => this.PipelineName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LatestInPipelineExecution_PipelineExecutionId = this.LatestInPipelineExecution_PipelineExecutionId;
+            context.LatestInPipelineExecution_StartTimeRange = this.LatestInPipelineExecution_StartTimeRange;
             context.Filter_PipelineExecutionId = this.Filter_PipelineExecutionId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -197,6 +222,41 @@ namespace Amazon.PowerShell.Cmdlets.CP
             if (requestFilter_filter_PipelineExecutionId != null)
             {
                 request.Filter.PipelineExecutionId = requestFilter_filter_PipelineExecutionId;
+                requestFilterIsNull = false;
+            }
+            Amazon.CodePipeline.Model.LatestInPipelineExecutionFilter requestFilter_filter_LatestInPipelineExecution = null;
+            
+             // populate LatestInPipelineExecution
+            var requestFilter_filter_LatestInPipelineExecutionIsNull = true;
+            requestFilter_filter_LatestInPipelineExecution = new Amazon.CodePipeline.Model.LatestInPipelineExecutionFilter();
+            System.String requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_PipelineExecutionId = null;
+            if (cmdletContext.LatestInPipelineExecution_PipelineExecutionId != null)
+            {
+                requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_PipelineExecutionId = cmdletContext.LatestInPipelineExecution_PipelineExecutionId;
+            }
+            if (requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_PipelineExecutionId != null)
+            {
+                requestFilter_filter_LatestInPipelineExecution.PipelineExecutionId = requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_PipelineExecutionId;
+                requestFilter_filter_LatestInPipelineExecutionIsNull = false;
+            }
+            Amazon.CodePipeline.StartTimeRange requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_StartTimeRange = null;
+            if (cmdletContext.LatestInPipelineExecution_StartTimeRange != null)
+            {
+                requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_StartTimeRange = cmdletContext.LatestInPipelineExecution_StartTimeRange;
+            }
+            if (requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_StartTimeRange != null)
+            {
+                requestFilter_filter_LatestInPipelineExecution.StartTimeRange = requestFilter_filter_LatestInPipelineExecution_latestInPipelineExecution_StartTimeRange;
+                requestFilter_filter_LatestInPipelineExecutionIsNull = false;
+            }
+             // determine if requestFilter_filter_LatestInPipelineExecution should be set to null
+            if (requestFilter_filter_LatestInPipelineExecutionIsNull)
+            {
+                requestFilter_filter_LatestInPipelineExecution = null;
+            }
+            if (requestFilter_filter_LatestInPipelineExecution != null)
+            {
+                request.Filter.LatestInPipelineExecution = requestFilter_filter_LatestInPipelineExecution;
                 requestFilterIsNull = false;
             }
              // determine if request.Filter should be set to null
@@ -297,6 +357,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String LatestInPipelineExecution_PipelineExecutionId { get; set; }
+            public Amazon.CodePipeline.StartTimeRange LatestInPipelineExecution_StartTimeRange { get; set; }
             public System.String Filter_PipelineExecutionId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
