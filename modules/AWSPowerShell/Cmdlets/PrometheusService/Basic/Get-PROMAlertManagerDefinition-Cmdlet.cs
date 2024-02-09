@@ -28,7 +28,7 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Describes an alert manager definition.
+    /// Retrieves the full information about the alert manager definition for a workspace.
     /// </summary>
     [Cmdlet("Get", "PROMAlertManagerDefinition")]
     [OutputType("Amazon.PrometheusService.Model.AlertManagerDefinitionDescription")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace to describe.</para>
+        /// <para>The ID of the workspace to retrieve the alert manager definition from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

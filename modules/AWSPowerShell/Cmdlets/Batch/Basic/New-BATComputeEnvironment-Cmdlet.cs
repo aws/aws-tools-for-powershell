@@ -147,9 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// to select the Spot Instance pools that are the least likely to be interrupted and
         /// have the lowest possible price. This allocation strategy is only available for Spot
         /// Instance compute resources.</para></dd></dl><para>With <c>BEST_FIT_PROGRESSIVE</c>,<c>SPOT_CAPACITY_OPTIMIZED</c> and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
-        /// strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c> strategy using
-        /// Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet your capacity requirements.
-        /// In this event, Batch never exceeds <c>maxvCpus</c> by more than a single instance.</para>
+        /// (recommended) strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c>
+        /// strategy using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet
+        /// your capacity requirements. In this event, Batch never exceeds <c>maxvCpus</c> by
+        /// more than a single instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,8 +245,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
-        /// You can specify the short name or full Amazon Resource Name (ARN) of an instance profile.
-        /// For example, <c><i>ecsInstanceRole</i></c> or <c>arn:aws:iam::<i>&lt;aws_account_id&gt;</i>:instance-profile/<i>ecsInstanceRole</i></c>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html">Amazon
+        /// This parameter is required for Amazon EC2 instances types. You can specify the short
+        /// name or full Amazon Resource Name (ARN) of an instance profile. For example, <c><i>ecsInstanceRole</i></c> or <c>arn:aws:iam::<i>&lt;aws_account_id&gt;</i>:instance-profile/<i>ecsInstanceRole</i></c>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html">Amazon
         /// ECS instance role</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
         /// </para>
@@ -313,12 +314,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MaxvCpu
         /// <summary>
         /// <para>
-        /// <para>The maximum number of vCPUs that a compute environment can support.</para><note><para>With <c>BEST_FIT_PROGRESSIVE</c>, <c>SPOT_CAPACITY_OPTIMIZED</c> and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
-        /// allocation strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c> strategy
-        /// using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet your capacity
-        /// requirements. In this event, Batch never exceeds <c>maxvCpus</c> by more than a single
-        /// instance. For example, no more than a single instance from among those specified in
-        /// your compute environment is allocated.</para></note>
+        /// <para>The maximum number of vCPUs that a compute environment can support.</para><note><para>With <c>BEST_FIT_PROGRESSIVE</c>,<c>SPOT_CAPACITY_OPTIMIZED</c> and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
+        /// (recommended) strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c>
+        /// strategy using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet
+        /// your capacity requirements. In this event, Batch never exceeds <c>maxvCpus</c> by
+        /// more than a single instance.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

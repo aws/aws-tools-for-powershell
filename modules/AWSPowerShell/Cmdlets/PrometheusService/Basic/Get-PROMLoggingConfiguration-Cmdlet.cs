@@ -28,7 +28,7 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Describes logging configuration.
+    /// Returns complete information about the current logging configuration of the workspace.
     /// </summary>
     [Cmdlet("Get", "PROMLoggingConfiguration")]
     [OutputType("Amazon.PrometheusService.Model.LoggingConfigurationMetadata")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace to vend logs to.</para>
+        /// <para>The ID of the workspace to describe the logging configuration for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

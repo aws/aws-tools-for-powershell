@@ -28,7 +28,7 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Delete a rule groups namespace.
+    /// Deletes one rule groups namespace and its associated rule groups definition.
     /// </summary>
     [Cmdlet("Remove", "PROMRuleGroupsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The rule groups namespace name.</para>
+        /// <para>The name of the rule groups namespace to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace to delete rule group definition.</para>
+        /// <para>The ID of the workspace containing the rule groups namespace and definition to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

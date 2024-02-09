@@ -28,10 +28,13 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Returns a unique endpoint specific to the Amazon Web Services account making the call.
+    /// Returns or creates a unique endpoint specific to the Amazon Web Services account making
+    /// the call.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// The first time <c>DescribeEndpoint</c> is called, an endpoint is created. All subsequent
+    /// calls to <c>DescribeEndpoint</c> return the same endpoint.
+    /// </para></note><para>
     /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a>
     /// action.
     /// </para>

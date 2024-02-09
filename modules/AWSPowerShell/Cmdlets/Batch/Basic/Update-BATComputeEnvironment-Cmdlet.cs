@@ -61,10 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// resources.</para></dd><dt>SPOT_PRICE_CAPACITY_OPTIMIZED</dt><dd><para>The price and capacity optimized allocation strategy looks at both price and capacity
         /// to select the Spot Instance pools that are the least likely to be interrupted and
         /// have the lowest possible price. This allocation strategy is only available for Spot
-        /// Instance compute resources.</para></dd></dl><para>With both <c>BEST_FIT_PROGRESSIVE</c>, <c>SPOT_CAPACITY_OPTIMIZED</c>, and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
-        /// strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c> strategy using
-        /// Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet your capacity requirements.
-        /// In this event, Batch never exceeds <c>maxvCpus</c> by more than a single instance.</para>
+        /// Instance compute resources.</para></dd></dl><para>With <c>BEST_FIT_PROGRESSIVE</c>,<c>SPOT_CAPACITY_OPTIMIZED</c> and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
+        /// (recommended) strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c>
+        /// strategy using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet
+        /// your capacity requirements. In this event, Batch never exceeds <c>maxvCpus</c> by
+        /// more than a single instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -183,8 +184,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
-        /// You can specify the short name or full Amazon Resource Name (ARN) of an instance profile.
-        /// For example, <c><i>ecsInstanceRole</i></c> or <c>arn:aws:iam::<i>&lt;aws_account_id&gt;</i>:instance-profile/<i>ecsInstanceRole</i></c>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html">Amazon
+        /// Required for Amazon EC2 instances. You can specify the short name or full Amazon Resource
+        /// Name (ARN) of an instance profile. For example, <c><i>ecsInstanceRole</i></c> or
+        /// <c>arn:aws:iam::<i>&lt;aws_account_id&gt;</i>:instance-profile/<i>ecsInstanceRole</i></c>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/instance_IAM_role.html">Amazon
         /// ECS instance role</a> in the <i>Batch User Guide</i>.</para><para>When updating a compute environment, changing this setting requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
@@ -254,12 +256,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MaxvCpu
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para><note><para>With <c>BEST_FIT_PROGRESSIVE</c>, <c>SPOT_CAPACITY_OPTIMIZED</c>, and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
-        /// allocation strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c> strategy
-        /// using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet your capacity
-        /// requirements. In this event, Batch never exceeds <c>maxvCpus</c> by more than a single
-        /// instance. That is, no more than a single instance from among those specified in your
-        /// compute environment.</para></note>
+        /// <para>The maximum number of Amazon EC2 vCPUs that an environment can reach.</para><note><para>With <c>BEST_FIT_PROGRESSIVE</c>,<c>SPOT_CAPACITY_OPTIMIZED</c> and <c>SPOT_PRICE_CAPACITY_OPTIMIZED</c>
+        /// (recommended) strategies using On-Demand or Spot Instances, and the <c>BEST_FIT</c>
+        /// strategy using Spot Instances, Batch might need to exceed <c>maxvCpus</c> to meet
+        /// your capacity requirements. In this event, Batch never exceeds <c>maxvCpus</c> by
+        /// more than a single instance.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

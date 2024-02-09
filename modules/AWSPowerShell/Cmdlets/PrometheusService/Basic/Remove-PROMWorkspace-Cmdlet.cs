@@ -28,7 +28,12 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Deletes an AMP workspace.
+    /// Deletes an existing workspace. 
+    /// 
+    ///  <note><para>
+    /// When you delete a workspace, the data that has been ingested into it is not immediately
+    /// deleted. It will be permanently deleted within one month.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "PROMWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -62,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -36,49 +36,6 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// and roles that do not have specified individual account settings. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html">Account
     /// Settings</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
-    /// </para><para>
-    /// When you specify <c>serviceLongArnFormat</c>, <c>taskLongArnFormat</c>, or <c>containerInstanceLongArnFormat</c>,
-    /// the Amazon Resource Name (ARN) and resource ID format of the resource type for a specified
-    /// user, role, or the root user for an account is affected. The opt-in and opt-out account
-    /// setting must be set for each Amazon ECS resource separately. The ARN and resource
-    /// ID format of a resource is defined by the opt-in status of the user or role that created
-    /// the resource. You must turn on this setting to use Amazon ECS features such as resource
-    /// tagging.
-    /// </para><para>
-    /// When you specify <c>awsvpcTrunking</c>, the elastic network interface (ENI) limit
-    /// for any new container instances that support the feature is changed. If <c>awsvpcTrunking</c>
-    /// is turned on, any new container instances that support the feature are launched have
-    /// the increased ENI limits available to them. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html">Elastic
-    /// Network Interface Trunking</a> in the <i>Amazon Elastic Container Service Developer
-    /// Guide</i>.
-    /// </para><para>
-    /// When you specify <c>containerInsights</c>, the default setting indicating whether
-    /// Amazon Web Services CloudWatch Container Insights is turned on for your clusters is
-    /// changed. If <c>containerInsights</c> is turned on, any new clusters that are created
-    /// will have Container Insights turned on unless you disable it during cluster creation.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
-    /// Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
-    /// </para><para>
-    /// Amazon ECS is introducing tagging authorization for resource creation. Users must
-    /// have permissions for actions that create the resource, such as <c>ecsCreateCluster</c>.
-    /// If tags are specified when you create a resource, Amazon Web Services performs additional
-    /// authorization to verify if users or roles have permissions to create tags. Therefore,
-    /// you must grant explicit permissions to use the <c>ecs:TagResource</c> action. For
-    /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant
-    /// permission to tag resources on creation</a> in the <i>Amazon ECS Developer Guide</i>.
-    /// </para><para>
-    /// When Amazon Web Services determines that a security or infrastructure update is needed
-    /// for an Amazon ECS task hosted on Fargate, the tasks need to be stopped and new tasks
-    /// launched to replace them. Use <c>fargateTaskRetirementWaitPeriod</c> to configure
-    /// the wait time to retire a Fargate task. For information about the Fargate tasks maintenance,
-    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon
-    /// Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer Guide</i>.
-    /// </para><para>
-    /// The <c>guardDutyActivate</c> parameter is read-only in Amazon ECS and indicates whether
-    /// Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator
-    /// in your Amazon ECS account. Amazon GuardDuty controls this account setting on your
-    /// behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting
-    /// Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ECSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -96,24 +53,53 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon ECS resource name for which to modify the account setting. If you specify
-        /// <c>serviceLongArnFormat</c>, the ARN for your Amazon ECS services is affected. If
-        /// you specify <c>taskLongArnFormat</c>, the ARN and resource ID for your Amazon ECS
-        /// tasks is affected. If you specify <c>containerInstanceLongArnFormat</c>, the ARN and
-        /// resource ID for your Amazon ECS container instances is affected. If you specify <c>awsvpcTrunking</c>,
-        /// the elastic network interface (ENI) limit for your Amazon ECS container instances
-        /// is affected. If you specify <c>containerInsights</c>, the default setting for Amazon
-        /// Web Services CloudWatch Container Insights for your clusters is affected. If you specify
-        /// <c>fargateFIPSMode</c>, Fargate FIPS 140 compliance is affected. If you specify <c>tagResourceAuthorization</c>,
-        /// the opt-in option for tagging resources on creation is affected. For information about
-        /// the opt-in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#tag-resources">Tagging
-        /// authorization timeline</a> in the <i>Amazon ECS Developer Guide</i>. If you specify
-        /// <c>fargateTaskRetirementWaitPeriod</c>, the wait time to retire a Fargate task is
-        /// affected.</para><para>The <c>guardDutyActivate</c> parameter is read-only in Amazon ECS and indicates whether
-        /// Amazon ECS Runtime Monitoring is enabled or disabled by your security administrator
-        /// in your Amazon ECS account. Amazon GuardDuty controls this account setting on your
-        /// behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting
-        /// Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</para>
+        /// <para>The Amazon ECS account setting name to modify.</para><para>The following are the valid values for the account setting name.</para><ul><li><para><c>serviceLongArnFormat</c> - When modified, the Amazon Resource Name (ARN) and resource
+        /// ID format of the resource type for a specified user, role, or the root user for an
+        /// account is affected. The opt-in and opt-out account setting must be set for each Amazon
+        /// ECS resource separately. The ARN and resource ID format of a resource is defined by
+        /// the opt-in status of the user or role that created the resource. You must turn on
+        /// this setting to use Amazon ECS features such as resource tagging.</para></li><li><para><c>taskLongArnFormat</c> - When modified, the Amazon Resource Name (ARN) and resource
+        /// ID format of the resource type for a specified user, role, or the root user for an
+        /// account is affected. The opt-in and opt-out account setting must be set for each Amazon
+        /// ECS resource separately. The ARN and resource ID format of a resource is defined by
+        /// the opt-in status of the user or role that created the resource. You must turn on
+        /// this setting to use Amazon ECS features such as resource tagging.</para></li><li><para><c>containerInstanceLongArnFormat</c> - When modified, the Amazon Resource Name (ARN)
+        /// and resource ID format of the resource type for a specified user, role, or the root
+        /// user for an account is affected. The opt-in and opt-out account setting must be set
+        /// for each Amazon ECS resource separately. The ARN and resource ID format of a resource
+        /// is defined by the opt-in status of the user or role that created the resource. You
+        /// must turn on this setting to use Amazon ECS features such as resource tagging.</para></li><li><para><c>awsvpcTrunking</c> - When modified, the elastic network interface (ENI) limit
+        /// for any new container instances that support the feature is changed. If <c>awsvpcTrunking</c>
+        /// is turned on, any new container instances that support the feature are launched have
+        /// the increased ENI limits available to them. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-eni.html">Elastic
+        /// Network Interface Trunking</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para></li><li><para><c>containerInsights</c> - When modified, the default setting indicating whether
+        /// Amazon Web Services CloudWatch Container Insights is turned on for your clusters is
+        /// changed. If <c>containerInsights</c> is turned on, any new clusters that are created
+        /// will have Container Insights turned on unless you disable it during cluster creation.
+        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-container-insights.html">CloudWatch
+        /// Container Insights</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para></li><li><para><c>dualStackIPv6</c> - When turned on, when using a VPC in dual stack mode, your
+        /// tasks using the <c>awsvpc</c> network mode can have an IPv6 address assigned. For
+        /// more information on using IPv6 with tasks launched on Amazon EC2 instances, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking-awsvpc.html#task-networking-vpc-dual-stack">Using
+        /// a VPC in dual-stack mode</a>. For more information on using IPv6 with tasks launched
+        /// on Fargate, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-networking.html#fargate-task-networking-vpc-dual-stack">Using
+        /// a VPC in dual-stack mode</a>.</para></li><li><para><c>fargateFIPSMode</c> - If you specify <c>fargateFIPSMode</c>, Fargate FIPS 140
+        /// compliance is affected.</para></li><li><para><c>fargateTaskRetirementWaitPeriod</c> - When Amazon Web Services determines that
+        /// a security or infrastructure update is needed for an Amazon ECS task hosted on Fargate,
+        /// the tasks need to be stopped and new tasks launched to replace them. Use <c>fargateTaskRetirementWaitPeriod</c>
+        /// to configure the wait time to retire a Fargate task. For information about the Fargate
+        /// tasks maintenance, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-maintenance.html">Amazon
+        /// Web Services Fargate task maintenance</a> in the <i>Amazon ECS Developer Guide</i>.</para></li><li><para><c>tagResourceAuthorization</c> - Amazon ECS is introducing tagging authorization
+        /// for resource creation. Users must have permissions for actions that create the resource,
+        /// such as <c>ecsCreateCluster</c>. If tags are specified when you create a resource,
+        /// Amazon Web Services performs additional authorization to verify if users or roles
+        /// have permissions to create tags. Therefore, you must grant explicit permissions to
+        /// use the <c>ecs:TagResource</c> action. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/supported-iam-actions-tagging.html">Grant
+        /// permission to tag resources on creation</a> in the <i>Amazon ECS Developer Guide</i>.</para></li><li><para><c>guardDutyActivate</c> - The <c>guardDutyActivate</c> parameter is read-only in
+        /// Amazon ECS and indicates whether Amazon ECS Runtime Monitoring is enabled or disabled
+        /// by your security administrator in your Amazon ECS account. Amazon GuardDuty controls
+        /// this account setting on your behalf. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-guard-duty-integration.html">Protecting
+        /// Amazon ECS workloads with Amazon ECS Runtime Monitoring</a>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

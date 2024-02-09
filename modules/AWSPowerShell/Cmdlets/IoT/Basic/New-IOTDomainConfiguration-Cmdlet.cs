@@ -95,6 +95,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter ServerCertificateConfig_EnableOCSPCheck
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server
+        /// certificate check is enabled or not.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-domain-ocsp-config.html">Configuring
+        /// OCSP server-certificate stapling in domain configuration</a> from Amazon Web Services
+        /// IoT Core Developer Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ServerCertificateConfig_EnableOCSPCheck { get; set; }
+        #endregion
+        
         #region Parameter TlsConfig_SecurityPolicy
         /// <summary>
         /// <para>
@@ -229,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.ServerCertificateArn = new List<System.String>(this.ServerCertificateArn);
             }
+            context.ServerCertificateConfig_EnableOCSPCheck = this.ServerCertificateConfig_EnableOCSPCheck;
             context.ServiceType = this.ServiceType;
             if (this.Tag != null)
             {
@@ -292,6 +306,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ServerCertificateArn != null)
             {
                 request.ServerCertificateArns = cmdletContext.ServerCertificateArn;
+            }
+            
+             // populate ServerCertificateConfig
+            var requestServerCertificateConfigIsNull = true;
+            request.ServerCertificateConfig = new Amazon.IoT.Model.ServerCertificateConfig();
+            System.Boolean? requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck = null;
+            if (cmdletContext.ServerCertificateConfig_EnableOCSPCheck != null)
+            {
+                requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck = cmdletContext.ServerCertificateConfig_EnableOCSPCheck.Value;
+            }
+            if (requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck != null)
+            {
+                request.ServerCertificateConfig.EnableOCSPCheck = requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck.Value;
+                requestServerCertificateConfigIsNull = false;
+            }
+             // determine if request.ServerCertificateConfig should be set to null
+            if (requestServerCertificateConfigIsNull)
+            {
+                request.ServerCertificateConfig = null;
             }
             if (cmdletContext.ServiceType != null)
             {
@@ -390,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String DomainConfigurationName { get; set; }
             public System.String DomainName { get; set; }
             public List<System.String> ServerCertificateArn { get; set; }
+            public System.Boolean? ServerCertificateConfig_EnableOCSPCheck { get; set; }
             public Amazon.IoT.ServiceType ServiceType { get; set; }
             public List<Amazon.IoT.Model.Tag> Tag { get; set; }
             public System.String TlsConfig_SecurityPolicy { get; set; }

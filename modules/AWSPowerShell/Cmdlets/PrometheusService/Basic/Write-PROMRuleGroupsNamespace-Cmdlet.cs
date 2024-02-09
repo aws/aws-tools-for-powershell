@@ -28,7 +28,18 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Update a rule groups namespace.
+    /// Updates an existing rule groups namespace within a workspace. A rule groups namespace
+    /// is associated with exactly one rules file. A workspace can have multiple rule groups
+    /// namespaces.
+    /// 
+    ///  
+    /// <para>
+    /// Use this operation only to update existing rule groups namespaces. To create a new
+    /// rule groups namespace, use <c>CreateRuleGroupsNamespace</c>.
+    /// </para><para>
+    /// You can't use this operation to add tags to an existing rule groups namespace. Instead,
+    /// use <c>TagResource</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "PROMRuleGroupsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.PutRuleGroupsNamespaceResponse")]
@@ -44,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>The namespace data that define the rule groups.</para>
+        /// <para>The new rules file to use in the namespace. A base64-encoded version of the YAML rule
+        /// groups file.</para><para>For details about the rule groups namespace structure, see <a href="https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-RuleGroupsNamespaceData.html">RuleGroupsNamespaceData</a>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -62,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The rule groups namespace name.</para>
+        /// <para>The name of the rule groups namespace that you are updating.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace in which to update the rule group namespace.</para>
+        /// <para>The ID of the workspace where you are updating the rule groups namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,30 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Create a scraper.
+    /// The <c>CreateScraper</c> operation creates a scraper to collect metrics. A scraper
+    /// pulls metrics from Prometheus-compatible sources within an Amazon EKS cluster, and
+    /// sends them to your Amazon Managed Service for Prometheus workspace. You can configure
+    /// the scraper to control what metrics are collected, and what transformations are applied
+    /// prior to sending them to your workspace.
+    /// 
+    ///  
+    /// <para>
+    /// If needed, an IAM role will be created for you that gives Amazon Managed Service for
+    /// Prometheus access to the metrics in your cluster. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper">Using
+    /// roles for scraping metrics from EKS</a> in the <i>Amazon Managed Service for Prometheus
+    /// User Guide</i>.
+    /// </para><para>
+    /// You cannot update a scraper. If you want to change the configuration of the scraper,
+    /// create a new scraper and delete the old one.
+    /// </para><para>
+    /// The <c>scrapeConfiguration</c> parameter contains the base64-encoded version of the
+    /// YAML configuration file.
+    /// </para><note><para>
+    /// For more information about collectors, including what metrics are collected, and how
+    /// to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html">Amazon
+    /// Web Services managed collectors</a> in the <i>Amazon Managed Service for Prometheus
+    /// User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "PROMScraper", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.CreateScraperResponse")]
@@ -44,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>An optional user-assigned alias for this scraper. This alias is for user reference
-        /// and does not need to be unique.</para>
+        /// <para>(optional) a name to associate with the scraper. This is for your use, and does not
+        /// need to be unique.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter EksConfiguration_ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an EKS cluster.</para>
+        /// <para>ARN of the Amazon EKS cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ScrapeConfiguration_ConfigurationBlob
         /// <summary>
         /// <para>
-        /// <para>Binary data representing a Prometheus configuration file.</para>
+        /// <para>The base 64 encoded scrape configuration file.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -78,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter EksConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of security group IDs specified for VPC configuration.</para>
+        /// <para>A list of the security group IDs for the Amazon EKS cluster VPC configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter EksConfiguration_SubnetId
         /// <summary>
         /// <para>
-        /// <para>A list of subnet IDs specified for VPC configuration.</para>
+        /// <para>A list of subnet IDs for the Amazon EKS cluster VPC configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional, user-provided tags for this scraper.</para>
+        /// <para>(Optional) The list of tag keys and values to associate with the scraper.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter AmpConfiguration_WorkspaceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an AMP workspace.</para>
+        /// <para>ARN of the Amazon Managed Service for Prometheus workspace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>(Optional) A unique, case-sensitive identifier that you can provide to ensure the
+        /// idempotency of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

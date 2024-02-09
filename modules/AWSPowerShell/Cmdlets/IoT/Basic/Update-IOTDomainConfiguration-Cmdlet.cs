@@ -97,6 +97,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.DomainConfigurationStatus DomainConfigurationStatus { get; set; }
         #endregion
         
+        #region Parameter ServerCertificateConfig_EnableOCSPCheck
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server
+        /// certificate check is enabled or not.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-domain-ocsp-config.html">Configuring
+        /// OCSP server-certificate stapling in domain configuration</a> from Amazon Web Services
+        /// IoT Core Developer Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ServerCertificateConfig_EnableOCSPCheck { get; set; }
+        #endregion
+        
         #region Parameter RemoveAuthorizerConfig
         /// <summary>
         /// <para>
@@ -191,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #endif
             context.DomainConfigurationStatus = this.DomainConfigurationStatus;
             context.RemoveAuthorizerConfig = this.RemoveAuthorizerConfig;
+            context.ServerCertificateConfig_EnableOCSPCheck = this.ServerCertificateConfig_EnableOCSPCheck;
             context.TlsConfig_SecurityPolicy = this.TlsConfig_SecurityPolicy;
             
             // allow further manipulation of loaded context prior to processing
@@ -248,6 +262,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.RemoveAuthorizerConfig != null)
             {
                 request.RemoveAuthorizerConfig = cmdletContext.RemoveAuthorizerConfig.Value;
+            }
+            
+             // populate ServerCertificateConfig
+            var requestServerCertificateConfigIsNull = true;
+            request.ServerCertificateConfig = new Amazon.IoT.Model.ServerCertificateConfig();
+            System.Boolean? requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck = null;
+            if (cmdletContext.ServerCertificateConfig_EnableOCSPCheck != null)
+            {
+                requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck = cmdletContext.ServerCertificateConfig_EnableOCSPCheck.Value;
+            }
+            if (requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck != null)
+            {
+                request.ServerCertificateConfig.EnableOCSPCheck = requestServerCertificateConfig_serverCertificateConfig_EnableOCSPCheck.Value;
+                requestServerCertificateConfigIsNull = false;
+            }
+             // determine if request.ServerCertificateConfig should be set to null
+            if (requestServerCertificateConfigIsNull)
+            {
+                request.ServerCertificateConfig = null;
             }
             
              // populate TlsConfig
@@ -334,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String DomainConfigurationName { get; set; }
             public Amazon.IoT.DomainConfigurationStatus DomainConfigurationStatus { get; set; }
             public System.Boolean? RemoveAuthorizerConfig { get; set; }
+            public System.Boolean? ServerCertificateConfig_EnableOCSPCheck { get; set; }
             public System.String TlsConfig_SecurityPolicy { get; set; }
             public System.Func<Amazon.IoT.Model.UpdateDomainConfigurationResponse, UpdateIOTDomainConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -28,7 +28,8 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Gets a default configuration.
+    /// The <c>GetDefaultScraperConfiguration</c> operation returns the default scraper configuration
+    /// used when Amazon EKS creates a scraper for you.
     /// </summary>
     [Cmdlet("Get", "PROMDefaultScraperConfiguration")]
     [OutputType("System.IO.MemoryStream")]

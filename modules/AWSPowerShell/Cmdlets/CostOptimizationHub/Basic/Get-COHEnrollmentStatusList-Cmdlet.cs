@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The enrollment status of a specific account ID in the organization.</para>
+        /// <para>The account ID of a member account in the organization.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

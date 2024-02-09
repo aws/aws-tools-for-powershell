@@ -28,7 +28,7 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Describes an existing AMP workspace.
+    /// Returns information about an existing workspace.
     /// </summary>
     [Cmdlet("Get", "PROMWorkspace")]
     [OutputType("Amazon.PrometheusService.Model.WorkspaceDescription")]

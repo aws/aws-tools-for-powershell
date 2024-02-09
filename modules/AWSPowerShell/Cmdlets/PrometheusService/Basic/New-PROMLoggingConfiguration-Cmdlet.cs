@@ -28,7 +28,9 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Create logging configuration.
+    /// The <c>CreateLoggingConfiguration</c> operation creates a logging configuration for
+    /// the workspace. Use this operation to set the CloudWatch log group to which the logs
+    /// will be published to.
     /// </summary>
     [Cmdlet("New", "PROMLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.LoggingConfigurationStatus")]
@@ -45,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter LogGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the CW log group to which the vended log data will be published.</para>
+        /// <para>The ARN of the CloudWatch log group to which the vended log data will be published.
+        /// This log group must exist prior to calling this API.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace to vend logs to.</para>
+        /// <para>The ID of the workspace to create the logging configuration for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

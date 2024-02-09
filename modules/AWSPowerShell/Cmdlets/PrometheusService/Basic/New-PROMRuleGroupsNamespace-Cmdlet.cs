@@ -28,7 +28,15 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Create a rule group namespace.
+    /// The <c>CreateRuleGroupsNamespace</c> operation creates a rule groups namespace within
+    /// a workspace. A rule groups namespace is associated with exactly one rules file. A
+    /// workspace can have multiple rule groups namespaces.
+    /// 
+    ///  
+    /// <para>
+    /// Use this operation only to create new rule groups namespaces. To update an existing
+    /// rule groups namespace, use <c>PutRuleGroupsNamespace</c>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "PROMRuleGroupsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.CreateRuleGroupsNamespaceResponse")]
@@ -44,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>The namespace data that define the rule groups.</para>
+        /// <para>The rules file to use in the new namespace.</para><para>Contains the base64-encoded version of the YAML rules file.</para><para>For details about the rule groups namespace structure, see <a href="https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-RuleGroupsNamespaceData.html">RuleGroupsNamespaceData</a>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -62,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The rule groups namespace name.</para>
+        /// <para>The name for the new rule groups namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional, user-provided tags for this rule groups namespace.</para>
+        /// <para>The list of tag keys and values to associate with the rule groups namespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace in which to create the rule group namespace.</para>
+        /// <para>The ID of the workspace to add the rule groups namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -107,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

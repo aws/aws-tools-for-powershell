@@ -28,7 +28,8 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Deletes tags from the specified resource.
+    /// Removes the specified tags from an Amazon Managed Service for Prometheus resource.
+    /// The only resources that can be tagged are workspaces and rule groups namespaces.
     /// </summary>
     [Cmdlet("Remove", "PROMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource.</para>
+        /// <para>The ARN of the workspace or rule groups namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>One or more tag keys</para>
+        /// <para>The keys of the tags to remove.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,8 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Describe a rule groups namespace.
+    /// Returns complete information about one rule groups namespace. To retrieve a list of
+    /// rule groups namespaces, use <c>ListRuleGroupsNamespaces</c>.
     /// </summary>
     [Cmdlet("Get", "PROMRuleGroupsNamespace")]
     [OutputType("Amazon.PrometheusService.Model.RuleGroupsNamespaceDescription")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The rule groups namespace.</para>
+        /// <para>The name of the rule groups namespace that you want information for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace to describe.</para>
+        /// <para>The ID of the workspace containing the rule groups namespace.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,8 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Deletes a scraper.
+    /// The <c>DeleteScraper</c> operation deletes one scraper, and stops any metrics collection
+    /// that the scraper performs.
     /// </summary>
     [Cmdlet("Remove", "PROMScraper", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.PrometheusService.Model.DeleteScraperResponse")]
@@ -61,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>(Optional) A unique, case-sensitive identifier that you can provide to ensure the
+        /// idempotency of the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

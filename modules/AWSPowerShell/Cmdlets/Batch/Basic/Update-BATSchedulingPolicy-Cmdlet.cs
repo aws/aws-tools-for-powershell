@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>A value used to reserve some of the available maximum vCPU for fair share identifiers
         /// that aren't already used.</para><para>The reserved ratio is <c>(<i>computeReservation</i>/100)^<i>ActiveFairShares</i></c>
-        /// where <c><i>ActiveFairShares</i></c> is the number of active fair share identifiers.</para><para>For example, a <c>computeReservation</c> value of 50 indicates that Batchreserves
+        /// where <c><i>ActiveFairShares</i></c> is the number of active fair share identifiers.</para><para>For example, a <c>computeReservation</c> value of 50 indicates that Batch reserves
         /// 50% of the maximum available vCPU if there's only one fair share identifier. It reserves
         /// 25% if there are two fair share identifiers. It reserves 12.5% if there are three
         /// fair share identifiers. A <c>computeReservation</c> value of 25 indicates that Batch

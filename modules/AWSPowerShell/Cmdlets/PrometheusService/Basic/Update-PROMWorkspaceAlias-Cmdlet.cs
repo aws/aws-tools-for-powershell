@@ -28,7 +28,7 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Updates an AMP workspace alias.
+    /// Updates the alias of an existing workspace.
     /// </summary>
     [Cmdlet("Update", "PROMWorkspaceAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>The new alias of the workspace.</para>
+        /// <para>The new alias for the workspace. It does not need to be unique.</para><para>Amazon Managed Service for Prometheus will automatically strip any blank spaces from
+        /// the beginning and end of the alias that you specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace being updated.</para>
+        /// <para>The ID of the workspace to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

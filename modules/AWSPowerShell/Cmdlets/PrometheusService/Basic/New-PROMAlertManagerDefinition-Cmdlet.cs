@@ -28,7 +28,9 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Create an alert manager definition.
+    /// The <c>CreateAlertManagerDefinition</c> operation creates the alert manager definition
+    /// in a workspace. If a workspace already has an alert manager definition, don't use
+    /// this operation to update it. Instead, use <c>PutAlertManagerDefinition</c>.
     /// </summary>
     [Cmdlet("New", "PROMAlertManagerDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.AlertManagerDefinitionStatus")]
@@ -45,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter Data
         /// <summary>
         /// <para>
-        /// <para>The alert manager definition data.</para>
+        /// <para>The alert manager definition to add. A base64-encoded version of the YAML alert manager
+        /// definition file.</para><para>For details about the alert manager definition, see <a href="https://docs.aws.amazon.com/prometheus/latest/APIReference/yaml-AlertManagerDefinitionData.html">AlertManagedDefinitionData</a>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -63,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace in which to create the alert manager definition.</para>
+        /// <para>The ID of the workspace to add the alert manager definition to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

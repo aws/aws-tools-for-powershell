@@ -99,13 +99,27 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter RuntimePlatform_CpuArchitecture
         /// <summary>
         /// <para>
-        /// <para>The vCPU architecture. The default value is <c>X86_64</c>. Valid values are <c>X86_64</c>
-        /// and <c>ARM64</c>.</para><note><para>This parameter must be set to <c>X86_64</c> for Windows containers.</para></note>
+        /// <para> The vCPU architecture. The default value is <c>X86_64</c>. Valid values are <c>X86_64</c>
+        /// and <c>ARM64</c>.</para><note><para>This parameter must be set to <c>X86_64</c> for Windows containers.</para></note><note><para>Fargate Spot is not supported for <c>ARM64</c> and Windows-based containers on Fargate.
+        /// A job queue will be blocked if a Fargate <c>ARM64</c> or Windows job is submitted
+        /// to a job queue with only Fargate Spot compute environments. However, you can attach
+        /// both <c>FARGATE</c> and <c>FARGATE_SPOT</c> compute environments to the same job queue.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ContainerProperties_RuntimePlatform_CpuArchitecture")]
         public System.String RuntimePlatform_CpuArchitecture { get; set; }
+        #endregion
+        
+        #region Parameter RepositoryCredentials_CredentialsParameter
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ContainerProperties_RepositoryCredentials_CredentialsParameter")]
+        public System.String RepositoryCredentials_CredentialsParameter { get; set; }
         #endregion
         
         #region Parameter LinuxParameters_Device
@@ -200,8 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ContainerProperties_Image
         /// <summary>
         /// <para>
-        /// <para>The image used to start a container. This string is passed directly to the Docker
-        /// daemon. Images in the Docker Hub registry are available by default. Other repositories
+        /// <para>Required. The image used to start a container. This string is passed directly to the
+        /// Docker daemon. Images in the Docker Hub registry are available by default. Other repositories
         /// are specified with <c><i>repository-url</i>/<i>image</i>:<i>tag</i></c>. It can
         /// be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens
         /// (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs
@@ -407,13 +421,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <c>WINDOWS_SERVER_2019_CORE</c>, <c>WINDOWS_SERVER_2019_FULL</c>, <c>WINDOWS_SERVER_2022_CORE</c>,
         /// and <c>WINDOWS_SERVER_2022_FULL</c>.</para><note><para>The following parameters can’t be set for Windows containers: <c>linuxParameters</c>,
         /// <c>privileged</c>, <c>user</c>, <c>ulimits</c>, <c>readonlyRootFilesystem</c>, and
-        /// <c>efsVolumeConfiguration</c>.</para></note><note><para>The Batch Scheduler checks before registering a task definition with Fargate. If the
-        /// job requires a Windows container and the first compute environment is <c>LINUX</c>,
-        /// the compute environment is skipped and the next is checked until a Windows-based compute
-        /// environment is found.</para></note><note><para>Fargate Spot is not supported for Windows-based containers on Fargate. A job queue
-        /// will be blocked if a Fargate Windows job is submitted to a job queue with only Fargate
-        /// Spot compute environments. However, you can attach both <c>FARGATE</c> and <c>FARGATE_SPOT</c>
-        /// compute environments to the same job queue.</para></note>
+        /// <c>efsVolumeConfiguration</c>.</para></note><note><para>The Batch Scheduler checks the compute environments that are attached to the job queue
+        /// before registering a task definition with Fargate. In this scenario, the job queue
+        /// is where the job is submitted. If the job requires a Windows container and the first
+        /// compute environment is <c>LINUX</c>, the compute environment is skipped and the next
+        /// compute environment is checked until a Windows-based compute environment is found.</para></note><note><para>Fargate Spot is not supported for <c>ARM64</c> and Windows-based containers on Fargate.
+        /// A job queue will be blocked if a Fargate <c>ARM64</c> or Windows job is submitted
+        /// to a job queue with only Fargate Spot compute environments. However, you can attach
+        /// both <c>FARGATE</c> and <c>FARGATE_SPOT</c> compute environments to the same job queue.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -900,6 +915,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             context.NetworkConfiguration_AssignPublicIp = this.NetworkConfiguration_AssignPublicIp;
             context.ContainerProperties_Privileged = this.ContainerProperties_Privileged;
             context.ContainerProperties_ReadonlyRootFilesystem = this.ContainerProperties_ReadonlyRootFilesystem;
+            context.RepositoryCredentials_CredentialsParameter = this.RepositoryCredentials_CredentialsParameter;
             if (this.ContainerProperties_ResourceRequirement != null)
             {
                 context.ContainerProperties_ResourceRequirement = new List<Amazon.Batch.Model.ResourceRequirement>(this.ContainerProperties_ResourceRequirement);
@@ -1246,6 +1262,31 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_NetworkConfiguration != null)
             {
                 request.ContainerProperties.NetworkConfiguration = requestContainerProperties_containerProperties_NetworkConfiguration;
+                requestContainerPropertiesIsNull = false;
+            }
+            Amazon.Batch.Model.RepositoryCredentials requestContainerProperties_containerProperties_RepositoryCredentials = null;
+            
+             // populate RepositoryCredentials
+            var requestContainerProperties_containerProperties_RepositoryCredentialsIsNull = true;
+            requestContainerProperties_containerProperties_RepositoryCredentials = new Amazon.Batch.Model.RepositoryCredentials();
+            System.String requestContainerProperties_containerProperties_RepositoryCredentials_repositoryCredentials_CredentialsParameter = null;
+            if (cmdletContext.RepositoryCredentials_CredentialsParameter != null)
+            {
+                requestContainerProperties_containerProperties_RepositoryCredentials_repositoryCredentials_CredentialsParameter = cmdletContext.RepositoryCredentials_CredentialsParameter;
+            }
+            if (requestContainerProperties_containerProperties_RepositoryCredentials_repositoryCredentials_CredentialsParameter != null)
+            {
+                requestContainerProperties_containerProperties_RepositoryCredentials.CredentialsParameter = requestContainerProperties_containerProperties_RepositoryCredentials_repositoryCredentials_CredentialsParameter;
+                requestContainerProperties_containerProperties_RepositoryCredentialsIsNull = false;
+            }
+             // determine if requestContainerProperties_containerProperties_RepositoryCredentials should be set to null
+            if (requestContainerProperties_containerProperties_RepositoryCredentialsIsNull)
+            {
+                requestContainerProperties_containerProperties_RepositoryCredentials = null;
+            }
+            if (requestContainerProperties_containerProperties_RepositoryCredentials != null)
+            {
+                request.ContainerProperties.RepositoryCredentials = requestContainerProperties_containerProperties_RepositoryCredentials;
                 requestContainerPropertiesIsNull = false;
             }
             Amazon.Batch.Model.RuntimePlatform requestContainerProperties_containerProperties_RuntimePlatform = null;
@@ -1691,6 +1732,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Amazon.Batch.AssignPublicIp NetworkConfiguration_AssignPublicIp { get; set; }
             public System.Boolean? ContainerProperties_Privileged { get; set; }
             public System.Boolean? ContainerProperties_ReadonlyRootFilesystem { get; set; }
+            public System.String RepositoryCredentials_CredentialsParameter { get; set; }
             public List<Amazon.Batch.Model.ResourceRequirement> ContainerProperties_ResourceRequirement { get; set; }
             public System.String RuntimePlatform_CpuArchitecture { get; set; }
             public System.String RuntimePlatform_OperatingSystemFamily { get; set; }

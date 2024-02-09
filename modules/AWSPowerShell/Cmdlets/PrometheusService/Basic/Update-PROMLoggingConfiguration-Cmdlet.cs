@@ -28,7 +28,7 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Update logging configuration.
+    /// Updates the log group ARN or the workspace ID of the current logging configuration.
     /// </summary>
     [Cmdlet("Update", "PROMLoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PrometheusService.Model.LoggingConfigurationStatus")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter LogGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the CW log group to which the vended log data will be published.</para>
+        /// <para>The ARN of the CloudWatch log group to which the vended log data will be published.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace to vend logs to.</para>
+        /// <para>The ID of the workspace to update the logging configuration for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency
-        /// of the request.</para>
+        /// <para>A unique identifier that you can provide to ensure the idempotency of the request.
+        /// Case-sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

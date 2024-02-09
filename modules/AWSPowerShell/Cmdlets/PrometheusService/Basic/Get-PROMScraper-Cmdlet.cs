@@ -28,7 +28,7 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Describe an existing scraper.
+    /// The <c>DescribeScraper</c> operation displays information about an existing scraper.
     /// </summary>
     [Cmdlet("Get", "PROMScraper")]
     [OutputType("Amazon.PrometheusService.Model.ScraperDescription")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ScraperId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the scraper to describe.</para>
+        /// <para>The ID of the scraper to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,9 @@ using Amazon.PrometheusService.Model;
 namespace Amazon.PowerShell.Cmdlets.PROM
 {
     /// <summary>
-    /// Lists the tags you have assigned to the resource.
+    /// The <c>ListTagsForResource</c> operation returns the tags that are associated with
+    /// an Amazon Managed Service for Prometheus resource. Currently, the only resources that
+    /// can be tagged are workspaces and rule groups namespaces.
     /// </summary>
     [Cmdlet("Get", "PROMResourceTag")]
     [OutputType("System.String")]
@@ -45,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.PROM
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource.</para>
+        /// <para>The ARN of the resource to list tages for. Must be a workspace or rule groups namespace
+        /// resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>A list of up to 100 job definitions. Each entry in the list can either be an ARN in
         /// the format <c>arn:aws:batch:${Region}:${Account}:job-definition/${JobDefinitionName}:${Revision}</c>
-        /// or a short version using the form <c>${JobDefinitionName}:${Revision}</c>.</para>
+        /// or a short version using the form <c>${JobDefinitionName}:${Revision}</c>. This parameter
+        /// can't be used with other parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
