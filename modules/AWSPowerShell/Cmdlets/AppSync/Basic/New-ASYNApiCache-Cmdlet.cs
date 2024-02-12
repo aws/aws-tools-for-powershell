@@ -86,6 +86,20 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.Boolean? AtRestEncryptionEnabled { get; set; }
         #endregion
         
+        #region Parameter HealthMetricsConfig
+        /// <summary>
+        /// <para>
+        /// <para>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics
+        /// include:</para><ul><li><para>NetworkBandwidthOutAllowanceExceeded: The number of times a specified GraphQL operation
+        /// was called.</para></li><li><para>EngineCPUUtilization: The number of GraphQL errors that occurred during a specified
+        /// GraphQL operation.</para></li></ul><para>Metrics will be recorded by API ID. You can set the value to <c>ENABLED</c> or <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.CacheHealthMetricsConfig")]
+        public Amazon.AppSync.CacheHealthMetricsConfig HealthMetricsConfig { get; set; }
+        #endregion
+        
         #region Parameter TransitEncryptionEnabled
         /// <summary>
         /// <para>
@@ -208,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             }
             #endif
             context.AtRestEncryptionEnabled = this.AtRestEncryptionEnabled;
+            context.HealthMetricsConfig = this.HealthMetricsConfig;
             context.TransitEncryptionEnabled = this.TransitEncryptionEnabled;
             context.Ttl = this.Ttl;
             #if MODULAR
@@ -250,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.AtRestEncryptionEnabled != null)
             {
                 request.AtRestEncryptionEnabled = cmdletContext.AtRestEncryptionEnabled.Value;
+            }
+            if (cmdletContext.HealthMetricsConfig != null)
+            {
+                request.HealthMetricsConfig = cmdletContext.HealthMetricsConfig;
             }
             if (cmdletContext.TransitEncryptionEnabled != null)
             {
@@ -327,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public Amazon.AppSync.ApiCachingBehavior ApiCachingBehavior { get; set; }
             public System.String ApiId { get; set; }
             public System.Boolean? AtRestEncryptionEnabled { get; set; }
+            public Amazon.AppSync.CacheHealthMetricsConfig HealthMetricsConfig { get; set; }
             public System.Boolean? TransitEncryptionEnabled { get; set; }
             public System.Int64? Ttl { get; set; }
             public Amazon.AppSync.ApiCacheType Type { get; set; }

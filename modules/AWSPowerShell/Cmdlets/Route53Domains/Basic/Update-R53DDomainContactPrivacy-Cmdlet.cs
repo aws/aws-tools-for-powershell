@@ -69,14 +69,27 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
         /// <c>true</c>, WHOIS ("who is") queries return contact information either for Amazon
-        /// Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi
-        /// (for all other TLDs). If you specify <c>false</c>, WHOIS queries return the information
-        /// that you entered for the admin contact.</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
-        /// technical contacts.</para></note>
+        /// Registrar or for our registrar associate, Gandi. If you specify <c>false</c>, WHOIS
+        /// queries return the information that you entered for the admin contact.</para><note><para>You must specify the same privacy setting for the administrative, billing, registrant,
+        /// and technical contacts.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? AdminPrivacy { get; set; }
+        #endregion
+        
+        #region Parameter BillingPrivacy
+        /// <summary>
+        /// <para>
+        /// <para> Whether you want to conceal contact information from WHOIS queries. If you specify
+        /// <c>true</c>, WHOIS ("who is") queries return contact information either for Amazon
+        /// Registrar or for our registrar associate, Gandi. If you specify <c>false</c>, WHOIS
+        /// queries return the information that you entered for the billing contact. </para><note><para>You must specify the same privacy setting for the administrative, billing, registrant,
+        /// and technical contacts.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BillingPrivacy { get; set; }
         #endregion
         
         #region Parameter DomainName
@@ -101,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
         /// <c>true</c>, WHOIS ("who is") queries return contact information either for Amazon
-        /// Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi
-        /// (for all other TLDs). If you specify <c>false</c>, WHOIS queries return the information
-        /// that you entered for the registrant contact (domain owner).</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
-        /// technical contacts.</para></note>
+        /// Registrar or for our registrar associate, Gandi. If you specify <c>false</c>, WHOIS
+        /// queries return the information that you entered for the registrant contact (domain
+        /// owner).</para><note><para>You must specify the same privacy setting for the administrative, billing, registrant,
+        /// and technical contacts.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,10 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// <para>
         /// <para>Whether you want to conceal contact information from WHOIS queries. If you specify
         /// <c>true</c>, WHOIS ("who is") queries return contact information either for Amazon
-        /// Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi
-        /// (for all other TLDs). If you specify <c>false</c>, WHOIS queries return the information
-        /// that you entered for the technical contact.</para><note><para>You must specify the same privacy setting for the administrative, registrant, and
-        /// technical contacts.</para></note>
+        /// Registrar or for our registrar associate, Gandi. If you specify <c>false</c>, WHOIS
+        /// queries return the information that you entered for the technical contact.</para><note><para>You must specify the same privacy setting for the administrative, billing, registrant,
+        /// and technical contacts.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -189,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AdminPrivacy = this.AdminPrivacy;
+            context.BillingPrivacy = this.BillingPrivacy;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -217,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (cmdletContext.AdminPrivacy != null)
             {
                 request.AdminPrivacy = cmdletContext.AdminPrivacy.Value;
+            }
+            if (cmdletContext.BillingPrivacy != null)
+            {
+                request.BillingPrivacy = cmdletContext.BillingPrivacy.Value;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -292,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AdminPrivacy { get; set; }
+            public System.Boolean? BillingPrivacy { get; set; }
             public System.String DomainName { get; set; }
             public System.Boolean? RegistrantPrivacy { get; set; }
             public System.Boolean? TechPrivacy { get; set; }

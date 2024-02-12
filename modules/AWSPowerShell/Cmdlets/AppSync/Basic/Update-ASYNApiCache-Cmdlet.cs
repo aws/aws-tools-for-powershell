@@ -76,6 +76,20 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String ApiId { get; set; }
         #endregion
         
+        #region Parameter HealthMetricsConfig
+        /// <summary>
+        /// <para>
+        /// <para>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics
+        /// include:</para><ul><li><para>NetworkBandwidthOutAllowanceExceeded: The number of times a specified GraphQL operation
+        /// was called.</para></li><li><para>EngineCPUUtilization: The number of GraphQL errors that occurred during a specified
+        /// GraphQL operation.</para></li></ul><para>Metrics will be recorded by API ID. You can set the value to <c>ENABLED</c> or <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.CacheHealthMetricsConfig")]
+        public Amazon.AppSync.CacheHealthMetricsConfig HealthMetricsConfig { get; set; }
+        #endregion
+        
         #region Parameter Ttl
         /// <summary>
         /// <para>
@@ -186,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 WriteWarning("You are passing $null as a value for parameter ApiId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.HealthMetricsConfig = this.HealthMetricsConfig;
             context.Ttl = this.Ttl;
             #if MODULAR
             if (this.Ttl == null && ParameterWasBound(nameof(this.Ttl)))
@@ -223,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.ApiId != null)
             {
                 request.ApiId = cmdletContext.ApiId;
+            }
+            if (cmdletContext.HealthMetricsConfig != null)
+            {
+                request.HealthMetricsConfig = cmdletContext.HealthMetricsConfig;
             }
             if (cmdletContext.Ttl != null)
             {
@@ -295,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         {
             public Amazon.AppSync.ApiCachingBehavior ApiCachingBehavior { get; set; }
             public System.String ApiId { get; set; }
+            public Amazon.AppSync.CacheHealthMetricsConfig HealthMetricsConfig { get; set; }
             public System.Int64? Ttl { get; set; }
             public Amazon.AppSync.ApiCacheType Type { get; set; }
             public System.Func<Amazon.AppSync.Model.UpdateApiCacheResponse, UpdateASYNApiCacheCmdlet, object> Select { get; set; } =

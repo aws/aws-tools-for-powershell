@@ -178,6 +178,20 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.Int32? MaxBatchSize { get; set; }
         #endregion
         
+        #region Parameter MetricsConfig
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables enhanced resolver metrics for specified resolvers. Note that <c>metricsConfig</c>
+        /// won't be used unless the <c>resolverLevelMetricsBehavior</c> value is set to <c>PER_RESOLVER_METRICS</c>.
+        /// If the <c>resolverLevelMetricsBehavior</c> is set to <c>FULL_REQUEST_RESOLVER_METRICS</c>
+        /// instead, <c>metricsConfig</c> will be ignored. However, you can still set its value.</para><para><c>metricsConfig</c> can be <c>ENABLED</c> or <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.ResolverLevelMetricsConfig")]
+        public Amazon.AppSync.ResolverLevelMetricsConfig MetricsConfig { get; set; }
+        #endregion
+        
         #region Parameter Runtime_Name
         /// <summary>
         /// <para>
@@ -334,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             #endif
             context.Kind = this.Kind;
             context.MaxBatchSize = this.MaxBatchSize;
+            context.MetricsConfig = this.MetricsConfig;
             if (this.PipelineConfig_Function != null)
             {
                 context.PipelineConfig_Function = new List<System.String>(this.PipelineConfig_Function);
@@ -420,6 +435,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.MaxBatchSize != null)
             {
                 request.MaxBatchSize = cmdletContext.MaxBatchSize.Value;
+            }
+            if (cmdletContext.MetricsConfig != null)
+            {
+                request.MetricsConfig = cmdletContext.MetricsConfig;
             }
             
              // populate PipelineConfig
@@ -604,6 +623,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String FieldName { get; set; }
             public Amazon.AppSync.ResolverKind Kind { get; set; }
             public System.Int32? MaxBatchSize { get; set; }
+            public Amazon.AppSync.ResolverLevelMetricsConfig MetricsConfig { get; set; }
             public List<System.String> PipelineConfig_Function { get; set; }
             public System.String RequestMappingTemplate { get; set; }
             public System.String ResponseMappingTemplate { get; set; }

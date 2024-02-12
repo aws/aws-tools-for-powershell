@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
     /// Retrieves the status of a specified query.
+    /// 
+    ///  <note><para>
+    ///  When invoking this operation in a Neptune Analytics cluster, the IAM user or role
+    /// making the request must have the <c>neptune-graph:GetQueryStatus</c> IAM action attached.
+    /// 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "NEPTGQuery")]
     [OutputType("Amazon.NeptuneGraph.Model.GetQueryResponse")]

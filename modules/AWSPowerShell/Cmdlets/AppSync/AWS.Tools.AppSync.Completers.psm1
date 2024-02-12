@@ -110,6 +110,16 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.CacheHealthMetricsConfig
+        {
+            ($_ -eq "New-ASYNApiCache/HealthMetricsConfig") -Or
+            ($_ -eq "Update-ASYNApiCache/HealthMetricsConfig")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.AppSync.ConflictDetectionType
         {
             ($_ -eq "New-ASYNFunction/SyncConfig_ConflictDetection") -Or
@@ -131,6 +141,26 @@ $ASYN_Completers = {
         }
         {
             $v = "AUTOMERGE","LAMBDA","NONE","OPTIMISTIC_CONCURRENCY"
+            break
+        }
+
+        # Amazon.AppSync.DataSourceLevelMetricsBehavior
+        {
+            ($_ -eq "New-ASYNGraphqlApi/EnhancedMetricsConfig_DataSourceLevelMetricsBehavior") -Or
+            ($_ -eq "Update-ASYNGraphqlApi/EnhancedMetricsConfig_DataSourceLevelMetricsBehavior")
+        }
+        {
+            $v = "FULL_REQUEST_DATA_SOURCE_METRICS","PER_DATA_SOURCE_METRICS"
+            break
+        }
+
+        # Amazon.AppSync.DataSourceLevelMetricsConfig
+        {
+            ($_ -eq "New-ASYNDataSource/MetricsConfig") -Or
+            ($_ -eq "Update-ASYNDataSource/MetricsConfig")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -192,6 +222,16 @@ $ASYN_Completers = {
             break
         }
 
+        # Amazon.AppSync.OperationLevelMetricsConfig
+        {
+            ($_ -eq "New-ASYNGraphqlApi/EnhancedMetricsConfig_OperationLevelMetricsConfig") -Or
+            ($_ -eq "Update-ASYNGraphqlApi/EnhancedMetricsConfig_OperationLevelMetricsConfig")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.AppSync.OutputType
         "Get-ASYNIntrospectionSchema/Format"
         {
@@ -223,6 +263,26 @@ $ASYN_Completers = {
         }
         {
             $v = "PIPELINE","UNIT"
+            break
+        }
+
+        # Amazon.AppSync.ResolverLevelMetricsBehavior
+        {
+            ($_ -eq "New-ASYNGraphqlApi/EnhancedMetricsConfig_ResolverLevelMetricsBehavior") -Or
+            ($_ -eq "Update-ASYNGraphqlApi/EnhancedMetricsConfig_ResolverLevelMetricsBehavior")
+        }
+        {
+            $v = "FULL_REQUEST_RESOLVER_METRICS","PER_RESOLVER_METRICS"
+            break
+        }
+
+        # Amazon.AppSync.ResolverLevelMetricsConfig
+        {
+            ($_ -eq "New-ASYNResolver/MetricsConfig") -Or
+            ($_ -eq "Update-ASYNResolver/MetricsConfig")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -264,10 +324,15 @@ $ASYN_map = @{
     "ApiCachingBehavior"=@("New-ASYNApiCache","Update-ASYNApiCache")
     "ApiType"=@("Get-ASYNGraphqlApiList","New-ASYNGraphqlApi")
     "AuthenticationType"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "EnhancedMetricsConfig_DataSourceLevelMetricsBehavior"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "EnhancedMetricsConfig_OperationLevelMetricsConfig"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "EnhancedMetricsConfig_ResolverLevelMetricsBehavior"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Format"=@("Get-ASYNIntrospectionSchema","Get-ASYNType","Get-ASYNTypeList","Get-ASYNTypesByAssociationList","New-ASYNType","Update-ASYNType")
+    "HealthMetricsConfig"=@("New-ASYNApiCache","Update-ASYNApiCache")
     "IntrospectionConfig"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
     "Kind"=@("New-ASYNResolver","Update-ASYNResolver")
     "LogConfig_FieldLogLevel"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "MetricsConfig"=@("New-ASYNDataSource","New-ASYNResolver","Update-ASYNDataSource","Update-ASYNResolver")
     "Owner"=@("Get-ASYNGraphqlApiList")
     "RelationalDatabaseConfig_RelationalDatabaseSourceType"=@("New-ASYNDataSource","Update-ASYNDataSource")
     "Runtime_Name"=@("New-ASYNFunction","New-ASYNResolver","Test-ASYNCode","Update-ASYNFunction","Update-ASYNResolver")

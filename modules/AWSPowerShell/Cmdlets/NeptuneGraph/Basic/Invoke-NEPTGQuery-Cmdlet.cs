@@ -31,7 +31,18 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
     /// Execute an openCypher query. Currently, the SDK does not support parameterized queries.
     /// If you want to make a parameterized query call, you can use an HTTP request. 
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    ///  When invoking this operation in a Neptune Analytics cluster, the IAM user or role
+    /// making the request must have a policy attached that allows one of the following IAM
+    /// actions in that cluster, depending on the query: 
+    /// </para><ul><li><para>
+    /// neptune-graph:ReadDataViaQuery
+    /// </para></li><li><para>
+    /// neptune-graph:WriteDataViaQuery
+    /// </para></li><li><para>
+    /// neptune-graph:DeleteDataViaQuery
+    /// </para></li></ul><note><para>
     ///  Non-parametrized queries are not considered for plan caching. You can force plan
     /// caching with <c>planCache=enabled</c>. The plan cache will be reused only for the
     /// same exact query. Slight variations in the query will not be able to reuse the query
@@ -95,6 +106,18 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.NeptuneGraph.QueryLanguage")]
         public Amazon.NeptuneGraph.QueryLanguage Language { get; set; }
+        #endregion
+        
+        #region Parameter Parameter
+        /// <summary>
+        /// <para>
+        /// <para>The data parameters the query can use in JSON format. For example: {"name": "john",
+        /// "age": 20}. (optional) </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Parameters")]
+        public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
         #region Parameter PlanCache
@@ -216,6 +239,14 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
                 WriteWarning("You are passing $null as a value for parameter Language which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Parameter != null)
+            {
+                context.Parameter = new Dictionary<System.String, Amazon.Runtime.Documents.Document>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Parameter.Keys)
+                {
+                    context.Parameter.Add((String)hashKey, Amazon.PowerShell.Common.DocumentHelper.ToDocument(this.Parameter[hashKey]));
+                }
+            }
             context.PlanCache = this.PlanCache;
             context.QueryString = this.QueryString;
             #if MODULAR
@@ -252,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             if (cmdletContext.Language != null)
             {
                 request.Language = cmdletContext.Language;
+            }
+            if (cmdletContext.Parameter != null)
+            {
+                request.Parameters = cmdletContext.Parameter;
             }
             if (cmdletContext.PlanCache != null)
             {
@@ -329,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             public Amazon.NeptuneGraph.ExplainMode ExplainMode { get; set; }
             public System.String GraphIdentifier { get; set; }
             public Amazon.NeptuneGraph.QueryLanguage Language { get; set; }
+            public Dictionary<System.String, Amazon.Runtime.Documents.Document> Parameter { get; set; }
             public Amazon.NeptuneGraph.PlanCacheType PlanCache { get; set; }
             public System.String QueryString { get; set; }
             public System.Int32? QueryTimeoutMillisecond { get; set; }

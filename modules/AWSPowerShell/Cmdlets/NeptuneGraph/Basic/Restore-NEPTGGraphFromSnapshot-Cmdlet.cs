@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>Specifies whether or not the graph can be reachable over the internet. All access
-        /// to graphs IAM authenticated. (<c>true</c> to enable, or <c>false</c> to disable).</para>
+        /// to graphs is IAM authenticated. (<c>true</c> to enable, or <c>false</c> to disable).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

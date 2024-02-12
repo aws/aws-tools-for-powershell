@@ -154,6 +154,21 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public Amazon.AppSync.Model.LambdaDataSourceConfig LambdaConfig { get; set; }
         #endregion
         
+        #region Parameter MetricsConfig
+        /// <summary>
+        /// <para>
+        /// <para>Enables or disables enhanced data source metrics for specified data sources. Note
+        /// that <c>metricsConfig</c> won't be used unless the <c>dataSourceLevelMetricsBehavior</c>
+        /// value is set to <c>PER_DATA_SOURCE_METRICS</c>. If the <c>dataSourceLevelMetricsBehavior</c>
+        /// is set to <c>FULL_REQUEST_DATA_SOURCE_METRICS</c> instead, <c>metricsConfig</c> will
+        /// be ignored. However, you can still set its value.</para><para><c>metricsConfig</c> can be <c>ENABLED</c> or <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppSync.DataSourceLevelMetricsConfig")]
+        public Amazon.AppSync.DataSourceLevelMetricsConfig MetricsConfig { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -297,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.HttpConfig_AuthorizationConfig = this.HttpConfig_AuthorizationConfig;
             context.HttpConfig_Endpoint = this.HttpConfig_Endpoint;
             context.LambdaConfig = this.LambdaConfig;
+            context.MetricsConfig = this.MetricsConfig;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -399,6 +415,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.LambdaConfig != null)
             {
                 request.LambdaConfig = cmdletContext.LambdaConfig;
+            }
+            if (cmdletContext.MetricsConfig != null)
+            {
+                request.MetricsConfig = cmdletContext.MetricsConfig;
             }
             if (cmdletContext.Name != null)
             {
@@ -539,6 +559,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public Amazon.AppSync.Model.AuthorizationConfig HttpConfig_AuthorizationConfig { get; set; }
             public System.String HttpConfig_Endpoint { get; set; }
             public Amazon.AppSync.Model.LambdaDataSourceConfig LambdaConfig { get; set; }
+            public Amazon.AppSync.DataSourceLevelMetricsConfig MetricsConfig { get; set; }
             public System.String Name { get; set; }
             public System.String OpenSearchServiceConfig_AwsRegion { get; set; }
             public System.String OpenSearchServiceConfig_Endpoint { get; set; }

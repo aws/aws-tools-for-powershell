@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String AdminContact_AddressLine1 { get; set; }
         #endregion
         
+        #region Parameter BillingContact_AddressLine1
+        /// <summary>
+        /// <para>
+        /// <para>First line of the contact's address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_AddressLine1 { get; set; }
+        #endregion
+        
         #region Parameter RegistrantContact_AddressLine1
         /// <summary>
         /// <para>
@@ -92,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String AdminContact_AddressLine2 { get; set; }
         #endregion
         
+        #region Parameter BillingContact_AddressLine2
+        /// <summary>
+        /// <para>
+        /// <para>Second line of contact's address, if any.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_AddressLine2 { get; set; }
+        #endregion
+        
         #region Parameter RegistrantContact_AddressLine2
         /// <summary>
         /// <para>
@@ -120,6 +140,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AdminContact_City { get; set; }
+        #endregion
+        
+        #region Parameter BillingContact_City
+        /// <summary>
+        /// <para>
+        /// <para>The city of the contact's address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_City { get; set; }
         #endregion
         
         #region Parameter RegistrantContact_City
@@ -157,6 +187,23 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Route53Domains.ContactType")]
         public Amazon.Route53Domains.ContactType AdminContact_ContactType { get; set; }
+        #endregion
+        
+        #region Parameter BillingContact_ContactType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the contact is a person, company, association, or public organization.
+        /// Note the following:</para><ul><li><para>If you specify a value other than <c>PERSON</c>, you must also specify a value for
+        /// <c>OrganizationName</c>.</para></li><li><para>For some TLDs, the privacy protection available depends on the value that you specify
+        /// for <c>Contact Type</c>. For the privacy protection settings for your TLD, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains
+        /// that You Can Register with Amazon Route 53</a> in the <i>Amazon Route 53 Developer
+        /// Guide</i></para></li><li><para>For .es domains, the value of <c>ContactType</c> must be <c>PERSON</c> for all three
+        /// contacts.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Domains.ContactType")]
+        public Amazon.Route53Domains.ContactType BillingContact_ContactType { get; set; }
         #endregion
         
         #region Parameter RegistrantContact_ContactType
@@ -202,6 +249,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Route53Domains.CountryCode")]
         public Amazon.Route53Domains.CountryCode AdminContact_CountryCode { get; set; }
+        #endregion
+        
+        #region Parameter BillingContact_CountryCode
+        /// <summary>
+        /// <para>
+        /// <para>Code for the country of the contact's address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Domains.CountryCode")]
+        public Amazon.Route53Domains.CountryCode BillingContact_CountryCode { get; set; }
         #endregion
         
         #region Parameter RegistrantContact_CountryCode
@@ -263,6 +321,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String AdminContact_Email { get; set; }
         #endregion
         
+        #region Parameter BillingContact_Email
+        /// <summary>
+        /// <para>
+        /// <para>Email address of the contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_Email { get; set; }
+        #endregion
+        
         #region Parameter RegistrantContact_Email
         /// <summary>
         /// <para>
@@ -292,6 +360,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdminContact_ExtraParams")]
         public Amazon.Route53Domains.Model.ExtraParam[] AdminContact_ExtraParam { get; set; }
+        #endregion
+        
+        #region Parameter BillingContact_ExtraParam
+        /// <summary>
+        /// <para>
+        /// <para>A list of name-value pairs for parameters required by certain top-level domains.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BillingContact_ExtraParams")]
+        public Amazon.Route53Domains.Model.ExtraParam[] BillingContact_ExtraParam { get; set; }
         #endregion
         
         #region Parameter RegistrantContact_ExtraParam
@@ -327,6 +406,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String AdminContact_Fax { get; set; }
         #endregion
         
+        #region Parameter BillingContact_Fax
+        /// <summary>
+        /// <para>
+        /// <para>Fax number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
+        /// including any area code]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_Fax { get; set; }
+        #endregion
+        
         #region Parameter RegistrantContact_Fax
         /// <summary>
         /// <para>
@@ -359,6 +449,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String AdminContact_FirstName { get; set; }
         #endregion
         
+        #region Parameter BillingContact_FirstName
+        /// <summary>
+        /// <para>
+        /// <para>First name of contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_FirstName { get; set; }
+        #endregion
+        
         #region Parameter RegistrantContact_FirstName
         /// <summary>
         /// <para>
@@ -387,6 +487,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AdminContact_LastName { get; set; }
+        #endregion
+        
+        #region Parameter BillingContact_LastName
+        /// <summary>
+        /// <para>
+        /// <para>Last name of contact.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_LastName { get; set; }
         #endregion
         
         #region Parameter RegistrantContact_LastName
@@ -429,6 +539,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String AdminContact_OrganizationName { get; set; }
         #endregion
         
+        #region Parameter BillingContact_OrganizationName
+        /// <summary>
+        /// <para>
+        /// <para>Name of the organization for contact types other than <c>PERSON</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_OrganizationName { get; set; }
+        #endregion
+        
         #region Parameter RegistrantContact_OrganizationName
         /// <summary>
         /// <para>
@@ -458,6 +578,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AdminContact_PhoneNumber { get; set; }
+        #endregion
+        
+        #region Parameter BillingContact_PhoneNumber
+        /// <summary>
+        /// <para>
+        /// <para>The phone number of the contact.</para><para>Constraints: Phone number must be specified in the format "+[country dialing code].[number
+        /// including any area code&gt;]". For example, a US phone number might appear as <c>"+1.1234567890"</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_PhoneNumber { get; set; }
         #endregion
         
         #region Parameter RegistrantContact_PhoneNumber
@@ -492,6 +623,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String AdminContact_State { get; set; }
         #endregion
         
+        #region Parameter BillingContact_State
+        /// <summary>
+        /// <para>
+        /// <para>The state or province of the contact's city.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_State { get; set; }
+        #endregion
+        
         #region Parameter RegistrantContact_State
         /// <summary>
         /// <para>
@@ -520,6 +661,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AdminContact_ZipCode { get; set; }
+        #endregion
+        
+        #region Parameter BillingContact_ZipCode
+        /// <summary>
+        /// <para>
+        /// <para>The zip or postal code of the contact's address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String BillingContact_ZipCode { get; set; }
         #endregion
         
         #region Parameter RegistrantContact_ZipCode
@@ -621,6 +772,23 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             context.AdminContact_PhoneNumber = this.AdminContact_PhoneNumber;
             context.AdminContact_State = this.AdminContact_State;
             context.AdminContact_ZipCode = this.AdminContact_ZipCode;
+            context.BillingContact_AddressLine1 = this.BillingContact_AddressLine1;
+            context.BillingContact_AddressLine2 = this.BillingContact_AddressLine2;
+            context.BillingContact_City = this.BillingContact_City;
+            context.BillingContact_ContactType = this.BillingContact_ContactType;
+            context.BillingContact_CountryCode = this.BillingContact_CountryCode;
+            context.BillingContact_Email = this.BillingContact_Email;
+            if (this.BillingContact_ExtraParam != null)
+            {
+                context.BillingContact_ExtraParam = new List<Amazon.Route53Domains.Model.ExtraParam>(this.BillingContact_ExtraParam);
+            }
+            context.BillingContact_Fax = this.BillingContact_Fax;
+            context.BillingContact_FirstName = this.BillingContact_FirstName;
+            context.BillingContact_LastName = this.BillingContact_LastName;
+            context.BillingContact_OrganizationName = this.BillingContact_OrganizationName;
+            context.BillingContact_PhoneNumber = this.BillingContact_PhoneNumber;
+            context.BillingContact_State = this.BillingContact_State;
+            context.BillingContact_ZipCode = this.BillingContact_ZipCode;
             context.Consent_Currency = this.Consent_Currency;
             context.Consent_MaxPrice = this.Consent_MaxPrice;
             context.DomainName = this.DomainName;
@@ -828,6 +996,155 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             if (requestAdminContactIsNull)
             {
                 request.AdminContact = null;
+            }
+            
+             // populate BillingContact
+            var requestBillingContactIsNull = true;
+            request.BillingContact = new Amazon.Route53Domains.Model.ContactDetail();
+            System.String requestBillingContact_billingContact_AddressLine1 = null;
+            if (cmdletContext.BillingContact_AddressLine1 != null)
+            {
+                requestBillingContact_billingContact_AddressLine1 = cmdletContext.BillingContact_AddressLine1;
+            }
+            if (requestBillingContact_billingContact_AddressLine1 != null)
+            {
+                request.BillingContact.AddressLine1 = requestBillingContact_billingContact_AddressLine1;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_AddressLine2 = null;
+            if (cmdletContext.BillingContact_AddressLine2 != null)
+            {
+                requestBillingContact_billingContact_AddressLine2 = cmdletContext.BillingContact_AddressLine2;
+            }
+            if (requestBillingContact_billingContact_AddressLine2 != null)
+            {
+                request.BillingContact.AddressLine2 = requestBillingContact_billingContact_AddressLine2;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_City = null;
+            if (cmdletContext.BillingContact_City != null)
+            {
+                requestBillingContact_billingContact_City = cmdletContext.BillingContact_City;
+            }
+            if (requestBillingContact_billingContact_City != null)
+            {
+                request.BillingContact.City = requestBillingContact_billingContact_City;
+                requestBillingContactIsNull = false;
+            }
+            Amazon.Route53Domains.ContactType requestBillingContact_billingContact_ContactType = null;
+            if (cmdletContext.BillingContact_ContactType != null)
+            {
+                requestBillingContact_billingContact_ContactType = cmdletContext.BillingContact_ContactType;
+            }
+            if (requestBillingContact_billingContact_ContactType != null)
+            {
+                request.BillingContact.ContactType = requestBillingContact_billingContact_ContactType;
+                requestBillingContactIsNull = false;
+            }
+            Amazon.Route53Domains.CountryCode requestBillingContact_billingContact_CountryCode = null;
+            if (cmdletContext.BillingContact_CountryCode != null)
+            {
+                requestBillingContact_billingContact_CountryCode = cmdletContext.BillingContact_CountryCode;
+            }
+            if (requestBillingContact_billingContact_CountryCode != null)
+            {
+                request.BillingContact.CountryCode = requestBillingContact_billingContact_CountryCode;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_Email = null;
+            if (cmdletContext.BillingContact_Email != null)
+            {
+                requestBillingContact_billingContact_Email = cmdletContext.BillingContact_Email;
+            }
+            if (requestBillingContact_billingContact_Email != null)
+            {
+                request.BillingContact.Email = requestBillingContact_billingContact_Email;
+                requestBillingContactIsNull = false;
+            }
+            List<Amazon.Route53Domains.Model.ExtraParam> requestBillingContact_billingContact_ExtraParam = null;
+            if (cmdletContext.BillingContact_ExtraParam != null)
+            {
+                requestBillingContact_billingContact_ExtraParam = cmdletContext.BillingContact_ExtraParam;
+            }
+            if (requestBillingContact_billingContact_ExtraParam != null)
+            {
+                request.BillingContact.ExtraParams = requestBillingContact_billingContact_ExtraParam;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_Fax = null;
+            if (cmdletContext.BillingContact_Fax != null)
+            {
+                requestBillingContact_billingContact_Fax = cmdletContext.BillingContact_Fax;
+            }
+            if (requestBillingContact_billingContact_Fax != null)
+            {
+                request.BillingContact.Fax = requestBillingContact_billingContact_Fax;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_FirstName = null;
+            if (cmdletContext.BillingContact_FirstName != null)
+            {
+                requestBillingContact_billingContact_FirstName = cmdletContext.BillingContact_FirstName;
+            }
+            if (requestBillingContact_billingContact_FirstName != null)
+            {
+                request.BillingContact.FirstName = requestBillingContact_billingContact_FirstName;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_LastName = null;
+            if (cmdletContext.BillingContact_LastName != null)
+            {
+                requestBillingContact_billingContact_LastName = cmdletContext.BillingContact_LastName;
+            }
+            if (requestBillingContact_billingContact_LastName != null)
+            {
+                request.BillingContact.LastName = requestBillingContact_billingContact_LastName;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_OrganizationName = null;
+            if (cmdletContext.BillingContact_OrganizationName != null)
+            {
+                requestBillingContact_billingContact_OrganizationName = cmdletContext.BillingContact_OrganizationName;
+            }
+            if (requestBillingContact_billingContact_OrganizationName != null)
+            {
+                request.BillingContact.OrganizationName = requestBillingContact_billingContact_OrganizationName;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_PhoneNumber = null;
+            if (cmdletContext.BillingContact_PhoneNumber != null)
+            {
+                requestBillingContact_billingContact_PhoneNumber = cmdletContext.BillingContact_PhoneNumber;
+            }
+            if (requestBillingContact_billingContact_PhoneNumber != null)
+            {
+                request.BillingContact.PhoneNumber = requestBillingContact_billingContact_PhoneNumber;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_State = null;
+            if (cmdletContext.BillingContact_State != null)
+            {
+                requestBillingContact_billingContact_State = cmdletContext.BillingContact_State;
+            }
+            if (requestBillingContact_billingContact_State != null)
+            {
+                request.BillingContact.State = requestBillingContact_billingContact_State;
+                requestBillingContactIsNull = false;
+            }
+            System.String requestBillingContact_billingContact_ZipCode = null;
+            if (cmdletContext.BillingContact_ZipCode != null)
+            {
+                requestBillingContact_billingContact_ZipCode = cmdletContext.BillingContact_ZipCode;
+            }
+            if (requestBillingContact_billingContact_ZipCode != null)
+            {
+                request.BillingContact.ZipCode = requestBillingContact_billingContact_ZipCode;
+                requestBillingContactIsNull = false;
+            }
+             // determine if request.BillingContact should be set to null
+            if (requestBillingContactIsNull)
+            {
+                request.BillingContact = null;
             }
             
              // populate Consent
@@ -1235,6 +1552,20 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             public System.String AdminContact_PhoneNumber { get; set; }
             public System.String AdminContact_State { get; set; }
             public System.String AdminContact_ZipCode { get; set; }
+            public System.String BillingContact_AddressLine1 { get; set; }
+            public System.String BillingContact_AddressLine2 { get; set; }
+            public System.String BillingContact_City { get; set; }
+            public Amazon.Route53Domains.ContactType BillingContact_ContactType { get; set; }
+            public Amazon.Route53Domains.CountryCode BillingContact_CountryCode { get; set; }
+            public System.String BillingContact_Email { get; set; }
+            public List<Amazon.Route53Domains.Model.ExtraParam> BillingContact_ExtraParam { get; set; }
+            public System.String BillingContact_Fax { get; set; }
+            public System.String BillingContact_FirstName { get; set; }
+            public System.String BillingContact_LastName { get; set; }
+            public System.String BillingContact_OrganizationName { get; set; }
+            public System.String BillingContact_PhoneNumber { get; set; }
+            public System.String BillingContact_State { get; set; }
+            public System.String BillingContact_ZipCode { get; set; }
             public System.String Consent_Currency { get; set; }
             public System.Double? Consent_MaxPrice { get; set; }
             public System.String DomainName { get; set; }

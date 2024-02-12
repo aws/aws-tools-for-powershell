@@ -85,6 +85,9 @@ $R53D_Completers = {
             ($_ -eq "Invoke-R53DDomainTransfer/AdminContact_ContactType") -Or
             ($_ -eq "Register-R53DDomain/AdminContact_ContactType") -Or
             ($_ -eq "Update-R53DDomainContact/AdminContact_ContactType") -Or
+            ($_ -eq "Invoke-R53DDomainTransfer/BillingContact_ContactType") -Or
+            ($_ -eq "Register-R53DDomain/BillingContact_ContactType") -Or
+            ($_ -eq "Update-R53DDomainContact/BillingContact_ContactType") -Or
             ($_ -eq "Invoke-R53DDomainTransfer/RegistrantContact_ContactType") -Or
             ($_ -eq "Register-R53DDomain/RegistrantContact_ContactType") -Or
             ($_ -eq "Update-R53DDomainContact/RegistrantContact_ContactType") -Or
@@ -102,6 +105,9 @@ $R53D_Completers = {
             ($_ -eq "Invoke-R53DDomainTransfer/AdminContact_CountryCode") -Or
             ($_ -eq "Register-R53DDomain/AdminContact_CountryCode") -Or
             ($_ -eq "Update-R53DDomainContact/AdminContact_CountryCode") -Or
+            ($_ -eq "Invoke-R53DDomainTransfer/BillingContact_CountryCode") -Or
+            ($_ -eq "Register-R53DDomain/BillingContact_CountryCode") -Or
+            ($_ -eq "Update-R53DDomainContact/BillingContact_CountryCode") -Or
             ($_ -eq "Invoke-R53DDomainTransfer/RegistrantContact_CountryCode") -Or
             ($_ -eq "Register-R53DDomain/RegistrantContact_CountryCode") -Or
             ($_ -eq "Update-R53DDomainContact/RegistrantContact_CountryCode") -Or
@@ -149,6 +155,8 @@ $R53D_Completers = {
 $R53D_map = @{
     "AdminContact_ContactType"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "AdminContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
+    "BillingContact_ContactType"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
+    "BillingContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "RegistrantContact_ContactType"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "RegistrantContact_CountryCode"=@("Invoke-R53DDomainTransfer","Register-R53DDomain","Update-R53DDomainContact")
     "SortBy"=@("Get-R53DOperationList")
