@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter DataLakeRegions
         /// <summary>
         /// <para>
-        /// <para>The list of regions where Security Lake is enabled.</para>
+        /// <para>The list of Regions where Security Lake is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

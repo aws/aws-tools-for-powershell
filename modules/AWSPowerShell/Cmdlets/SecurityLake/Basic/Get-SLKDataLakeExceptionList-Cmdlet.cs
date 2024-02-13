@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter DataLakeRegions
         /// <summary>
         /// <para>
-        /// <para>List the Amazon Web Services Regions from which exceptions are retrieved.</para>
+        /// <para>The Amazon Web Services Regions from which exceptions are retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

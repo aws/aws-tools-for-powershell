@@ -41415,6 +41415,13 @@ $MCAT_Completers = {
             break
         }
 
+        # Amazon.MarketplaceCatalog.Intent
+        "Start-MCATChangeSet/Intent"
+        {
+            $v = "APPLY","VALIDATE"
+            break
+        }
+
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/EntityTypeSort_OfferSort_SortBy"
         {
@@ -41480,6 +41487,7 @@ $MCAT_map = @{
     "EntityTypeSort_ResaleAuthorizationSort_SortOrder"=@("Get-MCATEntityList")
     "EntityTypeSort_SaaSProductSort_SortBy"=@("Get-MCATEntityList")
     "EntityTypeSort_SaaSProductSort_SortOrder"=@("Get-MCATEntityList")
+    "Intent"=@("Start-MCATChangeSet")
     "OwnershipType"=@("Get-MCATEntityList")
     "Sort_SortOrder"=@("Get-MCATChangeSetList","Get-MCATEntityList")
 }

@@ -1,4 +1,11 @@
-﻿### 4.1.514 (2024-02-12 21:42Z)
+﻿### 4.1.515 (2024-02-13 21:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.747.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Lightsail
+    * Modified cmdlet Update-LSRelationalDatabase: added parameter RelationalDatabaseBlueprintId.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Start-MCATChangeSet: added parameter Intent.
+
+### 4.1.514 (2024-02-12 21:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.746.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppSync
     * Modified cmdlet New-ASYNApiCache: added parameter HealthMetricsConfig.

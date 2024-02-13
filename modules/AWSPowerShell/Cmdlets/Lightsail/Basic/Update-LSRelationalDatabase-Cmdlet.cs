@@ -146,6 +146,18 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Boolean? PubliclyAccessible { get; set; }
         #endregion
         
+        #region Parameter RelationalDatabaseBlueprintId
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is used to update the major version of the database. Enter the <c>blueprintId</c>
+        /// for the major version that you want to update to.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseBlueprints.html">GetRelationalDatabaseBlueprints</a>
+        /// action to get a list of available blueprint IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RelationalDatabaseBlueprintId { get; set; }
+        #endregion
+        
         #region Parameter RelationalDatabaseName
         /// <summary>
         /// <para>
@@ -245,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             context.PubliclyAccessible = this.PubliclyAccessible;
+            context.RelationalDatabaseBlueprintId = this.RelationalDatabaseBlueprintId;
             context.RelationalDatabaseName = this.RelationalDatabaseName;
             #if MODULAR
             if (this.RelationalDatabaseName == null && ParameterWasBound(nameof(this.RelationalDatabaseName)))
@@ -300,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
+            }
+            if (cmdletContext.RelationalDatabaseBlueprintId != null)
+            {
+                request.RelationalDatabaseBlueprintId = cmdletContext.RelationalDatabaseBlueprintId;
             }
             if (cmdletContext.RelationalDatabaseName != null)
             {
@@ -378,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String RelationalDatabaseBlueprintId { get; set; }
             public System.String RelationalDatabaseName { get; set; }
             public System.Boolean? RotateMasterUserPassword { get; set; }
             public System.Func<Amazon.Lightsail.Model.UpdateRelationalDatabaseResponse, UpdateLSRelationalDatabaseCmdlet, object> Select { get; set; } =

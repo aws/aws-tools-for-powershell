@@ -127,6 +127,20 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter Intent
+        /// <summary>
+        /// <para>
+        /// <para>The intent related to the request. The default is <c>APPLY</c>. To test your request
+        /// before applying changes to your entities, use <c>VALIDATE</c>. This feature is currently
+        /// available for adding versions to single-AMI products. For more information, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version">Add
+        /// a new version</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MarketplaceCatalog.Intent")]
+        public Amazon.MarketplaceCatalog.Intent Intent { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -212,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
                 context.ChangeSetTag = new List<Amazon.MarketplaceCatalog.Model.Tag>(this.ChangeSetTag);
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            context.Intent = this.Intent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -247,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.Intent != null)
+            {
+                request.Intent = cmdletContext.Intent;
             }
             
             CmdletOutput output;
@@ -314,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public System.String ChangeSetName { get; set; }
             public List<Amazon.MarketplaceCatalog.Model.Tag> ChangeSetTag { get; set; }
             public System.String ClientRequestToken { get; set; }
+            public Amazon.MarketplaceCatalog.Intent Intent { get; set; }
             public System.Func<Amazon.MarketplaceCatalog.Model.StartChangeSetResponse, StartMCATChangeSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

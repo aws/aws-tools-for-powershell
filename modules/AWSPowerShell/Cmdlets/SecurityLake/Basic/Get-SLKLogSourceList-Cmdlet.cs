@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter SourceRegions
         /// <summary>
         /// <para>
-        /// <para>The list of regions for which log sources are displayed.</para>
+        /// <para>The list of Regions for which log sources are displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
