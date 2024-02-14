@@ -58,6 +58,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter NativeIndexConfiguration_BoostingOverride
+        /// <summary>
+        /// <para>
+        /// <para>Overrides the default boosts applied by Amazon Q to supported document attribute data
+        /// types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_NativeIndexConfiguration_BoostingOverride")]
+        public System.Collections.Hashtable NativeIndexConfiguration_BoostingOverride { get; set; }
+        #endregion
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>
@@ -221,6 +233,14 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             #endif
             context.ClientToken = this.ClientToken;
             context.KendraIndexConfiguration_IndexId = this.KendraIndexConfiguration_IndexId;
+            if (this.NativeIndexConfiguration_BoostingOverride != null)
+            {
+                context.NativeIndexConfiguration_BoostingOverride = new Dictionary<System.String, Amazon.QBusiness.Model.DocumentAttributeBoostingConfiguration>(StringComparer.Ordinal);
+                foreach (var hashKey in this.NativeIndexConfiguration_BoostingOverride.Keys)
+                {
+                    context.NativeIndexConfiguration_BoostingOverride.Add((String)hashKey, (Amazon.QBusiness.Model.DocumentAttributeBoostingConfiguration)(this.NativeIndexConfiguration_BoostingOverride[hashKey]));
+                }
+            }
             context.NativeIndexConfiguration_IndexId = this.NativeIndexConfiguration_IndexId;
             context.DisplayName = this.DisplayName;
             #if MODULAR
@@ -299,6 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
              // populate NativeIndexConfiguration
             var requestConfiguration_configuration_NativeIndexConfigurationIsNull = true;
             requestConfiguration_configuration_NativeIndexConfiguration = new Amazon.QBusiness.Model.NativeIndexConfiguration();
+            Dictionary<System.String, Amazon.QBusiness.Model.DocumentAttributeBoostingConfiguration> requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_BoostingOverride = null;
+            if (cmdletContext.NativeIndexConfiguration_BoostingOverride != null)
+            {
+                requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_BoostingOverride = cmdletContext.NativeIndexConfiguration_BoostingOverride;
+            }
+            if (requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_BoostingOverride != null)
+            {
+                requestConfiguration_configuration_NativeIndexConfiguration.BoostingOverride = requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_BoostingOverride;
+                requestConfiguration_configuration_NativeIndexConfigurationIsNull = false;
+            }
             System.String requestConfiguration_configuration_NativeIndexConfiguration_nativeIndexConfiguration_IndexId = null;
             if (cmdletContext.NativeIndexConfiguration_IndexId != null)
             {
@@ -404,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String ApplicationId { get; set; }
             public System.String ClientToken { get; set; }
             public System.String KendraIndexConfiguration_IndexId { get; set; }
+            public Dictionary<System.String, Amazon.QBusiness.Model.DocumentAttributeBoostingConfiguration> NativeIndexConfiguration_BoostingOverride { get; set; }
             public System.String NativeIndexConfiguration_IndexId { get; set; }
             public System.String DisplayName { get; set; }
             public System.String RoleArn { get; set; }

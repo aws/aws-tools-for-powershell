@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         public System.String S3InputConfiguration_Bucket { get; set; }
         #endregion
         
+        #region Parameter S3OutputConfiguration_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon S3 bucket where the pointwise model diagnostics are located.
+        /// You must be the owner of the Amazon S3 bucket. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelDiagnosticsOutputConfiguration_S3OutputConfiguration_Bucket")]
+        public System.String S3OutputConfiguration_Bucket { get; set; }
+        #endregion
+        
         #region Parameter DatasetName
         /// <summary>
         /// <para>
@@ -112,6 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DatasetSchema_InlineDataSchema { get; set; }
+        #endregion
+        
+        #region Parameter ModelDiagnosticsOutputConfiguration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Key Management Service (KMS) key identifier to encrypt the
+        /// pointwise model diagnostics files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelDiagnosticsOutputConfiguration_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter LabelsInputConfiguration_LabelGroupName
@@ -162,6 +185,22 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LabelsInputConfiguration_S3InputConfiguration_Prefix")]
         public System.String S3InputConfiguration_Prefix { get; set; }
+        #endregion
+        
+        #region Parameter S3OutputConfiguration_Prefix
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 prefix for the location of the pointwise model diagnostics. The prefix
+        /// specifies the folder and evaluation result file name. (<c>bucket</c>).</para><para>When you call <c>CreateModel</c> or <c>UpdateModel</c>, specify the path within the
+        /// bucket that you want Lookout for Equipment to save the model to. During training,
+        /// Lookout for Equipment creates the model evaluation model as a compressed JSON file
+        /// with the name <c>model_diagnostics_results.json.gz</c>.</para><para>When you call <c>DescribeModel</c> or <c>DescribeModelVersion</c>, <c>prefix</c> contains
+        /// the file path and filename of the model evaluation file. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ModelDiagnosticsOutputConfiguration_S3OutputConfiguration_Prefix")]
+        public System.String S3OutputConfiguration_Prefix { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -304,6 +343,9 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             context.LabelsInputConfiguration_LabelGroupName = this.LabelsInputConfiguration_LabelGroupName;
             context.S3InputConfiguration_Bucket = this.S3InputConfiguration_Bucket;
             context.S3InputConfiguration_Prefix = this.S3InputConfiguration_Prefix;
+            context.ModelDiagnosticsOutputConfiguration_KmsKeyId = this.ModelDiagnosticsOutputConfiguration_KmsKeyId;
+            context.S3OutputConfiguration_Bucket = this.S3OutputConfiguration_Bucket;
+            context.S3OutputConfiguration_Prefix = this.S3OutputConfiguration_Prefix;
             context.ModelName = this.ModelName;
             #if MODULAR
             if (this.ModelName == null && ParameterWasBound(nameof(this.ModelName)))
@@ -444,6 +486,60 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             {
                 request.LabelsInputConfiguration = null;
             }
+            
+             // populate ModelDiagnosticsOutputConfiguration
+            var requestModelDiagnosticsOutputConfigurationIsNull = true;
+            request.ModelDiagnosticsOutputConfiguration = new Amazon.LookoutEquipment.Model.ModelDiagnosticsOutputConfiguration();
+            System.String requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_KmsKeyId = null;
+            if (cmdletContext.ModelDiagnosticsOutputConfiguration_KmsKeyId != null)
+            {
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_KmsKeyId = cmdletContext.ModelDiagnosticsOutputConfiguration_KmsKeyId;
+            }
+            if (requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_KmsKeyId != null)
+            {
+                request.ModelDiagnosticsOutputConfiguration.KmsKeyId = requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_KmsKeyId;
+                requestModelDiagnosticsOutputConfigurationIsNull = false;
+            }
+            Amazon.LookoutEquipment.Model.ModelDiagnosticsS3OutputConfiguration requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration = null;
+            
+             // populate S3OutputConfiguration
+            var requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfigurationIsNull = true;
+            requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration = new Amazon.LookoutEquipment.Model.ModelDiagnosticsS3OutputConfiguration();
+            System.String requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Bucket = null;
+            if (cmdletContext.S3OutputConfiguration_Bucket != null)
+            {
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Bucket = cmdletContext.S3OutputConfiguration_Bucket;
+            }
+            if (requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Bucket != null)
+            {
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration.Bucket = requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Bucket;
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfigurationIsNull = false;
+            }
+            System.String requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Prefix = null;
+            if (cmdletContext.S3OutputConfiguration_Prefix != null)
+            {
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Prefix = cmdletContext.S3OutputConfiguration_Prefix;
+            }
+            if (requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Prefix != null)
+            {
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration.Prefix = requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration_s3OutputConfiguration_Prefix;
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfigurationIsNull = false;
+            }
+             // determine if requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration should be set to null
+            if (requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfigurationIsNull)
+            {
+                requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration = null;
+            }
+            if (requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration != null)
+            {
+                request.ModelDiagnosticsOutputConfiguration.S3OutputConfiguration = requestModelDiagnosticsOutputConfiguration_modelDiagnosticsOutputConfiguration_S3OutputConfiguration;
+                requestModelDiagnosticsOutputConfigurationIsNull = false;
+            }
+             // determine if request.ModelDiagnosticsOutputConfiguration should be set to null
+            if (requestModelDiagnosticsOutputConfigurationIsNull)
+            {
+                request.ModelDiagnosticsOutputConfiguration = null;
+            }
             if (cmdletContext.ModelName != null)
             {
                 request.ModelName = cmdletContext.ModelName;
@@ -542,6 +638,9 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             public System.String LabelsInputConfiguration_LabelGroupName { get; set; }
             public System.String S3InputConfiguration_Bucket { get; set; }
             public System.String S3InputConfiguration_Prefix { get; set; }
+            public System.String ModelDiagnosticsOutputConfiguration_KmsKeyId { get; set; }
+            public System.String S3OutputConfiguration_Bucket { get; set; }
+            public System.String S3OutputConfiguration_Prefix { get; set; }
             public System.String ModelName { get; set; }
             public System.String OffCondition { get; set; }
             public System.String RoleArn { get; set; }

@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter Manifest
         /// <summary>
         /// <para>
-        /// <para>The manifest JSON file is a text file that describes your Amazon Web Services resources.
-        /// For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch
-        /// your landing zone</a>.</para>
+        /// <para>The <c>manifest.yaml</c> file is a text file that describes your Amazon Web Services
+        /// resources. For examples, review <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The
+        /// manifest file</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

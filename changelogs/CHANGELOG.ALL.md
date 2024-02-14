@@ -1,4 +1,23 @@
-﻿### 4.1.515 (2024-02-13 21:47Z)
+﻿### 4.1.516 (2024-02-14 21:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.748.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Tower
+    * Added cmdlet Disable-ACTBaseline leveraging the DisableBaseline service API.
+    * Added cmdlet Enable-ACTBaseline leveraging the EnableBaseline service API.
+    * Added cmdlet Get-ACTBaseline leveraging the GetBaseline service API.
+    * Added cmdlet Get-ACTBaselineList leveraging the ListBaselines service API.
+    * Added cmdlet Get-ACTBaselineOperation leveraging the GetBaselineOperation service API.
+    * Added cmdlet Get-ACTEnabledBaseline leveraging the GetEnabledBaseline service API.
+    * Added cmdlet Get-ACTEnabledBaselineList leveraging the ListEnabledBaselines service API.
+    * Added cmdlet Reset-ACTEnabledBaseline leveraging the ResetEnabledBaseline service API.
+    * Added cmdlet Update-ACTEnabledBaseline leveraging the UpdateEnabledBaseline service API.
+  * Amazon Lookout for Equipment
+    * Modified cmdlet New-L4EModel: added parameters ModelDiagnosticsOutputConfiguration_KmsKeyId, S3OutputConfiguration_Bucket and S3OutputConfiguration_Prefix.
+    * Modified cmdlet Update-L4EModel: added parameters ModelDiagnosticsOutputConfiguration_KmsKeyId, S3OutputConfiguration_Bucket and S3OutputConfiguration_Prefix.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSRetriever: added parameter NativeIndexConfiguration_BoostingOverride.
+    * Modified cmdlet Update-QBUSRetriever: added parameter NativeIndexConfiguration_BoostingOverride.
+
+### 4.1.515 (2024-02-13 21:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.747.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Lightsail
     * Modified cmdlet Update-LSRelationalDatabase: added parameter RelationalDatabaseBlueprintId.

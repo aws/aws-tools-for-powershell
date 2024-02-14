@@ -26,7 +26,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableBaseline" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Baseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableControl" OutputProperty="OperationIdentifier" Verb="Disable" Noun="Control" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableBaseline" OutputProperty="*" Verb="Enable" Noun="Baseline" ShouldProcessTarget="TargetIdentifier" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -34,7 +42,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBaseline" OutputProperty="*" Verb="Get" Noun="Baseline" PipelineParameter="BaselineIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetBaselineOperation" OutputProperty="BaselineOperation" Verb="Get" Noun="BaselineOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetControlOperation" OutputProperty="ControlOperation" Verb="Get" Noun="ControlOperation" PipelineParameter="OperationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnabledBaseline" OutputProperty="EnabledBaselineDetails" Verb="Get" Noun="EnabledBaseline" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,6 +70,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBaselines" OutputProperty="Baselines" Verb="Get" Noun="BaselineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnabledBaselines" OutputProperty="EnabledBaselines" Verb="Get" Noun="EnabledBaselineList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnabledControls" OutputProperty="EnabledControls" Verb="Get" Noun="EnabledControlList" PipelineParameter="TargetIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -62,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetEnabledBaseline" OutputProperty="OperationIdentifier" Verb="Reset" Noun="EnabledBaseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ResetLandingZone" OutputProperty="OperationIdentifier" Verb="Reset" Noun="LandingZone" ShouldProcessTarget="LandingZoneIdentifier" PipelineParameter="LandingZoneIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnabledBaseline" OutputProperty="OperationIdentifier" Verb="Update" Noun="EnabledBaseline" ShouldProcessTarget="EnabledBaselineIdentifier" PipelineParameter="EnabledBaselineIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

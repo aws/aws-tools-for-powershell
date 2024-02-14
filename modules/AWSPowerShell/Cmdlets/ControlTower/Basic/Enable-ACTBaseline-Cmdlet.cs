@@ -28,30 +28,24 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// This API call activates a control. It starts an asynchronous operation that creates
-    /// Amazon Web Services resources on the specified organizational unit and the accounts
-    /// it contains. The resources created will vary according to the control that you specify.
-    /// For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html"><i>the Amazon Web Services Control Tower User Guide</i></a>.
+    /// Enable (apply) a <c>Baseline</c> to a Target. This API starts an asynchronous operation
+    /// to deploy resources specified by the <c>Baseline</c> to the specified Target.
     /// </summary>
-    [Cmdlet("Enable", "ACTControl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Control Tower EnableControl API operation.", Operation = new[] {"EnableControl"}, SelectReturnType = typeof(Amazon.ControlTower.Model.EnableControlResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ControlTower.Model.EnableControlResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ControlTower.Model.EnableControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Enable", "ACTBaseline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ControlTower.Model.EnableBaselineResponse")]
+    [AWSCmdlet("Calls the AWS Control Tower EnableBaseline API operation.", Operation = new[] {"EnableBaseline"}, SelectReturnType = typeof(Amazon.ControlTower.Model.EnableBaselineResponse))]
+    [AWSCmdletOutput("Amazon.ControlTower.Model.EnableBaselineResponse",
+        "This cmdlet returns an Amazon.ControlTower.Model.EnableBaselineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableACTControlCmdlet : AmazonControlTowerClientCmdlet, IExecutor
+    public partial class EnableACTBaselineCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ControlIdentifier
+        #region Parameter BaselineIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ARN of the control. Only <b>Strongly recommended</b> and <b>Elective</b> controls
-        /// are permitted, with the exception of the <b>Region deny</b> control. For information
-        /// on how to find the <c>controlIdentifier</c>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the
-        /// overview page</a>.</para>
+        /// <para>The ARN of the baseline to be enabled.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,25 +56,42 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ControlIdentifier { get; set; }
+        public System.String BaselineIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter BaselineVersion
+        /// <summary>
+        /// <para>
+        /// <para>The specific version to be enabled of the specified baseline.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String BaselineVersion { get; set; }
         #endregion
         
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>A list of input parameter values, which are specified to configure the control when
-        /// you enable it.</para>
+        /// <para>A list of <c>key-value</c> objects that specify enablement parameters, where <c>key</c>
+        /// is a string and <c>value</c> is a document of any type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Parameters")]
-        public Amazon.ControlTower.Model.EnabledControlParameter[] Parameter { get; set; }
+        public Amazon.ControlTower.Model.EnabledBaselineParameter[] Parameter { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to be applied to the <c>EnabledControl</c> resource.</para>
+        /// <para>Tags associated with input to <c>EnableBaseline</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,9 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         #region Parameter TargetIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ARN of the organizational unit. For information on how to find the <c>targetIdentifier</c>,
-        /// see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the
-        /// overview page</a>.</para>
+        /// <para>The ARN of the target on which the baseline will be enabled. Only OUs are supported
+        /// as targets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,13 +119,13 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationIdentifier'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.EnableControlResponse).
-        /// Specifying the name of a property of type Amazon.ControlTower.Model.EnableControlResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.EnableBaselineResponse).
+        /// Specifying the name of a property of type Amazon.ControlTower.Model.EnableBaselineResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "OperationIdentifier";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
@@ -144,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TargetIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-ACTControl (EnableControl)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-ACTBaseline (EnableBaseline)"))
             {
                 return;
             }
@@ -157,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.EnableControlResponse, EnableACTControlCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.EnableBaselineResponse, EnableACTBaselineCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -169,16 +179,23 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 context.Select = (response, cmdlet) => this.TargetIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ControlIdentifier = this.ControlIdentifier;
+            context.BaselineIdentifier = this.BaselineIdentifier;
             #if MODULAR
-            if (this.ControlIdentifier == null && ParameterWasBound(nameof(this.ControlIdentifier)))
+            if (this.BaselineIdentifier == null && ParameterWasBound(nameof(this.BaselineIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ControlIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter BaselineIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.BaselineVersion = this.BaselineVersion;
+            #if MODULAR
+            if (this.BaselineVersion == null && ParameterWasBound(nameof(this.BaselineVersion)))
+            {
+                WriteWarning("You are passing $null as a value for parameter BaselineVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Parameter != null)
             {
-                context.Parameter = new List<Amazon.ControlTower.Model.EnabledControlParameter>(this.Parameter);
+                context.Parameter = new List<Amazon.ControlTower.Model.EnabledBaselineParameter>(this.Parameter);
             }
             if (this.Tag != null)
             {
@@ -209,11 +226,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ControlTower.Model.EnableControlRequest();
+            var request = new Amazon.ControlTower.Model.EnableBaselineRequest();
             
-            if (cmdletContext.ControlIdentifier != null)
+            if (cmdletContext.BaselineIdentifier != null)
             {
-                request.ControlIdentifier = cmdletContext.ControlIdentifier;
+                request.BaselineIdentifier = cmdletContext.BaselineIdentifier;
+            }
+            if (cmdletContext.BaselineVersion != null)
+            {
+                request.BaselineVersion = cmdletContext.BaselineVersion;
             }
             if (cmdletContext.Parameter != null)
             {
@@ -260,15 +281,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region AWS Service Operation Call
         
-        private Amazon.ControlTower.Model.EnableControlResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.EnableControlRequest request)
+        private Amazon.ControlTower.Model.EnableBaselineResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.EnableBaselineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "EnableControl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "EnableBaseline");
             try
             {
                 #if DESKTOP
-                return client.EnableControl(request);
+                return client.EnableBaseline(request);
                 #elif CORECLR
-                return client.EnableControlAsync(request).GetAwaiter().GetResult();
+                return client.EnableBaselineAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -288,12 +309,13 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ControlIdentifier { get; set; }
-            public List<Amazon.ControlTower.Model.EnabledControlParameter> Parameter { get; set; }
+            public System.String BaselineIdentifier { get; set; }
+            public System.String BaselineVersion { get; set; }
+            public List<Amazon.ControlTower.Model.EnabledBaselineParameter> Parameter { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String TargetIdentifier { get; set; }
-            public System.Func<Amazon.ControlTower.Model.EnableControlResponse, EnableACTControlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.OperationIdentifier;
+            public System.Func<Amazon.ControlTower.Model.EnableBaselineResponse, EnableACTBaselineCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.L4E
         #region Parameter LabelGroupName
         /// <summary>
         /// <para>
-        /// <para> Retruns the name of the label group. </para>
+        /// <para> Returns the name of the label group. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

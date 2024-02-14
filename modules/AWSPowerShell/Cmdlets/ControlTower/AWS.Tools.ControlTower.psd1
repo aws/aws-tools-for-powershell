@@ -87,9 +87,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-ACTResourceTag', 
+        'Disable-ACTBaseline', 
         'Disable-ACTControl', 
+        'Enable-ACTBaseline', 
         'Enable-ACTControl', 
+        'Get-ACTBaseline', 
+        'Get-ACTBaselineList', 
+        'Get-ACTBaselineOperation', 
         'Get-ACTControlOperation', 
+        'Get-ACTEnabledBaseline', 
+        'Get-ACTEnabledBaselineList', 
         'Get-ACTEnabledControl', 
         'Get-ACTEnabledControlList', 
         'Get-ACTLandingZone', 
@@ -99,7 +106,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-ACTLandingZone', 
         'Remove-ACTLandingZone', 
         'Remove-ACTResourceTag', 
+        'Reset-ACTEnabledBaseline', 
         'Reset-ACTLandingZone', 
+        'Update-ACTEnabledBaseline', 
         'Update-ACTEnabledControl', 
         'Update-ACTLandingZone')
 

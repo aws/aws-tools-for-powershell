@@ -16707,18 +16707,27 @@ $ACT_SelectCompleters = {
 $ACT_SelectMap = @{
     "Select"=@("New-ACTLandingZone",
                "Remove-ACTLandingZone",
+               "Disable-ACTBaseline",
                "Disable-ACTControl",
+               "Enable-ACTBaseline",
                "Enable-ACTControl",
+               "Get-ACTBaseline",
+               "Get-ACTBaselineOperation",
                "Get-ACTControlOperation",
+               "Get-ACTEnabledBaseline",
                "Get-ACTEnabledControl",
                "Get-ACTLandingZone",
                "Get-ACTLandingZoneOperation",
+               "Get-ACTBaselineList",
+               "Get-ACTEnabledBaselineList",
                "Get-ACTEnabledControlList",
                "Get-ACTLandingZoneList",
                "Get-ACTResourceTag",
+               "Reset-ACTEnabledBaseline",
                "Reset-ACTLandingZone",
                "Add-ACTResourceTag",
                "Remove-ACTResourceTag",
+               "Update-ACTEnabledBaseline",
                "Update-ACTEnabledControl",
                "Update-ACTLandingZone")
 }
@@ -51681,7 +51690,7 @@ $QBUS_Completers = {
         # Amazon.QBusiness.MessageUsefulnessReason
         "Write-QBUSFeedback/MessageUsefulness_Reason"
         {
-            $v = "COMPLETE","FACTUALLY_CORRECT","HARMFUL_OR_UNSAFE","HELPFUL","INCORRECT_OR_MISSING_SOURCES","NOT_FACTUALLY_CORRECT","NOT_HELPFUL","RELEVANT_SOURCES"
+            $v = "COMPLETE","FACTUALLY_CORRECT","HARMFUL_OR_UNSAFE","HELPFUL","INCORRECT_OR_MISSING_SOURCES","NOT_BASED_ON_DOCUMENTS","NOT_COMPLETE","NOT_CONCISE","NOT_FACTUALLY_CORRECT","NOT_HELPFUL","OTHER","RELEVANT_SOURCES"
             break
         }
 

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     /// from a call to <c>DescribeIndex</c>. The <c>Status</c> field is set to <c>ACTIVE</c>
     /// when the index is ready to use.
     /// </para><para>
-    /// Once the index is active, you can index your documents using the <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_BatchPutDocument.html"><c>BatchPutDocument</c></a> API or the <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CreateDataSource.html"><c>CreateDataSource</c></a> API.
+    /// Once the index is active, you can index your documents using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html"><c>BatchPutDocument</c></a> API or the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html"><c>CreateDataSource</c></a> API.
     /// </para>
     /// </summary>
     [Cmdlet("New", "QBUSIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
