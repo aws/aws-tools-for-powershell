@@ -28,16 +28,18 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Updates a SageMaker HyperPod cluster.
+    /// Updates the platform software of a SageMaker HyperPod cluster for security patching.
+    /// To learn how to use this API, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-operate.html#sagemaker-hyperpod-operate-cli-command-update-cluster-software">Update
+    /// the SageMaker HyperPod platform software of a cluster</a>.
     /// </summary>
-    [Cmdlet("Update", "SMCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Update", "SMClusterSoftware", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service UpdateCluster API operation.", Operation = new[] {"UpdateCluster"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateClusterResponse))]
-    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateClusterResponse",
+    [AWSCmdlet("Calls the Amazon SageMaker Service UpdateClusterSoftware API operation.", Operation = new[] {"UpdateClusterSoftware"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateClusterSoftwareResponse))]
+    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateClusterSoftwareResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.UpdateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SageMaker.Model.UpdateClusterSoftwareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSMClusterCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class UpdateSMClusterSoftwareCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -45,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ClusterName
         /// <summary>
         /// <para>
-        /// <para>Specify the name of the SageMaker HyperPod cluster you want to update.</para>
+        /// <para>Specify the name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster
+        /// you want to update for security patching.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,29 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ClusterName { get; set; }
         #endregion
         
-        #region Parameter InstanceGroup
-        /// <summary>
-        /// <para>
-        /// <para>Specify the instance groups to update.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("InstanceGroups")]
-        public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.UpdateClusterResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.UpdateClusterResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.UpdateClusterSoftwareResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.UpdateClusterSoftwareResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SMCluster (UpdateCluster)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SMClusterSoftware (UpdateClusterSoftware)"))
             {
                 return;
             }
@@ -127,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdateClusterSoftwareResponse, UpdateSMClusterSoftwareCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,16 +131,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.InstanceGroup != null)
-            {
-                context.InstanceGroup = new List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification>(this.InstanceGroup);
-            }
-            #if MODULAR
-            if (this.InstanceGroup == null && ParameterWasBound(nameof(this.InstanceGroup)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,15 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.UpdateClusterRequest();
+            var request = new Amazon.SageMaker.Model.UpdateClusterSoftwareRequest();
             
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
-            }
-            if (cmdletContext.InstanceGroup != null)
-            {
-                request.InstanceGroups = cmdletContext.InstanceGroup;
             }
             
             CmdletOutput output;
@@ -213,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.UpdateClusterResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.UpdateClusterRequest request)
+        private Amazon.SageMaker.Model.UpdateClusterSoftwareResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.UpdateClusterSoftwareRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "UpdateCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "UpdateClusterSoftware");
             try
             {
                 #if DESKTOP
-                return client.UpdateCluster(request);
+                return client.UpdateClusterSoftware(request);
                 #elif CORECLR
-                return client.UpdateClusterAsync(request).GetAwaiter().GetResult();
+                return client.UpdateClusterSoftwareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,8 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterName { get; set; }
-            public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
-            public System.Func<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.SageMaker.Model.UpdateClusterSoftwareResponse, UpdateSMClusterSoftwareCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ClusterArn;
         }
         

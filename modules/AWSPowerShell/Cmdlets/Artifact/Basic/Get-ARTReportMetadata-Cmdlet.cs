@@ -22,30 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SageMaker;
-using Amazon.SageMaker.Model;
+using Amazon.Artifact;
+using Amazon.Artifact.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SM
+namespace Amazon.PowerShell.Cmdlets.ART
 {
     /// <summary>
-    /// Updates a SageMaker HyperPod cluster.
+    /// Get the metadata for a single report.
     /// </summary>
-    [Cmdlet("Update", "SMCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service UpdateCluster API operation.", Operation = new[] {"UpdateCluster"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateClusterResponse))]
-    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateClusterResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.UpdateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ARTReportMetadata")]
+    [OutputType("Amazon.Artifact.Model.ReportDetail")]
+    [AWSCmdlet("Calls the AWS Artifact GetReportMetadata API operation.", Operation = new[] {"GetReportMetadata"}, SelectReturnType = typeof(Amazon.Artifact.Model.GetReportMetadataResponse))]
+    [AWSCmdletOutput("Amazon.Artifact.Model.ReportDetail or Amazon.Artifact.Model.GetReportMetadataResponse",
+        "This cmdlet returns an Amazon.Artifact.Model.ReportDetail object.",
+        "The service call response (type Amazon.Artifact.Model.GetReportMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSMClusterCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetARTReportMetadataCmdlet : AmazonArtifactClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClusterName
+        #region Parameter ReportId
         /// <summary>
         /// <para>
-        /// <para>Specify the name of the SageMaker HyperPod cluster you want to update.</para>
+        /// <para>Unique resource ID for the report resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,68 +56,44 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterName { get; set; }
+        public System.String ReportId { get; set; }
         #endregion
         
-        #region Parameter InstanceGroup
+        #region Parameter ReportVersion
         /// <summary>
         /// <para>
-        /// <para>Specify the instance groups to update.</para>
+        /// <para>Version for the report resource.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("InstanceGroups")]
-        public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
+        public System.Int64? ReportVersion { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.UpdateClusterResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.UpdateClusterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ReportDetails'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Artifact.Model.GetReportMetadataResponse).
+        /// Specifying the name of a property of type Amazon.Artifact.Model.GetReportMetadataResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ClusterArn";
+        public string Select { get; set; } = "ReportDetails";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ReportId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ReportId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ReportId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SMCluster (UpdateCluster)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -127,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Artifact.Model.GetReportMetadataResponse, GetARTReportMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,26 +112,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterName;
+                context.Select = (response, cmdlet) => this.ReportId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClusterName = this.ClusterName;
+            context.ReportId = this.ReportId;
             #if MODULAR
-            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
+            if (this.ReportId == null && ParameterWasBound(nameof(this.ReportId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ReportId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.InstanceGroup != null)
-            {
-                context.InstanceGroup = new List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification>(this.InstanceGroup);
-            }
-            #if MODULAR
-            if (this.InstanceGroup == null && ParameterWasBound(nameof(this.InstanceGroup)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ReportVersion = this.ReportVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.UpdateClusterRequest();
+            var request = new Amazon.Artifact.Model.GetReportMetadataRequest();
             
-            if (cmdletContext.ClusterName != null)
+            if (cmdletContext.ReportId != null)
             {
-                request.ClusterName = cmdletContext.ClusterName;
+                request.ReportId = cmdletContext.ReportId;
             }
-            if (cmdletContext.InstanceGroup != null)
+            if (cmdletContext.ReportVersion != null)
             {
-                request.InstanceGroups = cmdletContext.InstanceGroup;
+                request.ReportVersion = cmdletContext.ReportVersion.Value;
             }
             
             CmdletOutput output;
@@ -213,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.UpdateClusterResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.UpdateClusterRequest request)
+        private Amazon.Artifact.Model.GetReportMetadataResponse CallAWSServiceOperation(IAmazonArtifact client, Amazon.Artifact.Model.GetReportMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "UpdateCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Artifact", "GetReportMetadata");
             try
             {
                 #if DESKTOP
-                return client.UpdateCluster(request);
+                return client.GetReportMetadata(request);
                 #elif CORECLR
-                return client.UpdateClusterAsync(request).GetAwaiter().GetResult();
+                return client.GetReportMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -241,10 +208,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClusterName { get; set; }
-            public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
-            public System.Func<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ClusterArn;
+            public System.String ReportId { get; set; }
+            public System.Int64? ReportVersion { get; set; }
+            public System.Func<Amazon.Artifact.Model.GetReportMetadataResponse, GetARTReportMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ReportDetails;
         }
         
     }

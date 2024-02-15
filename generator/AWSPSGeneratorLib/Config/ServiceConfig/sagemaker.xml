@@ -1261,6 +1261,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClusterSoftware" OutputProperty="ClusterArn" Verb="Update" Noun="ClusterSoftware" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCodeRepository" OutputProperty="CodeRepositoryArn" Verb="Update" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

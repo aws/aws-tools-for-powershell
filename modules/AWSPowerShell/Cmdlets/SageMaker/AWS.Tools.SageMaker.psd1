@@ -372,6 +372,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-SMAppImageConfig', 
         'Update-SMArtifact', 
         'Update-SMCluster', 
+        'Update-SMClusterSoftware', 
         'Update-SMCodeRepository', 
         'Update-SMContext', 
         'Update-SMDevice', 

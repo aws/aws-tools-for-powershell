@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// 
     ///  
     /// <para>
-    /// ListSecrets is eventually consistent, however it might not reflect changes from the
-    /// last five minutes. To get the latest information for a specific secret, use <a>DescribeSecret</a>.
+    /// All Secrets Manager operations are eventually consistent. ListSecrets might not reflect
+    /// changes from the last five minutes. You can get more recent information for a specific
+    /// secret by calling <a>DescribeSecret</a>.
     /// </para><para>
     /// To list the versions of a secret, use <a>ListSecretVersionIds</a>.
     /// </para><para>

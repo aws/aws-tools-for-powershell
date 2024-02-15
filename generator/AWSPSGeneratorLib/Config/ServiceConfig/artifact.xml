@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>artifact</C2jFilename>
+    <AssemblyName>Artifact</AssemblyName>
+    <ServiceNounPrefix>ART</ServiceNounPrefix>
+    <ServiceName>AWS Artifact</ServiceName>
+    <ServiceClientInterface>IAmazonArtifact</ServiceClientInterface>
+    <ServiceClient>AmazonArtifactClient</ServiceClient>
+    <ServiceModuleGuid>6dad554e-2dc9-4f7d-886e-fd881ef98489</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="AccountSettings" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReport" OutputProperty="DocumentPresignedUrl" Verb="Get" Noun="Report" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReportMetadata" OutputProperty="ReportDetails" Verb="Get" Noun="ReportMetadata" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTermForReport" OutputProperty="*" Verb="Get" Noun="TermForReport" PipelineParameter="ReportId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReports" OutputProperty="Reports" Verb="Get" Noun="ReportList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountSettings" OutputProperty="AccountSettings" Verb="Write" Noun="AccountSetting" ShouldProcessTarget="NotificationSubscriptionStatus" PipelineParameter="NotificationSubscriptionStatus" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

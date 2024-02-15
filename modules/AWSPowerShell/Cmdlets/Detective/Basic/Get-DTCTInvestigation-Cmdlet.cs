@@ -28,7 +28,11 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// Returns the investigation results of an investigation for a behavior graph.
+    /// Detective investigations lets you investigate IAM users and IAM roles using indicators
+    /// of compromise. An indicator of compromise (IOC) is an artifact observed in or on a
+    /// network, system, or environment that can (with a high level of confidence) identify
+    /// malicious activity or a security incident. <c>GetInvestigation</c> returns the investigation
+    /// results of an investigation for a behavior graph.
     /// </summary>
     [Cmdlet("Get", "DTCTInvestigation")]
     [OutputType("Amazon.Detective.Model.GetInvestigationResponse")]
@@ -44,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter GraphArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the behavior graph.</para>
+        /// <para>The Amazon Resource Name (ARN) of the behavior graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

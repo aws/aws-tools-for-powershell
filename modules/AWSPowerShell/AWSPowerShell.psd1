@@ -79,6 +79,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.AppStream.dll',
         'AWSSDK.AppSync.dll',
         'AWSSDK.ARCZonalShift.dll',
+        'AWSSDK.Artifact.dll',
         'AWSSDK.Athena.dll',
         'AWSSDK.AuditManager.dll',
         'AWSSDK.AugmentedAIRuntime.dll',

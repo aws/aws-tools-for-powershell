@@ -72,70 +72,18 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service Amazon Polly
+# Argument completions for service AWS Artifact
 
 
-$POL_Completers = {
+$ART_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.Polly.Engine
+        # Amazon.Artifact.NotificationSubscriptionStatus
+        "Write-ARTAccountSetting/NotificationSubscriptionStatus"
         {
-            ($_ -eq "Get-POLSpeech/Engine") -Or
-            ($_ -eq "Get-POLVoice/Engine") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/Engine")
-        }
-        {
-            $v = "long-form","neural","standard"
-            break
-        }
-
-        # Amazon.Polly.LanguageCode
-        {
-            ($_ -eq "Get-POLSpeech/LanguageCode") -Or
-            ($_ -eq "Get-POLVoice/LanguageCode") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
-        }
-        {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-BE","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-BE","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
-            break
-        }
-
-        # Amazon.Polly.OutputFormat
-        {
-            ($_ -eq "Get-POLSpeech/OutputFormat") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/OutputFormat")
-        }
-        {
-            $v = "json","mp3","ogg_vorbis","pcm"
-            break
-        }
-
-        # Amazon.Polly.TaskStatus
-        "Get-POLSpeechSynthesisTaskList/Status"
-        {
-            $v = "completed","failed","inProgress","scheduled"
-            break
-        }
-
-        # Amazon.Polly.TextType
-        {
-            ($_ -eq "Get-POLSpeech/TextType") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/TextType")
-        }
-        {
-            $v = "ssml","text"
-            break
-        }
-
-        # Amazon.Polly.VoiceId
-        {
-            ($_ -eq "Get-POLSpeech/VoiceId") -Or
-            ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
-        }
-        {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Burcu","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
+            $v = "NOT_SUBSCRIBED","SUBSCRIBED"
             break
         }
 
@@ -147,21 +95,16 @@ $POL_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$POL_map = @{
-    "Engine"=@("Get-POLSpeech","Get-POLVoice","Start-POLSpeechSynthesisTask")
-    "LanguageCode"=@("Get-POLSpeech","Get-POLVoice","Start-POLSpeechSynthesisTask")
-    "OutputFormat"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
-    "Status"=@("Get-POLSpeechSynthesisTaskList")
-    "TextType"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
-    "VoiceId"=@("Get-POLSpeech","Start-POLSpeechSynthesisTask")
+$ART_map = @{
+    "NotificationSubscriptionStatus"=@("Write-ARTAccountSetting")
 }
 
-_awsArgumentCompleterRegistration $POL_Completers $POL_map
+_awsArgumentCompleterRegistration $ART_Completers $ART_map
 
-$POL_SelectCompleters = {
+$ART_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.POL.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.ART.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -205,17 +148,14 @@ $POL_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$POL_SelectMap = @{
-    "Select"=@("Remove-POLLexicon",
-               "Get-POLVoice",
-               "Get-POLLexicon",
-               "Get-POLSpeechSynthesisTask",
-               "Get-POLLexiconList",
-               "Get-POLSpeechSynthesisTaskList",
-               "Write-POLLexicon",
-               "Start-POLSpeechSynthesisTask",
-               "Get-POLSpeech")
+$ART_SelectMap = @{
+    "Select"=@("Get-ARTAccountSetting",
+               "Get-ARTReport",
+               "Get-ARTReportMetadata",
+               "Get-ARTTermForReport",
+               "Get-ARTReportList",
+               "Write-ARTAccountSetting")
 }
 
-_awsArgumentCompleterRegistration $POL_SelectCompleters $POL_SelectMap
+_awsArgumentCompleterRegistration $ART_SelectCompleters $ART_SelectMap
 

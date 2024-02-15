@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Updates the Amazon GuardDuty detector specified by the detectorId.
+    /// Updates the GuardDuty detector specified by the detectorId.
     /// 
     ///  
     /// <para>

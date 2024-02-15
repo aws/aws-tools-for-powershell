@@ -1926,6 +1926,7 @@ $SM_SelectMap = @{
                "Update-SMAppImageConfig",
                "Update-SMArtifact",
                "Update-SMCluster",
+               "Update-SMClusterSoftware",
                "Update-SMCodeRepository",
                "Update-SMContext",
                "Update-SMDeviceFleet",

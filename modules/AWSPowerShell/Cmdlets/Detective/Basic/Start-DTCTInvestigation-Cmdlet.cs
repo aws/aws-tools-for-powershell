@@ -28,7 +28,11 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// initiate an investigation on an entity in a graph
+    /// Detective investigations lets you investigate IAM users and IAM roles using indicators
+    /// of compromise. An indicator of compromise (IOC) is an artifact observed in or on a
+    /// network, system, or environment that can (with a high level of confidence) identify
+    /// malicious activity or a security incident. <c>StartInvestigation</c> initiates an
+    /// investigation on an entity in a behavior graph.
     /// </summary>
     [Cmdlet("Start", "DTCTInvestigation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter GraphArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the behavior graph.</para>
+        /// <para>The Amazon Resource Name (ARN) of the behavior graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter ScopeEndTime
         /// <summary>
         /// <para>
-        /// <para>The data and time when the investigation began. The value is an UTC ISO8601 formatted
+        /// <para>The data and time when the investigation ended. The value is an UTC ISO8601 formatted
         /// string. For example, <c>2021-08-18T16:35:56.284Z</c>.</para>
         /// </para>
         /// </summary>

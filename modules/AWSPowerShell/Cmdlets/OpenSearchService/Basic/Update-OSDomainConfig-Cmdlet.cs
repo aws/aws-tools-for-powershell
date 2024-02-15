@@ -276,7 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter ColdStorageOptions_Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether to enable or disable cold storage on the domain.</para>
+        /// <para>Whether to enable or disable cold storage on the domain. You must enable UltraWarm
+        /// storage to enable cold storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

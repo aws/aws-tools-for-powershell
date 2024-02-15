@@ -1582,6 +1582,17 @@ Set-Alias -Name AZS-StartZonalShift -Value Start-AZSZonalShift
 Set-Alias -Name AZS-UpdatePracticeRunConfiguration -Value Update-AZSPracticeRunConfiguration
 Set-Alias -Name AZS-UpdateZonalAutoshiftConfiguration -Value Update-AZSZonalAutoshiftConfiguration
 Set-Alias -Name AZS-UpdateZonalShift -Value Update-AZSZonalShift
+Set-Alias -Name Get-ARTAccountSettings -Value Get-ARTAccountSetting
+Set-Alias -Name ART-GetAccountSettings -Value Get-ARTAccountSetting
+Set-Alias -Name ART-GetReport -Value Get-ARTReport
+Set-Alias -Name ART-GetReportMetadata -Value Get-ARTReportMetadata
+Set-Alias -Name ART-GetTermForReport -Value Get-ARTTermForReport
+Set-Alias -Name List-ARTReports -Value Get-ARTReportList
+Set-Alias -Name List-ARTReportList -Value Get-ARTReportList
+Set-Alias -Name ART-ListReports -Value Get-ARTReportList
+Set-Alias -Name Put-ARTAccountSettings -Value Write-ARTAccountSetting
+Set-Alias -Name Put-ARTAccountSetting -Value Write-ARTAccountSetting
+Set-Alias -Name ART-PutAccountSettings -Value Write-ARTAccountSetting
 Set-Alias -Name Batch-ATHGetNamedQuery -Value Get-ATHNamedQueryBatch
 Set-Alias -Name Batch-ATHNamedQueryBatch -Value Get-ATHNamedQueryBatch
 Set-Alias -Name ATH-BatchGetNamedQuery -Value Get-ATHNamedQueryBatch
@@ -24717,6 +24728,7 @@ Set-Alias -Name SM-UpdateAction -Value Update-SMAction
 Set-Alias -Name SM-UpdateAppImageConfig -Value Update-SMAppImageConfig
 Set-Alias -Name SM-UpdateArtifact -Value Update-SMArtifact
 Set-Alias -Name SM-UpdateCluster -Value Update-SMCluster
+Set-Alias -Name SM-UpdateClusterSoftware -Value Update-SMClusterSoftware
 Set-Alias -Name SM-UpdateCodeRepository -Value Update-SMCodeRepository
 Set-Alias -Name SM-UpdateContext -Value Update-SMContext
 Set-Alias -Name SM-UpdateDeviceFleet -Value Update-SMDeviceFleet

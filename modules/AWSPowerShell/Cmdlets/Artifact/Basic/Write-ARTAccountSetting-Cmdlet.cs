@@ -22,61 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Detective;
-using Amazon.Detective.Model;
+using Amazon.Artifact;
+using Amazon.Artifact.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DTCT
+namespace Amazon.PowerShell.Cmdlets.ART
 {
     /// <summary>
-    /// Creates a new behavior graph for the calling account, and sets that account as the
-    /// administrator account. This operation is called by the account that is enabling Detective.
-    /// 
-    ///  
-    /// <para>
-    /// The operation also enables Detective for the calling account in the currently selected
-    /// Region. It returns the ARN of the new behavior graph.
-    /// </para><para><c>CreateGraph</c> triggers a process to create the corresponding data tables for
-    /// the new behavior graph.
-    /// </para><para>
-    /// An account can only be the administrator account for one behavior graph within a Region.
-    /// If the same account calls <c>CreateGraph</c> with the same administrator account,
-    /// it always returns the same behavior graph ARN. It does not create a new behavior graph.
-    /// </para>
+    /// Put the account settings for Artifact.
     /// </summary>
-    [Cmdlet("New", "DTCTGraph", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Detective CreateGraph API operation.", Operation = new[] {"CreateGraph"}, SelectReturnType = typeof(Amazon.Detective.Model.CreateGraphResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Detective.Model.CreateGraphResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Detective.Model.CreateGraphResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "ARTAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Artifact.Model.AccountSettings")]
+    [AWSCmdlet("Calls the AWS Artifact PutAccountSettings API operation.", Operation = new[] {"PutAccountSettings"}, SelectReturnType = typeof(Amazon.Artifact.Model.PutAccountSettingsResponse))]
+    [AWSCmdletOutput("Amazon.Artifact.Model.AccountSettings or Amazon.Artifact.Model.PutAccountSettingsResponse",
+        "This cmdlet returns an Amazon.Artifact.Model.AccountSettings object.",
+        "The service call response (type Amazon.Artifact.Model.PutAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDTCTGraphCmdlet : AmazonDetectiveClientCmdlet, IExecutor
+    public partial class WriteARTAccountSettingCmdlet : AmazonArtifactClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Tag
+        #region Parameter NotificationSubscriptionStatus
         /// <summary>
         /// <para>
-        /// <para>The tags to assign to the new behavior graph. You can add up to 50 tags. For each
-        /// tag, you provide the tag key and the tag value. Each tag key can contain up to 128
-        /// characters. Each tag value can contain up to 256 characters.</para>
+        /// <para>Desired notification subscription status.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.Artifact.NotificationSubscriptionStatus")]
+        public Amazon.Artifact.NotificationSubscriptionStatus NotificationSubscriptionStatus { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'GraphArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Detective.Model.CreateGraphResponse).
-        /// Specifying the name of a property of type Amazon.Detective.Model.CreateGraphResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccountSettings'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Artifact.Model.PutAccountSettingsResponse).
+        /// Specifying the name of a property of type Amazon.Artifact.Model.PutAccountSettingsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "GraphArn";
+        public string Select { get; set; } = "AccountSettings";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the NotificationSubscriptionStatus parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^NotificationSubscriptionStatus' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NotificationSubscriptionStatus' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -94,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Tag), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DTCTGraph (CreateGraph)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.NotificationSubscriptionStatus), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-ARTAccountSetting (PutAccountSettings)"))
             {
                 return;
             }
@@ -105,19 +100,22 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Detective.Model.CreateGraphResponse, NewDTCTGraphCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Artifact.Model.PutAccountSettingsResponse, WriteARTAccountSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-            }
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
+                if (this.PassThru.IsPresent)
                 {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
                 }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.NotificationSubscriptionStatus;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.NotificationSubscriptionStatus = this.NotificationSubscriptionStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,11 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Detective.Model.CreateGraphRequest();
+            var request = new Amazon.Artifact.Model.PutAccountSettingsRequest();
             
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.NotificationSubscriptionStatus != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.NotificationSubscriptionStatus = cmdletContext.NotificationSubscriptionStatus;
             }
             
             CmdletOutput output;
@@ -171,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         
         #region AWS Service Operation Call
         
-        private Amazon.Detective.Model.CreateGraphResponse CallAWSServiceOperation(IAmazonDetective client, Amazon.Detective.Model.CreateGraphRequest request)
+        private Amazon.Artifact.Model.PutAccountSettingsResponse CallAWSServiceOperation(IAmazonArtifact client, Amazon.Artifact.Model.PutAccountSettingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Detective", "CreateGraph");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Artifact", "PutAccountSettings");
             try
             {
                 #if DESKTOP
-                return client.CreateGraph(request);
+                return client.PutAccountSettings(request);
                 #elif CORECLR
-                return client.CreateGraphAsync(request).GetAwaiter().GetResult();
+                return client.PutAccountSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -199,9 +197,9 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Detective.Model.CreateGraphResponse, NewDTCTGraphCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.GraphArn;
+            public Amazon.Artifact.NotificationSubscriptionStatus NotificationSubscriptionStatus { get; set; }
+            public System.Func<Amazon.Artifact.Model.PutAccountSettingsResponse, WriteARTAccountSettingCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccountSettings;
         }
         
     }

@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
     /// Lists Amazon GuardDuty findings statistics for the specified detector ID.
+    /// 
+    ///  
+    /// <para>
+    /// There might be regional differences because some flags might not be available in all
+    /// the Regions where GuardDuty is currently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
+    /// and endpoints</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "GDFindingStatistic")]
     [OutputType("Amazon.GuardDuty.Model.FindingStatistics")]

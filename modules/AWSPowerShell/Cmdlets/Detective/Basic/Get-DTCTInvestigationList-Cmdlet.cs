@@ -28,7 +28,11 @@ using Amazon.Detective.Model;
 namespace Amazon.PowerShell.Cmdlets.DTCT
 {
     /// <summary>
-    /// List all Investigations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Detective investigations lets you investigate IAM users and IAM roles using indicators
+    /// of compromise. An indicator of compromise (IOC) is an artifact observed in or on a
+    /// network, system, or environment that can (with a high level of confidence) identify
+    /// malicious activity or a security incident. <c>ListInvestigations</c> lists all active
+    /// Detective investigations.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "DTCTInvestigationList")]
     [OutputType("Amazon.Detective.Model.InvestigationDetail")]
@@ -45,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter CreatedTime_EndInclusive
         /// <summary>
         /// <para>
-        /// <para>A timestamp representing the end date of the time period until when data is filtered
-        /// , including the end date.</para>
+        /// <para>A timestamp representing the end date of the time period until when data is filtered,
+        /// including the end date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter GraphArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the behavior graph.</para>
+        /// <para>The Amazon Resource Name (ARN) of the behavior graph.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -152,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>List the maximum number of investigations in a page.</para>
+        /// <para>Lists the maximum number of investigations in a page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.DTCT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>List if there are more results available. The value of nextToken is a unique pagination
+        /// <para>Lists if there are more results available. The value of nextToken is a unique pagination
         /// token for each page. Repeat the call using the returned token to retrieve the next
         /// page. Keep all other arguments unchanged.</para><para>Each pagination token expires after 24 hours. Using an expired pagination token will
         /// return a Validation Exception error.</para>

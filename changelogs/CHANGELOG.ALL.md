@@ -1,4 +1,10 @@
-﻿### 4.1.516 (2024-02-14 21:42Z)
+﻿### 4.1.517 (2024-02-15 22:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.749.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Artifact. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ART and can be listed using the command 'Get-AWSCmdletName -Service ART'.
+  * Amazon SageMaker Service
+    * Added cmdlet Update-SMClusterSoftware leveraging the UpdateClusterSoftware service API.
+
+### 4.1.516 (2024-02-14 21:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.748.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Tower
     * Added cmdlet Disable-ACTBaseline leveraging the DisableBaseline service API.

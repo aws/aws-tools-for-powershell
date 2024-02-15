@@ -133,6 +133,9 @@
     <Reference Include="AWSSDK.ARCZonalShift">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ARCZonalShift.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Artifact">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Artifact.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Athena.dll</HintPath>
     </Reference>
@@ -1244,6 +1247,9 @@
     </Reference>
     <Reference Include="AWSSDK.ARCZonalShift">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ARCZonalShift.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Artifact">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Artifact.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Athena.dll</HintPath>
