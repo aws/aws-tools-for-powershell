@@ -53,6 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class RemoveSNSSMSSandboxPhoneNumberCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter PhoneNumber

@@ -22,74 +22,82 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleNotificationService;
-using Amazon.SimpleNotificationService.Model;
+using Amazon.ElasticMapReduce;
+using Amazon.ElasticMapReduce.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SNS
+namespace Amazon.PowerShell.Cmdlets.EMR
 {
     /// <summary>
-    /// Adds a destination phone number to an Amazon Web Services account in the SMS sandbox
-    /// and sends a one-time password (OTP) to that phone number.
+    /// Specify whether to enable unhealthy node replacement, which lets Amazon EMR gracefully
+    /// replace core nodes on a cluster if any nodes become unhealthy. For example, a node
+    /// becomes unhealthy if disk usage is above 90%. If unhealthy node replacement is on
+    /// and <c>TerminationProtected</c> are off, Amazon EMR immediately terminates the unhealthy
+    /// core nodes. To use unhealthy node replacement and retain unhealthy core nodes, use
+    /// to turn on termination protection. In such cases, Amazon EMR adds the unhealthy nodes
+    /// to a denylist, reducing job interruptions and failures.
     /// 
     ///  
     /// <para>
-    /// When you start using Amazon SNS to send SMS messages, your Amazon Web Services account
-    /// is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you
-    /// to try Amazon SNS features without risking your reputation as an SMS sender. While
-    /// your Amazon Web Services account is in the SMS sandbox, you can use all of the features
-    /// of Amazon SNS. However, you can send SMS messages only to verified destination phone
-    /// numbers. For more information, including how to move out of the sandbox to send messages
-    /// without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS
-    /// sandbox</a> in the <i>Amazon SNS Developer Guide</i>.
+    /// If unhealthy node replacement is on, Amazon EMR notifies YARN and other applications
+    /// on the cluster to stop scheduling tasks with these nodes, moves the data, and then
+    /// terminates the nodes.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_UnhealthyNodeReplacement.html">graceful
+    /// node replacement</a> in the <i>Amazon EMR Management Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "SNSSMSSandboxPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Set", "EMRUnhealthyNodeReplacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) CreateSMSSandboxPhoneNumber API operation.", Operation = new[] {"CreateSMSSandboxPhoneNumber"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberResponse",
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce SetUnhealthyNodeReplacement API operation.", Operation = new[] {"SetUnhealthyNodeReplacement"}, SelectReturnType = typeof(Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse))]
+    [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSNSSMSSandboxPhoneNumberCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class SetEMRUnhealthyNodeReplacementCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter LanguageCode
+        #region Parameter JobFlowId
         /// <summary>
         /// <para>
-        /// <para>The language to use for sending the OTP. The default value is <c>en-US</c>.</para>
+        /// <para>The list of strings that uniquely identify the clusters for which to turn on unhealthy
+        /// node replacement. You can get these identifiers by running the <a>RunJobFlow</a> or
+        /// the <a>DescribeJobFlows</a> operations.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.SimpleNotificationService.LanguageCodeString")]
-        public Amazon.SimpleNotificationService.LanguageCodeString LanguageCode { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("JobFlowIds")]
+        public System.String[] JobFlowId { get; set; }
         #endregion
         
-        #region Parameter PhoneNumber
+        #region Parameter UnhealthyNodeReplacement
         /// <summary>
         /// <para>
-        /// <para>The destination phone number to verify. On verification, Amazon SNS adds this phone
-        /// number to the list of verified phone numbers that you can send SMS messages to.</para>
+        /// <para>Indicates whether to turn on or turn off graceful unhealthy node replacement.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PhoneNumber { get; set; }
+        public System.Boolean? UnhealthyNodeReplacement { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PhoneNumber parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PhoneNumber' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the UnhealthyNodeReplacement parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^UnhealthyNodeReplacement' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PhoneNumber' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UnhealthyNodeReplacement' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumber), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SNSSMSSandboxPhoneNumber (CreateSMSSandboxPhoneNumber)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UnhealthyNodeReplacement), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-EMRUnhealthyNodeReplacement (SetUnhealthyNodeReplacement)"))
             {
                 return;
             }
@@ -135,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberResponse, NewSNSSMSSandboxPhoneNumberCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse, SetEMRUnhealthyNodeReplacementCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,15 +152,24 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PhoneNumber;
+                context.Select = (response, cmdlet) => this.UnhealthyNodeReplacement;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LanguageCode = this.LanguageCode;
-            context.PhoneNumber = this.PhoneNumber;
-            #if MODULAR
-            if (this.PhoneNumber == null && ParameterWasBound(nameof(this.PhoneNumber)))
+            if (this.JobFlowId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter PhoneNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.JobFlowId = new List<System.String>(this.JobFlowId);
+            }
+            #if MODULAR
+            if (this.JobFlowId == null && ParameterWasBound(nameof(this.JobFlowId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter JobFlowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.UnhealthyNodeReplacement = this.UnhealthyNodeReplacement;
+            #if MODULAR
+            if (this.UnhealthyNodeReplacement == null && ParameterWasBound(nameof(this.UnhealthyNodeReplacement)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UnhealthyNodeReplacement which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -169,15 +186,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberRequest();
+            var request = new Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementRequest();
             
-            if (cmdletContext.LanguageCode != null)
+            if (cmdletContext.JobFlowId != null)
             {
-                request.LanguageCode = cmdletContext.LanguageCode;
+                request.JobFlowIds = cmdletContext.JobFlowId;
             }
-            if (cmdletContext.PhoneNumber != null)
+            if (cmdletContext.UnhealthyNodeReplacement != null)
             {
-                request.PhoneNumber = cmdletContext.PhoneNumber;
+                request.UnhealthyNodeReplacement = cmdletContext.UnhealthyNodeReplacement.Value;
             }
             
             CmdletOutput output;
@@ -212,15 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberRequest request)
+        private Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse CallAWSServiceOperation(IAmazonElasticMapReduce client, Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service (SNS)", "CreateSMSSandboxPhoneNumber");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic MapReduce", "SetUnhealthyNodeReplacement");
             try
             {
                 #if DESKTOP
-                return client.CreateSMSSandboxPhoneNumber(request);
+                return client.SetUnhealthyNodeReplacement(request);
                 #elif CORECLR
-                return client.CreateSMSSandboxPhoneNumberAsync(request).GetAwaiter().GetResult();
+                return client.SetUnhealthyNodeReplacementAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,9 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.SimpleNotificationService.LanguageCodeString LanguageCode { get; set; }
-            public System.String PhoneNumber { get; set; }
-            public System.Func<Amazon.SimpleNotificationService.Model.CreateSMSSandboxPhoneNumberResponse, NewSNSSMSSandboxPhoneNumberCmdlet, object> Select { get; set; } =
+            public List<System.String> JobFlowId { get; set; }
+            public System.Boolean? UnhealthyNodeReplacement { get; set; }
+            public System.Func<Amazon.ElasticMapReduce.Model.SetUnhealthyNodeReplacementResponse, SetEMRUnhealthyNodeReplacementCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

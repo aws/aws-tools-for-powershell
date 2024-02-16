@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ExclusiveStartDestinationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the destination to start returning the destination information. Kinesis
-        /// Data Firehose supports one destination per delivery stream.</para>
+        /// <para>The ID of the destination to start returning the destination information. Firehose
+        /// supports one destination per delivery stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Set this property to filter the application logs for your function that Lambda sends
-        /// to CloudWatch. Lambda only sends application logs at the selected level and lower.</para>
+        /// to CloudWatch. Lambda only sends application logs at the selected level of detail
+        /// and lower, where <c>TRACE</c> is the highest level and <c>FATAL</c> is the lowest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -420,7 +421,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Set this property to filter the system logs for your function that Lambda sends to
-        /// CloudWatch. Lambda only sends system logs at the selected level and lower.</para>
+        /// CloudWatch. Lambda only sends system logs at the selected level of detail and lower,
+        /// where <c>DEBUG</c> is the highest level and <c>WARN</c> is the lowest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

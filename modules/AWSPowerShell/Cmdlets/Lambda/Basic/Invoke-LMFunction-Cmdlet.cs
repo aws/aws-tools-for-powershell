@@ -111,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the
-        /// function in the context object.</para>
+        /// function in the context object. Lambda passes the <c>ClientContext</c> object to your
+        /// function for synchronous invocations only.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter to Base64 before supplying to the service.</para>
         /// </summary>

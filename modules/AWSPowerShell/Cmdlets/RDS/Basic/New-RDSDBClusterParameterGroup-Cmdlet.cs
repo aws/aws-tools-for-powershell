@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The DB cluster parameter group family name. A DB cluster parameter group can be associated
         /// with one and only one DB cluster parameter group family, and can be applied only to
         /// a DB cluster running a database engine and engine version compatible with that DB
-        /// cluster parameter group family.</para><para><b>Aurora MySQL</b></para><para>Example: <c>aurora-mysql5.7</c>, <c>aurora-mysql8.0</c></para><para><b>Aurora PostgreSQL</b></para><para>Example: <c>aurora-postgresql14</c></para><para><b>RDS for MySQL</b></para><para>Example: <c>mysql8.0</c></para><para><b>RDS for PostgreSQL</b></para><para>Example: <c>postgres12</c></para><para>To list all of the available parameter group families for a DB engine, use the following
+        /// cluster parameter group family.</para><para><b>Aurora MySQL</b></para><para>Example: <c>aurora-mysql5.7</c>, <c>aurora-mysql8.0</c></para><para><b>Aurora PostgreSQL</b></para><para>Example: <c>aurora-postgresql14</c></para><para><b>RDS for MySQL</b></para><para>Example: <c>mysql8.0</c></para><para><b>RDS for PostgreSQL</b></para><para>Example: <c>postgres13</c></para><para>To list all of the available parameter group families for a DB engine, use the following
         /// command:</para><para><c>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"
         /// --engine &lt;engine&gt;</c></para><para>For example, to list all of the available parameter group families for the Aurora
         /// PostgreSQL DB engine, use the following command:</para><para><c>aws rds describe-db-engine-versions --query "DBEngineVersions[].DBParameterGroupFamily"

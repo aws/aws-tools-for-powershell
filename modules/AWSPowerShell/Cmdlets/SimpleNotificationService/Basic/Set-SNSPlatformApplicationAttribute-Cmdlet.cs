@@ -51,7 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <summary>
         /// <para>
         /// <para>A map of the platform application attributes. Attributes in this map include the following:</para><ul><li><para><c>PlatformCredential</c> – The credential received from the notification service.</para><ul><li><para>For ADM, <c>PlatformCredential</c>is client secret.</para></li><li><para>For Apple Services using certificate credentials, <c>PlatformCredential</c> is private
-        /// key.</para></li><li><para>For Apple Services using token credentials, <c>PlatformCredential</c> is signing key.</para></li><li><para>For GCM (Firebase Cloud Messaging), <c>PlatformCredential</c> is API key. </para></li></ul></li></ul><ul><li><para><c>PlatformPrincipal</c> – The principal received from the notification service.</para><ul><li><para>For ADM, <c>PlatformPrincipal</c>is client id.</para></li><li><para>For Apple Services using certificate credentials, <c>PlatformPrincipal</c> is SSL
+        /// key.</para></li><li><para>For Apple Services using token credentials, <c>PlatformCredential</c> is signing key.</para></li><li><para>For GCM (Firebase Cloud Messaging) using key credentials, there is no <c>PlatformPrincipal</c>.
+        /// The <c>PlatformCredential</c> is <c>API key</c>.</para></li><li><para>For GCM (Firebase Cloud Messaging) using token credentials, there is no <c>PlatformPrincipal</c>.
+        /// The <c>PlatformCredential</c> is a JSON formatted private key file. When using the
+        /// Amazon Web Services CLI, the file must be in string format and special characters
+        /// must be ignored. To format the file correctly, Amazon SNS recommends using the following
+        /// command: <c>SERVICE_JSON=`jq @json &lt;&lt;&lt; cat service.json`</c>.</para></li></ul></li></ul><ul><li><para><c>PlatformPrincipal</c> – The principal received from the notification service.</para><ul><li><para>For ADM, <c>PlatformPrincipal</c>is client id.</para></li><li><para>For Apple Services using certificate credentials, <c>PlatformPrincipal</c> is SSL
         /// certificate.</para></li><li><para>For Apple Services using token credentials, <c>PlatformPrincipal</c> is signing key
         /// ID.</para></li><li><para>For GCM (Firebase Cloud Messaging), there is no <c>PlatformPrincipal</c>. </para></li></ul></li></ul><ul><li><para><c>EventEndpointCreated</c> – Topic ARN to which <c>EndpointCreated</c> event notifications
         /// are sent.</para></li><li><para><c>EventEndpointDeleted</c> – Topic ARN to which <c>EndpointDeleted</c> event notifications
@@ -81,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter PlatformApplicationArn
         /// <summary>
         /// <para>
-        /// <para>PlatformApplicationArn for SetPlatformApplicationAttributes action.</para>
+        /// <para><c>PlatformApplicationArn</c> for <c>SetPlatformApplicationAttributes</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

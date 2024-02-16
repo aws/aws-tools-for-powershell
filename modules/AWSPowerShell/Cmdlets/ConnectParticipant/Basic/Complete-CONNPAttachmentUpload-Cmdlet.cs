@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
 {
     /// <summary>
     /// Allows you to confirm that the attachment has been uploaded using the pre-signed URL
-    /// provided in StartAttachmentUpload API. 
+    /// provided in StartAttachmentUpload API. A conflict exception is thrown when an attachment
+    /// with that identifier is already being uploaded.
     /// 
     ///  <note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
     /// </para></note><para>

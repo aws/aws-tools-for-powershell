@@ -331,6 +331,7 @@ $EMR_SelectMap = @{
                "Start-EMRJobFlow",
                "Set-EMRKeepJobFlowAliveWhenNoStep",
                "Set-EMRTerminationProtection",
+               "Set-EMRUnhealthyNodeReplacement",
                "Set-EMRVisibleToAllUser",
                "Start-EMRNotebookExecution",
                "Stop-EMRNotebookExecution",

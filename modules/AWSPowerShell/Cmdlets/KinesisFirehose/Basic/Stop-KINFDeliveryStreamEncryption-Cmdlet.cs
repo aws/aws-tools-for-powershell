@@ -32,21 +32,21 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// 
     ///  
     /// <para>
-    /// This operation is asynchronous. It returns immediately. When you invoke it, Kinesis
-    /// Data Firehose first sets the encryption status of the stream to <c>DISABLING</c>,
-    /// and then to <c>DISABLED</c>. You can continue to read and write data to your stream
-    /// while its status is <c>DISABLING</c>. It can take up to 5 seconds after the encryption
-    /// status changes to <c>DISABLED</c> before all records written to the delivery stream
-    /// are no longer subject to encryption. To find out whether a record or a batch of records
-    /// was encrypted, check the response elements <a>PutRecordOutput$Encrypted</a> and <a>PutRecordBatchOutput$Encrypted</a>,
+    /// This operation is asynchronous. It returns immediately. When you invoke it, Firehose
+    /// first sets the encryption status of the stream to <c>DISABLING</c>, and then to <c>DISABLED</c>.
+    /// You can continue to read and write data to your stream while its status is <c>DISABLING</c>.
+    /// It can take up to 5 seconds after the encryption status changes to <c>DISABLED</c>
+    /// before all records written to the delivery stream are no longer subject to encryption.
+    /// To find out whether a record or a batch of records was encrypted, check the response
+    /// elements <a>PutRecordOutput$Encrypted</a> and <a>PutRecordBatchOutput$Encrypted</a>,
     /// respectively.
     /// </para><para>
     /// To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>.
     /// 
     /// </para><para>
     /// If SSE is enabled using a customer managed CMK and then you invoke <c>StopDeliveryStreamEncryption</c>,
-    /// Kinesis Data Firehose schedules the related KMS grant for retirement and then retires
-    /// it after it ensures that it is finished delivering records to the destination.
+    /// Firehose schedules the related KMS grant for retirement and then retires it after
+    /// it ensures that it is finished delivering records to the destination.
     /// </para><para>
     /// The <c>StartDeliveryStreamEncryption</c> and <c>StopDeliveryStreamEncryption</c> operations
     /// have a combined limit of 25 calls per delivery stream per 24 hours. For example, you

@@ -22,33 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleNotificationService;
-using Amazon.SimpleNotificationService.Model;
+using Amazon.KinesisFirehose;
+using Amazon.KinesisFirehose.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SNS
+namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Retrieves the endpoint attributes for a device on one of the supported push notification
-    /// services, such as GCM (Firebase Cloud Messaging) and APNS. For more information, see
-    /// <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon
-    /// SNS Mobile Push Notifications</a>.
+    
     /// </summary>
-    [Cmdlet("Get", "SNSEndpointAttribute")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Notification Service (SNS) GetEndpointAttributes API operation.", Operation = new[] {"GetEndpointAttributes"}, SelectReturnType = typeof(Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse), LegacyAlias="Get-SNSEndpointAttributes")]
-    [AWSCmdletOutput("System.String or Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KINFKinesisStream")]
+    [OutputType("Amazon.KinesisFirehose.Model.GetKinesisStreamResponse")]
+    [AWSCmdlet("Calls the Amazon Kinesis Firehose GetKinesisStream API operation.", Operation = new[] {"GetKinesisStream"}, SelectReturnType = typeof(Amazon.KinesisFirehose.Model.GetKinesisStreamResponse))]
+    [AWSCmdletOutput("Amazon.KinesisFirehose.Model.GetKinesisStreamResponse",
+        "This cmdlet returns an Amazon.KinesisFirehose.Model.GetKinesisStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSNSEndpointAttributeCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
+    public partial class GetKINFKinesisStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EndpointArn
+        #region Parameter DeliveryStreamARN
         /// <summary>
         /// <para>
-        /// <para><c>EndpointArn</c> for <c>GetEndpointAttributes</c> input.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,26 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EndpointArn { get; set; }
+        public System.String DeliveryStreamARN { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Attributes'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse).
-        /// Specifying the name of a property of type Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisFirehose.Model.GetKinesisStreamResponse).
+        /// Specifying the name of a property of type Amazon.KinesisFirehose.Model.GetKinesisStreamResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Attributes";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EndpointArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EndpointArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DeliveryStreamARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DeliveryStreamARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EndpointArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DeliveryStreamARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -96,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse, GetSNSEndpointAttributeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KinesisFirehose.Model.GetKinesisStreamResponse, GetKINFKinesisStreamCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -105,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EndpointArn;
+                context.Select = (response, cmdlet) => this.DeliveryStreamARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EndpointArn = this.EndpointArn;
+            context.DeliveryStreamARN = this.DeliveryStreamARN;
             #if MODULAR
-            if (this.EndpointArn == null && ParameterWasBound(nameof(this.EndpointArn)))
+            if (this.DeliveryStreamARN == null && ParameterWasBound(nameof(this.DeliveryStreamARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter EndpointArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DeliveryStreamARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -129,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleNotificationService.Model.GetEndpointAttributesRequest();
+            var request = new Amazon.KinesisFirehose.Model.GetKinesisStreamRequest();
             
-            if (cmdletContext.EndpointArn != null)
+            if (cmdletContext.DeliveryStreamARN != null)
             {
-                request.EndpointArn = cmdletContext.EndpointArn;
+                request.DeliveryStreamARN = cmdletContext.DeliveryStreamARN;
             }
             
             CmdletOutput output;
@@ -168,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse CallAWSServiceOperation(IAmazonSimpleNotificationService client, Amazon.SimpleNotificationService.Model.GetEndpointAttributesRequest request)
+        private Amazon.KinesisFirehose.Model.GetKinesisStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.GetKinesisStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Notification Service (SNS)", "GetEndpointAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "GetKinesisStream");
             try
             {
                 #if DESKTOP
-                return client.GetEndpointAttributes(request);
+                return client.GetKinesisStream(request);
                 #elif CORECLR
-                return client.GetEndpointAttributesAsync(request).GetAwaiter().GetResult();
+                return client.GetKinesisStreamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -196,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EndpointArn { get; set; }
-            public System.Func<Amazon.SimpleNotificationService.Model.GetEndpointAttributesResponse, GetSNSEndpointAttributeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Attributes;
+            public System.String DeliveryStreamARN { get; set; }
+            public System.Func<Amazon.KinesisFirehose.Model.GetKinesisStreamResponse, GetKINFKinesisStreamCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

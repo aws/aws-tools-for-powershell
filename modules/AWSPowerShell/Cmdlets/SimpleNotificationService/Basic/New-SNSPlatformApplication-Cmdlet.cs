@@ -49,8 +49,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// For <c>APNS</c> and <c>APNS_SANDBOX</c> using token credentials, <c>PlatformPrincipal</c>
     /// is <c>signing key ID</c> and <c>PlatformCredential</c> is <c>signing key</c>.
     /// </para></li><li><para>
-    /// For <c>GCM</c> (Firebase Cloud Messaging), there is no <c>PlatformPrincipal</c> and
-    /// the <c>PlatformCredential</c> is <c>API key</c>.
+    /// For GCM (Firebase Cloud Messaging) using key credentials, there is no <c>PlatformPrincipal</c>.
+    /// The <c>PlatformCredential</c> is <c>API key</c>.
+    /// </para></li><li><para>
+    /// For GCM (Firebase Cloud Messaging) using token credentials, there is no <c>PlatformPrincipal</c>.
+    /// The <c>PlatformCredential</c> is a JSON formatted private key file. When using the
+    /// Amazon Web Services CLI, the file must be in string format and special characters
+    /// must be ignored. To format the file correctly, Amazon SNS recommends using the following
+    /// command: <c>SERVICE_JSON=`jq @json &lt;&lt;&lt; cat service.json`</c>.
     /// </para></li><li><para>
     /// For <c>MPNS</c>, <c>PlatformPrincipal</c> is <c>TLS certificate</c> and <c>PlatformCredential</c>
     /// is <c>private key</c>.
@@ -77,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</para>
+        /// <para>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"><c>SetPlatformApplicationAttributes</c></a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

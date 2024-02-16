@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter CompatibleRuntime
         /// <summary>
         /// <para>
-        /// <para>A runtime identifier. For example, <c>go1.x</c>.</para><para>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime
+        /// <para>A runtime identifier. For example, <c>java21</c>.</para><para>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime
         /// deprecation policy</a>.</para>
         /// </para>
         /// </summary>

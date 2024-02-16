@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter EndpointArn
         /// <summary>
         /// <para>
-        /// <para>EndpointArn of endpoint to delete.</para>
+        /// <para><c>EndpointArn</c> of endpoint to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

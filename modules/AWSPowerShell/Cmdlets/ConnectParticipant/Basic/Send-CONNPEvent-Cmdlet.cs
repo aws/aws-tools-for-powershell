@@ -28,9 +28,16 @@ using Amazon.ConnectParticipant.Model;
 namespace Amazon.PowerShell.Cmdlets.CONNP
 {
     /// <summary>
-    /// Sends an event. 
-    /// 
-    ///  <note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
+    /// <note><para>
+    /// The <c>application/vnd.amazonaws.connect.event.connection.acknowledged</c> ContentType
+    /// will no longer be supported starting December 31, 2024. This event has been migrated
+    /// to the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>
+    /// API using the <c>ConnectParticipant</c> field.
+    /// </para></note><para>
+    /// Sends an event. Message receipts are not supported when there are more than two active
+    /// participants in the chat. Using the SendEvent API for message receipts when a supervisor
+    /// is barged-in will result in a conflict exception.
+    /// </para><note><para><c>ConnectionToken</c> is used for invoking this API instead of <c>ParticipantToken</c>.
     /// </para></note><para>
     /// The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4 authentication</a>.
@@ -78,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CONNP
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The content type of the request. Supported types are:</para><ul><li><para>application/vnd.amazonaws.connect.event.typing</para></li><li><para>application/vnd.amazonaws.connect.event.connection.acknowledged</para></li><li><para>application/vnd.amazonaws.connect.event.message.delivered</para></li><li><para>application/vnd.amazonaws.connect.event.message.read</para></li></ul>
+        /// <para>The content type of the request. Supported types are:</para><ul><li><para>application/vnd.amazonaws.connect.event.typing</para></li><li><para>application/vnd.amazonaws.connect.event.connection.acknowledged (will be deprecated
+        /// on December 31, 2024) </para></li><li><para>application/vnd.amazonaws.connect.event.message.delivered</para></li><li><para>application/vnd.amazonaws.connect.event.message.read</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

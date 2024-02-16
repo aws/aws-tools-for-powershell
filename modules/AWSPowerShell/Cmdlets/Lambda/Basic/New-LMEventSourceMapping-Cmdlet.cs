@@ -154,7 +154,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter OnFailure_Destination
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the destination resource.</para><para>To retain records of <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous
+        /// invocations</a>, you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function,
+        /// or Amazon EventBridge event bus as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations">Kinesis
+        /// and DynamoDB event sources</a>, you can configure an Amazon SNS topic or Amazon SQS
+        /// queue as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed
+        /// Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon
+        /// MSK</a>, you can configure an Amazon SNS topic or Amazon SQS queue as the destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -199,7 +205,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> – The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> – The ARN of the queue.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster.</para></li><li><para><b>Amazon MQ</b> – The ARN of the broker.</para></li><li><para><b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> – The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> – The ARN of the queue.</para></li><li><para><b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the
+        /// ARN of the VPC connection (for <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc">cross-account
+        /// event source mappings</a>).</para></li><li><para><b>Amazon MQ</b> – The ARN of the broker.</para></li><li><para><b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

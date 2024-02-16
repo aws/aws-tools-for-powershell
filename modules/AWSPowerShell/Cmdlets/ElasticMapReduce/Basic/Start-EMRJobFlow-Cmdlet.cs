@@ -734,6 +734,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.Boolean? Instances_TerminationProtected { get; set; }
         #endregion
         
+        #region Parameter Instances_UnhealthyNodeReplacement
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether Amazon EMR should gracefully replace core nodes that have degraded
+        /// within the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Instances_UnhealthyNodeReplacement { get; set; }
+        #endregion
+        
         #region Parameter ComputeLimits_UnitType
         /// <summary>
         /// <para>
@@ -885,6 +896,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             context.Instances_ServiceAccessSecurityGroup = this.Instances_ServiceAccessSecurityGroup;
             context.Instances_SlaveInstanceType = this.Instances_SlaveInstanceType;
             context.Instances_TerminationProtected = this.Instances_TerminationProtected;
+            context.Instances_UnhealthyNodeReplacement = this.Instances_UnhealthyNodeReplacement;
             context.JobFlowRole = this.JobFlowRole;
             context.KerberosAttributes_ADDomainJoinPassword = this.KerberosAttributes_ADDomainJoinPassword;
             context.KerberosAttributes_ADDomainJoinUser = this.KerberosAttributes_ADDomainJoinUser;
@@ -1170,6 +1182,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (requestInstances_instances_TerminationProtected != null)
             {
                 request.Instances.TerminationProtected = requestInstances_instances_TerminationProtected.Value;
+                requestInstancesIsNull = false;
+            }
+            System.Boolean? requestInstances_instances_UnhealthyNodeReplacement = null;
+            if (cmdletContext.Instances_UnhealthyNodeReplacement != null)
+            {
+                requestInstances_instances_UnhealthyNodeReplacement = cmdletContext.Instances_UnhealthyNodeReplacement.Value;
+            }
+            if (requestInstances_instances_UnhealthyNodeReplacement != null)
+            {
+                request.Instances.UnhealthyNodeReplacement = requestInstances_instances_UnhealthyNodeReplacement.Value;
                 requestInstancesIsNull = false;
             }
             Amazon.ElasticMapReduce.Model.PlacementType requestInstances_instances_Placement = null;
@@ -1503,6 +1525,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String Instances_ServiceAccessSecurityGroup { get; set; }
             public System.String Instances_SlaveInstanceType { get; set; }
             public System.Boolean? Instances_TerminationProtected { get; set; }
+            public System.Boolean? Instances_UnhealthyNodeReplacement { get; set; }
             public System.String JobFlowRole { get; set; }
             public System.String KerberosAttributes_ADDomainJoinPassword { get; set; }
             public System.String KerberosAttributes_ADDomainJoinUser { get; set; }

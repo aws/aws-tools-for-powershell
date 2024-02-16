@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>NextToken string is used when calling ListPlatformApplications action to retrieve
-        /// additional records that are available after the first page results.</para>
+        /// <para><c>NextToken</c> string is used when calling <c>ListPlatformApplications</c> action
+        /// to retrieve additional records that are available after the first page results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

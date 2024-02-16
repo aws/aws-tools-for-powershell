@@ -25613,6 +25613,7 @@ $EMR_SelectMap = @{
                "Start-EMRJobFlow",
                "Set-EMRKeepJobFlowAliveWhenNoStep",
                "Set-EMRTerminationProtection",
+               "Set-EMRUnhealthyNodeReplacement",
                "Set-EMRVisibleToAllUser",
                "Start-EMRNotebookExecution",
                "Stop-EMRNotebookExecution",
@@ -27647,6 +27648,7 @@ $KINF_SelectMap = @{
     "Select"=@("New-KINFDeliveryStream",
                "Remove-KINFDeliveryStream",
                "Get-KINFDeliveryStream",
+               "Get-KINFKinesisStream",
                "Get-KINFDeliveryStreamList",
                "Get-KINFTagsForDeliveryStream",
                "Write-KINFRecord",
@@ -27655,7 +27657,8 @@ $KINF_SelectMap = @{
                "Stop-KINFDeliveryStreamEncryption",
                "Add-KINFDeliveryStreamTag",
                "Remove-KINFDeliveryStreamTag",
-               "Update-KINFDestination")
+               "Update-KINFDestination",
+               "Test-KINFResourcesExistForTagris")
 }
 
 _awsArgumentCompleterRegistration $KINF_SelectCompleters $KINF_SelectMap

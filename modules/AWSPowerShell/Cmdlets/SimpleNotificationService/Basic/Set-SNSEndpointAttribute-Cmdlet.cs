@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter EndpointArn
         /// <summary>
         /// <para>
-        /// <para>EndpointArn used for SetEndpointAttributes action.</para>
+        /// <para>EndpointArn used for <c>SetEndpointAttributes</c> action.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

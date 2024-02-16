@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter PlatformApplicationArn
         /// <summary>
         /// <para>
-        /// <para>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</para>
+        /// <para><c>PlatformApplicationArn</c> for GetPlatformApplicationAttributesInput.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

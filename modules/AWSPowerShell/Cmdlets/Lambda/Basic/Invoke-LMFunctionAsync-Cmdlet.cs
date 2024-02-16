@@ -32,7 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// For asynchronous function invocation, use <a>Invoke</a>.
     /// </para></important><para>
     /// Invokes a function asynchronously.
-    /// </para><br/><br/>This operation is deprecated.
+    /// </para><note><para>
+    /// If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray
+    /// active tracing. Trace ID is not propagated to the function, even if X-Ray active tracing
+    /// is turned on.
+    /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Invoke", "LMFunctionAsync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
     [OutputType("System.Int32")]

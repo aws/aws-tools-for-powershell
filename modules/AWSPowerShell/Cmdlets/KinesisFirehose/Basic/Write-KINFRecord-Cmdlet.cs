@@ -28,9 +28,9 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Writes a single data record into an Amazon Kinesis Data Firehose delivery stream.
-    /// To write multiple data records into a delivery stream, use <a>PutRecordBatch</a>.
-    /// Applications using these operations are referred to as producers.
+    /// Writes a single data record into an Amazon Firehose delivery stream. To write multiple
+    /// data records into a delivery stream, use <a>PutRecordBatch</a>. Applications using
+    /// these operations are referred to as producers.
     /// 
     ///  
     /// <para>
@@ -38,24 +38,23 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// 5,000 records per second, or 5 MB per second. If you use <a>PutRecord</a> and <a>PutRecordBatch</a>,
     /// the limits are an aggregate across these two operations for each delivery stream.
     /// For more information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon
-    /// Kinesis Data Firehose Limits</a>. 
+    /// Firehose Limits</a>. 
     /// </para><para>
-    /// Kinesis Data Firehose accumulates and publishes a particular metric for a customer
-    /// account in one minute intervals. It is possible that the bursts of incoming bytes/records
-    /// ingested to a delivery stream last only for a few seconds. Due to this, the actual
-    /// spikes in the traffic might not be fully visible in the customer's 1 minute CloudWatch
-    /// metrics.
+    /// Firehose accumulates and publishes a particular metric for a customer account in one
+    /// minute intervals. It is possible that the bursts of incoming bytes/records ingested
+    /// to a delivery stream last only for a few seconds. Due to this, the actual spikes in
+    /// the traffic might not be fully visible in the customer's 1 minute CloudWatch metrics.
     /// </para><para>
     /// You must specify the name of the delivery stream and the data record when using <a>PutRecord</a>.
     /// The data record consists of a data blob that can be up to 1,000 KiB in size, and any
     /// kind of data. For example, it can be a segment from a log file, geographic location
     /// data, website clickstream data, and so on.
     /// </para><para>
-    /// Kinesis Data Firehose buffers records before delivering them to the destination. To
-    /// disambiguate the data blobs at the destination, a common solution is to use delimiters
-    /// in the data, such as a newline (<c>\n</c>) or some other character unique within the
-    /// data. This allows the consumer application to parse individual data items when reading
-    /// the data from the destination.
+    /// Firehose buffers records before delivering them to the destination. To disambiguate
+    /// the data blobs at the destination, a common solution is to use delimiters in the data,
+    /// such as a newline (<c>\n</c>) or some other character unique within the data. This
+    /// allows the consumer application to parse individual data items when reading the data
+    /// from the destination.
     /// </para><para>
     /// The <c>PutRecord</c> operation returns a <c>RecordId</c>, which is a unique string
     /// assigned to each record. Producer applications can use this ID for purposes such as
@@ -69,9 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// result in data duplicates. For larger data assets, allow for a longer time out before
     /// retrying Put API operations.
     /// </para><para>
-    /// Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they
-    /// are added to a delivery stream as it tries to send the records to the destination.
-    /// If the destination is unreachable for more than 24 hours, the data is no longer available.
+    /// Data records sent to Firehose are stored for 24 hours from the time they are added
+    /// to a delivery stream as it tries to send the records to the destination. If the destination
+    /// is unreachable for more than 24 hours, the data is no longer available.
     /// </para><important><para>
     /// Don't concatenate two or more base64 strings to form the data fields of your records.
     /// Instead, concatenate the raw data, then perform base64 encoding.

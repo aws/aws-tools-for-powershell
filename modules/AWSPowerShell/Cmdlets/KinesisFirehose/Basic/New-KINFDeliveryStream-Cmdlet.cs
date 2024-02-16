@@ -28,7 +28,7 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Creates a Kinesis Data Firehose delivery stream.
+    /// Creates a Firehose delivery stream.
     /// 
     ///  
     /// <para>
@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// change, and you can't invoke <c>CreateDeliveryStream</c> again on it. However, you
     /// can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
     /// </para><para>
-    /// A Kinesis Data Firehose delivery stream can be configured to receive records directly
-    /// from providers using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it can be configured
-    /// to use an existing Kinesis stream as its source. To specify a Kinesis data stream
-    /// as input, set the <c>DeliveryStreamType</c> parameter to <c>KinesisStreamAsSource</c>,
-    /// and provide the Kinesis stream Amazon Resource Name (ARN) and role ARN in the <c>KinesisStreamSourceConfiguration</c>
+    /// A Firehose delivery stream can be configured to receive records directly from providers
+    /// using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it can be configured to use an
+    /// existing Kinesis stream as its source. To specify a Kinesis data stream as input,
+    /// set the <c>DeliveryStreamType</c> parameter to <c>KinesisStreamAsSource</c>, and provide
+    /// the Kinesis stream Amazon Resource Name (ARN) and role ARN in the <c>KinesisStreamSourceConfiguration</c>
     /// parameter.
     /// </para><para>
     /// To create a delivery stream with server-side encryption (SSE) enabled, include <a>DeliveryStreamEncryptionConfigurationInput</a>
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </para><para>
     /// When you specify <c>S3DestinationConfiguration</c>, you can also provide the following
     /// optional values: BufferingHints, <c>EncryptionConfiguration</c>, and <c>CompressionFormat</c>.
-    /// By default, if no <c>BufferingHints</c> value is provided, Kinesis Data Firehose buffers
-    /// data up to 5 MB or for 5 minutes, whichever condition is satisfied first. <c>BufferingHints</c>
+    /// By default, if no <c>BufferingHints</c> value is provided, Firehose buffers data up
+    /// to 5 MB or for 5 minutes, whichever condition is satisfied first. <c>BufferingHints</c>
     /// is a hint, so there are some cases where the service cannot adhere to these conditions
     /// strictly. For example, record boundaries might be such that the size is a little over
     /// or under the configured buffering size. By default, no encryption is performed. We
@@ -77,9 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </para><para>
     /// A few notes about Amazon Redshift as a destination:
     /// </para><ul><li><para>
-    /// An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis
-    /// Data Firehose first delivers data to Amazon S3 and then uses <c>COPY</c> syntax to
-    /// load data into an Amazon Redshift table. This is specified in the <c>RedshiftDestinationConfiguration.S3Configuration</c>
+    /// An Amazon Redshift destination requires an S3 bucket as intermediate location. Firehose
+    /// first delivers data to Amazon S3 and then uses <c>COPY</c> syntax to load data into
+    /// an Amazon Redshift table. This is specified in the <c>RedshiftDestinationConfiguration.S3Configuration</c>
     /// parameter.
     /// </para></li><li><para>
     /// The compression formats <c>SNAPPY</c> or <c>ZIP</c> cannot be specified in <c>RedshiftDestinationConfiguration.S3Configuration</c>
@@ -87,15 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// support these compression formats.
     /// </para></li><li><para>
     /// We strongly recommend that you use the user name and password you provide exclusively
-    /// with Kinesis Data Firehose, and that the permissions for the account are restricted
-    /// for Amazon Redshift <c>INSERT</c> permissions.
+    /// with Firehose, and that the permissions for the account are restricted for Amazon
+    /// Redshift <c>INSERT</c> permissions.
     /// </para></li></ul><para>
-    /// Kinesis Data Firehose assumes the IAM role that is configured as part of the destination.
-    /// The role should allow the Kinesis Data Firehose principal to assume the role, and
-    /// the role should have permissions that allow the service to deliver the data. For more
-    /// information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
-    /// Kinesis Data Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Kinesis
-    /// Data Firehose Developer Guide</i>.
+    /// Firehose assumes the IAM role that is configured as part of the destination. The role
+    /// should allow the Firehose principal to assume the role, and the role should have permissions
+    /// that allow the service to deliver the data. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
+    /// Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Firehose Developer
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "KINFDeliveryStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -202,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter HttpEndpointDestinationConfiguration_RequestConfiguration_ContentEncoding
         /// <summary>
         /// <para>
-        /// <para>Kinesis Data Firehose uses the content encoding to compress the body of a request
-        /// before sending the request to the destination. For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding">Content-Encoding</a>
+        /// <para>Firehose uses the content encoding to compress the body of a request before sending
+        /// the request to the destination. For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding">Content-Encoding</a>
         /// in MDN Web Docs, the official Mozilla documentation.</para>
         /// </para>
         /// </summary>
@@ -238,16 +237,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_DocumentIdOptions_DefaultDocumentIdFormat
         /// <summary>
         /// <para>
-        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Kinesis Data Firehose generates
-        /// a unique document ID for each record based on a unique internal identifier. The generated
-        /// document ID is stable across multiple delivery attempts, which helps prevent the same
-        /// record from being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Kinesis Data Firehose does not include
-        /// any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes
-        /// the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
-        /// delivery attempts, this may cause the same record to be indexed more than once with
-        /// different document IDs. This option enables write-heavy operations, such as the ingestion
-        /// of logs and observability data, to consume less resources in the Amazon OpenSearch
-        /// Service domain, resulting in improved performance.</para>
+        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Firehose generates a unique document
+        /// ID for each record based on a unique internal identifier. The generated document ID
+        /// is stable across multiple delivery attempts, which helps prevent the same record from
+        /// being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Firehose does not include any document
+        /// IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon
+        /// OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts,
+        /// this may cause the same record to be indexed more than once with different document
+        /// IDs. This option enables write-heavy operations, such as the ingestion of logs and
+        /// observability data, to consume less resources in the Amazon OpenSearch Service domain,
+        /// resulting in improved performance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -258,16 +257,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter DocumentIdOptions_DefaultDocumentIdFormat
         /// <summary>
         /// <para>
-        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Kinesis Data Firehose generates
-        /// a unique document ID for each record based on a unique internal identifier. The generated
-        /// document ID is stable across multiple delivery attempts, which helps prevent the same
-        /// record from being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Kinesis Data Firehose does not include
-        /// any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes
-        /// the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
-        /// delivery attempts, this may cause the same record to be indexed more than once with
-        /// different document IDs. This option enables write-heavy operations, such as the ingestion
-        /// of logs and observability data, to consume less resources in the Amazon OpenSearch
-        /// Service domain, resulting in improved performance.</para>
+        /// <para>When the <c>FIREHOSE_DEFAULT</c> option is chosen, Firehose generates a unique document
+        /// ID for each record based on a unique internal identifier. The generated document ID
+        /// is stable across multiple delivery attempts, which helps prevent the same record from
+        /// being indexed multiple times with different document IDs.</para><para>When the <c>NO_DOCUMENT_ID</c> option is chosen, Firehose does not include any document
+        /// IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon
+        /// OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts,
+        /// this may cause the same record to be indexed more than once with different document
+        /// IDs. This option enables write-heavy operations, such as the ingestion of logs and
+        /// observability data, to consume less resources in the Amazon OpenSearch Service domain,
+        /// resulting in improved performance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -337,10 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>After an initial failure to deliver to the Serverless offering for Amazon OpenSearch
-        /// Service, the total amount of time during which Kinesis Data Firehose retries delivery
-        /// (including the first attempt). After this time has elapsed, the failed documents are
-        /// written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero)
-        /// results in no retries.</para>
+        /// Service, the total amount of time during which Firehose retries delivery (including
+        /// the first attempt). After this time has elapsed, the failed documents are written
+        /// to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results
+        /// in no retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -351,9 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>After an initial failure to deliver to Amazon OpenSearch Service, the total amount
-        /// of time during which Kinesis Data Firehose retries delivery (including the first attempt).
-        /// After this time has elapsed, the failed documents are written to Amazon S3. Default
-        /// value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries. </para>
+        /// of time during which Firehose retries delivery (including the first attempt). After
+        /// this time has elapsed, the failed documents are written to Amazon S3. Default value
+        /// is 300 seconds (5 minutes). A value of 0 (zero) results in no retries. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,9 +363,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>After an initial failure to deliver to Amazon ES, the total amount of time during
-        /// which Kinesis Data Firehose retries delivery (including the first attempt). After
-        /// this time has elapsed, the failed documents are written to Amazon S3. Default value
-        /// is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.</para>
+        /// which Firehose retries delivery (including the first attempt). After this time has
+        /// elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds
+        /// (5 minutes). A value of 0 (zero) results in no retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -377,10 +376,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter HttpEndpointDestinationConfiguration_RetryOptions_DurationInSeconds
         /// <summary>
         /// <para>
-        /// <para>The total amount of time that Kinesis Data Firehose spends on retries. This duration
-        /// starts after the initial attempt to send data to the custom destination via HTTPS
-        /// endpoint fails. It doesn't include the periods during which Kinesis Data Firehose
-        /// waits for acknowledgment from the specified destination after each attempt. </para>
+        /// <para>The total amount of time that Firehose spends on retries. This duration starts after
+        /// the initial attempt to send data to the custom destination via HTTPS endpoint fails.
+        /// It doesn't include the periods during which Firehose waits for acknowledgment from
+        /// the specified destination after each attempt. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,8 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds
         /// <summary>
         /// <para>
-        /// <para>the time period where Kinesis Data Firehose will retry sending data to the chosen
-        /// HTTP endpoint.</para>
+        /// <para>the time period where Firehose will retry sending data to the chosen HTTP endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -627,7 +625,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>If you set <c>KeyType</c> to <c>CUSTOMER_MANAGED_CMK</c>, you must specify the Amazon
         /// Resource Name (ARN) of the CMK. If you set <c>KeyType</c> to <c>Amazon Web Services_OWNED_CMK</c>,
-        /// Kinesis Data Firehose uses a service-account CMK.</para>
+        /// Firehose uses a service-account CMK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -653,18 +651,15 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// setting is <c>Amazon Web Services_OWNED_CMK</c>. For more information about CMKs,
         /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
         /// Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a>
-        /// with <c>KeyType</c> set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes the
-        /// Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>
-        /// to create a grant that allows the Kinesis Data Firehose service to use the customer
-        /// managed CMK to perform encryption and decryption. Kinesis Data Firehose manages that
-        /// grant. </para><para>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a delivery
-        /// stream that is encrypted with a customer managed CMK, Kinesis Data Firehose schedules
-        /// the grant it had on the old CMK for retirement.</para><para>You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
+        /// with <c>KeyType</c> set to CUSTOMER_MANAGED_CMK, Firehose invokes the Amazon KMS operation
+        /// <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a>
+        /// to create a grant that allows the Firehose service to use the customer managed CMK
+        /// to perform encryption and decryption. Firehose manages that grant. </para><para>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a delivery
+        /// stream that is encrypted with a customer managed CMK, Firehose schedules the grant
+        /// it had on the old CMK for retirement.</para><para>You can use a CMK of type CUSTOMER_MANAGED_CMK to encrypt up to 500 delivery streams.
         /// If a <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a> operation
-        /// exceeds this limit, Kinesis Data Firehose throws a <c>LimitExceededException</c>.
-        /// </para><important><para>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
-        /// support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see
-        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
+        /// exceeds this limit, Firehose throws a <c>LimitExceededException</c>. </para><important><para>To encrypt your delivery stream, use symmetric CMKs. Firehose doesn't support asymmetric
+        /// CMKs. For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
         /// Symmetric and Asymmetric CMKs</a> in the Amazon Web Services Key Management Service
         /// developer guide.</para></important>
         /// </para>
@@ -916,9 +911,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_RoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
-        /// for calling the Serverless offering for Amazon OpenSearch Service Configuration API
-        /// and for indexing documents.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling
+        /// the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing
+        /// documents.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -929,11 +924,13 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
-        /// in the destination VPC. You can use your existing Kinesis Data Firehose delivery role
-        /// or you can specify a new role. In either case, make sure that the role trusts the
-        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
-        /// Firehose can't scale out by creating more ENIs when necessary. You might therefore
-        /// see a degradation in performance.</para>
+        /// in the destination VPC. You can use your existing Firehose delivery role or you can
+        /// specify a new role. In either case, make sure that the role trusts the Firehose service
+        /// principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><important><para>When you specify subnets for delivering data to the destination in a private VPC,
+        /// make sure you have enough number of free IP addresses in chosen subnets. If there
+        /// is no available free IP address in a specified subnet, Firehose cannot create or add
+        /// ENIs for the data delivery in the private VPC, and the delivery will be degraded or
+        /// fail.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -943,8 +940,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_RoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
-        /// for calling the Amazon OpenSearch Service Configuration API and for indexing documents.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling
+        /// the Amazon OpenSearch Service Configuration API and for indexing documents.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -955,11 +952,13 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
-        /// in the destination VPC. You can use your existing Kinesis Data Firehose delivery role
-        /// or you can specify a new role. In either case, make sure that the role trusts the
-        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
-        /// Firehose can't scale out by creating more ENIs when necessary. You might therefore
-        /// see a degradation in performance.</para>
+        /// in the destination VPC. You can use your existing Firehose delivery role or you can
+        /// specify a new role. In either case, make sure that the role trusts the Firehose service
+        /// principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><important><para>When you specify subnets for delivering data to the destination in a private VPC,
+        /// make sure you have enough number of free IP addresses in chosen subnets. If there
+        /// is no available free IP address in a specified subnet, Firehose cannot create or add
+        /// ENIs for the data delivery in the private VPC, and the delivery will be degraded or
+        /// fail.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -969,10 +968,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_RoleARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
-        /// for calling the Amazon ES Configuration API and for indexing documents. For more information,
+        /// <para>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling
+        /// the Amazon ES Configuration API and for indexing documents. For more information,
         /// see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant
-        /// Kinesis Data Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
@@ -984,11 +983,13 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that you want the delivery stream to use to create endpoints
-        /// in the destination VPC. You can use your existing Kinesis Data Firehose delivery role
-        /// or you can specify a new role. In either case, make sure that the role trusts the
-        /// Kinesis Data Firehose service principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><para>If you revoke these permissions after you create the delivery stream, Kinesis Data
-        /// Firehose can't scale out by creating more ENIs when necessary. You might therefore
-        /// see a degradation in performance.</para>
+        /// in the destination VPC. You can use your existing Firehose delivery role or you can
+        /// specify a new role. In either case, make sure that the role trusts the Firehose service
+        /// principal and that it grants the following permissions:</para><ul><li><para><c>ec2:DescribeVpcs</c></para></li><li><para><c>ec2:DescribeVpcAttribute</c></para></li><li><para><c>ec2:DescribeSubnets</c></para></li><li><para><c>ec2:DescribeSecurityGroups</c></para></li><li><para><c>ec2:DescribeNetworkInterfaces</c></para></li><li><para><c>ec2:CreateNetworkInterface</c></para></li><li><para><c>ec2:CreateNetworkInterfacePermission</c></para></li><li><para><c>ec2:DeleteNetworkInterface</c></para></li></ul><important><para>When you specify subnets for delivering data to the destination in a private VPC,
+        /// make sure you have enough number of free IP addresses in chosen subnets. If there
+        /// is no available free IP address in a specified subnet, Firehose cannot create or add
+        /// ENIs for the data delivery in the private VPC, and the delivery will be degraded or
+        /// fail.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -999,8 +1000,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter HttpEndpointDestinationConfiguration_RoleARN
         /// <summary>
         /// <para>
-        /// <para>Kinesis Data Firehose uses this IAM role for all the permissions that the delivery
-        /// stream needs.</para>
+        /// <para>Firehose uses this IAM role for all the permissions that the delivery stream needs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1044,11 +1044,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly,
-        /// Kinesis Data Firehose writes any documents that could not be indexed to the configured
-        /// Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix.
-        /// When set to AllDocuments, Kinesis Data Firehose delivers all incoming records to Amazon
-        /// S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended
-        /// to the prefix.</para>
+        /// Firehose writes any documents that could not be indexed to the configured Amazon S3
+        /// destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When
+        /// set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also
+        /// writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1060,11 +1059,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly,
-        /// Kinesis Data Firehose writes any documents that could not be indexed to the configured
-        /// Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix.
-        /// When set to AllDocuments, Kinesis Data Firehose delivers all incoming records to Amazon
-        /// S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended
-        /// to the prefix. </para>
+        /// Firehose writes any documents that could not be indexed to the configured Amazon S3
+        /// destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When
+        /// set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also
+        /// writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1076,11 +1075,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>Defines how documents should be delivered to Amazon S3. When it is set to <c>FailedDocumentsOnly</c>,
-        /// Kinesis Data Firehose writes any documents that could not be indexed to the configured
-        /// Amazon S3 destination, with <c>AmazonOpenSearchService-failed/</c> appended to the
-        /// key prefix. When set to <c>AllDocuments</c>, Kinesis Data Firehose delivers all incoming
-        /// records to Amazon S3, and also writes failed documents with <c>AmazonOpenSearchService-failed/</c>
-        /// appended to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon
+        /// Firehose writes any documents that could not be indexed to the configured Amazon S3
+        /// destination, with <c>AmazonOpenSearchService-failed/</c> appended to the key prefix.
+        /// When set to <c>AllDocuments</c>, Firehose delivers all incoming records to Amazon
+        /// S3, and also writes failed documents with <c>AmazonOpenSearchService-failed/</c> appended
+        /// to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon
         /// S3 Backup for the Amazon ES Destination</a>. Default value is <c>FailedDocumentsOnly</c>.</para><para>You can't change this backup mode after you create the delivery stream. </para>
         /// </para>
         /// </summary>
@@ -1092,10 +1091,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter HttpEndpointDestinationConfiguration_S3BackupMode
         /// <summary>
         /// <para>
-        /// <para>Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers
-        /// to the HTTP endpoint destination. You can back up all documents (<c>AllData</c>) or
-        /// only the documents that Kinesis Data Firehose could not deliver to the specified HTTP
-        /// endpoint destination (<c>FailedDataOnly</c>).</para>
+        /// <para>Describes the S3 bucket backup options for the data that Firehose delivers to the
+        /// HTTP endpoint destination. You can back up all documents (<c>AllData</c>) or only
+        /// the documents that Firehose could not deliver to the specified HTTP endpoint destination
+        /// (<c>FailedDataOnly</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1178,15 +1177,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SecurityGroupIds
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups that you want Kinesis Data Firehose to use when it
-        /// creates ENIs in the VPC of the Amazon ES destination. You can use the same security
-        /// group that the Amazon ES domain uses or different ones. If you specify different security
-        /// groups here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's
-        /// security group. Also ensure that the Amazon ES domain's security group allows HTTPS
-        /// traffic from the security groups specified here. If you use the same security group
-        /// for both your delivery stream and the Amazon ES domain, make sure the security group
-        /// inbound rule allows HTTPS traffic. For more information about security group rules,
-        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
+        /// <para>The IDs of the security groups that you want Firehose to use when it creates ENIs
+        /// in the VPC of the Amazon ES destination. You can use the same security group that
+        /// the Amazon ES domain uses or different ones. If you specify different security groups
+        /// here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security
+        /// group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic
+        /// from the security groups specified here. If you use the same security group for both
+        /// your delivery stream and the Amazon ES domain, make sure the security group inbound
+        /// rule allows HTTPS traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para>
         /// </para>
         /// </summary>
@@ -1197,15 +1195,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SecurityGroupIds
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups that you want Kinesis Data Firehose to use when it
-        /// creates ENIs in the VPC of the Amazon ES destination. You can use the same security
-        /// group that the Amazon ES domain uses or different ones. If you specify different security
-        /// groups here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's
-        /// security group. Also ensure that the Amazon ES domain's security group allows HTTPS
-        /// traffic from the security groups specified here. If you use the same security group
-        /// for both your delivery stream and the Amazon ES domain, make sure the security group
-        /// inbound rule allows HTTPS traffic. For more information about security group rules,
-        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
+        /// <para>The IDs of the security groups that you want Firehose to use when it creates ENIs
+        /// in the VPC of the Amazon ES destination. You can use the same security group that
+        /// the Amazon ES domain uses or different ones. If you specify different security groups
+        /// here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security
+        /// group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic
+        /// from the security groups specified here. If you use the same security group for both
+        /// your delivery stream and the Amazon ES domain, make sure the security group inbound
+        /// rule allows HTTPS traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para>
         /// </para>
         /// </summary>
@@ -1216,15 +1213,14 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter VpcConfiguration_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups that you want Kinesis Data Firehose to use when it
-        /// creates ENIs in the VPC of the Amazon ES destination. You can use the same security
-        /// group that the Amazon ES domain uses or different ones. If you specify different security
-        /// groups here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's
-        /// security group. Also ensure that the Amazon ES domain's security group allows HTTPS
-        /// traffic from the security groups specified here. If you use the same security group
-        /// for both your delivery stream and the Amazon ES domain, make sure the security group
-        /// inbound rule allows HTTPS traffic. For more information about security group rules,
-        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
+        /// <para>The IDs of the security groups that you want Firehose to use when it creates ENIs
+        /// in the VPC of the Amazon ES destination. You can use the same security group that
+        /// the Amazon ES domain uses or different ones. If you specify different security groups
+        /// here, ensure that they allow outbound HTTPS traffic to the Amazon ES domain's security
+        /// group. Also ensure that the Amazon ES domain's security group allows HTTPS traffic
+        /// from the security groups specified here. If you use the same security group for both
+        /// your delivery stream and the Amazon ES domain, make sure the security group inbound
+        /// rule allows HTTPS traffic. For more information about security group rules, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#SecurityGroupRules">Security
         /// group rules</a> in the Amazon VPC documentation.</para>
         /// </para>
         /// </summary>
@@ -1310,17 +1306,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonOpenSearchServerlessDestinationConfiguration_VpcConfiguration_SubnetIds
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets that you want Kinesis Data Firehose to use to create ENIs in
-        /// the VPC of the Amazon ES destination. Make sure that the routing tables and inbound
-        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
-        /// here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose
-        /// creates at least one ENI in each of the subnets that are specified here. Do not delete
-        /// or modify these ENIs.</para><para>The number of ENIs that Kinesis Data Firehose creates in the subnets specified here
-        /// scales up and down automatically based on throughput. To enable Kinesis Data Firehose
-        /// to scale up the number of ENIs to match throughput, ensure that you have sufficient
-        /// quota. To help you calculate the quota you need, assume that Kinesis Data Firehose
-        /// can create up to three ENIs for this delivery stream for each of the subnets specified
-        /// here. For more information about ENI quota, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
+        /// <para>The IDs of the subnets that you want Firehose to use to create ENIs in the VPC of
+        /// the Amazon ES destination. Make sure that the routing tables and inbound and outbound
+        /// rules allow traffic to flow from the subnets whose IDs are specified here to the subnets
+        /// that have the destination Amazon ES endpoints. Firehose creates at least one ENI in
+        /// each of the subnets that are specified here. Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
+        /// down automatically based on throughput. To enable Firehose to scale up the number
+        /// of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate
+        /// the quota you need, assume that Firehose can create up to three ENIs for this delivery
+        /// stream for each of the subnets specified here. For more information about ENI quota,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
         /// Interfaces </a> in the Amazon VPC Quotas topic.</para>
         /// </para>
         /// </summary>
@@ -1331,17 +1326,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter AmazonopensearchserviceDestinationConfiguration_VpcConfiguration_SubnetIds
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets that you want Kinesis Data Firehose to use to create ENIs in
-        /// the VPC of the Amazon ES destination. Make sure that the routing tables and inbound
-        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
-        /// here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose
-        /// creates at least one ENI in each of the subnets that are specified here. Do not delete
-        /// or modify these ENIs.</para><para>The number of ENIs that Kinesis Data Firehose creates in the subnets specified here
-        /// scales up and down automatically based on throughput. To enable Kinesis Data Firehose
-        /// to scale up the number of ENIs to match throughput, ensure that you have sufficient
-        /// quota. To help you calculate the quota you need, assume that Kinesis Data Firehose
-        /// can create up to three ENIs for this delivery stream for each of the subnets specified
-        /// here. For more information about ENI quota, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
+        /// <para>The IDs of the subnets that you want Firehose to use to create ENIs in the VPC of
+        /// the Amazon ES destination. Make sure that the routing tables and inbound and outbound
+        /// rules allow traffic to flow from the subnets whose IDs are specified here to the subnets
+        /// that have the destination Amazon ES endpoints. Firehose creates at least one ENI in
+        /// each of the subnets that are specified here. Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
+        /// down automatically based on throughput. To enable Firehose to scale up the number
+        /// of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate
+        /// the quota you need, assume that Firehose can create up to three ENIs for this delivery
+        /// stream for each of the subnets specified here. For more information about ENI quota,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
         /// Interfaces </a> in the Amazon VPC Quotas topic.</para>
         /// </para>
         /// </summary>
@@ -1352,17 +1346,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter VpcConfiguration_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets that you want Kinesis Data Firehose to use to create ENIs in
-        /// the VPC of the Amazon ES destination. Make sure that the routing tables and inbound
-        /// and outbound rules allow traffic to flow from the subnets whose IDs are specified
-        /// here to the subnets that have the destination Amazon ES endpoints. Kinesis Data Firehose
-        /// creates at least one ENI in each of the subnets that are specified here. Do not delete
-        /// or modify these ENIs.</para><para>The number of ENIs that Kinesis Data Firehose creates in the subnets specified here
-        /// scales up and down automatically based on throughput. To enable Kinesis Data Firehose
-        /// to scale up the number of ENIs to match throughput, ensure that you have sufficient
-        /// quota. To help you calculate the quota you need, assume that Kinesis Data Firehose
-        /// can create up to three ENIs for this delivery stream for each of the subnets specified
-        /// here. For more information about ENI quota, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
+        /// <para>The IDs of the subnets that you want Firehose to use to create ENIs in the VPC of
+        /// the Amazon ES destination. Make sure that the routing tables and inbound and outbound
+        /// rules allow traffic to flow from the subnets whose IDs are specified here to the subnets
+        /// that have the destination Amazon ES endpoints. Firehose creates at least one ENI in
+        /// each of the subnets that are specified here. Do not delete or modify these ENIs.</para><para>The number of ENIs that Firehose creates in the subnets specified here scales up and
+        /// down automatically based on throughput. To enable Firehose to scale up the number
+        /// of ENIs to match throughput, ensure that you have sufficient quota. To help you calculate
+        /// the quota you need, assume that Firehose can create up to three ENIs for this delivery
+        /// stream for each of the subnets specified here. For more information about ENI quota,
+        /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-enis">Network
         /// Interfaces </a> in the Amazon VPC Quotas topic.</para>
         /// </para>
         /// </summary>
@@ -1413,7 +1406,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The Amazon OpenSearch Service type name. For Elasticsearch 6.x, there can be only
         /// one type per index. If you try to specify a new type for an existing index that already
-        /// has another type, Kinesis Data Firehose returns an error during run time. </para>
+        /// has another type, Firehose returns an error during run time. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1425,7 +1418,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
         /// index. If you try to specify a new type for an existing index that already has another
-        /// type, Kinesis Data Firehose returns an error during run time.</para><para>For Elasticsearch 7.x, don't specify a <c>TypeName</c>.</para>
+        /// type, Firehose returns an error during run time.</para><para>For Elasticsearch 7.x, don't specify a <c>TypeName</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

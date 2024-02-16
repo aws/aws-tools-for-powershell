@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter PlatformApplicationArn
         /// <summary>
         /// <para>
-        /// <para>PlatformApplicationArn of platform application object to delete.</para>
+        /// <para><c>PlatformApplicationArn</c> of platform application object to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

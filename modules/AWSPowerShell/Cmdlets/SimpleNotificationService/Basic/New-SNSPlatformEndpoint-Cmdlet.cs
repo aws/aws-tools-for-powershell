@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</para>
+        /// <para>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html"><c>SetEndpointAttributes</c></a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter PlatformApplicationArn
         /// <summary>
         /// <para>
-        /// <para>PlatformApplicationArn returned from CreatePlatformApplication is used to create a
-        /// an endpoint.</para>
+        /// <para><c>PlatformApplicationArn</c> returned from CreatePlatformApplication is used to
+        /// create a an endpoint.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
