@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>chatbot</C2jFilename>
+    <AssemblyName>Chatbot</AssemblyName>
+    <ServiceNounPrefix>CHAT</ServiceNounPrefix>
+    <ServiceName>AWS Chatbot</ServiceName>
+    <ServiceClientInterface>IAmazonChatbot</ServiceClientInterface>
+    <ServiceClient>AmazonChatbotClient</ServiceClient>
+    <ServiceModuleGuid>0b12305d-5704-412f-8b4f-16b1b8f58dfc</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="New" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="New" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSlackChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="New" Noun="SlackChannelConfiguration" ShouldProcessTarget="ConfigurationName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChimeWebhookConfiguration" Verb="Remove" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMicrosoftTeamsChannelConfiguration" Verb="Remove" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMicrosoftTeamsConfiguredTeam" Verb="Remove" Noun="MicrosoftTeamsConfiguredTeam" ShouldProcessTarget="TeamId" PipelineParameter="TeamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMicrosoftTeamsUserIdentity" Verb="Remove" Noun="MicrosoftTeamsUserIdentity" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSlackChannelConfiguration" Verb="Remove" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSlackUserIdentity" Verb="Remove" Noun="SlackUserIdentity" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSlackWorkspaceAuthorization" Verb="Remove" Noun="SlackWorkspaceAuthorization" ShouldProcessTarget="SlackTeamId" PipelineParameter="SlackTeamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChimeWebhookConfigurations" OutputProperty="WebhookConfigurations" Verb="Get" Noun="ChimeWebhookConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSlackChannelConfigurations" OutputProperty="SlackChannelConfigurations" Verb="Get" Noun="SlackChannelConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSlackUserIdentities" OutputProperty="SlackUserIdentities" Verb="Get" Noun="SlackUserIdentity" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSlackWorkspaces" OutputProperty="SlackWorkspaces" Verb="Get" Noun="SlackWorkspace" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountPreferences" OutputProperty="AccountPreferences" Verb="Get" Noun="AccountPreference" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Get" Noun="MicrosoftTeamsChannelConfiguration" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMicrosoftTeamsChannelConfigurations" OutputProperty="TeamChannelConfigurations" Verb="Get" Noun="MicrosoftTeamsChannelConfigurationList" PipelineParameter="TeamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMicrosoftTeamsConfiguredTeams" OutputProperty="ConfiguredTeams" Verb="Get" Noun="MicrosoftTeamsConfiguredTeamList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMicrosoftTeamsUserIdentities" OutputProperty="TeamsUserIdentities" Verb="Get" Noun="MicrosoftTeamsUserIdentityList" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountPreferences" OutputProperty="AccountPreferences" Verb="Update" Noun="AccountPreference" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChimeWebhookConfiguration" OutputProperty="WebhookConfiguration" Verb="Update" Noun="ChimeWebhookConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMicrosoftTeamsChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Update" Noun="MicrosoftTeamsChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSlackChannelConfiguration" OutputProperty="ChannelConfiguration" Verb="Update" Noun="SlackChannelConfiguration" ShouldProcessTarget="ChatConfigurationArn" PipelineParameter="ChatConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

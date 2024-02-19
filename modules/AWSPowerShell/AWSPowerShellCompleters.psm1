@@ -947,6 +947,16 @@ $AMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Amplify.CertificateType
+        {
+            ($_ -eq "New-AMPDomainAssociation/CertificateSettings_Type") -Or
+            ($_ -eq "Update-AMPDomainAssociation/CertificateSettings_Type")
+        }
+        {
+            $v = "AMPLIFY_MANAGED","CUSTOM"
+            break
+        }
+
         # Amazon.Amplify.JobType
         "Start-AMPJob/JobType"
         {
@@ -986,6 +996,7 @@ $AMP_Completers = {
 
 $AMP_map = @{
     "AutoBranchCreationConfig_Stage"=@("New-AMPApp","Update-AMPApp")
+    "CertificateSettings_Type"=@("New-AMPDomainAssociation","Update-AMPDomainAssociation")
     "JobType"=@("Start-AMPJob")
     "Platform"=@("New-AMPApp","Update-AMPApp")
     "Stage"=@("New-AMPBranch","Update-AMPBranch")
@@ -7669,6 +7680,83 @@ $CE_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CE_SelectCompleters $CE_SelectMap
+# Argument completions for service AWS Chatbot
+
+
+$CHAT_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CHAT.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHAT_SelectMap = @{
+    "Select"=@("New-CHATChimeWebhookConfiguration",
+               "New-CHATMicrosoftTeamsChannelConfiguration",
+               "New-CHATSlackChannelConfiguration",
+               "Remove-CHATChimeWebhookConfiguration",
+               "Remove-CHATMicrosoftTeamsChannelConfiguration",
+               "Remove-CHATMicrosoftTeamsConfiguredTeam",
+               "Remove-CHATMicrosoftTeamsUserIdentity",
+               "Remove-CHATSlackChannelConfiguration",
+               "Remove-CHATSlackUserIdentity",
+               "Remove-CHATSlackWorkspaceAuthorization",
+               "Get-CHATChimeWebhookConfiguration",
+               "Get-CHATSlackChannelConfiguration",
+               "Get-CHATSlackUserIdentity",
+               "Get-CHATSlackWorkspace",
+               "Get-CHATAccountPreference",
+               "Get-CHATMicrosoftTeamsChannelConfiguration",
+               "Get-CHATMicrosoftTeamsChannelConfigurationList",
+               "Get-CHATMicrosoftTeamsConfiguredTeamList",
+               "Get-CHATMicrosoftTeamsUserIdentityList",
+               "Update-CHATAccountPreference",
+               "Update-CHATChimeWebhookConfiguration",
+               "Update-CHATMicrosoftTeamsChannelConfiguration",
+               "Update-CHATSlackChannelConfiguration")
+}
+
+_awsArgumentCompleterRegistration $CHAT_SelectCompleters $CHAT_SelectMap
 # Argument completions for service Amazon Chime
 
 

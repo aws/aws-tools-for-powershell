@@ -205,6 +205,9 @@
     <Reference Include="AWSSDK.CertificateManager">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CertificateManager.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Chatbot">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Chatbot.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Chime">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Chime.dll</HintPath>
     </Reference>
@@ -1319,6 +1322,9 @@
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CertificateManager.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Chatbot">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Chatbot.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Chime">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Chime.dll</HintPath>

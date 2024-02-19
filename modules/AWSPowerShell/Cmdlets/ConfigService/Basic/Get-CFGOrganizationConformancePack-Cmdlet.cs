@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// Limit and next token are not applicable if you specify organization conformance packs
     /// names. They are only applicable, when you request all the organization conformance
     /// packs. 
-    /// </para><para><i>For accounts within an organzation</i></para><para>
+    /// </para><para><i>For accounts within an organization</i></para><para>
     /// If you deploy an organizational rule or conformance pack in an organization administrator
     /// account, and then establish a delegated administrator and deploy an organizational
     /// rule or conformance pack in the delegated administrator account, you won't be able

@@ -80,13 +80,23 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// only be recorded by Config in Regions where Config was available before February 2022.
         /// You cannot be record the global IAM resouce types in Regions supported by Config after
         /// February 2022. This list where you cannot record the global IAM resource types includes
-        /// the following Regions:</para><ul><li><para>Asia Pacific (Hyderabad)</para></li><li><para>Asia Pacific (Melbourne)</para></li><li><para>Europe (Spain)</para></li><li><para>Europe (Zurich)</para></li><li><para>Israel (Tel Aviv)</para></li><li><para>Middle East (UAE)</para></li></ul><important><para><b>Aurora global clusters are recorded in all enabled Regions</b></para><para>The <c>AWS::RDS::GlobalCluster</c> resource type will be recorded in all supported
+        /// the following Regions:</para><ul><li><para>Asia Pacific (Hyderabad)</para></li><li><para>Asia Pacific (Melbourne)</para></li><li><para>Canada West (Calgary)</para></li><li><para>Europe (Spain)</para></li><li><para>Europe (Zurich)</para></li><li><para>Israel (Tel Aviv)</para></li><li><para>Middle East (UAE)</para></li></ul><important><para><b>Aurora global clusters are recorded in all enabled Regions</b></para><para>The <c>AWS::RDS::GlobalCluster</c> resource type will be recorded in all supported
         /// Config Regions where the configuration recorder is enabled, even if <c>includeGlobalResourceTypes</c>
-        /// is not set to <c>true</c>. The <c>includeGlobalResourceTypes</c> option is a bundle
-        /// which only applies to IAM users, groups, roles, and customer managed policies. </para><para>If you do not want to record <c>AWS::RDS::GlobalCluster</c> in all enabled Regions,
+        /// is set<c>false</c>. The <c>includeGlobalResourceTypes</c> option is a bundle which
+        /// only applies to IAM users, groups, roles, and customer managed policies. </para><para>If you do not want to record <c>AWS::RDS::GlobalCluster</c> in all enabled Regions,
         /// use one of the following recording strategies:</para><ol><li><para><b>Record all current and future resource types with exclusions</b> (<c>EXCLUSION_BY_RESOURCE_TYPES</c>),
         /// or</para></li><li><para><b>Record specific resource types</b> (<c>INCLUSION_BY_RESOURCE_TYPES</c>).</para></li></ol><para>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Selecting
-        /// Which Resources are Recorded</a> in the <i>Config developer guide</i>.</para></important><note><para>Before you set this field to <c>true</c>, set the <c>allSupported</c> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>
+        /// Which Resources are Recorded</a> in the <i>Config developer guide</i>.</para></important><important><para><b>includeGlobalResourceTypes and the exclusion recording strategy</b></para><para>The <c>includeGlobalResourceTypes</c> field has no impact on the <c>EXCLUSION_BY_RESOURCE_TYPES</c>
+        /// recording strategy. This means that the global IAM resource types (IAM users, groups,
+        /// roles, and customer managed policies) will not be automatically added as exclusions
+        /// for <c>exclusionByResourceTypes</c> when <c>includeGlobalResourceTypes</c> is set
+        /// to <c>false</c>.</para><para>The <c>includeGlobalResourceTypes</c> field should only be used to modify the <c>AllSupported</c>
+        /// field, as the default for the <c>AllSupported</c> field is to record configuration
+        /// changes for all supported resource types excluding the global IAM resource types.
+        /// To include the global IAM resource types when <c>AllSupported</c> is set to <c>true</c>,
+        /// make sure to set <c>includeGlobalResourceTypes</c> to <c>true</c>.</para><para>To exclude the global IAM resource types for the <c>EXCLUSION_BY_RESOURCE_TYPES</c>
+        /// recording strategy, you need to manually add them to the <c>resourceTypes</c> field
+        /// of <c>exclusionByResourceTypes</c>.</para></important><note><para><b>Required and optional fields</b></para><para>Before you set this field to <c>true</c>, set the <c>allSupported</c> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>
         /// to <c>true</c>. Optionally, you can set the <c>useOnly</c> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a>
         /// to <c>ALL_SUPPORTED_RESOURCE_TYPES</c>.</para></note><note><para><b>Overriding fields</b></para><para>If you set this field to <c>false</c> but list global IAM resource types in the <c>resourceTypes</c>
         /// field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>,
@@ -227,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// where you set up the configuration recorder if that is a Region where Config was available
         /// before February 2022. You cannot be record the global IAM resouce types in Regions
         /// supported by Config after February 2022. This list where you cannot record the global
-        /// IAM resource types includes the following Regions:</para><ul><li><para>Asia Pacific (Hyderabad)</para></li><li><para>Asia Pacific (Melbourne)</para></li><li><para>Europe (Spain)</para></li><li><para>Europe (Zurich)</para></li><li><para>Israel (Tel Aviv)</para></li><li><para>Middle East (UAE)</para></li></ul></note>
+        /// IAM resource types includes the following Regions:</para><ul><li><para>Asia Pacific (Hyderabad)</para></li><li><para>Asia Pacific (Melbourne)</para></li><li><para>Canada West (Calgary)</para></li><li><para>Europe (Spain)</para></li><li><para>Europe (Zurich)</para></li><li><para>Israel (Tel Aviv)</para></li><li><para>Middle East (UAE)</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

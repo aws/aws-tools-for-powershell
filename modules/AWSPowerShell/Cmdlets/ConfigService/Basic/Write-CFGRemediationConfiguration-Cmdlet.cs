@@ -34,14 +34,14 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// configuration. The target (SSM document) must exist and have permissions to use the
     /// target. 
     /// 
-    ///  <note><para>
+    ///  <note><para><b>Be aware of backward incompatible changes</b></para><para>
     /// If you make backward incompatible changes to the SSM document, you must call this
     /// again to ensure the remediations can run.
     /// </para><para>
     /// This API does not support adding remediation configurations for service-linked Config
     /// Rules such as Organization Config rules, the rules deployed by conformance packs,
     /// and rules deployed by Amazon Web Services Security Hub.
-    /// </para></note><note><para>
+    /// </para></note><note><para><b>Required fields</b></para><para>
     /// For manual remediation configuration, you need to provide a value for <c>automationAssumeRole</c>
     /// or use a value in the <c>assumeRole</c>field to remediate your resources. The SSM
     /// automation document can use either as long as it maps to a valid parameter.
@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// However, for automatic remediation configuration, the only valid <c>assumeRole</c>
     /// field value is <c>AutomationAssumeRole</c> and you need to provide a value for <c>AutomationAssumeRole</c>
     /// to remediate your resources.
+    /// </para></note><note><para><b>Auto remediation can be initiated even for compliant resources</b></para><para>
+    /// If you enable auto remediation for a specific Config rule using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/emAPI_PutRemediationConfigurations.html">PutRemediationConfigurations</a>
+    /// API or the Config console, it initiates the remediation process for all non-compliant
+    /// resources for that specific rule. The auto remediation process relies on the compliance
+    /// data snapshot which is captured on a periodic basis. Any non-compliant resource that
+    /// is updated between the snapshot schedule will continue to be remediated based on the
+    /// last known compliance data snapshot.
+    /// </para><para>
+    /// This means that in some cases auto remediation can be initiated even for compliant
+    /// resources, since the bootstrap processor uses a database that can have stale evaluation
+    /// results based on the last known compliance data snapshot.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CFGRemediationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

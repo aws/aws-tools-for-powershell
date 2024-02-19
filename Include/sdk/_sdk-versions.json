@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.750.0",
+    "ProductVersion"    : "3.7.751.0",
     "CoreVersion"       : "3.7.302.12",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -71,7 +71,7 @@
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "3.7.302.22",
+            "Version" : "3.7.302.23",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -1131,7 +1131,7 @@
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "3.7.302.29",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -1227,7 +1227,7 @@
             "InPreview"               : false
         },
         "Amplify"                         : {
-            "Version" : "3.7.300.52",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -1795,7 +1795,7 @@
             "InPreview"               : false
         },
         "IVS"                             : {
-            "Version" : "3.7.302.7",
+            "Version" : "3.7.302.8",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -2395,7 +2395,7 @@
             "InPreview"               : false
         },
         "Keyspaces"                           : {
-            "Version" : "3.7.301.15",
+            "Version" : "3.7.301.16",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -3028,6 +3028,14 @@
         },
         "Artifact"                            : {
             "Version" : "3.7.300.1",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.302.12"
+            },
+            "InPreview"               : false
+        },
+        "Chatbot"                             : {
+            "Version" : "3.7.300.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"

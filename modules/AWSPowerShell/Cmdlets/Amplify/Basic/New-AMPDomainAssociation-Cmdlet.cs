@@ -82,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.String AutoSubDomainIAMRole { get; set; }
         #endregion
         
+        #region Parameter CertificateSettings_CustomCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon resource name (ARN) for the custom certificate that you have already added
+        /// to Certificate Manager in your Amazon Web Services account.</para><para>This field is required only when the certificate type is <c>CUSTOM</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CertificateSettings_CustomCertificateArn { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -125,6 +136,22 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("SubDomainSettings")]
         public Amazon.Amplify.Model.SubDomainSetting[] SubDomainSetting { get; set; }
+        #endregion
+        
+        #region Parameter CertificateSettings_Type
+        /// <summary>
+        /// <para>
+        /// <para>The certificate type.</para><para>Specify <c>AMPLIFY_MANAGED</c> to use the default certificate that Amplify provisions
+        /// for you.</para><para>Specify <c>CUSTOM</c> to use your own certificate that you have already added to Certificate
+        /// Manager in your Amazon Web Services account. Make sure you request (or import) the
+        /// certificate in the US East (N. Virginia) Region (us-east-1). For more information
+        /// about using ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
+        /// certificates into Certificate Manager</a> in the <i>ACM User guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Amplify.CertificateType")]
+        public Amazon.Amplify.CertificateType CertificateSettings_Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -201,6 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 context.AutoSubDomainCreationPattern = new List<System.String>(this.AutoSubDomainCreationPattern);
             }
             context.AutoSubDomainIAMRole = this.AutoSubDomainIAMRole;
+            context.CertificateSettings_CustomCertificateArn = this.CertificateSettings_CustomCertificateArn;
+            context.CertificateSettings_Type = this.CertificateSettings_Type;
             context.DomainName = this.DomainName;
             #if MODULAR
             if (this.DomainName == null && ParameterWasBound(nameof(this.DomainName)))
@@ -246,6 +275,35 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             if (cmdletContext.AutoSubDomainIAMRole != null)
             {
                 request.AutoSubDomainIAMRole = cmdletContext.AutoSubDomainIAMRole;
+            }
+            
+             // populate CertificateSettings
+            var requestCertificateSettingsIsNull = true;
+            request.CertificateSettings = new Amazon.Amplify.Model.CertificateSettings();
+            System.String requestCertificateSettings_certificateSettings_CustomCertificateArn = null;
+            if (cmdletContext.CertificateSettings_CustomCertificateArn != null)
+            {
+                requestCertificateSettings_certificateSettings_CustomCertificateArn = cmdletContext.CertificateSettings_CustomCertificateArn;
+            }
+            if (requestCertificateSettings_certificateSettings_CustomCertificateArn != null)
+            {
+                request.CertificateSettings.CustomCertificateArn = requestCertificateSettings_certificateSettings_CustomCertificateArn;
+                requestCertificateSettingsIsNull = false;
+            }
+            Amazon.Amplify.CertificateType requestCertificateSettings_certificateSettings_Type = null;
+            if (cmdletContext.CertificateSettings_Type != null)
+            {
+                requestCertificateSettings_certificateSettings_Type = cmdletContext.CertificateSettings_Type;
+            }
+            if (requestCertificateSettings_certificateSettings_Type != null)
+            {
+                request.CertificateSettings.Type = requestCertificateSettings_certificateSettings_Type;
+                requestCertificateSettingsIsNull = false;
+            }
+             // determine if request.CertificateSettings should be set to null
+            if (requestCertificateSettingsIsNull)
+            {
+                request.CertificateSettings = null;
             }
             if (cmdletContext.DomainName != null)
             {
@@ -323,6 +381,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public System.String AppId { get; set; }
             public List<System.String> AutoSubDomainCreationPattern { get; set; }
             public System.String AutoSubDomainIAMRole { get; set; }
+            public System.String CertificateSettings_CustomCertificateArn { get; set; }
+            public Amazon.Amplify.CertificateType CertificateSettings_Type { get; set; }
             public System.String DomainName { get; set; }
             public System.Boolean? EnableAutoSubDomain { get; set; }
             public List<Amazon.Amplify.Model.SubDomainSetting> SubDomainSetting { get; set; }

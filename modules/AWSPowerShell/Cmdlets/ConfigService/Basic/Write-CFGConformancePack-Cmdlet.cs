@@ -107,8 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance
         /// pack. If you use the document name, Config checks only your account and Amazon Web
-        /// Services Region for the SSM document. If you want to use an SSM document from another
-        /// Region or account, you must provide the ARN.</para>
+        /// Services Region for the SSM document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

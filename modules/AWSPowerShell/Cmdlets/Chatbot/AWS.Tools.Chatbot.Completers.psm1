@@ -72,75 +72,13 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Amplify
+# Argument completions for service AWS Chatbot
 
 
-$AMP_Completers = {
+$CHAT_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.Amplify.CertificateType
-        {
-            ($_ -eq "New-AMPDomainAssociation/CertificateSettings_Type") -Or
-            ($_ -eq "Update-AMPDomainAssociation/CertificateSettings_Type")
-        }
-        {
-            $v = "AMPLIFY_MANAGED","CUSTOM"
-            break
-        }
-
-        # Amazon.Amplify.JobType
-        "Start-AMPJob/JobType"
-        {
-            $v = "MANUAL","RELEASE","RETRY","WEB_HOOK"
-            break
-        }
-
-        # Amazon.Amplify.Platform
-        {
-            ($_ -eq "New-AMPApp/Platform") -Or
-            ($_ -eq "Update-AMPApp/Platform")
-        }
-        {
-            $v = "WEB","WEB_COMPUTE","WEB_DYNAMIC"
-            break
-        }
-
-        # Amazon.Amplify.Stage
-        {
-            ($_ -eq "New-AMPApp/AutoBranchCreationConfig_Stage") -Or
-            ($_ -eq "Update-AMPApp/AutoBranchCreationConfig_Stage") -Or
-            ($_ -eq "New-AMPBranch/Stage") -Or
-            ($_ -eq "Update-AMPBranch/Stage")
-        }
-        {
-            $v = "BETA","DEVELOPMENT","EXPERIMENTAL","PRODUCTION","PULL_REQUEST"
-            break
-        }
-
-
-    }
-
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$AMP_map = @{
-    "AutoBranchCreationConfig_Stage"=@("New-AMPApp","Update-AMPApp")
-    "CertificateSettings_Type"=@("New-AMPDomainAssociation","Update-AMPDomainAssociation")
-    "JobType"=@("Start-AMPJob")
-    "Platform"=@("New-AMPApp","Update-AMPApp")
-    "Stage"=@("New-AMPBranch","Update-AMPBranch")
-}
-
-_awsArgumentCompleterRegistration $AMP_Completers $AMP_map
-
-$AMP_SelectCompleters = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AMP.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CHAT.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -184,45 +122,31 @@ $AMP_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$AMP_SelectMap = @{
-    "Select"=@("New-AMPApp",
-               "New-AMPBackendEnvironment",
-               "New-AMPBranch",
-               "New-AMPDeployment",
-               "New-AMPDomainAssociation",
-               "New-AMPWebhook",
-               "Remove-AMPApp",
-               "Remove-AMPBackendEnvironment",
-               "Remove-AMPBranch",
-               "Remove-AMPDomainAssociation",
-               "Remove-AMPJob",
-               "Remove-AMPWebhook",
-               "New-AMPAccessLog",
-               "Get-AMPApp",
-               "Get-AMPArtifactUrl",
-               "Get-AMPBackendEnvironment",
-               "Get-AMPBranch",
-               "Get-AMPDomainAssociation",
-               "Get-AMPJob",
-               "Get-AMPWebhook",
-               "Get-AMPAppList",
-               "Get-AMPArtifactList",
-               "Get-AMPBackendEnvironmentList",
-               "Get-AMPBranchList",
-               "Get-AMPDomainAssociationList",
-               "Get-AMPJobList",
-               "Get-AMPResourceTag",
-               "Get-AMPWebhookList",
-               "Start-AMPDeployment",
-               "Start-AMPJob",
-               "Stop-AMPJob",
-               "Add-AMPResourceTag",
-               "Remove-AMPResourceTag",
-               "Update-AMPApp",
-               "Update-AMPBranch",
-               "Update-AMPDomainAssociation",
-               "Update-AMPWebhook")
+$CHAT_SelectMap = @{
+    "Select"=@("New-CHATChimeWebhookConfiguration",
+               "New-CHATMicrosoftTeamsChannelConfiguration",
+               "New-CHATSlackChannelConfiguration",
+               "Remove-CHATChimeWebhookConfiguration",
+               "Remove-CHATMicrosoftTeamsChannelConfiguration",
+               "Remove-CHATMicrosoftTeamsConfiguredTeam",
+               "Remove-CHATMicrosoftTeamsUserIdentity",
+               "Remove-CHATSlackChannelConfiguration",
+               "Remove-CHATSlackUserIdentity",
+               "Remove-CHATSlackWorkspaceAuthorization",
+               "Get-CHATChimeWebhookConfiguration",
+               "Get-CHATSlackChannelConfiguration",
+               "Get-CHATSlackUserIdentity",
+               "Get-CHATSlackWorkspace",
+               "Get-CHATAccountPreference",
+               "Get-CHATMicrosoftTeamsChannelConfiguration",
+               "Get-CHATMicrosoftTeamsChannelConfigurationList",
+               "Get-CHATMicrosoftTeamsConfiguredTeamList",
+               "Get-CHATMicrosoftTeamsUserIdentityList",
+               "Update-CHATAccountPreference",
+               "Update-CHATChimeWebhookConfiguration",
+               "Update-CHATMicrosoftTeamsChannelConfiguration",
+               "Update-CHATSlackChannelConfiguration")
 }
 
-_awsArgumentCompleterRegistration $AMP_SelectCompleters $AMP_SelectMap
+_awsArgumentCompleterRegistration $CHAT_SelectCompleters $CHAT_SelectMap
 

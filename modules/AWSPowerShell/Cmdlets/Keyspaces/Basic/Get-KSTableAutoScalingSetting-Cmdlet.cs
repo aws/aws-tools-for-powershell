@@ -39,7 +39,11 @@ namespace Amazon.PowerShell.Cmdlets.KS
     /// automatically in response to application traffic. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing
     /// throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon
     /// Keyspaces Developer Guide</i>.
-    /// </para>
+    /// </para><important><para><c>GetTableAutoScalingSettings</c> can't be used as an action in an IAM policy.
+    /// </para></important><para>
+    /// To define permissions for <c>GetTableAutoScalingSettings</c>, you must allow the following
+    /// two actions in the IAM policy statement's <c>Action</c> element:
+    /// </para><ul><li><para><c>application-autoscaling:DescribeScalableTargets</c></para></li><li><para><c>application-autoscaling:DescribeScalingPolicies</c></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "KSTableAutoScalingSetting")]
     [OutputType("Amazon.Keyspaces.Model.GetTableAutoScalingSettingsResponse")]
