@@ -11568,7 +11568,6 @@ Set-Alias -Name Delete-KINFDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name KINF-DeleteDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name Describe-KINFDeliveryStream -Value Get-KINFDeliveryStream
 Set-Alias -Name KINF-DescribeDeliveryStream -Value Get-KINFDeliveryStream
-Set-Alias -Name KINF-GetKinesisStream -Value Get-KINFKinesisStream
 Set-Alias -Name List-KINFDeliveryStreams -Value Get-KINFDeliveryStreamList
 Set-Alias -Name List-KINFDeliveryStreamList -Value Get-KINFDeliveryStreamList
 Set-Alias -Name KINF-ListDeliveryStreams -Value Get-KINFDeliveryStreamList
@@ -11587,8 +11586,6 @@ Set-Alias -Name Untag-KINFDeliveryStream -Value Remove-KINFDeliveryStreamTag
 Set-Alias -Name Untag-KINFDeliveryStreamTag -Value Remove-KINFDeliveryStreamTag
 Set-Alias -Name KINF-UntagDeliveryStream -Value Remove-KINFDeliveryStreamTag
 Set-Alias -Name KINF-UpdateDestination -Value Update-KINFDestination
-Set-Alias -Name Verify-KINFResourcesExistForTagris -Value Test-KINFResourcesExistForTagris
-Set-Alias -Name KINF-VerifyResourcesExistForTagris -Value Test-KINFResourcesExistForTagris
 Set-Alias -Name Create-FISExperimentTemplate -Value New-FISExperimentTemplate
 Set-Alias -Name FIS-CreateExperimentTemplate -Value New-FISExperimentTemplate
 Set-Alias -Name Create-FISTargetAccountConfiguration -Value New-FISTargetAccountConfiguration

@@ -76,10 +76,6 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKinesisStream" OutputProperty="*" Verb="Get" Noun="KinesisStream" PipelineParameter="DeliveryStreamARN" NoPipelineParameter="false">
-            <Params />
-            <TypesNotToFlatten />
-        </ServiceOperation>
         <ServiceOperation MethodName="ListDeliveryStreams" OutputProperty="*" Verb="Get" Noun="DeliveryStreamList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -157,10 +153,6 @@
                 <Param Name="SnowflakeDestinationUpdate_ProcessingConfiguration_Processors" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors" />
                 <Param Name="SnowflakeDestinationUpdate_RetryOptions_DurationInSeconds" NewName="SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds" />
             </Params>
-            <TypesNotToFlatten />
-        </ServiceOperation>
-        <ServiceOperation MethodName="VerifyResourcesExistForTagris" OutputProperty="TagrisSweepListResult" Verb="Test" Noun="ResourcesExistForTagris" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

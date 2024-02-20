@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.751.0",
+    "ProductVersion"    : "3.7.752.0",
     "CoreVersion"       : "3.7.302.12",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -39,7 +39,7 @@
             "InPreview"               : false
         },
         "CloudFront"     : {
-            "Version" : "3.7.301.46",
+            "Version" : "3.7.301.47",
             "AssemblyVersionOverride" : "3.3.4.0",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -145,7 +145,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.301.13",
+            "Version" : "3.7.301.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -243,7 +243,7 @@
             "InPreview"               : false
         },
         "Lambda"               : {
-            "Version" : "3.7.303.48",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -443,7 +443,7 @@
             "InPreview"               : false
         },
         "KinesisFirehose"           : {
-            "Version" : "3.7.303.0",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"

@@ -160,7 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// and DynamoDB event sources</a>, you can configure an Amazon SNS topic or Amazon SQS
         /// queue as the destination.</para><para>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed
         /// Kafka</a> or <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon
-        /// MSK</a>, you can configure an Amazon SNS topic or Amazon SQS queue as the destination.</para>
+        /// MSK</a>, you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket
+        /// as the destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
