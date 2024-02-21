@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.752.0",
+    "ProductVersion"    : "3.7.753.0",
     "CoreVersion"       : "3.7.302.12",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -371,7 +371,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "3.7.302.8",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -875,7 +875,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "3.7.303.28",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -1411,7 +1411,7 @@
             "InPreview"               : false
         },
         "IoTEvents"                       : {
-            "Version" : "3.7.300.52",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -2091,7 +2091,7 @@
             "InPreview"               : false
         },
         "LookoutEquipment"                : {
-            "Version" : "3.7.301.2",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"

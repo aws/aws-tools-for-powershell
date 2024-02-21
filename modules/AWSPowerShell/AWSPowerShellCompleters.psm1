@@ -42636,6 +42636,7 @@ $EML_SelectMap = @{
                "New-EMLOfferingPurchase",
                "Restart-EMLInputDevice",
                "Deny-EMLInputDeviceTransfer",
+               "Restart-EMLChannelPipeline",
                "Start-EMLChannel",
                "Start-EMLInputDevice",
                "Start-EMLInputDeviceMaintenanceWindow",

@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The names of the parameters to delete. After deleting a parameter, wait for at least
-        /// 30 seconds to create a parameter with the same name.</para>
+        /// 30 seconds to create a parameter with the same name.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
+        /// name itself.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

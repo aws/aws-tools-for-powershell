@@ -28,7 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Get information about a parameter.
+    /// Lists the parameters in your Amazon Web Services account or the parameters shared
+    /// with you when you enable the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html#systemsmanager-DescribeParameters-request-Shared">Shared</a>
+    /// option.
     /// 
     ///  
     /// <para>
@@ -76,6 +78,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ParameterFilters")]
         public Amazon.SimpleSystemsManagement.Model.ParameterStringFilter[] ParameterFilter { get; set; }
+        #endregion
+        
+        #region Parameter Shared
+        /// <summary>
+        /// <para>
+        /// <para>Lists parameters that are shared with you.</para><note><para>By default when using this option, the command returns parameters that have been shared
+        /// using a standard Resource Access Manager Resource Share. In order for a parameter
+        /// that was shared using the <a>PutResourcePolicy</a> command to be returned, the associated
+        /// <c>RAM Resource Share Created From Policy</c> must have been promoted to a standard
+        /// Resource Share using the RAM <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
+        /// API operation.</para><para>For more information about sharing parameters, see <a href="systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working
+        /// with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Shared { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -173,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.ParameterFilter = new List<Amazon.SimpleSystemsManagement.Model.ParameterStringFilter>(this.ParameterFilter);
             }
+            context.Shared = this.Shared;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -203,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ParameterFilter != null)
             {
                 request.ParameterFilters = cmdletContext.ParameterFilter;
+            }
+            if (cmdletContext.Shared != null)
+            {
+                request.Shared = cmdletContext.Shared.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -266,6 +289,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ParameterFilter != null)
             {
                 request.ParameterFilters = cmdletContext.ParameterFilter;
+            }
+            if (cmdletContext.Shared != null)
+            {
+                request.Shared = cmdletContext.Shared.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -394,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.ParameterStringFilter> ParameterFilter { get; set; }
+            public System.Boolean? Shared { get; set; }
             public System.Func<Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse, GetSSMParameterListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Parameters;
         }

@@ -209,6 +209,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RestartChannelPipelines" OutputProperty="*" Verb="Restart" Noun="ChannelPipeline" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartChannel" OutputProperty="*" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

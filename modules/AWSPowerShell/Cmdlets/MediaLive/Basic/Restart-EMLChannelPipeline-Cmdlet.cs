@@ -22,32 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.MediaLive;
+using Amazon.MediaLive.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.EML
 {
     /// <summary>
-    /// Delete a parameter from the system. After deleting a parameter, wait for at least
-    /// 30 seconds to create a parameter with the same name.
+    /// Restart pipelines in one channel that is currently running.
     /// </summary>
-    [Cmdlet("Remove", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager DeleteParameter API operation.", Operation = new[] {"DeleteParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Restart", "EMLChannelPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MediaLive.Model.RestartChannelPipelinesResponse")]
+    [AWSCmdlet("Calls the AWS Elemental MediaLive RestartChannelPipelines API operation.", Operation = new[] {"RestartChannelPipelines"}, SelectReturnType = typeof(Amazon.MediaLive.Model.RestartChannelPipelinesResponse))]
+    [AWSCmdletOutput("Amazon.MediaLive.Model.RestartChannelPipelinesResponse",
+        "This cmdlet returns an Amazon.MediaLive.Model.RestartChannelPipelinesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class RestartEMLChannelPipelineCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter ChannelId
         /// <summary>
         /// <para>
-        /// <para>The name of the parameter to delete.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
-        /// name itself.</para></note>
+        /// ID of channel
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,13 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String ChannelId { get; set; }
+        #endregion
+        
+        #region Parameter PipelineId
+        /// <summary>
+        /// <para>
+        /// An array of pipelines to restart in this channel.
+        /// Format PIPELINE_0 or PIPELINE_1.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PipelineIds")]
+        public System.String[] PipelineId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaLive.Model.RestartChannelPipelinesResponse).
+        /// Specifying the name of a property of type Amazon.MediaLive.Model.RestartChannelPipelinesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,10 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ChannelId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ChannelId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -96,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSMParameter (DeleteParameter)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ChannelId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-EMLChannelPipeline (RestartChannelPipelines)"))
             {
                 return;
             }
@@ -110,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse, RemoveSSMParameterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MediaLive.Model.RestartChannelPipelinesResponse, RestartEMLChannelPipelineCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,16 +129,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.ChannelId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.ChannelId = this.ChannelId;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ChannelId == null && ParameterWasBound(nameof(this.ChannelId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.PipelineId != null)
+            {
+                context.PipelineId = new List<System.String>(this.PipelineId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,11 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.DeleteParameterRequest();
+            var request = new Amazon.MediaLive.Model.RestartChannelPipelinesRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ChannelId != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ChannelId = cmdletContext.ChannelId;
+            }
+            if (cmdletContext.PipelineId != null)
+            {
+                request.PipelineIds = cmdletContext.PipelineId;
             }
             
             CmdletOutput output;
@@ -182,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteParameterRequest request)
+        private Amazon.MediaLive.Model.RestartChannelPipelinesResponse CallAWSServiceOperation(IAmazonMediaLive client, Amazon.MediaLive.Model.RestartChannelPipelinesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "DeleteParameter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaLive", "RestartChannelPipelines");
             try
             {
                 #if DESKTOP
-                return client.DeleteParameter(request);
+                return client.RestartChannelPipelines(request);
                 #elif CORECLR
-                return client.DeleteParameterAsync(request).GetAwaiter().GetResult();
+                return client.RestartChannelPipelinesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -210,9 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse, RemoveSSMParameterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ChannelId { get; set; }
+            public List<System.String> PipelineId { get; set; }
+            public System.Func<Amazon.MediaLive.Model.RestartChannelPipelinesResponse, RestartEMLChannelPipelineCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

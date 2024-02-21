@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The parameter name on which you want to attach one or more labels.</para>
+        /// <para>The parameter name on which you want to attach one or more labels.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
+        /// name itself.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

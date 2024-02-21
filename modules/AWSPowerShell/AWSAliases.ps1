@@ -17931,6 +17931,8 @@ Set-Alias -Name Reboot-EMLInputDevice -Value Restart-EMLInputDevice
 Set-Alias -Name EML-RebootInputDevice -Value Restart-EMLInputDevice
 Set-Alias -Name Reject-EMLInputDeviceTransfer -Value Deny-EMLInputDeviceTransfer
 Set-Alias -Name EML-RejectInputDeviceTransfer -Value Deny-EMLInputDeviceTransfer
+Set-Alias -Name Restart-EMLChannelPipelines -Value Restart-EMLChannelPipeline
+Set-Alias -Name EML-RestartChannelPipelines -Value Restart-EMLChannelPipeline
 Set-Alias -Name EML-StartChannel -Value Start-EMLChannel
 Set-Alias -Name EML-StartInputDevice -Value Start-EMLInputDevice
 Set-Alias -Name EML-StartInputDeviceMaintenanceWindow -Value Start-EMLInputDeviceMaintenanceWindow

@@ -62,7 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the parameter from which you want to delete one or more labels.</para>
+        /// <para>The name of the parameter from which you want to delete one or more labels.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
+        /// name itself.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

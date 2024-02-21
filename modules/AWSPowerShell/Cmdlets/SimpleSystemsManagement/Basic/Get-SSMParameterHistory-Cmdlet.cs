@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the parameter for which you want to review history.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the parameter for which you want to review
+        /// history. For parameters shared with you from another account, you must use the full
+        /// ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

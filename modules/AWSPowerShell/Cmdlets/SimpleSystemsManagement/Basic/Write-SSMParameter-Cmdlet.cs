@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The fully qualified name of the parameter that you want to add to the system. The
-        /// fully qualified name includes the complete hierarchy of the parameter path and name.
-        /// For parameters in a hierarchy, you must include a leading forward slash character
+        /// <para>The fully qualified name of the parameter that you want to add to the system.</para><note><para>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter
+        /// name itself.</para></note><para>The fully qualified name includes the complete hierarchy of the parameter path and
+        /// name. For parameters in a hierarchy, you must include a leading forward slash character
         /// (/) when you create or reference a parameter. For example: <c>/Dev/DBServer/MySQL/db-string13</c></para><para>Naming Constraints:</para><ul><li><para>Parameter names are case sensitive.</para></li><li><para>A parameter name must be unique within an Amazon Web Services Region</para></li><li><para>A parameter name can't be prefixed with "<c>aws</c>" or "<c>ssm</c>" (case-insensitive).</para></li><li><para>Parameter names can include only the following symbols and letters: <c>a-zA-Z0-9_.-</c></para><para>In addition, the slash character ( / ) is used to delineate hierarchies in parameter
         /// names. For example: <c>/Dev/Production/East/Project-ABC/MyParameter</c></para></li><li><para>A parameter name can't include spaces.</para></li><li><para>Parameter hierarchies are limited to a maximum depth of fifteen levels.</para></li></ul><para>For additional information about valid values for parameter names, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-create.html">Creating
         /// Systems Manager parameters</a> in the <i>Amazon Web Services Systems Manager User

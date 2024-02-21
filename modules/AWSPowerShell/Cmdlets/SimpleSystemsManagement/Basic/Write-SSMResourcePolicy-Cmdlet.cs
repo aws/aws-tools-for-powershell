@@ -30,10 +30,35 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Creates or updates a Systems Manager resource policy. A resource policy helps you
     /// to define the IAM entity (for example, an Amazon Web Services account) that can manage
-    /// your Systems Manager resources. Currently, <c>OpsItemGroup</c> is the only resource
-    /// that supports Systems Manager resource policies. The resource policy for <c>OpsItemGroup</c>
-    /// enables Amazon Web Services accounts to view and interact with OpsCenter operational
-    /// work items (OpsItems).
+    /// your Systems Manager resources. The following resources support Systems Manager resource
+    /// policies.
+    /// 
+    ///  <ul><li><para><c>OpsItemGroup</c> - The resource policy for <c>OpsItemGroup</c> enables Amazon
+    /// Web Services accounts to view and interact with OpsCenter operational work items (OpsItems).
+    /// </para></li><li><para><c>Parameter</c> - The resource policy is used to share a parameter with other accounts
+    /// using Resource Access Manager (RAM). 
+    /// </para><para>
+    /// To share a parameter, it must be in the advanced parameter tier. For information about
+    /// parameter tiers, see <a href="https://docs.aws.amazon.com/parameter-store- advanced-parameters.html">Managing
+    /// parameter tiers</a>. For information about changing an existing standard parameter
+    /// to an advanced parameter, see <a href="https://docs.aws.amazon.com/parameter-store-advanced-parameters.html#parameter-&#xD;&#xA;            store-advanced-parameters-enabling">Changing a standard parameter to an advanced parameter</a>.
+    /// </para><para>
+    /// To share a <c>SecureString</c> parameter, it must be encrypted with a customer managed
+    /// key, and you must share the key separately through Key Management Service. Amazon
+    /// Web Services managed keys cannot be shared. Parameters encrypted with the default
+    /// Amazon Web Services managed key can be updated to use a customer managed key instead.
+    /// For KMS key definitions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt">KMS
+    /// concepts</a> in the <i>Key Management Service Developer Guide</i>.
+    /// </para><important><para>
+    /// While you can share a parameter using the Systems Manager <c>PutResourcePolicy</c>
+    /// operation, we recommend using Resource Access Manager (RAM) instead. This is because
+    /// using <c>PutResourcePolicy</c> requires the extra step of promoting the parameter
+    /// to a standard RAM Resource Share using the RAM <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
+    /// API operation. Otherwise, the parameter won't be returned by the Systems Manager <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html">DescribeParameters</a>
+    /// API operation using the <c>--shared</c> option.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html#share">Sharing
+    /// a parameter</a> in the <i>Amazon Web Services Systems Manager User Guide</i></para></important></li></ul>
     /// </summary>
     [Cmdlet("Write", "SSMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.PutResourcePolicyResponse")]
