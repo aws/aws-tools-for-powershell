@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.753.0",
+    "ProductVersion"    : "3.7.754.0",
     "CoreVersion"       : "3.7.302.12",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -971,7 +971,7 @@
             "InPreview"               : false
         },
         "KinesisVideo"                    : {
-            "Version" : "3.7.300.52",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -2715,7 +2715,7 @@
             "InPreview"               : false
         },
         "InternetMonitor"                     : {
-            "Version" : "3.7.301.47",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"

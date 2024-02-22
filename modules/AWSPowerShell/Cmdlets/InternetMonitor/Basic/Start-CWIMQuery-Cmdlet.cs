@@ -106,7 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// <summary>
         /// <para>
         /// <para>The type of query to run. The following are the three types of queries that you can
-        /// run using the Internet Monitor query interface:</para><ul><li><para><c>MEASUREMENTS</c>: TBD definition</para></li><li><para><c>TOP_LOCATIONS</c>: TBD definition</para></li><li><para><c>TOP_LOCATION_DETAILS</c>: TBD definition</para></li></ul><para>For lists of the fields returned with each query type and more information about how
+        /// run using the Internet Monitor query interface:</para><ul><li><para><c>MEASUREMENTS</c>: Provides availability score, performance score, total traffic,
+        /// and round-trip times, at 5 minute intervals.</para></li><li><para><c>TOP_LOCATIONS</c>: Provides availability score, performance score, total traffic,
+        /// and time to first byte (TTFB) information, for the top location and ASN combinations
+        /// that you're monitoring, by traffic volume.</para></li><li><para><c>TOP_LOCATION_DETAILS</c>: Provides TTFB for Amazon CloudFront, your current configuration,
+        /// and the best performing EC2 configuration, at 1 hour intervals.</para></li></ul><para>For lists of the fields returned with each query type and more information about how
         /// each type of query is performed, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">
         /// Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch
         /// Internet Monitor User Guide.</para>
