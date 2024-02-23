@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// { "browserName": [ "Chrome", "Firefox" ] }, "event_details": { "duration": [{ "numeric":
         /// [ "&lt;", 2000 ] }] } }'</c></para></li><li><para><c>'{ "event_type": ["com.amazon.rum.performance_navigation_event"], "metadata":
         /// { "browserName": [ "Chrome", "Safari" ], "countryCode": [ "US" ] }, "event_details":
-        /// { "duration": [{ "numeric": [ "&gt;=", 2000, "&lt;", 8000 ] }] } }'</c></para></li></ul><para>If the metrics destination' is <c>CloudWatch</c> and the event also matches a value
+        /// { "duration": [{ "numeric": [ "&gt;=", 2000, "&lt;", 8000 ] }] } }'</c></para></li></ul><para>If the metrics destination is <c>CloudWatch</c> and the event also matches a value
         /// in <c>DimensionKeys</c>, then the metric is published with the specified dimensions.
         /// </para>
         /// </para>
@@ -189,9 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>The field within the event object that the metric value is sourced from.</para><para>If you omit this field, a hardcoded value of 1 is pushed as the metric value. This
-        /// is useful if you just want to count the number of events that the filter catches.
-        /// </para><para>If this metric is sent to CloudWatch Evidently, this field will be passed to Evidently
-        /// raw and Evidently will handle data extraction from the event.</para>
+        /// is useful if you want to count the number of events that the filter catches. </para><para>If this metric is sent to CloudWatch Evidently, this field will be passed to Evidently
+        /// raw. Evidently will handle data extraction from the event.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

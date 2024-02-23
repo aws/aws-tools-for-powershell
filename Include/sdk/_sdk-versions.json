@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.754.0",
-    "CoreVersion"       : "3.7.302.12",
+    "ProductVersion"    : "3.7.755.0",
+    "CoreVersion"       : "3.7.302.13",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
     "ServiceVersions"     : {
@@ -283,7 +283,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.306.10",
+            "Version" : "3.7.307.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -923,7 +923,7 @@
             "InPreview"               : false
         },
         "AppSync"                         : {
-            "Version" : "3.7.304.4",
+            "Version" : "3.7.304.5",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -1507,7 +1507,7 @@
             "InPreview"               : false
         },
         "QLDB"                            : {
-            "Version" : "3.7.300.52",
+            "Version" : "3.7.300.53",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -2347,7 +2347,7 @@
             "InPreview"               : false
         },
         "CloudWatchRUM"                       : {
-            "Version" : "3.7.300.52",
+            "Version" : "3.7.300.53",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"

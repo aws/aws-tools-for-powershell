@@ -141,7 +141,13 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
         /// <summary>
         /// <para>
         /// <para>The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool
-        /// that is used to authorize the sending of data to RUM.</para>
+        /// that is used to authorize the sending of data to RUM.</para><note><para>It is possible that an app monitor does not have a value for <c>GuestRoleArn</c>.
+        /// For example, this can happen when you use the console to create an app monitor and
+        /// you allow CloudWatch RUM to create a new identity pool for Authorization. In this
+        /// case, <c>GuestRoleArn</c> is not present in the <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitor.html">GetAppMonitor</a>
+        /// response because it is not stored by the service.</para><para>If this issue affects you, you can take one of the following steps:</para><ul><li><para>Use the Cloud Development Kit (CDK) to create an identity pool and the associated
+        /// IAM role, and use that for your app monitor.</para></li><li><para>Make a separate <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetIdentityPoolRoles.html">GetIdentityPoolRoles</a>
+        /// call to Amazon Cognito to retrieve the <c>GuestRoleArn</c>.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

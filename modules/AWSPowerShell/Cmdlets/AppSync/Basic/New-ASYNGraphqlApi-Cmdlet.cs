@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// in the request. Metrics will be recorded by API ID and data source name. <c>dataSourceLevelMetricsBehavior</c>
         /// accepts one of these values at a time:</para><ul><li><para><c>FULL_REQUEST_DATA_SOURCE_METRICS</c>: Records and emits metric data for all data
         /// sources in the request.</para></li><li><para><c>PER_DATA_SOURCE_METRICS</c>: Records and emits metric data for data sources that
-        /// have the <c>metricConfig</c> value set to <c>ENABLED</c>.</para></li></ul>
+        /// have the <c>metricsConfig</c> value set to <c>ENABLED</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// request. Metrics will be recorded by API ID and resolver name. <c>resolverLevelMetricsBehavior</c>
         /// accepts one of these values at a time:</para><ul><li><para><c>FULL_REQUEST_RESOLVER_METRICS</c>: Records and emits metric data for all resolvers
         /// in the request.</para></li><li><para><c>PER_RESOLVER_METRICS</c>: Records and emits metric data for resolvers that have
-        /// the <c>metricConfig</c> value set to <c>ENABLED</c>.</para></li></ul>
+        /// the <c>metricsConfig</c> value set to <c>ENABLED</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

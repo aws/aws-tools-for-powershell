@@ -80,9 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         /// <summary>
         /// <para>
         /// <para>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics
-        /// include:</para><ul><li><para>NetworkBandwidthOutAllowanceExceeded: The number of times a specified GraphQL operation
-        /// was called.</para></li><li><para>EngineCPUUtilization: The number of GraphQL errors that occurred during a specified
-        /// GraphQL operation.</para></li></ul><para>Metrics will be recorded by API ID. You can set the value to <c>ENABLED</c> or <c>DISABLED</c>.</para>
+        /// include:</para><ul><li><para>NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the throughput
+        /// exceeded the aggregated bandwidth limit. This is useful for diagnosing bottlenecks
+        /// in a cache configuration.</para></li><li><para>EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis process.
+        /// This is useful for diagnosing bottlenecks in a cache configuration.</para></li></ul><para>Metrics will be recorded by API ID. You can set the value to <c>ENABLED</c> or <c>DISABLED</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
