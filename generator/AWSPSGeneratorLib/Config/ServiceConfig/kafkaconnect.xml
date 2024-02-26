@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkerConfiguration" OutputProperty="*" Verb="Remove" Noun="WorkerConfiguration" ShouldProcessTarget="WorkerConfigurationArn" PipelineParameter="WorkerConfigurationArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeConnector" OutputProperty="*" Verb="Get" Noun="Connector" PipelineParameter="ConnectorArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,11 +59,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCustomPlugins" OutputProperty="CustomPlugins" Verb="Get" Noun="CustomPluginList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListCustomPlugins" OutputProperty="CustomPlugins" Verb="Get" Noun="CustomPluginList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkerConfigurations" OutputProperty="WorkerConfigurations" Verb="Get" Noun="WorkerConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkerConfigurations" OutputProperty="WorkerConfigurations" Verb="Get" Noun="WorkerConfigurationList" PipelineParameter="NamePrefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

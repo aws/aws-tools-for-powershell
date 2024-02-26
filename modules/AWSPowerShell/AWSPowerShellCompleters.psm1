@@ -36350,12 +36350,16 @@ $MSKC_SelectMap = @{
                "New-MSKCWorkerConfiguration",
                "Remove-MSKCConnector",
                "Remove-MSKCCustomPlugin",
+               "Remove-MSKCWorkerConfiguration",
                "Get-MSKCConnector",
                "Get-MSKCCustomPlugin",
                "Get-MSKCWorkerConfiguration",
                "Get-MSKCConnectorList",
                "Get-MSKCCustomPluginList",
+               "Get-MSKCResourceTag",
                "Get-MSKCWorkerConfigurationList",
+               "Add-MSKCResourceTag",
+               "Remove-MSKCResourceTag",
                "Update-MSKCConnector")
 }
 

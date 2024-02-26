@@ -15643,6 +15643,8 @@ Set-Alias -Name Delete-MSKCConnector -Value Remove-MSKCConnector
 Set-Alias -Name MSKC-DeleteConnector -Value Remove-MSKCConnector
 Set-Alias -Name Delete-MSKCCustomPlugin -Value Remove-MSKCCustomPlugin
 Set-Alias -Name MSKC-DeleteCustomPlugin -Value Remove-MSKCCustomPlugin
+Set-Alias -Name Delete-MSKCWorkerConfiguration -Value Remove-MSKCWorkerConfiguration
+Set-Alias -Name MSKC-DeleteWorkerConfiguration -Value Remove-MSKCWorkerConfiguration
 Set-Alias -Name Describe-MSKCConnector -Value Get-MSKCConnector
 Set-Alias -Name MSKC-DescribeConnector -Value Get-MSKCConnector
 Set-Alias -Name Describe-MSKCCustomPlugin -Value Get-MSKCCustomPlugin
@@ -15655,9 +15657,12 @@ Set-Alias -Name MSKC-ListConnectors -Value Get-MSKCConnectorList
 Set-Alias -Name List-MSKCCustomPlugins -Value Get-MSKCCustomPluginList
 Set-Alias -Name List-MSKCCustomPluginList -Value Get-MSKCCustomPluginList
 Set-Alias -Name MSKC-ListCustomPlugins -Value Get-MSKCCustomPluginList
+Set-Alias -Name MSKC-ListTagsForResource -Value Get-MSKCResourceTag
 Set-Alias -Name List-MSKCWorkerConfigurations -Value Get-MSKCWorkerConfigurationList
 Set-Alias -Name List-MSKCWorkerConfigurationList -Value Get-MSKCWorkerConfigurationList
 Set-Alias -Name MSKC-ListWorkerConfigurations -Value Get-MSKCWorkerConfigurationList
+Set-Alias -Name MSKC-TagResource -Value Add-MSKCResourceTag
+Set-Alias -Name MSKC-UntagResource -Value Remove-MSKCResourceTag
 Set-Alias -Name MSKC-UpdateConnector -Value Update-MSKCConnector
 Set-Alias -Name Associate-KNDREntitiesToExperience -Value Add-KNDREntitiesToExperience
 Set-Alias -Name KNDR-AssociateEntitiesToExperience -Value Add-KNDREntitiesToExperience

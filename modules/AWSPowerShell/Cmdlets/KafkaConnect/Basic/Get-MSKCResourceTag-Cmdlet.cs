@@ -28,70 +28,55 @@ using Amazon.KafkaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.MSKC
 {
     /// <summary>
-    /// Returns a list of all of the custom plugins in this account and Region.
+    /// Lists all the tags attached to the specified resource.
     /// </summary>
-    [Cmdlet("Get", "MSKCCustomPluginList")]
-    [OutputType("Amazon.KafkaConnect.Model.CustomPluginSummary")]
-    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect ListCustomPlugins API operation.", Operation = new[] {"ListCustomPlugins"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.ListCustomPluginsResponse))]
-    [AWSCmdletOutput("Amazon.KafkaConnect.Model.CustomPluginSummary or Amazon.KafkaConnect.Model.ListCustomPluginsResponse",
-        "This cmdlet returns a collection of Amazon.KafkaConnect.Model.CustomPluginSummary objects.",
-        "The service call response (type Amazon.KafkaConnect.Model.ListCustomPluginsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MSKCResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.KafkaConnect.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.KafkaConnect.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMSKCCustomPluginListCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
+    public partial class GetMSKCResourceTagCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter NamePrefix
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Lists custom plugin names that start with the specified text string.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list all attached
+        /// tags.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String NamePrefix { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of custom plugins to list in one response.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>If the response of a ListCustomPlugins operation is truncated, it will include a NextToken.
-        /// Send this NextToken in a subsequent request to continue listing from where the previous
-        /// operation left off.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CustomPlugins'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.ListCustomPluginsResponse).
-        /// Specifying the name of a property of type Amazon.KafkaConnect.Model.ListCustomPluginsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.KafkaConnect.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CustomPlugins";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NamePrefix parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NamePrefix' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NamePrefix' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -109,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.ListCustomPluginsResponse, GetMSKCCustomPluginListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.ListTagsForResourceResponse, GetMSKCResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,12 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NamePrefix;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NamePrefix = this.NamePrefix;
-            context.NextToken = this.NextToken;
+            context.ResourceArn = this.ResourceArn;
+            #if MODULAR
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -138,19 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KafkaConnect.Model.ListCustomPluginsRequest();
+            var request = new Amazon.KafkaConnect.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NamePrefix != null)
-            {
-                request.NamePrefix = cmdletContext.NamePrefix;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -185,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         #region AWS Service Operation Call
         
-        private Amazon.KafkaConnect.Model.ListCustomPluginsResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.ListCustomPluginsRequest request)
+        private Amazon.KafkaConnect.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "ListCustomPlugins");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.ListCustomPlugins(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.ListCustomPluginsAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,11 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NamePrefix { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.KafkaConnect.Model.ListCustomPluginsResponse, GetMSKCCustomPluginListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CustomPlugins;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.KafkaConnect.Model.ListTagsForResourceResponse, GetMSKCResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

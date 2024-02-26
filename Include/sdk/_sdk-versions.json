@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.755.0",
+    "ProductVersion"    : "3.7.756.0",
     "CoreVersion"       : "3.7.302.13",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -283,7 +283,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.307.0",
+            "Version" : "3.7.308.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -483,7 +483,7 @@
             "InPreview"               : false
         },
         "APIGateway"                      : {
-            "Version" : "3.7.300.52",
+            "Version" : "3.7.300.53",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -2227,7 +2227,7 @@
             "InPreview"               : false
         },
         "KafkaConnect"                    : {
-            "Version" : "3.7.300.52",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"
@@ -2307,7 +2307,7 @@
             "InPreview"               : false
         },
         "Drs"                                 : {
-            "Version" : "3.7.302.14",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.12"

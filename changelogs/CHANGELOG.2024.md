@@ -1,4 +1,17 @@
-﻿### 4.1.523 (2024-02-23 21:42Z)
+﻿### 4.1.524 (2024-02-26 21:40Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.756.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Managed Streaming for Kafka Connect
+    * Added cmdlet Add-MSKCResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-MSKCResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-MSKCResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-MSKCWorkerConfiguration leveraging the DeleteWorkerConfiguration service API.
+    * Modified cmdlet Get-MSKCCustomPluginList: added parameters NamePrefix and PassThru.
+    * Modified cmdlet Get-MSKCWorkerConfigurationList: added parameters NamePrefix and PassThru.
+    * Modified cmdlet New-MSKCConnector: added parameter Tag.
+    * Modified cmdlet New-MSKCCustomPlugin: added parameter Tag.
+    * Modified cmdlet New-MSKCWorkerConfiguration: added parameter Tag.
+
+### 4.1.523 (2024-02-23 21:42Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.755.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.522 (2024-02-22 21:47Z)

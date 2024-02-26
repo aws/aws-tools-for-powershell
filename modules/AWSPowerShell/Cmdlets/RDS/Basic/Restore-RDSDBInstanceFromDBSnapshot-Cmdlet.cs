@@ -143,9 +143,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.</para><para>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+        /// <para>The identifier for the Multi-AZ DB cluster snapshot to restore from.</para><para>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
         /// Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing Multi-AZ DB cluster snapshot.</para></li><li><para>Can't be specified when <c>DBSnapshotIdentifier</c> is specified.</para></li><li><para>Must be specified when <c>DBSnapshotIdentifier</c> isn't specified.</para></li><li><para>If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the <c>DBClusterSnapshotIdentifier</c>
-        /// must be the ARN of the shared snapshot.</para></li><li><para>Can't be the identifier of an Aurora DB cluster snapshot.</para></li><li><para>Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.</para></li></ul>
+        /// must be the ARN of the shared snapshot.</para></li><li><para>Can't be the identifier of an Aurora DB cluster snapshot.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

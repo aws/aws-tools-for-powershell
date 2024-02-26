@@ -86,10 +86,12 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-MSKCResourceTag', 
         'Get-MSKCConnector', 
         'Get-MSKCConnectorList', 
         'Get-MSKCCustomPlugin', 
         'Get-MSKCCustomPluginList', 
+        'Get-MSKCResourceTag', 
         'Get-MSKCWorkerConfiguration', 
         'Get-MSKCWorkerConfigurationList', 
         'New-MSKCConnector', 
@@ -97,6 +99,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-MSKCWorkerConfiguration', 
         'Remove-MSKCConnector', 
         'Remove-MSKCCustomPlugin', 
+        'Remove-MSKCResourceTag', 
+        'Remove-MSKCWorkerConfiguration', 
         'Update-MSKCConnector')
 
     # Variables to export from this module

@@ -28,35 +28,24 @@ using Amazon.KafkaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.MSKC
 {
     /// <summary>
-    /// Creates a worker configuration using the specified properties.
+    /// Attaches tags to the specified resource.
     /// </summary>
-    [Cmdlet("New", "MSKCWorkerConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse")]
-    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect CreateWorkerConfiguration API operation.", Operation = new[] {"CreateWorkerConfiguration"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse",
-        "This cmdlet returns an Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "MSKCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.KafkaConnect.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.KafkaConnect.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewMSKCWorkerConfigurationCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
+    public partial class AddMSKCResourceTagCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Description
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>A summary description of the worker configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the worker configuration.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to which you want to attach tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,42 +56,31 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter PropertiesFileContent
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Base64 encoded contents of connect-distributed.properties file.</para>
+        /// <para>The tags that you want to attach to the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PropertiesFileContent { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags you want to attach to the worker configuration.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -134,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MSKCWorkerConfiguration (CreateWorkerConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-MSKCResourceTag (TagResource)"))
             {
                 return;
             }
@@ -148,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse, NewMSKCWorkerConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.TagResourceResponse, AddMSKCResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -157,22 +135,14 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.Name = this.Name;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.PropertiesFileContent = this.PropertiesFileContent;
-            #if MODULAR
-            if (this.PropertiesFileContent == null && ParameterWasBound(nameof(this.PropertiesFileContent)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PropertiesFileContent which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.Tag != null)
@@ -183,6 +153,12 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,19 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KafkaConnect.Model.CreateWorkerConfigurationRequest();
+            var request = new Amazon.KafkaConnect.Model.TagResourceRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.PropertiesFileContent != null)
-            {
-                request.PropertiesFileContent = cmdletContext.PropertiesFileContent;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             if (cmdletContext.Tag != null)
             {
@@ -248,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         #region AWS Service Operation Call
         
-        private Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.CreateWorkerConfigurationRequest request)
+        private Amazon.KafkaConnect.Model.TagResourceResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "CreateWorkerConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.CreateWorkerConfiguration(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.CreateWorkerConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -276,12 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String Name { get; set; }
-            public System.String PropertiesFileContent { get; set; }
+            public System.String ResourceArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.KafkaConnect.Model.CreateWorkerConfigurationResponse, NewMSKCWorkerConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.KafkaConnect.Model.TagResourceResponse, AddMSKCResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

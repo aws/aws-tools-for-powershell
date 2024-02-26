@@ -298,7 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         #region Parameter Plugin
         /// <summary>
         /// <para>
-        /// <para>Specifies which plugins to use for the connector.</para>
+        /// <important><para>Amazon MSK Connect does not currently support specifying multiple plugins as a list.
+        /// To use more than one plugin for your connector, you can create a single custom plugin
+        /// using a ZIP file that bundles multiple plugins together.</para></important><para>Specifies which plugin to use for the connector. You must specify a single-element
+        /// list containing one <c>customPlugin</c> object.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -381,6 +384,17 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("KafkaCluster_ApacheKafkaCluster_Vpc_Subnets")]
         public System.String[] Vpc_Subnet { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags you want to attach to the connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter WorkerConfiguration_WorkerConfigurationArn
@@ -561,6 +575,14 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
                 WriteWarning("You are passing $null as a value for parameter ServiceExecutionRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.WorkerConfiguration_Revision = this.WorkerConfiguration_Revision;
             context.WorkerConfiguration_WorkerConfigurationArn = this.WorkerConfiguration_WorkerConfigurationArn;
             
@@ -988,6 +1010,10 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             {
                 request.ServiceExecutionRoleArn = cmdletContext.ServiceExecutionRoleArn;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
              // populate WorkerConfiguration
             var requestWorkerConfigurationIsNull = true;
@@ -1103,6 +1129,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             public System.String S3_Prefix { get; set; }
             public List<Amazon.KafkaConnect.Model.Plugin> Plugin { get; set; }
             public System.String ServiceExecutionRoleArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Int64? WorkerConfiguration_Revision { get; set; }
             public System.String WorkerConfiguration_WorkerConfigurationArn { get; set; }
             public System.Func<Amazon.KafkaConnect.Model.CreateConnectorResponse, NewMSKCConnectorCmdlet, object> Select { get; set; } =

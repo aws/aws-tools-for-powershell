@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Changes information about a model.
+    /// Changes information about a model. The maximum size of the model is 400 KB.
     /// </summary>
     [Cmdlet("Update", "AGModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateModelResponse")]

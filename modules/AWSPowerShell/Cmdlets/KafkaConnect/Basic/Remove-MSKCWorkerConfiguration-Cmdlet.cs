@@ -28,78 +28,77 @@ using Amazon.KafkaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.MSKC
 {
     /// <summary>
-    /// Returns a list of all of the custom plugins in this account and Region.
+    /// Deletes the specified worker configuration.
     /// </summary>
-    [Cmdlet("Get", "MSKCCustomPluginList")]
-    [OutputType("Amazon.KafkaConnect.Model.CustomPluginSummary")]
-    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect ListCustomPlugins API operation.", Operation = new[] {"ListCustomPlugins"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.ListCustomPluginsResponse))]
-    [AWSCmdletOutput("Amazon.KafkaConnect.Model.CustomPluginSummary or Amazon.KafkaConnect.Model.ListCustomPluginsResponse",
-        "This cmdlet returns a collection of Amazon.KafkaConnect.Model.CustomPluginSummary objects.",
-        "The service call response (type Amazon.KafkaConnect.Model.ListCustomPluginsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "MSKCWorkerConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse")]
+    [AWSCmdlet("Calls the Managed Streaming for Kafka Connect DeleteWorkerConfiguration API operation.", Operation = new[] {"DeleteWorkerConfiguration"}, SelectReturnType = typeof(Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse",
+        "This cmdlet returns an Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMSKCCustomPluginListCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
+    public partial class RemoveMSKCWorkerConfigurationCmdlet : AmazonKafkaConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter NamePrefix
+        #region Parameter WorkerConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>Lists custom plugin names that start with the specified text string.</para>
+        /// <para>The Amazon Resource Name (ARN) of the worker configuration that you want to delete.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String NamePrefix { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of custom plugins to list in one response.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>If the response of a ListCustomPlugins operation is truncated, it will include a NextToken.
-        /// Send this NextToken in a subsequent request to continue listing from where the previous
-        /// operation left off.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String WorkerConfigurationArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'CustomPlugins'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.ListCustomPluginsResponse).
-        /// Specifying the name of a property of type Amazon.KafkaConnect.Model.ListCustomPluginsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "CustomPlugins";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the NamePrefix parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^NamePrefix' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkerConfigurationArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkerConfigurationArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^NamePrefix' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkerConfigurationArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkerConfigurationArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MSKCWorkerConfiguration (DeleteWorkerConfiguration)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -109,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.ListCustomPluginsResponse, GetMSKCCustomPluginListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse, RemoveMSKCWorkerConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -118,12 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.NamePrefix;
+                context.Select = (response, cmdlet) => this.WorkerConfigurationArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NamePrefix = this.NamePrefix;
-            context.NextToken = this.NextToken;
+            context.WorkerConfigurationArn = this.WorkerConfigurationArn;
+            #if MODULAR
+            if (this.WorkerConfigurationArn == null && ParameterWasBound(nameof(this.WorkerConfigurationArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkerConfigurationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -138,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KafkaConnect.Model.ListCustomPluginsRequest();
+            var request = new Amazon.KafkaConnect.Model.DeleteWorkerConfigurationRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.WorkerConfigurationArn != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NamePrefix != null)
-            {
-                request.NamePrefix = cmdletContext.NamePrefix;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.WorkerConfigurationArn = cmdletContext.WorkerConfigurationArn;
             }
             
             CmdletOutput output;
@@ -185,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         #region AWS Service Operation Call
         
-        private Amazon.KafkaConnect.Model.ListCustomPluginsResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.ListCustomPluginsRequest request)
+        private Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse CallAWSServiceOperation(IAmazonKafkaConnect client, Amazon.KafkaConnect.Model.DeleteWorkerConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "ListCustomPlugins");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Managed Streaming for Kafka Connect", "DeleteWorkerConfiguration");
             try
             {
                 #if DESKTOP
-                return client.ListCustomPlugins(request);
+                return client.DeleteWorkerConfiguration(request);
                 #elif CORECLR
-                return client.ListCustomPluginsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteWorkerConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -213,11 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.MSKC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NamePrefix { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.KafkaConnect.Model.ListCustomPluginsResponse, GetMSKCCustomPluginListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.CustomPlugins;
+            public System.String WorkerConfigurationArn { get; set; }
+            public System.Func<Amazon.KafkaConnect.Model.DeleteWorkerConfigurationResponse, RemoveMSKCWorkerConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
