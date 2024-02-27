@@ -468,6 +468,7 @@ Set-Alias -Name AMPUI-ListComponents -Value Get-AMPUIComponentList
 Set-Alias -Name List-AMPUIForms -Value Get-AMPUIFormList
 Set-Alias -Name List-AMPUIFormList -Value Get-AMPUIFormList
 Set-Alias -Name AMPUI-ListForms -Value Get-AMPUIFormList
+Set-Alias -Name AMPUI-ListTagsForResource -Value Get-AMPUIResourceTag
 Set-Alias -Name List-AMPUIThemes -Value Get-AMPUIThemeList
 Set-Alias -Name List-AMPUIThemeList -Value Get-AMPUIThemeList
 Set-Alias -Name AMPUI-ListThemes -Value Get-AMPUIThemeList
@@ -477,6 +478,8 @@ Set-Alias -Name Refresh-AMPUIToken -Value Update-AMPUIToken
 Set-Alias -Name AMPUI-RefreshToken -Value Update-AMPUIToken
 Set-Alias -Name Start-AMPUICodegenJob -Value New-AMPUICodegenJob
 Set-Alias -Name AMPUI-StartCodegenJob -Value New-AMPUICodegenJob
+Set-Alias -Name AMPUI-TagResource -Value Add-AMPUIResourceTag
+Set-Alias -Name AMPUI-UntagResource -Value Remove-AMPUIResourceTag
 Set-Alias -Name AMPUI-UpdateComponent -Value Update-AMPUIComponent
 Set-Alias -Name AMPUI-UpdateForm -Value Update-AMPUIForm
 Set-Alias -Name AMPUI-UpdateTheme -Value Update-AMPUITheme

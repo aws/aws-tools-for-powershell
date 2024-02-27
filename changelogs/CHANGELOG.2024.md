@@ -1,4 +1,11 @@
-﻿### 4.1.524 (2024-02-26 21:40Z)
+﻿### 4.1.525 (2024-02-27 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.757.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify UI Builder
+    * Added cmdlet Add-AMPUIResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-AMPUIResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-AMPUIResourceTag leveraging the UntagResource service API.
+
+### 4.1.524 (2024-02-26 21:40Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.756.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Managed Streaming for Kafka Connect
     * Added cmdlet Add-MSKCResourceTag leveraging the TagResource service API.

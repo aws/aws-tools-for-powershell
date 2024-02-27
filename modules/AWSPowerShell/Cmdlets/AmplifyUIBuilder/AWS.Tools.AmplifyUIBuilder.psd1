@@ -86,6 +86,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-AMPUIResourceTag', 
         'Convert-AMPUICodeForToken', 
         'Export-AMPUIComponent', 
         'Export-AMPUIForm', 
@@ -97,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AMPUIForm', 
         'Get-AMPUIFormList', 
         'Get-AMPUIMetadata', 
+        'Get-AMPUIResourceTag', 
         'Get-AMPUITheme', 
         'Get-AMPUIThemeList', 
         'New-AMPUICodegenJob', 
@@ -105,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-AMPUITheme', 
         'Remove-AMPUIComponent', 
         'Remove-AMPUIForm', 
+        'Remove-AMPUIResourceTag', 
         'Remove-AMPUITheme', 
         'Update-AMPUIComponent', 
         'Update-AMPUIForm', 

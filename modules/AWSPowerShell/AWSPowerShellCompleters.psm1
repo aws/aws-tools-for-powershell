@@ -1499,10 +1499,13 @@ $AMPUI_SelectMap = @{
                "Get-AMPUICodegenJobList",
                "Get-AMPUIComponentList",
                "Get-AMPUIFormList",
+               "Get-AMPUIResourceTag",
                "Get-AMPUIThemeList",
                "Write-AMPUIMetadataFlag",
                "Update-AMPUIToken",
                "New-AMPUICodegenJob",
+               "Add-AMPUIResourceTag",
+               "Remove-AMPUIResourceTag",
                "Update-AMPUIComponent",
                "Update-AMPUIForm",
                "Update-AMPUITheme")
