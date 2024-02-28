@@ -81,7 +81,7 @@ $HC_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Honeycode.ImportDataCharacterEncoding
-        "Start-HCTableDataImportJob/ImportOptions_DelimitedTextOptions_DataCharacterEncoding"
+        "Start-HCTableDataImportJob/DelimitedTextOptions_DataCharacterEncoding"
         {
             $v = "ISO-8859-1","US-ASCII","UTF-16","UTF-16BE","UTF-16LE","UTF-8"
             break
@@ -104,7 +104,7 @@ $HC_Completers = {
 
 $HC_map = @{
     "DataFormat"=@("Start-HCTableDataImportJob")
-    "ImportOptions_DelimitedTextOptions_DataCharacterEncoding"=@("Start-HCTableDataImportJob")
+    "DelimitedTextOptions_DataCharacterEncoding"=@("Start-HCTableDataImportJob")
 }
 
 _awsArgumentCompleterRegistration $HC_Completers $HC_map

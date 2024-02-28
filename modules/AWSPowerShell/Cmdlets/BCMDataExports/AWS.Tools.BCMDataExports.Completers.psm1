@@ -82,8 +82,8 @@ $BCMDE_Completers = {
     {
         # Amazon.BCMDataExports.CompressionOption
         {
-            ($_ -eq "New-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Compression") -Or
-            ($_ -eq "Update-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Compression")
+            ($_ -eq "New-BCMDEExport/S3OutputConfigurations_Compression") -Or
+            ($_ -eq "Update-BCMDEExport/S3OutputConfigurations_Compression")
         }
         {
             $v = "GZIP","PARQUET"
@@ -92,8 +92,8 @@ $BCMDE_Completers = {
 
         # Amazon.BCMDataExports.FormatOption
         {
-            ($_ -eq "New-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Format") -Or
-            ($_ -eq "Update-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Format")
+            ($_ -eq "New-BCMDEExport/S3OutputConfigurations_Format") -Or
+            ($_ -eq "Update-BCMDEExport/S3OutputConfigurations_Format")
         }
         {
             $v = "PARQUET","TEXT_OR_CSV"
@@ -102,8 +102,8 @@ $BCMDE_Completers = {
 
         # Amazon.BCMDataExports.FrequencyOption
         {
-            ($_ -eq "New-BCMDEExport/Export_RefreshCadence_Frequency") -Or
-            ($_ -eq "Update-BCMDEExport/Export_RefreshCadence_Frequency")
+            ($_ -eq "New-BCMDEExport/RefreshCadence_Frequency") -Or
+            ($_ -eq "Update-BCMDEExport/RefreshCadence_Frequency")
         }
         {
             $v = "SYNCHRONOUS"
@@ -112,8 +112,8 @@ $BCMDE_Completers = {
 
         # Amazon.BCMDataExports.OverwriteOption
         {
-            ($_ -eq "New-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Overwrite") -Or
-            ($_ -eq "Update-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Overwrite")
+            ($_ -eq "New-BCMDEExport/S3OutputConfigurations_Overwrite") -Or
+            ($_ -eq "Update-BCMDEExport/S3OutputConfigurations_Overwrite")
         }
         {
             $v = "CREATE_NEW_REPORT","OVERWRITE_REPORT"
@@ -122,8 +122,8 @@ $BCMDE_Completers = {
 
         # Amazon.BCMDataExports.S3OutputType
         {
-            ($_ -eq "New-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_OutputType") -Or
-            ($_ -eq "Update-BCMDEExport/Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_OutputType")
+            ($_ -eq "New-BCMDEExport/S3OutputConfigurations_OutputType") -Or
+            ($_ -eq "Update-BCMDEExport/S3OutputConfigurations_OutputType")
         }
         {
             $v = "CUSTOM"
@@ -139,11 +139,11 @@ $BCMDE_Completers = {
 }
 
 $BCMDE_map = @{
-    "Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Compression"=@("New-BCMDEExport","Update-BCMDEExport")
-    "Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Format"=@("New-BCMDEExport","Update-BCMDEExport")
-    "Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_OutputType"=@("New-BCMDEExport","Update-BCMDEExport")
-    "Export_DestinationConfigurations_S3Destination_S3OutputConfigurations_Overwrite"=@("New-BCMDEExport","Update-BCMDEExport")
-    "Export_RefreshCadence_Frequency"=@("New-BCMDEExport","Update-BCMDEExport")
+    "RefreshCadence_Frequency"=@("New-BCMDEExport","Update-BCMDEExport")
+    "S3OutputConfigurations_Compression"=@("New-BCMDEExport","Update-BCMDEExport")
+    "S3OutputConfigurations_Format"=@("New-BCMDEExport","Update-BCMDEExport")
+    "S3OutputConfigurations_OutputType"=@("New-BCMDEExport","Update-BCMDEExport")
+    "S3OutputConfigurations_Overwrite"=@("New-BCMDEExport","Update-BCMDEExport")
 }
 
 _awsArgumentCompleterRegistration $BCMDE_Completers $BCMDE_map

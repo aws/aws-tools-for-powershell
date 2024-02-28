@@ -88,7 +88,7 @@ $AFAB_Completers = {
         }
 
         # Amazon.AppFabric.Format
-        "New-AFABIngestionDestination/ProcessingConfiguration_AuditLog_Format"
+        "New-AFABIngestionDestination/AuditLog_Format"
         {
             $v = "json","parquet"
             break
@@ -102,7 +102,7 @@ $AFAB_Completers = {
         }
 
         # Amazon.AppFabric.Schema
-        "New-AFABIngestionDestination/ProcessingConfiguration_AuditLog_Schema"
+        "New-AFABIngestionDestination/AuditLog_Schema"
         {
             $v = "ocsf","raw"
             break
@@ -117,10 +117,10 @@ $AFAB_Completers = {
 }
 
 $AFAB_map = @{
+    "AuditLog_Format"=@("New-AFABIngestionDestination")
+    "AuditLog_Schema"=@("New-AFABIngestionDestination")
     "AuthType"=@("New-AFABAppAuthorization")
     "IngestionType"=@("New-AFABIngestion")
-    "ProcessingConfiguration_AuditLog_Format"=@("New-AFABIngestionDestination")
-    "ProcessingConfiguration_AuditLog_Schema"=@("New-AFABIngestionDestination")
 }
 
 _awsArgumentCompleterRegistration $AFAB_Completers $AFAB_map

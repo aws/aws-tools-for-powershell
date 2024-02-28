@@ -98,8 +98,8 @@ $NWFW_Completers = {
 
         # Amazon.NetworkFirewall.GeneratedRulesType
         {
-            ($_ -eq "New-NWFWRuleGroup/RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType") -Or
-            ($_ -eq "Update-NWFWRuleGroup/RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType")
+            ($_ -eq "New-NWFWRuleGroup/RulesSourceList_GeneratedRulesType") -Or
+            ($_ -eq "Update-NWFWRuleGroup/RulesSourceList_GeneratedRulesType")
         }
         {
             $v = "ALLOWLIST","DENYLIST"
@@ -136,10 +136,10 @@ $NWFW_Completers = {
 
         # Amazon.NetworkFirewall.RuleOrder
         {
-            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_RuleOrder") -Or
-            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_RuleOrder") -Or
-            ($_ -eq "New-NWFWRuleGroup/RuleGroup_StatefulRuleOptions_RuleOrder") -Or
-            ($_ -eq "Update-NWFWRuleGroup/RuleGroup_StatefulRuleOptions_RuleOrder")
+            ($_ -eq "New-NWFWFirewallPolicy/StatefulEngineOptions_RuleOrder") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/StatefulEngineOptions_RuleOrder") -Or
+            ($_ -eq "New-NWFWRuleGroup/StatefulRuleOptions_RuleOrder") -Or
+            ($_ -eq "Update-NWFWRuleGroup/StatefulRuleOptions_RuleOrder")
         }
         {
             $v = "DEFAULT_ACTION_ORDER","STRICT_ORDER"
@@ -148,8 +148,8 @@ $NWFW_Completers = {
 
         # Amazon.NetworkFirewall.StreamExceptionPolicy
         {
-            ($_ -eq "New-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy") -Or
-            ($_ -eq "Update-NWFWFirewallPolicy/FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy")
+            ($_ -eq "New-NWFWFirewallPolicy/StatefulEngineOptions_StreamExceptionPolicy") -Or
+            ($_ -eq "Update-NWFWFirewallPolicy/StatefulEngineOptions_StreamExceptionPolicy")
         }
         {
             $v = "CONTINUE","DROP","REJECT"
@@ -166,12 +166,12 @@ $NWFW_Completers = {
 
 $NWFW_map = @{
     "EncryptionConfiguration_Type"=@("New-NWFWFirewall","New-NWFWFirewallPolicy","New-NWFWRuleGroup","New-NWFWTLSInspectionConfiguration","Update-NWFWFirewallEncryptionConfiguration","Update-NWFWFirewallPolicy","Update-NWFWRuleGroup","Update-NWFWTLSInspectionConfiguration")
-    "FirewallPolicy_StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
-    "FirewallPolicy_StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
     "ManagedType"=@("Get-NWFWRuleGroupList")
-    "RuleGroup_RulesSource_RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
-    "RuleGroup_StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
+    "RulesSourceList_GeneratedRulesType"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Scope"=@("Get-NWFWRuleGroupList")
+    "StatefulEngineOptions_RuleOrder"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "StatefulEngineOptions_StreamExceptionPolicy"=@("New-NWFWFirewallPolicy","Update-NWFWFirewallPolicy")
+    "StatefulRuleOptions_RuleOrder"=@("New-NWFWRuleGroup","Update-NWFWRuleGroup")
     "Type"=@("Get-NWFWRuleGroup","Get-NWFWRuleGroupList","Get-NWFWRuleGroupMetadata","New-NWFWRuleGroup","Remove-NWFWRuleGroup","Update-NWFWRuleGroup")
 }
 

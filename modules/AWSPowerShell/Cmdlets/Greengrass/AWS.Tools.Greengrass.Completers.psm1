@@ -89,8 +89,8 @@ $GG_Completers = {
 
         # Amazon.Greengrass.FunctionIsolationMode
         {
-            ($_ -eq "New-GGFunctionDefinitionVersion/DefaultConfig_Execution_IsolationMode") -Or
-            ($_ -eq "New-GGFunctionDefinition/InitialVersion_DefaultConfig_Execution_IsolationMode")
+            ($_ -eq "New-GGFunctionDefinition/Execution_IsolationMode") -Or
+            ($_ -eq "New-GGFunctionDefinitionVersion/Execution_IsolationMode")
         }
         {
             $v = "GreengrassContainer","NoContainer"
@@ -141,9 +141,8 @@ $GG_Completers = {
 }
 
 $GG_map = @{
-    "DefaultConfig_Execution_IsolationMode"=@("New-GGFunctionDefinitionVersion")
     "DeploymentType"=@("New-GGDeployment")
-    "InitialVersion_DefaultConfig_Execution_IsolationMode"=@("New-GGFunctionDefinition")
+    "Execution_IsolationMode"=@("New-GGFunctionDefinition","New-GGFunctionDefinitionVersion")
     "SoftwareToUpdate"=@("New-GGSoftwareUpdateJob")
     "TelemetryConfiguration_Telemetry"=@("Update-GGThingRuntimeConfiguration")
     "UpdateAgentLogLevel"=@("New-GGSoftwareUpdateJob")

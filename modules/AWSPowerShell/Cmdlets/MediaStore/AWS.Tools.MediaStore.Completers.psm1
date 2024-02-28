@@ -81,7 +81,7 @@ $EMS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.MediaStore.ContainerLevelMetrics
-        "Write-EMSMetricPolicy/MetricPolicy_ContainerLevelMetrics"
+        "Write-EMSMetricPolicy/MetricPolicy_ContainerLevelMetric"
         {
             $v = "DISABLED","ENABLED"
             break
@@ -96,7 +96,7 @@ $EMS_Completers = {
 }
 
 $EMS_map = @{
-    "MetricPolicy_ContainerLevelMetrics"=@("Write-EMSMetricPolicy")
+    "MetricPolicy_ContainerLevelMetric"=@("Write-EMSMetricPolicy")
 }
 
 _awsArgumentCompleterRegistration $EMS_Completers $EMS_map

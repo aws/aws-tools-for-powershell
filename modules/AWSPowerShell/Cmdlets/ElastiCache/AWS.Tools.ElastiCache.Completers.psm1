@@ -112,8 +112,8 @@ $EC_Completers = {
 
         # Amazon.ElastiCache.DataStorageUnit
         {
-            ($_ -eq "Edit-ECServerlessCache/CacheUsageLimits_DataStorage_Unit") -Or
-            ($_ -eq "New-ECServerlessCache/CacheUsageLimits_DataStorage_Unit")
+            ($_ -eq "Edit-ECServerlessCache/DataStorage_Unit") -Or
+            ($_ -eq "New-ECServerlessCache/DataStorage_Unit")
         }
         {
             $v = "GB"
@@ -188,8 +188,8 @@ $EC_map = @{
     "AuthenticationMode_Type"=@("Edit-ECUser","New-ECUser")
     "AuthTokenUpdateStrategy"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup")
     "AZMode"=@("Edit-ECCacheCluster","New-ECCacheCluster")
-    "CacheUsageLimits_DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
     "ClusterMode"=@("Edit-ECReplicationGroup","New-ECReplicationGroup")
+    "DataStorage_Unit"=@("Edit-ECServerlessCache","New-ECServerlessCache")
     "IpDiscovery"=@("Edit-ECCacheCluster","Edit-ECReplicationGroup","New-ECCacheCluster","New-ECReplicationGroup")
     "NetworkType"=@("New-ECCacheCluster","New-ECReplicationGroup")
     "OutpostMode"=@("New-ECCacheCluster")

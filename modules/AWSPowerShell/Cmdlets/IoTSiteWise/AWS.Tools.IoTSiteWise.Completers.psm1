@@ -117,7 +117,7 @@ $IOTSW_Completers = {
 
         # Amazon.IoTSiteWise.ImageFileType
         {
-            ($_ -eq "Update-IOTSWPortal/PortalLogoImage_File_Type") -Or
+            ($_ -eq "Update-IOTSWPortal/File_Type") -Or
             ($_ -eq "New-IOTSWPortal/PortalLogoImageFile_Type")
         }
         {
@@ -256,11 +256,11 @@ $IOTSW_map = @{
     "AssetModelType"=@("New-IOTSWAssetModel")
     "DisassociatedDataStorage"=@("Write-IOTSWStorageConfiguration")
     "EncryptionType"=@("Write-IOTSWDefaultEncryptionConfiguration")
+    "File_Type"=@("Update-IOTSWPortal")
     "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
     "PortalAuthMode"=@("New-IOTSWPortal")
-    "PortalLogoImage_File_Type"=@("Update-IOTSWPortal")
     "PortalLogoImageFile_Type"=@("New-IOTSWPortal")
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")
     "Quality"=@("Get-IOTSWInterpolatedAssetPropertyValue")

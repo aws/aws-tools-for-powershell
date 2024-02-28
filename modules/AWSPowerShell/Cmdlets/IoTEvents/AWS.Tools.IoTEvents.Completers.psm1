@@ -82,8 +82,8 @@ $IOTE_Completers = {
     {
         # Amazon.IoTEvents.ComparisonOperator
         {
-            ($_ -eq "New-IOTEAlarmModel/AlarmRule_SimpleRule_ComparisonOperator") -Or
-            ($_ -eq "Update-IOTEAlarmModel/AlarmRule_SimpleRule_ComparisonOperator")
+            ($_ -eq "New-IOTEAlarmModel/SimpleRule_ComparisonOperator") -Or
+            ($_ -eq "Update-IOTEAlarmModel/SimpleRule_ComparisonOperator")
         }
         {
             $v = "EQUAL","GREATER","GREATER_OR_EQUAL","LESS","LESS_OR_EQUAL","NOT_EQUAL"
@@ -116,9 +116,9 @@ $IOTE_Completers = {
 }
 
 $IOTE_map = @{
-    "AlarmRule_SimpleRule_ComparisonOperator"=@("New-IOTEAlarmModel","Update-IOTEAlarmModel")
     "EvaluationMethod"=@("New-IOTEDetectorModel","Update-IOTEDetectorModel")
     "LoggingOptions_Level"=@("Write-IOTELoggingOption")
+    "SimpleRule_ComparisonOperator"=@("New-IOTEAlarmModel","Update-IOTEAlarmModel")
 }
 
 _awsArgumentCompleterRegistration $IOTE_Completers $IOTE_map

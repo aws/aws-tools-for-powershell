@@ -141,8 +141,8 @@ $EKS_Completers = {
 
         # Amazon.EKS.ResolveConflicts
         {
-            ($_ -eq "New-EKSAddon/ResolveConflicts") -Or
-            ($_ -eq "Update-EKSAddon/ResolveConflicts")
+            ($_ -eq "New-EKSAddon/ResolveConflict") -Or
+            ($_ -eq "Update-EKSAddon/ResolveConflict")
         }
         {
             $v = "NONE","OVERWRITE","PRESERVE"
@@ -165,7 +165,7 @@ $EKS_map = @{
     "ConnectorConfig_Provider"=@("Register-EKSCluster")
     "KubernetesNetworkConfig_IpFamily"=@("New-EKSCluster")
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
-    "ResolveConflicts"=@("New-EKSAddon","Update-EKSAddon")
+    "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
 }
 

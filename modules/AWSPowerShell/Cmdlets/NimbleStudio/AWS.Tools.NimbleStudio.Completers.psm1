@@ -99,8 +99,8 @@ $NS_Completers = {
 
         # Amazon.NimbleStudio.SessionBackupMode
         {
-            ($_ -eq "New-NSLaunchProfile/StreamConfiguration_SessionBackup_Mode") -Or
-            ($_ -eq "Update-NSLaunchProfile/StreamConfiguration_SessionBackup_Mode")
+            ($_ -eq "New-NSLaunchProfile/SessionBackup_Mode") -Or
+            ($_ -eq "Update-NSLaunchProfile/SessionBackup_Mode")
         }
         {
             $v = "AUTOMATIC","DEACTIVATED"
@@ -179,9 +179,9 @@ $NS_Completers = {
 $NS_map = @{
     "Ec2InstanceType"=@("New-NSStreamingSession")
     "Persona"=@("Update-NSLaunchProfileMember")
+    "SessionBackup_Mode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StreamConfiguration_AutomaticTerminationMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StreamConfiguration_ClipboardMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
-    "StreamConfiguration_SessionBackup_Mode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StreamConfiguration_SessionPersistenceMode"=@("New-NSLaunchProfile","Update-NSLaunchProfile")
     "StudioEncryptionConfiguration_KeyType"=@("New-NSStudio")
     "Subtype"=@("New-NSStudioComponent","Update-NSStudioComponent")

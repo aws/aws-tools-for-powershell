@@ -2667,6 +2667,8 @@ Set-Alias -Name Get-CEAnomalyMonitors -Value Get-CEAnomalyMonitor
 Set-Alias -Name CE-GetAnomalyMonitors -Value Get-CEAnomalyMonitor
 Set-Alias -Name Get-CEAnomalySubscriptions -Value Get-CEAnomalySubscription
 Set-Alias -Name CE-GetAnomalySubscriptions -Value Get-CEAnomalySubscription
+Set-Alias -Name Get-CEApproximateUsageRecords -Value Get-CEApproximateUsageRecord
+Set-Alias -Name CE-GetApproximateUsageRecords -Value Get-CEApproximateUsageRecord
 Set-Alias -Name CE-GetCostAndUsage -Value Get-CECostAndUsage
 Set-Alias -Name Get-CECostAndUsageWithResources -Value Get-CECostAndUsageWithResource
 Set-Alias -Name CE-GetCostAndUsageWithResources -Value Get-CECostAndUsageWithResource

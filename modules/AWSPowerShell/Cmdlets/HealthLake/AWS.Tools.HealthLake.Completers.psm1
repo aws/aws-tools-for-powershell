@@ -88,7 +88,7 @@ $AHL_Completers = {
         }
 
         # Amazon.HealthLake.CmkType
-        "New-AHLFHIRDatastore/SseConfiguration_KmsEncryptionConfig_CmkType"
+        "New-AHLFHIRDatastore/KmsEncryptionConfig_CmkType"
         {
             $v = "AWS_OWNED_KMS_KEY","CUSTOMER_MANAGED_KMS_KEY"
             break
@@ -138,8 +138,8 @@ $AHL_map = @{
     "Filter_DatastoreStatus"=@("Get-AHLFHIRDatastoreList")
     "IdentityProviderConfiguration_AuthorizationStrategy"=@("New-AHLFHIRDatastore")
     "JobStatus"=@("Get-AHLFHIRExportJobList","Get-AHLFHIRImportJobList")
+    "KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
     "PreloadDataConfig_PreloadDataType"=@("New-AHLFHIRDatastore")
-    "SseConfiguration_KmsEncryptionConfig_CmkType"=@("New-AHLFHIRDatastore")
 }
 
 _awsArgumentCompleterRegistration $AHL_Completers $AHL_map

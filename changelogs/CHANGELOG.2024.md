@@ -1,4 +1,15 @@
-﻿### 4.1.525 (2024-02-27 21:41Z)
+﻿### 4.1.526 (2024-02-28 21:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.758.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameters EcsProperties_TaskProperty, PodProperties_InitContainer and PodProperties_ShareProcessNamespace.
+    * Modified cmdlet Submit-BATJob: added parameters EcsPropertiesOverride_TaskProperty and PodProperties_InitContainer.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARRetrieve: added parameter VectorSearchConfiguration_OverrideSearchType.
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters VectorSearchConfiguration_NumberOfResult and VectorSearchConfiguration_OverrideSearchType.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CEApproximateUsageRecord leveraging the GetApproximateUsageRecords service API.
+
+### 4.1.525 (2024-02-27 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.757.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify UI Builder
     * Added cmdlet Add-AMPUIResourceTag leveraging the TagResource service API.

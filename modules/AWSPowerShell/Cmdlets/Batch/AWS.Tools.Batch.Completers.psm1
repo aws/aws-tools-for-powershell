@@ -81,7 +81,7 @@ $BAT_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Batch.AssignPublicIp
-        "Register-BATJobDefinition/ContainerProperties_NetworkConfiguration_AssignPublicIp"
+        "Register-BATJobDefinition/NetworkConfiguration_AssignPublicIp"
         {
             $v = "DISABLED","ENABLED"
             break
@@ -153,7 +153,7 @@ $BAT_Completers = {
         }
 
         # Amazon.Batch.LogDriver
-        "Register-BATJobDefinition/ContainerProperties_LogConfiguration_LogDriver"
+        "Register-BATJobDefinition/LogConfiguration_LogDriver"
         {
             $v = "awslogs","fluentd","gelf","journald","json-file","splunk","syslog"
             break
@@ -170,9 +170,9 @@ $BAT_Completers = {
 $BAT_map = @{
     "ComputeResources_AllocationStrategy"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
     "ComputeResources_Type"=@("New-BATComputeEnvironment","Update-BATComputeEnvironment")
-    "ContainerProperties_LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
-    "ContainerProperties_NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
     "JobStatus"=@("Get-BATJobList")
+    "LogConfiguration_LogDriver"=@("Register-BATJobDefinition")
+    "NetworkConfiguration_AssignPublicIp"=@("Register-BATJobDefinition")
     "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")
     "Type"=@("New-BATComputeEnvironment","Register-BATJobDefinition")
 }

@@ -59,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetApproximateUsageRecords" OutputProperty="*" Verb="Get" Noun="ApproximateUsageRecord" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCostAndUsage" OutputProperty="*" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" LegacyPagination="DisablePagination">
             <Params />
             <TypesNotToFlatten />

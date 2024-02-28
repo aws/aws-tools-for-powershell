@@ -81,35 +81,35 @@ $SMGS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.SageMakerGeospatial.AlgorithmNameCloudRemoval
-        "Start-SMGSEarthObservationJob/JobConfig_CloudRemovalConfig_AlgorithmName"
+        "Start-SMGSEarthObservationJob/CloudRemovalConfig_AlgorithmName"
         {
             $v = "INTERPOLATION"
             break
         }
 
         # Amazon.SageMakerGeospatial.AlgorithmNameGeoMosaic
-        "Start-SMGSEarthObservationJob/JobConfig_GeoMosaicConfig_AlgorithmName"
+        "Start-SMGSEarthObservationJob/GeoMosaicConfig_AlgorithmName"
         {
             $v = "AVERAGE","BILINEAR","CUBIC","CUBICSPLINE","LANCZOS","MAX","MED","MIN","MODE","NEAR","Q1","Q3","RMS","SUM"
             break
         }
 
         # Amazon.SageMakerGeospatial.AlgorithmNameResampling
-        "Start-SMGSEarthObservationJob/JobConfig_ResamplingConfig_AlgorithmName"
+        "Start-SMGSEarthObservationJob/ResamplingConfig_AlgorithmName"
         {
             $v = "AVERAGE","BILINEAR","CUBIC","CUBICSPLINE","LANCZOS","MAX","MED","MIN","MODE","NEAR","Q1","Q3","RMS","SUM"
             break
         }
 
         # Amazon.SageMakerGeospatial.EarthObservationJobStatus
-        "Get-SMGSEarthObservationJobList/StatusEquals"
+        "Get-SMGSEarthObservationJobList/StatusEqual"
         {
             $v = "COMPLETED","DELETED","DELETING","FAILED","INITIALIZING","IN_PROGRESS","STOPPED","STOPPING"
             break
         }
 
         # Amazon.SageMakerGeospatial.GroupBy
-        "Start-SMGSEarthObservationJob/JobConfig_TemporalStatisticsConfig_GroupBy"
+        "Start-SMGSEarthObservationJob/TemporalStatisticsConfig_GroupBy"
         {
             $v = "ALL","YEARLY"
             break
@@ -117,8 +117,8 @@ $SMGS_Completers = {
 
         # Amazon.SageMakerGeospatial.LogicalOperator
         {
-            ($_ -eq "Start-SMGSEarthObservationJob/InputConfig_RasterDataCollectionQuery_PropertyFilters_LogicalOperator") -Or
-            ($_ -eq "Search-SMGSRasterDataCollection/RasterDataCollectionQuery_PropertyFilters_LogicalOperator")
+            ($_ -eq "Search-SMGSRasterDataCollection/PropertyFilters_LogicalOperator") -Or
+            ($_ -eq "Start-SMGSEarthObservationJob/PropertyFilters_LogicalOperator")
         }
         {
             $v = "AND"
@@ -133,7 +133,7 @@ $SMGS_Completers = {
         }
 
         # Amazon.SageMakerGeospatial.PredefinedResolution
-        "Start-SMGSEarthObservationJob/JobConfig_StackConfig_OutputResolution_Predefined"
+        "Start-SMGSEarthObservationJob/OutputResolution_Predefined"
         {
             $v = "AVERAGE","HIGHEST","LOWEST"
             break
@@ -182,20 +182,19 @@ $SMGS_Completers = {
 }
 
 $SMGS_map = @{
+    "CloudRemovalConfig_AlgorithmName"=@("Start-SMGSEarthObservationJob")
+    "GeoMosaicConfig_AlgorithmName"=@("Start-SMGSEarthObservationJob")
     "InputConfig_DocumentType"=@("Start-SMGSVectorEnrichmentJob")
-    "InputConfig_RasterDataCollectionQuery_PropertyFilters_LogicalOperator"=@("Start-SMGSEarthObservationJob")
-    "JobConfig_CloudRemovalConfig_AlgorithmName"=@("Start-SMGSEarthObservationJob")
-    "JobConfig_GeoMosaicConfig_AlgorithmName"=@("Start-SMGSEarthObservationJob")
-    "JobConfig_ResamplingConfig_AlgorithmName"=@("Start-SMGSEarthObservationJob")
     "JobConfig_ResamplingConfig_OutputResolution_UserDefined_Unit"=@("Start-SMGSEarthObservationJob")
-    "JobConfig_StackConfig_OutputResolution_Predefined"=@("Start-SMGSEarthObservationJob")
     "JobConfig_StackConfig_OutputResolution_UserDefined_Unit"=@("Start-SMGSEarthObservationJob")
-    "JobConfig_TemporalStatisticsConfig_GroupBy"=@("Start-SMGSEarthObservationJob")
     "OutputDataType"=@("Get-SMGSTile")
-    "RasterDataCollectionQuery_PropertyFilters_LogicalOperator"=@("Search-SMGSRasterDataCollection")
+    "OutputResolution_Predefined"=@("Start-SMGSEarthObservationJob")
+    "PropertyFilters_LogicalOperator"=@("Search-SMGSRasterDataCollection","Start-SMGSEarthObservationJob")
+    "ResamplingConfig_AlgorithmName"=@("Start-SMGSEarthObservationJob")
     "SortOrder"=@("Get-SMGSEarthObservationJobList","Get-SMGSVectorEnrichmentJobList")
-    "StatusEquals"=@("Get-SMGSEarthObservationJobList")
+    "StatusEqual"=@("Get-SMGSEarthObservationJobList")
     "Target"=@("Get-SMGSTile")
+    "TemporalStatisticsConfig_GroupBy"=@("Start-SMGSEarthObservationJob")
 }
 
 _awsArgumentCompleterRegistration $SMGS_Completers $SMGS_map

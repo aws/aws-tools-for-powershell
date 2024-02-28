@@ -96,8 +96,8 @@ $DLM_Completers = {
 
         # Amazon.DLM.EventSourceValues
         {
-            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_EventSource_Type") -Or
-            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_EventSource_Type")
+            ($_ -eq "New-DLMLifecyclePolicy/EventSource_Type") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/EventSource_Type")
         }
         {
             $v = "MANAGED_CWE"
@@ -106,8 +106,8 @@ $DLM_Completers = {
 
         # Amazon.DLM.EventTypeValues
         {
-            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_EventSource_Parameters_EventType") -Or
-            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_EventSource_Parameters_EventType")
+            ($_ -eq "New-DLMLifecyclePolicy/Parameters_EventType") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/Parameters_EventType")
         }
         {
             $v = "shareSnapshot"
@@ -143,8 +143,8 @@ $DLM_Completers = {
 
         # Amazon.DLM.ResourceTypeValues
         {
-            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_ResourceType") -Or
-            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_ResourceType")
+            ($_ -eq "New-DLMLifecyclePolicy/PolicyDetails_SimplifiedResourceType") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/PolicyDetails_SimplifiedResourceType")
         }
         {
             $v = "INSTANCE","VOLUME"
@@ -172,11 +172,11 @@ $DLM_Completers = {
 $DLM_map = @{
     "DefaultPolicy"=@("New-DLMLifecyclePolicy")
     "DefaultPolicyType"=@("Get-DLMLifecyclePolicySummary")
-    "PolicyDetails_EventSource_Parameters_EventType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
-    "PolicyDetails_EventSource_Type"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
+    "EventSource_Type"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
+    "Parameters_EventType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "PolicyDetails_PolicyLanguage"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "PolicyDetails_PolicyType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
-    "PolicyDetails_ResourceType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
+    "PolicyDetails_SimplifiedResourceType"=@("New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
     "State"=@("Get-DLMLifecyclePolicySummary","New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
 }
 

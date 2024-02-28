@@ -105,7 +105,7 @@ $SES_Completers = {
         }
 
         # Amazon.SimpleEmail.ReceiptFilterPolicy
-        "New-SESReceiptFilter/Filter_IpFilter_Policy"
+        "New-SESReceiptFilter/IpFilter_Policy"
         {
             $v = "Allow","Block"
             break
@@ -133,8 +133,8 @@ $SES_Completers = {
 $SES_map = @{
     "BehaviorOnMXFailure"=@("Set-SESIdentityMailFromDomain")
     "DeliveryOptions_TlsPolicy"=@("Write-SESConfigurationSetDeliveryOption")
-    "Filter_IpFilter_Policy"=@("New-SESReceiptFilter")
     "IdentityType"=@("Get-SESIdentity")
+    "IpFilter_Policy"=@("New-SESReceiptFilter")
     "NotificationType"=@("Set-SESIdentityHeadersInNotificationsEnabled","Set-SESIdentityNotificationTopic")
     "Rule_TlsPolicy"=@("New-SESReceiptRule","Update-SESReceiptRule")
 }

@@ -165,21 +165,21 @@ $S3_Completers = {
         }
 
         # Amazon.S3.InventoryFormat
-        "Write-S3BucketInventoryConfiguration/InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"
+        "Write-S3BucketInventoryConfiguration/S3BucketDestination_InventoryFormat"
         {
             $v = "CSV","ORC","Parquet"
             break
         }
 
         # Amazon.S3.InventoryFrequency
-        "Write-S3BucketInventoryConfiguration/InventoryConfiguration_Schedule_Frequency"
+        "Write-S3BucketInventoryConfiguration/Schedule_Frequency"
         {
             $v = "Daily","Weekly"
             break
         }
 
         # Amazon.S3.InventoryIncludedObjectVersions
-        "Write-S3BucketInventoryConfiguration/InventoryConfiguration_IncludedObjectVersions"
+        "Write-S3BucketInventoryConfiguration/InventoryConfiguration_IncludedObjectVersion"
         {
             $v = "All","Current"
             break
@@ -211,7 +211,7 @@ $S3_Completers = {
 
         # Amazon.S3.ObjectLockRetentionMode
         {
-            ($_ -eq "Write-S3ObjectLockConfiguration/ObjectLockConfiguration_Rule_DefaultRetention_Mode") -Or
+            ($_ -eq "Write-S3ObjectLockConfiguration/DefaultRetention_Mode") -Or
             ($_ -eq "Write-S3ObjectRetention/Retention_Mode")
         }
         {
@@ -220,7 +220,7 @@ $S3_Completers = {
         }
 
         # Amazon.S3.PartitionDateSource
-        "Write-S3BucketLogging/LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"
+        "Write-S3BucketLogging/PartitionedPrefix_PartitionDateSource"
         {
             $v = "DeliveryTime","EventTime"
             break
@@ -275,7 +275,7 @@ $S3_Completers = {
             ($_ -eq "Copy-S3Object/CannedACLName") -Or
             ($_ -eq "New-S3Bucket/CannedACLName") -Or
             ($_ -eq "Write-S3Object/CannedACLName") -Or
-            ($_ -eq "Restore-S3Object/OutputLocation_S3_CannedACL")
+            ($_ -eq "Restore-S3Object/S3_CannedACL")
         }
         {
             $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","log-delivery-write","NoACL","private","public-read","public-read-write"
@@ -284,7 +284,7 @@ $S3_Completers = {
 
         # Amazon.S3.S3StorageClass
         {
-            ($_ -eq "Restore-S3Object/OutputLocation_S3_StorageClass") -Or
+            ($_ -eq "Restore-S3Object/S3_StorageClass") -Or
             ($_ -eq "Write-S3GetObjectResponse/StorageClass")
         }
         {
@@ -310,7 +310,7 @@ $S3_Completers = {
 
         # Amazon.S3.ServerSideEncryptionMethod
         {
-            ($_ -eq "Restore-S3Object/OutputLocation_S3_Encryption_EncryptionType") -Or
+            ($_ -eq "Restore-S3Object/Encryption_EncryptionType") -Or
             ($_ -eq "Copy-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Write-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionMethod") -Or
@@ -329,7 +329,7 @@ $S3_Completers = {
         }
 
         # Amazon.S3.StorageClassAnalysisSchemaVersion
-        "Write-S3BucketAnalyticsConfiguration/AnalyticsConfiguration_StorageClassAnalysis_DataExport_OutputSchemaVersion"
+        "Write-S3BucketAnalyticsConfiguration/DataExport_OutputSchemaVersion"
         {
             $v = "V_1"
             break
@@ -352,33 +352,33 @@ $S3_Completers = {
 
 $S3_map = @{
     "AccelerateConfiguration_Status"=@("Write-S3BucketAccelerateConfiguration")
-    "AnalyticsConfiguration_StorageClassAnalysis_DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
     "CannedACL"=@("Set-S3ACL")
     "CannedACLName"=@("Copy-S3Object","New-S3Bucket","Write-S3Object")
     "ChecksumAlgorithm"=@("Add-S3PublicAccessBlock","Copy-S3Object","Remove-S3Object","Restore-S3Object","Set-S3ACL","Set-S3BucketEncryption","Write-S3BucketAccelerateConfiguration","Write-S3BucketLogging","Write-S3BucketNotification","Write-S3BucketPolicy","Write-S3BucketReplication","Write-S3BucketRequestPayment","Write-S3BucketTagging","Write-S3BucketVersioning","Write-S3BucketWebsite","Write-S3CORSConfiguration","Write-S3LifecycleConfiguration","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "ChecksumMode"=@("Copy-S3Object","Get-S3ObjectMetadata","Read-S3Object")
     "CopySourceServerSideEncryptionCustomerMethod"=@("Copy-S3Object")
+    "DataExport_OutputSchemaVersion"=@("Write-S3BucketAnalyticsConfiguration")
+    "DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
     "Encoding"=@("Get-S3MultipartUpload","Get-S3Object","Get-S3ObjectV2","Get-S3Version")
+    "Encryption_EncryptionType"=@("Restore-S3Object")
     "ExpressionType"=@("Select-S3ObjectContent")
     "IntelligentTieringConfiguration_Status"=@("Write-S3BucketIntelligentTieringConfiguration")
-    "InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
-    "InventoryConfiguration_IncludedObjectVersions"=@("Write-S3BucketInventoryConfiguration")
-    "InventoryConfiguration_Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
+    "InventoryConfiguration_IncludedObjectVersion"=@("Write-S3BucketInventoryConfiguration")
     "LegalHold_Status"=@("Write-S3ObjectLegalHold")
-    "LoggingConfig_TargetObjectKeyFormat_PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "ObjectLockConfiguration_ObjectLockEnabled"=@("Write-S3ObjectLockConfiguration")
-    "ObjectLockConfiguration_Rule_DefaultRetention_Mode"=@("Write-S3ObjectLockConfiguration")
     "ObjectLockLegalHoldStatus"=@("Write-S3GetObjectResponse")
     "ObjectLockMode"=@("Write-S3GetObjectResponse")
-    "OutputLocation_S3_CannedACL"=@("Restore-S3Object")
-    "OutputLocation_S3_Encryption_EncryptionType"=@("Restore-S3Object")
-    "OutputLocation_S3_StorageClass"=@("Restore-S3Object")
+    "PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
     "RequestPayer"=@("Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
+    "S3_CannedACL"=@("Restore-S3Object")
+    "S3_StorageClass"=@("Restore-S3Object")
+    "S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
+    "Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
     "ServerSideCustomerEncryptionMethod"=@("Select-S3ObjectContent")
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")

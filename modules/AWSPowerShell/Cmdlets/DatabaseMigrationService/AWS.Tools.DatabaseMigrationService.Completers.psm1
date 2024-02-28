@@ -82,10 +82,10 @@ $DMS_Completers = {
     {
         # Amazon.DatabaseMigrationService.AuthMechanismValue
         {
+            ($_ -eq "Edit-DMSDataProvider/MongoDbSettings_AuthMechanism") -Or
             ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthMechanism") -Or
-            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthMechanism") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_MongoDbSettings_AuthMechanism") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_MongoDbSettings_AuthMechanism")
+            ($_ -eq "New-DMSDataProvider/MongoDbSettings_AuthMechanism") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthMechanism")
         }
         {
             $v = "default","mongodb_cr","scram_sha_1"
@@ -94,10 +94,10 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.AuthTypeValue
         {
+            ($_ -eq "Edit-DMSDataProvider/MongoDbSettings_AuthType") -Or
             ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthType") -Or
-            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthType") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_MongoDbSettings_AuthType") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_MongoDbSettings_AuthType")
+            ($_ -eq "New-DMSDataProvider/MongoDbSettings_AuthType") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthType")
         }
         {
             $v = "no","password"
@@ -106,8 +106,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.CannedAclForObjectsValue
         {
-            ($_ -eq "Edit-DMSEndpoint/S3Settings_CannedAclForObjects") -Or
-            ($_ -eq "New-DMSEndpoint/S3Settings_CannedAclForObjects")
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_CannedAclForObject") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_CannedAclForObject")
         }
         {
             $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","none","private","public-read","public-read-write"
@@ -116,8 +116,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.CharLengthSemantics
         {
-            ($_ -eq "Edit-DMSEndpoint/OracleSettings_CharLengthSemantics") -Or
-            ($_ -eq "New-DMSEndpoint/OracleSettings_CharLengthSemantics")
+            ($_ -eq "Edit-DMSEndpoint/OracleSettings_CharLengthSemantic") -Or
+            ($_ -eq "New-DMSEndpoint/OracleSettings_CharLengthSemantic")
         }
         {
             $v = "byte","char","default"
@@ -176,20 +176,20 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.DmsSslModeValue
         {
-            ($_ -eq "Edit-DMSDataProvider/Settings_DocDbSettings_SslMode") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_DocDbSettings_SslMode") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_MariaDbSettings_SslMode") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_MariaDbSettings_SslMode") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_MicrosoftSqlServerSettings_SslMode") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_MicrosoftSqlServerSettings_SslMode") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_MongoDbSettings_SslMode") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_MongoDbSettings_SslMode") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_MySqlSettings_SslMode") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_MySqlSettings_SslMode") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_OracleSettings_SslMode") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_OracleSettings_SslMode") -Or
-            ($_ -eq "Edit-DMSDataProvider/Settings_PostgreSqlSettings_SslMode") -Or
-            ($_ -eq "New-DMSDataProvider/Settings_PostgreSqlSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/DocDbSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/DocDbSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/MariaDbSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/MariaDbSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/MicrosoftSqlServerSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/MicrosoftSqlServerSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/MongoDbSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/MongoDbSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/MySqlSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/MySqlSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/OracleSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/OracleSettings_SslMode") -Or
+            ($_ -eq "Edit-DMSDataProvider/PostgreSqlSettings_SslMode") -Or
+            ($_ -eq "New-DMSDataProvider/PostgreSqlSettings_SslMode") -Or
             ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
             ($_ -eq "New-DMSEndpoint/SslMode")
         }
@@ -423,6 +423,7 @@ $DMS_Completers = {
 
 $DMS_map = @{
     "DocDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "DocDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "GcpMySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -430,24 +431,30 @@ $DMS_map = @{
     "KafkaSettings_SecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KafkaSettings_SslEndpointIdentificationAlgorithm"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MariaDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MicrosoftSQLServerSettings_SafeguardPolicy"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MicrosoftSqlServerSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MicrosoftSQLServerSettings_TlogAccessMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MigrationType"=@("Edit-DMSReplicationTask","Get-DMSApplicableIndividualAssessment","New-DMSReplicationTask")
-    "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MongoDbSettings_AuthMechanism"=@("Edit-DMSDataProvider","Edit-DMSEndpoint","New-DMSDataProvider","New-DMSEndpoint")
+    "MongoDbSettings_AuthType"=@("Edit-DMSDataProvider","Edit-DMSEndpoint","New-DMSDataProvider","New-DMSEndpoint")
     "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MongoDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
+    "MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "MySQLSettings_TargetDbType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "OracleSettings_CharLengthSemantics"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "OracleSettings_CharLengthSemantic"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "Origin"=@("Start-DMSMetadataModelExportAsScript","Start-DMSMetadataModelImport")
     "PostgreSQLSettings_DatabaseMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_MapLongVarcharAs"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "PostgreSQLSettings_PluginName"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "PostgreSqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "RedisSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedisSettings_SslSecurityProtocol"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "RedshiftSettings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "ReloadOption"=@("Restore-DMSReplicationTable","Restore-DMSTable")
     "ReplicationType"=@("Edit-DMSReplicationConfig","New-DMSReplicationConfig")
-    "S3Settings_CannedAclForObjects"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "S3Settings_CannedAclForObject"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DataFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_DatePartitionDelimiter"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -455,15 +462,6 @@ $DMS_map = @{
     "S3Settings_EncodingType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_EncryptionMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "S3Settings_ParquetVersion"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "Settings_DocDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_MariaDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_MicrosoftSqlServerSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_MongoDbSettings_AuthMechanism"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_MongoDbSettings_AuthType"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_MongoDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_MySqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_OracleSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
-    "Settings_PostgreSqlSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "SourceType"=@("Get-DMSEvent")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")

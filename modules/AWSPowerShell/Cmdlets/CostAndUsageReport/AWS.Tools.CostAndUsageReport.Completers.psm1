@@ -102,8 +102,8 @@ $CUR_Completers = {
 
         # Amazon.CostAndUsageReport.LastStatus
         {
-            ($_ -eq "Edit-CURReportDefinition/ReportDefinition_ReportStatus_LastStatus") -Or
-            ($_ -eq "Write-CURReportDefinition/ReportDefinition_ReportStatus_LastStatus")
+            ($_ -eq "Edit-CURReportDefinition/ReportStatus_LastStatus") -Or
+            ($_ -eq "Write-CURReportDefinition/ReportStatus_LastStatus")
         }
         {
             $v = "ERROR_NO_BUCKET","ERROR_PERMISSIONS","SUCCESS"
@@ -151,10 +151,10 @@ $CUR_Completers = {
 $CUR_map = @{
     "ReportDefinition_Compression"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_Format"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
-    "ReportDefinition_ReportStatus_LastStatus"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_ReportVersioning"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_S3Region"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
     "ReportDefinition_TimeUnit"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
+    "ReportStatus_LastStatus"=@("Edit-CURReportDefinition","Write-CURReportDefinition")
 }
 
 _awsArgumentCompleterRegistration $CUR_Completers $CUR_map

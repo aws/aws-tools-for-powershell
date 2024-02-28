@@ -138,8 +138,8 @@ $BAK_Completers = {
 
         # Amazon.Backup.RestoreTestingRecoveryPointSelectionAlgorithm
         {
-            ($_ -eq "New-BAKRestoreTestingPlan/RestoreTestingPlan_RecoveryPointSelection_Algorithm") -Or
-            ($_ -eq "Update-BAKRestoreTestingPlan/RestoreTestingPlan_RecoveryPointSelection_Algorithm")
+            ($_ -eq "New-BAKRestoreTestingPlan/RecoveryPointSelection_Algorithm") -Or
+            ($_ -eq "Update-BAKRestoreTestingPlan/RecoveryPointSelection_Algorithm")
         }
         {
             $v = "LATEST_WITHIN_WINDOW","RANDOM_WITHIN_WINDOW"
@@ -173,7 +173,7 @@ $BAK_map = @{
     "ByState"=@("Get-BAKBackupJobList","Get-BAKCopyJobList")
     "ByStatus"=@("Get-BAKRestoreJobList","Get-BAKRestoreJobsByProtectedResourceList")
     "ByVaultType"=@("Get-BAKBackupVaultList")
-    "RestoreTestingPlan_RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
+    "RecoveryPointSelection_Algorithm"=@("New-BAKRestoreTestingPlan","Update-BAKRestoreTestingPlan")
     "State"=@("Get-BAKBackupJobSummaryList","Get-BAKCopyJobSummaryList","Get-BAKRestoreJobSummaryList")
     "ValidationStatus"=@("Write-BAKRestoreValidationResult")
 }

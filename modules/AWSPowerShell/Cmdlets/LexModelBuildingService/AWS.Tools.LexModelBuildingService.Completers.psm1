@@ -120,7 +120,7 @@ $LMB_Completers = {
         }
 
         # Amazon.LexModelBuildingService.MigrationStatus
-        "Get-LMBMigrationSummaryList/MigrationStatusEquals"
+        "Get-LMBMigrationSummaryList/MigrationStatusEqual"
         {
             $v = "COMPLETED","FAILED","IN_PROGRESS"
             break
@@ -184,7 +184,7 @@ $LMB_map = @{
     "FulfillmentActivity_Type"=@("Write-LMBIntent")
     "Locale"=@("Get-LMBBuiltinIntentList","Get-LMBBuiltinSlotType","Write-LMBBot")
     "MergeStrategy"=@("Start-LMBImport")
-    "MigrationStatusEquals"=@("Get-LMBMigrationSummaryList")
+    "MigrationStatusEqual"=@("Get-LMBMigrationSummaryList")
     "MigrationStrategy"=@("Start-LMBMigration")
     "ProcessBehavior"=@("Write-LMBBot")
     "ResourceType"=@("Get-LMBExport","Start-LMBImport")

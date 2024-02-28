@@ -189,10 +189,10 @@ $DSYN_Completers = {
 
         # Amazon.DataSync.NfsVersion
         {
+            ($_ -eq "New-DSYNLocationFsxOpenZf/MountOptions_Version") -Or
             ($_ -eq "New-DSYNLocationNfs/MountOptions_Version") -Or
             ($_ -eq "Update-DSYNLocationNfs/MountOptions_Version") -Or
-            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version") -Or
-            ($_ -eq "New-DSYNLocationFsxOpenZf/Protocol_NFS_MountOptions_Version")
+            ($_ -eq "New-DSYNLocationFsxOntap/Protocol_NFS_MountOptions_Version")
         }
         {
             $v = "AUTOMATIC","NFS3","NFS4_0","NFS4_1"
@@ -211,9 +211,9 @@ $DSYN_Completers = {
 
         # Amazon.DataSync.ObjectVersionIds
         {
-            ($_ -eq "New-DSYNTask/TaskReportConfig_ObjectVersionIds") -Or
-            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_ObjectVersionIds") -Or
-            ($_ -eq "Update-DSYNTask/TaskReportConfig_ObjectVersionIds")
+            ($_ -eq "New-DSYNTask/TaskReportConfig_ObjectVersionId") -Or
+            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_ObjectVersionId") -Or
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_ObjectVersionId")
         }
         {
             $v = "INCLUDE","NONE"
@@ -222,21 +222,21 @@ $DSYN_Completers = {
 
         # Amazon.DataSync.ReportLevel
         {
-            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
-            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
-            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Deleted_ReportLevel") -Or
-            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
-            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
-            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Skipped_ReportLevel") -Or
-            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
-            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
-            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Transferred_ReportLevel") -Or
-            ($_ -eq "New-DSYNTask/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
-            ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
-            ($_ -eq "Update-DSYNTask/TaskReportConfig_Overrides_Verified_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/Deleted_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/Deleted_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/Deleted_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/Skipped_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/Skipped_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/Skipped_ReportLevel") -Or
             ($_ -eq "New-DSYNTask/TaskReportConfig_ReportLevel") -Or
             ($_ -eq "Start-DSYNTaskExecution/TaskReportConfig_ReportLevel") -Or
-            ($_ -eq "Update-DSYNTask/TaskReportConfig_ReportLevel")
+            ($_ -eq "Update-DSYNTask/TaskReportConfig_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/Transferred_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/Transferred_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/Transferred_ReportLevel") -Or
+            ($_ -eq "New-DSYNTask/Verified_ReportLevel") -Or
+            ($_ -eq "Start-DSYNTaskExecution/Verified_ReportLevel") -Or
+            ($_ -eq "Update-DSYNTask/Verified_ReportLevel")
         }
         {
             $v = "ERRORS_ONLY","SUCCESSES_AND_ERRORS"
@@ -285,25 +285,25 @@ $DSYN_map = @{
     "AccessTier"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
     "AuthenticationType"=@("New-DSYNLocationAzureBlob","New-DSYNLocationHdf","Update-DSYNLocationAzureBlob","Update-DSYNLocationHdf")
     "BlobType"=@("New-DSYNLocationAzureBlob","Update-DSYNLocationAzureBlob")
+    "Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "InTransitEncryption"=@("New-DSYNLocationEfs")
     "ManifestConfig_Action"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "ManifestConfig_Format"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "MountOptions_Version"=@("New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
-    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
+    "MountOptions_Version"=@("New-DSYNLocationFsxOpenZf","New-DSYNLocationNfs","New-DSYNLocationSmb","Update-DSYNLocationNfs","Update-DSYNLocationSmb")
+    "Protocol_NFS_MountOptions_Version"=@("New-DSYNLocationFsxOntap")
     "Protocol_SMB_MountOptions_Version"=@("New-DSYNLocationFsxOntap","New-DSYNLocationFsxOpenZf")
     "QopConfiguration_DataTransferProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
     "S3StorageClass"=@("New-DSYNLocationS3")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
+    "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "SystemType"=@("Add-DSYNStorageSystem")
-    "TaskReportConfig_ObjectVersionIds"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "TaskReportConfig_ObjectVersionId"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_OutputType"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "TaskReportConfig_Overrides_Deleted_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "TaskReportConfig_Overrides_Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "TaskReportConfig_Overrides_Transferred_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
-    "TaskReportConfig_Overrides_Verified_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "TaskReportConfig_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "Transferred_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
+    "Verified_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
 }
 
 _awsArgumentCompleterRegistration $DSYN_Completers $DSYN_map

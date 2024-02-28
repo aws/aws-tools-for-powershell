@@ -115,11 +115,11 @@ $B2BI_Completers = {
 
         # Amazon.B2bi.X12TransactionSet
         {
-            ($_ -eq "New-B2BICapability/Configuration_Edi_Type_X12Details_TransactionSet") -Or
-            ($_ -eq "Update-B2BICapability/Configuration_Edi_Type_X12Details_TransactionSet") -Or
-            ($_ -eq "New-B2BITransformer/EdiType_X12Details_TransactionSet") -Or
-            ($_ -eq "Test-B2BIParsing/EdiType_X12Details_TransactionSet") -Or
-            ($_ -eq "Update-B2BITransformer/EdiType_X12Details_TransactionSet")
+            ($_ -eq "New-B2BICapability/X12Details_TransactionSet") -Or
+            ($_ -eq "New-B2BITransformer/X12Details_TransactionSet") -Or
+            ($_ -eq "Test-B2BIParsing/X12Details_TransactionSet") -Or
+            ($_ -eq "Update-B2BICapability/X12Details_TransactionSet") -Or
+            ($_ -eq "Update-B2BITransformer/X12Details_TransactionSet")
         }
         {
             $v = "X12_110","X12_180","X12_204","X12_210","X12_214","X12_215","X12_310","X12_315","X12_322","X12_404","X12_410","X12_820","X12_824","X12_830","X12_846","X12_850","X12_852","X12_855","X12_856","X12_860","X12_861","X12_864","X12_940","X12_990","X12_997"
@@ -128,11 +128,11 @@ $B2BI_Completers = {
 
         # Amazon.B2bi.X12Version
         {
-            ($_ -eq "New-B2BICapability/Configuration_Edi_Type_X12Details_Version") -Or
-            ($_ -eq "Update-B2BICapability/Configuration_Edi_Type_X12Details_Version") -Or
-            ($_ -eq "New-B2BITransformer/EdiType_X12Details_Version") -Or
-            ($_ -eq "Test-B2BIParsing/EdiType_X12Details_Version") -Or
-            ($_ -eq "Update-B2BITransformer/EdiType_X12Details_Version")
+            ($_ -eq "New-B2BICapability/X12Details_Version") -Or
+            ($_ -eq "New-B2BITransformer/X12Details_Version") -Or
+            ($_ -eq "Test-B2BIParsing/X12Details_Version") -Or
+            ($_ -eq "Update-B2BICapability/X12Details_Version") -Or
+            ($_ -eq "Update-B2BITransformer/X12Details_Version")
         }
         {
             $v = "VERSION_4010","VERSION_4030","VERSION_5010"
@@ -148,14 +148,12 @@ $B2BI_Completers = {
 }
 
 $B2BI_map = @{
-    "Configuration_Edi_Type_X12Details_TransactionSet"=@("New-B2BICapability","Update-B2BICapability")
-    "Configuration_Edi_Type_X12Details_Version"=@("New-B2BICapability","Update-B2BICapability")
-    "EdiType_X12Details_TransactionSet"=@("New-B2BITransformer","Test-B2BIParsing","Update-B2BITransformer")
-    "EdiType_X12Details_Version"=@("New-B2BITransformer","Test-B2BIParsing","Update-B2BITransformer")
     "FileFormat"=@("New-B2BITransformer","Test-B2BIMapping","Test-B2BIParsing","Update-B2BITransformer")
     "Logging"=@("New-B2BIProfile")
     "Status"=@("Update-B2BITransformer")
     "Type"=@("New-B2BICapability")
+    "X12Details_TransactionSet"=@("New-B2BICapability","New-B2BITransformer","Test-B2BIParsing","Update-B2BICapability","Update-B2BITransformer")
+    "X12Details_Version"=@("New-B2BICapability","New-B2BITransformer","Test-B2BIParsing","Update-B2BICapability","Update-B2BITransformer")
 }
 
 _awsArgumentCompleterRegistration $B2BI_Completers $B2BI_map

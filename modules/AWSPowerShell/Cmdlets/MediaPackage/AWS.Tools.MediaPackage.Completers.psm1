@@ -82,8 +82,8 @@ $EMP_Completers = {
     {
         # Amazon.MediaPackage.CmafEncryptionMethod
         {
-            ($_ -eq "New-EMPOriginEndpoint/CmafPackage_Encryption_EncryptionMethod") -Or
-            ($_ -eq "Update-EMPOriginEndpoint/CmafPackage_Encryption_EncryptionMethod")
+            ($_ -eq "New-EMPOriginEndpoint/Encryption_EncryptionMethod") -Or
+            ($_ -eq "Update-EMPOriginEndpoint/Encryption_EncryptionMethod")
         }
         {
             $v = "AES_CTR","SAMPLE_AES"
@@ -102,8 +102,8 @@ $EMP_Completers = {
 
         # Amazon.MediaPackage.PresetSpeke20Audio
         {
-            ($_ -eq "New-EMPOriginEndpoint/CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio") -Or
-            ($_ -eq "Update-EMPOriginEndpoint/CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio")
+            ($_ -eq "New-EMPOriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Audio") -Or
+            ($_ -eq "Update-EMPOriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Audio")
         }
         {
             $v = "PRESET-AUDIO-1","PRESET-AUDIO-2","PRESET-AUDIO-3","SHARED","UNENCRYPTED"
@@ -112,8 +112,8 @@ $EMP_Completers = {
 
         # Amazon.MediaPackage.PresetSpeke20Video
         {
-            ($_ -eq "New-EMPOriginEndpoint/CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video") -Or
-            ($_ -eq "Update-EMPOriginEndpoint/CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video")
+            ($_ -eq "New-EMPOriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Video") -Or
+            ($_ -eq "Update-EMPOriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Video")
         }
         {
             $v = "PRESET-VIDEO-1","PRESET-VIDEO-2","PRESET-VIDEO-3","PRESET-VIDEO-4","PRESET-VIDEO-5","PRESET-VIDEO-6","PRESET-VIDEO-7","PRESET-VIDEO-8","SHARED","UNENCRYPTED"
@@ -122,8 +122,8 @@ $EMP_Completers = {
 
         # Amazon.MediaPackage.StreamOrder
         {
-            ($_ -eq "New-EMPOriginEndpoint/CmafPackage_StreamSelection_StreamOrder") -Or
-            ($_ -eq "Update-EMPOriginEndpoint/CmafPackage_StreamSelection_StreamOrder")
+            ($_ -eq "New-EMPOriginEndpoint/StreamSelection_StreamOrder") -Or
+            ($_ -eq "Update-EMPOriginEndpoint/StreamSelection_StreamOrder")
         }
         {
             $v = "ORIGINAL","VIDEO_BITRATE_ASCENDING","VIDEO_BITRATE_DESCENDING"
@@ -139,11 +139,11 @@ $EMP_Completers = {
 }
 
 $EMP_map = @{
-    "CmafPackage_Encryption_EncryptionMethod"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
-    "CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Audio"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
-    "CmafPackage_Encryption_SpekeKeyProvider_EncryptionContractConfiguration_PresetSpeke20Video"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
-    "CmafPackage_StreamSelection_StreamOrder"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
+    "Encryption_EncryptionMethod"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
+    "EncryptionContractConfiguration_PresetSpeke20Audio"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
+    "EncryptionContractConfiguration_PresetSpeke20Video"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
     "Origination"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
+    "StreamSelection_StreamOrder"=@("New-EMPOriginEndpoint","Update-EMPOriginEndpoint")
 }
 
 _awsArgumentCompleterRegistration $EMP_Completers $EMP_map

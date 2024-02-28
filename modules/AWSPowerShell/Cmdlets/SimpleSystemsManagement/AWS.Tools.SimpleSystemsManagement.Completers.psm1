@@ -128,8 +128,8 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.DocumentHashType
         {
             ($_ -eq "Send-SSMCommand/DocumentHashType") -Or
-            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/TaskInvocationParameters_RunCommand_DocumentHashType") -Or
-            ($_ -eq "Update-SSMMaintenanceWindowTask/TaskInvocationParameters_RunCommand_DocumentHashType")
+            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/RunCommand_DocumentHashType") -Or
+            ($_ -eq "Update-SSMMaintenanceWindowTask/RunCommand_DocumentHashType")
         }
         {
             $v = "Sha1","Sha256"
@@ -211,9 +211,9 @@ $SSM_Completers = {
 
         # Amazon.SimpleSystemsManagement.NotificationType
         {
+            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/NotificationConfig_NotificationType") -Or
             ($_ -eq "Send-SSMCommand/NotificationConfig_NotificationType") -Or
-            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType") -Or
-            ($_ -eq "Update-SSMMaintenanceWindowTask/TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType")
+            ($_ -eq "Update-SSMMaintenanceWindowTask/NotificationConfig_NotificationType")
         }
         {
             $v = "Command","Invocation"
@@ -351,21 +351,20 @@ $SSM_map = @{
     "DocumentType"=@("New-SSMDocument")
     "Metadata"=@("Get-SSMDocumentMetadataHistory")
     "Mode"=@("Start-SSMAutomationExecution")
-    "NotificationConfig_NotificationType"=@("Send-SSMCommand")
+    "NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Send-SSMCommand","Update-SSMMaintenanceWindowTask")
     "OperatingSystem"=@("Get-SSMDefaultPatchBaseline","Get-SSMPatchBaselineForPatchGroup","Get-SSMPatchProperty","New-SSMPatchBaseline")
     "PatchSet"=@("Get-SSMPatchProperty")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
     "Property"=@("Get-SSMPatchProperty")
     "RejectedPatchesAction"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
     "ResourceType"=@("Add-SSMResourceTag","Get-SSMMaintenanceWindowSchedule","Get-SSMMaintenanceWindowsForTarget","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
+    "RunCommand_DocumentHashType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")
     "SchemaDeleteOption"=@("Remove-SSMInventory")
     "SignalType"=@("Send-SSMAutomationSignal")
     "State"=@("Get-SSMSession")
     "Status"=@("Update-SSMOpsItem")
     "SyncCompliance"=@("New-SSMAssociation","Update-SSMAssociation")
-    "TaskInvocationParameters_RunCommand_DocumentHashType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
-    "TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")
     "Tier"=@("Write-SSMParameter")
     "Type"=@("Stop-SSMAutomationExecution","Write-SSMParameter")

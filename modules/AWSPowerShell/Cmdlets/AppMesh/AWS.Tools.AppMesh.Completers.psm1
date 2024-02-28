@@ -100,8 +100,8 @@ $AMSH_Completers = {
 
         # Amazon.AppMesh.DnsResponseType
         {
-            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_ResponseType") -Or
-            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_ResponseType")
+            ($_ -eq "New-AMSHVirtualNode/Dns_ResponseType") -Or
+            ($_ -eq "Update-AMSHVirtualNode/Dns_ResponseType")
         }
         {
             $v = "ENDPOINTS","LOADBALANCER"
@@ -138,8 +138,8 @@ $AMSH_Completers = {
 
         # Amazon.AppMesh.EgressFilterType
         {
-            ($_ -eq "New-AMSHMesh/Spec_EgressFilter_Type") -Or
-            ($_ -eq "Update-AMSHMesh/Spec_EgressFilter_Type")
+            ($_ -eq "New-AMSHMesh/EgressFilter_Type") -Or
+            ($_ -eq "Update-AMSHMesh/EgressFilter_Type")
         }
         {
             $v = "ALLOW_ALL","DROP_ALL"
@@ -176,12 +176,12 @@ $AMSH_Completers = {
 
         # Amazon.AppMesh.IpPreference
         {
-            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_AwsCloudMap_IpPreference") -Or
-            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_AwsCloudMap_IpPreference") -Or
-            ($_ -eq "New-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_IpPreference") -Or
-            ($_ -eq "Update-AMSHVirtualNode/Spec_ServiceDiscovery_Dns_IpPreference") -Or
-            ($_ -eq "New-AMSHMesh/Spec_ServiceDiscovery_IpPreference") -Or
-            ($_ -eq "Update-AMSHMesh/Spec_ServiceDiscovery_IpPreference")
+            ($_ -eq "New-AMSHVirtualNode/AwsCloudMap_IpPreference") -Or
+            ($_ -eq "Update-AMSHVirtualNode/AwsCloudMap_IpPreference") -Or
+            ($_ -eq "New-AMSHVirtualNode/Dns_IpPreference") -Or
+            ($_ -eq "Update-AMSHVirtualNode/Dns_IpPreference") -Or
+            ($_ -eq "New-AMSHMesh/ServiceDiscovery_IpPreference") -Or
+            ($_ -eq "Update-AMSHMesh/ServiceDiscovery_IpPreference")
         }
         {
             $v = "IPv4_ONLY","IPv4_PREFERRED","IPv6_ONLY","IPv6_PREFERRED"
@@ -197,7 +197,11 @@ $AMSH_Completers = {
 }
 
 $AMSH_map = @{
-    "Spec_EgressFilter_Type"=@("New-AMSHMesh","Update-AMSHMesh")
+    "AwsCloudMap_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
+    "Dns_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
+    "Dns_ResponseType"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
+    "EgressFilter_Type"=@("New-AMSHMesh","Update-AMSHMesh")
+    "ServiceDiscovery_IpPreference"=@("New-AMSHMesh","Update-AMSHMesh")
     "Spec_GrpcRoute_Action_Rewrite_Hostname_DefaultTargetHostname"=@("New-AMSHGatewayRoute","Update-AMSHGatewayRoute")
     "Spec_GrpcRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_GrpcRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
@@ -216,10 +220,6 @@ $AMSH_map = @{
     "Spec_HttpRoute_RetryPolicy_PerRetryTimeout_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
     "Spec_HttpRoute_Timeout_PerRequest_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
-    "Spec_ServiceDiscovery_AwsCloudMap_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
-    "Spec_ServiceDiscovery_Dns_IpPreference"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
-    "Spec_ServiceDiscovery_Dns_ResponseType"=@("New-AMSHVirtualNode","Update-AMSHVirtualNode")
-    "Spec_ServiceDiscovery_IpPreference"=@("New-AMSHMesh","Update-AMSHMesh")
     "Spec_TcpRoute_Timeout_Idle_Unit"=@("New-AMSHRoute","Update-AMSHRoute")
 }
 

@@ -89,9 +89,9 @@ $CD_Completers = {
 
         # Amazon.CodeDeploy.BundleType
         {
-            ($_ -eq "Get-CDApplicationRevision/Revision_S3Location_BundleType") -Or
-            ($_ -eq "New-CDDeployment/Revision_S3Location_BundleType") -Or
-            ($_ -eq "Register-CDApplicationRevision/Revision_S3Location_BundleType")
+            ($_ -eq "Get-CDApplicationRevision/S3Location_BundleType") -Or
+            ($_ -eq "New-CDDeployment/S3Location_BundleType") -Or
+            ($_ -eq "Register-CDApplicationRevision/S3Location_BundleType")
         }
         {
             $v = "JSON","tar","tgz","YAML","zip"
@@ -110,8 +110,8 @@ $CD_Completers = {
 
         # Amazon.CodeDeploy.DeploymentOption
         {
-            ($_ -eq "New-CDDeploymentGroup/DeploymentStyle_DeploymentOption") -Or
-            ($_ -eq "Update-CDDeploymentGroup/DeploymentStyle_DeploymentOption")
+            ($_ -eq "New-CDDeploymentGroup/DeploymentStyleOption") -Or
+            ($_ -eq "Update-CDDeploymentGroup/DeploymentStyleOption")
         }
         {
             $v = "WITHOUT_TRAFFIC_CONTROL","WITH_TRAFFIC_CONTROL"
@@ -120,8 +120,8 @@ $CD_Completers = {
 
         # Amazon.CodeDeploy.DeploymentReadyAction
         {
-            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout") -Or
-            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout")
+            ($_ -eq "New-CDDeploymentGroup/DeploymentReadyOptionTimeoutAction") -Or
+            ($_ -eq "Update-CDDeploymentGroup/DeploymentReadyOptionTimeoutAction")
         }
         {
             $v = "CONTINUE_DEPLOYMENT","STOP_DEPLOYMENT"
@@ -130,8 +130,8 @@ $CD_Completers = {
 
         # Amazon.CodeDeploy.DeploymentType
         {
-            ($_ -eq "New-CDDeploymentGroup/DeploymentStyle_DeploymentType") -Or
-            ($_ -eq "Update-CDDeploymentGroup/DeploymentStyle_DeploymentType")
+            ($_ -eq "New-CDDeploymentGroup/DeploymentStyleType") -Or
+            ($_ -eq "Update-CDDeploymentGroup/DeploymentStyleType")
         }
         {
             $v = "BLUE_GREEN","IN_PLACE"
@@ -154,8 +154,8 @@ $CD_Completers = {
 
         # Amazon.CodeDeploy.GreenFleetProvisioningAction
         {
-            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action") -Or
-            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action")
+            ($_ -eq "New-CDDeploymentGroup/GreenFleetProvisioningOptionAction") -Or
+            ($_ -eq "Update-CDDeploymentGroup/GreenFleetProvisioningOptionAction")
         }
         {
             $v = "COPY_AUTO_SCALING_GROUP","DISCOVER_EXISTING"
@@ -164,8 +164,8 @@ $CD_Completers = {
 
         # Amazon.CodeDeploy.InstanceAction
         {
-            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action") -Or
-            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action")
+            ($_ -eq "New-CDDeploymentGroup/OnSuccessBlueInstanceTerminationAction") -Or
+            ($_ -eq "Update-CDDeploymentGroup/OnSuccessBlueInstanceTerminationAction")
         }
         {
             $v = "KEEP_ALIVE","TERMINATE"
@@ -187,7 +187,7 @@ $CD_Completers = {
         }
 
         # Amazon.CodeDeploy.MinimumHealthyHostsPerZoneType
-        "New-CDDeploymentConfig/ZonalConfig_MinimumHealthyHostsPerZone_Type"
+        "New-CDDeploymentConfig/MinimumHealthyHostsPerZone_Type"
         {
             $v = "FLEET_PERCENT","HOST_COUNT"
             break
@@ -220,8 +220,8 @@ $CD_Completers = {
         # Amazon.CodeDeploy.RevisionLocationType
         {
             ($_ -eq "Get-CDApplicationRevision/Revision_RevisionType") -Or
-            ($_ -eq "New-CDDeployment/Revision_RevisionType") -Or
-            ($_ -eq "Register-CDApplicationRevision/Revision_RevisionType")
+            ($_ -eq "Register-CDApplicationRevision/Revision_RevisionType") -Or
+            ($_ -eq "New-CDDeployment/RevisionType")
         }
         {
             $v = "AppSpecContent","GitHub","S3","String"
@@ -251,25 +251,26 @@ $CD_Completers = {
 }
 
 $CD_map = @{
-    "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
-    "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
-    "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "ComputePlatform"=@("New-CDApplication","New-CDDeploymentConfig")
     "Deployed"=@("Get-CDApplicationRevisionList")
-    "DeploymentStyle_DeploymentOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
-    "DeploymentStyle_DeploymentType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "DeploymentReadyOptionTimeoutAction"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "DeploymentStyleOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "DeploymentStyleType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentWaitType"=@("Resume-CDDeployment")
     "FileExistsBehavior"=@("New-CDDeployment")
+    "GreenFleetProvisioningOptionAction"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "MinimumHealthyHosts_Type"=@("New-CDDeploymentConfig")
+    "MinimumHealthyHostsPerZone_Type"=@("New-CDDeploymentConfig")
+    "OnSuccessBlueInstanceTerminationAction"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "OutdatedInstancesStrategy"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "RegistrationStatus"=@("Get-CDOnPremiseInstanceList")
-    "Revision_RevisionType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
-    "Revision_S3Location_BundleType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
+    "Revision_RevisionType"=@("Get-CDApplicationRevision","Register-CDApplicationRevision")
+    "RevisionType"=@("New-CDDeployment")
+    "S3Location_BundleType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
     "SortBy"=@("Get-CDApplicationRevisionList")
     "SortOrder"=@("Get-CDApplicationRevisionList")
     "Status"=@("Write-CDLifecycleEventHookExecutionStatus")
     "TrafficRoutingConfig_Type"=@("New-CDDeploymentConfig")
-    "ZonalConfig_MinimumHealthyHostsPerZone_Type"=@("New-CDDeploymentConfig")
 }
 
 _awsArgumentCompleterRegistration $CD_Completers $CD_map

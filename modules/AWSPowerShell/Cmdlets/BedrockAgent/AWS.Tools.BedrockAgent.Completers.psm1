@@ -102,8 +102,8 @@ $AAB_Completers = {
 
         # Amazon.BedrockAgent.ChunkingStrategy
         {
-            ($_ -eq "New-AABDataSource/VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy") -Or
-            ($_ -eq "Update-AABDataSource/VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy")
+            ($_ -eq "New-AABDataSource/ChunkingConfiguration_ChunkingStrategy") -Or
+            ($_ -eq "Update-AABDataSource/ChunkingConfiguration_ChunkingStrategy")
         }
         {
             $v = "FIXED_SIZE","NONE"
@@ -174,6 +174,7 @@ $AAB_Completers = {
 
 $AAB_map = @{
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
@@ -181,7 +182,6 @@ $AAB_map = @{
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
-    "VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
 }
 
 _awsArgumentCompleterRegistration $AAB_Completers $AAB_map

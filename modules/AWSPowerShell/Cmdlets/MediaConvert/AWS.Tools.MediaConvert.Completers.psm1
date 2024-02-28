@@ -117,9 +117,9 @@ $EMC_Completers = {
 
         # Amazon.MediaConvert.InputPolicy
         {
-            ($_ -eq "Write-EMCPolicy/Policy_HttpInputs") -Or
-            ($_ -eq "Write-EMCPolicy/Policy_HttpsInputs") -Or
-            ($_ -eq "Write-EMCPolicy/Policy_S3Inputs")
+            ($_ -eq "Write-EMCPolicy/Policy_HttpInput") -Or
+            ($_ -eq "Write-EMCPolicy/Policy_HttpsInput") -Or
+            ($_ -eq "Write-EMCPolicy/Policy_S3Input")
         }
         {
             $v = "ALLOWED","DISALLOWED"
@@ -225,9 +225,9 @@ $EMC_map = @{
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Mode"=@("Get-EMCEndpoint")
     "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
-    "Policy_HttpInputs"=@("Write-EMCPolicy")
-    "Policy_HttpsInputs"=@("Write-EMCPolicy")
-    "Policy_S3Inputs"=@("Write-EMCPolicy")
+    "Policy_HttpInput"=@("Write-EMCPolicy")
+    "Policy_HttpsInput"=@("Write-EMCPolicy")
+    "Policy_S3Input"=@("Write-EMCPolicy")
     "PricingPlan"=@("New-EMCQueue")
     "ReservationPlanSettings_Commitment"=@("New-EMCQueue","Update-EMCQueue")
     "ReservationPlanSettings_RenewalType"=@("New-EMCQueue","Update-EMCQueue")

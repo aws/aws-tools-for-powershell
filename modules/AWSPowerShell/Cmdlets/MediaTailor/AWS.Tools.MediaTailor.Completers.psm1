@@ -112,7 +112,7 @@ $EMT_Completers = {
         }
 
         # Amazon.MediaTailor.RelativePosition
-        "New-EMTProgram/ScheduleConfiguration_Transition_RelativePosition"
+        "New-EMTProgram/Transition_RelativePosition"
         {
             $v = "AFTER_PROGRAM","BEFORE_PROGRAM"
             break
@@ -138,8 +138,8 @@ $EMT_map = @{
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
-    "ScheduleConfiguration_Transition_RelativePosition"=@("New-EMTProgram")
     "Tier"=@("New-EMTChannel")
+    "Transition_RelativePosition"=@("New-EMTProgram")
 }
 
 _awsArgumentCompleterRegistration $EMT_Completers $EMT_map

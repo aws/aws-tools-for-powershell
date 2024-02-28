@@ -102,8 +102,8 @@ $OUTP_Completers = {
 
         # Amazon.Outposts.MaximumSupportedWeightLbs
         {
-            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/MaximumSupportedWeightLbs") -Or
-            ($_ -eq "New-OUTPSite/RackPhysicalProperties_MaximumSupportedWeightLbs")
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/MaximumSupportedWeightLb") -Or
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_MaximumSupportedWeightLb")
         }
         {
             $v = "MAX_1400_LBS","MAX_1600_LBS","MAX_1800_LBS","MAX_2000_LBS","NO_LIMIT"
@@ -196,8 +196,8 @@ $OUTP_Completers = {
 
         # Amazon.Outposts.UplinkGbps
         {
-            ($_ -eq "New-OUTPSite/RackPhysicalProperties_UplinkGbps") -Or
-            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/UplinkGbps")
+            ($_ -eq "New-OUTPSite/RackPhysicalProperties_UplinkGbp") -Or
+            ($_ -eq "Update-OUTPSiteRackPhysicalProperty/UplinkGbp")
         }
         {
             $v = "UPLINK_100G","UPLINK_10G","UPLINK_1G","UPLINK_40G"
@@ -215,7 +215,7 @@ $OUTP_Completers = {
 $OUTP_map = @{
     "AddressType"=@("Get-OUTPSiteAddress","Update-OUTPSiteAddress")
     "FiberOpticCableType"=@("Update-OUTPSiteRackPhysicalProperty")
-    "MaximumSupportedWeightLbs"=@("Update-OUTPSiteRackPhysicalProperty")
+    "MaximumSupportedWeightLb"=@("Update-OUTPSiteRackPhysicalProperty")
     "OpticalStandard"=@("Update-OUTPSiteRackPhysicalProperty")
     "PaymentOption"=@("New-OUTPOrder")
     "PaymentTerm"=@("New-OUTPOrder")
@@ -224,17 +224,17 @@ $OUTP_map = @{
     "PowerFeedDrop"=@("Update-OUTPSiteRackPhysicalProperty")
     "PowerPhase"=@("Update-OUTPSiteRackPhysicalProperty")
     "RackPhysicalProperties_FiberOpticCableType"=@("New-OUTPSite")
-    "RackPhysicalProperties_MaximumSupportedWeightLbs"=@("New-OUTPSite")
+    "RackPhysicalProperties_MaximumSupportedWeightLb"=@("New-OUTPSite")
     "RackPhysicalProperties_OpticalStandard"=@("New-OUTPSite")
     "RackPhysicalProperties_PowerConnector"=@("New-OUTPSite")
     "RackPhysicalProperties_PowerDrawKva"=@("New-OUTPSite")
     "RackPhysicalProperties_PowerFeedDrop"=@("New-OUTPSite")
     "RackPhysicalProperties_PowerPhase"=@("New-OUTPSite")
     "RackPhysicalProperties_UplinkCount"=@("New-OUTPSite")
-    "RackPhysicalProperties_UplinkGbps"=@("New-OUTPSite")
+    "RackPhysicalProperties_UplinkGbp"=@("New-OUTPSite")
     "SupportedHardwareType"=@("New-OUTPOutpost","Update-OUTPOutpost")
     "UplinkCount"=@("Update-OUTPSiteRackPhysicalProperty")
-    "UplinkGbps"=@("Update-OUTPSiteRackPhysicalProperty")
+    "UplinkGbp"=@("Update-OUTPSiteRackPhysicalProperty")
 }
 
 _awsArgumentCompleterRegistration $OUTP_Completers $OUTP_map

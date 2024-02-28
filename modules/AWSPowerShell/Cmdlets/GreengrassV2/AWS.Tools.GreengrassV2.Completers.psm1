@@ -95,7 +95,7 @@ $GGV2_Completers = {
         }
 
         # Amazon.GreengrassV2.DeploymentComponentUpdatePolicyAction
-        "New-GGV2Deployment/DeploymentPolicies_ComponentUpdatePolicy_Action"
+        "New-GGV2Deployment/ComponentUpdatePolicy_Action"
         {
             $v = "NOTIFY_COMPONENTS","SKIP_NOTIFY_COMPONENTS"
             break
@@ -123,14 +123,14 @@ $GGV2_Completers = {
         }
 
         # Amazon.GreengrassV2.LambdaInputPayloadEncodingType
-        "New-GGV2ComponentVersion/LambdaFunction_ComponentLambdaParameters_InputPayloadEncodingType"
+        "New-GGV2ComponentVersion/ComponentLambdaParameters_InputPayloadEncodingType"
         {
             $v = "binary","json"
             break
         }
 
         # Amazon.GreengrassV2.LambdaIsolationMode
-        "New-GGV2ComponentVersion/LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_IsolationMode"
+        "New-GGV2ComponentVersion/LinuxProcessParams_IsolationMode"
         {
             $v = "GreengrassContainer","NoContainer"
             break
@@ -152,11 +152,11 @@ $GGV2_Completers = {
 }
 
 $GGV2_map = @{
-    "DeploymentPolicies_ComponentUpdatePolicy_Action"=@("New-GGV2Deployment")
+    "ComponentLambdaParameters_InputPayloadEncodingType"=@("New-GGV2ComponentVersion")
+    "ComponentUpdatePolicy_Action"=@("New-GGV2Deployment")
     "DeploymentPolicies_FailureHandlingPolicy"=@("New-GGV2Deployment")
     "HistoryFilter"=@("Get-GGV2DeploymentList")
-    "LambdaFunction_ComponentLambdaParameters_InputPayloadEncodingType"=@("New-GGV2ComponentVersion")
-    "LambdaFunction_ComponentLambdaParameters_LinuxProcessParams_IsolationMode"=@("New-GGV2ComponentVersion")
+    "LinuxProcessParams_IsolationMode"=@("New-GGV2ComponentVersion")
     "RecipeOutputFormat"=@("Get-GGV2Component")
     "Scope"=@("Get-GGV2ComponentList")
     "Status"=@("Get-GGV2CoreDeviceList")

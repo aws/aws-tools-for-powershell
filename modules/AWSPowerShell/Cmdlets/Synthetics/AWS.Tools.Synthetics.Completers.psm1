@@ -82,8 +82,8 @@ $CWSYN_Completers = {
     {
         # Amazon.Synthetics.EncryptionMode
         {
-            ($_ -eq "New-CWSYNCanary/ArtifactConfig_S3Encryption_EncryptionMode") -Or
-            ($_ -eq "Update-CWSYNCanary/ArtifactConfig_S3Encryption_EncryptionMode")
+            ($_ -eq "New-CWSYNCanary/S3Encryption_EncryptionMode") -Or
+            ($_ -eq "Update-CWSYNCanary/S3Encryption_EncryptionMode")
         }
         {
             $v = "SSE_KMS","SSE_S3"
@@ -99,7 +99,7 @@ $CWSYN_Completers = {
 }
 
 $CWSYN_map = @{
-    "ArtifactConfig_S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Update-CWSYNCanary")
+    "S3Encryption_EncryptionMode"=@("New-CWSYNCanary","Update-CWSYNCanary")
 }
 
 _awsArgumentCompleterRegistration $CWSYN_Completers $CWSYN_map

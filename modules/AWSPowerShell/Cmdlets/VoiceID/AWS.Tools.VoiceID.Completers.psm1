@@ -95,7 +95,7 @@ $VID_Completers = {
         }
 
         # Amazon.VoiceID.FraudDetectionAction
-        "Start-VIDSpeakerEnrollmentJob/EnrollmentConfig_FraudDetectionConfig_FraudDetectionAction"
+        "Start-VIDSpeakerEnrollmentJob/FraudDetectionConfig_FraudDetectionAction"
         {
             $v = "FAIL","IGNORE"
             break
@@ -125,7 +125,7 @@ $VID_Completers = {
 
 $VID_map = @{
     "EnrollmentConfig_ExistingEnrollmentAction"=@("Start-VIDSpeakerEnrollmentJob")
-    "EnrollmentConfig_FraudDetectionConfig_FraudDetectionAction"=@("Start-VIDSpeakerEnrollmentJob")
+    "FraudDetectionConfig_FraudDetectionAction"=@("Start-VIDSpeakerEnrollmentJob")
     "JobStatus"=@("Get-VIDFraudsterRegistrationJobList","Get-VIDSpeakerEnrollmentJobList")
     "RegistrationConfig_DuplicateRegistrationAction"=@("Start-VIDFraudsterRegistrationJob")
 }

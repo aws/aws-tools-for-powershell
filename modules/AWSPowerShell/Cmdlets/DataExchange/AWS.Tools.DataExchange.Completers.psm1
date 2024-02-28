@@ -95,7 +95,7 @@ $DTEX_Completers = {
         }
 
         # Amazon.DataExchange.ProtocolType
-        "New-DTEXJob/Details_ImportAssetFromApiGatewayApi_ProtocolType"
+        "New-DTEXJob/ImportAssetFromApiGatewayApi_ProtocolType"
         {
             $v = "REST"
             break
@@ -103,10 +103,10 @@ $DTEX_Completers = {
 
         # Amazon.DataExchange.ServerSideEncryptionTypes
         {
-            ($_ -eq "New-DTEXEventAction/Action_ExportRevisionToS3_Encryption_Type") -Or
-            ($_ -eq "Update-DTEXEventAction/Action_ExportRevisionToS3_Encryption_Type") -Or
-            ($_ -eq "New-DTEXJob/Details_ExportAssetsToS3_Encryption_Type") -Or
-            ($_ -eq "New-DTEXJob/Details_ExportRevisionsToS3_Encryption_Type")
+            ($_ -eq "New-DTEXJob/Details_ExportRevisionsToS3_Encryption_Type") -Or
+            ($_ -eq "New-DTEXEventAction/Encryption_Type") -Or
+            ($_ -eq "New-DTEXJob/Encryption_Type") -Or
+            ($_ -eq "Update-DTEXEventAction/Encryption_Type")
         }
         {
             $v = "AES256","aws:kms"
@@ -129,11 +129,10 @@ $DTEX_Completers = {
 }
 
 $DTEX_map = @{
-    "Action_ExportRevisionToS3_Encryption_Type"=@("New-DTEXEventAction","Update-DTEXEventAction")
     "AssetType"=@("New-DTEXDataSet")
-    "Details_ExportAssetsToS3_Encryption_Type"=@("New-DTEXJob")
     "Details_ExportRevisionsToS3_Encryption_Type"=@("New-DTEXJob")
-    "Details_ImportAssetFromApiGatewayApi_ProtocolType"=@("New-DTEXJob")
+    "Encryption_Type"=@("New-DTEXEventAction","New-DTEXJob","Update-DTEXEventAction")
+    "ImportAssetFromApiGatewayApi_ProtocolType"=@("New-DTEXJob")
     "Type"=@("New-DTEXJob","Send-DTEXDataSetNotification")
 }
 

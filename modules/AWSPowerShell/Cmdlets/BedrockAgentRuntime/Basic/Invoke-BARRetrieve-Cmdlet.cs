@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.Int32? VectorSearchConfiguration_NumberOfResult { get; set; }
         #endregion
         
+        #region Parameter VectorSearchConfiguration_OverrideSearchType
+        /// <summary>
+        /// <para>
+        /// <para>Override the type of query to be performed on data store</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_OverrideSearchType")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.SearchType")]
+        public Amazon.BedrockAgentRuntime.SearchType VectorSearchConfiguration_OverrideSearchType { get; set; }
+        #endregion
+        
         #region Parameter RetrievalQuery_Text
         /// <summary>
         /// <para>
@@ -171,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             #endif
             context.NextToken = this.NextToken;
             context.VectorSearchConfiguration_NumberOfResult = this.VectorSearchConfiguration_NumberOfResult;
+            context.VectorSearchConfiguration_OverrideSearchType = this.VectorSearchConfiguration_OverrideSearchType;
             context.RetrievalQuery_Text = this.RetrievalQuery_Text;
             #if MODULAR
             if (this.RetrievalQuery_Text == null && ParameterWasBound(nameof(this.RetrievalQuery_Text)))
@@ -219,6 +232,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_NumberOfResult != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.NumberOfResults = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_NumberOfResult.Value;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.SearchType requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType = null;
+            if (cmdletContext.VectorSearchConfiguration_OverrideSearchType != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType = cmdletContext.VectorSearchConfiguration_OverrideSearchType;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration.OverrideSearchType = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_vectorSearchConfiguration_OverrideSearchType;
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfigurationIsNull = false;
             }
              // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration should be set to null
@@ -319,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String KnowledgeBaseId { get; set; }
             public System.String NextToken { get; set; }
             public System.Int32? VectorSearchConfiguration_NumberOfResult { get; set; }
+            public Amazon.BedrockAgentRuntime.SearchType VectorSearchConfiguration_OverrideSearchType { get; set; }
             public System.String RetrievalQuery_Text { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.RetrieveResponse, InvokeBARRetrieveCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

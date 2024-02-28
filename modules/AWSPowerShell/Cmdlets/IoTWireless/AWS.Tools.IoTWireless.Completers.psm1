@@ -98,7 +98,7 @@ $IOTW_Completers = {
         }
 
         # Amazon.IoTWireless.DownlinkMode
-        "Send-IOTWDataToWirelessDevice/WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode"
+        "Send-IOTWDataToWirelessDevice/ParticipatingGateways_DownlinkMode"
         {
             $v = "CONCURRENT","SEQUENTIAL","USING_UPLINK_GATEWAY"
             break
@@ -123,21 +123,21 @@ $IOTW_Completers = {
 
         # Amazon.IoTWireless.EventNotificationTopicStatus
         {
-            ($_ -eq "Update-IOTWResourceEventConfiguration/ConnectionStatus_LoRaWAN_GatewayEuiEventTopic") -Or
-            ($_ -eq "Update-IOTWEventConfigurationByResourceType/ConnectionStatus_LoRaWAN_WirelessGatewayEventTopic") -Or
             ($_ -eq "Update-IOTWResourceEventConfiguration/ConnectionStatus_WirelessGatewayIdEventTopic") -Or
-            ($_ -eq "Update-IOTWResourceEventConfiguration/DeviceRegistrationState_Sidewalk_AmazonIdEventTopic") -Or
             ($_ -eq "Update-IOTWEventConfigurationByResourceType/DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic") -Or
             ($_ -eq "Update-IOTWResourceEventConfiguration/DeviceRegistrationState_WirelessDeviceIdEventTopic") -Or
-            ($_ -eq "Update-IOTWResourceEventConfiguration/Join_LoRaWAN_DevEuiEventTopic") -Or
-            ($_ -eq "Update-IOTWEventConfigurationByResourceType/Join_LoRaWAN_WirelessDeviceEventTopic") -Or
             ($_ -eq "Update-IOTWResourceEventConfiguration/Join_WirelessDeviceIdEventTopic") -Or
-            ($_ -eq "Update-IOTWResourceEventConfiguration/MessageDeliveryStatus_Sidewalk_AmazonIdEventTopic") -Or
-            ($_ -eq "Update-IOTWEventConfigurationByResourceType/MessageDeliveryStatus_Sidewalk_WirelessDeviceEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/LoRaWAN_DevEuiEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/LoRaWAN_GatewayEuiEventTopic") -Or
+            ($_ -eq "Update-IOTWEventConfigurationByResourceType/LoRaWAN_WirelessDeviceEventTopic") -Or
+            ($_ -eq "Update-IOTWEventConfigurationByResourceType/LoRaWAN_WirelessGatewayEventTopic") -Or
             ($_ -eq "Update-IOTWResourceEventConfiguration/MessageDeliveryStatus_WirelessDeviceIdEventTopic") -Or
-            ($_ -eq "Update-IOTWResourceEventConfiguration/Proximity_Sidewalk_AmazonIdEventTopic") -Or
             ($_ -eq "Update-IOTWEventConfigurationByResourceType/Proximity_Sidewalk_WirelessDeviceEventTopic") -Or
-            ($_ -eq "Update-IOTWResourceEventConfiguration/Proximity_WirelessDeviceIdEventTopic")
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Proximity_WirelessDeviceIdEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Sidewalk_AmazonIdEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Sidewalk_DeviceRegistrationState_AmazonIdEventTopic") -Or
+            ($_ -eq "Update-IOTWResourceEventConfiguration/Sidewalk_MessageDeliveryStatus_AmazonIdEventTopic") -Or
+            ($_ -eq "Update-IOTWEventConfigurationByResourceType/Sidewalk_WirelessDeviceEventTopic")
         }
         {
             $v = "Disabled","Enabled"
@@ -177,7 +177,7 @@ $IOTW_Completers = {
         }
 
         # Amazon.IoTWireless.MessageType
-        "Send-IOTWDataToWirelessDevice/WirelessMetadata_Sidewalk_MessageType"
+        "Send-IOTWDataToWirelessDevice/Sidewalk_MessageType"
         {
             $v = "CUSTOM_COMMAND_ID_GET","CUSTOM_COMMAND_ID_NOTIFY","CUSTOM_COMMAND_ID_RESP","CUSTOM_COMMAND_ID_SET"
             break
@@ -212,14 +212,14 @@ $IOTW_Completers = {
         }
 
         # Amazon.IoTWireless.PositionConfigurationFec
-        "Write-IOTWPositionConfiguration/Solvers_SemtechGnss_Fec"
+        "Write-IOTWPositionConfiguration/SemtechGnss_Fec"
         {
             $v = "NONE","ROSE"
             break
         }
 
         # Amazon.IoTWireless.PositionConfigurationStatus
-        "Write-IOTWPositionConfiguration/Solvers_SemtechGnss_Status"
+        "Write-IOTWPositionConfiguration/SemtechGnss_Status"
         {
             $v = "Disabled","Enabled"
             break
@@ -322,34 +322,36 @@ $IOTW_Completers = {
 }
 
 $IOTW_map = @{
-    "ConnectionStatus_LoRaWAN_GatewayEuiEventTopic"=@("Update-IOTWResourceEventConfiguration")
-    "ConnectionStatus_LoRaWAN_WirelessGatewayEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "ConnectionStatus_WirelessGatewayIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "DefaultLogLevel"=@("Update-IOTWLogLevelsByResourceType")
     "DeviceProfileType"=@("Get-IOTWDeviceProfileList")
-    "DeviceRegistrationState_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "DeviceRegistrationState_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "DeviceRegistrationState_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ExpressionType"=@("New-IOTWDestination","Update-IOTWDestination")
     "IdentifierType"=@("Get-IOTWResourceEventConfiguration","Get-IOTWWirelessDevice","Get-IOTWWirelessGateway","Update-IOTWResourceEventConfiguration")
-    "Join_LoRaWAN_DevEuiEventTopic"=@("Update-IOTWResourceEventConfiguration")
-    "Join_LoRaWAN_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Join_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "LogLevel"=@("Write-IOTWResourceLogLevel")
+    "LoRaWAN_DevEuiEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "LoRaWAN_DlClass"=@("New-IOTWMulticastGroup","Update-IOTWMulticastGroup")
+    "LoRaWAN_GatewayEuiEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "LoRaWAN_RfRegion"=@("New-IOTWFuotaTask","New-IOTWMulticastGroup","Update-IOTWFuotaTask","Update-IOTWMulticastGroup")
-    "MessageDeliveryStatus_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
-    "MessageDeliveryStatus_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
+    "LoRaWAN_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
+    "LoRaWAN_WirelessGatewayEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "MessageDeliveryStatus_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "ParticipatingGateways_DownlinkMode"=@("Send-IOTWDataToWirelessDevice")
     "PartnerType"=@("Get-IOTWPartnerAccount","Get-IOTWResourceEventConfiguration","Split-IOTWAwsAccountFromPartnerAccount","Update-IOTWPartnerAccount","Update-IOTWResourceEventConfiguration")
     "Positioning"=@("New-IOTWWirelessDevice","Update-IOTWWirelessDevice")
-    "Proximity_Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "Proximity_Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Proximity_WirelessDeviceIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
     "ResourceType"=@("Get-IOTWEventConfigurationList","Get-IOTWPosition","Get-IOTWPositionConfiguration","Get-IOTWPositionConfigurationList","Get-IOTWResourcePosition","Update-IOTWPosition","Update-IOTWResourcePosition","Write-IOTWPositionConfiguration")
+    "SemtechGnss_Fec"=@("Write-IOTWPositionConfiguration")
+    "SemtechGnss_Status"=@("Write-IOTWPositionConfiguration")
     "ServiceType"=@("Get-IOTWServiceEndpoint")
-    "Solvers_SemtechGnss_Fec"=@("Write-IOTWPositionConfiguration")
-    "Solvers_SemtechGnss_Status"=@("Write-IOTWPositionConfiguration")
+    "Sidewalk_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "Sidewalk_DeviceRegistrationState_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "Sidewalk_MessageDeliveryStatus_AmazonIdEventTopic"=@("Update-IOTWResourceEventConfiguration")
+    "Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
+    "Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Status"=@("Get-IOTWDevicesForWirelessDeviceImportTaskList")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "TraceContent_LogLevel"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
@@ -357,8 +359,6 @@ $IOTW_map = @{
     "TraceContent_WirelessDeviceFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "Type"=@("New-IOTWWirelessDevice")
     "WirelessDeviceType"=@("Get-IOTWQueuedMessageList","Get-IOTWWirelessDeviceList","Remove-IOTWQueuedMessage","Unregister-IOTWWirelessDevice")
-    "WirelessMetadata_LoRaWAN_ParticipatingGateways_DownlinkMode"=@("Send-IOTWDataToWirelessDevice")
-    "WirelessMetadata_Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
 }
 
 _awsArgumentCompleterRegistration $IOTW_Completers $IOTW_map

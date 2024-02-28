@@ -82,12 +82,12 @@ $CP_Completers = {
     {
         # Amazon.CodePipeline.ActionCategory
         {
-            ($_ -eq "Update-CPActionType/ActionType_Id_Category") -Or
             ($_ -eq "Get-CPActionableJobList/ActionTypeId_Category") -Or
             ($_ -eq "Get-CPActionableThirdPartyJobList/ActionTypeId_Category") -Or
             ($_ -eq "Get-CPActionTypeDeclaration/Category") -Or
             ($_ -eq "New-CPCustomActionType/Category") -Or
-            ($_ -eq "Remove-CPCustomActionType/Category")
+            ($_ -eq "Remove-CPCustomActionType/Category") -Or
+            ($_ -eq "Update-CPActionType/Id_Category")
         }
         {
             $v = "Approval","Build","Deploy","Invoke","Source","Test"
@@ -113,7 +113,7 @@ $CP_Completers = {
         }
 
         # Amazon.CodePipeline.ExecutorType
-        "Update-CPActionType/ActionType_Executor_Type"
+        "Update-CPActionType/Executor_Type"
         {
             $v = "JobWorker","Lambda"
             break
@@ -147,7 +147,7 @@ $CP_Completers = {
         }
 
         # Amazon.CodePipeline.StartTimeRange
-        "Get-CPActionExecutionList/Filter_LatestInPipelineExecution_StartTimeRange"
+        "Get-CPActionExecutionList/LatestInPipelineExecution_StartTimeRange"
         {
             $v = "All","Latest"
             break
@@ -170,13 +170,13 @@ $CP_Completers = {
 
 $CP_map = @{
     "ActionOwnerFilter"=@("Get-CPActionType")
-    "ActionType_Executor_Type"=@("Update-CPActionType")
-    "ActionType_Id_Category"=@("Update-CPActionType")
     "ActionTypeId_Category"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "ActionTypeId_Owner"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "Category"=@("Get-CPActionTypeDeclaration","New-CPCustomActionType","Remove-CPCustomActionType")
+    "Executor_Type"=@("Update-CPActionType")
     "FailureDetails_Type"=@("Write-CPJobFailureResult","Write-CPThirdPartyJobFailureResult")
-    "Filter_LatestInPipelineExecution_StartTimeRange"=@("Get-CPActionExecutionList")
+    "Id_Category"=@("Update-CPActionType")
+    "LatestInPipelineExecution_StartTimeRange"=@("Get-CPActionExecutionList")
     "Result_Status"=@("Write-CPApprovalResult")
     "RetryMode"=@("Redo-CPStageExecution")
     "TransitionType"=@("Disable-CPStageTransition","Enable-CPStageTransition")

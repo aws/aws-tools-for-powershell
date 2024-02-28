@@ -98,7 +98,7 @@ $MBC_Completers = {
         }
 
         # Amazon.ManagedBlockchain.Edition
-        "New-MBCNetwork/FrameworkConfiguration_Fabric_Edition"
+        "New-MBCNetwork/Fabric_Edition"
         {
             $v = "STANDARD","STARTER"
             break
@@ -143,7 +143,7 @@ $MBC_Completers = {
         }
 
         # Amazon.ManagedBlockchain.ThresholdComparator
-        "New-MBCNetwork/VotingPolicy_ApprovalThresholdPolicy_ThresholdComparator"
+        "New-MBCNetwork/ApprovalThresholdPolicy_ThresholdComparator"
         {
             $v = "GREATER_THAN","GREATER_THAN_OR_EQUAL_TO"
             break
@@ -166,13 +166,13 @@ $MBC_Completers = {
 
 $MBC_map = @{
     "AccessorType"=@("New-MBCAccessor")
+    "ApprovalThresholdPolicy_ThresholdComparator"=@("New-MBCNetwork")
+    "Fabric_Edition"=@("New-MBCNetwork")
     "Framework"=@("Get-MBCNetworkList","New-MBCNetwork")
-    "FrameworkConfiguration_Fabric_Edition"=@("New-MBCNetwork")
     "NetworkType"=@("Get-MBCAccessorList","New-MBCAccessor")
     "NodeConfiguration_StateDB"=@("New-MBCNode")
     "Status"=@("Get-MBCMemberList","Get-MBCNetworkList","Get-MBCNodeList")
     "Vote"=@("Send-MBCProposalVote")
-    "VotingPolicy_ApprovalThresholdPolicy_ThresholdComparator"=@("New-MBCNetwork")
 }
 
 _awsArgumentCompleterRegistration $MBC_Completers $MBC_map

@@ -109,7 +109,7 @@ $TRN_Completers = {
         {
             ($_ -eq "Import-TRNTerminology/EncryptionKey_Type") -Or
             ($_ -eq "New-TRNParallelData/EncryptionKey_Type") -Or
-            ($_ -eq "Start-TRNTextTranslationJob/OutputDataConfig_EncryptionKey_Type")
+            ($_ -eq "Start-TRNTextTranslationJob/EncryptionKey_Type")
         }
         {
             $v = "KMS"
@@ -182,10 +182,9 @@ $TRN_Completers = {
 
 $TRN_map = @{
     "DisplayLanguageCode"=@("Get-TRNLanguageList")
-    "EncryptionKey_Type"=@("Import-TRNTerminology","New-TRNParallelData")
+    "EncryptionKey_Type"=@("Import-TRNTerminology","New-TRNParallelData","Start-TRNTextTranslationJob")
     "Filter_JobStatus"=@("Get-TRNTextTranslationJobList")
     "MergeStrategy"=@("Import-TRNTerminology")
-    "OutputDataConfig_EncryptionKey_Type"=@("Start-TRNTextTranslationJob")
     "ParallelDataConfig_Format"=@("New-TRNParallelData","Update-TRNParallelData")
     "Settings_Brevity"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")
     "Settings_Formality"=@("ConvertTo-TRNDocument","ConvertTo-TRNTargetLanguage","Start-TRNTextTranslationJob")

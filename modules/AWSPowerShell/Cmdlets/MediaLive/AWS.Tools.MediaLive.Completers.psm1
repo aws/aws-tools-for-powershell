@@ -195,7 +195,7 @@ $EML_Completers = {
         }
 
         # Amazon.MediaLive.RebootInputDeviceForce
-        "Restart-EMLInputDevice/Force"
+        "Restart-EMLInputDevice/IgnoreStreaming"
         {
             $v = "NO","YES"
             break
@@ -223,9 +223,9 @@ $EML_map = @{
     "Accept"=@("Get-EMLInputDeviceThumbnail")
     "CdiInputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
-    "Force"=@("Restart-EMLInputDevice")
     "HdDeviceSettings_Codec"=@("Update-EMLInputDevice")
     "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
+    "IgnoreStreaming"=@("Restart-EMLInputDevice")
     "InputSpecification_Codec"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_MaximumBitrate"=@("New-EMLChannel","Update-EMLChannel")
     "InputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")

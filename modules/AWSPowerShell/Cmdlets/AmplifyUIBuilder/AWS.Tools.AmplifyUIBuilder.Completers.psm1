@@ -81,7 +81,7 @@ $AMPUI_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.AmplifyUIBuilder.CodegenJobGenericDataSourceType
-        "New-AMPUICodegenJob/CodegenJobToCreate_GenericDataSchema_DataSourceType"
+        "New-AMPUICodegenJob/GenericDataSchema_DataSourceType"
         {
             $v = "DataStore"
             break
@@ -113,8 +113,8 @@ $AMPUI_Completers = {
 
         # Amazon.AmplifyUIBuilder.FormButtonsPosition
         {
-            ($_ -eq "New-AMPUIForm/FormToCreate_Cta_Position") -Or
-            ($_ -eq "Update-AMPUIForm/UpdatedForm_Cta_Position")
+            ($_ -eq "New-AMPUIForm/Cta_Position") -Or
+            ($_ -eq "Update-AMPUIForm/Cta_Position")
         }
         {
             $v = "bottom","top","top_and_bottom"
@@ -123,8 +123,8 @@ $AMPUI_Completers = {
 
         # Amazon.AmplifyUIBuilder.FormDataSourceType
         {
-            ($_ -eq "New-AMPUIForm/FormToCreate_DataType_DataSourceType") -Or
-            ($_ -eq "Update-AMPUIForm/UpdatedForm_DataType_DataSourceType")
+            ($_ -eq "New-AMPUIForm/DataType_DataSourceType") -Or
+            ($_ -eq "Update-AMPUIForm/DataType_DataSourceType")
         }
         {
             $v = "Custom","DataStore"
@@ -132,21 +132,21 @@ $AMPUI_Completers = {
         }
 
         # Amazon.AmplifyUIBuilder.JSModule
-        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Module"
+        "New-AMPUICodegenJob/React_Module"
         {
             $v = "es2020","esnext"
             break
         }
 
         # Amazon.AmplifyUIBuilder.JSScript
-        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Script"
+        "New-AMPUICodegenJob/React_Script"
         {
             $v = "js","jsx","tsx"
             break
         }
 
         # Amazon.AmplifyUIBuilder.JSTarget
-        "New-AMPUICodegenJob/CodegenJobToCreate_RenderConfig_React_Target"
+        "New-AMPUICodegenJob/React_Target"
         {
             $v = "es2015","es2020"
             break
@@ -181,23 +181,21 @@ $AMPUI_Completers = {
 }
 
 $AMPUI_map = @{
-    "CodegenJobToCreate_GenericDataSchema_DataSourceType"=@("New-AMPUICodegenJob")
-    "CodegenJobToCreate_RenderConfig_React_Module"=@("New-AMPUICodegenJob")
-    "CodegenJobToCreate_RenderConfig_React_Script"=@("New-AMPUICodegenJob")
-    "CodegenJobToCreate_RenderConfig_React_Target"=@("New-AMPUICodegenJob")
+    "Cta_Position"=@("New-AMPUIForm","Update-AMPUIForm")
+    "DataType_DataSourceType"=@("New-AMPUIForm","Update-AMPUIForm")
     "FormToCreate_Cta_Cancel_Position_Fixed"=@("New-AMPUIForm")
     "FormToCreate_Cta_Clear_Position_Fixed"=@("New-AMPUIForm")
-    "FormToCreate_Cta_Position"=@("New-AMPUIForm")
     "FormToCreate_Cta_Submit_Position_Fixed"=@("New-AMPUIForm")
-    "FormToCreate_DataType_DataSourceType"=@("New-AMPUIForm")
     "FormToCreate_FormActionType"=@("New-AMPUIForm")
     "FormToCreate_LabelDecorator"=@("New-AMPUIForm")
+    "GenericDataSchema_DataSourceType"=@("New-AMPUICodegenJob")
     "Provider"=@("Convert-AMPUICodeForToken","Update-AMPUIToken")
+    "React_Module"=@("New-AMPUICodegenJob")
+    "React_Script"=@("New-AMPUICodegenJob")
+    "React_Target"=@("New-AMPUICodegenJob")
     "UpdatedForm_Cta_Cancel_Position_Fixed"=@("Update-AMPUIForm")
     "UpdatedForm_Cta_Clear_Position_Fixed"=@("Update-AMPUIForm")
-    "UpdatedForm_Cta_Position"=@("Update-AMPUIForm")
     "UpdatedForm_Cta_Submit_Position_Fixed"=@("Update-AMPUIForm")
-    "UpdatedForm_DataType_DataSourceType"=@("Update-AMPUIForm")
     "UpdatedForm_FormActionType"=@("Update-AMPUIForm")
     "UpdatedForm_LabelDecorator"=@("Update-AMPUIForm")
 }

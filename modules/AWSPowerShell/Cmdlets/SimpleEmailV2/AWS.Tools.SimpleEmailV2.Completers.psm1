@@ -95,7 +95,7 @@ $SES2_Completers = {
         }
 
         # Amazon.SimpleEmailV2.ContactListImportAction
-        "New-SES2ImportJob/ImportDestination_ContactListDestination_ContactListImportAction"
+        "New-SES2ImportJob/ContactListDestination_ContactListImportAction"
         {
             $v = "DELETE","PUT"
             break
@@ -137,13 +137,13 @@ $SES2_Completers = {
 
         # Amazon.SimpleEmailV2.FeatureStatus
         {
-            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_DashboardAttributes_EngagementMetrics") -Or
-            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_GuardianAttributes_OptimizedSharedDelivery") -Or
-            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_VdmEnabled") -Or
-            ($_ -eq "New-SES2ConfigurationSet/VdmOptions_DashboardOptions_EngagementMetrics") -Or
-            ($_ -eq "Write-SES2ConfigurationSetVdmOption/VdmOptions_DashboardOptions_EngagementMetrics") -Or
-            ($_ -eq "New-SES2ConfigurationSet/VdmOptions_GuardianOptions_OptimizedSharedDelivery") -Or
-            ($_ -eq "Write-SES2ConfigurationSetVdmOption/VdmOptions_GuardianOptions_OptimizedSharedDelivery")
+            ($_ -eq "Write-SES2AccountVdmAttribute/DashboardAttributes_EngagementMetric") -Or
+            ($_ -eq "New-SES2ConfigurationSet/DashboardOptions_EngagementMetric") -Or
+            ($_ -eq "Write-SES2ConfigurationSetVdmOption/DashboardOptions_EngagementMetric") -Or
+            ($_ -eq "Write-SES2AccountVdmAttribute/GuardianAttributes_OptimizedSharedDelivery") -Or
+            ($_ -eq "New-SES2ConfigurationSet/GuardianOptions_OptimizedSharedDelivery") -Or
+            ($_ -eq "Write-SES2ConfigurationSetVdmOption/GuardianOptions_OptimizedSharedDelivery") -Or
+            ($_ -eq "Write-SES2AccountVdmAttribute/VdmAttributes_VdmEnabled")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -172,7 +172,7 @@ $SES2_Completers = {
         }
 
         # Amazon.SimpleEmailV2.MetricNamespace
-        "New-SES2ExportJob/ExportDataSource_MetricsDataSource_Namespace"
+        "New-SES2ExportJob/MetricsDataSource_Namespace"
         {
             $v = "VDM"
             break
@@ -196,7 +196,7 @@ $SES2_Completers = {
         }
 
         # Amazon.SimpleEmailV2.SuppressionListImportAction
-        "New-SES2ImportJob/ImportDestination_SuppressionListDestination_SuppressionListImportAction"
+        "New-SES2ImportJob/SuppressionListDestination_SuppressionListImportAction"
         {
             $v = "DELETE","PUT"
             break
@@ -230,28 +230,28 @@ $SES2_Completers = {
 $SES2_map = @{
     "BehaviorOnMxFailure"=@("Write-SES2EmailIdentityMailFromAttribute")
     "ContactLanguage"=@("Write-SES2AccountDetail")
+    "ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
+    "DashboardAttributes_EngagementMetric"=@("Write-SES2AccountVdmAttribute")
+    "DashboardOptions_EngagementMetric"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
     "DeliveryOptions_TlsPolicy"=@("New-SES2ConfigurationSet")
     "DkimSigningAttributes_NextSigningKeyLength"=@("New-SES2EmailIdentity")
-    "ExportDataSource_MetricsDataSource_Namespace"=@("New-SES2ExportJob")
     "ExportDestination_DataFormat"=@("New-SES2ExportJob")
     "ExportSourceType"=@("Get-SES2ExportJobList")
     "Filter_FilteredStatus"=@("Get-SES2ContactCollection")
+    "GuardianAttributes_OptimizedSharedDelivery"=@("Write-SES2AccountVdmAttribute")
+    "GuardianOptions_OptimizedSharedDelivery"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
     "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
-    "ImportDestination_ContactListDestination_ContactListImportAction"=@("New-SES2ImportJob")
-    "ImportDestination_SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "JobStatus"=@("Get-SES2ExportJobList")
     "MailType"=@("Write-SES2AccountDetail")
+    "MetricsDataSource_Namespace"=@("New-SES2ExportJob")
     "Reason"=@("Write-SES2SuppressedDestination")
     "ScalingMode"=@("New-SES2DedicatedIpPool","Write-SES2DedicatedIpPoolScalingAttribute")
     "SigningAttributes_NextSigningKeyLength"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
+    "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
-    "VdmAttributes_DashboardAttributes_EngagementMetrics"=@("Write-SES2AccountVdmAttribute")
-    "VdmAttributes_GuardianAttributes_OptimizedSharedDelivery"=@("Write-SES2AccountVdmAttribute")
     "VdmAttributes_VdmEnabled"=@("Write-SES2AccountVdmAttribute")
-    "VdmOptions_DashboardOptions_EngagementMetrics"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
-    "VdmOptions_GuardianOptions_OptimizedSharedDelivery"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
 }
 
 _awsArgumentCompleterRegistration $SES2_Completers $SES2_map

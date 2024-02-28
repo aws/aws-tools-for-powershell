@@ -82,8 +82,8 @@ $CHMTG_Completers = {
     {
         # Amazon.ChimeSDKMeetings.ContentResolution
         {
-            ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Content_MaxResolution") -Or
-            ($_ -eq "New-CHMTGMeetingWithAttendee/MeetingFeatures_Content_MaxResolution")
+            ($_ -eq "New-CHMTGMeeting/Content_MaxResolution") -Or
+            ($_ -eq "New-CHMTGMeetingWithAttendee/Content_MaxResolution")
         }
         {
             $v = "FHD","None","UHD"
@@ -109,8 +109,8 @@ $CHMTG_Completers = {
 
         # Amazon.ChimeSDKMeetings.MeetingFeatureStatus
         {
-            ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Audio_EchoReduction") -Or
-            ($_ -eq "New-CHMTGMeetingWithAttendee/MeetingFeatures_Audio_EchoReduction")
+            ($_ -eq "New-CHMTGMeeting/Audio_EchoReduction") -Or
+            ($_ -eq "New-CHMTGMeetingWithAttendee/Audio_EchoReduction")
         }
         {
             $v = "AVAILABLE","UNAVAILABLE"
@@ -118,14 +118,14 @@ $CHMTG_Completers = {
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeContentIdentificationType
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_ContentIdentificationType"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeSettings_ContentIdentificationType"
         {
             $v = "PII"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeContentRedactionType
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeSettings_ContentRedactionType"
         {
             $v = "PII"
             break
@@ -133,8 +133,8 @@ $CHMTG_Completers = {
 
         # Amazon.ChimeSDKMeetings.TranscribeLanguageCode
         {
-            ($_ -eq "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode") -Or
-            ($_ -eq "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage")
+            ($_ -eq "Start-CHMTGMeetingTranscription/EngineTranscribeSettings_LanguageCode") -Or
+            ($_ -eq "Start-CHMTGMeetingTranscription/EngineTranscribeSettings_PreferredLanguage")
         }
         {
             $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","th-TH","zh-CN"
@@ -142,56 +142,56 @@ $CHMTG_Completers = {
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeMedicalContentIdentificationType
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeMedicalSettings_ContentIdentificationType"
         {
             $v = "PHI"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeMedicalLanguageCode
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeMedicalSettings_LanguageCode"
         {
             $v = "en-US"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeMedicalRegion
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeMedicalSettings_Region"
         {
             $v = "ap-southeast-2","auto","ca-central-1","eu-west-1","us-east-1","us-east-2","us-west-2"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeMedicalSpecialty
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeMedicalSettings_Specialty"
         {
             $v = "CARDIOLOGY","NEUROLOGY","ONCOLOGY","PRIMARYCARE","RADIOLOGY","UROLOGY"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeMedicalType
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeMedicalSettings_Type"
         {
             $v = "CONVERSATION","DICTATION"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribePartialResultsStability
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeSettings_PartialResultsStability"
         {
             $v = "high","low","medium"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeRegion
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_Region"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeSettings_Region"
         {
             $v = "ap-northeast-1","ap-northeast-2","ap-southeast-2","auto","ca-central-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-east-2","us-gov-west-1","us-west-2"
             break
         }
 
         # Amazon.ChimeSDKMeetings.TranscribeVocabularyFilterMethod
-        "Start-CHMTGMeetingTranscription/TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"
+        "Start-CHMTGMeetingTranscription/EngineTranscribeSettings_VocabularyFilterMethod"
         {
             $v = "mask","remove","tag"
             break
@@ -199,8 +199,8 @@ $CHMTG_Completers = {
 
         # Amazon.ChimeSDKMeetings.VideoResolution
         {
-            ($_ -eq "New-CHMTGMeeting/MeetingFeatures_Video_MaxResolution") -Or
-            ($_ -eq "New-CHMTGMeetingWithAttendee/MeetingFeatures_Video_MaxResolution")
+            ($_ -eq "New-CHMTGMeeting/Video_MaxResolution") -Or
+            ($_ -eq "New-CHMTGMeetingWithAttendee/Video_MaxResolution")
         }
         {
             $v = "FHD","HD","None"
@@ -216,24 +216,24 @@ $CHMTG_Completers = {
 }
 
 $CHMTG_map = @{
+    "Audio_EchoReduction"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
     "Capabilities_Audio"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
     "Capabilities_Content"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
     "Capabilities_Video"=@("New-CHMTGAttendee","Update-CHMTGAttendeeCapability","Update-CHMTGUpdateAttendeeCapabilitiesExcept")
-    "MeetingFeatures_Audio_EchoReduction"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
-    "MeetingFeatures_Content_MaxResolution"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
-    "MeetingFeatures_Video_MaxResolution"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
-    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Region"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Specialty"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeMedicalSettings_Type"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeSettings_ContentRedactionType"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeSettings_PartialResultsStability"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeSettings_PreferredLanguage"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeSettings_Region"=@("Start-CHMTGMeetingTranscription")
-    "TranscriptionConfiguration_EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMTGMeetingTranscription")
+    "Content_MaxResolution"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
+    "EngineTranscribeMedicalSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeMedicalSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeMedicalSettings_Region"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeMedicalSettings_Specialty"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeMedicalSettings_Type"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeSettings_ContentIdentificationType"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeSettings_ContentRedactionType"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeSettings_LanguageCode"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeSettings_PartialResultsStability"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeSettings_PreferredLanguage"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeSettings_Region"=@("Start-CHMTGMeetingTranscription")
+    "EngineTranscribeSettings_VocabularyFilterMethod"=@("Start-CHMTGMeetingTranscription")
+    "Video_MaxResolution"=@("New-CHMTGMeeting","New-CHMTGMeetingWithAttendee")
 }
 
 _awsArgumentCompleterRegistration $CHMTG_Completers $CHMTG_map

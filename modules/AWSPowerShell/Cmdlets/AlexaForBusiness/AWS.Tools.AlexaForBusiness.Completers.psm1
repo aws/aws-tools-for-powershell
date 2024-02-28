@@ -150,8 +150,8 @@ $ALXB_Completers = {
 
         # Amazon.AlexaForBusiness.EndOfMeetingReminderType
         {
-            ($_ -eq "New-ALXBProfile/MeetingRoomConfiguration_EndOfMeetingReminder_ReminderType") -Or
-            ($_ -eq "Update-ALXBProfile/MeetingRoomConfiguration_EndOfMeetingReminder_ReminderType")
+            ($_ -eq "New-ALXBProfile/EndOfMeetingReminder_ReminderType") -Or
+            ($_ -eq "Update-ALXBProfile/EndOfMeetingReminder_ReminderType")
         }
         {
             $v = "ANNOUNCEMENT_TIME_CHECK","ANNOUNCEMENT_VARIABLE_TIME_LEFT","CHIME","KNOCK"
@@ -224,10 +224,10 @@ $ALXB_map = @{
     "DistanceUnit"=@("New-ALXBProfile","Update-ALXBProfile")
     "EapMethod"=@("New-ALXBNetworkProfile")
     "EnablementType"=@("Get-ALXBSkillList")
+    "EndOfMeetingReminder_ReminderType"=@("New-ALXBProfile","Update-ALXBProfile")
     "EventType"=@("Get-ALXBDeviceEventList")
     "Format"=@("New-ALXBBusinessReportSchedule","Update-ALXBBusinessReportSchedule")
     "IPDialIn_CommsProtocol"=@("New-ALXBConferenceProvider","Update-ALXBConferenceProvider")
-    "MeetingRoomConfiguration_EndOfMeetingReminder_ReminderType"=@("New-ALXBProfile","Update-ALXBProfile")
     "MeetingSetting_RequirePin"=@("New-ALXBConferenceProvider","Update-ALXBConferenceProvider")
     "SecurityType"=@("New-ALXBNetworkProfile")
     "SkillType"=@("Get-ALXBSkillList")

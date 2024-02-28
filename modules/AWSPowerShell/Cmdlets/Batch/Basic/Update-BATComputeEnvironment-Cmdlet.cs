@@ -129,13 +129,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_Ec2Configuration
         /// <summary>
         /// <para>
-        /// <para>Provides information used to select Amazon Machine Images (AMIs) for EC2 instances
+        /// <para>Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances
         /// in the compute environment. If <c>Ec2Configuration</c> isn't specified, the default
         /// is <c>ECS_AL2</c>.</para><para>When updating a compute environment, changing this setting requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
-        /// compute environments</a> in the <i>Batch User Guide</i>. To remove the EC2 configuration
-        /// and any custom AMI ID specified in <c>imageIdOverride</c>, set this value to an empty
-        /// string.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// compute environments</a> in the <i>Batch User Guide</i>. To remove the Amazon EC2
+        /// configuration and any custom AMI ID specified in <c>imageIdOverride</c>, set this
+        /// value to an empty string.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
         /// </para>
         /// </summary>
@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The Amazon EC2 key pair that's used for instances launched in the compute environment.
         /// You can use this key pair to log in to your instances with SSH. To remove the Amazon
-        /// EC2 key pair, set this value to an empty string.</para><para>When updating a compute environment, changing the EC2 key pair requires an infrastructure
-        /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+        /// EC2 key pair, set this value to an empty string.</para><para>When updating a compute environment, changing the Amazon EC2 key pair requires an
+        /// infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
         /// </para>
@@ -306,9 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// compute environment. This parameter is required for Fargate compute resources, where
         /// it can contain up to 5 security groups. For Fargate compute resources, providing an
         /// empty list is handled as if this parameter wasn't specified and no change is made.
-        /// For EC2 compute resources, providing an empty list removes the security groups from
-        /// the compute resource.</para><para>When updating a compute environment, changing the EC2 security groups requires an
-        /// infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+        /// For Amazon EC2 compute resources, providing an empty list removes the security groups
+        /// from the compute resource.</para><para>When updating a compute environment, changing the Amazon EC2 security groups requires
+        /// an infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -368,8 +368,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The VPC subnets where the compute resources are launched. Fargate compute resources
         /// can contain up to 16 subnets. For Fargate compute resources, providing an empty list
-        /// will be handled as if this parameter wasn't specified and no change is made. For EC2
-        /// compute resources, providing an empty list removes the VPC subnets from the compute
+        /// will be handled as if this parameter wasn't specified and no change is made. For Amazon
+        /// EC2 compute resources, providing an empty list removes the VPC subnets from the compute
         /// resource. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">VPCs
         /// and subnets</a> in the <i>Amazon VPC User Guide</i>.</para><para>When updating a compute environment, changing the VPC subnets requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
@@ -390,12 +390,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_Tag
         /// <summary>
         /// <para>
-        /// <para>Key-value pair tags to be applied to EC2 resources that are launched in the compute
-        /// environment. For Batch, these take the form of <c>"String1": "String2"</c>, where
-        /// <c>String1</c> is the tag key and <c>String2</c> is the tag value-for example, <c>{
-        /// "Name": "Batch Instance - C4OnDemand" }</c>. This is helpful for recognizing your
-        /// Batch instances in the Amazon EC2 console. These tags aren't seen when using the Batch
-        /// <c>ListTagsForResource</c> API operation.</para><para>When updating a compute environment, changing this setting requires an infrastructure
+        /// <para>Key-value pair tags to be applied to Amazon EC2 resources that are launched in the
+        /// compute environment. For Batch, these take the form of <c>"String1": "String2"</c>,
+        /// where <c>String1</c> is the tag key and <c>String2</c> is the tag value-for example,
+        /// <c>{ "Name": "Batch Instance - C4OnDemand" }</c>. This is helpful for recognizing
+        /// your Batch instances in the Amazon EC2 console. These tags aren't seen when using
+        /// the Batch <c>ListTagsForResource</c> API operation.</para><para>When updating a compute environment, changing this setting requires an infrastructure
         /// update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>

@@ -92,8 +92,8 @@ $SCH_Completers = {
 
         # Amazon.Scheduler.AssignPublicIp
         {
-            ($_ -eq "New-SCHSchedule/Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
-            ($_ -eq "Update-SCHSchedule/Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")
+            ($_ -eq "New-SCHSchedule/AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Update-SCHSchedule/AwsvpcConfiguration_AssignPublicIp")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -112,8 +112,8 @@ $SCH_Completers = {
 
         # Amazon.Scheduler.LaunchType
         {
-            ($_ -eq "New-SCHSchedule/Target_EcsParameters_LaunchType") -Or
-            ($_ -eq "Update-SCHSchedule/Target_EcsParameters_LaunchType")
+            ($_ -eq "New-SCHSchedule/EcsParameters_LaunchType") -Or
+            ($_ -eq "Update-SCHSchedule/EcsParameters_LaunchType")
         }
         {
             $v = "EC2","EXTERNAL","FARGATE"
@@ -122,8 +122,8 @@ $SCH_Completers = {
 
         # Amazon.Scheduler.PropagateTags
         {
-            ($_ -eq "New-SCHSchedule/Target_EcsParameters_PropagateTags") -Or
-            ($_ -eq "Update-SCHSchedule/Target_EcsParameters_PropagateTags")
+            ($_ -eq "New-SCHSchedule/EcsParameters_PropagateTag") -Or
+            ($_ -eq "Update-SCHSchedule/EcsParameters_PropagateTag")
         }
         {
             $v = "TASK_DEFINITION"
@@ -151,11 +151,11 @@ $SCH_Completers = {
 
 $SCH_map = @{
     "ActionAfterCompletion"=@("New-SCHSchedule","Update-SCHSchedule")
+    "AwsvpcConfiguration_AssignPublicIp"=@("New-SCHSchedule","Update-SCHSchedule")
+    "EcsParameters_LaunchType"=@("New-SCHSchedule","Update-SCHSchedule")
+    "EcsParameters_PropagateTag"=@("New-SCHSchedule","Update-SCHSchedule")
     "FlexibleTimeWindow_Mode"=@("New-SCHSchedule","Update-SCHSchedule")
     "State"=@("Get-SCHScheduleList","New-SCHSchedule","Update-SCHSchedule")
-    "Target_EcsParameters_LaunchType"=@("New-SCHSchedule","Update-SCHSchedule")
-    "Target_EcsParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-SCHSchedule","Update-SCHSchedule")
-    "Target_EcsParameters_PropagateTags"=@("New-SCHSchedule","Update-SCHSchedule")
 }
 
 _awsArgumentCompleterRegistration $SCH_Completers $SCH_map

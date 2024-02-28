@@ -88,7 +88,7 @@ $EMCN_Completers = {
         }
 
         # Amazon.MediaConnect.Colorimetry
-        "Update-EMCNFlowMediaStream/Attributes_Fmtp_Colorimetry"
+        "Update-EMCNFlowMediaStream/Fmtp_Colorimetry"
         {
             $v = "BT2020","BT2100","BT601","BT709","ST2065-1","ST2065-3","XYZ"
             break
@@ -150,14 +150,14 @@ $EMCN_Completers = {
         }
 
         # Amazon.MediaConnect.Range
-        "Update-EMCNFlowMediaStream/Attributes_Fmtp_Range"
+        "Update-EMCNFlowMediaStream/Fmtp_Range"
         {
             $v = "FULL","FULLPROTECT","NARROW"
             break
         }
 
         # Amazon.MediaConnect.ScanMode
-        "Update-EMCNFlowMediaStream/Attributes_Fmtp_ScanMode"
+        "Update-EMCNFlowMediaStream/Fmtp_ScanMode"
         {
             $v = "interlace","progressive","progressive-segmented-frame"
             break
@@ -176,7 +176,7 @@ $EMCN_Completers = {
         }
 
         # Amazon.MediaConnect.Tcs
-        "Update-EMCNFlowMediaStream/Attributes_Fmtp_Tcs"
+        "Update-EMCNFlowMediaStream/Fmtp_Tc"
         {
             $v = "BT2100LINHLG","BT2100LINPQ","DENSITY","HLG","LINEAR","PQ","SDR","ST2065-1","ST428-1"
             break
@@ -191,13 +191,13 @@ $EMCN_Completers = {
 }
 
 $EMCN_map = @{
-    "Attributes_Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
-    "Attributes_Fmtp_Range"=@("Update-EMCNFlowMediaStream")
-    "Attributes_Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
-    "Attributes_Fmtp_Tcs"=@("Update-EMCNFlowMediaStream")
     "BridgePlacement"=@("Update-EMCNGatewayInstance")
     "DesiredState"=@("Update-EMCNBridgeState")
     "EntitlementStatus"=@("Update-EMCNFlowEntitlement")
+    "Fmtp_Colorimetry"=@("Update-EMCNFlowMediaStream")
+    "Fmtp_Range"=@("Update-EMCNFlowMediaStream")
+    "Fmtp_ScanMode"=@("Update-EMCNFlowMediaStream")
+    "Fmtp_Tc"=@("Update-EMCNFlowMediaStream")
     "Maintenance_MaintenanceDay"=@("New-EMCNFlow","Update-EMCNFlow")
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")

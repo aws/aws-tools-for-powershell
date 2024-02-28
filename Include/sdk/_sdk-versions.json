@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.757.0",
+    "ProductVersion"    : "3.7.758.0",
     "CoreVersion"       : "3.7.302.14",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -145,7 +145,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.301.15",
+            "Version" : "3.7.301.16",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.14"
@@ -153,7 +153,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.314.11",
+            "Version" : "3.7.315.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.14"
@@ -467,7 +467,7 @@
             "InPreview"               : false
         },
         "IoT"                             : {
-            "Version" : "3.7.306.5",
+            "Version" : "3.7.307.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.14"
@@ -707,7 +707,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.301.5",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.14"
@@ -859,7 +859,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "3.7.300.53",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.14"
@@ -1603,7 +1603,7 @@
             "InPreview"               : false
         },
         "WAFV2"                           : {
-            "Version" : "3.7.301.7",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.14"
@@ -2947,7 +2947,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "3.7.300.42",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.14"

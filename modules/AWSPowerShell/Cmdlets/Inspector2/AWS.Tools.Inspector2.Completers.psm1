@@ -81,7 +81,7 @@ $INS2_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Inspector2.AccountSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_AccountAggregation_SortBy"
+        "Get-INS2FindingAggregationList/AccountAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
@@ -89,9 +89,9 @@ $INS2_Completers = {
 
         # Amazon.Inspector2.AggregationFindingType
         {
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_AccountAggregation_FindingType") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_FindingType") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_FindingType")
+            ($_ -eq "Get-INS2FindingAggregationList/AccountAggregation_FindingType") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/FindingTypeAggregation_FindingType") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/TitleAggregation_FindingType")
         }
         {
             $v = "CODE_VULNERABILITY","NETWORK_REACHABILITY","PACKAGE_VULNERABILITY"
@@ -100,9 +100,9 @@ $INS2_Completers = {
 
         # Amazon.Inspector2.AggregationResourceType
         {
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_AccountAggregation_ResourceType") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_ResourceType") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_ResourceType")
+            ($_ -eq "Get-INS2FindingAggregationList/AccountAggregation_ResourceType") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/FindingTypeAggregation_ResourceType") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/TitleAggregation_ResourceType")
         }
         {
             $v = "AWS_EC2_INSTANCE","AWS_ECR_CONTAINER_IMAGE","AWS_LAMBDA_FUNCTION"
@@ -117,14 +117,14 @@ $INS2_Completers = {
         }
 
         # Amazon.Inspector2.AmiSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_AmiAggregation_SortBy"
+        "Get-INS2FindingAggregationList/AmiAggregation_SortBy"
         {
             $v = "AFFECTED_INSTANCES","ALL","CRITICAL","HIGH"
             break
         }
 
         # Amazon.Inspector2.AwsEcrContainerSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_AwsEcrContainerAggregation_SortBy"
+        "Get-INS2FindingAggregationList/AwsEcrContainerAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
@@ -183,8 +183,8 @@ $INS2_Completers = {
 
         # Amazon.Inspector2.Day
         {
-            ($_ -eq "New-INS2CisScanConfiguration/Schedule_Monthly_Day") -Or
-            ($_ -eq "Update-INS2CisScanConfiguration/Schedule_Monthly_Day")
+            ($_ -eq "New-INS2CisScanConfiguration/Monthly_Day") -Or
+            ($_ -eq "Update-INS2CisScanConfiguration/Monthly_Day")
         }
         {
             $v = "FRI","MON","SAT","SUN","THU","TUE","WED"
@@ -192,7 +192,7 @@ $INS2_Completers = {
         }
 
         # Amazon.Inspector2.Ec2InstanceSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_Ec2InstanceAggregation_SortBy"
+        "Get-INS2FindingAggregationList/Ec2InstanceAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH","NETWORK_FINDINGS"
             break
@@ -224,7 +224,7 @@ $INS2_Completers = {
         }
 
         # Amazon.Inspector2.FindingTypeSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_SortBy"
+        "Get-INS2FindingAggregationList/FindingTypeAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
@@ -238,21 +238,21 @@ $INS2_Completers = {
         }
 
         # Amazon.Inspector2.ImageLayerSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_ImageLayerAggregation_SortBy"
+        "Get-INS2FindingAggregationList/ImageLayerAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
         }
 
         # Amazon.Inspector2.LambdaFunctionSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_LambdaFunctionAggregation_SortBy"
+        "Get-INS2FindingAggregationList/LambdaFunctionAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
         }
 
         # Amazon.Inspector2.LambdaLayerSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_LambdaLayerAggregation_SortBy"
+        "Get-INS2FindingAggregationList/LambdaLayerAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
@@ -273,7 +273,7 @@ $INS2_Completers = {
         }
 
         # Amazon.Inspector2.PackageSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_PackageAggregation_SortBy"
+        "Get-INS2FindingAggregationList/PackageAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
@@ -287,7 +287,7 @@ $INS2_Completers = {
         }
 
         # Amazon.Inspector2.RepositorySortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_RepositoryAggregation_SortBy"
+        "Get-INS2FindingAggregationList/RepositoryAggregation_SortBy"
         {
             $v = "AFFECTED_IMAGES","ALL","CRITICAL","HIGH"
             break
@@ -338,18 +338,18 @@ $INS2_Completers = {
 
         # Amazon.Inspector2.SortOrder
         {
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_AccountAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_AmiAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_AwsEcrContainerAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_Ec2InstanceAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_FindingTypeAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_ImageLayerAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_LambdaFunctionAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_LambdaLayerAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_PackageAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_RepositoryAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_SortOrder") -Or
-            ($_ -eq "Get-INS2FindingList/SortCriteria_SortOrder")
+            ($_ -eq "Get-INS2FindingAggregationList/AccountAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AmiAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/AwsEcrContainerAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/Ec2InstanceAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/FindingTypeAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/ImageLayerAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/LambdaFunctionAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/LambdaLayerAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/PackageAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/RepositoryAggregation_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingList/SortCriteria_SortOrder") -Or
+            ($_ -eq "Get-INS2FindingAggregationList/TitleAggregation_SortOrder")
         }
         {
             $v = "ASC","DESC"
@@ -364,7 +364,7 @@ $INS2_Completers = {
         }
 
         # Amazon.Inspector2.TitleSortBy
-        "Get-INS2FindingAggregationList/AggregationRequest_TitleAggregation_SortBy"
+        "Get-INS2FindingAggregationList/TitleAggregation_SortBy"
         {
             $v = "ALL","CRITICAL","HIGH"
             break
@@ -379,51 +379,51 @@ $INS2_Completers = {
 }
 
 $INS2_map = @{
+    "AccountAggregation_FindingType"=@("Get-INS2FindingAggregationList")
+    "AccountAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
+    "AccountAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AccountAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "Action"=@("Get-INS2FilterList","New-INS2Filter","Update-INS2Filter")
-    "AggregationRequest_AccountAggregation_FindingType"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_AccountAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_AccountAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_AccountAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_AmiAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_AmiAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_Ec2InstanceAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_FindingTypeAggregation_FindingType"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_FindingTypeAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_FindingTypeAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_FindingTypeAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_ImageLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_ImageLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_LambdaFunctionAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_LambdaFunctionAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_LambdaLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_LambdaLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_TitleAggregation_FindingType"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_TitleAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
-    "AggregationRequest_TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "AggregationType"=@("Get-INS2FindingAggregationList")
+    "AmiAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AmiAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "DetailLevel"=@("Get-INS2CisScanList")
+    "Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "Ec2InstanceAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "EcrConfiguration_PullDateRescanDuration"=@("Update-INS2Configuration")
     "EcrConfiguration_RescanDuration"=@("Update-INS2Configuration")
+    "FindingTypeAggregation_FindingType"=@("Get-INS2FindingAggregationList")
+    "FindingTypeAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
+    "FindingTypeAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "FindingTypeAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "GroupBy"=@("Get-INS2CoverageStatisticList")
+    "ImageLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "ImageLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "LambdaFunctionAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "LambdaFunctionAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
+    "LambdaLayerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "LambdaLayerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "Message_Status"=@("Stop-INS2CisSession")
+    "Monthly_Day"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
+    "PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "ReportFormat"=@("New-INS2FindingsReport","New-INS2SbomExport")
+    "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
     "ScanType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
-    "Schedule_Monthly_Day"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "SecurityLevel"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "Service"=@("Get-INS2AccountPermissionList")
     "SortBy"=@("Get-INS2CisScanConfigurationList","Get-INS2CisScanList","Get-INS2CisScanResultDetail","Get-INS2CisScanResultsAggregatedByCheckList","Get-INS2CisScanResultsAggregatedByTargetResourceList")
     "SortCriteria_Field"=@("Get-INS2FindingList")
     "SortCriteria_SortOrder"=@("Get-INS2FindingList")
     "SortOrder"=@("Get-INS2CisScanConfigurationList","Get-INS2CisScanList","Get-INS2CisScanResultDetail","Get-INS2CisScanResultsAggregatedByCheckList","Get-INS2CisScanResultsAggregatedByTargetResourceList")
+    "TitleAggregation_FindingType"=@("Get-INS2FindingAggregationList")
+    "TitleAggregation_ResourceType"=@("Get-INS2FindingAggregationList")
+    "TitleAggregation_SortBy"=@("Get-INS2FindingAggregationList")
+    "TitleAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
 }
 
 _awsArgumentCompleterRegistration $INS2_Completers $INS2_map

@@ -116,14 +116,14 @@ $QC_Completers = {
         }
 
         # Amazon.QConnect.Order
-        "Search-QCQuickResponse/SearchExpression_OrderOnField_Order"
+        "Search-QCQuickResponse/OrderOnField_Order"
         {
             $v = "ASC","DESC"
             break
         }
 
         # Amazon.QConnect.Relevance
-        "Write-QCFeedback/ContentFeedback_GenerativeContentFeedbackData_Relevance"
+        "Write-QCFeedback/GenerativeContentFeedbackData_Relevance"
         {
             $v = "HELPFUL","NOT_HELPFUL"
             break
@@ -146,11 +146,11 @@ $QC_Completers = {
 
 $QC_map = @{
     "AssociationType"=@("New-QCAssistantAssociation")
-    "ContentFeedback_GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
+    "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
     "KnowledgeBaseType"=@("New-QCKnowledgeBase")
-    "SearchExpression_OrderOnField_Order"=@("Search-QCQuickResponse")
+    "OrderOnField_Order"=@("Search-QCQuickResponse")
     "TargetType"=@("Write-QCFeedback")
     "Type"=@("New-QCAssistant")
 }

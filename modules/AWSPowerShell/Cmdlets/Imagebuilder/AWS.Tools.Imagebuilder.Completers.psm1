@@ -129,7 +129,7 @@ $EC2IB_Completers = {
         }
 
         # Amazon.Imagebuilder.LifecyclePolicyTimeUnit
-        "Start-EC2IBResourceStateUpdate/ExclusionRules_Amis_LastLaunched_Unit"
+        "Start-EC2IBResourceStateUpdate/LastLaunched_Unit"
         {
             $v = "DAYS","MONTHS","WEEKS","YEARS"
             break
@@ -212,8 +212,8 @@ $EC2IB_Completers = {
 $EC2IB_map = @{
     "Action"=@("Send-EC2IBWorkflowStepAction")
     "ContainerType"=@("New-EC2IBContainerRecipe")
-    "ExclusionRules_Amis_LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Format"=@("Import-EC2IBComponent")
+    "LastLaunched_Unit"=@("Start-EC2IBResourceStateUpdate")
     "Owner"=@("Get-EC2IBComponentList","Get-EC2IBContainerRecipeList","Get-EC2IBImageList","Get-EC2IBImageRecipeList","Get-EC2IBWorkflowList")
     "Platform"=@("Import-EC2IBComponent","Import-EC2IBVmImage","New-EC2IBComponent")
     "PlatformOverride"=@("New-EC2IBContainerRecipe")

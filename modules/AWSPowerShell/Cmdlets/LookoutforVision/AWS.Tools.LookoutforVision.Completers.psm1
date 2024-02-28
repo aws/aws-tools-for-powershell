@@ -81,28 +81,28 @@ $LFV_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.LookoutforVision.TargetDevice
-        "Start-LFVModelPackagingJob/Configuration_Greengrass_TargetDevice"
+        "Start-LFVModelPackagingJob/Greengrass_TargetDevice"
         {
             $v = "jetson_xavier"
             break
         }
 
         # Amazon.LookoutforVision.TargetPlatformAccelerator
-        "Start-LFVModelPackagingJob/Configuration_Greengrass_TargetPlatform_Accelerator"
+        "Start-LFVModelPackagingJob/TargetPlatform_Accelerator"
         {
             $v = "NVIDIA"
             break
         }
 
         # Amazon.LookoutforVision.TargetPlatformArch
-        "Start-LFVModelPackagingJob/Configuration_Greengrass_TargetPlatform_Arch"
+        "Start-LFVModelPackagingJob/TargetPlatform_Arch"
         {
             $v = "ARM64","X86_64"
             break
         }
 
         # Amazon.LookoutforVision.TargetPlatformOs
-        "Start-LFVModelPackagingJob/Configuration_Greengrass_TargetPlatform_Os"
+        "Start-LFVModelPackagingJob/TargetPlatform_Os"
         {
             $v = "LINUX"
             break
@@ -117,10 +117,10 @@ $LFV_Completers = {
 }
 
 $LFV_map = @{
-    "Configuration_Greengrass_TargetDevice"=@("Start-LFVModelPackagingJob")
-    "Configuration_Greengrass_TargetPlatform_Accelerator"=@("Start-LFVModelPackagingJob")
-    "Configuration_Greengrass_TargetPlatform_Arch"=@("Start-LFVModelPackagingJob")
-    "Configuration_Greengrass_TargetPlatform_Os"=@("Start-LFVModelPackagingJob")
+    "Greengrass_TargetDevice"=@("Start-LFVModelPackagingJob")
+    "TargetPlatform_Accelerator"=@("Start-LFVModelPackagingJob")
+    "TargetPlatform_Arch"=@("Start-LFVModelPackagingJob")
+    "TargetPlatform_Os"=@("Start-LFVModelPackagingJob")
 }
 
 _awsArgumentCompleterRegistration $LFV_Completers $LFV_map

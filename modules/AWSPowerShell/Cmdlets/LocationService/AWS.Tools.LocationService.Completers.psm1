@@ -82,8 +82,8 @@ $LOC_Completers = {
     {
         # Amazon.LocationService.DimensionUnit
         {
-            ($_ -eq "Get-LOCRoute/TruckModeOptions_Dimensions_Unit") -Or
-            ($_ -eq "Get-LOCRouteMatrix/TruckModeOptions_Dimensions_Unit")
+            ($_ -eq "Get-LOCRoute/Dimensions_Unit") -Or
+            ($_ -eq "Get-LOCRouteMatrix/Dimensions_Unit")
         }
         {
             $v = "Feet","Meters"
@@ -164,8 +164,8 @@ $LOC_Completers = {
 
         # Amazon.LocationService.VehicleWeightUnit
         {
-            ($_ -eq "Get-LOCRoute/TruckModeOptions_Weight_Unit") -Or
-            ($_ -eq "Get-LOCRouteMatrix/TruckModeOptions_Weight_Unit")
+            ($_ -eq "Get-LOCRoute/Weight_Unit") -Or
+            ($_ -eq "Get-LOCRouteMatrix/Weight_Unit")
         }
         {
             $v = "Kilograms","Pounds"
@@ -182,14 +182,14 @@ $LOC_Completers = {
 
 $LOC_map = @{
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
+    "Dimensions_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
     "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
     "Filter_KeyStatus"=@("Get-LOCKeyList")
     "OptimizeFor"=@("Get-LOCRoute")
     "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
     "TravelMode"=@("Get-LOCRoute","Get-LOCRouteMatrix")
-    "TruckModeOptions_Dimensions_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
-    "TruckModeOptions_Weight_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
+    "Weight_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
 }
 
 _awsArgumentCompleterRegistration $LOC_Completers $LOC_map

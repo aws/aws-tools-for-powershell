@@ -143,7 +143,7 @@ $OSS_Completers = {
         }
 
         # Amazon.OpenSearchServerless.StandbyReplicas
-        "New-OSSCollection/StandbyReplicas"
+        "New-OSSCollection/StandbyReplica"
         {
             $v = "DISABLED","ENABLED"
             break
@@ -166,7 +166,7 @@ $OSS_Completers = {
 
 $OSS_map = @{
     "CollectionFilters_Status"=@("Get-OSSCollectionList")
-    "StandbyReplicas"=@("New-OSSCollection")
+    "StandbyReplica"=@("New-OSSCollection")
     "Type"=@("Get-OSSAccessPolicy","Get-OSSAccessPolicyList","Get-OSSLifecyclePolicyList","Get-OSSSecurityConfigList","Get-OSSSecurityPolicy","Get-OSSSecurityPolicyList","New-OSSAccessPolicy","New-OSSCollection","New-OSSLifecyclePolicy","New-OSSSecurityConfig","New-OSSSecurityPolicy","Remove-OSSAccessPolicy","Remove-OSSLifecyclePolicy","Remove-OSSSecurityPolicy","Update-OSSAccessPolicy","Update-OSSLifecyclePolicy","Update-OSSSecurityPolicy")
     "VpcEndpointFilters_Status"=@("Get-OSSVpcEndpointList")
 }

@@ -82,11 +82,11 @@ $ECS_Completers = {
     {
         # Amazon.ECS.AssignPublicIp
         {
-            ($_ -eq "New-ECSService/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
-            ($_ -eq "New-ECSTask/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
-            ($_ -eq "New-ECSTaskSet/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
-            ($_ -eq "Start-ECSTask/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
-            ($_ -eq "Update-ECSService/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")
+            ($_ -eq "New-ECSService/AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "New-ECSTask/AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "New-ECSTaskSet/AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Start-ECSTask/AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Update-ECSService/AwsvpcConfiguration_AssignPublicIp")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -126,8 +126,8 @@ $ECS_Completers = {
 
         # Amazon.ECS.ExecuteCommandLogging
         {
-            ($_ -eq "New-ECSCluster/Configuration_ExecuteCommandConfiguration_Logging") -Or
-            ($_ -eq "Update-ECSCluster/Configuration_ExecuteCommandConfiguration_Logging")
+            ($_ -eq "New-ECSCluster/ExecuteCommandConfiguration_Logging") -Or
+            ($_ -eq "Update-ECSCluster/ExecuteCommandConfiguration_Logging")
         }
         {
             $v = "DEFAULT","NONE","OVERRIDE"
@@ -156,8 +156,8 @@ $ECS_Completers = {
 
         # Amazon.ECS.LogDriver
         {
-            ($_ -eq "New-ECSService/ServiceConnectConfiguration_LogConfiguration_LogDriver") -Or
-            ($_ -eq "Update-ECSService/ServiceConnectConfiguration_LogConfiguration_LogDriver")
+            ($_ -eq "New-ECSService/LogConfiguration_LogDriver") -Or
+            ($_ -eq "Update-ECSService/LogConfiguration_LogDriver")
         }
         {
             $v = "awsfirelens","awslogs","fluentd","gelf","journald","json-file","splunk","syslog"
@@ -176,8 +176,8 @@ $ECS_Completers = {
 
         # Amazon.ECS.ManagedScalingStatus
         {
-            ($_ -eq "New-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status") -Or
-            ($_ -eq "Update-ECSCapacityProvider/AutoScalingGroupProvider_ManagedScaling_Status")
+            ($_ -eq "New-ECSCapacityProvider/ManagedScaling_Status") -Or
+            ($_ -eq "Update-ECSCapacityProvider/ManagedScaling_Status")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -217,10 +217,10 @@ $ECS_Completers = {
 
         # Amazon.ECS.PropagateTags
         {
-            ($_ -eq "New-ECSService/PropagateTags") -Or
-            ($_ -eq "New-ECSTask/PropagateTags") -Or
-            ($_ -eq "Start-ECSTask/PropagateTags") -Or
-            ($_ -eq "Update-ECSService/PropagateTags")
+            ($_ -eq "New-ECSService/PropagateTag") -Or
+            ($_ -eq "New-ECSTask/PropagateTag") -Or
+            ($_ -eq "Start-ECSTask/PropagateTag") -Or
+            ($_ -eq "Update-ECSService/PropagateTag")
         }
         {
             $v = "NONE","SERVICE","TASK_DEFINITION"
@@ -304,24 +304,24 @@ $ECS_Completers = {
 
 $ECS_map = @{
     "AutoScalingGroupProvider_ManagedDraining"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
-    "AutoScalingGroupProvider_ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "AutoScalingGroupProvider_ManagedTerminationProtection"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
-    "Configuration_ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")
+    "AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
     "DeploymentController_Type"=@("New-ECSService")
     "DesiredStatus"=@("Get-ECSTaskList")
+    "ExecuteCommandConfiguration_Logging"=@("New-ECSCluster","Update-ECSCluster")
     "IpcMode"=@("Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask","New-ECSTaskSet")
+    "LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
+    "ManagedScaling_Status"=@("New-ECSCapacityProvider","Update-ECSCapacityProvider")
     "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
-    "NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","New-ECSTaskSet","Start-ECSTask","Update-ECSService")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSTaskDefinition")
-    "PropagateTags"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
+    "PropagateTag"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
     "ProxyConfiguration_Type"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_CpuArchitecture"=@("Register-ECSTaskDefinition")
     "RuntimePlatform_OperatingSystemFamily"=@("Register-ECSTaskDefinition")
     "Scale_Unit"=@("New-ECSTaskSet","Update-ECSTaskSet")
     "SchedulingStrategy"=@("Get-ECSClusterService","New-ECSService")
-    "ServiceConnectConfiguration_LogConfiguration_LogDriver"=@("New-ECSService","Update-ECSService")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
     "TargetType"=@("Get-ECSAttributeList")

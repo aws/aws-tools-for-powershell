@@ -82,9 +82,9 @@ $MSK_Completers = {
     {
         # Amazon.Kafka.ClientBroker
         {
-            ($_ -eq "New-MSKCluster/EncryptionInfo_EncryptionInTransit_ClientBroker") -Or
-            ($_ -eq "Update-MSKSecurity/EncryptionInfo_EncryptionInTransit_ClientBroker") -Or
-            ($_ -eq "New-MSKClusterV2/Provisioned_EncryptionInfo_EncryptionInTransit_ClientBroker")
+            ($_ -eq "New-MSKCluster/EncryptionInTransit_ClientBroker") -Or
+            ($_ -eq "New-MSKClusterV2/EncryptionInTransit_ClientBroker") -Or
+            ($_ -eq "Update-MSKSecurity/EncryptionInTransit_ClientBroker")
         }
         {
             $v = "PLAINTEXT","TLS","TLS_PLAINTEXT"
@@ -122,9 +122,8 @@ $MSK_Completers = {
 }
 
 $MSK_map = @{
-    "EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKCluster","Update-MSKSecurity")
+    "EncryptionInTransit_ClientBroker"=@("New-MSKCluster","New-MSKClusterV2","Update-MSKSecurity")
     "EnhancedMonitoring"=@("New-MSKCluster","Update-MSKMonitoring")
-    "Provisioned_EncryptionInfo_EncryptionInTransit_ClientBroker"=@("New-MSKClusterV2")
     "Provisioned_EnhancedMonitoring"=@("New-MSKClusterV2")
     "Provisioned_StorageMode"=@("New-MSKClusterV2")
     "StorageMode"=@("New-MSKCluster","Update-MSKStorage")

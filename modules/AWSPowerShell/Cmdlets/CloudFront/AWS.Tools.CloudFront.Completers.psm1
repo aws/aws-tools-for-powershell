@@ -82,8 +82,8 @@ $CF_Completers = {
     {
         # Amazon.CloudFront.CachePolicyCookieBehavior
         {
-            ($_ -eq "New-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior") -Or
-            ($_ -eq "Update-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior")
+            ($_ -eq "New-CFCachePolicy/CookiesConfig_CookieBehavior") -Or
+            ($_ -eq "Update-CFCachePolicy/CookiesConfig_CookieBehavior")
         }
         {
             $v = "all","allExcept","none","whitelist"
@@ -92,8 +92,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.CachePolicyHeaderBehavior
         {
-            ($_ -eq "New-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior") -Or
-            ($_ -eq "Update-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior")
+            ($_ -eq "New-CFCachePolicy/HeadersConfig_HeaderBehavior") -Or
+            ($_ -eq "Update-CFCachePolicy/HeadersConfig_HeaderBehavior")
         }
         {
             $v = "none","whitelist"
@@ -102,8 +102,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.CachePolicyQueryStringBehavior
         {
-            ($_ -eq "New-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior") -Or
-            ($_ -eq "Update-CFCachePolicy/CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior")
+            ($_ -eq "New-CFCachePolicy/QueryStringsConfig_QueryStringBehavior") -Or
+            ($_ -eq "Update-CFCachePolicy/QueryStringsConfig_QueryStringBehavior")
         }
         {
             $v = "all","allExcept","none","whitelist"
@@ -119,9 +119,9 @@ $CF_Completers = {
 
         # Amazon.CloudFront.CertificateSource
         {
-            ($_ -eq "New-CFDistribution/DistributionConfig_ViewerCertificate_CertificateSource") -Or
-            ($_ -eq "Update-CFDistribution/DistributionConfig_ViewerCertificate_CertificateSource") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource")
+            ($_ -eq "New-CFDistribution/ViewerCertificate_CertificateSource") -Or
+            ($_ -eq "New-CFDistributionWithTag/ViewerCertificate_CertificateSource") -Or
+            ($_ -eq "Update-CFDistribution/ViewerCertificate_CertificateSource")
         }
         {
             $v = "acm","cloudfront","iam"
@@ -130,8 +130,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.ContinuousDeploymentPolicyType
         {
-            ($_ -eq "New-CFContinuousDeploymentPolicy/ContinuousDeploymentPolicyConfig_TrafficConfig_Type") -Or
-            ($_ -eq "Update-CFContinuousDeploymentPolicy/ContinuousDeploymentPolicyConfig_TrafficConfig_Type")
+            ($_ -eq "New-CFContinuousDeploymentPolicy/TrafficConfig_Type") -Or
+            ($_ -eq "Update-CFContinuousDeploymentPolicy/TrafficConfig_Type")
         }
         {
             $v = "SingleHeader","SingleWeight"
@@ -140,8 +140,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.FrameOptionsList
         {
-            ($_ -eq "New-CFResponseHeadersPolicy/ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_FrameOption") -Or
-            ($_ -eq "Update-CFResponseHeadersPolicy/ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_FrameOption")
+            ($_ -eq "New-CFResponseHeadersPolicy/FrameOptions_FrameOption") -Or
+            ($_ -eq "Update-CFResponseHeadersPolicy/FrameOptions_FrameOption")
         }
         {
             $v = "DENY","SAMEORIGIN"
@@ -172,9 +172,9 @@ $CF_Completers = {
 
         # Amazon.CloudFront.GeoRestrictionType
         {
-            ($_ -eq "New-CFDistribution/DistributionConfig_Restrictions_GeoRestriction_RestrictionType") -Or
-            ($_ -eq "Update-CFDistribution/DistributionConfig_Restrictions_GeoRestriction_RestrictionType") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_RestrictionType")
+            ($_ -eq "New-CFDistribution/GeoRestriction_RestrictionType") -Or
+            ($_ -eq "New-CFDistributionWithTag/GeoRestriction_RestrictionType") -Or
+            ($_ -eq "Update-CFDistribution/GeoRestriction_RestrictionType")
         }
         {
             $v = "blacklist","none","whitelist"
@@ -184,8 +184,8 @@ $CF_Completers = {
         # Amazon.CloudFront.HttpVersion
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_HttpVersion") -Or
-            ($_ -eq "Update-CFDistribution/DistributionConfig_HttpVersion") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_HttpVersion")
+            ($_ -eq "New-CFDistributionWithTag/DistributionConfig_HttpVersion") -Or
+            ($_ -eq "Update-CFDistribution/DistributionConfig_HttpVersion")
         }
         {
             $v = "http1.1","http2","http2and3","http3"
@@ -201,9 +201,9 @@ $CF_Completers = {
 
         # Amazon.CloudFront.ItemSelection
         {
-            ($_ -eq "New-CFDistribution/DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward") -Or
-            ($_ -eq "Update-CFDistribution/DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward")
+            ($_ -eq "New-CFDistribution/Cookies_Forward") -Or
+            ($_ -eq "New-CFDistributionWithTag/Cookies_Forward") -Or
+            ($_ -eq "Update-CFDistribution/Cookies_Forward")
         }
         {
             $v = "all","none","whitelist"
@@ -212,9 +212,9 @@ $CF_Completers = {
 
         # Amazon.CloudFront.MinimumProtocolVersion
         {
-            ($_ -eq "New-CFDistribution/DistributionConfig_ViewerCertificate_MinimumProtocolVersion") -Or
-            ($_ -eq "Update-CFDistribution/DistributionConfig_ViewerCertificate_MinimumProtocolVersion") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion")
+            ($_ -eq "New-CFDistribution/ViewerCertificate_MinimumProtocolVersion") -Or
+            ($_ -eq "New-CFDistributionWithTag/ViewerCertificate_MinimumProtocolVersion") -Or
+            ($_ -eq "Update-CFDistribution/ViewerCertificate_MinimumProtocolVersion")
         }
         {
             $v = "SSLv3","TLSv1","TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021","TLSv1_2016"
@@ -253,8 +253,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.OriginRequestPolicyCookieBehavior
         {
-            ($_ -eq "New-CFOriginRequestPolicy/OriginRequestPolicyConfig_CookiesConfig_CookieBehavior") -Or
-            ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_CookiesConfig_CookieBehavior")
+            ($_ -eq "New-CFOriginRequestPolicy/CookiesConfig_CookieBehavior") -Or
+            ($_ -eq "Update-CFOriginRequestPolicy/CookiesConfig_CookieBehavior")
         }
         {
             $v = "all","allExcept","none","whitelist"
@@ -263,8 +263,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.OriginRequestPolicyHeaderBehavior
         {
-            ($_ -eq "New-CFOriginRequestPolicy/OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior") -Or
-            ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior")
+            ($_ -eq "New-CFOriginRequestPolicy/HeadersConfig_HeaderBehavior") -Or
+            ($_ -eq "Update-CFOriginRequestPolicy/HeadersConfig_HeaderBehavior")
         }
         {
             $v = "allExcept","allViewer","allViewerAndWhitelistCloudFront","none","whitelist"
@@ -273,8 +273,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.OriginRequestPolicyQueryStringBehavior
         {
-            ($_ -eq "New-CFOriginRequestPolicy/OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior") -Or
-            ($_ -eq "Update-CFOriginRequestPolicy/OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior")
+            ($_ -eq "New-CFOriginRequestPolicy/QueryStringsConfig_QueryStringBehavior") -Or
+            ($_ -eq "Update-CFOriginRequestPolicy/QueryStringsConfig_QueryStringBehavior")
         }
         {
             $v = "all","allExcept","none","whitelist"
@@ -291,11 +291,11 @@ $CF_Completers = {
         # Amazon.CloudFront.PriceClass
         {
             ($_ -eq "New-CFDistribution/DistributionConfig_PriceClass") -Or
+            ($_ -eq "New-CFDistributionWithTag/DistributionConfig_PriceClass") -Or
             ($_ -eq "Update-CFDistribution/DistributionConfig_PriceClass") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_PriceClass") -Or
             ($_ -eq "New-CFStreamingDistribution/StreamingDistributionConfig_PriceClass") -Or
-            ($_ -eq "Update-CFStreamingDistribution/StreamingDistributionConfig_PriceClass") -Or
-            ($_ -eq "New-CFStreamingDistributionWithTag/StreamingDistributionConfigWithTags_StreamingDistributionConfig_PriceClass")
+            ($_ -eq "New-CFStreamingDistributionWithTag/StreamingDistributionConfig_PriceClass") -Or
+            ($_ -eq "Update-CFStreamingDistribution/StreamingDistributionConfig_PriceClass")
         }
         {
             $v = "PriceClass_100","PriceClass_200","PriceClass_All"
@@ -303,7 +303,7 @@ $CF_Completers = {
         }
 
         # Amazon.CloudFront.RealtimeMetricsSubscriptionStatus
-        "New-CFMonitoringSubscription/MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"
+        "New-CFMonitoringSubscription/RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"
         {
             $v = "Disabled","Enabled"
             break
@@ -311,8 +311,8 @@ $CF_Completers = {
 
         # Amazon.CloudFront.ReferrerPolicyList
         {
-            ($_ -eq "New-CFResponseHeadersPolicy/ResponseHeadersPolicyConfig_SecurityHeadersConfig_ReferrerPolicy_ReferrerPolicy") -Or
-            ($_ -eq "Update-CFResponseHeadersPolicy/ResponseHeadersPolicyConfig_SecurityHeadersConfig_ReferrerPolicy_ReferrerPolicy")
+            ($_ -eq "New-CFResponseHeadersPolicy/ReferrerPolicy_ReferrerPolicy") -Or
+            ($_ -eq "Update-CFResponseHeadersPolicy/ReferrerPolicy_ReferrerPolicy")
         }
         {
             $v = "no-referrer","no-referrer-when-downgrade","origin","origin-when-cross-origin","same-origin","strict-origin","strict-origin-when-cross-origin","unsafe-url"
@@ -328,9 +328,9 @@ $CF_Completers = {
 
         # Amazon.CloudFront.SSLSupportMethod
         {
-            ($_ -eq "New-CFDistribution/DistributionConfig_ViewerCertificate_SSLSupportMethod") -Or
-            ($_ -eq "Update-CFDistribution/DistributionConfig_ViewerCertificate_SSLSupportMethod") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod")
+            ($_ -eq "New-CFDistribution/ViewerCertificate_SSLSupportMethod") -Or
+            ($_ -eq "New-CFDistributionWithTag/ViewerCertificate_SSLSupportMethod") -Or
+            ($_ -eq "Update-CFDistribution/ViewerCertificate_SSLSupportMethod")
         }
         {
             $v = "sni-only","static-ip","vip"
@@ -339,9 +339,9 @@ $CF_Completers = {
 
         # Amazon.CloudFront.ViewerProtocolPolicy
         {
-            ($_ -eq "New-CFDistribution/DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy") -Or
-            ($_ -eq "Update-CFDistribution/DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy") -Or
-            ($_ -eq "New-CFDistributionWithTag/DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy")
+            ($_ -eq "New-CFDistribution/DefaultCacheBehavior_ViewerProtocolPolicy") -Or
+            ($_ -eq "New-CFDistributionWithTag/DefaultCacheBehavior_ViewerProtocolPolicy") -Or
+            ($_ -eq "Update-CFDistribution/DefaultCacheBehavior_ViewerProtocolPolicy")
         }
         {
             $v = "allow-all","https-only","redirect-to-https"
@@ -357,41 +357,29 @@ $CF_Completers = {
 }
 
 $CF_map = @{
-    "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_CookiesConfig_CookieBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
-    "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_HeadersConfig_HeaderBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
-    "CachePolicyConfig_ParametersInCacheKeyAndForwardedToOrigin_QueryStringsConfig_QueryStringBehavior"=@("New-CFCachePolicy","Update-CFCachePolicy")
-    "ContinuousDeploymentPolicyConfig_TrafficConfig_Type"=@("New-CFContinuousDeploymentPolicy","Update-CFContinuousDeploymentPolicy")
-    "DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfig_HttpVersion"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfig_PriceClass"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfig_Restrictions_GeoRestriction_RestrictionType"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfig_ViewerCertificate_CertificateSource"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfig_ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistribution","Update-CFDistribution")
-    "DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ForwardedValues_Cookies_Forward"=@("New-CFDistributionWithTag")
-    "DistributionConfigWithTags_DistributionConfig_DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistributionWithTag")
-    "DistributionConfigWithTags_DistributionConfig_HttpVersion"=@("New-CFDistributionWithTag")
-    "DistributionConfigWithTags_DistributionConfig_PriceClass"=@("New-CFDistributionWithTag")
-    "DistributionConfigWithTags_DistributionConfig_Restrictions_GeoRestriction_RestrictionType"=@("New-CFDistributionWithTag")
-    "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_CertificateSource"=@("New-CFDistributionWithTag")
-    "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistributionWithTag")
-    "DistributionConfigWithTags_DistributionConfig_ViewerCertificate_SSLSupportMethod"=@("New-CFDistributionWithTag")
+    "Cookies_Forward"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "CookiesConfig_CookieBehavior"=@("New-CFCachePolicy","New-CFOriginRequestPolicy","Update-CFCachePolicy","Update-CFOriginRequestPolicy")
+    "DefaultCacheBehavior_ViewerProtocolPolicy"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "DistributionConfig_HttpVersion"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "DistributionConfig_PriceClass"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "FrameOptions_FrameOption"=@("New-CFResponseHeadersPolicy","Update-CFResponseHeadersPolicy")
     "FunctionConfig_Runtime"=@("New-CFFunction","Update-CFFunction")
+    "GeoRestriction_RestrictionType"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "HeadersConfig_HeaderBehavior"=@("New-CFCachePolicy","New-CFOriginRequestPolicy","Update-CFCachePolicy","Update-CFOriginRequestPolicy")
     "ImportSource_SourceType"=@("New-CFKeyValueStore")
-    "MonitoringSubscription_RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"=@("New-CFMonitoringSubscription")
     "OriginAccessControlConfig_OriginAccessControlOriginType"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningBehavior"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
     "OriginAccessControlConfig_SigningProtocol"=@("New-CFOriginAccessControl","Update-CFOriginAccessControl")
-    "OriginRequestPolicyConfig_CookiesConfig_CookieBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
-    "OriginRequestPolicyConfig_HeadersConfig_HeaderBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
-    "OriginRequestPolicyConfig_QueryStringsConfig_QueryStringBehavior"=@("New-CFOriginRequestPolicy","Update-CFOriginRequestPolicy")
-    "ResponseHeadersPolicyConfig_SecurityHeadersConfig_FrameOptions_FrameOption"=@("New-CFResponseHeadersPolicy","Update-CFResponseHeadersPolicy")
-    "ResponseHeadersPolicyConfig_SecurityHeadersConfig_ReferrerPolicy_ReferrerPolicy"=@("New-CFResponseHeadersPolicy","Update-CFResponseHeadersPolicy")
+    "QueryStringsConfig_QueryStringBehavior"=@("New-CFCachePolicy","New-CFOriginRequestPolicy","Update-CFCachePolicy","Update-CFOriginRequestPolicy")
+    "RealtimeMetricsSubscriptionConfig_RealtimeMetricsSubscriptionStatus"=@("New-CFMonitoringSubscription")
+    "ReferrerPolicy_ReferrerPolicy"=@("New-CFResponseHeadersPolicy","Update-CFResponseHeadersPolicy")
     "Stage"=@("Get-CFFunction","Get-CFFunctionList","Get-CFFunctionSummary","Test-CFFunction")
-    "StreamingDistributionConfig_PriceClass"=@("New-CFStreamingDistribution","Update-CFStreamingDistribution")
-    "StreamingDistributionConfigWithTags_StreamingDistributionConfig_PriceClass"=@("New-CFStreamingDistributionWithTag")
+    "StreamingDistributionConfig_PriceClass"=@("New-CFStreamingDistribution","New-CFStreamingDistributionWithTag","Update-CFStreamingDistribution")
+    "TrafficConfig_Type"=@("New-CFContinuousDeploymentPolicy","Update-CFContinuousDeploymentPolicy")
     "Type"=@("Get-CFCachePolicyList","Get-CFOriginRequestPolicyList","Get-CFResponseHeadersPolicyList")
+    "ViewerCertificate_CertificateSource"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "ViewerCertificate_MinimumProtocolVersion"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
+    "ViewerCertificate_SSLSupportMethod"=@("New-CFDistribution","New-CFDistributionWithTag","Update-CFDistribution")
 }
 
 _awsArgumentCompleterRegistration $CF_Completers $CF_map

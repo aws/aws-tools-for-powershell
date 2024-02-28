@@ -81,7 +81,7 @@ $CO_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.ComputeOptimizer.EnhancedInfrastructureMetrics
-        "Write-CORecommendationPreference/EnhancedInfrastructureMetrics"
+        "Write-CORecommendationPreference/EnhancedInfrastructureMetric"
         {
             $v = "Active","Inactive"
             break
@@ -109,7 +109,7 @@ $CO_Completers = {
         }
 
         # Amazon.ComputeOptimizer.InferredWorkloadTypesPreference
-        "Write-CORecommendationPreference/InferredWorkloadTypes"
+        "Write-CORecommendationPreference/InferredWorkloadType"
         {
             $v = "Active","Inactive"
             break
@@ -177,10 +177,10 @@ $CO_Completers = {
 }
 
 $CO_map = @{
-    "EnhancedInfrastructureMetrics"=@("Write-CORecommendationPreference")
+    "EnhancedInfrastructureMetric"=@("Write-CORecommendationPreference")
     "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
     "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation")
-    "InferredWorkloadTypes"=@("Write-CORecommendationPreference")
+    "InferredWorkloadType"=@("Write-CORecommendationPreference")
     "LookBackPeriod"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "SavingsEstimationMode"=@("Write-CORecommendationPreference")

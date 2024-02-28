@@ -82,8 +82,8 @@ $AAR_Completers = {
     {
         # Amazon.AppRunner.ConfigurationSource
         {
-            ($_ -eq "New-AARService/SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource") -Or
-            ($_ -eq "Update-AARService/SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource")
+            ($_ -eq "New-AARService/CodeConfiguration_ConfigurationSource") -Or
+            ($_ -eq "Update-AARService/CodeConfiguration_ConfigurationSource")
         }
         {
             $v = "API","REPOSITORY"
@@ -92,8 +92,8 @@ $AAR_Completers = {
 
         # Amazon.AppRunner.EgressType
         {
-            ($_ -eq "New-AARService/NetworkConfiguration_EgressConfiguration_EgressType") -Or
-            ($_ -eq "Update-AARService/NetworkConfiguration_EgressConfiguration_EgressType")
+            ($_ -eq "New-AARService/EgressConfiguration_EgressType") -Or
+            ($_ -eq "Update-AARService/EgressConfiguration_EgressType")
         }
         {
             $v = "DEFAULT","VPC"
@@ -112,8 +112,8 @@ $AAR_Completers = {
 
         # Amazon.AppRunner.ImageRepositoryType
         {
-            ($_ -eq "New-AARService/SourceConfiguration_ImageRepository_ImageRepositoryType") -Or
-            ($_ -eq "Update-AARService/SourceConfiguration_ImageRepository_ImageRepositoryType")
+            ($_ -eq "New-AARService/ImageRepository_ImageRepositoryType") -Or
+            ($_ -eq "Update-AARService/ImageRepository_ImageRepositoryType")
         }
         {
             $v = "ECR","ECR_PUBLIC"
@@ -139,8 +139,8 @@ $AAR_Completers = {
 
         # Amazon.AppRunner.Runtime
         {
-            ($_ -eq "New-AARService/SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime") -Or
-            ($_ -eq "Update-AARService/SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime")
+            ($_ -eq "New-AARService/CodeConfigurationValues_Runtime") -Or
+            ($_ -eq "Update-AARService/CodeConfigurationValues_Runtime")
         }
         {
             $v = "CORRETTO_11","CORRETTO_8","DOTNET_6","GO_1","NODEJS_12","NODEJS_14","NODEJS_16","NODEJS_18","PHP_81","PYTHON_3","PYTHON_311","RUBY_31"
@@ -149,8 +149,8 @@ $AAR_Completers = {
 
         # Amazon.AppRunner.SourceCodeVersionType
         {
-            ($_ -eq "New-AARService/SourceConfiguration_CodeRepository_SourceCodeVersion_Type") -Or
-            ($_ -eq "Update-AARService/SourceConfiguration_CodeRepository_SourceCodeVersion_Type")
+            ($_ -eq "New-AARService/SourceCodeVersion_Type") -Or
+            ($_ -eq "Update-AARService/SourceCodeVersion_Type")
         }
         {
             $v = "BRANCH"
@@ -173,14 +173,14 @@ $AAR_Completers = {
 }
 
 $AAR_map = @{
+    "CodeConfiguration_ConfigurationSource"=@("New-AARService","Update-AARService")
+    "CodeConfigurationValues_Runtime"=@("New-AARService","Update-AARService")
+    "EgressConfiguration_EgressType"=@("New-AARService","Update-AARService")
     "HealthCheckConfiguration_Protocol"=@("New-AARService","Update-AARService")
-    "NetworkConfiguration_EgressConfiguration_EgressType"=@("New-AARService","Update-AARService")
+    "ImageRepository_ImageRepositoryType"=@("New-AARService","Update-AARService")
     "NetworkConfiguration_IpAddressType"=@("New-AARService","Update-AARService")
     "ProviderType"=@("New-AARConnection")
-    "SourceConfiguration_CodeRepository_CodeConfiguration_CodeConfigurationValues_Runtime"=@("New-AARService","Update-AARService")
-    "SourceConfiguration_CodeRepository_CodeConfiguration_ConfigurationSource"=@("New-AARService","Update-AARService")
-    "SourceConfiguration_CodeRepository_SourceCodeVersion_Type"=@("New-AARService","Update-AARService")
-    "SourceConfiguration_ImageRepository_ImageRepositoryType"=@("New-AARService","Update-AARService")
+    "SourceCodeVersion_Type"=@("New-AARService","Update-AARService")
     "TraceConfiguration_Vendor"=@("New-AARObservabilityConfiguration")
 }
 

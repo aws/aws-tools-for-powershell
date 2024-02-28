@@ -110,8 +110,8 @@ $RBIN_Completers = {
 
         # Amazon.RecycleBin.UnlockDelayUnit
         {
-            ($_ -eq "Lock-RBINRule/LockConfiguration_UnlockDelay_UnlockDelayUnit") -Or
-            ($_ -eq "New-RBINRule/LockConfiguration_UnlockDelay_UnlockDelayUnit")
+            ($_ -eq "Lock-RBINRule/UnlockDelay_UnlockDelayUnit") -Or
+            ($_ -eq "New-RBINRule/UnlockDelay_UnlockDelayUnit")
         }
         {
             $v = "DAYS"
@@ -127,10 +127,10 @@ $RBIN_Completers = {
 }
 
 $RBIN_map = @{
-    "LockConfiguration_UnlockDelay_UnlockDelayUnit"=@("Lock-RBINRule","New-RBINRule")
     "LockState"=@("Get-RBINRuleList")
     "ResourceType"=@("Get-RBINRuleList","New-RBINRule","Update-RBINRule")
     "RetentionPeriod_RetentionPeriodUnit"=@("New-RBINRule","Update-RBINRule")
+    "UnlockDelay_UnlockDelayUnit"=@("Lock-RBINRule","New-RBINRule")
 }
 
 _awsArgumentCompleterRegistration $RBIN_Completers $RBIN_map

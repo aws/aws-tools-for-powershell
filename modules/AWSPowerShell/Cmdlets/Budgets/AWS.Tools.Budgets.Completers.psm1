@@ -82,8 +82,8 @@ $BGT_Completers = {
     {
         # Amazon.Budgets.ActionSubType
         {
-            ($_ -eq "New-BGTBudgetAction/Definition_SsmActionDefinition_ActionSubType") -Or
-            ($_ -eq "Update-BGTBudgetAction/Definition_SsmActionDefinition_ActionSubType")
+            ($_ -eq "New-BGTBudgetAction/SsmActionDefinition_ActionSubType") -Or
+            ($_ -eq "Update-BGTBudgetAction/SsmActionDefinition_ActionSubType")
         }
         {
             $v = "STOP_EC2_INSTANCES","STOP_RDS_INSTANCES"
@@ -109,8 +109,8 @@ $BGT_Completers = {
 
         # Amazon.Budgets.AutoAdjustType
         {
-            ($_ -eq "New-BGTBudget/Budget_AutoAdjustData_AutoAdjustType") -Or
-            ($_ -eq "Update-BGTBudget/NewBudget_AutoAdjustData_AutoAdjustType")
+            ($_ -eq "New-BGTBudget/AutoAdjustData_AutoAdjustType") -Or
+            ($_ -eq "Update-BGTBudget/AutoAdjustData_AutoAdjustType")
         }
         {
             $v = "FORECAST","HISTORICAL"
@@ -236,12 +236,10 @@ $BGT_map = @{
     "ActionThreshold_ActionThresholdType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "ActionType"=@("New-BGTBudgetAction")
     "ApprovalModel"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
-    "Budget_AutoAdjustData_AutoAdjustType"=@("New-BGTBudget")
+    "AutoAdjustData_AutoAdjustType"=@("New-BGTBudget","Update-BGTBudget")
     "Budget_BudgetType"=@("New-BGTBudget")
     "Budget_TimeUnit"=@("New-BGTBudget")
-    "Definition_SsmActionDefinition_ActionSubType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "ExecutionType"=@("Invoke-BGTBudgetAction")
-    "NewBudget_AutoAdjustData_AutoAdjustType"=@("Update-BGTBudget")
     "NewBudget_BudgetType"=@("Update-BGTBudget")
     "NewBudget_TimeUnit"=@("Update-BGTBudget")
     "NewNotification_ComparisonOperator"=@("Update-BGTNotification")
@@ -259,6 +257,7 @@ $BGT_map = @{
     "OldNotification_NotificationType"=@("Update-BGTNotification")
     "OldNotification_ThresholdType"=@("Update-BGTNotification")
     "OldSubscriber_SubscriptionType"=@("Update-BGTSubscriber")
+    "SsmActionDefinition_ActionSubType"=@("New-BGTBudgetAction","Update-BGTBudgetAction")
     "Subscriber_SubscriptionType"=@("New-BGTSubscriber","Remove-BGTSubscriber")
 }
 

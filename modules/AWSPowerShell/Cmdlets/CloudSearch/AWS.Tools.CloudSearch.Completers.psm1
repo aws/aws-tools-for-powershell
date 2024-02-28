@@ -81,7 +81,7 @@ $CS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.CloudSearch.AlgorithmicStemming
-        "Set-CSAnalysisScheme/AnalysisScheme_AnalysisOptions_AlgorithmicStemming"
+        "Set-CSAnalysisScheme/AnalysisOptions_AlgorithmicStemming"
         {
             $v = "full","light","minimal","none"
             break
@@ -109,7 +109,7 @@ $CS_Completers = {
         }
 
         # Amazon.CloudSearch.SuggesterFuzzyMatching
-        "Set-CSSuggester/Suggester_DocumentSuggesterOptions_FuzzyMatching"
+        "Set-CSSuggester/DocumentSuggesterOptions_FuzzyMatching"
         {
             $v = "high","low","none"
             break
@@ -131,12 +131,12 @@ $CS_Completers = {
 }
 
 $CS_map = @{
-    "AnalysisScheme_AnalysisOptions_AlgorithmicStemming"=@("Set-CSAnalysisScheme")
+    "AnalysisOptions_AlgorithmicStemming"=@("Set-CSAnalysisScheme")
     "AnalysisScheme_AnalysisSchemeLanguage"=@("Set-CSAnalysisScheme")
+    "DocumentSuggesterOptions_FuzzyMatching"=@("Set-CSSuggester")
     "DomainEndpointOptions_TLSSecurityPolicy"=@("Update-CSDomainEndpointOption")
     "IndexField_IndexFieldType"=@("Set-CSIndexField")
     "ScalingParameters_DesiredInstanceType"=@("Update-CSScalingParameter")
-    "Suggester_DocumentSuggesterOptions_FuzzyMatching"=@("Set-CSSuggester")
 }
 
 _awsArgumentCompleterRegistration $CS_Completers $CS_map

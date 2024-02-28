@@ -209,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_Ec2Configuration
         /// <summary>
         /// <para>
-        /// <para>Provides information that's used to select Amazon Machine Images (AMIs) for EC2 instances
-        /// in the compute environment. If <c>Ec2Configuration</c> isn't specified, the default
-        /// is <c>ECS_AL2</c>.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
+        /// <para>Provides information that's used to select Amazon Machine Images (AMIs) for Amazon
+        /// EC2 instances in the compute environment. If <c>Ec2Configuration</c> isn't specified,
+        /// the default is <c>ECS_AL2</c>.</para><para>One or two values can be provided.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't
         /// specify it.</para></note>
         /// </para>
         /// </summary>
@@ -460,11 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_Tag
         /// <summary>
         /// <para>
-        /// <para>Key-value pair tags to be applied to EC2 resources that are launched in the compute
-        /// environment. For Batch, these take the form of <c>"String1": "String2"</c>, where
-        /// <c>String1</c> is the tag key and <c>String2</c> is the tag value-for example, <c>{
-        /// "Name": "Batch Instance - C4OnDemand" }</c>. This is helpful for recognizing your
-        /// Batch instances in the Amazon EC2 console. Updating these tags requires an infrastructure
+        /// <para>Key-value pair tags to be applied to Amazon EC2 resources that are launched in the
+        /// compute environment. For Batch, these take the form of <c>"String1": "String2"</c>,
+        /// where <c>String1</c> is the tag key and <c>String2</c> is the tag value-for example,
+        /// <c>{ "Name": "Batch Instance - C4OnDemand" }</c>. This is helpful for recognizing
+        /// your Batch instances in the Amazon EC2 console. Updating these tags requires an infrastructure
         /// update to the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
         /// compute environments</a> in the <i>Batch User Guide</i>. These tags aren't seen when
         /// using the Batch <c>ListTagsForResource</c> API operation.</para><note><para>This parameter isn't applicable to jobs that are running on Fargate resources. Don't

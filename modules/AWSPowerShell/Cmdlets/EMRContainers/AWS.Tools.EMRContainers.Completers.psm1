@@ -92,8 +92,8 @@ $EMRC_Completers = {
 
         # Amazon.EMRContainers.PersistentAppUI
         {
-            ($_ -eq "New-EMRCManagedEndpoint/ConfigurationOverrides_MonitoringConfiguration_PersistentAppUI") -Or
-            ($_ -eq "Start-EMRCJobRun/ConfigurationOverrides_MonitoringConfiguration_PersistentAppUI")
+            ($_ -eq "New-EMRCManagedEndpoint/MonitoringConfiguration_PersistentAppUI") -Or
+            ($_ -eq "Start-EMRCJobRun/MonitoringConfiguration_PersistentAppUI")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -109,9 +109,9 @@ $EMRC_Completers = {
 }
 
 $EMRC_map = @{
-    "ConfigurationOverrides_MonitoringConfiguration_PersistentAppUI"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
     "ContainerProvider_Type"=@("New-EMRCVirtualCluster")
     "ContainerProviderType"=@("Get-EMRCVirtualClusterList")
+    "MonitoringConfiguration_PersistentAppUI"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
 }
 
 _awsArgumentCompleterRegistration $EMRC_Completers $EMRC_map

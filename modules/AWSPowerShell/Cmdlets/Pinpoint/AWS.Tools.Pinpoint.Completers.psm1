@@ -82,36 +82,36 @@ $PIN_Completers = {
     {
         # Amazon.Pinpoint.Action
         {
-            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_ADMMessage_Action") -Or
-            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_APNSMessage_Action") -Or
-            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_BaiduMessage_Action") -Or
-            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action") -Or
-            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_GCMMessage_Action") -Or
-            ($_ -eq "New-PINPushTemplate/PushNotificationTemplateRequest_ADM_Action") -Or
-            ($_ -eq "Update-PINPushTemplate/PushNotificationTemplateRequest_ADM_Action") -Or
-            ($_ -eq "New-PINPushTemplate/PushNotificationTemplateRequest_APNS_Action") -Or
-            ($_ -eq "Update-PINPushTemplate/PushNotificationTemplateRequest_APNS_Action") -Or
-            ($_ -eq "New-PINPushTemplate/PushNotificationTemplateRequest_Baidu_Action") -Or
-            ($_ -eq "Update-PINPushTemplate/PushNotificationTemplateRequest_Baidu_Action") -Or
-            ($_ -eq "New-PINPushTemplate/PushNotificationTemplateRequest_Default_Action") -Or
-            ($_ -eq "Update-PINPushTemplate/PushNotificationTemplateRequest_Default_Action") -Or
-            ($_ -eq "New-PINPushTemplate/PushNotificationTemplateRequest_GCM_Action") -Or
-            ($_ -eq "Update-PINPushTemplate/PushNotificationTemplateRequest_GCM_Action") -Or
-            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_ADMMessage_Action") -Or
-            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_APNSMessage_Action") -Or
-            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Action") -Or
-            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action") -Or
-            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_GCMMessage_Action") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_ADMMessage_Action") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_ADMMessage_Action") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_APNSMessage_Action") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_APNSMessage_Action") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_GCMMessage_Action") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_GCMMessage_Action")
+            ($_ -eq "New-PINPushTemplate/ADM_Action") -Or
+            ($_ -eq "Update-PINPushTemplate/ADM_Action") -Or
+            ($_ -eq "New-PINCampaign/ADMMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/ADMMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/ADMMessage_Action") -Or
+            ($_ -eq "Update-PINCampaign/ADMMessage_Action") -Or
+            ($_ -eq "New-PINPushTemplate/APNS_Action") -Or
+            ($_ -eq "Update-PINPushTemplate/APNS_Action") -Or
+            ($_ -eq "New-PINCampaign/APNSMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/APNSMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/APNSMessage_Action") -Or
+            ($_ -eq "Update-PINCampaign/APNSMessage_Action") -Or
+            ($_ -eq "New-PINPushTemplate/Baidu_Action") -Or
+            ($_ -eq "Update-PINPushTemplate/Baidu_Action") -Or
+            ($_ -eq "New-PINCampaign/BaiduMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/BaiduMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/BaiduMessage_Action") -Or
+            ($_ -eq "Update-PINCampaign/BaiduMessage_Action") -Or
+            ($_ -eq "New-PINPushTemplate/Default_Action") -Or
+            ($_ -eq "Update-PINPushTemplate/Default_Action") -Or
+            ($_ -eq "New-PINCampaign/DefaultMessage_Action") -Or
+            ($_ -eq "Update-PINCampaign/DefaultMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/DefaultPushNotificationMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/DefaultPushNotificationMessage_Action") -Or
+            ($_ -eq "New-PINPushTemplate/GCM_Action") -Or
+            ($_ -eq "Update-PINPushTemplate/GCM_Action") -Or
+            ($_ -eq "New-PINCampaign/GCMMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/GCMMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/GCMMessage_Action") -Or
+            ($_ -eq "Update-PINCampaign/GCMMessage_Action")
         }
         {
             $v = "DEEP_LINK","OPEN_APP","URL"
@@ -127,24 +127,24 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.DimensionType
         {
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType") -Or
-            ($_ -eq "New-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType") -Or
-            ($_ -eq "Update-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType") -Or
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType") -Or
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType") -Or
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType") -Or
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType") -Or
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Model_DimensionType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Model_DimensionType") -Or
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Platform_DimensionType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Platform_DimensionType") -Or
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Location_Country_DimensionType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Location_Country_DimensionType")
+            ($_ -eq "New-PINSegment/AppVersion_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/AppVersion_DimensionType") -Or
+            ($_ -eq "New-PINSegment/Channel_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/Channel_DimensionType") -Or
+            ($_ -eq "New-PINSegment/Country_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/Country_DimensionType") -Or
+            ($_ -eq "New-PINSegment/DeviceType_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/DeviceType_DimensionType") -Or
+            ($_ -eq "New-PINCampaign/EventType_DimensionType") -Or
+            ($_ -eq "New-PINJourney/EventType_DimensionType") -Or
+            ($_ -eq "Update-PINCampaign/EventType_DimensionType") -Or
+            ($_ -eq "Update-PINJourney/EventType_DimensionType") -Or
+            ($_ -eq "New-PINSegment/Make_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/Make_DimensionType") -Or
+            ($_ -eq "New-PINSegment/Model_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/Model_DimensionType") -Or
+            ($_ -eq "New-PINSegment/Platform_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/Platform_DimensionType")
         }
         {
             $v = "EXCLUSIVE","INCLUSIVE"
@@ -153,8 +153,8 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.Duration
         {
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Behavior_Recency_Duration") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Behavior_Recency_Duration")
+            ($_ -eq "New-PINSegment/Recency_Duration") -Or
+            ($_ -eq "Update-PINSegment/Recency_Duration")
         }
         {
             $v = "DAY_14","DAY_30","DAY_7","HR_24"
@@ -163,10 +163,10 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.FilterType
         {
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_FilterType") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_EventFilter_FilterType") -Or
-            ($_ -eq "New-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType") -Or
-            ($_ -eq "Update-PINJourney/WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType")
+            ($_ -eq "New-PINCampaign/EventFilter_FilterType") -Or
+            ($_ -eq "New-PINJourney/EventFilter_FilterType") -Or
+            ($_ -eq "Update-PINCampaign/EventFilter_FilterType") -Or
+            ($_ -eq "Update-PINJourney/EventFilter_FilterType")
         }
         {
             $v = "ENDPOINT","SYSTEM"
@@ -182,8 +182,8 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.Frequency
         {
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_Schedule_Frequency") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Schedule_Frequency")
+            ($_ -eq "New-PINCampaign/Schedule_Frequency") -Or
+            ($_ -eq "Update-PINCampaign/Schedule_Frequency")
         }
         {
             $v = "DAILY","EVENT","HOURLY","IN_APP_EVENT","MONTHLY","ONCE","WEEKLY"
@@ -192,8 +192,8 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.Include
         {
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_SegmentGroups_Include") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_SegmentGroups_Include")
+            ($_ -eq "New-PINSegment/SegmentGroups_Include") -Or
+            ($_ -eq "Update-PINSegment/SegmentGroups_Include")
         }
         {
             $v = "ALL","ANY","NONE"
@@ -202,10 +202,10 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.Layout
         {
+            ($_ -eq "New-PINCampaign/InAppMessage_Layout") -Or
+            ($_ -eq "Update-PINCampaign/InAppMessage_Layout") -Or
             ($_ -eq "New-PINInAppTemplate/InAppTemplateRequest_Layout") -Or
-            ($_ -eq "Update-PINInAppTemplate/InAppTemplateRequest_Layout") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout")
+            ($_ -eq "Update-PINInAppTemplate/InAppTemplateRequest_Layout")
         }
         {
             $v = "BOTTOM_BANNER","CAROUSEL","MIDDLE_BANNER","MOBILE_FEED","OVERLAYS","TOP_BANNER"
@@ -214,10 +214,10 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.MessageType
         {
-            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_SMSMessage_MessageType") -Or
-            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType")
+            ($_ -eq "New-PINCampaign/SMSMessage_MessageType") -Or
+            ($_ -eq "Send-PINMessage/SMSMessage_MessageType") -Or
+            ($_ -eq "Send-PINUserMessageBatch/SMSMessage_MessageType") -Or
+            ($_ -eq "Update-PINCampaign/SMSMessage_MessageType")
         }
         {
             $v = "PROMOTIONAL","TRANSACTIONAL"
@@ -226,9 +226,9 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.Mode
         {
-            ($_ -eq "Update-PINApplicationSettingList/WriteApplicationSettingsRequest_CampaignHook_Mode") -Or
-            ($_ -eq "New-PINCampaign/WriteCampaignRequest_Hook_Mode") -Or
-            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_Hook_Mode")
+            ($_ -eq "Update-PINApplicationSettingList/CampaignHook_Mode") -Or
+            ($_ -eq "New-PINCampaign/Hook_Mode") -Or
+            ($_ -eq "Update-PINCampaign/Hook_Mode")
         }
         {
             $v = "DELIVERY","FILTER"
@@ -237,8 +237,8 @@ $PIN_Completers = {
 
         # Amazon.Pinpoint.RecencyType
         {
-            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType") -Or
-            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType")
+            ($_ -eq "New-PINSegment/Recency_RecencyType") -Or
+            ($_ -eq "Update-PINSegment/Recency_RecencyType")
         }
         {
             $v = "ACTIVE","INACTIVE"
@@ -265,52 +265,39 @@ $PIN_Completers = {
 }
 
 $PIN_map = @{
+    "ADM_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
+    "ADMMessage_Action"=@("New-PINCampaign","Send-PINMessage","Send-PINUserMessageBatch","Update-PINCampaign")
+    "APNS_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
+    "APNSMessage_Action"=@("New-PINCampaign","Send-PINMessage","Send-PINUserMessageBatch","Update-PINCampaign")
+    "AppVersion_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "Baidu_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
+    "BaiduMessage_Action"=@("New-PINCampaign","Send-PINMessage","Send-PINUserMessageBatch","Update-PINCampaign")
+    "CampaignHook_Mode"=@("Update-PINApplicationSettingList")
+    "Channel_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "Country_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "Default_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
+    "DefaultMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
+    "DefaultPushNotificationMessage_Action"=@("Send-PINMessage","Send-PINUserMessageBatch")
+    "DeviceType_DimensionType"=@("New-PINSegment","Update-PINSegment")
     "EndpointRequest_ChannelType"=@("Update-PINEndpoint")
+    "EventFilter_FilterType"=@("New-PINCampaign","New-PINJourney","Update-PINCampaign","Update-PINJourney")
+    "EventType_DimensionType"=@("New-PINCampaign","New-PINJourney","Update-PINCampaign","Update-PINJourney")
+    "GCM_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
+    "GCMMessage_Action"=@("New-PINCampaign","Send-PINMessage","Send-PINUserMessageBatch","Update-PINCampaign")
+    "Hook_Mode"=@("New-PINCampaign","Update-PINCampaign")
     "ImportJobRequest_Format"=@("New-PINImportJob")
+    "InAppMessage_Layout"=@("New-PINCampaign","Update-PINCampaign")
     "InAppTemplateRequest_Layout"=@("New-PINInAppTemplate","Update-PINInAppTemplate")
     "JourneyStateRequest_State"=@("Update-PINJourneyState")
-    "MessageRequest_MessageConfiguration_ADMMessage_Action"=@("Send-PINMessage")
-    "MessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINMessage")
-    "MessageRequest_MessageConfiguration_BaiduMessage_Action"=@("Send-PINMessage")
-    "MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action"=@("Send-PINMessage")
-    "MessageRequest_MessageConfiguration_GCMMessage_Action"=@("Send-PINMessage")
-    "MessageRequest_MessageConfiguration_SMSMessage_MessageType"=@("Send-PINMessage")
-    "PushNotificationTemplateRequest_ADM_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
-    "PushNotificationTemplateRequest_APNS_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
-    "PushNotificationTemplateRequest_Baidu_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
-    "PushNotificationTemplateRequest_Default_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
-    "PushNotificationTemplateRequest_GCM_Action"=@("New-PINPushTemplate","Update-PINPushTemplate")
-    "SendUsersMessageRequest_MessageConfiguration_ADMMessage_Action"=@("Send-PINUserMessageBatch")
-    "SendUsersMessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINUserMessageBatch")
-    "SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Action"=@("Send-PINUserMessageBatch")
-    "SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action"=@("Send-PINUserMessageBatch")
-    "SendUsersMessageRequest_MessageConfiguration_GCMMessage_Action"=@("Send-PINUserMessageBatch")
-    "SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType"=@("Send-PINUserMessageBatch")
-    "WriteApplicationSettingsRequest_CampaignHook_Mode"=@("Update-PINApplicationSettingList")
-    "WriteCampaignRequest_Hook_Mode"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_MessageConfiguration_ADMMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_MessageConfiguration_APNSMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_MessageConfiguration_BaiduMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_MessageConfiguration_GCMMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_MessageConfiguration_InAppMessage_Layout"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_Schedule_EventFilter_Dimensions_EventType_DimensionType"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_Schedule_EventFilter_FilterType"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteCampaignRequest_Schedule_Frequency"=@("New-PINCampaign","Update-PINCampaign")
-    "WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_Dimensions_EventType_DimensionType"=@("New-PINJourney","Update-PINJourney")
-    "WriteJourneyRequest_StartCondition_EventStartCondition_EventFilter_FilterType"=@("New-PINJourney","Update-PINJourney")
+    "Make_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "Model_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "Platform_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "Recency_Duration"=@("New-PINSegment","Update-PINSegment")
+    "Recency_RecencyType"=@("New-PINSegment","Update-PINSegment")
+    "Schedule_Frequency"=@("New-PINCampaign","Update-PINCampaign")
+    "SegmentGroups_Include"=@("New-PINSegment","Update-PINSegment")
+    "SMSMessage_MessageType"=@("New-PINCampaign","Send-PINMessage","Send-PINUserMessageBatch","Update-PINCampaign")
     "WriteJourneyRequest_State"=@("New-PINJourney","Update-PINJourney")
-    "WriteSegmentRequest_Dimensions_Behavior_Recency_Duration"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Demographic_Model_DimensionType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Demographic_Platform_DimensionType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_Dimensions_Location_Country_DimensionType"=@("New-PINSegment","Update-PINSegment")
-    "WriteSegmentRequest_SegmentGroups_Include"=@("New-PINSegment","Update-PINSegment")
 }
 
 _awsArgumentCompleterRegistration $PIN_Completers $PIN_map

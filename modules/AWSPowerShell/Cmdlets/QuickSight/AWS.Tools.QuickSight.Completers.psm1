@@ -114,26 +114,26 @@ $QS_Completers = {
 
         # Amazon.QuickSight.DashboardBehavior
         {
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_VisualMenuOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_VisualMenuOption_AvailabilityStatus") -Or
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus")
+            ($_ -eq "New-QSDashboard/AdHocFilteringOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/AdHocFilteringOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DataPointDrillUpDownOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DataPointDrillUpDownOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DataPointMenuLabelOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DataPointMenuLabelOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/DataPointTooltipOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/DataPointTooltipOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/ExportHiddenFieldsOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/ExportToCSVOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/ExportToCSVOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/ExportWithHiddenFieldsOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/ExportWithHiddenFieldsOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/SheetLayoutElementMaximizationOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/SheetLayoutElementMaximizationOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/VisualAxisSortOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/VisualAxisSortOption_AvailabilityStatus") -Or
+            ($_ -eq "New-QSDashboard/VisualMenuOption_AvailabilityStatus") -Or
+            ($_ -eq "Update-QSDashboard/VisualMenuOption_AvailabilityStatus")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -142,8 +142,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.DashboardUIState
         {
-            ($_ -eq "New-QSDashboard/DashboardPublishOptions_SheetControlsOption_VisibilityState") -Or
-            ($_ -eq "Update-QSDashboard/DashboardPublishOptions_SheetControlsOption_VisibilityState")
+            ($_ -eq "New-QSDashboard/SheetControlsOption_VisibilityState") -Or
+            ($_ -eq "Update-QSDashboard/SheetControlsOption_VisibilityState")
         }
         {
             $v = "COLLAPSED","EXPANDED"
@@ -169,12 +169,12 @@ $QS_Completers = {
 
         # Amazon.QuickSight.DayOfTheWeek
         {
-            ($_ -eq "New-QSAnalysis/Definition_Options_WeekStart") -Or
-            ($_ -eq "New-QSDashboard/Definition_Options_WeekStart") -Or
-            ($_ -eq "New-QSTemplate/Definition_Options_WeekStart") -Or
-            ($_ -eq "Update-QSAnalysis/Definition_Options_WeekStart") -Or
-            ($_ -eq "Update-QSDashboard/Definition_Options_WeekStart") -Or
-            ($_ -eq "Update-QSTemplate/Definition_Options_WeekStart")
+            ($_ -eq "New-QSAnalysis/Options_WeekStart") -Or
+            ($_ -eq "New-QSDashboard/Options_WeekStart") -Or
+            ($_ -eq "New-QSTemplate/Options_WeekStart") -Or
+            ($_ -eq "Update-QSAnalysis/Options_WeekStart") -Or
+            ($_ -eq "Update-QSDashboard/Options_WeekStart") -Or
+            ($_ -eq "Update-QSTemplate/Options_WeekStart")
         }
         {
             $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
@@ -183,8 +183,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.DayOfWeek
         {
-            ($_ -eq "New-QSRefreshSchedule/Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek") -Or
-            ($_ -eq "Update-QSRefreshSchedule/Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek")
+            ($_ -eq "New-QSRefreshSchedule/RefreshOnDay_DayOfWeek") -Or
+            ($_ -eq "Update-QSRefreshSchedule/RefreshOnDay_DayOfWeek")
         }
         {
             $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
@@ -238,7 +238,7 @@ $QS_Completers = {
         }
 
         # Amazon.QuickSight.LookbackWindowSizeUnit
-        "Write-QSDataSetRefreshProperty/DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_SizeUnit"
+        "Write-QSDataSetRefreshProperty/LookbackWindow_SizeUnit"
         {
             $v = "DAY","HOUR","WEEK"
             break
@@ -256,12 +256,12 @@ $QS_Completers = {
 
         # Amazon.QuickSight.PaperOrientation
         {
-            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
-            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
-            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
-            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
-            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation") -Or
-            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation")
+            ($_ -eq "New-QSAnalysis/PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "New-QSDashboard/PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "New-QSTemplate/PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "Update-QSAnalysis/PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "Update-QSDashboard/PaperCanvasSizeOptions_PaperOrientation") -Or
+            ($_ -eq "Update-QSTemplate/PaperCanvasSizeOptions_PaperOrientation")
         }
         {
             $v = "LANDSCAPE","PORTRAIT"
@@ -270,12 +270,12 @@ $QS_Completers = {
 
         # Amazon.QuickSight.PaperSize
         {
-            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
-            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
-            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
-            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
-            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize") -Or
-            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize")
+            ($_ -eq "New-QSAnalysis/PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "New-QSDashboard/PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "New-QSTemplate/PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "Update-QSAnalysis/PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "Update-QSDashboard/PaperCanvasSizeOptions_PaperSize") -Or
+            ($_ -eq "Update-QSTemplate/PaperCanvasSizeOptions_PaperSize")
         }
         {
             $v = "A0","A1","A2","A3","A4","A5","JIS_B4","JIS_B5","US_LEGAL","US_LETTER","US_TABLOID_LEDGER"
@@ -284,8 +284,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.RefreshInterval
         {
-            ($_ -eq "New-QSRefreshSchedule/Schedule_ScheduleFrequency_Interval") -Or
-            ($_ -eq "Update-QSRefreshSchedule/Schedule_ScheduleFrequency_Interval")
+            ($_ -eq "New-QSRefreshSchedule/ScheduleFrequency_Interval") -Or
+            ($_ -eq "Update-QSRefreshSchedule/ScheduleFrequency_Interval")
         }
         {
             $v = "DAILY","HOURLY","MINUTE15","MINUTE30","MONTHLY","WEEKLY"
@@ -294,12 +294,12 @@ $QS_Completers = {
 
         # Amazon.QuickSight.ResizeOption
         {
-            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
-            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
-            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
-            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
-            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption") -Or
-            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption")
+            ($_ -eq "New-QSAnalysis/ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "New-QSDashboard/ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "New-QSTemplate/ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "Update-QSAnalysis/ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "Update-QSDashboard/ScreenCanvasSizeOptions_ResizeOption") -Or
+            ($_ -eq "Update-QSTemplate/ScreenCanvasSizeOptions_ResizeOption")
         }
         {
             $v = "FIXED","RESPONSIVE"
@@ -359,12 +359,12 @@ $QS_Completers = {
 
         # Amazon.QuickSight.SheetContentType
         {
-            ($_ -eq "New-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
-            ($_ -eq "New-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
-            ($_ -eq "New-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
-            ($_ -eq "Update-QSAnalysis/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
-            ($_ -eq "Update-QSDashboard/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType") -Or
-            ($_ -eq "Update-QSTemplate/Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType")
+            ($_ -eq "New-QSAnalysis/DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "New-QSDashboard/DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "New-QSTemplate/DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "Update-QSAnalysis/DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "Update-QSDashboard/DefaultNewSheetConfiguration_SheetContentType") -Or
+            ($_ -eq "Update-QSTemplate/DefaultNewSheetConfiguration_SheetContentType")
         }
         {
             $v = "INTERACTIVE","PAGINATED"
@@ -373,8 +373,8 @@ $QS_Completers = {
 
         # Amazon.QuickSight.StarburstProductType
         {
-            ($_ -eq "New-QSDataSource/DataSourceParameters_StarburstParameters_ProductType") -Or
-            ($_ -eq "Update-QSDataSource/DataSourceParameters_StarburstParameters_ProductType")
+            ($_ -eq "New-QSDataSource/StarburstParameters_ProductType") -Or
+            ($_ -eq "Update-QSDataSource/StarburstParameters_ProductType")
         }
         {
             $v = "ENTERPRISE","GALAXY"
@@ -453,35 +453,30 @@ $QS_Completers = {
 }
 
 $QS_map = @{
+    "AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "AssignmentStatus"=@("Get-QSIAMPolicyAssignmentList","New-QSIAMPolicyAssignment","Update-QSIAMPolicyAssignment")
     "AuthenticationMethod"=@("New-QSAccountSubscription")
-    "DashboardPublishOptions_AdHocFilteringOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_ExportWithHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_SheetLayoutElementMaximizationOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DashboardPublishOptions_VisualPublishOptions_ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
-    "DataSetRefreshProperties_RefreshConfiguration_IncrementalRefresh_LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
-    "DataSourceParameters_StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
-    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_InteractiveLayoutConfiguration_Grid_CanvasSizeOptions_ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
-    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
-    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_PaginatedLayoutConfiguration_SectionBased_CanvasSizeOptions_PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
-    "Definition_AnalysisDefaults_DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
-    "Definition_Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "DataPointDrillUpDownOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataPointMenuLabelOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DataPointTooltipOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "DefaultNewSheetConfiguration_SheetContentType"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Edition"=@("New-QSAccountSubscription")
     "ExportFormat"=@("Start-QSAssetBundleExportJob")
+    "ExportHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "ExportToCSVOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "ExportWithHiddenFieldsOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
     "FailureAction"=@("Start-QSAssetBundleImportJob")
     "FolderType"=@("New-QSFolder")
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
     "IngestionType"=@("New-QSIngestion")
+    "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")
+    "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
     "RowLevelPermissionDataSet_FormatVersion"=@("New-QSDataSet","Update-QSDataSet")
@@ -489,14 +484,19 @@ $QS_map = @{
     "RowLevelPermissionDataSet_Status"=@("New-QSDataSet","Update-QSDataSet")
     "RowLevelPermissionTagConfiguration_Status"=@("New-QSDataSet","Update-QSDataSet")
     "Schedule_RefreshType"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
-    "Schedule_ScheduleFrequency_Interval"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
-    "Schedule_ScheduleFrequency_RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
+    "ScheduleFrequency_Interval"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
+    "ScreenCanvasSizeOptions_ResizeOption"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "Service"=@("Remove-QSIdentityPropagationConfig","Update-QSIdentityPropagationConfig")
     "SharingModel"=@("New-QSFolder")
+    "SheetControlsOption_VisibilityState"=@("New-QSDashboard","Update-QSDashboard")
+    "SheetLayoutElementMaximizationOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "StarburstParameters_ProductType"=@("New-QSDataSource","Update-QSDataSource")
     "Topic_UserExperienceVersion"=@("New-QSTopic","Update-QSTopic")
     "Type"=@("Get-QSThemeList","New-QSDataSource")
     "UserRole"=@("Register-QSUser")
     "ValidationStrategy_Mode"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "VisualAxisSortOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
+    "VisualMenuOption_AvailabilityStatus"=@("New-QSDashboard","Update-QSDashboard")
 }
 
 _awsArgumentCompleterRegistration $QS_Completers $QS_map

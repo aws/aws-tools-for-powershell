@@ -121,8 +121,8 @@ $SSOADMN_Completers = {
 
         # Amazon.SSOAdmin.JwksRetrievalOption
         {
-            ($_ -eq "New-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption") -Or
-            ($_ -eq "Update-SSOADMNTrustedTokenIssuer/TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption")
+            ($_ -eq "New-SSOADMNTrustedTokenIssuer/OidcJwtConfiguration_JwksRetrievalOption") -Or
+            ($_ -eq "Update-SSOADMNTrustedTokenIssuer/OidcJwtConfiguration_JwksRetrievalOption")
         }
         {
             $v = "OPEN_ID_DISCOVERY"
@@ -163,8 +163,8 @@ $SSOADMN_Completers = {
 
         # Amazon.SSOAdmin.SignInOrigin
         {
-            ($_ -eq "New-SSOADMNApplication/PortalOptions_SignInOptions_Origin") -Or
-            ($_ -eq "Update-SSOADMNApplication/PortalOptions_SignInOptions_Origin")
+            ($_ -eq "New-SSOADMNApplication/SignInOptions_Origin") -Or
+            ($_ -eq "Update-SSOADMNApplication/SignInOptions_Origin")
         }
         {
             $v = "APPLICATION","IDENTITY_CENTER"
@@ -211,13 +211,13 @@ $SSOADMN_map = @{
     "AuthenticationMethodType"=@("Get-SSOADMNApplicationAuthenticationMethod","Remove-SSOADMNApplicationAuthenticationMethod","Write-SSOADMNApplicationAuthenticationMethod")
     "Filter_Status"=@("Get-SSOADMNAccountAssignmentCreationStatusList","Get-SSOADMNAccountAssignmentDeletionStatusList","Get-SSOADMNPermissionSetProvisioningStatusList")
     "GrantType"=@("Get-SSOADMNApplicationGrant","Remove-SSOADMNApplicationGrant","Write-SSOADMNApplicationGrant")
-    "PortalOptions_SignInOptions_Origin"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
+    "OidcJwtConfiguration_JwksRetrievalOption"=@("New-SSOADMNTrustedTokenIssuer","Update-SSOADMNTrustedTokenIssuer")
     "PortalOptions_Visibility"=@("New-SSOADMNApplication")
     "PrincipalType"=@("Get-SSOADMNAccountAssignmentsForPrincipalList","Get-SSOADMNApplicationAssignment","Get-SSOADMNApplicationAssignmentsForPrincipalList","New-SSOADMNAccountAssignment","New-SSOADMNApplicationAssignment","Remove-SSOADMNAccountAssignment","Remove-SSOADMNApplicationAssignment")
     "ProvisioningStatus"=@("Get-SSOADMNAccountsForProvisionedPermissionSetList","Get-SSOADMNPermissionSetsProvisionedToAccountList")
+    "SignInOptions_Origin"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "Status"=@("New-SSOADMNApplication","Update-SSOADMNApplication")
     "TargetType"=@("Add-SSOADMNPermissionSetProvision","New-SSOADMNAccountAssignment","Remove-SSOADMNAccountAssignment")
-    "TrustedTokenIssuerConfiguration_OidcJwtConfiguration_JwksRetrievalOption"=@("New-SSOADMNTrustedTokenIssuer","Update-SSOADMNTrustedTokenIssuer")
     "TrustedTokenIssuerType"=@("New-SSOADMNTrustedTokenIssuer")
 }
 

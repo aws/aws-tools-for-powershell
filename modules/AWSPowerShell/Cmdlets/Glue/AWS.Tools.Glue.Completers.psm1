@@ -81,14 +81,14 @@ $GLUE_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Glue.CatalogEncryptionMode
-        "Set-GLUEDataCatalogEncryptionSetting/DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"
+        "Set-GLUEDataCatalogEncryptionSetting/EncryptionAtRest_CatalogEncryptionMode"
         {
             $v = "DISABLED","SSE-KMS","SSE-KMS-WITH-SERVICE-ROLE"
             break
         }
 
         # Amazon.Glue.CloudWatchEncryptionMode
-        "New-GLUESecurityConfiguration/EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"
+        "New-GLUESecurityConfiguration/CloudWatchEncryption_CloudWatchEncryptionMode"
         {
             $v = "DISABLED","SSE-KMS"
             break
@@ -106,8 +106,8 @@ $GLUE_Completers = {
 
         # Amazon.Glue.CrawlerLineageSettings
         {
-            ($_ -eq "New-GLUECrawler/LineageConfiguration_CrawlerLineageSettings") -Or
-            ($_ -eq "Update-GLUECrawler/LineageConfiguration_CrawlerLineageSettings")
+            ($_ -eq "New-GLUECrawler/LineageConfiguration_CrawlerLineageSetting") -Or
+            ($_ -eq "Update-GLUECrawler/LineageConfiguration_CrawlerLineageSetting")
         }
         {
             $v = "DISABLE","ENABLE"
@@ -169,7 +169,7 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.JobBookmarksEncryptionMode
-        "New-GLUESecurityConfiguration/EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"
+        "New-GLUESecurityConfiguration/JobBookmarksEncryption_JobBookmarksEncryptionMode"
         {
             $v = "CSE-KMS","DISABLED"
             break
@@ -186,14 +186,14 @@ $GLUE_Completers = {
         }
 
         # Amazon.Glue.MetadataOperation
-        "New-GLUETable/OpenTableFormatInput_IcebergInput_MetadataOperation"
+        "New-GLUETable/IcebergInput_MetadataOperation"
         {
             $v = "CREATE"
             break
         }
 
         # Amazon.Glue.MLUserDataEncryptionModeString
-        "New-GLUEMLTransform/TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"
+        "New-GLUEMLTransform/MlUserDataEncryption_MlUserDataEncryptionMode"
         {
             $v = "DISABLED","SSE-KMS"
             break
@@ -363,21 +363,22 @@ $GLUE_Completers = {
 
 $GLUE_map = @{
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
+    "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
     "CsvClassifier_ContainsHeader"=@("New-GLUEClassifier","Update-GLUEClassifier")
     "CsvClassifier_Serde"=@("New-GLUEClassifier","Update-GLUEClassifier")
-    "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "DataFormat"=@("Get-GLUESchemaVersionValidity","New-GLUESchema")
     "EnableHybrid"=@("Set-GLUEResourcePolicy")
-    "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
-    "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
+    "EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
     "ExecutionClass"=@("New-GLUEJob","Start-GLUEJobRun")
     "Filter_Status"=@("Get-GLUEMLTaskRunList","Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
+    "IcebergInput_MetadataOperation"=@("New-GLUETable")
+    "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
-    "LineageConfiguration_CrawlerLineageSettings"=@("New-GLUECrawler","Update-GLUECrawler")
-    "OpenTableFormatInput_IcebergInput_MetadataOperation"=@("New-GLUETable")
+    "LineageConfiguration_CrawlerLineageSetting"=@("New-GLUECrawler","Update-GLUECrawler")
+    "MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
@@ -389,7 +390,6 @@ $GLUE_map = @{
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
-    "TransformEncryption_MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }

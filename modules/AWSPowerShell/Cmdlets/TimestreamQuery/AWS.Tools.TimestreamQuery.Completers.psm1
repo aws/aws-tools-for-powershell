@@ -81,7 +81,7 @@ $TSQ_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.TimestreamQuery.S3EncryptionOption
-        "New-TSQScheduledQuery/ErrorReportConfiguration_S3Configuration_EncryptionOption"
+        "New-TSQScheduledQuery/S3Configuration_EncryptionOption"
         {
             $v = "SSE_KMS","SSE_S3"
             break
@@ -103,7 +103,7 @@ $TSQ_Completers = {
 }
 
 $TSQ_map = @{
-    "ErrorReportConfiguration_S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
+    "S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
     "State"=@("Update-TSQScheduledQuery")
 }
 

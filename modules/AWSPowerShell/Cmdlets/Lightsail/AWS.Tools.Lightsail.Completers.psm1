@@ -188,10 +188,10 @@ $LS_Completers = {
 
         # Amazon.Lightsail.ForwardValues
         {
-            ($_ -eq "New-LSDistribution/CacheBehaviorSettings_ForwardedCookies_Option") -Or
-            ($_ -eq "Update-LSDistribution/CacheBehaviorSettings_ForwardedCookies_Option") -Or
-            ($_ -eq "New-LSDistribution/CacheBehaviorSettings_ForwardedHeaders_Option") -Or
-            ($_ -eq "Update-LSDistribution/CacheBehaviorSettings_ForwardedHeaders_Option")
+            ($_ -eq "New-LSDistribution/ForwardedCookies_Option") -Or
+            ($_ -eq "Update-LSDistribution/ForwardedCookies_Option") -Or
+            ($_ -eq "New-LSDistribution/ForwardedHeaders_Option") -Or
+            ($_ -eq "Update-LSDistribution/ForwardedHeaders_Option")
         }
         {
             $v = "all","allow-list","none"
@@ -213,7 +213,7 @@ $LS_Completers = {
         }
 
         # Amazon.Lightsail.HttpTokens
-        "Update-LSInstanceMetadataOption/HttpTokens"
+        "Update-LSInstanceMetadataOption/HttpToken"
         {
             $v = "optional","required"
             break
@@ -361,14 +361,14 @@ $LS_map = @{
     "AddOnType"=@("Disable-LSAddOn")
     "AppCategory"=@("Get-LSBlueprintList","Get-LSBundleList")
     "AttributeName"=@("Update-LSLoadBalancerAttribute")
-    "CacheBehaviorSettings_ForwardedCookies_Option"=@("New-LSDistribution","Update-LSDistribution")
-    "CacheBehaviorSettings_ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
     "CertificateProvider"=@("Set-LSInstanceHttp")
     "ComparisonOperator"=@("Add-LSAlarm")
     "DefaultCacheBehavior_Behavior"=@("New-LSDistribution","Update-LSDistribution")
+    "ForwardedCookies_Option"=@("New-LSDistribution","Update-LSDistribution")
+    "ForwardedHeaders_Option"=@("New-LSDistribution","Update-LSDistribution")
     "HttpEndpoint"=@("Update-LSInstanceMetadataOption")
     "HttpProtocolIpv6"=@("Update-LSInstanceMetadataOption")
-    "HttpTokens"=@("Update-LSInstanceMetadataOption")
+    "HttpToken"=@("Update-LSInstanceMetadataOption")
     "IpAddressType"=@("New-LSDistribution","New-LSInstance","New-LSInstancesFromSnapshot","New-LSLoadBalancer","Set-LSIpAddressType")
     "MetricName"=@("Add-LSAlarm","Get-LSBucketMetricData","Get-LSContainerServiceMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
     "Origin_ProtocolPolicy"=@("New-LSDistribution","Update-LSDistribution")

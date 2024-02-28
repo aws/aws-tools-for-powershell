@@ -82,8 +82,8 @@ $AMPB_Completers = {
     {
         # Amazon.AmplifyBackend.AuthResources
         {
-            ($_ -eq "New-AMPBBackendAuth/ResourceConfig_AuthResources") -Or
-            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_AuthResources")
+            ($_ -eq "New-AMPBBackendAuth/ResourceConfig_AuthResource") -Or
+            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_AuthResource")
         }
         {
             $v = "IDENTITY_POOL_AND_USER_POOL","USER_POOL_ONLY"
@@ -92,10 +92,10 @@ $AMPB_Completers = {
 
         # Amazon.AmplifyBackend.DeliveryMethod
         {
-            ($_ -eq "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod") -Or
-            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod") -Or
-            ($_ -eq "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod") -Or
-            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod")
+            ($_ -eq "New-AMPBBackendAuth/ForgotPassword_DeliveryMethod") -Or
+            ($_ -eq "Update-AMPBBackendAuth/ForgotPassword_DeliveryMethod") -Or
+            ($_ -eq "New-AMPBBackendAuth/VerificationMessage_DeliveryMethod") -Or
+            ($_ -eq "Update-AMPBBackendAuth/VerificationMessage_DeliveryMethod")
         }
         {
             $v = "EMAIL","SMS"
@@ -104,8 +104,8 @@ $AMPB_Completers = {
 
         # Amazon.AmplifyBackend.MFAMode
         {
-            ($_ -eq "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_Mfa_MFAMode") -Or
-            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_Mfa_MFAMode")
+            ($_ -eq "New-AMPBBackendAuth/Mfa_MFAMode") -Or
+            ($_ -eq "Update-AMPBBackendAuth/Mfa_MFAMode")
         }
         {
             $v = "OFF","ON","OPTIONAL"
@@ -114,10 +114,10 @@ $AMPB_Completers = {
 
         # Amazon.AmplifyBackend.Mode
         {
-            ($_ -eq "Get-AMPBBackendAPI/ResourceConfig_DefaultAuthType_Mode") -Or
-            ($_ -eq "New-AMPBBackendAPI/ResourceConfig_DefaultAuthType_Mode") -Or
-            ($_ -eq "Remove-AMPBBackendAPI/ResourceConfig_DefaultAuthType_Mode") -Or
-            ($_ -eq "Update-AMPBBackendAPI/ResourceConfig_DefaultAuthType_Mode")
+            ($_ -eq "Get-AMPBBackendAPI/DefaultAuthType_Mode") -Or
+            ($_ -eq "New-AMPBBackendAPI/DefaultAuthType_Mode") -Or
+            ($_ -eq "Remove-AMPBBackendAPI/DefaultAuthType_Mode") -Or
+            ($_ -eq "Update-AMPBBackendAPI/DefaultAuthType_Mode")
         }
         {
             $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM","OPENID_CONNECT"
@@ -126,8 +126,8 @@ $AMPB_Completers = {
 
         # Amazon.AmplifyBackend.OAuthGrantType
         {
-            ($_ -eq "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_OAuth_OAuthGrantType") -Or
-            ($_ -eq "Update-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_OAuth_OAuthGrantType")
+            ($_ -eq "New-AMPBBackendAuth/OAuth_OAuthGrantType") -Or
+            ($_ -eq "Update-AMPBBackendAuth/OAuth_OAuthGrantType")
         }
         {
             $v = "CODE","IMPLICIT"
@@ -136,10 +136,10 @@ $AMPB_Completers = {
 
         # Amazon.AmplifyBackend.ResolutionStrategy
         {
-            ($_ -eq "Get-AMPBBackendAPI/ResourceConfig_ConflictResolution_ResolutionStrategy") -Or
-            ($_ -eq "New-AMPBBackendAPI/ResourceConfig_ConflictResolution_ResolutionStrategy") -Or
-            ($_ -eq "Remove-AMPBBackendAPI/ResourceConfig_ConflictResolution_ResolutionStrategy") -Or
-            ($_ -eq "Update-AMPBBackendAPI/ResourceConfig_ConflictResolution_ResolutionStrategy")
+            ($_ -eq "Get-AMPBBackendAPI/ConflictResolution_ResolutionStrategy") -Or
+            ($_ -eq "New-AMPBBackendAPI/ConflictResolution_ResolutionStrategy") -Or
+            ($_ -eq "Remove-AMPBBackendAPI/ConflictResolution_ResolutionStrategy") -Or
+            ($_ -eq "Update-AMPBBackendAPI/ConflictResolution_ResolutionStrategy")
         }
         {
             $v = "AUTOMERGE","LAMBDA","NONE","OPTIMISTIC_CONCURRENCY"
@@ -169,7 +169,7 @@ $AMPB_Completers = {
         }
 
         # Amazon.AmplifyBackend.SignInMethod
-        "New-AMPBBackendAuth/ResourceConfig_UserPoolConfigs_SignInMethod"
+        "New-AMPBBackendAuth/UserPoolConfigs_SignInMethod"
         {
             $v = "EMAIL","EMAIL_AND_PHONE_NUMBER","PHONE_NUMBER","USERNAME"
             break
@@ -184,17 +184,17 @@ $AMPB_Completers = {
 }
 
 $AMPB_map = @{
-    "ResourceConfig_AuthResources"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
-    "ResourceConfig_ConflictResolution_ResolutionStrategy"=@("Get-AMPBBackendAPI","New-AMPBBackendAPI","Remove-AMPBBackendAPI","Update-AMPBBackendAPI")
-    "ResourceConfig_DefaultAuthType_Mode"=@("Get-AMPBBackendAPI","New-AMPBBackendAPI","Remove-AMPBBackendAPI","Update-AMPBBackendAPI")
+    "ConflictResolution_ResolutionStrategy"=@("Get-AMPBBackendAPI","New-AMPBBackendAPI","Remove-AMPBBackendAPI","Update-AMPBBackendAPI")
+    "DefaultAuthType_Mode"=@("Get-AMPBBackendAPI","New-AMPBBackendAPI","Remove-AMPBBackendAPI","Update-AMPBBackendAPI")
+    "ForgotPassword_DeliveryMethod"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
+    "Mfa_MFAMode"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
+    "OAuth_OAuthGrantType"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
+    "ResourceConfig_AuthResource"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ResourceConfig_Service"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ResourceConfig_ServiceName"=@("New-AMPBBackendStorage","Update-AMPBBackendStorage")
-    "ResourceConfig_UserPoolConfigs_ForgotPassword_DeliveryMethod"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
-    "ResourceConfig_UserPoolConfigs_Mfa_MFAMode"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
-    "ResourceConfig_UserPoolConfigs_OAuth_OAuthGrantType"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
-    "ResourceConfig_UserPoolConfigs_SignInMethod"=@("New-AMPBBackendAuth")
-    "ResourceConfig_UserPoolConfigs_VerificationMessage_DeliveryMethod"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
     "ServiceName"=@("Import-AMPBBackendStorage","Remove-AMPBBackendStorage")
+    "UserPoolConfigs_SignInMethod"=@("New-AMPBBackendAuth")
+    "VerificationMessage_DeliveryMethod"=@("New-AMPBBackendAuth","Update-AMPBBackendAuth")
 }
 
 _awsArgumentCompleterRegistration $AMPB_Completers $AMPB_map

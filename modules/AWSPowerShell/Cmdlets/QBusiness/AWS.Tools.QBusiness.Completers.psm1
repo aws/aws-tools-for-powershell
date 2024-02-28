@@ -99,10 +99,10 @@ $QBUS_Completers = {
 
         # Amazon.QBusiness.DocumentEnrichmentConditionOperator
         {
-            ($_ -eq "New-QBUSDataSource/DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
-            ($_ -eq "Update-QBUSDataSource/DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator") -Or
-            ($_ -eq "New-QBUSDataSource/DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator") -Or
-            ($_ -eq "Update-QBUSDataSource/DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator")
+            ($_ -eq "New-QBUSDataSource/DocumentEnrichmentConfiguration_PostInvocationCondition_Operator") -Or
+            ($_ -eq "Update-QBUSDataSource/DocumentEnrichmentConfiguration_PostInvocationCondition_Operator") -Or
+            ($_ -eq "New-QBUSDataSource/DocumentEnrichmentConfiguration_PreInvocationCondition_Operator") -Or
+            ($_ -eq "Update-QBUSDataSource/DocumentEnrichmentConfiguration_PreInvocationCondition_Operator")
         }
         {
             $v = "BEGINS_WITH","CONTAINS","EQUALS","EXISTS","GREATER_THAN","GREATER_THAN_OR_EQUALS","LESS_THAN","LESS_THAN_OR_EQUALS","NOT_CONTAINS","NOT_EQUALS","NOT_EXISTS"
@@ -178,8 +178,8 @@ $QBUS_Completers = {
 
 $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
-    "DocumentEnrichmentConfiguration_PostExtractionHookConfiguration_InvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
-    "DocumentEnrichmentConfiguration_PreExtractionHookConfiguration_InvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
     "ResponseScope"=@("Update-QBUSChatControlsConfiguration")

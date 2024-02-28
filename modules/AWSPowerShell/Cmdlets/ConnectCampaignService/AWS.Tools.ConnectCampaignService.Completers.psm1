@@ -88,7 +88,7 @@ $CCS_Completers = {
         }
 
         # Amazon.ConnectCampaignService.InstanceIdFilterOperator
-        "Get-CCSCampaignList/Filters_InstanceIdFilter_Operator"
+        "Get-CCSCampaignList/InstanceIdFilter_Operator"
         {
             $v = "Eq"
             break
@@ -104,7 +104,7 @@ $CCS_Completers = {
 
 $CCS_map = @{
     "EncryptionConfig_EncryptionType"=@("Start-CCSInstanceOnboardingJob")
-    "Filters_InstanceIdFilter_Operator"=@("Get-CCSCampaignList")
+    "InstanceIdFilter_Operator"=@("Get-CCSCampaignList")
 }
 
 _awsArgumentCompleterRegistration $CCS_Completers $CCS_map

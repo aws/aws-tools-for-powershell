@@ -120,8 +120,8 @@ $COMP_Completers = {
 
         # Amazon.Comprehend.DocumentClassifierMode
         {
-            ($_ -eq "New-COMPDocumentClassifier/Mode") -Or
-            ($_ -eq "New-COMPFlywheel/TaskConfig_DocumentClassificationConfig_Mode")
+            ($_ -eq "New-COMPFlywheel/DocumentClassificationConfig_Mode") -Or
+            ($_ -eq "New-COMPDocumentClassifier/Mode")
         }
         {
             $v = "MULTI_CLASS","MULTI_LABEL"
@@ -132,7 +132,7 @@ $COMP_Completers = {
         {
             ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadAction") -Or
             ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadAction") -Or
-            ($_ -eq "New-COMPDocumentClassifier/InputDataConfig_DocumentReaderConfig_DocumentReadAction")
+            ($_ -eq "New-COMPDocumentClassifier/DocumentReaderConfig_DocumentReadAction")
         }
         {
             $v = "TEXTRACT_ANALYZE_DOCUMENT","TEXTRACT_DETECT_DOCUMENT_TEXT"
@@ -143,7 +143,7 @@ $COMP_Completers = {
         {
             ($_ -eq "Find-COMPEntity/DocumentReaderConfig_DocumentReadMode") -Or
             ($_ -eq "Invoke-COMPDocumentClassification/DocumentReaderConfig_DocumentReadMode") -Or
-            ($_ -eq "New-COMPDocumentClassifier/InputDataConfig_DocumentReaderConfig_DocumentReadMode")
+            ($_ -eq "New-COMPDocumentClassifier/DocumentReaderConfig_DocumentReadMode")
         }
         {
             $v = "FORCE_DOCUMENT_READ_ACTION","SERVICE_DEFAULT"
@@ -173,8 +173,8 @@ $COMP_Completers = {
 
         # Amazon.Comprehend.InputFormat
         {
-            ($_ -eq "New-COMPEntityRecognizer/InputDataConfig_Documents_InputFormat") -Or
-            ($_ -eq "New-COMPDataset/InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat")
+            ($_ -eq "New-COMPDataset/Documents_InputFormat") -Or
+            ($_ -eq "New-COMPEntityRecognizer/Documents_InputFormat")
         }
         {
             $v = "ONE_DOC_PER_FILE","ONE_DOC_PER_LINE"
@@ -271,22 +271,19 @@ $COMP_Completers = {
 
 $COMP_map = @{
     "DatasetType"=@("New-COMPDataset")
-    "DocumentReaderConfig_DocumentReadAction"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
-    "DocumentReaderConfig_DocumentReadMode"=@("Find-COMPEntity","Invoke-COMPDocumentClassification")
+    "DocumentClassificationConfig_Mode"=@("New-COMPFlywheel")
+    "DocumentReaderConfig_DocumentReadAction"=@("Find-COMPEntity","Invoke-COMPDocumentClassification","New-COMPDocumentClassifier")
+    "DocumentReaderConfig_DocumentReadMode"=@("Find-COMPEntity","Invoke-COMPDocumentClassification","New-COMPDocumentClassifier")
+    "Documents_InputFormat"=@("New-COMPDataset","New-COMPEntityRecognizer")
     "Filter_DatasetType"=@("Get-COMPDatasetList")
     "Filter_JobStatus"=@("Get-COMPDocumentClassificationJobList","Get-COMPEventsDetectionJobList","Get-COMPTargetedSentimentDetectionJobList")
     "Filter_Status"=@("Get-COMPDatasetList","Get-COMPDocumentClassifierList","Get-COMPEndpointList","Get-COMPEntityRecognizerList","Get-COMPFlywheelList")
     "InputDataConfig_DataFormat"=@("New-COMPDataset","New-COMPDocumentClassifier","New-COMPEntityRecognizer")
-    "InputDataConfig_DocumentReaderConfig_DocumentReadAction"=@("New-COMPDocumentClassifier")
-    "InputDataConfig_DocumentReaderConfig_DocumentReadMode"=@("New-COMPDocumentClassifier")
-    "InputDataConfig_Documents_InputFormat"=@("New-COMPEntityRecognizer")
     "InputDataConfig_DocumentType"=@("New-COMPDocumentClassifier")
-    "InputDataConfig_EntityRecognizerInputDataConfig_Documents_InputFormat"=@("New-COMPDataset")
     "LanguageCode"=@("Find-COMPEntity","Find-COMPEntityBatch","Find-COMPKeyPhrase","Find-COMPKeyPhrasesBatch","Find-COMPPiiEntity","Find-COMPPiiEntityType","Find-COMPSentiment","Find-COMPSentimentBatch","Find-COMPSyntax","Find-COMPSyntaxBatch","Find-COMPTargetedSentiment","Find-COMPTargetedSentimentBatch","Find-COMPToxicContent","New-COMPDocumentClassifier","New-COMPEntityRecognizer","Start-COMPEntitiesDetectionJob","Start-COMPEventsDetectionJob","Start-COMPKeyPhrasesDetectionJob","Start-COMPPiiEntitiesDetectionJob","Start-COMPSentimentDetectionJob","Start-COMPTargetedSentimentDetectionJob")
     "Mode"=@("New-COMPDocumentClassifier","Start-COMPPiiEntitiesDetectionJob")
     "ModelType"=@("New-COMPFlywheel")
     "RedactionConfig_MaskMode"=@("Start-COMPPiiEntitiesDetectionJob")
-    "TaskConfig_DocumentClassificationConfig_Mode"=@("New-COMPFlywheel")
     "TaskConfig_LanguageCode"=@("New-COMPFlywheel")
 }
 

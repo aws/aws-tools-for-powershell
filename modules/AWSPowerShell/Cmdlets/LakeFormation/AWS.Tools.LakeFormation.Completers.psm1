@@ -120,15 +120,15 @@ $LKF_Completers = {
 
         # Amazon.LakeFormation.ResourceType
         {
-            ($_ -eq "Add-LKFLFTagsToResource/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Get-LKFLakeFormationOptInList/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Get-LKFPermissionList/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Get-LKFResourceLFTag/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Grant-LKFPermission/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "New-LKFLakeFormationOptIn/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Remove-LKFLakeFormationOptIn/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Remove-LKFLFTagsFromResource/Resource_LFTagPolicy_ResourceType") -Or
-            ($_ -eq "Revoke-LKFPermission/Resource_LFTagPolicy_ResourceType")
+            ($_ -eq "Add-LKFLFTagsToResource/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Get-LKFLakeFormationOptInList/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Get-LKFPermissionList/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Get-LKFResourceLFTag/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Grant-LKFPermission/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "New-LKFLakeFormationOptIn/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Remove-LKFLakeFormationOptIn/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Remove-LKFLFTagsFromResource/LFTagPolicy_ResourceType") -Or
+            ($_ -eq "Revoke-LKFPermission/LFTagPolicy_ResourceType")
         }
         {
             $v = "DATABASE","TABLE"
@@ -160,7 +160,7 @@ $LKF_Completers = {
 $LKF_map = @{
     "ApplicationStatus"=@("Update-LKFLakeFormationIdentityCenterConfiguration")
     "ExternalFiltering_Status"=@("New-LKFLakeFormationIdentityCenterConfiguration","Update-LKFLakeFormationIdentityCenterConfiguration")
-    "Resource_LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
+    "LFTagPolicy_ResourceType"=@("Add-LKFLFTagsToResource","Get-LKFLakeFormationOptInList","Get-LKFPermissionList","Get-LKFResourceLFTag","Grant-LKFPermission","New-LKFLakeFormationOptIn","Remove-LKFLakeFormationOptIn","Remove-LKFLFTagsFromResource","Revoke-LKFPermission")
     "ResourceShareType"=@("Get-LKFLFTagList")
     "ResourceType"=@("Get-LKFPermissionList")
     "StatusFilter"=@("Get-LKFTransactionList")

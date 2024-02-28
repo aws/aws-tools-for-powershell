@@ -81,7 +81,7 @@ $GD_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.GuardDuty.AutoEnableMembers
-        "Update-GDOrganizationConfiguration/AutoEnableOrganizationMembers"
+        "Update-GDOrganizationConfiguration/AutoEnableOrganizationMember"
         {
             $v = "ALL","NEW","NONE"
             break
@@ -173,7 +173,7 @@ $GD_Completers = {
 
 $GD_map = @{
     "Action"=@("New-GDFilter","Update-GDFilter")
-    "AutoEnableOrganizationMembers"=@("Update-GDOrganizationConfiguration")
+    "AutoEnableOrganizationMember"=@("Update-GDOrganizationConfiguration")
     "DestinationType"=@("New-GDPublishingDestination")
     "EbsSnapshotPreservation"=@("Update-GDMalwareScanSetting")
     "Feedback"=@("Update-GDFindingFeedback")

@@ -82,8 +82,8 @@ $LRSV2_Completers = {
     {
         # Amazon.LexRuntimeV2.ConfirmationState
         {
-            ($_ -eq "Send-LRSV2Text/SessionStateValue_Intent_ConfirmationState") -Or
-            ($_ -eq "Write-LRSV2Session/SessionStateValue_Intent_ConfirmationState")
+            ($_ -eq "Send-LRSV2Text/Intent_ConfirmationState") -Or
+            ($_ -eq "Write-LRSV2Session/Intent_ConfirmationState")
         }
         {
             $v = "Confirmed","Denied","None"
@@ -92,8 +92,8 @@ $LRSV2_Completers = {
 
         # Amazon.LexRuntimeV2.DialogActionType
         {
-            ($_ -eq "Send-LRSV2Text/SessionStateValue_DialogAction_Type") -Or
-            ($_ -eq "Write-LRSV2Session/SessionStateValue_DialogAction_Type")
+            ($_ -eq "Send-LRSV2Text/DialogAction_Type") -Or
+            ($_ -eq "Write-LRSV2Session/DialogAction_Type")
         }
         {
             $v = "Close","ConfirmIntent","Delegate","ElicitIntent","ElicitSlot","None"
@@ -102,8 +102,8 @@ $LRSV2_Completers = {
 
         # Amazon.LexRuntimeV2.IntentState
         {
-            ($_ -eq "Send-LRSV2Text/SessionStateValue_Intent_State") -Or
-            ($_ -eq "Write-LRSV2Session/SessionStateValue_Intent_State")
+            ($_ -eq "Send-LRSV2Text/Intent_State") -Or
+            ($_ -eq "Write-LRSV2Session/Intent_State")
         }
         {
             $v = "Failed","Fulfilled","FulfillmentInProgress","InProgress","ReadyForFulfillment","Waiting"
@@ -112,8 +112,8 @@ $LRSV2_Completers = {
 
         # Amazon.LexRuntimeV2.StyleType
         {
-            ($_ -eq "Send-LRSV2Text/SessionStateValue_DialogAction_SlotElicitationStyle") -Or
-            ($_ -eq "Write-LRSV2Session/SessionStateValue_DialogAction_SlotElicitationStyle")
+            ($_ -eq "Send-LRSV2Text/DialogAction_SlotElicitationStyle") -Or
+            ($_ -eq "Write-LRSV2Session/DialogAction_SlotElicitationStyle")
         }
         {
             $v = "Default","SpellByLetter","SpellByWord"
@@ -129,10 +129,10 @@ $LRSV2_Completers = {
 }
 
 $LRSV2_map = @{
-    "SessionStateValue_DialogAction_SlotElicitationStyle"=@("Send-LRSV2Text","Write-LRSV2Session")
-    "SessionStateValue_DialogAction_Type"=@("Send-LRSV2Text","Write-LRSV2Session")
-    "SessionStateValue_Intent_ConfirmationState"=@("Send-LRSV2Text","Write-LRSV2Session")
-    "SessionStateValue_Intent_State"=@("Send-LRSV2Text","Write-LRSV2Session")
+    "DialogAction_SlotElicitationStyle"=@("Send-LRSV2Text","Write-LRSV2Session")
+    "DialogAction_Type"=@("Send-LRSV2Text","Write-LRSV2Session")
+    "Intent_ConfirmationState"=@("Send-LRSV2Text","Write-LRSV2Session")
+    "Intent_State"=@("Send-LRSV2Text","Write-LRSV2Session")
 }
 
 _awsArgumentCompleterRegistration $LRSV2_Completers $LRSV2_map

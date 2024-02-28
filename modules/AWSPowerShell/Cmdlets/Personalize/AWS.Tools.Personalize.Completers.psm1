@@ -113,7 +113,7 @@ $PERS_Completers = {
         }
 
         # Amazon.Personalize.ObjectiveSensitivity
-        "New-PERSSolution/SolutionConfig_OptimizationObjective_ObjectiveSensitivity"
+        "New-PERSSolution/OptimizationObjective_ObjectiveSensitivity"
         {
             $v = "HIGH","LOW","MEDIUM","OFF"
             break
@@ -146,8 +146,8 @@ $PERS_map = @{
     "Domain"=@("Get-PERSRecipeList","New-PERSDatasetGroup","New-PERSSchema")
     "ImportMode"=@("New-PERSDatasetImportJob")
     "IngestionMode"=@("New-PERSDatasetExportJob")
+    "OptimizationObjective_ObjectiveSensitivity"=@("New-PERSSolution")
     "RecipeProvider"=@("Get-PERSRecipeList")
-    "SolutionConfig_OptimizationObjective_ObjectiveSensitivity"=@("New-PERSSolution")
     "TrainingMode"=@("New-PERSSolutionVersion")
 }
 

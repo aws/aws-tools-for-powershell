@@ -88,7 +88,7 @@ $SHUB_Completers = {
         }
 
         # Amazon.SecurityHub.AutoEnableStandards
-        "Update-SHUBOrganizationConfiguration/AutoEnableStandards"
+        "Update-SHUBOrganizationConfiguration/AutoEnableStandard"
         {
             $v = "DEFAULT","NONE"
             break
@@ -176,7 +176,7 @@ $SHUB_Completers = {
 }
 
 $SHUB_map = @{
-    "AutoEnableStandards"=@("Update-SHUBOrganizationConfiguration")
+    "AutoEnableStandard"=@("Update-SHUBOrganizationConfiguration")
     "ControlFindingGenerator"=@("Enable-SHUBSecurityHub","Update-SHUBSecurityHubConfiguration")
     "ControlStatus"=@("Update-SHUBStandardsControl")
     "Filters_AssociationStatus"=@("Get-SHUBConfigurationPolicyAssociationList")

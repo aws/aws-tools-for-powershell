@@ -95,7 +95,7 @@ $BDR_Completers = {
         }
 
         # Amazon.Bedrock.FineTuningJobStatus
-        "Get-BDRModelCustomizationJobList/StatusEquals"
+        "Get-BDRModelCustomizationJobList/StatusEqual"
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
@@ -123,7 +123,7 @@ $BDR_Completers = {
         }
 
         # Amazon.Bedrock.ProvisionedModelStatus
-        "Get-BDRProvisionedModelThroughputList/StatusEquals"
+        "Get-BDRProvisionedModelThroughputList/StatusEqual"
         {
             $v = "Creating","Failed","InService","Updating"
             break
@@ -177,7 +177,7 @@ $BDR_map = @{
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "SortBy"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
     "SortOrder"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
-    "StatusEquals"=@("Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusEqual"=@("Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
 }
 
 _awsArgumentCompleterRegistration $BDR_Completers $BDR_map

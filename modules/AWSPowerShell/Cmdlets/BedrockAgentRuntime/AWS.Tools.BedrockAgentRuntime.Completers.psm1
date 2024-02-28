@@ -87,6 +87,16 @@ $BAR_Completers = {
             break
         }
 
+        # Amazon.BedrockAgentRuntime.SearchType
+        {
+            ($_ -eq "Invoke-BARRetrieve/VectorSearchConfiguration_OverrideSearchType") -Or
+            ($_ -eq "Invoke-BARRetrieveAndGenerate/VectorSearchConfiguration_OverrideSearchType")
+        }
+        {
+            $v = "HYBRID","SEMANTIC"
+            break
+        }
+
 
     }
 
@@ -97,6 +107,7 @@ $BAR_Completers = {
 
 $BAR_map = @{
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
+    "VectorSearchConfiguration_OverrideSearchType"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate")
 }
 
 _awsArgumentCompleterRegistration $BAR_Completers $BAR_map

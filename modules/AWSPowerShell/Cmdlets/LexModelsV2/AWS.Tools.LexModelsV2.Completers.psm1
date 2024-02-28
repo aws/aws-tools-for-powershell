@@ -113,8 +113,8 @@ $LMBV2_Completers = {
 
         # Amazon.LexModelsV2.AudioRecognitionStrategy
         {
-            ($_ -eq "New-LMBV2SlotType/ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
-            ($_ -eq "Update-LMBV2SlotType/ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy")
+            ($_ -eq "New-LMBV2SlotType/AdvancedRecognitionSetting_AudioRecognitionStrategy") -Or
+            ($_ -eq "Update-LMBV2SlotType/AdvancedRecognitionSetting_AudioRecognitionStrategy")
         }
         {
             $v = "UseSlotValuesAsCustomVocabulary"
@@ -174,7 +174,7 @@ $LMBV2_Completers = {
         }
 
         # Amazon.LexModelsV2.ConversationLogsInputModeFilter
-        "Start-LMBV2TestSetGeneration/GenerationDataSource_ConversationLogsDataSource_Filter_InputMode"
+        "Start-LMBV2TestSetGeneration/Filter_InputMode"
         {
             $v = "Speech","Text"
             break
@@ -315,10 +315,10 @@ $LMBV2_Completers = {
 
         # Amazon.LexModelsV2.MessageSelectionStrategy
         {
-            ($_ -eq "New-LMBV2Intent/IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy") -Or
-            ($_ -eq "Update-LMBV2Intent/IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy") -Or
-            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy") -Or
-            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy")
+            ($_ -eq "New-LMBV2Intent/PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "New-LMBV2Slot/PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "Update-LMBV2Intent/PromptSpecification_MessageSelectionStrategy") -Or
+            ($_ -eq "Update-LMBV2Slot/PromptSpecification_MessageSelectionStrategy")
         }
         {
             $v = "Ordered","Random"
@@ -354,8 +354,8 @@ $LMBV2_Completers = {
 
         # Amazon.LexModelsV2.SlotResolutionStrategy
         {
-            ($_ -eq "New-LMBV2Slot/ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy") -Or
-            ($_ -eq "Update-LMBV2Slot/ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy")
+            ($_ -eq "New-LMBV2Slot/SlotResolutionSetting_SlotResolutionStrategy") -Or
+            ($_ -eq "Update-LMBV2Slot/SlotResolutionSetting_SlotResolutionStrategy")
         }
         {
             $v = "Default","EnhancedFallback"
@@ -431,7 +431,7 @@ $LMBV2_Completers = {
         }
 
         # Amazon.LexModelsV2.TestResultMatchStatus
-        "Get-LMBV2TestExecutionResultItemList/ResultFilterBy_ConversationLevelTestResultsFilterBy_EndToEndResult"
+        "Get-LMBV2TestExecutionResultItemList/ConversationLevelTestResultsFilterBy_EndToEndResult"
         {
             $v = "ExecutionError","Matched","Mismatched"
             break
@@ -445,7 +445,7 @@ $LMBV2_Completers = {
         }
 
         # Amazon.LexModelsV2.TestSetModality
-        "Start-LMBV2Import/ResourceSpecification_TestSetImportResourceSpecification_Modality"
+        "Start-LMBV2Import/TestSetImportResourceSpecification_Modality"
         {
             $v = "Audio","Text"
             break
@@ -459,14 +459,14 @@ $LMBV2_Completers = {
         }
 
         # Amazon.LexModelsV2.TimeDimension
-        "Get-LMBV2AggregatedUtteranceList/AggregationDuration_RelativeAggregationDuration_TimeDimension"
+        "Get-LMBV2AggregatedUtteranceList/RelativeAggregationDuration_TimeDimension"
         {
             $v = "Days","Hours","Weeks"
             break
         }
 
         # Amazon.LexModelsV2.TranscriptFormat
-        "Start-LMBV2BotRecommendation/TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"
+        "Start-LMBV2BotRecommendation/S3BucketTranscriptSource_TranscriptFormat"
         {
             $v = "Lex"
             break
@@ -474,8 +474,8 @@ $LMBV2_Completers = {
 
         # Amazon.LexModelsV2.VoiceEngine
         {
-            ($_ -eq "Start-LMBV2Import/ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine") -Or
             ($_ -eq "New-LMBV2BotLocale/VoiceSettings_Engine") -Or
+            ($_ -eq "Start-LMBV2Import/VoiceSettings_Engine") -Or
             ($_ -eq "Update-LMBV2BotLocale/VoiceSettings_Engine")
         }
         {
@@ -492,18 +492,19 @@ $LMBV2_Completers = {
 }
 
 $LMBV2_map = @{
-    "AggregationDuration_RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
+    "AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ApiMode"=@("Start-LMBV2TestExecution")
     "BotType"=@("New-LMBV2Bot","Update-LMBV2Bot")
+    "ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
     "FileFormat"=@("New-LMBV2Export")
+    "Filter_InputMode"=@("Start-LMBV2TestSetGeneration")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
-    "GenerationDataSource_ConversationLogsDataSource_Filter_InputMode"=@("Start-LMBV2TestSetGeneration")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
@@ -526,20 +527,19 @@ $LMBV2_map = @{
     "IntentConfirmationSetting_DeclinationNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "IntentConfirmationSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "IntentConfirmationSetting_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
-    "IntentConfirmationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "MergeStrategy"=@("Start-LMBV2Import")
     "ObfuscationSetting_ObfuscationSettingType"=@("New-LMBV2Slot","Update-LMBV2Slot")
-    "ResourceSpecification_BotLocaleImportSpecification_VoiceSettings_Engine"=@("Start-LMBV2Import")
-    "ResourceSpecification_TestSetImportResourceSpecification_Modality"=@("Start-LMBV2Import")
-    "ResultFilterBy_ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
+    "PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Intent","New-LMBV2Slot","Update-LMBV2Intent","Update-LMBV2Slot")
+    "RelativeAggregationDuration_TimeDimension"=@("Get-LMBV2AggregatedUtteranceList")
     "ResultFilterBy_ResultTypeFilter"=@("Get-LMBV2TestExecutionResultItemList")
+    "S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
     "SearchOrder"=@("Search-LMBV2AssociatedTranscript")
+    "SlotResolutionSetting_SlotResolutionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "SortBy_Attribute"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList")
     "SortBy_Name"=@("Get-LMBV2SessionAnalyticsDataList","Get-LMBV2UtteranceAnalyticsDataList")
     "SortBy_Order"=@("Get-LMBV2AggregatedUtteranceList","Get-LMBV2BotList","Get-LMBV2BotLocaleList","Get-LMBV2BotResourceGenerationList","Get-LMBV2BotVersionList","Get-LMBV2BotVersionReplicaList","Get-LMBV2BuiltInIntentList","Get-LMBV2BuiltInSlotTypeList","Get-LMBV2ExportList","Get-LMBV2ImportList","Get-LMBV2IntentList","Get-LMBV2SessionAnalyticsDataList","Get-LMBV2SlotList","Get-LMBV2SlotTypeList","Get-LMBV2TestExecutionList","Get-LMBV2TestSetList","Get-LMBV2UtteranceAnalyticsDataList")
     "TestExecutionModality"=@("Start-LMBV2TestExecution")
-    "TranscriptSourceSetting_S3BucketTranscriptSource_TranscriptFormat"=@("Start-LMBV2BotRecommendation")
-    "ValueElicitationSetting_PromptSpecification_MessageSelectionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
+    "TestSetImportResourceSpecification_Modality"=@("Start-LMBV2Import")
     "ValueElicitationSetting_SlotCaptureSetting_CaptureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotCaptureSetting_CaptureNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotCaptureSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
@@ -551,10 +551,8 @@ $LMBV2_map = @{
     "ValueElicitationSetting_SlotCaptureSetting_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotCaptureSetting_FailureNextStep_DialogAction_Type"=@("New-LMBV2Slot","Update-LMBV2Slot")
     "ValueElicitationSetting_SlotConstraint"=@("New-LMBV2Slot","Update-LMBV2Slot")
-    "ValueElicitationSetting_SlotResolutionSetting_SlotResolutionStrategy"=@("New-LMBV2Slot","Update-LMBV2Slot")
-    "ValueSelectionSetting_AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ValueSelectionSetting_ResolutionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
-    "VoiceSettings_Engine"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
+    "VoiceSettings_Engine"=@("New-LMBV2BotLocale","Start-LMBV2Import","Update-LMBV2BotLocale")
 }
 
 _awsArgumentCompleterRegistration $LMBV2_Completers $LMBV2_map

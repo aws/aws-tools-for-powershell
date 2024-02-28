@@ -82,9 +82,9 @@ $LOM_Completers = {
     {
         # Amazon.LookoutMetrics.CSVFileCompression
         {
-            ($_ -eq "New-LOMMetricSet/MetricSource_S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression") -Or
-            ($_ -eq "Update-LOMMetricSet/MetricSource_S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression") -Or
-            ($_ -eq "Get-LOMSampleData/S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression")
+            ($_ -eq "Get-LOMSampleData/CsvFormatDescriptor_FileCompression") -Or
+            ($_ -eq "New-LOMMetricSet/CsvFormatDescriptor_FileCompression") -Or
+            ($_ -eq "Update-LOMMetricSet/CsvFormatDescriptor_FileCompression")
         }
         {
             $v = "GZIP","NONE"
@@ -105,9 +105,9 @@ $LOM_Completers = {
 
         # Amazon.LookoutMetrics.JsonFileCompression
         {
-            ($_ -eq "New-LOMMetricSet/MetricSource_S3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor_FileCompression") -Or
-            ($_ -eq "Update-LOMMetricSet/MetricSource_S3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor_FileCompression") -Or
-            ($_ -eq "Get-LOMSampleData/S3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor_FileCompression")
+            ($_ -eq "Get-LOMSampleData/JsonFormatDescriptor_FileCompression") -Or
+            ($_ -eq "New-LOMMetricSet/JsonFormatDescriptor_FileCompression") -Or
+            ($_ -eq "Update-LOMMetricSet/JsonFormatDescriptor_FileCompression")
         }
         {
             $v = "GZIP","NONE"
@@ -123,8 +123,8 @@ $LOM_Completers = {
 
         # Amazon.LookoutMetrics.SnsFormat
         {
-            ($_ -eq "New-LOMAlert/Action_SNSConfiguration_SnsFormat") -Or
-            ($_ -eq "Update-LOMAlert/Action_SNSConfiguration_SnsFormat")
+            ($_ -eq "New-LOMAlert/SNSConfiguration_SnsFormat") -Or
+            ($_ -eq "Update-LOMAlert/SNSConfiguration_SnsFormat")
         }
         {
             $v = "JSON","LONG_TEXT","SHORT_TEXT"
@@ -140,14 +140,12 @@ $LOM_Completers = {
 }
 
 $LOM_map = @{
-    "Action_SNSConfiguration_SnsFormat"=@("New-LOMAlert","Update-LOMAlert")
     "AnomalyDetectorConfig_AnomalyDetectorFrequency"=@("New-LOMAnomalyDetector","Update-LOMAnomalyDetector")
+    "CsvFormatDescriptor_FileCompression"=@("Get-LOMSampleData","New-LOMMetricSet","Update-LOMMetricSet")
+    "JsonFormatDescriptor_FileCompression"=@("Get-LOMSampleData","New-LOMMetricSet","Update-LOMMetricSet")
     "MetricSetFrequency"=@("New-LOMMetricSet","Update-LOMMetricSet")
-    "MetricSource_S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression"=@("New-LOMMetricSet","Update-LOMMetricSet")
-    "MetricSource_S3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor_FileCompression"=@("New-LOMMetricSet","Update-LOMMetricSet")
     "RelationshipTypeFilter"=@("Get-LOMAnomalyGroupRelatedMetricList")
-    "S3SourceConfig_FileFormatDescriptor_CsvFormatDescriptor_FileCompression"=@("Get-LOMSampleData")
-    "S3SourceConfig_FileFormatDescriptor_JsonFormatDescriptor_FileCompression"=@("Get-LOMSampleData")
+    "SNSConfiguration_SnsFormat"=@("New-LOMAlert","Update-LOMAlert")
 }
 
 _awsArgumentCompleterRegistration $LOM_Completers $LOM_map

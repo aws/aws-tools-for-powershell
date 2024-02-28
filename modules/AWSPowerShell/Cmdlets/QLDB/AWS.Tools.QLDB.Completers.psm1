@@ -98,7 +98,7 @@ $QLDB_Completers = {
         }
 
         # Amazon.QLDB.S3ObjectEncryptionType
-        "Export-QLDBJournalToS3/S3ExportConfiguration_EncryptionConfiguration_ObjectEncryptionType"
+        "Export-QLDBJournalToS3/EncryptionConfiguration_ObjectEncryptionType"
         {
             $v = "NO_ENCRYPTION","SSE_KMS","SSE_S3"
             break
@@ -113,9 +113,9 @@ $QLDB_Completers = {
 }
 
 $QLDB_map = @{
+    "EncryptionConfiguration_ObjectEncryptionType"=@("Export-QLDBJournalToS3")
     "OutputFormat"=@("Export-QLDBJournalToS3")
     "PermissionsMode"=@("New-QLDBLedger","Update-QLDBLedgerPermissionsMode")
-    "S3ExportConfiguration_EncryptionConfiguration_ObjectEncryptionType"=@("Export-QLDBJournalToS3")
 }
 
 _awsArgumentCompleterRegistration $QLDB_Completers $QLDB_map

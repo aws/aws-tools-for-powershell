@@ -81,7 +81,7 @@ $CHMMG_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.ChimeSDKMessaging.AllowNotifications
-        "Write-CHMMGChannelMembershipPreference/Preferences_PushNotifications_AllowNotifications"
+        "Write-CHMMGChannelMembershipPreference/PushNotifications_AllowNotification"
         {
             $v = "ALL","FILTERED","NONE"
             break
@@ -144,7 +144,7 @@ $CHMMG_Completers = {
 
         # Amazon.ChimeSDKMessaging.PushNotificationType
         {
-            ($_ -eq "Send-CHMMGChannelFlowCallback/ChannelMessage_PushNotification_Type") -Or
+            ($_ -eq "Send-CHMMGChannelFlowCallback/PushNotification_Type") -Or
             ($_ -eq "Send-CHMMGChannelMessage/PushNotification_Type")
         }
         {
@@ -168,13 +168,12 @@ $CHMMG_Completers = {
 }
 
 $CHMMG_map = @{
-    "ChannelMessage_PushNotification_Type"=@("Send-CHMMGChannelFlowCallback")
     "ExpirationSettings_ExpirationCriterion"=@("New-CHMMGChannel","Write-CHMMGChannelExpirationSetting")
     "Mode"=@("New-CHMMGChannel","Update-CHMMGChannel")
     "Persistence"=@("Send-CHMMGChannelMessage")
-    "Preferences_PushNotifications_AllowNotifications"=@("Write-CHMMGChannelMembershipPreference")
     "Privacy"=@("Get-CHMMGChannelList","New-CHMMGChannel")
-    "PushNotification_Type"=@("Send-CHMMGChannelMessage")
+    "PushNotification_Type"=@("Send-CHMMGChannelFlowCallback","Send-CHMMGChannelMessage")
+    "PushNotifications_AllowNotification"=@("Write-CHMMGChannelMembershipPreference")
     "SortOrder"=@("Get-CHMMGChannelMessageList")
     "Type"=@("Get-CHMMGChannelMembershipList","New-CHMMGChannelMembership","New-CHMMGCreateChannelMembership","Send-CHMMGChannelMessage")
 }

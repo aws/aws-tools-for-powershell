@@ -110,6 +110,13 @@ $CE_Completers = {
             break
         }
 
+        # Amazon.CostExplorer.ApproximationDimension
+        "Get-CEApproximateUsageRecord/ApproximationDimension"
+        {
+            $v = "RESOURCE","SERVICE"
+            break
+        }
+
         # Amazon.CostExplorer.Context
         "Get-CEDimensionValue/Context"
         {
@@ -157,6 +164,7 @@ $CE_Completers = {
 
         # Amazon.CostExplorer.Granularity
         {
+            ($_ -eq "Get-CEApproximateUsageRecord/Granularity") -Or
             ($_ -eq "Get-CECostAndUsage/Granularity") -Or
             ($_ -eq "Get-CECostAndUsageWithResource/Granularity") -Or
             ($_ -eq "Get-CECostForecast/Granularity") -Or
@@ -173,8 +181,8 @@ $CE_Completers = {
 
         # Amazon.CostExplorer.LookbackPeriodInDays
         {
-            ($_ -eq "Get-CEReservationPurchaseRecommendation/LookbackPeriodInDays") -Or
-            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/LookbackPeriodInDays")
+            ($_ -eq "Get-CEReservationPurchaseRecommendation/LookbackPeriodInDay") -Or
+            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/LookbackPeriodInDay")
         }
         {
             $v = "SEVEN_DAYS","SIXTY_DAYS","THIRTY_DAYS"
@@ -213,7 +221,7 @@ $CE_Completers = {
         }
 
         # Amazon.CostExplorer.OfferingClass
-        "Get-CEReservationPurchaseRecommendation/ServiceSpecification_EC2Specification_OfferingClass"
+        "Get-CEReservationPurchaseRecommendation/EC2Specification_OfferingClass"
         {
             $v = "CONVERTIBLE","STANDARD"
             break
@@ -258,8 +266,8 @@ $CE_Completers = {
 
         # Amazon.CostExplorer.TermInYears
         {
-            ($_ -eq "Get-CEReservationPurchaseRecommendation/TermInYears") -Or
-            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/TermInYears")
+            ($_ -eq "Get-CEReservationPurchaseRecommendation/TermInYear") -Or
+            ($_ -eq "Get-CESavingsPlansPurchaseRecommendation/TermInYear")
         }
         {
             $v = "ONE_YEAR","THREE_YEARS"
@@ -279,22 +287,23 @@ $CE_map = @{
     "AnomalyMonitor_MonitorDimension"=@("New-CEAnomalyMonitor")
     "AnomalyMonitor_MonitorType"=@("New-CEAnomalyMonitor")
     "AnomalySubscription_Frequency"=@("New-CEAnomalySubscription")
+    "ApproximationDimension"=@("Get-CEApproximateUsageRecord")
     "Configuration_RecommendationTarget"=@("Get-CERightsizingRecommendation")
     "Context"=@("Get-CEDimensionValue")
     "Dimension"=@("Get-CEDimensionValue")
+    "EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
     "Feedback"=@("Get-CEAnomaly","Set-CEAnomalyFeedback")
     "Frequency"=@("Update-CEAnomalySubscription")
     "GenerationStatus"=@("Get-CESavingsPlansPurchaseRecommendationGenerationList")
-    "Granularity"=@("Get-CECostAndUsage","Get-CECostAndUsageWithResource","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CEUsageForecast")
-    "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "Granularity"=@("Get-CEApproximateUsageRecord","Get-CECostAndUsage","Get-CECostAndUsageWithResource","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CEUsageForecast")
+    "LookbackPeriodInDay"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "Metric"=@("Get-CECostForecast","Get-CEUsageForecast")
     "PaymentOption"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "RuleVersion"=@("New-CECostCategoryDefinition","Update-CECostCategoryDefinition")
     "SavingsPlansType"=@("Get-CESavingsPlansPurchaseRecommendation")
-    "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
     "SortBy_SortOrder"=@("Get-CEReservationCoverage","Get-CEReservationUtilization","Get-CESavingsPlansCoverage","Get-CESavingsPlansUtilization","Get-CESavingsPlansUtilizationDetail")
     "Status"=@("Get-CECostAllocationTagList")
-    "TermInYears"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
+    "TermInYear"=@("Get-CEReservationPurchaseRecommendation","Get-CESavingsPlansPurchaseRecommendation")
     "TotalImpact_NumericOperator"=@("Get-CEAnomaly")
     "Type"=@("Get-CECostAllocationTagList")
 }
@@ -359,6 +368,7 @@ $CE_SelectMap = @{
                "Get-CEAnomaly",
                "Get-CEAnomalyMonitor",
                "Get-CEAnomalySubscription",
+               "Get-CEApproximateUsageRecord",
                "Get-CECostAndUsage",
                "Get-CECostAndUsageWithResource",
                "Get-CECostCategory",

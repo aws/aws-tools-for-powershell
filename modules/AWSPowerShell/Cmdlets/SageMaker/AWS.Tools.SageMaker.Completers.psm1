@@ -91,7 +91,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AdditionalS3DataSourceDataType
-        "New-SMAlgorithm/TrainingSpecification_AdditionalS3DataSource_S3DataType"
+        "New-SMAlgorithm/AdditionalS3DataSource_S3DataType"
         {
             $v = "S3Object","S3Prefix"
             break
@@ -113,12 +113,12 @@ $SM_Completers = {
 
         # Amazon.SageMaker.AppInstanceType
         {
+            ($_ -eq "New-SMDomain/DefaultResourceSpec_InstanceType") -Or
+            ($_ -eq "Update-SMDomain/DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMDomain/DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "Update-SMDomain/DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMDomain/DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "Update-SMDomain/DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType") -Or
-            ($_ -eq "New-SMDomain/DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType") -Or
-            ($_ -eq "Update-SMDomain/DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMApp/ResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMSpace/SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "Update-SMSpace/SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_InstanceType") -Or
@@ -199,7 +199,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.AutoMLJobStatus
-        "Get-SMAutoMLJobList/StatusEquals"
+        "Get-SMAutoMLJobList/StatusEqual"
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
@@ -218,7 +218,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AutoMLMode
         {
             ($_ -eq "New-SMAutoMLJob/AutoMLJobConfig_Mode") -Or
-            ($_ -eq "New-SMAutoMLJobV2/AutoMLProblemTypeConfig_TabularJobConfig_Mode")
+            ($_ -eq "New-SMAutoMLJobV2/TabularJobConfig_Mode")
         }
         {
             $v = "AUTO","ENSEMBLING","HYPERPARAMETER_TUNING"
@@ -278,7 +278,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.CandidateStatus
-        "Get-SMCandidatesForAutoMLJobList/StatusEquals"
+        "Get-SMCandidatesForAutoMLJobList/StatusEqual"
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
@@ -286,14 +286,14 @@ $SM_Completers = {
 
         # Amazon.SageMaker.CapacitySizeType
         {
-            ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type") -Or
-            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type") -Or
-            ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type") -Or
-            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type") -Or
-            ($_ -eq "New-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type") -Or
-            ($_ -eq "Update-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type") -Or
-            ($_ -eq "New-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type") -Or
-            ($_ -eq "Update-SMEndpoint/DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type")
+            ($_ -eq "New-SMEndpoint/CanarySize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/CanarySize_Type") -Or
+            ($_ -eq "New-SMEndpoint/LinearStepSize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/LinearStepSize_Type") -Or
+            ($_ -eq "New-SMEndpoint/MaximumBatchSize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/MaximumBatchSize_Type") -Or
+            ($_ -eq "New-SMEndpoint/RollbackMaximumBatchSize_Type") -Or
+            ($_ -eq "Update-SMEndpoint/RollbackMaximumBatchSize_Type")
         }
         {
             $v = "CAPACITY_PERCENT","INSTANCE_COUNT"
@@ -301,14 +301,14 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.ClarifyTextGranularity
-        "New-SMEndpointConfig/ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Granularity"
+        "New-SMEndpointConfig/TextConfig_Granularity"
         {
             $v = "paragraph","sentence","token"
             break
         }
 
         # Amazon.SageMaker.ClarifyTextLanguage
-        "New-SMEndpointConfig/ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Language"
+        "New-SMEndpointConfig/TextConfig_Language"
         {
             $v = "af","ar","bg","bn","ca","cs","da","de","el","en","es","et","eu","fa","fi","fr","ga","gu","he","hi","hr","hu","hy","id","is","it","kn","ky","lb","lij","lt","lv","mk","ml","mr","nb","ne","nl","pl","pt","ro","ru","sa","si","sk","sl","sq","sr","sv","ta","te","tl","tn","tr","tt","uk","ur","xx","yo","zh"
             break
@@ -339,14 +339,14 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.CompilationJobStatus
-        "Get-SMCompilationJobList/StatusEquals"
+        "Get-SMCompilationJobList/StatusEqual"
         {
             $v = "COMPLETED","FAILED","INPROGRESS","STARTING","STOPPED","STOPPING"
             break
         }
 
         # Amazon.SageMaker.CompleteOnConvergence
-        "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence"
+        "New-SMHyperParameterTuningJob/ConvergenceDetected_CompleteOnConvergence"
         {
             $v = "Disabled","Enabled"
             break
@@ -354,7 +354,7 @@ $SM_Completers = {
 
         # Amazon.SageMaker.CompressionType
         {
-            ($_ -eq "New-SMAlgorithm/TrainingSpecification_AdditionalS3DataSource_CompressionType") -Or
+            ($_ -eq "New-SMAlgorithm/AdditionalS3DataSource_CompressionType") -Or
             ($_ -eq "New-SMTransformJob/TransformInput_CompressionType")
         }
         {
@@ -384,7 +384,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.EdgePackagingJobStatus
-        "Get-SMEdgePackagingJobList/StatusEquals"
+        "Get-SMEdgePackagingJobList/StatusEqual"
         {
             $v = "COMPLETED","FAILED","INPROGRESS","STARTING","STOPPED","STOPPING"
             break
@@ -416,7 +416,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.EndpointStatus
-        "Get-SMEndpointList/StatusEquals"
+        "Get-SMEndpointList/StatusEqual"
         {
             $v = "Creating","Deleting","Failed","InService","OutOfService","RollingBack","SystemUpdating","UpdateRollbackFailed","Updating"
             break
@@ -433,7 +433,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.ExecutionStatus
-        "Get-SMMonitoringExecutionList/StatusEquals"
+        "Get-SMMonitoringExecutionList/StatusEqual"
         {
             $v = "Completed","CompletedWithViolations","Failed","InProgress","Pending","Stopped","Stopping"
             break
@@ -454,7 +454,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.FeatureGroupStatus
-        "Get-SMFeatureGroupList/FeatureGroupStatusEquals"
+        "Get-SMFeatureGroupList/FeatureGroupStatusEqual"
         {
             $v = "Created","CreateFailed","Creating","DeleteFailed","Deleting"
             break
@@ -462,8 +462,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.FeatureStatus
         {
-            ($_ -eq "New-SMDomain/DomainSettings_DockerSettings_EnableDockerAccess") -Or
-            ($_ -eq "Update-SMDomain/DomainSettingsForUpdate_DockerSettings_EnableDockerAccess")
+            ($_ -eq "New-SMDomain/DockerSettings_EnableDockerAccess") -Or
+            ($_ -eq "Update-SMDomain/DockerSettings_EnableDockerAccess")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -471,7 +471,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.FlatInvocations
-        "New-SMInferenceRecommendationsJob/StoppingConditions_FlatInvocations"
+        "New-SMInferenceRecommendationsJob/StoppingConditions_FlatInvocation"
         {
             $v = "Continue","Stop"
             break
@@ -515,7 +515,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.HyperParameterTuningAllocationStrategy
-        "New-SMHyperParameterTuningJob/TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy"
+        "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_AllocationStrategy"
         {
             $v = "Prioritized"
             break
@@ -523,8 +523,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.HyperParameterTuningJobObjectiveType
         {
-            ($_ -eq "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type") -Or
-            ($_ -eq "New-SMHyperParameterTuningJob/TrainingJobDefinition_TuningObjective_Type")
+            ($_ -eq "New-SMHyperParameterTuningJob/HyperParameterTuningJobObjective_Type") -Or
+            ($_ -eq "New-SMHyperParameterTuningJob/TuningObjective_Type")
         }
         {
             $v = "Maximize","Minimize"
@@ -539,7 +539,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.HyperParameterTuningJobStatus
-        "Get-SMHyperParameterTuningJobList/StatusEquals"
+        "Get-SMHyperParameterTuningJobList/StatusEqual"
         {
             $v = "Completed","DeleteFailed","Deleting","Failed","InProgress","Stopped","Stopping"
             break
@@ -595,7 +595,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.InferenceComponentStatus
-        "Get-SMInferenceComponentList/StatusEquals"
+        "Get-SMInferenceComponentList/StatusEqual"
         {
             $v = "Creating","Deleting","Failed","InService","Updating"
             break
@@ -609,7 +609,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.InferenceExperimentStatus
-        "Get-SMInferenceExperimentList/StatusEquals"
+        "Get-SMInferenceExperimentList/StatusEqual"
         {
             $v = "Cancelled","Completed","Created","Creating","Running","Starting","Stopping","Updating"
             break
@@ -660,7 +660,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.LabelingJobStatus
-        "Get-SMLabelingJobList/StatusEquals"
+        "Get-SMLabelingJobList/StatusEqual"
         {
             $v = "Completed","Failed","Initializing","InProgress","Stopped","Stopping"
             break
@@ -748,7 +748,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.ModelCardExportJobStatus
-        "Get-SMModelCardExportJobList/StatusEquals"
+        "Get-SMModelCardExportJobList/StatusEqual"
         {
             $v = "Completed","Failed","InProgress"
             break
@@ -826,7 +826,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.MonitoringAlertStatus
-        "Get-SMMonitoringAlertHistoryList/StatusEquals"
+        "Get-SMMonitoringAlertHistoryList/StatusEqual"
         {
             $v = "InAlert","OK"
             break
@@ -867,8 +867,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.MonitoringType
         {
-            ($_ -eq "Get-SMMonitoringExecutionList/MonitoringTypeEquals") -Or
-            ($_ -eq "Get-SMMonitoringScheduleList/MonitoringTypeEquals")
+            ($_ -eq "Get-SMMonitoringExecutionList/MonitoringTypeEqual") -Or
+            ($_ -eq "Get-SMMonitoringScheduleList/MonitoringTypeEqual")
         }
         {
             $v = "DataQuality","ModelBias","ModelExplainability","ModelQuality"
@@ -904,14 +904,14 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.NotebookInstanceStatus
-        "Get-SMNotebookInstanceList/StatusEquals"
+        "Get-SMNotebookInstanceList/StatusEqual"
         {
             $v = "Deleting","Failed","InService","Pending","Stopped","Stopping","Updating"
             break
         }
 
         # Amazon.SageMaker.OfflineStoreStatusValue
-        "Get-SMFeatureGroupList/OfflineStoreStatusEquals"
+        "Get-SMFeatureGroupList/OfflineStoreStatusEqual"
         {
             $v = "Active","Blocked","Disabled"
             break
@@ -931,8 +931,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ProblemType
         {
-            ($_ -eq "New-SMAutoMLJobV2/AutoMLProblemTypeConfig_TabularJobConfig_ProblemType") -Or
-            ($_ -eq "New-SMAutoMLJob/ProblemType")
+            ($_ -eq "New-SMAutoMLJob/ProblemType") -Or
+            ($_ -eq "New-SMAutoMLJobV2/TabularJobConfig_ProblemType")
         }
         {
             $v = "BinaryClassification","MulticlassClassification","Regression"
@@ -941,11 +941,11 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ProcessingInstanceType
         {
-            ($_ -eq "New-SMDataQualityJobDefinition/JobResources_ClusterConfig_InstanceType") -Or
-            ($_ -eq "New-SMModelBiasJobDefinition/JobResources_ClusterConfig_InstanceType") -Or
-            ($_ -eq "New-SMModelExplainabilityJobDefinition/JobResources_ClusterConfig_InstanceType") -Or
-            ($_ -eq "New-SMModelQualityJobDefinition/JobResources_ClusterConfig_InstanceType") -Or
-            ($_ -eq "New-SMProcessingJob/ProcessingResources_ClusterConfig_InstanceType")
+            ($_ -eq "New-SMDataQualityJobDefinition/ClusterConfig_InstanceType") -Or
+            ($_ -eq "New-SMModelBiasJobDefinition/ClusterConfig_InstanceType") -Or
+            ($_ -eq "New-SMModelExplainabilityJobDefinition/ClusterConfig_InstanceType") -Or
+            ($_ -eq "New-SMModelQualityJobDefinition/ClusterConfig_InstanceType") -Or
+            ($_ -eq "New-SMProcessingJob/ClusterConfig_InstanceType")
         }
         {
             $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.xlarge"
@@ -953,7 +953,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.ProcessingJobStatus
-        "Get-SMProcessingJobList/StatusEquals"
+        "Get-SMProcessingJobList/StatusEqual"
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
@@ -961,14 +961,14 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ProcessingS3DataDistributionType
         {
-            ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_BatchTransformInput_S3DataDistributionType") -Or
-            ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_EndpointInput_S3DataDistributionType") -Or
-            ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_BatchTransformInput_S3DataDistributionType") -Or
-            ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_EndpointInput_S3DataDistributionType") -Or
-            ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_BatchTransformInput_S3DataDistributionType") -Or
-            ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_EndpointInput_S3DataDistributionType") -Or
-            ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_BatchTransformInput_S3DataDistributionType") -Or
-            ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_EndpointInput_S3DataDistributionType")
+            ($_ -eq "New-SMDataQualityJobDefinition/BatchTransformInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelBiasJobDefinition/BatchTransformInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelExplainabilityJobDefinition/BatchTransformInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelQualityJobDefinition/BatchTransformInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMDataQualityJobDefinition/EndpointInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelBiasJobDefinition/EndpointInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelExplainabilityJobDefinition/EndpointInput_S3DataDistributionType") -Or
+            ($_ -eq "New-SMModelQualityJobDefinition/EndpointInput_S3DataDistributionType")
         }
         {
             $v = "FullyReplicated","ShardedByS3Key"
@@ -977,14 +977,14 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ProcessingS3InputMode
         {
-            ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_BatchTransformInput_S3InputMode") -Or
-            ($_ -eq "New-SMDataQualityJobDefinition/DataQualityJobInput_EndpointInput_S3InputMode") -Or
-            ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_BatchTransformInput_S3InputMode") -Or
-            ($_ -eq "New-SMModelBiasJobDefinition/ModelBiasJobInput_EndpointInput_S3InputMode") -Or
-            ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_BatchTransformInput_S3InputMode") -Or
-            ($_ -eq "New-SMModelExplainabilityJobDefinition/ModelExplainabilityJobInput_EndpointInput_S3InputMode") -Or
-            ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_BatchTransformInput_S3InputMode") -Or
-            ($_ -eq "New-SMModelQualityJobDefinition/ModelQualityJobInput_EndpointInput_S3InputMode")
+            ($_ -eq "New-SMDataQualityJobDefinition/BatchTransformInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelBiasJobDefinition/BatchTransformInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelExplainabilityJobDefinition/BatchTransformInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelQualityJobDefinition/BatchTransformInput_S3InputMode") -Or
+            ($_ -eq "New-SMDataQualityJobDefinition/EndpointInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelBiasJobDefinition/EndpointInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelExplainabilityJobDefinition/EndpointInput_S3InputMode") -Or
+            ($_ -eq "New-SMModelQualityJobDefinition/EndpointInput_S3InputMode")
         }
         {
             $v = "File","Pipe"
@@ -1018,7 +1018,7 @@ $SM_Completers = {
         # Amazon.SageMaker.RecommendationJobStatus
         {
             ($_ -eq "Get-SMInferenceRecommendationsJobStepList/Status") -Or
-            ($_ -eq "Get-SMInferenceRecommendationsJobList/StatusEquals")
+            ($_ -eq "Get-SMInferenceRecommendationsJobList/StatusEqual")
         }
         {
             $v = "COMPLETED","DELETED","DELETING","FAILED","IN_PROGRESS","PENDING","STOPPED","STOPPING"
@@ -1026,7 +1026,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.RecommendationJobSupportedEndpointType
-        "New-SMInferenceRecommendationsJob/InputConfig_ContainerConfig_SupportedEndpointType"
+        "New-SMInferenceRecommendationsJob/ContainerConfig_SupportedEndpointType"
         {
             $v = "RealTime","Serverless"
             break
@@ -1088,14 +1088,14 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.S3DataType
-        "New-SMTransformJob/TransformInput_DataSource_S3DataSource_S3DataType"
+        "New-SMTransformJob/S3DataSource_S3DataType"
         {
             $v = "AugmentedManifestFile","ManifestFile","S3Prefix"
             break
         }
 
         # Amazon.SageMaker.ScheduleStatus
-        "Get-SMMonitoringScheduleList/StatusEquals"
+        "Get-SMMonitoringScheduleList/StatusEqual"
         {
             $v = "Failed","Pending","Scheduled","Stopped"
             break
@@ -1290,7 +1290,7 @@ $SM_Completers = {
 
         # Amazon.SageMaker.StudioLifecycleConfigAppType
         {
-            ($_ -eq "Get-SMStudioLifecycleConfigList/AppTypeEquals") -Or
+            ($_ -eq "Get-SMStudioLifecycleConfigList/AppTypeEqual") -Or
             ($_ -eq "New-SMStudioLifecycleConfig/StudioLifecycleConfigAppType")
         }
         {
@@ -1320,21 +1320,21 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.TargetPlatformAccelerator
-        "New-SMCompilationJob/OutputConfig_TargetPlatform_Accelerator"
+        "New-SMCompilationJob/TargetPlatform_Accelerator"
         {
             $v = "INTEL_GRAPHICS","MALI","NNA","NVIDIA"
             break
         }
 
         # Amazon.SageMaker.TargetPlatformArch
-        "New-SMCompilationJob/OutputConfig_TargetPlatform_Arch"
+        "New-SMCompilationJob/TargetPlatform_Arch"
         {
             $v = "ARM64","ARM_EABI","ARM_EABIHF","X86","X86_64"
             break
         }
 
         # Amazon.SageMaker.TargetPlatformOs
-        "New-SMCompilationJob/OutputConfig_TargetPlatform_Os"
+        "New-SMCompilationJob/TargetPlatform_Os"
         {
             $v = "ANDROID","LINUX"
             break
@@ -1352,8 +1352,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.TrafficRoutingConfigType
         {
-            ($_ -eq "New-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type") -Or
-            ($_ -eq "Update-SMEndpoint/DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type")
+            ($_ -eq "New-SMEndpoint/TrafficRoutingConfiguration_Type") -Or
+            ($_ -eq "Update-SMEndpoint/TrafficRoutingConfiguration_Type")
         }
         {
             $v = "ALL_AT_ONCE","CANARY","LINEAR"
@@ -1361,21 +1361,21 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.TrafficType
-        "New-SMInferenceRecommendationsJob/InputConfig_TrafficPattern_TrafficType"
+        "New-SMInferenceRecommendationsJob/TrafficPattern_TrafficType"
         {
             $v = "PHASES","STAIRS"
             break
         }
 
         # Amazon.SageMaker.TrainingInputMode
-        "New-SMHyperParameterTuningJob/TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"
+        "New-SMHyperParameterTuningJob/AlgorithmSpecification_TrainingInputMode"
         {
             $v = "FastFile","File","Pipe"
             break
         }
 
         # Amazon.SageMaker.TrainingInstanceType
-        "New-SMHyperParameterTuningJob/TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType"
+        "New-SMHyperParameterTuningJob/HyperParameterTuningResourceConfig_InstanceType"
         {
             $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c5n.18xlarge","ml.c5n.2xlarge","ml.c5n.4xlarge","ml.c5n.9xlarge","ml.c5n.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge"
             break
@@ -1397,8 +1397,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.TrainingJobStatus
         {
-            ($_ -eq "Get-SMTrainingJobList/StatusEquals") -Or
-            ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/StatusEquals")
+            ($_ -eq "Get-SMTrainingJobList/StatusEqual") -Or
+            ($_ -eq "Get-SMTrainingJobsForHyperParameterTuningJobList/StatusEqual")
         }
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
@@ -1413,7 +1413,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.TransformJobStatus
-        "Get-SMTransformJobList/StatusEquals"
+        "Get-SMTransformJobList/StatusEqual"
         {
             $v = "Completed","Failed","InProgress","Stopped","Stopping"
             break
@@ -1431,8 +1431,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.TtlDurationUnit
         {
-            ($_ -eq "New-SMFeatureGroup/OnlineStoreConfig_TtlDuration_Unit") -Or
-            ($_ -eq "Update-SMFeatureGroup/OnlineStoreConfig_TtlDuration_Unit")
+            ($_ -eq "New-SMFeatureGroup/TtlDuration_Unit") -Or
+            ($_ -eq "Update-SMFeatureGroup/TtlDuration_Unit")
         }
         {
             $v = "Days","Hours","Minutes","Seconds","Weeks"
@@ -1457,7 +1457,7 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.WarmPoolResourceStatus
-        "Get-SMTrainingJobList/WarmPoolStatusEquals"
+        "Get-SMTrainingJobList/WarmPoolStatusEqual"
         {
             $v = "Available","InUse","Reused","Terminated"
             break
@@ -1472,89 +1472,70 @@ $SM_Completers = {
 }
 
 $SM_map = @{
+    "AdditionalS3DataSource_CompressionType"=@("New-SMAlgorithm")
+    "AdditionalS3DataSource_S3DataType"=@("New-SMAlgorithm")
+    "AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "AppNetworkAccessType"=@("New-SMDomain","Update-SMDomain")
     "AppSecurityGroupManagement"=@("New-SMDomain","Update-SMDomain")
     "AppType"=@("Get-SMApp","New-SMApp","Remove-SMApp")
-    "AppTypeEquals"=@("Get-SMStudioLifecycleConfigList")
+    "AppTypeEqual"=@("Get-SMStudioLifecycleConfigList")
     "AssociationType"=@("Add-SMAssociation","Get-SMAssociationList")
     "AuthMode"=@("New-SMDomain")
     "AutoMLJobConfig_Mode"=@("New-SMAutoMLJob")
     "AutoMLJobObjective_MetricName"=@("New-SMAutoMLJob","New-SMAutoMLJobV2")
-    "AutoMLProblemTypeConfig_TabularJobConfig_Mode"=@("New-SMAutoMLJobV2")
-    "AutoMLProblemTypeConfig_TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
     "Autotune_Mode"=@("New-SMHyperParameterTuningJob")
     "BatchStrategy"=@("New-SMTransformJob")
+    "BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
+    "BatchTransformInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
+    "CanarySize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition","New-SMProcessingJob")
+    "ContainerConfig_SupportedEndpointType"=@("New-SMInferenceRecommendationsJob")
+    "ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
     "CrossAccountFilterOption"=@("Search-SMResource")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
-    "DataQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")
-    "DataQualityJobInput_BatchTransformInput_S3InputMode"=@("New-SMDataQualityJobDefinition")
-    "DataQualityJobInput_EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition")
-    "DataQualityJobInput_EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition")
+    "DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
-    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_CanarySize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
-    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
-    "DeploymentConfig_BlueGreenUpdatePolicy_TrafficRoutingConfiguration_Type"=@("New-SMEndpoint","Update-SMEndpoint")
-    "DeploymentConfig_RollingUpdatePolicy_MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
-    "DeploymentConfig_RollingUpdatePolicy_RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "DesiredState"=@("Stop-SMInferenceExperiment")
     "DirectInternetAccess"=@("New-SMNotebookInstance")
     "Direction"=@("Find-SMLineage")
-    "DomainSettings_DockerSettings_EnableDockerAccess"=@("New-SMDomain")
+    "DockerSettings_EnableDockerAccess"=@("New-SMDomain","Update-SMDomain")
     "DomainSettings_ExecutionRoleIdentityConfig"=@("New-SMDomain")
-    "DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain")
-    "DomainSettingsForUpdate_DockerSettings_EnableDockerAccess"=@("Update-SMDomain")
     "DomainSettingsForUpdate_ExecutionRoleIdentityConfig"=@("Update-SMDomain")
-    "DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_InstanceType"=@("Update-SMDomain")
-    "ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Granularity"=@("New-SMEndpointConfig")
-    "ExplainerConfig_ClarifyExplainerConfig_ShapConfig_TextConfig_Language"=@("New-SMEndpointConfig")
-    "FeatureGroupStatusEquals"=@("Get-SMFeatureGroupList")
+    "EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
+    "EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
+    "FeatureGroupStatusEqual"=@("Get-SMFeatureGroupList")
     "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
-    "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
-    "HyperParameterTuningJobConfig_TuningJobCompletionCriteria_ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
+    "HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
+    "HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")
+    "HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
-    "InputConfig_ContainerConfig_SupportedEndpointType"=@("New-SMInferenceRecommendationsJob")
     "InputConfig_Framework"=@("New-SMCompilationJob")
-    "InputConfig_TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
-    "JobResources_ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "JobType"=@("New-SMImageVersion","New-SMInferenceRecommendationsJob","Update-SMImageVersion")
+    "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
+    "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
-    "ModelBiasJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelBiasJobDefinition")
-    "ModelBiasJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelBiasJobDefinition")
-    "ModelBiasJobInput_EndpointInput_S3DataDistributionType"=@("New-SMModelBiasJobDefinition")
-    "ModelBiasJobInput_EndpointInput_S3InputMode"=@("New-SMModelBiasJobDefinition")
     "ModelCardStatus"=@("Get-SMModelCardList","Get-SMModelCardVersionList","New-SMModelCard","Update-SMModelCard")
-    "ModelExplainabilityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelExplainabilityJobDefinition")
-    "ModelExplainabilityJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelExplainabilityJobDefinition")
-    "ModelExplainabilityJobInput_EndpointInput_S3DataDistributionType"=@("New-SMModelExplainabilityJobDefinition")
-    "ModelExplainabilityJobInput_EndpointInput_S3InputMode"=@("New-SMModelExplainabilityJobDefinition")
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")
-    "ModelQualityJobInput_BatchTransformInput_S3DataDistributionType"=@("New-SMModelQualityJobDefinition")
-    "ModelQualityJobInput_BatchTransformInput_S3InputMode"=@("New-SMModelQualityJobDefinition")
-    "ModelQualityJobInput_EndpointInput_S3DataDistributionType"=@("New-SMModelQualityJobDefinition")
-    "ModelQualityJobInput_EndpointInput_S3InputMode"=@("New-SMModelQualityJobDefinition")
-    "MonitoringTypeEquals"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
+    "MonitoringTypeEqual"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
-    "OfflineStoreStatusEquals"=@("Get-SMFeatureGroupList")
+    "OfflineStoreStatusEqual"=@("Get-SMFeatureGroupList")
     "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")
-    "OnlineStoreConfig_TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
     "OutputConfig_PresetDeploymentType"=@("New-SMDeviceFleet","New-SMEdgePackagingJob","Update-SMDeviceFleet")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")
-    "OutputConfig_TargetPlatform_Accelerator"=@("New-SMCompilationJob")
-    "OutputConfig_TargetPlatform_Arch"=@("New-SMCompilationJob")
-    "OutputConfig_TargetPlatform_Os"=@("New-SMCompilationJob")
     "ProblemType"=@("New-SMAutoMLJob")
-    "ProcessingResources_ClusterConfig_InstanceType"=@("New-SMProcessingJob")
     "Processor"=@("New-SMImageVersion","Update-SMImageVersion")
     "Resource"=@("Get-SMSearchSuggestion","Search-SMResource")
     "ResourceSpec_InstanceType"=@("New-SMApp")
     "RetentionPolicy_HomeEfsFileSystem"=@("Remove-SMDomain")
+    "RollbackMaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "RootAccess"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
+    "S3DataSource_S3DataType"=@("New-SMTransformJob")
     "SearchExpression_Operator"=@("Search-SMResource")
     "SkipModelValidation"=@("New-SMModelPackage")
     "SortBy"=@("Get-SMActionList","Get-SMAlgorithmList","Get-SMAppImageConfigList","Get-SMAppList","Get-SMArtifactList","Get-SMAssociationList","Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMClusterList","Get-SMClusterNodeList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMContextList","Get-SMDataQualityJobDefinitionList","Get-SMDeviceFleetList","Get-SMEdgeDeploymentPlanList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMExperimentList","Get-SMFeatureGroupList","Get-SMHubContentList","Get-SMHubContentVersionList","Get-SMHubList","Get-SMHyperParameterTuningJobList","Get-SMImageList","Get-SMImageVersionList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMLineageGroupList","Get-SMModelBiasJobDefinitionList","Get-SMModelCardExportJobList","Get-SMModelCardList","Get-SMModelCardVersionList","Get-SMModelExplainabilityJobDefinitionList","Get-SMModelList","Get-SMModelPackageGroupList","Get-SMModelPackageList","Get-SMModelQualityJobDefinitionList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMPipelineExecutionList","Get-SMPipelineList","Get-SMProcessingJobList","Get-SMProjectList","Get-SMResourceCatalogList","Get-SMSpaceList","Get-SMStudioLifecycleConfigList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMTrialComponentList","Get-SMTrialList","Get-SMUserProfileList","Get-SMWorkforceList","Get-SMWorkteamList")
@@ -1567,25 +1548,29 @@ $SM_map = @{
     "SpaceSharingSettings_SharingType"=@("New-SMSpace")
     "Status"=@("Get-SMInferenceRecommendationsJobStepList","New-SMAction","Update-SMAction")
     "Status_PrimaryStatus"=@("New-SMTrialComponent","Update-SMTrialComponent")
-    "StatusEquals"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
+    "StatusEqual"=@("Get-SMAutoMLJobList","Get-SMCandidatesForAutoMLJobList","Get-SMCompilationJobList","Get-SMEdgePackagingJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMInferenceComponentList","Get-SMInferenceExperimentList","Get-SMInferenceRecommendationsJobList","Get-SMLabelingJobList","Get-SMModelCardExportJobList","Get-SMMonitoringAlertHistoryList","Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList","Get-SMNotebookInstanceList","Get-SMProcessingJobList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "StepType"=@("Get-SMInferenceRecommendationsJobStepList")
-    "StoppingConditions_FlatInvocations"=@("New-SMInferenceRecommendationsJob")
+    "StoppingConditions_FlatInvocation"=@("New-SMInferenceRecommendationsJob")
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
+    "TabularJobConfig_Mode"=@("New-SMAutoMLJobV2")
+    "TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
+    "TargetPlatform_Accelerator"=@("New-SMCompilationJob")
+    "TargetPlatform_Arch"=@("New-SMCompilationJob")
+    "TargetPlatform_Os"=@("New-SMCompilationJob")
+    "TextConfig_Granularity"=@("New-SMEndpointConfig")
+    "TextConfig_Language"=@("New-SMEndpointConfig")
     "ThroughputConfig_ThroughputMode"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
-    "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
-    "TrainingJobDefinition_HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")
-    "TrainingJobDefinition_HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")
-    "TrainingJobDefinition_TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
-    "TrainingSpecification_AdditionalS3DataSource_CompressionType"=@("New-SMAlgorithm")
-    "TrainingSpecification_AdditionalS3DataSource_S3DataType"=@("New-SMAlgorithm")
+    "TrafficPattern_TrafficType"=@("New-SMInferenceRecommendationsJob")
+    "TrafficRoutingConfiguration_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "TransformInput_CompressionType"=@("New-SMTransformJob")
-    "TransformInput_DataSource_S3DataSource_S3DataType"=@("New-SMTransformJob")
     "TransformInput_SplitType"=@("New-SMTransformJob")
     "TransformOutput_AssembleWith"=@("New-SMTransformJob")
     "TransformResources_InstanceType"=@("New-SMTransformJob")
+    "TtlDuration_Unit"=@("New-SMFeatureGroup","Update-SMFeatureGroup")
+    "TuningObjective_Type"=@("New-SMHyperParameterTuningJob")
     "Type"=@("Get-SMInferenceExperimentList","New-SMInferenceExperiment")
     "VendorGuidance"=@("New-SMImageVersion","Update-SMImageVersion")
-    "WarmPoolStatusEquals"=@("Get-SMTrainingJobList")
+    "WarmPoolStatusEqual"=@("Get-SMTrainingJobList")
     "WarmStartConfig_WarmStartType"=@("New-SMHyperParameterTuningJob")
 }
 

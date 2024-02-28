@@ -90,6 +90,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-CEAnomaly', 
         'Get-CEAnomalyMonitor', 
         'Get-CEAnomalySubscription', 
+        'Get-CEApproximateUsageRecord', 
         'Get-CECostAllocationTagList', 
         'Get-CECostAndUsage', 
         'Get-CECostAndUsageWithResource', 

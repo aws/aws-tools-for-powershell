@@ -89,8 +89,8 @@ $EMR_Completers = {
 
         # Amazon.ElasticMapReduce.ComputeLimitsUnitType
         {
-            ($_ -eq "Start-EMRJobFlow/ManagedScalingPolicy_ComputeLimits_UnitType") -Or
-            ($_ -eq "Write-EMRManagedScalingPolicy/ManagedScalingPolicy_ComputeLimits_UnitType")
+            ($_ -eq "Start-EMRJobFlow/ComputeLimits_UnitType") -Or
+            ($_ -eq "Write-EMRManagedScalingPolicy/ComputeLimits_UnitType")
         }
         {
             $v = "InstanceFleetUnits","Instances","VCPU"
@@ -142,21 +142,21 @@ $EMR_Completers = {
         }
 
         # Amazon.ElasticMapReduce.OnDemandCapacityReservationPreference
-        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_CapacityReservationPreference"
+        "Add-EMRInstanceFleet/CapacityReservationOptions_CapacityReservationPreference"
         {
             $v = "none","open"
             break
         }
 
         # Amazon.ElasticMapReduce.OnDemandCapacityReservationUsageStrategy
-        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_UsageStrategy"
+        "Add-EMRInstanceFleet/CapacityReservationOptions_UsageStrategy"
         {
             $v = "use-capacity-reservations-first"
             break
         }
 
         # Amazon.ElasticMapReduce.OnDemandProvisioningAllocationStrategy
-        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"
+        "Add-EMRInstanceFleet/OnDemandSpecification_AllocationStrategy"
         {
             $v = "lowest-price"
             break
@@ -184,14 +184,14 @@ $EMR_Completers = {
         }
 
         # Amazon.ElasticMapReduce.SpotProvisioningAllocationStrategy
-        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"
+        "Add-EMRInstanceFleet/SpotSpecification_AllocationStrategy"
         {
             $v = "capacity-optimized","diversified","lowest-price","price-capacity-optimized"
             break
         }
 
         # Amazon.ElasticMapReduce.SpotProvisioningTimeoutAction
-        "Add-EMRInstanceFleet/InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"
+        "Add-EMRInstanceFleet/SpotSpecification_TimeoutAction"
         {
             $v = "SWITCH_TO_ON_DEMAND","TERMINATE_CLUSTER"
             break
@@ -214,20 +214,20 @@ $EMR_Completers = {
 
 $EMR_map = @{
     "AuthMode"=@("New-EMRStudio")
+    "CapacityReservationOptions_CapacityReservationPreference"=@("Add-EMRInstanceFleet")
+    "CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet")
+    "ComputeLimits_UnitType"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
     "ExecutionEngine_Type"=@("Start-EMRNotebookExecution")
     "IdcUserAssignment"=@("New-EMRStudio")
     "IdentityType"=@("Get-EMRStudioSessionMapping","Get-EMRStudioSessionMappingList","New-EMRStudioSessionMapping","Remove-EMRStudioSessionMapping","Update-EMRStudioSessionMapping")
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
-    "InstanceFleet_LaunchSpecifications_OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
-    "InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_CapacityReservationPreference"=@("Add-EMRInstanceFleet")
-    "InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet")
-    "InstanceFleet_LaunchSpecifications_SpotSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
-    "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
-    "ManagedScalingPolicy_ComputeLimits_UnitType"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
+    "OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "OutputNotebookFormat"=@("Start-EMRNotebookExecution")
     "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
+    "SpotSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
+    "SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "Status"=@("Get-EMRNotebookExecutionList")
     "StepCancellationOption"=@("Stop-EMRStep")
 }

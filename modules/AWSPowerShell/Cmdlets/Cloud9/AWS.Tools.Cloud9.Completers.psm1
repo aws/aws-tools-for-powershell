@@ -96,8 +96,8 @@ $C9_Completers = {
 
         # Amazon.Cloud9.MemberPermissions
         {
-            ($_ -eq "New-C9EnvironmentMembership/Permissions") -Or
-            ($_ -eq "Update-C9EnvironmentMembership/Permissions")
+            ($_ -eq "New-C9EnvironmentMembership/Permission") -Or
+            ($_ -eq "Update-C9EnvironmentMembership/Permission")
         }
         {
             $v = "read-only","read-write"
@@ -115,7 +115,7 @@ $C9_Completers = {
 $C9_map = @{
     "ConnectionType"=@("New-C9EnvironmentEC2")
     "ManagedCredentialsAction"=@("Update-C9Environment")
-    "Permissions"=@("New-C9EnvironmentMembership","Update-C9EnvironmentMembership")
+    "Permission"=@("New-C9EnvironmentMembership","Update-C9EnvironmentMembership")
 }
 
 _awsArgumentCompleterRegistration $C9_Completers $C9_map

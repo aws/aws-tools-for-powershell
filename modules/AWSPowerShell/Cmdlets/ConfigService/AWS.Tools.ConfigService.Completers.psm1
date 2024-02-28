@@ -144,7 +144,7 @@ $CFG_Completers = {
         # Amazon.ConfigService.MaximumExecutionFrequency
         {
             ($_ -eq "Write-CFGConfigRule/ConfigRule_MaximumExecutionFrequency") -Or
-            ($_ -eq "Write-CFGDeliveryChannel/DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency") -Or
+            ($_ -eq "Write-CFGDeliveryChannel/ConfigSnapshotDeliveryProperties_DeliveryFrequency") -Or
             ($_ -eq "Write-CFGOrganizationConfigRule/OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency") -Or
             ($_ -eq "Write-CFGOrganizationConfigRule/OrganizationCustomRuleMetadata_MaximumExecutionFrequency") -Or
             ($_ -eq "Write-CFGOrganizationConfigRule/OrganizationManagedRuleMetadata_MaximumExecutionFrequency")
@@ -169,21 +169,21 @@ $CFG_Completers = {
         }
 
         # Amazon.ConfigService.Owner
-        "Write-CFGConfigRule/ConfigRule_Source_Owner"
+        "Write-CFGConfigRule/Source_Owner"
         {
             $v = "AWS","CUSTOM_LAMBDA","CUSTOM_POLICY"
             break
         }
 
         # Amazon.ConfigService.RecordingFrequency
-        "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingMode_RecordingFrequency"
+        "Write-CFGConfigurationRecorder/RecordingMode_RecordingFrequency"
         {
             $v = "CONTINUOUS","DAILY"
             break
         }
 
         # Amazon.ConfigService.RecordingStrategyType
-        "Write-CFGConfigurationRecorder/ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"
+        "Write-CFGConfigurationRecorder/RecordingStrategy_UseOnly"
         {
             $v = "ALL_SUPPORTED_RESOURCE_TYPES","EXCLUSION_BY_RESOURCE_TYPES","INCLUSION_BY_RESOURCE_TYPES"
             break
@@ -243,10 +243,7 @@ $CFG_map = @{
     "ComplianceType"=@("Get-CFGAggregateComplianceDetailsByConfigRule")
     "ConfigRule_ConfigRuleState"=@("Write-CFGConfigRule")
     "ConfigRule_MaximumExecutionFrequency"=@("Write-CFGConfigRule")
-    "ConfigRule_Source_Owner"=@("Write-CFGConfigRule")
-    "ConfigurationRecorder_RecordingGroup_RecordingStrategy_UseOnly"=@("Write-CFGConfigurationRecorder")
-    "ConfigurationRecorder_RecordingMode_RecordingFrequency"=@("Write-CFGConfigurationRecorder")
-    "DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
+    "ConfigSnapshotDeliveryProperties_DeliveryFrequency"=@("Write-CFGDeliveryChannel")
     "EvaluationMode"=@("Start-CFGResourceEvaluation")
     "ExternalEvaluation_ComplianceType"=@("Write-CFGExternalEvaluation")
     "Filters_ComplianceType"=@("Get-CFGAggregateComplianceByConfigRuleList","Get-CFGAggregateComplianceByConformancePack","Get-CFGConformancePackCompliance","Get-CFGConformancePackComplianceDetail")
@@ -258,11 +255,14 @@ $CFG_map = @{
     "OrganizationCustomPolicyRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "OrganizationCustomRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
     "OrganizationManagedRuleMetadata_MaximumExecutionFrequency"=@("Write-CFGOrganizationConfigRule")
+    "RecordingMode_RecordingFrequency"=@("Write-CFGConfigurationRecorder")
+    "RecordingStrategy_UseOnly"=@("Write-CFGConfigurationRecorder")
     "ResourceDetails_ResourceConfigurationSchemaType"=@("Start-CFGResourceEvaluation")
     "ResourceIdentifier_ResourceType"=@("Get-CFGAggregateResourceConfig")
     "ResourceType"=@("Get-CFGAggregateDiscoveredResourceList","Get-CFGDiscoveredResource","Get-CFGResourceConfigHistory")
     "SortBy"=@("Get-CFGConformancePackComplianceScoreList")
     "SortOrder"=@("Get-CFGConformancePackComplianceScoreList")
+    "Source_Owner"=@("Write-CFGConfigRule")
 }
 
 _awsArgumentCompleterRegistration $CFG_Completers $CFG_map

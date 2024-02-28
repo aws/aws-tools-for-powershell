@@ -129,7 +129,7 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.AutoAcceptSharedAssociationsValue
-        "New-EC2TransitGatewayMulticastDomain/Options_AutoAcceptSharedAssociations"
+        "New-EC2TransitGatewayMulticastDomain/Options_AutoAcceptSharedAssociation"
         {
             $v = "disable","enable"
             break
@@ -137,8 +137,8 @@ $EC2_Completers = {
 
         # Amazon.EC2.AutoAcceptSharedAttachmentsValue
         {
-            ($_ -eq "Edit-EC2TransitGateway/Options_AutoAcceptSharedAttachments") -Or
-            ($_ -eq "New-EC2TransitGateway/Options_AutoAcceptSharedAttachments")
+            ($_ -eq "Edit-EC2TransitGateway/Options_AutoAcceptSharedAttachment") -Or
+            ($_ -eq "New-EC2TransitGateway/Options_AutoAcceptSharedAttachment")
         }
         {
             $v = "disable","enable"
@@ -158,7 +158,7 @@ $EC2_Completers = {
         # Amazon.EC2.BareMetal
         {
             ($_ -eq "Get-EC2InstanceTypesFromInstanceRequirement/InstanceRequirements_BareMetal") -Or
-            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirementsWithMetadata_InstanceRequirements_BareMetal")
+            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_BareMetal")
         }
         {
             $v = "excluded","included","required"
@@ -178,7 +178,7 @@ $EC2_Completers = {
         # Amazon.EC2.BurstablePerformance
         {
             ($_ -eq "Get-EC2InstanceTypesFromInstanceRequirement/InstanceRequirements_BurstablePerformance") -Or
-            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirementsWithMetadata_InstanceRequirements_BurstablePerformance")
+            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_BurstablePerformance")
         }
         {
             $v = "excluded","included","required"
@@ -375,7 +375,7 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.FleetCapacityReservationUsageStrategy
-        "New-EC2Fleet/OnDemandOptions_CapacityReservationOptions_UsageStrategy"
+        "New-EC2Fleet/CapacityReservationOptions_UsageStrategy"
         {
             $v = "use-capacity-reservations-first"
             break
@@ -399,7 +399,7 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.FleetInstanceMatchCriteria
-        "New-EC2CapacityReservationFleet/InstanceMatchCriteria"
+        "New-EC2CapacityReservationFleet/InstanceMatchCriterion"
         {
             $v = "open"
             break
@@ -413,7 +413,7 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.FleetReplacementStrategy
-        "New-EC2Fleet/SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"
+        "New-EC2Fleet/CapacityRebalance_ReplacementStrategy"
         {
             $v = "launch","launch-before-terminate"
             break
@@ -496,8 +496,8 @@ $EC2_Completers = {
 
         # Amazon.EC2.HttpTokensState
         {
-            ($_ -eq "Edit-EC2InstanceMetadataOption/HttpTokens") -Or
-            ($_ -eq "New-EC2Instance/MetadataOptions_HttpTokens")
+            ($_ -eq "Edit-EC2InstanceMetadataOption/HttpToken") -Or
+            ($_ -eq "New-EC2Instance/MetadataOptions_HttpToken")
         }
         {
             $v = "optional","required"
@@ -564,7 +564,7 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.InstanceMatchCriteria
-        "Add-EC2CapacityReservation/InstanceMatchCriteria"
+        "Add-EC2CapacityReservation/InstanceMatchCriterion"
         {
             $v = "open","targeted"
             break
@@ -592,8 +592,8 @@ $EC2_Completers = {
 
         # Amazon.EC2.InstanceMetadataTagsState
         {
-            ($_ -eq "Edit-EC2InstanceMetadataOption/InstanceMetadataTags") -Or
-            ($_ -eq "New-EC2Instance/MetadataOptions_InstanceMetadataTags")
+            ($_ -eq "Edit-EC2InstanceMetadataOption/InstanceMetadataTag") -Or
+            ($_ -eq "New-EC2Instance/MetadataOptions_InstanceMetadataTag")
         }
         {
             $v = "disabled","enabled"
@@ -700,7 +700,7 @@ $EC2_Completers = {
         # Amazon.EC2.LocalStorage
         {
             ($_ -eq "Get-EC2InstanceTypesFromInstanceRequirement/InstanceRequirements_LocalStorage") -Or
-            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirementsWithMetadata_InstanceRequirements_LocalStorage")
+            ($_ -eq "Get-EC2SpotPlacementScore/InstanceRequirements_LocalStorage")
         }
         {
             $v = "excluded","included","required"
@@ -833,7 +833,7 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.ReplacementStrategy
-        "Request-EC2SpotFleet/SpotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_ReplacementStrategy"
+        "Request-EC2SpotFleet/CapacityRebalance_ReplacementStrategy"
         {
             $v = "launch","launch-before-terminate"
             break
@@ -999,8 +999,8 @@ $EC2_Completers = {
         {
             ($_ -eq "Get-EC2ReservedInstancesOffering/InstanceTenancy") -Or
             ($_ -eq "New-EC2Vpc/InstanceTenancy") -Or
-            ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_Placement_Tenancy") -Or
-            ($_ -eq "New-EC2Instance/Placement_Tenancy")
+            ($_ -eq "New-EC2Instance/Placement_Tenancy") -Or
+            ($_ -eq "Request-EC2SpotInstance/Placement_Tenancy")
         }
         {
             $v = "dedicated","default","host"
@@ -1171,6 +1171,8 @@ $EC2_map = @{
     "AutoRecovery"=@("Edit-EC2InstanceMaintenanceOption")
     "AwsService"=@("New-EC2IpamPool")
     "BootMode"=@("Import-EC2Image","Register-EC2Image")
+    "CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet","Request-EC2SpotFleet")
+    "CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "CapacityReservationSpecification_CapacityReservationPreference"=@("Edit-EC2InstanceCapacityReservationAttribute","New-EC2Instance")
     "ConnectivityType"=@("New-EC2NatGateway")
     "CopyTagsFromSource"=@("New-EC2SnapshotBatch")
@@ -1190,21 +1192,18 @@ $EC2_map = @{
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
     "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
-    "HttpTokens"=@("Edit-EC2InstanceMetadataOption")
+    "HttpToken"=@("Edit-EC2InstanceMetadataOption")
     "ImageBlockPublicAccessState"=@("Enable-EC2ImageBlockPublicAccess")
     "ImdsSupport"=@("Register-EC2Image")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
-    "InstanceMatchCriteria"=@("Add-EC2CapacityReservation","New-EC2CapacityReservationFleet")
-    "InstanceMetadataTags"=@("Edit-EC2InstanceMetadataOption")
+    "InstanceMatchCriterion"=@("Add-EC2CapacityReservation","New-EC2CapacityReservationFleet")
+    "InstanceMetadataTag"=@("Edit-EC2InstanceMetadataOption")
     "InstancePlatform"=@("Add-EC2CapacityReservation","New-EC2EC2CapacityBlock")
-    "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement")
-    "InstanceRequirements_BurstablePerformance"=@("Get-EC2InstanceTypesFromInstanceRequirement")
-    "InstanceRequirements_LocalStorage"=@("Get-EC2InstanceTypesFromInstanceRequirement")
-    "InstanceRequirementsWithMetadata_InstanceRequirements_BareMetal"=@("Get-EC2SpotPlacementScore")
-    "InstanceRequirementsWithMetadata_InstanceRequirements_BurstablePerformance"=@("Get-EC2SpotPlacementScore")
-    "InstanceRequirementsWithMetadata_InstanceRequirements_LocalStorage"=@("Get-EC2SpotPlacementScore")
+    "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
+    "InstanceRequirements_BurstablePerformance"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
+    "InstanceRequirements_LocalStorage"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
     "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
@@ -1212,7 +1211,6 @@ $EC2_map = @{
     "KeyFormat"=@("New-EC2KeyPair")
     "KeyType"=@("New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
-    "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "LoadBalancerOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "LocationType"=@("Get-EC2InstanceTypeOffering")
@@ -1221,20 +1219,19 @@ $EC2_map = @{
     "MaintenanceOptions_AutoRecovery"=@("New-EC2Instance")
     "MetadataOptions_HttpEndpoint"=@("New-EC2Instance")
     "MetadataOptions_HttpProtocolIpv6"=@("New-EC2Instance")
-    "MetadataOptions_HttpTokens"=@("New-EC2Instance")
-    "MetadataOptions_InstanceMetadataTags"=@("New-EC2Instance")
+    "MetadataOptions_HttpToken"=@("New-EC2Instance")
+    "MetadataOptions_InstanceMetadataTag"=@("New-EC2Instance")
     "Metric"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")
     "Mode"=@("New-EC2LocalGatewayRouteTable")
     "NetworkInterfaceOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OnDemandOptions_AllocationStrategy"=@("New-EC2Fleet")
-    "OnDemandOptions_CapacityReservationOptions_UsageStrategy"=@("New-EC2Fleet")
     "OperationType"=@("Edit-EC2FpgaImageAttribute","Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
     "OptInStatus"=@("Edit-EC2AvailabilityZoneGroup")
     "Options_ApplianceModeSupport"=@("Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGatewayVpcAttachment")
-    "Options_AutoAcceptSharedAssociations"=@("New-EC2TransitGatewayMulticastDomain")
-    "Options_AutoAcceptSharedAttachments"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
+    "Options_AutoAcceptSharedAssociation"=@("New-EC2TransitGatewayMulticastDomain")
+    "Options_AutoAcceptSharedAttachment"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DefaultRouteTableAssociation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DefaultRouteTablePropagation"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "Options_DnsSupport"=@("Edit-EC2TransitGateway","Edit-EC2TransitGatewayVpcAttachment","New-EC2TransitGateway","New-EC2TransitGatewayVpcAttachment")
@@ -1249,7 +1246,7 @@ $EC2_map = @{
     "Options_VpnEcmpSupport"=@("Edit-EC2TransitGateway","New-EC2TransitGateway")
     "PayerResponsibility"=@("Edit-EC2VpcEndpointServicePayerResponsibility")
     "Permission"=@("New-EC2NetworkInterfacePermission")
-    "Placement_Tenancy"=@("New-EC2Instance")
+    "Placement_Tenancy"=@("New-EC2Instance","Request-EC2SpotInstance")
     "PrivateDnsHostnameType"=@("Edit-EC2PrivateDnsNameOption")
     "PrivateDnsHostnameTypeOnLaunch"=@("Edit-EC2SubnetAttribute")
     "PrivateDnsNameOptions_HostnameType"=@("New-EC2Instance")
@@ -1265,12 +1262,10 @@ $EC2_map = @{
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_OnDemandAllocationStrategy"=@("Request-EC2SpotFleet")
-    "SpotFleetRequestConfig_SpotMaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_TargetCapacityUnitType"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_Type"=@("Request-EC2SpotFleet")
     "SpotOptions_AllocationStrategy"=@("New-EC2Fleet")
     "SpotOptions_InstanceInterruptionBehavior"=@("New-EC2Fleet")
-    "SpotOptions_MaintenanceStrategies_CapacityRebalance_ReplacementStrategy"=@("New-EC2Fleet")
     "SpreadLevel"=@("New-EC2PlacementGroup")
     "State"=@("Enable-EC2SnapshotBlockPublicAccess")
     "Statistic"=@("Disable-EC2AwsNetworkPerformanceMetricSubscription","Enable-EC2AwsNetworkPerformanceMetricSubscription")

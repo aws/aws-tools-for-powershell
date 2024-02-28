@@ -116,7 +116,7 @@ $REK_Completers = {
         }
 
         # Amazon.Rekognition.FaceAttributes
-        "Start-REKFaceDetection/FaceAttributes"
+        "Start-REKFaceDetection/FaceAttribute"
         {
             $v = "ALL","DEFAULT"
             break
@@ -181,7 +181,7 @@ $REK_map = @{
     "AggregateBy"=@("Get-REKContentModeration","Get-REKLabelDetection")
     "AutoUpdate"=@("New-REKProject")
     "DatasetType"=@("New-REKDataset")
-    "FaceAttributes"=@("Start-REKFaceDetection")
+    "FaceAttribute"=@("Start-REKFaceDetection")
     "Feature"=@("New-REKProject")
     "QualityFilter"=@("Add-REKDetectedFacesToCollection","Compare-REKFace","Search-REKFacesByImage","Search-REKUsersByImage")
     "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")

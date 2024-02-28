@@ -81,7 +81,7 @@ $GDB_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.GlueDataBrew.AnalyticsMode
-        "Send-GDBProjectSessionAction/ViewFrame_Analytics"
+        "Send-GDBProjectSessionAction/ViewFrame_Analytic"
         {
             $v = "DISABLE","ENABLE"
             break
@@ -123,8 +123,8 @@ $GDB_Completers = {
 
         # Amazon.GlueDataBrew.Order
         {
-            ($_ -eq "New-GDBDataset/PathOptions_FilesLimit_Order") -Or
-            ($_ -eq "Update-GDBDataset/PathOptions_FilesLimit_Order")
+            ($_ -eq "New-GDBDataset/FilesLimit_Order") -Or
+            ($_ -eq "Update-GDBDataset/FilesLimit_Order")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -133,8 +133,8 @@ $GDB_Completers = {
 
         # Amazon.GlueDataBrew.OrderedBy
         {
-            ($_ -eq "New-GDBDataset/PathOptions_FilesLimit_OrderedBy") -Or
-            ($_ -eq "Update-GDBDataset/PathOptions_FilesLimit_OrderedBy")
+            ($_ -eq "New-GDBDataset/FilesLimit_OrderedBy") -Or
+            ($_ -eq "Update-GDBDataset/FilesLimit_OrderedBy")
         }
         {
             $v = "LAST_MODIFIED_DATE"
@@ -171,13 +171,13 @@ $GDB_Completers = {
 
 $GDB_map = @{
     "EncryptionMode"=@("New-GDBProfileJob","New-GDBRecipeJob","Update-GDBProfileJob","Update-GDBRecipeJob")
+    "FilesLimit_Order"=@("New-GDBDataset","Update-GDBDataset")
+    "FilesLimit_OrderedBy"=@("New-GDBDataset","Update-GDBDataset")
     "Format"=@("New-GDBDataset","Update-GDBDataset")
     "JobSample_Mode"=@("New-GDBProfileJob","Update-GDBProfileJob")
     "LogSubscription"=@("New-GDBProfileJob","New-GDBRecipeJob","Update-GDBProfileJob","Update-GDBRecipeJob")
-    "PathOptions_FilesLimit_Order"=@("New-GDBDataset","Update-GDBDataset")
-    "PathOptions_FilesLimit_OrderedBy"=@("New-GDBDataset","Update-GDBDataset")
     "Sample_Type"=@("New-GDBProject","Update-GDBProject")
-    "ViewFrame_Analytics"=@("Send-GDBProjectSessionAction")
+    "ViewFrame_Analytic"=@("Send-GDBProjectSessionAction")
 }
 
 _awsArgumentCompleterRegistration $GDB_Completers $GDB_map

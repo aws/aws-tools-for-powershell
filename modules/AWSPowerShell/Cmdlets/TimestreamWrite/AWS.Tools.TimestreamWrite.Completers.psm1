@@ -103,9 +103,9 @@ $TSW_Completers = {
 
         # Amazon.TimestreamWrite.S3EncryptionOption
         {
-            ($_ -eq "New-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption") -Or
-            ($_ -eq "Update-TSWTable/MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption") -Or
-            ($_ -eq "New-TSWBatchLoadTask/ReportConfiguration_ReportS3Configuration_EncryptionOption")
+            ($_ -eq "New-TSWBatchLoadTask/ReportS3Configuration_EncryptionOption") -Or
+            ($_ -eq "New-TSWTable/S3Configuration_EncryptionOption") -Or
+            ($_ -eq "Update-TSWTable/S3Configuration_EncryptionOption")
         }
         {
             $v = "SSE_KMS","SSE_S3"
@@ -115,7 +115,7 @@ $TSW_Completers = {
         # Amazon.TimestreamWrite.TimeUnit
         {
             ($_ -eq "Write-TSWRecord/CommonAttributes_TimeUnit") -Or
-            ($_ -eq "New-TSWBatchLoadTask/DataModelConfiguration_DataModel_TimeUnit")
+            ($_ -eq "New-TSWBatchLoadTask/DataModel_TimeUnit")
         }
         {
             $v = "MICROSECONDS","MILLISECONDS","NANOSECONDS","SECONDS"
@@ -133,10 +133,10 @@ $TSW_Completers = {
 $TSW_map = @{
     "CommonAttributes_MeasureValueType"=@("Write-TSWRecord")
     "CommonAttributes_TimeUnit"=@("Write-TSWRecord")
-    "DataModelConfiguration_DataModel_TimeUnit"=@("New-TSWBatchLoadTask")
+    "DataModel_TimeUnit"=@("New-TSWBatchLoadTask")
     "DataSourceConfiguration_DataFormat"=@("New-TSWBatchLoadTask")
-    "MagneticStoreWriteProperties_MagneticStoreRejectedDataLocation_S3Configuration_EncryptionOption"=@("New-TSWTable","Update-TSWTable")
-    "ReportConfiguration_ReportS3Configuration_EncryptionOption"=@("New-TSWBatchLoadTask")
+    "ReportS3Configuration_EncryptionOption"=@("New-TSWBatchLoadTask")
+    "S3Configuration_EncryptionOption"=@("New-TSWTable","Update-TSWTable")
     "TaskStatus"=@("Get-TSWBatchLoadTaskList")
 }
 

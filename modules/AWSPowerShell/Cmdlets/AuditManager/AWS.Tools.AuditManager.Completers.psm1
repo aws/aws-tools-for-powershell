@@ -123,7 +123,7 @@ $AUDM_Completers = {
         }
 
         # Amazon.AuditManager.DeleteResources
-        "Edit-AUDMSetting/DeregistrationPolicy_DeleteResources"
+        "Edit-AUDMSetting/DeregistrationPolicy_DeleteResource"
         {
             $v = "ALL","DEFAULT"
             break
@@ -191,7 +191,7 @@ $AUDM_map = @{
     "ControlType"=@("Get-AUDMControlList")
     "DefaultAssessmentReportsDestination_DestinationType"=@("Edit-AUDMSetting")
     "DefaultExportDestination_DestinationType"=@("Edit-AUDMSetting")
-    "DeregistrationPolicy_DeleteResources"=@("Edit-AUDMSetting")
+    "DeregistrationPolicy_DeleteResource"=@("Edit-AUDMSetting")
     "FrameworkType"=@("Get-AUDMAssessmentFrameworkList")
     "RequestType"=@("Get-AUDMAssessmentFrameworkShareRequestList","Remove-AUDMAssessmentFrameworkShare","Update-AUDMAssessmentFrameworkShare")
     "Source"=@("Get-AUDMKeywordForDataSourceList")

@@ -82,8 +82,8 @@ $ERES_Completers = {
     {
         # Amazon.EntityResolution.AttributeMatchingModel
         {
-            ($_ -eq "New-ERESMatchingWorkflow/ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel") -Or
-            ($_ -eq "Update-ERESMatchingWorkflow/ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel")
+            ($_ -eq "New-ERESMatchingWorkflow/RuleBasedProperties_AttributeMatchingModel") -Or
+            ($_ -eq "Update-ERESMatchingWorkflow/RuleBasedProperties_AttributeMatchingModel")
         }
         {
             $v = "MANY_TO_MANY","ONE_TO_ONE"
@@ -132,7 +132,7 @@ $ERES_map = @{
     "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
-    "ResolutionTechniques_RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
 }
 
 _awsArgumentCompleterRegistration $ERES_Completers $ERES_map

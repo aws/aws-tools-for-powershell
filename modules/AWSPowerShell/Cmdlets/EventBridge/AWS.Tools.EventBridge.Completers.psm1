@@ -109,8 +109,8 @@ $EVB_Completers = {
 
         # Amazon.EventBridge.ConnectionOAuthHttpMethod
         {
-            ($_ -eq "New-EVBConnection/AuthParameters_OAuthParameters_HttpMethod") -Or
-            ($_ -eq "Update-EVBConnection/AuthParameters_OAuthParameters_HttpMethod")
+            ($_ -eq "New-EVBConnection/OAuthParameters_HttpMethod") -Or
+            ($_ -eq "Update-EVBConnection/OAuthParameters_HttpMethod")
         }
         {
             $v = "GET","POST","PUT"
@@ -158,9 +158,9 @@ $EVB_Completers = {
 
 $EVB_map = @{
     "AuthorizationType"=@("New-EVBConnection","Update-EVBConnection")
-    "AuthParameters_OAuthParameters_HttpMethod"=@("New-EVBConnection","Update-EVBConnection")
     "ConnectionState"=@("Get-EVBConnectionList")
     "HttpMethod"=@("New-EVBApiDestination","Update-EVBApiDestination")
+    "OAuthParameters_HttpMethod"=@("New-EVBConnection","Update-EVBConnection")
     "ReplicationConfig_State"=@("New-EVBEndpoint","Update-EVBEndpoint")
     "State"=@("Get-EVBArchiveList","Get-EVBReplayList","Write-EVBRule")
 }

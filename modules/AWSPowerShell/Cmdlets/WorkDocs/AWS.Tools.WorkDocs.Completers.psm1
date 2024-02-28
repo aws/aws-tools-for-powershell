@@ -81,7 +81,7 @@ $WD_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.WorkDocs.BooleanEnumType
-        "Update-WDUser/GrantPoweruserPrivileges"
+        "Update-WDUser/GrantPoweruserPrivilege"
         {
             $v = "FALSE","TRUE"
             break
@@ -211,7 +211,7 @@ $WD_Completers = {
 
 $WD_map = @{
     "CollectionType"=@("Get-WDResource")
-    "GrantPoweruserPrivileges"=@("Update-WDUser")
+    "GrantPoweruserPrivilege"=@("Update-WDUser")
     "Include"=@("Get-WDUserList")
     "Locale"=@("Update-WDUser")
     "Order"=@("Get-WDFolderContent","Get-WDUserList")

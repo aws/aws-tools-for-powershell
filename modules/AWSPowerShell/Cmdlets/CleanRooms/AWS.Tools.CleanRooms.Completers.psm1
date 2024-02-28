@@ -129,8 +129,8 @@ $CRS_Completers = {
 
         # Amazon.CleanRooms.JoinRequiredOption
         {
-            ($_ -eq "New-CRSConfiguredTableAnalysisRule/AnalysisRulePolicy_V1_Aggregation_JoinRequired") -Or
-            ($_ -eq "Update-CRSConfiguredTableAnalysisRule/AnalysisRulePolicy_V1_Aggregation_JoinRequired")
+            ($_ -eq "New-CRSConfiguredTableAnalysisRule/Aggregation_JoinRequired") -Or
+            ($_ -eq "Update-CRSConfiguredTableAnalysisRule/Aggregation_JoinRequired")
         }
         {
             $v = "QUERY_RUNNER"
@@ -189,9 +189,9 @@ $CRS_Completers = {
 
         # Amazon.CleanRooms.ResultFormat
         {
-            ($_ -eq "New-CRSMembership/DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
-            ($_ -eq "Update-CRSMembership/DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat") -Or
-            ($_ -eq "Start-CRSProtectedQuery/ResultConfiguration_OutputConfiguration_S3_ResultFormat")
+            ($_ -eq "New-CRSMembership/S3_ResultFormat") -Or
+            ($_ -eq "Start-CRSProtectedQuery/S3_ResultFormat") -Or
+            ($_ -eq "Update-CRSMembership/S3_ResultFormat")
         }
         {
             $v = "CSV","PARQUET"
@@ -221,16 +221,15 @@ $CRS_Completers = {
 }
 
 $CRS_map = @{
+    "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable")
-    "AnalysisRulePolicy_V1_Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
-    "DefaultResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("New-CRSMembership","Update-CRSMembership")
     "Format"=@("New-CRSAnalysisTemplate")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "PrivacyBudgetType"=@("Get-CRSCollaborationPrivacyBudgetList","Get-CRSPrivacyBudgetList","New-CRSPrivacyBudgetTemplate","Update-CRSPrivacyBudgetTemplate")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
-    "ResultConfiguration_OutputConfiguration_S3_ResultFormat"=@("Start-CRSProtectedQuery")
+    "S3_ResultFormat"=@("New-CRSMembership","Start-CRSProtectedQuery","Update-CRSMembership")
     "SchemaType"=@("Get-CRSSchemaList")
     "Status"=@("Get-CRSMembershipList","Get-CRSProtectedQueryList")
     "TargetStatus"=@("Update-CRSProtectedQuery")

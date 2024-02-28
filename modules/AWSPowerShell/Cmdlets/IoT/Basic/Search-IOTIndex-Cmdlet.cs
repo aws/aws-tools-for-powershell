@@ -88,8 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page at one time. The response might contain
-        /// fewer results but will never contain more.</para>
+        /// <para>The maximum number of results to return per page at one time. This maximum number
+        /// cannot exceed 100. The response might contain fewer results but will never contain
+        /// more. You can use <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_SearchIndex.html#iot-SearchIndex-request-nextToken"><c>nextToken</c></a> to retrieve the next set of results until <c>nextToken</c> returns
+        /// <c>NULL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

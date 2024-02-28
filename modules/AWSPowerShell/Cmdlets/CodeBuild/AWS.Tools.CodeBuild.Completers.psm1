@@ -140,10 +140,10 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Artifacts_BucketOwnerAccess") -Or
             ($_ -eq "Start-CBBatch/ArtifactsOverride_BucketOwnerAccess") -Or
             ($_ -eq "Start-CBBuild/ArtifactsOverride_BucketOwnerAccess") -Or
-            ($_ -eq "New-CBProject/LogsConfig_S3Logs_BucketOwnerAccess") -Or
-            ($_ -eq "Update-CBProject/LogsConfig_S3Logs_BucketOwnerAccess") -Or
-            ($_ -eq "Start-CBBatch/LogsConfigOverride_S3Logs_BucketOwnerAccess") -Or
-            ($_ -eq "Start-CBBuild/LogsConfigOverride_S3Logs_BucketOwnerAccess")
+            ($_ -eq "New-CBProject/S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBatch/S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Start-CBBuild/S3Logs_BucketOwnerAccess") -Or
+            ($_ -eq "Update-CBProject/S3Logs_BucketOwnerAccess")
         }
         {
             $v = "FULL","NONE","READ_ONLY"
@@ -178,8 +178,8 @@ $CB_Completers = {
 
         # Amazon.CodeBuild.CredentialProviderType
         {
-            ($_ -eq "New-CBProject/Environment_RegistryCredential_CredentialProvider") -Or
-            ($_ -eq "Update-CBProject/Environment_RegistryCredential_CredentialProvider") -Or
+            ($_ -eq "New-CBProject/RegistryCredential_CredentialProvider") -Or
+            ($_ -eq "Update-CBProject/RegistryCredential_CredentialProvider") -Or
             ($_ -eq "Start-CBBatch/RegistryCredentialOverride_CredentialProvider") -Or
             ($_ -eq "Start-CBBuild/RegistryCredentialOverride_CredentialProvider")
         }
@@ -233,14 +233,14 @@ $CB_Completers = {
 
         # Amazon.CodeBuild.LogsConfigStatusType
         {
-            ($_ -eq "New-CBProject/LogsConfig_CloudWatchLogs_Status") -Or
-            ($_ -eq "Update-CBProject/LogsConfig_CloudWatchLogs_Status") -Or
-            ($_ -eq "New-CBProject/LogsConfig_S3Logs_Status") -Or
-            ($_ -eq "Update-CBProject/LogsConfig_S3Logs_Status") -Or
-            ($_ -eq "Start-CBBatch/LogsConfigOverride_CloudWatchLogs_Status") -Or
-            ($_ -eq "Start-CBBuild/LogsConfigOverride_CloudWatchLogs_Status") -Or
-            ($_ -eq "Start-CBBatch/LogsConfigOverride_S3Logs_Status") -Or
-            ($_ -eq "Start-CBBuild/LogsConfigOverride_S3Logs_Status")
+            ($_ -eq "New-CBProject/CloudWatchLogs_Status") -Or
+            ($_ -eq "Start-CBBatch/CloudWatchLogs_Status") -Or
+            ($_ -eq "Start-CBBuild/CloudWatchLogs_Status") -Or
+            ($_ -eq "Update-CBProject/CloudWatchLogs_Status") -Or
+            ($_ -eq "New-CBProject/S3Logs_Status") -Or
+            ($_ -eq "Start-CBBatch/S3Logs_Status") -Or
+            ($_ -eq "Start-CBBuild/S3Logs_Status") -Or
+            ($_ -eq "Update-CBProject/S3Logs_Status")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -294,8 +294,8 @@ $CB_Completers = {
 
         # Amazon.CodeBuild.ReportPackagingType
         {
-            ($_ -eq "New-CBReportGroup/ExportConfig_S3Destination_Packaging") -Or
-            ($_ -eq "Update-CBReportGroup/ExportConfig_S3Destination_Packaging")
+            ($_ -eq "New-CBReportGroup/S3Destination_Packaging") -Or
+            ($_ -eq "Update-CBReportGroup/S3Destination_Packaging")
         }
         {
             $v = "NONE","ZIP"
@@ -365,8 +365,8 @@ $CB_Completers = {
 
         # Amazon.CodeBuild.SourceAuthType
         {
-            ($_ -eq "New-CBProject/Source_Auth_Type") -Or
-            ($_ -eq "Update-CBProject/Source_Auth_Type") -Or
+            ($_ -eq "New-CBProject/Auth_Type") -Or
+            ($_ -eq "Update-CBProject/Auth_Type") -Or
             ($_ -eq "Start-CBBatch/SourceAuthOverride_Type") -Or
             ($_ -eq "Start-CBBuild/SourceAuthOverride_Type")
         }
@@ -424,38 +424,35 @@ $CB_map = @{
     "ArtifactsOverride_NamespaceType"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_Packaging"=@("Start-CBBatch","Start-CBBuild")
     "ArtifactsOverride_Type"=@("Start-CBBatch","Start-CBBuild")
+    "Auth_Type"=@("New-CBProject","Update-CBProject")
     "AuthType"=@("Import-CBSourceCredential")
     "BuildBatchConfig_BatchReportMode"=@("New-CBProject","Update-CBProject")
     "BuildBatchConfigOverride_BatchReportMode"=@("Start-CBBatch")
     "BuildType"=@("New-CBWebhook","Update-CBWebhook")
     "Cache_Type"=@("New-CBProject","Update-CBProject")
     "CacheOverride_Type"=@("Start-CBBatch","Start-CBBuild")
+    "CloudWatchLogs_Status"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
     "ComputeType"=@("New-CBFleet","Update-CBFleet")
     "ComputeTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_ImagePullCredentialsType"=@("New-CBProject","Update-CBProject")
-    "Environment_RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
     "EnvironmentType"=@("New-CBFleet","Update-CBFleet")
     "EnvironmentTypeOverride"=@("Start-CBBatch","Start-CBBuild")
     "ExportConfig_ExportConfigType"=@("New-CBReportGroup","Update-CBReportGroup")
-    "ExportConfig_S3Destination_Packaging"=@("New-CBReportGroup","Update-CBReportGroup")
     "Filter_Status"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBReportList","Get-CBReportsForReportGroupList")
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
-    "LogsConfig_CloudWatchLogs_Status"=@("New-CBProject","Update-CBProject")
-    "LogsConfig_S3Logs_BucketOwnerAccess"=@("New-CBProject","Update-CBProject")
-    "LogsConfig_S3Logs_Status"=@("New-CBProject","Update-CBProject")
-    "LogsConfigOverride_CloudWatchLogs_Status"=@("Start-CBBatch","Start-CBBuild")
-    "LogsConfigOverride_S3Logs_BucketOwnerAccess"=@("Start-CBBatch","Start-CBBuild")
-    "LogsConfigOverride_S3Logs_Status"=@("Start-CBBatch","Start-CBBuild")
     "ProjectVisibility"=@("Update-CBProjectVisibility")
+    "RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")
     "RetryType"=@("Redo-CBBatch")
+    "S3Destination_Packaging"=@("New-CBReportGroup","Update-CBReportGroup")
+    "S3Logs_BucketOwnerAccess"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
+    "S3Logs_Status"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
     "ScalingConfiguration_ScalingType"=@("New-CBFleet","Update-CBFleet")
     "ServerType"=@("Import-CBSourceCredential")
     "SortBy"=@("Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
     "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
-    "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
     "Source_Type"=@("New-CBProject","Update-CBProject")
     "SourceAuthOverride_Type"=@("Start-CBBatch","Start-CBBuild")
     "SourceTypeOverride"=@("Start-CBBatch","Start-CBBuild")

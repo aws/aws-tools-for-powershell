@@ -236,6 +236,21 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ContainerProperties_Image { get; set; }
         #endregion
         
+        #region Parameter PodProperties_InitContainer
+        /// <summary>
+        /// <para>
+        /// <para>These containers run before application containers, always runs to completion, and
+        /// must complete successfully before the next container starts. These containers are
+        /// registered with the Amazon EKS Connector agent and persists the registration information
+        /// in the Kubernetes backend data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
+        /// Containers</a> in the <i>Kubernetes documentation</i>.</para><note><para>This object is limited to 10 elements</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksProperties_PodProperties_InitContainers")]
+        public Amazon.Batch.Model.EksContainer[] PodProperties_InitContainer { get; set; }
+        #endregion
+        
         #region Parameter LinuxParameters_InitProcessEnabled
         /// <summary>
         /// <para>
@@ -613,6 +628,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Int32? LinuxParameters_SharedMemorySize { get; set; }
         #endregion
         
+        #region Parameter PodProperties_ShareProcessNamespace
+        /// <summary>
+        /// <para>
+        /// <para>Indicates if the processes in a container are shared, or visible, to other containers
+        /// in the same pod. For more information, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/">Share
+        /// Process Namespace between Containers in a Pod</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksProperties_PodProperties_ShareProcessNamespace")]
+        public System.Boolean? PodProperties_ShareProcessNamespace { get; set; }
+        #endregion
+        
         #region Parameter EphemeralStorage_SizeInGiB
         /// <summary>
         /// <para>
@@ -666,6 +694,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter EcsProperties_TaskProperty
+        /// <summary>
+        /// <para>
+        /// <para>An object that contains the properties for the Amazon ECS task definition of a job.</para><note><para>This object is currently limited to one element.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EcsProperties_TaskProperties")]
+        public Amazon.Batch.Model.EcsTaskProperties[] EcsProperties_TaskProperty { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -700,7 +739,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The type of job definition. For more information about multi-node parallel jobs, see
         /// <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating
-        /// a multi-node parallel job definition</a> in the <i>Batch User Guide</i>.</para><note><para>If the job is run on Fargate resources, then <c>multinode</c> isn't supported.</para></note>
+        /// a multi-node parallel job definition</a> in the <i>Batch User Guide</i>.</para><ul><li><para>If the value is <c>container</c>, then one of the following is required: <c>containerProperties</c>,
+        /// <c>ecsProperties</c>, or <c>eksProperties</c>.</para></li><li><para>If the value is <c>multinode</c>, then <c>nodeProperties</c> is required.</para></li></ul><note><para>If the job is run on Fargate resources, then <c>multinode</c> isn't supported.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -771,11 +811,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to specify the memory
         /// requirements for the job definition. It's not supported for jobs running on Fargate
-        /// resources. For jobs that run on EC2 resources, it specifies the memory hard limit
-        /// (in MiB) for a container. If your container attempts to exceed the specified number,
-        /// it's terminated. You must specify at least 4 MiB of memory for a job using this parameter.
-        /// The memory hard limit can be specified in several places. It must be specified for
-        /// each node at least once.</para>
+        /// resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard
+        /// limit (in MiB) for a container. If your container attempts to exceed the specified
+        /// number, it's terminated. You must specify at least 4 MiB of memory for a job using
+        /// this parameter. The memory hard limit can be specified in several places. It must
+        /// be specified for each node at least once.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -789,8 +829,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to specify the vCPU
         /// requirements for the job definition. It's not supported for jobs running on Fargate
-        /// resources. For jobs running on EC2 resources, it specifies the number of vCPUs reserved
-        /// for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <c>CpuShares</c>
+        /// resources. For jobs running on Amazon EC2 resources, it specifies the number of vCPUs
+        /// reserved for the job.</para><para>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <c>CpuShares</c>
         /// in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
         /// Remote API</a> and the <c>--cpu-shares</c> option to <a href="https://docs.docker.com/engine/reference/run/">docker
@@ -938,12 +978,20 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ContainerProperties_Volume = new List<Amazon.Batch.Model.Volume>(this.ContainerProperties_Volume);
             }
+            if (this.EcsProperties_TaskProperty != null)
+            {
+                context.EcsProperties_TaskProperty = new List<Amazon.Batch.Model.EcsTaskProperties>(this.EcsProperties_TaskProperty);
+            }
             if (this.PodProperties_Container != null)
             {
                 context.PodProperties_Container = new List<Amazon.Batch.Model.EksContainer>(this.PodProperties_Container);
             }
             context.PodProperties_DnsPolicy = this.PodProperties_DnsPolicy;
             context.PodProperties_HostNetwork = this.PodProperties_HostNetwork;
+            if (this.PodProperties_InitContainer != null)
+            {
+                context.PodProperties_InitContainer = new List<Amazon.Batch.Model.EksContainer>(this.PodProperties_InitContainer);
+            }
             if (this.Metadata_Label != null)
             {
                 context.Metadata_Label = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -953,6 +1001,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 }
             }
             context.PodProperties_ServiceAccountName = this.PodProperties_ServiceAccountName;
+            context.PodProperties_ShareProcessNamespace = this.PodProperties_ShareProcessNamespace;
             if (this.PodProperties_Volume != null)
             {
                 context.PodProperties_Volume = new List<Amazon.Batch.Model.EksVolume>(this.PodProperties_Volume);
@@ -1450,6 +1499,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerProperties = null;
             }
             
+             // populate EcsProperties
+            var requestEcsPropertiesIsNull = true;
+            request.EcsProperties = new Amazon.Batch.Model.EcsProperties();
+            List<Amazon.Batch.Model.EcsTaskProperties> requestEcsProperties_ecsProperties_TaskProperty = null;
+            if (cmdletContext.EcsProperties_TaskProperty != null)
+            {
+                requestEcsProperties_ecsProperties_TaskProperty = cmdletContext.EcsProperties_TaskProperty;
+            }
+            if (requestEcsProperties_ecsProperties_TaskProperty != null)
+            {
+                request.EcsProperties.TaskProperties = requestEcsProperties_ecsProperties_TaskProperty;
+                requestEcsPropertiesIsNull = false;
+            }
+             // determine if request.EcsProperties should be set to null
+            if (requestEcsPropertiesIsNull)
+            {
+                request.EcsProperties = null;
+            }
+            
              // populate EksProperties
             var requestEksPropertiesIsNull = true;
             request.EksProperties = new Amazon.Batch.Model.EksProperties();
@@ -1488,6 +1556,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 requestEksProperties_eksProperties_PodProperties.HostNetwork = requestEksProperties_eksProperties_PodProperties_podProperties_HostNetwork.Value;
                 requestEksProperties_eksProperties_PodPropertiesIsNull = false;
             }
+            List<Amazon.Batch.Model.EksContainer> requestEksProperties_eksProperties_PodProperties_podProperties_InitContainer = null;
+            if (cmdletContext.PodProperties_InitContainer != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_podProperties_InitContainer = cmdletContext.PodProperties_InitContainer;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_podProperties_InitContainer != null)
+            {
+                requestEksProperties_eksProperties_PodProperties.InitContainers = requestEksProperties_eksProperties_PodProperties_podProperties_InitContainer;
+                requestEksProperties_eksProperties_PodPropertiesIsNull = false;
+            }
             System.String requestEksProperties_eksProperties_PodProperties_podProperties_ServiceAccountName = null;
             if (cmdletContext.PodProperties_ServiceAccountName != null)
             {
@@ -1496,6 +1574,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestEksProperties_eksProperties_PodProperties_podProperties_ServiceAccountName != null)
             {
                 requestEksProperties_eksProperties_PodProperties.ServiceAccountName = requestEksProperties_eksProperties_PodProperties_podProperties_ServiceAccountName;
+                requestEksProperties_eksProperties_PodPropertiesIsNull = false;
+            }
+            System.Boolean? requestEksProperties_eksProperties_PodProperties_podProperties_ShareProcessNamespace = null;
+            if (cmdletContext.PodProperties_ShareProcessNamespace != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_podProperties_ShareProcessNamespace = cmdletContext.PodProperties_ShareProcessNamespace.Value;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_podProperties_ShareProcessNamespace != null)
+            {
+                requestEksProperties_eksProperties_PodProperties.ShareProcessNamespace = requestEksProperties_eksProperties_PodProperties_podProperties_ShareProcessNamespace.Value;
                 requestEksProperties_eksProperties_PodPropertiesIsNull = false;
             }
             List<Amazon.Batch.Model.EksVolume> requestEksProperties_eksProperties_PodProperties_podProperties_Volume = null;
@@ -1742,11 +1830,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             [System.ObsoleteAttribute]
             public System.Int32? ContainerProperties_Vcpus { get; set; }
             public List<Amazon.Batch.Model.Volume> ContainerProperties_Volume { get; set; }
+            public List<Amazon.Batch.Model.EcsTaskProperties> EcsProperties_TaskProperty { get; set; }
             public List<Amazon.Batch.Model.EksContainer> PodProperties_Container { get; set; }
             public System.String PodProperties_DnsPolicy { get; set; }
             public System.Boolean? PodProperties_HostNetwork { get; set; }
+            public List<Amazon.Batch.Model.EksContainer> PodProperties_InitContainer { get; set; }
             public Dictionary<System.String, System.String> Metadata_Label { get; set; }
             public System.String PodProperties_ServiceAccountName { get; set; }
+            public System.Boolean? PodProperties_ShareProcessNamespace { get; set; }
             public List<Amazon.Batch.Model.EksVolume> PodProperties_Volume { get; set; }
             public System.String JobDefinitionName { get; set; }
             public System.Int32? NodeProperties_MainNode { get; set; }

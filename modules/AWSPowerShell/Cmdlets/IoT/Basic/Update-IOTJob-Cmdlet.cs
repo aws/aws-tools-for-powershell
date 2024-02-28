@@ -150,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The namespace used to indicate that a job is a customer-managed job.</para><para>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs
-        /// notifications to MQTT topics that contain the value in the following format.</para><para><c>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</c></para><note><para>The <c>namespaceId</c> feature is in public preview.</para></note>
+        /// notifications to MQTT topics that contain the value in the following format.</para><para><c>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</c></para><note><para>The <c>namespaceId</c> feature is only supported by IoT Greengrass at this time. For
+        /// more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
+        /// up IoT Greengrass core devices.</a></para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -82,8 +82,8 @@ $PIPES_Completers = {
     {
         # Amazon.Pipes.AssignPublicIp
         {
-            ($_ -eq "New-PIPESPipe/TargetParameters_EcsTaskParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
-            ($_ -eq "Update-PIPESPipe/TargetParameters_EcsTaskParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")
+            ($_ -eq "New-PIPESPipe/AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Update-PIPESPipe/AwsvpcConfiguration_AssignPublicIp")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -91,14 +91,14 @@ $PIPES_Completers = {
         }
 
         # Amazon.Pipes.DynamoDBStreamStartPosition
-        "New-PIPESPipe/SourceParameters_DynamoDBStreamParameters_StartingPosition"
+        "New-PIPESPipe/DynamoDBStreamParameters_StartingPosition"
         {
             $v = "LATEST","TRIM_HORIZON"
             break
         }
 
         # Amazon.Pipes.KinesisStreamStartPosition
-        "New-PIPESPipe/SourceParameters_KinesisStreamParameters_StartingPosition"
+        "New-PIPESPipe/KinesisStreamParameters_StartingPosition"
         {
             $v = "AT_TIMESTAMP","LATEST","TRIM_HORIZON"
             break
@@ -106,8 +106,8 @@ $PIPES_Completers = {
 
         # Amazon.Pipes.LaunchType
         {
-            ($_ -eq "New-PIPESPipe/TargetParameters_EcsTaskParameters_LaunchType") -Or
-            ($_ -eq "Update-PIPESPipe/TargetParameters_EcsTaskParameters_LaunchType")
+            ($_ -eq "New-PIPESPipe/EcsTaskParameters_LaunchType") -Or
+            ($_ -eq "Update-PIPESPipe/EcsTaskParameters_LaunchType")
         }
         {
             $v = "EC2","EXTERNAL","FARGATE"
@@ -125,7 +125,7 @@ $PIPES_Completers = {
         }
 
         # Amazon.Pipes.MSKStartPosition
-        "New-PIPESPipe/SourceParameters_ManagedStreamingKafkaParameters_StartingPosition"
+        "New-PIPESPipe/ManagedStreamingKafkaParameters_StartingPosition"
         {
             $v = "LATEST","TRIM_HORIZON"
             break
@@ -133,10 +133,10 @@ $PIPES_Completers = {
 
         # Amazon.Pipes.OnPartialBatchItemFailureStreams
         {
-            ($_ -eq "New-PIPESPipe/SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure") -Or
-            ($_ -eq "Update-PIPESPipe/SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure") -Or
-            ($_ -eq "New-PIPESPipe/SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure") -Or
-            ($_ -eq "Update-PIPESPipe/SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure")
+            ($_ -eq "New-PIPESPipe/DynamoDBStreamParameters_OnPartialBatchItemFailure") -Or
+            ($_ -eq "Update-PIPESPipe/DynamoDBStreamParameters_OnPartialBatchItemFailure") -Or
+            ($_ -eq "New-PIPESPipe/KinesisStreamParameters_OnPartialBatchItemFailure") -Or
+            ($_ -eq "Update-PIPESPipe/KinesisStreamParameters_OnPartialBatchItemFailure")
         }
         {
             $v = "AUTOMATIC_BISECT"
@@ -152,10 +152,10 @@ $PIPES_Completers = {
 
         # Amazon.Pipes.PipeTargetInvocationType
         {
-            ($_ -eq "New-PIPESPipe/TargetParameters_LambdaFunctionParameters_InvocationType") -Or
-            ($_ -eq "Update-PIPESPipe/TargetParameters_LambdaFunctionParameters_InvocationType") -Or
-            ($_ -eq "New-PIPESPipe/TargetParameters_StepFunctionStateMachineParameters_InvocationType") -Or
-            ($_ -eq "Update-PIPESPipe/TargetParameters_StepFunctionStateMachineParameters_InvocationType")
+            ($_ -eq "New-PIPESPipe/LambdaFunctionParameters_InvocationType") -Or
+            ($_ -eq "Update-PIPESPipe/LambdaFunctionParameters_InvocationType") -Or
+            ($_ -eq "New-PIPESPipe/StepFunctionStateMachineParameters_InvocationType") -Or
+            ($_ -eq "Update-PIPESPipe/StepFunctionStateMachineParameters_InvocationType")
         }
         {
             $v = "FIRE_AND_FORGET","REQUEST_RESPONSE"
@@ -164,8 +164,8 @@ $PIPES_Completers = {
 
         # Amazon.Pipes.PropagateTags
         {
-            ($_ -eq "New-PIPESPipe/TargetParameters_EcsTaskParameters_PropagateTags") -Or
-            ($_ -eq "Update-PIPESPipe/TargetParameters_EcsTaskParameters_PropagateTags")
+            ($_ -eq "New-PIPESPipe/EcsTaskParameters_PropagateTag") -Or
+            ($_ -eq "Update-PIPESPipe/EcsTaskParameters_PropagateTag")
         }
         {
             $v = "TASK_DEFINITION"
@@ -185,8 +185,8 @@ $PIPES_Completers = {
 
         # Amazon.Pipes.S3OutputFormat
         {
-            ($_ -eq "New-PIPESPipe/LogConfiguration_S3LogDestination_OutputFormat") -Or
-            ($_ -eq "Update-PIPESPipe/LogConfiguration_S3LogDestination_OutputFormat")
+            ($_ -eq "New-PIPESPipe/S3LogDestination_OutputFormat") -Or
+            ($_ -eq "Update-PIPESPipe/S3LogDestination_OutputFormat")
         }
         {
             $v = "json","plain","w3c"
@@ -194,7 +194,7 @@ $PIPES_Completers = {
         }
 
         # Amazon.Pipes.SelfManagedKafkaStartPosition
-        "New-PIPESPipe/SourceParameters_SelfManagedKafkaParameters_StartingPosition"
+        "New-PIPESPipe/SelfManagedKafkaParameters_StartingPosition"
         {
             $v = "LATEST","TRIM_HORIZON"
             break
@@ -209,21 +209,21 @@ $PIPES_Completers = {
 }
 
 $PIPES_map = @{
+    "AwsvpcConfiguration_AssignPublicIp"=@("New-PIPESPipe","Update-PIPESPipe")
     "CurrentState"=@("Get-PIPESPipeList")
     "DesiredState"=@("Get-PIPESPipeList","New-PIPESPipe","Update-PIPESPipe")
+    "DynamoDBStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
+    "DynamoDBStreamParameters_StartingPosition"=@("New-PIPESPipe")
+    "EcsTaskParameters_LaunchType"=@("New-PIPESPipe","Update-PIPESPipe")
+    "EcsTaskParameters_PropagateTag"=@("New-PIPESPipe","Update-PIPESPipe")
+    "KinesisStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
+    "KinesisStreamParameters_StartingPosition"=@("New-PIPESPipe")
+    "LambdaFunctionParameters_InvocationType"=@("New-PIPESPipe","Update-PIPESPipe")
     "LogConfiguration_Level"=@("New-PIPESPipe","Update-PIPESPipe")
-    "LogConfiguration_S3LogDestination_OutputFormat"=@("New-PIPESPipe","Update-PIPESPipe")
-    "SourceParameters_DynamoDBStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
-    "SourceParameters_DynamoDBStreamParameters_StartingPosition"=@("New-PIPESPipe")
-    "SourceParameters_KinesisStreamParameters_OnPartialBatchItemFailure"=@("New-PIPESPipe","Update-PIPESPipe")
-    "SourceParameters_KinesisStreamParameters_StartingPosition"=@("New-PIPESPipe")
-    "SourceParameters_ManagedStreamingKafkaParameters_StartingPosition"=@("New-PIPESPipe")
-    "SourceParameters_SelfManagedKafkaParameters_StartingPosition"=@("New-PIPESPipe")
-    "TargetParameters_EcsTaskParameters_LaunchType"=@("New-PIPESPipe","Update-PIPESPipe")
-    "TargetParameters_EcsTaskParameters_NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-PIPESPipe","Update-PIPESPipe")
-    "TargetParameters_EcsTaskParameters_PropagateTags"=@("New-PIPESPipe","Update-PIPESPipe")
-    "TargetParameters_LambdaFunctionParameters_InvocationType"=@("New-PIPESPipe","Update-PIPESPipe")
-    "TargetParameters_StepFunctionStateMachineParameters_InvocationType"=@("New-PIPESPipe","Update-PIPESPipe")
+    "ManagedStreamingKafkaParameters_StartingPosition"=@("New-PIPESPipe")
+    "S3LogDestination_OutputFormat"=@("New-PIPESPipe","Update-PIPESPipe")
+    "SelfManagedKafkaParameters_StartingPosition"=@("New-PIPESPipe")
+    "StepFunctionStateMachineParameters_InvocationType"=@("New-PIPESPipe","Update-PIPESPipe")
 }
 
 _awsArgumentCompleterRegistration $PIPES_Completers $PIPES_map

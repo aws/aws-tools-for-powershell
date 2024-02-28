@@ -89,10 +89,10 @@ $CWIM_Completers = {
 
         # Amazon.InternetMonitor.LocalHealthEventsConfigStatus
         {
-            ($_ -eq "New-CWIMMonitor/HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status") -Or
-            ($_ -eq "Update-CWIMMonitor/HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status") -Or
-            ($_ -eq "New-CWIMMonitor/HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status") -Or
-            ($_ -eq "Update-CWIMMonitor/HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status")
+            ($_ -eq "New-CWIMMonitor/AvailabilityLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "Update-CWIMMonitor/AvailabilityLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "New-CWIMMonitor/PerformanceLocalHealthEventsConfig_Status") -Or
+            ($_ -eq "Update-CWIMMonitor/PerformanceLocalHealthEventsConfig_Status")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -101,8 +101,8 @@ $CWIM_Completers = {
 
         # Amazon.InternetMonitor.LogDeliveryStatus
         {
-            ($_ -eq "New-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus") -Or
-            ($_ -eq "Update-CWIMMonitor/InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus")
+            ($_ -eq "New-CWIMMonitor/S3Config_LogDeliveryStatus") -Or
+            ($_ -eq "Update-CWIMMonitor/S3Config_LogDeliveryStatus")
         }
         {
             $v = "DISABLED","ENABLED"
@@ -132,11 +132,11 @@ $CWIM_Completers = {
 }
 
 $CWIM_map = @{
+    "AvailabilityLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "EventStatus"=@("Get-CWIMHealthEventList")
-    "HealthEventsConfig_AvailabilityLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
-    "HealthEventsConfig_PerformanceLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
-    "InternetMeasurementsLogDelivery_S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
+    "PerformanceLocalHealthEventsConfig_Status"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "QueryType"=@("Start-CWIMQuery")
+    "S3Config_LogDeliveryStatus"=@("New-CWIMMonitor","Update-CWIMMonitor")
     "Status"=@("Update-CWIMMonitor")
 }
 

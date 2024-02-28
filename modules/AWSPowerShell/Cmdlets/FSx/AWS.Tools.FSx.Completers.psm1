@@ -82,9 +82,9 @@ $FSX_Completers = {
     {
         # Amazon.FSx.AutocommitPeriodType
         {
-            ($_ -eq "New-FSXVolume/OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type") -Or
-            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type") -Or
-            ($_ -eq "Update-FSXVolume/OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type")
+            ($_ -eq "New-FSXVolume/AutocommitPeriod_Type") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/AutocommitPeriod_Type") -Or
+            ($_ -eq "Update-FSXVolume/AutocommitPeriod_Type")
         }
         {
             $v = "DAYS","HOURS","MINUTES","MONTHS","NONE","YEARS"
@@ -100,10 +100,10 @@ $FSX_Completers = {
 
         # Amazon.FSx.DiskIopsConfigurationMode
         {
+            ($_ -eq "New-FSXFileSystemFromBackup/DiskIopsConfiguration_Mode") -Or
             ($_ -eq "New-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode") -Or
             ($_ -eq "Update-FSXFileSystem/OntapConfiguration_DiskIopsConfiguration_Mode") -Or
             ($_ -eq "New-FSXFileSystem/OpenZFSConfiguration_DiskIopsConfiguration_Mode") -Or
-            ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DiskIopsConfiguration_Mode") -Or
             ($_ -eq "Update-FSXFileSystem/OpenZFSConfiguration_DiskIopsConfiguration_Mode")
         }
         {
@@ -152,7 +152,7 @@ $FSX_Completers = {
         # Amazon.FSx.OpenZFSCopyStrategy
         {
             ($_ -eq "Copy-FSXSnapshotAndUpdateVolume/CopyStrategy") -Or
-            ($_ -eq "New-FSXVolume/OpenZFSConfiguration_OriginSnapshot_CopyStrategy")
+            ($_ -eq "New-FSXVolume/OriginSnapshot_CopyStrategy")
         }
         {
             $v = "CLONE","FULL_COPY","INCREMENTAL_COPY"
@@ -163,8 +163,8 @@ $FSX_Completers = {
         {
             ($_ -eq "New-FSXVolume/OpenZFSConfiguration_DataCompressionType") -Or
             ($_ -eq "Update-FSXVolume/OpenZFSConfiguration_DataCompressionType") -Or
-            ($_ -eq "New-FSXFileSystem/OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType") -Or
-            ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType")
+            ($_ -eq "New-FSXFileSystem/RootVolumeConfiguration_DataCompressionType") -Or
+            ($_ -eq "New-FSXFileSystemFromBackup/RootVolumeConfiguration_DataCompressionType")
         }
         {
             $v = "LZ4","NONE","ZSTD"
@@ -183,9 +183,9 @@ $FSX_Completers = {
 
         # Amazon.FSx.PrivilegedDelete
         {
-            ($_ -eq "New-FSXVolume/OntapConfiguration_SnaplockConfiguration_PrivilegedDelete") -Or
-            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SnaplockConfiguration_PrivilegedDelete") -Or
-            ($_ -eq "Update-FSXVolume/OntapConfiguration_SnaplockConfiguration_PrivilegedDelete")
+            ($_ -eq "New-FSXVolume/SnaplockConfiguration_PrivilegedDelete") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/SnaplockConfiguration_PrivilegedDelete") -Or
+            ($_ -eq "Update-FSXVolume/SnaplockConfiguration_PrivilegedDelete")
         }
         {
             $v = "DISABLED","ENABLED","PERMANENTLY_DISABLED"
@@ -208,15 +208,15 @@ $FSX_Completers = {
 
         # Amazon.FSx.RetentionPeriodType
         {
-            ($_ -eq "New-FSXVolume/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type") -Or
-            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type") -Or
-            ($_ -eq "Update-FSXVolume/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type") -Or
-            ($_ -eq "New-FSXVolume/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type") -Or
-            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type") -Or
-            ($_ -eq "Update-FSXVolume/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type") -Or
-            ($_ -eq "New-FSXVolume/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type") -Or
-            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type") -Or
-            ($_ -eq "Update-FSXVolume/OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type")
+            ($_ -eq "New-FSXVolume/DefaultRetention_Type") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/DefaultRetention_Type") -Or
+            ($_ -eq "Update-FSXVolume/DefaultRetention_Type") -Or
+            ($_ -eq "New-FSXVolume/MaximumRetention_Type") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/MaximumRetention_Type") -Or
+            ($_ -eq "Update-FSXVolume/MaximumRetention_Type") -Or
+            ($_ -eq "New-FSXVolume/MinimumRetention_Type") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/MinimumRetention_Type") -Or
+            ($_ -eq "Update-FSXVolume/MinimumRetention_Type")
         }
         {
             $v = "DAYS","HOURS","INFINITE","MINUTES","MONTHS","SECONDS","UNSPECIFIED","YEARS"
@@ -236,8 +236,8 @@ $FSX_Completers = {
 
         # Amazon.FSx.SnaplockType
         {
-            ($_ -eq "New-FSXVolume/OntapConfiguration_SnaplockConfiguration_SnaplockType") -Or
-            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_SnaplockConfiguration_SnaplockType")
+            ($_ -eq "New-FSXVolume/SnaplockConfiguration_SnaplockType") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/SnaplockConfiguration_SnaplockType")
         }
         {
             $v = "COMPLIANCE","ENTERPRISE"
@@ -264,9 +264,9 @@ $FSX_Completers = {
 
         # Amazon.FSx.TieringPolicyName
         {
-            ($_ -eq "New-FSXVolume/OntapConfiguration_TieringPolicy_Name") -Or
-            ($_ -eq "New-FSXVolumeFromBackup/OntapConfiguration_TieringPolicy_Name") -Or
-            ($_ -eq "Update-FSXVolume/OntapConfiguration_TieringPolicy_Name")
+            ($_ -eq "New-FSXVolume/TieringPolicy_Name") -Or
+            ($_ -eq "New-FSXVolumeFromBackup/TieringPolicy_Name") -Or
+            ($_ -eq "Update-FSXVolume/TieringPolicy_Name")
         }
         {
             $v = "ALL","AUTO","NONE","SNAPSHOT_ONLY"
@@ -274,7 +274,7 @@ $FSX_Completers = {
         }
 
         # Amazon.FSx.Unit
-        "New-FSXDataRepositoryTask/ReleaseConfiguration_DurationSinceLastAccess_Unit"
+        "New-FSXDataRepositoryTask/DurationSinceLastAccess_Unit"
         {
             $v = "DAYS"
             break
@@ -306,32 +306,33 @@ $FSX_Completers = {
 }
 
 $FSX_map = @{
+    "AutocommitPeriod_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "CopyStrategy"=@("Copy-FSXSnapshotAndUpdateVolume")
+    "DefaultRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "DiskIopsConfiguration_Mode"=@("New-FSXFileSystemFromBackup")
+    "DurationSinceLastAccess_Unit"=@("New-FSXDataRepositoryTask")
     "FileCacheType"=@("New-FSXFileCache")
     "FileSystemType"=@("New-FSXFileSystem")
     "LustreConfiguration_DeploymentType"=@("New-FSXFileCache")
+    "MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "MinimumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_DeploymentType"=@("New-FSXFileSystem")
     "OntapConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
     "OntapConfiguration_OntapVolumeType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OntapConfiguration_SecurityStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
-    "OntapConfiguration_SnaplockConfiguration_AutocommitPeriod_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
-    "OntapConfiguration_SnaplockConfiguration_PrivilegedDelete"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
-    "OntapConfiguration_SnaplockConfiguration_RetentionPeriod_DefaultRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
-    "OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MaximumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
-    "OntapConfiguration_SnaplockConfiguration_RetentionPeriod_MinimumRetention_Type"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
-    "OntapConfiguration_SnaplockConfiguration_SnaplockType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
-    "OntapConfiguration_TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "OntapConfiguration_VolumeStyle"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "OpenZFSConfiguration_DataCompressionType"=@("New-FSXVolume","Update-FSXVolume")
     "OpenZFSConfiguration_DeploymentType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
-    "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
-    "OpenZFSConfiguration_OriginSnapshot_CopyStrategy"=@("New-FSXVolume")
-    "OpenZFSConfiguration_RootVolumeConfiguration_DataCompressionType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
-    "ReleaseConfiguration_DurationSinceLastAccess_Unit"=@("New-FSXDataRepositoryTask")
+    "OpenZFSConfiguration_DiskIopsConfiguration_Mode"=@("New-FSXFileSystem","Update-FSXFileSystem")
+    "OriginSnapshot_CopyStrategy"=@("New-FSXVolume")
     "Report_Format"=@("New-FSXDataRepositoryTask")
     "Report_Scope"=@("New-FSXDataRepositoryTask")
+    "RootVolumeConfiguration_DataCompressionType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup")
     "RootVolumeSecurityStyle"=@("New-FSXStorageVirtualMachine")
+    "SnaplockConfiguration_PrivilegedDelete"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
+    "SnaplockConfiguration_SnaplockType"=@("New-FSXVolume","New-FSXVolumeFromBackup")
     "StorageType"=@("New-FSXFileSystem","New-FSXFileSystemFromBackup","Update-FSXFileSystem")
+    "TieringPolicy_Name"=@("New-FSXVolume","New-FSXVolumeFromBackup","Update-FSXVolume")
     "Type"=@("New-FSXDataRepositoryTask")
     "VolumeType"=@("New-FSXVolume")
 }

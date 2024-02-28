@@ -81,7 +81,7 @@ $BRKT_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Braket.CompressionType
-        "New-BRKTJob/AlgorithmSpecification_ScriptModeConfig_CompressionType"
+        "New-BRKTJob/ScriptModeConfig_CompressionType"
         {
             $v = "GZIP","NONE"
             break
@@ -103,8 +103,8 @@ $BRKT_Completers = {
 }
 
 $BRKT_map = @{
-    "AlgorithmSpecification_ScriptModeConfig_CompressionType"=@("New-BRKTJob")
     "InstanceConfig_InstanceType"=@("New-BRKTJob")
+    "ScriptModeConfig_CompressionType"=@("New-BRKTJob")
 }
 
 _awsArgumentCompleterRegistration $BRKT_Completers $BRKT_map

@@ -89,16 +89,16 @@ $MWAA_Completers = {
 
         # Amazon.MWAA.LoggingLevel
         {
-            ($_ -eq "New-MWAAEnvironment/LoggingConfiguration_DagProcessingLogs_LogLevel") -Or
-            ($_ -eq "Update-MWAAEnvironment/LoggingConfiguration_DagProcessingLogs_LogLevel") -Or
-            ($_ -eq "New-MWAAEnvironment/LoggingConfiguration_SchedulerLogs_LogLevel") -Or
-            ($_ -eq "Update-MWAAEnvironment/LoggingConfiguration_SchedulerLogs_LogLevel") -Or
-            ($_ -eq "New-MWAAEnvironment/LoggingConfiguration_TaskLogs_LogLevel") -Or
-            ($_ -eq "Update-MWAAEnvironment/LoggingConfiguration_TaskLogs_LogLevel") -Or
-            ($_ -eq "New-MWAAEnvironment/LoggingConfiguration_WebserverLogs_LogLevel") -Or
-            ($_ -eq "Update-MWAAEnvironment/LoggingConfiguration_WebserverLogs_LogLevel") -Or
-            ($_ -eq "New-MWAAEnvironment/LoggingConfiguration_WorkerLogs_LogLevel") -Or
-            ($_ -eq "Update-MWAAEnvironment/LoggingConfiguration_WorkerLogs_LogLevel")
+            ($_ -eq "New-MWAAEnvironment/DagProcessingLogs_LogLevel") -Or
+            ($_ -eq "Update-MWAAEnvironment/DagProcessingLogs_LogLevel") -Or
+            ($_ -eq "New-MWAAEnvironment/SchedulerLogs_LogLevel") -Or
+            ($_ -eq "Update-MWAAEnvironment/SchedulerLogs_LogLevel") -Or
+            ($_ -eq "New-MWAAEnvironment/TaskLogs_LogLevel") -Or
+            ($_ -eq "Update-MWAAEnvironment/TaskLogs_LogLevel") -Or
+            ($_ -eq "New-MWAAEnvironment/WebserverLogs_LogLevel") -Or
+            ($_ -eq "Update-MWAAEnvironment/WebserverLogs_LogLevel") -Or
+            ($_ -eq "New-MWAAEnvironment/WorkerLogs_LogLevel") -Or
+            ($_ -eq "Update-MWAAEnvironment/WorkerLogs_LogLevel")
         }
         {
             $v = "CRITICAL","DEBUG","ERROR","INFO","WARNING"
@@ -124,13 +124,13 @@ $MWAA_Completers = {
 }
 
 $MWAA_map = @{
+    "DagProcessingLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "EndpointManagement"=@("New-MWAAEnvironment")
-    "LoggingConfiguration_DagProcessingLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
-    "LoggingConfiguration_SchedulerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
-    "LoggingConfiguration_TaskLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
-    "LoggingConfiguration_WebserverLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
-    "LoggingConfiguration_WorkerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
+    "SchedulerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
+    "TaskLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
     "WebserverAccessMode"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
+    "WebserverLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
+    "WorkerLogs_LogLevel"=@("New-MWAAEnvironment","Update-MWAAEnvironment")
 }
 
 _awsArgumentCompleterRegistration $MWAA_Completers $MWAA_map

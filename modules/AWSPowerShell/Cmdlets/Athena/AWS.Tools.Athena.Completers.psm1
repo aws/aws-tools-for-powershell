@@ -82,8 +82,8 @@ $ATH_Completers = {
     {
         # Amazon.Athena.AuthenticationType
         {
-            ($_ -eq "New-ATHWorkGroup/Configuration_QueryResultsS3AccessGrantsConfiguration_AuthenticationType") -Or
-            ($_ -eq "Update-ATHWorkGroup/ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_AuthenticationType")
+            ($_ -eq "New-ATHWorkGroup/QueryResultsS3AccessGrantsConfiguration_AuthenticationType") -Or
+            ($_ -eq "Update-ATHWorkGroup/QueryResultsS3AccessGrantsConfiguration_AuthenticationType")
         }
         {
             $v = "DIRECTORY_IDENTITY"
@@ -109,9 +109,9 @@ $ATH_Completers = {
 
         # Amazon.Athena.EncryptionOption
         {
-            ($_ -eq "New-ATHWorkGroup/Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption") -Or
-            ($_ -eq "Update-ATHWorkGroup/ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption") -Or
-            ($_ -eq "Start-ATHQueryExecution/ResultConfiguration_EncryptionConfiguration_EncryptionOption")
+            ($_ -eq "New-ATHWorkGroup/EncryptionConfiguration_EncryptionOption") -Or
+            ($_ -eq "Start-ATHQueryExecution/EncryptionConfiguration_EncryptionOption") -Or
+            ($_ -eq "Update-ATHWorkGroup/EncryptionConfiguration_EncryptionOption")
         }
         {
             $v = "CSE_KMS","SSE_KMS","SSE_S3"
@@ -137,9 +137,9 @@ $ATH_Completers = {
 
         # Amazon.Athena.S3AclOption
         {
-            ($_ -eq "New-ATHWorkGroup/Configuration_ResultConfiguration_AclConfiguration_S3AclOption") -Or
-            ($_ -eq "Update-ATHWorkGroup/ConfigurationUpdates_ResultConfigurationUpdates_AclConfiguration_S3AclOption") -Or
-            ($_ -eq "Start-ATHQueryExecution/ResultConfiguration_AclConfiguration_S3AclOption")
+            ($_ -eq "New-ATHWorkGroup/AclConfiguration_S3AclOption") -Or
+            ($_ -eq "Start-ATHQueryExecution/AclConfiguration_S3AclOption") -Or
+            ($_ -eq "Update-ATHWorkGroup/AclConfiguration_S3AclOption")
         }
         {
             $v = "BUCKET_OWNER_FULL_CONTROL"
@@ -169,15 +169,10 @@ $ATH_Completers = {
 }
 
 $ATH_map = @{
-    "Configuration_QueryResultsS3AccessGrantsConfiguration_AuthenticationType"=@("New-ATHWorkGroup")
-    "Configuration_ResultConfiguration_AclConfiguration_S3AclOption"=@("New-ATHWorkGroup")
-    "Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup")
-    "ConfigurationUpdates_QueryResultsS3AccessGrantsConfiguration_AuthenticationType"=@("Update-ATHWorkGroup")
-    "ConfigurationUpdates_ResultConfigurationUpdates_AclConfiguration_S3AclOption"=@("Update-ATHWorkGroup")
-    "ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption"=@("Update-ATHWorkGroup")
+    "AclConfiguration_S3AclOption"=@("New-ATHWorkGroup","Start-ATHQueryExecution","Update-ATHWorkGroup")
+    "EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup","Start-ATHQueryExecution","Update-ATHWorkGroup")
     "ExecutorStateFilter"=@("Get-ATHExecutorList")
-    "ResultConfiguration_AclConfiguration_S3AclOption"=@("Start-ATHQueryExecution")
-    "ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("Start-ATHQueryExecution")
+    "QueryResultsS3AccessGrantsConfiguration_AuthenticationType"=@("New-ATHWorkGroup","Update-ATHWorkGroup")
     "State"=@("Update-ATHWorkGroup")
     "StateFilter"=@("Get-ATHCalculationExecutionList","Get-ATHSessionList")
     "Type"=@("Import-ATHNotebook","New-ATHDataCatalog","Update-ATHDataCatalog","Update-ATHNotebook")

@@ -196,7 +196,7 @@ $FD_Completers = {
         }
 
         # Amazon.FraudDetector.UnlabeledEventsTreatment
-        "New-FDModelVersion/TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment"
+        "New-FDModelVersion/LabelSchema_UnlabeledEventsTreatment"
         {
             $v = "AUTO","FRAUD","IGNORE","LEGIT"
             break
@@ -215,6 +215,7 @@ $FD_map = @{
     "DataType"=@("New-FDVariable")
     "EventIngestion"=@("Write-FDEventType")
     "InputConfiguration_Format"=@("Write-FDExternalModel")
+    "LabelSchema_UnlabeledEventsTreatment"=@("New-FDModelVersion")
     "Language"=@("New-FDRule","Update-FDRuleVersion")
     "ModelEndpointStatus"=@("Write-FDExternalModel")
     "ModelSource"=@("Write-FDExternalModel")
@@ -222,7 +223,6 @@ $FD_map = @{
     "OutputConfiguration_Format"=@("Write-FDExternalModel")
     "RuleExecutionMode"=@("New-FDDetectorVersion","Update-FDDetectorVersion")
     "Status"=@("Update-FDDetectorVersionStatus","Update-FDModelVersionStatus")
-    "TrainingDataSchema_LabelSchema_UnlabeledEventsTreatment"=@("New-FDModelVersion")
     "TrainingDataSource"=@("New-FDModelVersion")
     "UpdateMode"=@("Update-FDList")
 }

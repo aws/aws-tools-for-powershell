@@ -133,7 +133,7 @@ $IFW_Completers = {
         }
 
         # Amazon.IoTFleetWise.TriggerMode
-        "New-IFWCampaign/CollectionScheme_ConditionBasedCollectionScheme_TriggerMode"
+        "New-IFWCampaign/ConditionBasedCollectionScheme_TriggerMode"
         {
             $v = "ALWAYS","RISING_EDGE"
             break
@@ -173,8 +173,8 @@ $IFW_map = @{
     "AssociationBehavior"=@("New-IFWVehicle")
     "AttributeUpdateMode"=@("Update-IFWVehicle")
     "CloudWatchLogDelivery_LogType"=@("Write-IFWLoggingOption")
-    "CollectionScheme_ConditionBasedCollectionScheme_TriggerMode"=@("New-IFWCampaign")
     "Compression"=@("New-IFWCampaign")
+    "ConditionBasedCollectionScheme_TriggerMode"=@("New-IFWCampaign")
     "DiagnosticsMode"=@("New-IFWCampaign")
     "EncryptionType"=@("Write-IFWEncryptionConfiguration")
     "SignalNodeType"=@("Get-IFWSignalCatalogNodeList")

@@ -82,8 +82,8 @@ $SLK_Completers = {
     {
         # Amazon.SecurityLake.HttpMethod
         {
-            ($_ -eq "New-SLKSubscriberNotification/Configuration_HttpsNotificationConfiguration_HttpMethod") -Or
-            ($_ -eq "Update-SLKSubscriberNotification/Configuration_HttpsNotificationConfiguration_HttpMethod")
+            ($_ -eq "New-SLKSubscriberNotification/HttpsNotificationConfiguration_HttpMethod") -Or
+            ($_ -eq "Update-SLKSubscriberNotification/HttpsNotificationConfiguration_HttpMethod")
         }
         {
             $v = "POST","PUT"
@@ -99,7 +99,7 @@ $SLK_Completers = {
 }
 
 $SLK_map = @{
-    "Configuration_HttpsNotificationConfiguration_HttpMethod"=@("New-SLKSubscriberNotification","Update-SLKSubscriberNotification")
+    "HttpsNotificationConfiguration_HttpMethod"=@("New-SLKSubscriberNotification","Update-SLKSubscriberNotification")
 }
 
 _awsArgumentCompleterRegistration $SLK_Completers $SLK_map

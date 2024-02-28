@@ -82,8 +82,8 @@ $CPF_Completers = {
     {
         # Amazon.CustomerProfiles.AttributeMatchingModel
         {
-            ($_ -eq "New-CPFDomain/RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel") -Or
-            ($_ -eq "Update-CPFDomain/RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel")
+            ($_ -eq "New-CPFDomain/AttributeTypesSelector_AttributeMatchingModel") -Or
+            ($_ -eq "Update-CPFDomain/AttributeTypesSelector_AttributeMatchingModel")
         }
         {
             $v = "MANY_TO_MANY","ONE_TO_ONE"
@@ -93,8 +93,8 @@ $CPF_Completers = {
         # Amazon.CustomerProfiles.ConflictResolvingModel
         {
             ($_ -eq "Get-CPFAutoMergingPreview/ConflictResolution_ConflictResolvingModel") -Or
-            ($_ -eq "New-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel") -Or
-            ($_ -eq "Update-CPFDomain/Matching_AutoMerging_ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "New-CPFDomain/ConflictResolution_ConflictResolvingModel") -Or
+            ($_ -eq "Update-CPFDomain/ConflictResolution_ConflictResolvingModel") -Or
             ($_ -eq "New-CPFDomain/RuleBasedMatching_ConflictResolution_ConflictResolvingModel") -Or
             ($_ -eq "Update-CPFDomain/RuleBasedMatching_ConflictResolution_ConflictResolvingModel")
         }
@@ -105,8 +105,8 @@ $CPF_Completers = {
 
         # Amazon.CustomerProfiles.DataPullMode
         {
-            ($_ -eq "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode") -Or
-            ($_ -eq "New-CPFIntegrationWorkflow/IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode")
+            ($_ -eq "New-CPFIntegrationWorkflow/Scheduled_DataPullMode") -Or
+            ($_ -eq "Write-CPFIntegration/Scheduled_DataPullMode")
         }
         {
             $v = "Complete","Incremental"
@@ -125,8 +125,8 @@ $CPF_Completers = {
 
         # Amazon.CustomerProfiles.JobScheduleDayOfTheWeek
         {
-            ($_ -eq "New-CPFDomain/Matching_JobSchedule_DayOfTheWeek") -Or
-            ($_ -eq "Update-CPFDomain/Matching_JobSchedule_DayOfTheWeek")
+            ($_ -eq "New-CPFDomain/JobSchedule_DayOfTheWeek") -Or
+            ($_ -eq "Update-CPFDomain/JobSchedule_DayOfTheWeek")
         }
         {
             $v = "FRIDAY","MONDAY","SATURDAY","SUNDAY","THURSDAY","TUESDAY","WEDNESDAY"
@@ -149,8 +149,8 @@ $CPF_Completers = {
 
         # Amazon.CustomerProfiles.Operator
         {
-            ($_ -eq "New-CPFCalculatedAttributeDefinition/Conditions_Threshold_Operator") -Or
-            ($_ -eq "Update-CPFCalculatedAttributeDefinition/Conditions_Threshold_Operator")
+            ($_ -eq "New-CPFCalculatedAttributeDefinition/Threshold_Operator") -Or
+            ($_ -eq "Update-CPFCalculatedAttributeDefinition/Threshold_Operator")
         }
         {
             $v = "EQUAL_TO","GREATER_THAN","LESS_THAN","NOT_EQUAL_TO"
@@ -169,8 +169,8 @@ $CPF_Completers = {
 
         # Amazon.CustomerProfiles.SourceConnectorType
         {
-            ($_ -eq "Write-CPFIntegration/FlowDefinition_SourceFlowConfig_ConnectorType") -Or
-            ($_ -eq "New-CPFIntegrationWorkflow/IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_ConnectorType")
+            ($_ -eq "New-CPFIntegrationWorkflow/SourceFlowConfig_ConnectorType") -Or
+            ($_ -eq "Write-CPFIntegration/SourceFlowConfig_ConnectorType")
         }
         {
             $v = "Marketo","S3","Salesforce","Servicenow","Zendesk"
@@ -193,8 +193,8 @@ $CPF_Completers = {
 
         # Amazon.CustomerProfiles.TriggerType
         {
-            ($_ -eq "Write-CPFIntegration/FlowDefinition_TriggerConfig_TriggerType") -Or
-            ($_ -eq "New-CPFIntegrationWorkflow/IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerType")
+            ($_ -eq "New-CPFIntegrationWorkflow/TriggerConfig_TriggerType") -Or
+            ($_ -eq "Write-CPFIntegration/TriggerConfig_TriggerType")
         }
         {
             $v = "Event","OnDemand","Scheduled"
@@ -203,8 +203,8 @@ $CPF_Completers = {
 
         # Amazon.CustomerProfiles.Unit
         {
-            ($_ -eq "New-CPFCalculatedAttributeDefinition/Conditions_Range_Unit") -Or
-            ($_ -eq "Update-CPFCalculatedAttributeDefinition/Conditions_Range_Unit")
+            ($_ -eq "New-CPFCalculatedAttributeDefinition/Range_Unit") -Or
+            ($_ -eq "Update-CPFCalculatedAttributeDefinition/Range_Unit")
         }
         {
             $v = "DAYS"
@@ -230,25 +230,21 @@ $CPF_Completers = {
 }
 
 $CPF_map = @{
-    "Conditions_Range_Unit"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
-    "Conditions_Threshold_Operator"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
-    "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview")
-    "FlowDefinition_SourceFlowConfig_ConnectorType"=@("Write-CPFIntegration")
-    "FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("Write-CPFIntegration")
-    "FlowDefinition_TriggerConfig_TriggerType"=@("Write-CPFIntegration")
+    "AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
+    "ConflictResolution_ConflictResolvingModel"=@("Get-CPFAutoMergingPreview","New-CPFDomain","Update-CPFDomain")
     "Gender"=@("New-CPFProfile","Update-CPFProfile")
-    "IntegrationConfig_AppflowIntegration_FlowDefinition_SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow")
-    "IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerProperties_Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow")
-    "IntegrationConfig_AppflowIntegration_FlowDefinition_TriggerConfig_TriggerType"=@("New-CPFIntegrationWorkflow")
+    "JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "LogicalOperator"=@("Search-CPFProfile")
-    "Matching_AutoMerging_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
-    "Matching_JobSchedule_DayOfTheWeek"=@("New-CPFDomain","Update-CPFDomain")
     "MatchType"=@("Get-CPFSimilarProfile")
     "PartyType"=@("New-CPFProfile","Update-CPFProfile")
-    "RuleBasedMatching_AttributeTypesSelector_AttributeMatchingModel"=@("New-CPFDomain","Update-CPFDomain")
+    "Range_Unit"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
     "RuleBasedMatching_ConflictResolution_ConflictResolvingModel"=@("New-CPFDomain","Update-CPFDomain")
+    "Scheduled_DataPullMode"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
+    "SourceFlowConfig_ConnectorType"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
     "Statistic"=@("New-CPFCalculatedAttributeDefinition")
     "Status"=@("Get-CPFWorkflowList")
+    "Threshold_Operator"=@("New-CPFCalculatedAttributeDefinition","Update-CPFCalculatedAttributeDefinition")
+    "TriggerConfig_TriggerType"=@("New-CPFIntegrationWorkflow","Write-CPFIntegration")
     "WorkflowType"=@("Get-CPFWorkflowList","New-CPFIntegrationWorkflow")
 }
 

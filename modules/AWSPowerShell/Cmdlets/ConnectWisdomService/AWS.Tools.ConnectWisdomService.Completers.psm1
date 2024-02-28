@@ -116,7 +116,7 @@ $WSDM_Completers = {
         }
 
         # Amazon.ConnectWisdomService.Order
-        "Search-WSDMQuickResponse/SearchExpression_OrderOnField_Order"
+        "Search-WSDMQuickResponse/OrderOnField_Order"
         {
             $v = "ASC","DESC"
             break
@@ -135,7 +135,7 @@ $WSDM_map = @{
     "ExternalSourceConfiguration_Source"=@("Start-WSDMImportJob")
     "ImportJobType"=@("Start-WSDMImportJob")
     "KnowledgeBaseType"=@("New-WSDMKnowledgeBase")
-    "SearchExpression_OrderOnField_Order"=@("Search-WSDMQuickResponse")
+    "OrderOnField_Order"=@("Search-WSDMQuickResponse")
     "Type"=@("New-WSDMAssistant")
 }
 

@@ -130,6 +130,22 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public Amazon.Batch.Model.EvaluateOnExit[] RetryStrategy_EvaluateOnExit { get; set; }
         #endregion
         
+        #region Parameter PodProperties_InitContainer
+        /// <summary>
+        /// <para>
+        /// <para>The overrides for the conatainers defined in the Amazon EKS pod. These containers
+        /// run before application containers, always runs to completion, and must complete successfully
+        /// before the next container starts. These containers are registered with the Amazon
+        /// EKS Connector agent and persists the registration information in the Kubernetes backend
+        /// data store. For more information, see <a href="https://kubernetes.io/docs/concepts/workloads/pods/init-containers/">Init
+        /// Containers</a> in the <i>Kubernetes documentation</i>.</para><note><para>This object is limited to 10 elements</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksPropertiesOverride_PodProperties_InitContainers")]
+        public Amazon.Batch.Model.EksContainerOverride[] PodProperties_InitContainer { get; set; }
+        #endregion
+        
         #region Parameter ContainerOverrides_InstanceType
         /// <summary>
         /// <para>
@@ -331,6 +347,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter EcsPropertiesOverride_TaskProperty
+        /// <summary>
+        /// <para>
+        /// <para>The overrides for the Amazon ECS task definition of a job.</para><note><para>This object is currently limited to one element.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EcsPropertiesOverride_TaskProperties")]
+        public Amazon.Batch.Model.TaskPropertiesOverride[] EcsPropertiesOverride_TaskProperty { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -352,13 +379,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to override the memory
         /// requirements specified in the job definition. It's not supported for jobs running
-        /// on Fargate resources. For jobs that run on EC2 resources, it overrides the <c>memory</c>
-        /// parameter set in the job definition, but doesn't override any memory requirement that's
-        /// specified in the <c>resourceRequirements</c> structure in the job definition. To override
-        /// memory requirements that are specified in the <c>resourceRequirements</c> structure
-        /// in the job definition, <c>resourceRequirements</c> must be specified in the <c>SubmitJob</c>
-        /// request, with <c>type</c> set to <c>MEMORY</c> and <c>value</c> set to the new value.
-        /// For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
+        /// on Fargate resources. For jobs that run on Amazon EC2 resources, it overrides the
+        /// <c>memory</c> parameter set in the job definition, but doesn't override any memory
+        /// requirement that's specified in the <c>resourceRequirements</c> structure in the job
+        /// definition. To override memory requirements that are specified in the <c>resourceRequirements</c>
+        /// structure in the job definition, <c>resourceRequirements</c> must be specified in
+        /// the <c>SubmitJob</c> request, with <c>type</c> set to <c>MEMORY</c> and <c>value</c>
+        /// set to the new value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#override-resource-requirements">Can't
         /// override job definition resource requirements</a> in the <i>Batch User Guide</i>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
@@ -373,7 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>This parameter is deprecated, use <c>resourceRequirements</c> to override the <c>vcpus</c>
         /// parameter that's set in the job definition. It's not supported for jobs running on
-        /// Fargate resources. For jobs that run on EC2 resources, it overrides the <c>vcpus</c>
+        /// Fargate resources. For jobs that run on Amazon EC2 resources, it overrides the <c>vcpus</c>
         /// parameter set in the job definition, but doesn't override any vCPU requirement specified
         /// in the <c>resourceRequirements</c> structure in the job definition. To override vCPU
         /// requirements that are specified in the <c>resourceRequirements</c> structure in the
@@ -475,9 +502,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.DependsOn = new List<Amazon.Batch.Model.JobDependency>(this.DependsOn);
             }
+            if (this.EcsPropertiesOverride_TaskProperty != null)
+            {
+                context.EcsPropertiesOverride_TaskProperty = new List<Amazon.Batch.Model.TaskPropertiesOverride>(this.EcsPropertiesOverride_TaskProperty);
+            }
             if (this.PodProperties_Container != null)
             {
                 context.PodProperties_Container = new List<Amazon.Batch.Model.EksContainerOverride>(this.PodProperties_Container);
+            }
+            if (this.PodProperties_InitContainer != null)
+            {
+                context.PodProperties_InitContainer = new List<Amazon.Batch.Model.EksContainerOverride>(this.PodProperties_InitContainer);
             }
             if (this.Metadata_Label != null)
             {
@@ -651,6 +686,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.DependsOn = cmdletContext.DependsOn;
             }
             
+             // populate EcsPropertiesOverride
+            var requestEcsPropertiesOverrideIsNull = true;
+            request.EcsPropertiesOverride = new Amazon.Batch.Model.EcsPropertiesOverride();
+            List<Amazon.Batch.Model.TaskPropertiesOverride> requestEcsPropertiesOverride_ecsPropertiesOverride_TaskProperty = null;
+            if (cmdletContext.EcsPropertiesOverride_TaskProperty != null)
+            {
+                requestEcsPropertiesOverride_ecsPropertiesOverride_TaskProperty = cmdletContext.EcsPropertiesOverride_TaskProperty;
+            }
+            if (requestEcsPropertiesOverride_ecsPropertiesOverride_TaskProperty != null)
+            {
+                request.EcsPropertiesOverride.TaskProperties = requestEcsPropertiesOverride_ecsPropertiesOverride_TaskProperty;
+                requestEcsPropertiesOverrideIsNull = false;
+            }
+             // determine if request.EcsPropertiesOverride should be set to null
+            if (requestEcsPropertiesOverrideIsNull)
+            {
+                request.EcsPropertiesOverride = null;
+            }
+            
              // populate EksPropertiesOverride
             var requestEksPropertiesOverrideIsNull = true;
             request.EksPropertiesOverride = new Amazon.Batch.Model.EksPropertiesOverride();
@@ -667,6 +721,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container != null)
             {
                 requestEksPropertiesOverride_eksPropertiesOverride_PodProperties.Containers = requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_Container;
+                requestEksPropertiesOverride_eksPropertiesOverride_PodPropertiesIsNull = false;
+            }
+            List<Amazon.Batch.Model.EksContainerOverride> requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_InitContainer = null;
+            if (cmdletContext.PodProperties_InitContainer != null)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_InitContainer = cmdletContext.PodProperties_InitContainer;
+            }
+            if (requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_InitContainer != null)
+            {
+                requestEksPropertiesOverride_eksPropertiesOverride_PodProperties.InitContainers = requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_podProperties_InitContainer;
                 requestEksPropertiesOverride_eksPropertiesOverride_PodPropertiesIsNull = false;
             }
             Amazon.Batch.Model.EksMetadata requestEksPropertiesOverride_eksPropertiesOverride_PodProperties_eksPropertiesOverride_PodProperties_Metadata = null;
@@ -874,7 +938,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             [System.ObsoleteAttribute]
             public System.Int32? ContainerOverrides_Vcpus { get; set; }
             public List<Amazon.Batch.Model.JobDependency> DependsOn { get; set; }
+            public List<Amazon.Batch.Model.TaskPropertiesOverride> EcsPropertiesOverride_TaskProperty { get; set; }
             public List<Amazon.Batch.Model.EksContainerOverride> PodProperties_Container { get; set; }
+            public List<Amazon.Batch.Model.EksContainerOverride> PodProperties_InitContainer { get; set; }
             public Dictionary<System.String, System.String> Metadata_Label { get; set; }
             public System.String JobDefinition { get; set; }
             public System.String JobName { get; set; }

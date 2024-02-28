@@ -94,7 +94,7 @@ $VPCL_Completers = {
 
         # Amazon.VPCLattice.HealthCheckProtocolVersion
         {
-            ($_ -eq "New-VPCLTargetGroup/Config_HealthCheck_ProtocolVersion") -Or
+            ($_ -eq "New-VPCLTargetGroup/HealthCheck_ProtocolVersion") -Or
             ($_ -eq "Update-VPCLTargetGroup/HealthCheck_ProtocolVersion")
         }
         {
@@ -125,8 +125,8 @@ $VPCL_Completers = {
 
         # Amazon.VPCLattice.TargetGroupProtocol
         {
-            ($_ -eq "New-VPCLTargetGroup/Config_HealthCheck_Protocol") -Or
             ($_ -eq "New-VPCLTargetGroup/Config_Protocol") -Or
+            ($_ -eq "New-VPCLTargetGroup/HealthCheck_Protocol") -Or
             ($_ -eq "Update-VPCLTargetGroup/HealthCheck_Protocol")
         }
         {
@@ -161,14 +161,12 @@ $VPCL_Completers = {
 
 $VPCL_map = @{
     "AuthType"=@("New-VPCLService","New-VPCLServiceNetwork","Update-VPCLService","Update-VPCLServiceNetwork")
-    "Config_HealthCheck_Protocol"=@("New-VPCLTargetGroup")
-    "Config_HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup")
     "Config_IpAddressType"=@("New-VPCLTargetGroup")
     "Config_LambdaEventStructureVersion"=@("New-VPCLTargetGroup")
     "Config_Protocol"=@("New-VPCLTargetGroup")
     "Config_ProtocolVersion"=@("New-VPCLTargetGroup")
-    "HealthCheck_Protocol"=@("Update-VPCLTargetGroup")
-    "HealthCheck_ProtocolVersion"=@("Update-VPCLTargetGroup")
+    "HealthCheck_Protocol"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
+    "HealthCheck_ProtocolVersion"=@("New-VPCLTargetGroup","Update-VPCLTargetGroup")
     "Protocol"=@("New-VPCLListener")
     "TargetGroupType"=@("Get-VPCLTargetGroupList")
     "Type"=@("New-VPCLTargetGroup")

@@ -204,11 +204,11 @@ $DDB_Completers = {
 
         # Amazon.DynamoDBv2.ReturnItemCollectionMetrics
         {
-            ($_ -eq "Remove-DDBItem/ReturnItemCollectionMetrics") -Or
-            ($_ -eq "Set-DDBBatchItem/ReturnItemCollectionMetrics") -Or
-            ($_ -eq "Set-DDBItem/ReturnItemCollectionMetrics") -Or
-            ($_ -eq "Update-DDBItem/ReturnItemCollectionMetrics") -Or
-            ($_ -eq "Write-DDBItemTransactionally/ReturnItemCollectionMetrics")
+            ($_ -eq "Remove-DDBItem/ReturnItemCollectionMetric") -Or
+            ($_ -eq "Set-DDBBatchItem/ReturnItemCollectionMetric") -Or
+            ($_ -eq "Set-DDBItem/ReturnItemCollectionMetric") -Or
+            ($_ -eq "Update-DDBItem/ReturnItemCollectionMetric") -Or
+            ($_ -eq "Write-DDBItemTransactionally/ReturnItemCollectionMetric")
         }
         {
             $v = "NONE","SIZE"
@@ -217,9 +217,9 @@ $DDB_Completers = {
 
         # Amazon.DynamoDBv2.ReturnValue
         {
-            ($_ -eq "Remove-DDBItem/ReturnValues") -Or
-            ($_ -eq "Set-DDBItem/ReturnValues") -Or
-            ($_ -eq "Update-DDBItem/ReturnValues")
+            ($_ -eq "Remove-DDBItem/ReturnValue") -Or
+            ($_ -eq "Set-DDBItem/ReturnValue") -Or
+            ($_ -eq "Update-DDBItem/ReturnValue")
         }
         {
             $v = "ALL_NEW","ALL_OLD","NONE","UPDATED_NEW","UPDATED_OLD"
@@ -258,8 +258,8 @@ $DDB_Completers = {
 
         # Amazon.DynamoDBv2.Select
         {
-            ($_ -eq "Invoke-DDBQuery/Select") -Or
-            ($_ -eq "Invoke-DDBScan/Select")
+            ($_ -eq "Invoke-DDBQuery/SelectItem") -Or
+            ($_ -eq "Invoke-DDBScan/SelectItem")
         }
         {
             $v = "ALL_ATTRIBUTES","ALL_PROJECTED_ATTRIBUTES","COUNT","SPECIFIC_ATTRIBUTES"
@@ -268,10 +268,10 @@ $DDB_Completers = {
 
         # Amazon.DynamoDBv2.SSEType
         {
+            ($_ -eq "Import-DDBTable/SSESpecification_SSEType") -Or
             ($_ -eq "Update-DDBTable/SSESpecification_SSEType") -Or
             ($_ -eq "Restore-DDBTableFromBackup/SSESpecificationOverride_SSEType") -Or
-            ($_ -eq "Restore-DDBTableToPointInTime/SSESpecificationOverride_SSEType") -Or
-            ($_ -eq "Import-DDBTable/TableCreationParameters_SSESpecification_SSEType")
+            ($_ -eq "Restore-DDBTableToPointInTime/SSESpecificationOverride_SSEType")
         }
         {
             $v = "AES256","KMS"
@@ -319,17 +319,16 @@ $DDB_map = @{
     "ProjectionType"=@("Add-DDBIndexSchema")
     "RangeKeyDataType"=@("Add-DDBIndexSchema")
     "ReturnConsumedCapacity"=@("Get-DDBBatchItem","Get-DDBItem","Get-DDBItemTransactionally","Invoke-DDBDDBBatchExecuteStatement","Invoke-DDBDDBExecuteStatement","Invoke-DDBDDBExecuteTransaction","Invoke-DDBQuery","Invoke-DDBScan","Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
-    "ReturnItemCollectionMetrics"=@("Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
-    "ReturnValues"=@("Remove-DDBItem","Set-DDBItem","Update-DDBItem")
+    "ReturnItemCollectionMetric"=@("Remove-DDBItem","Set-DDBBatchItem","Set-DDBItem","Update-DDBItem","Write-DDBItemTransactionally")
+    "ReturnValue"=@("Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "ReturnValuesOnConditionCheckFailure"=@("Invoke-DDBDDBExecuteStatement","Remove-DDBItem","Set-DDBItem","Update-DDBItem")
     "S3SseAlgorithm"=@("Export-DDBTableToPointInTime")
-    "Select"=@("Invoke-DDBQuery","Invoke-DDBScan")
-    "SSESpecification_SSEType"=@("Update-DDBTable")
+    "SelectItem"=@("Invoke-DDBQuery","Invoke-DDBScan")
+    "SSESpecification_SSEType"=@("Import-DDBTable","Update-DDBTable")
     "SSESpecificationOverride_SSEType"=@("Restore-DDBTableFromBackup","Restore-DDBTableToPointInTime")
     "StreamSpecification_StreamViewType"=@("Update-DDBTable")
     "TableClass"=@("Update-DDBTable")
     "TableCreationParameters_BillingMode"=@("Import-DDBTable")
-    "TableCreationParameters_SSESpecification_SSEType"=@("Import-DDBTable")
     "UpdateKinesisStreamingConfiguration_ApproximateCreationDateTimePrecision"=@("Update-DDBKinesisStreamingDestination")
 }
 

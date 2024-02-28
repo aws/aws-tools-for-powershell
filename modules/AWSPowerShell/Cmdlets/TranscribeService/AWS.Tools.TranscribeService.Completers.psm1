@@ -151,7 +151,7 @@ $TRS_Completers = {
         }
 
         # Amazon.TranscribeService.ModelStatus
-        "Get-TRSLanguageModelList/StatusEquals"
+        "Get-TRSLanguageModelList/StatusEqual"
         {
             $v = "COMPLETED","FAILED","IN_PROGRESS"
             break
@@ -159,8 +159,8 @@ $TRS_Completers = {
 
         # Amazon.TranscribeService.RedactionOutput
         {
-            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput") -Or
-            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_ContentRedaction_RedactionOutput")
+            ($_ -eq "Start-TRSCallAnalyticsJob/ContentRedaction_RedactionOutput") -Or
+            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionOutput")
         }
         {
             $v = "redacted","redacted_and_unredacted"
@@ -169,8 +169,8 @@ $TRS_Completers = {
 
         # Amazon.TranscribeService.RedactionType
         {
-            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionType") -Or
-            ($_ -eq "Start-TRSCallAnalyticsJob/Settings_ContentRedaction_RedactionType")
+            ($_ -eq "Start-TRSCallAnalyticsJob/ContentRedaction_RedactionType") -Or
+            ($_ -eq "Start-TRSTranscriptionJob/ContentRedaction_RedactionType")
         }
         {
             $v = "PII"
@@ -214,8 +214,8 @@ $TRS_Completers = {
 
         # Amazon.TranscribeService.VocabularyState
         {
-            ($_ -eq "Get-TRSMedicalVocabularyList/StateEquals") -Or
-            ($_ -eq "Get-TRSVocabularyList/StateEquals")
+            ($_ -eq "Get-TRSMedicalVocabularyList/StateEqual") -Or
+            ($_ -eq "Get-TRSVocabularyList/StateEqual")
         }
         {
             $v = "FAILED","PENDING","READY"
@@ -233,18 +233,16 @@ $TRS_Completers = {
 $TRS_map = @{
     "BaseModelName"=@("New-TRSLanguageModel")
     "ContentIdentificationType"=@("Start-TRSMedicalTranscriptionJob")
-    "ContentRedaction_RedactionOutput"=@("Start-TRSTranscriptionJob")
-    "ContentRedaction_RedactionType"=@("Start-TRSTranscriptionJob")
+    "ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
+    "ContentRedaction_RedactionType"=@("Start-TRSCallAnalyticsJob","Start-TRSTranscriptionJob")
     "InputType"=@("New-TRSCallAnalyticsCategory","Update-TRSCallAnalyticsCategory")
     "LanguageCode"=@("New-TRSLanguageModel","New-TRSMedicalVocabulary","New-TRSVocabulary","New-TRSVocabularyFilter","Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob","Update-TRSMedicalVocabulary","Update-TRSVocabulary")
     "MediaFormat"=@("Start-TRSMedicalTranscriptionJob","Start-TRSTranscriptionJob")
-    "Settings_ContentRedaction_RedactionOutput"=@("Start-TRSCallAnalyticsJob")
-    "Settings_ContentRedaction_RedactionType"=@("Start-TRSCallAnalyticsJob")
     "Settings_VocabularyFilterMethod"=@("Start-TRSCallAnalyticsJob","Start-TRSMedicalScribeJob","Start-TRSTranscriptionJob")
     "Specialty"=@("Start-TRSMedicalTranscriptionJob")
-    "StateEquals"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
+    "StateEqual"=@("Get-TRSMedicalVocabularyList","Get-TRSVocabularyList")
     "Status"=@("Get-TRSCallAnalyticsJobList","Get-TRSMedicalScribeJobList","Get-TRSMedicalTranscriptionJobList","Get-TRSTranscriptionJobList")
-    "StatusEquals"=@("Get-TRSLanguageModelList")
+    "StatusEqual"=@("Get-TRSLanguageModelList")
     "Type"=@("Start-TRSMedicalTranscriptionJob")
 }
 

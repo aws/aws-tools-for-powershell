@@ -81,7 +81,7 @@ $MHS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.MigrationHubStrategyRecommendations.ApplicationComponentCriteria
-        "Get-MHSApplicationComponentList/ApplicationComponentCriteria"
+        "Get-MHSApplicationComponentList/ApplicationComponentCriterion"
         {
             $v = "ANALYSIS_STATUS","APP_NAME","APP_TYPE","DESTINATION","ERROR_CATEGORY","NOT_DEFINED","SERVER_ID","STRATEGY"
             break
@@ -137,7 +137,7 @@ $MHS_Completers = {
         }
 
         # Amazon.MigrationHubStrategyRecommendations.ServerCriteria
-        "Get-MHSServerList/ServerCriteria"
+        "Get-MHSServerList/ServerCriterion"
         {
             $v = "ANALYSIS_STATUS","DESTINATION","ERROR_CATEGORY","NOT_DEFINED","OS_NAME","SERVER_ID","STRATEGY"
             break
@@ -193,7 +193,7 @@ $MHS_Completers = {
 }
 
 $MHS_map = @{
-    "ApplicationComponentCriteria"=@("Get-MHSApplicationComponentList")
+    "ApplicationComponentCriterion"=@("Get-MHSApplicationComponentList")
     "ApplicationMode"=@("Write-MHSPortfolioPreference")
     "AppType"=@("Update-MHSApplicationComponentConfig")
     "AssessmentDataSourceType"=@("Start-MHSAssessment")
@@ -201,7 +201,7 @@ $MHS_map = @{
     "DataSourceType"=@("Start-MHSImportFileTask")
     "InclusionStatus"=@("Update-MHSApplicationComponentConfig")
     "OutputFormat"=@("Start-MHSRecommendationReportGeneration")
-    "ServerCriteria"=@("Get-MHSServerList")
+    "ServerCriterion"=@("Get-MHSServerList")
     "Sort"=@("Get-MHSAnalyzableServerList","Get-MHSApplicationComponentList","Get-MHSServerList")
     "StrategyOption_Strategy"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")
     "StrategyOption_TargetDestination"=@("Update-MHSApplicationComponentConfig","Update-MHSServerConfig")

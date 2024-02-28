@@ -140,10 +140,10 @@ $CONN_Completers = {
 
         # Amazon.Connect.EncryptionType
         {
-            ($_ -eq "Add-CONNInstanceStorageConfig/StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType") -Or
-            ($_ -eq "Update-CONNInstanceStorageConfig/StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType") -Or
-            ($_ -eq "Add-CONNInstanceStorageConfig/StorageConfig_S3Config_EncryptionConfig_EncryptionType") -Or
-            ($_ -eq "Update-CONNInstanceStorageConfig/StorageConfig_S3Config_EncryptionConfig_EncryptionType")
+            ($_ -eq "Add-CONNInstanceStorageConfig/StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType") -Or
+            ($_ -eq "Update-CONNInstanceStorageConfig/StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType") -Or
+            ($_ -eq "Add-CONNInstanceStorageConfig/StorageConfigS3ConfigEncryptionConfigEncryptionType") -Or
+            ($_ -eq "Update-CONNInstanceStorageConfig/StorageConfigS3ConfigEncryptionConfigEncryptionType")
         }
         {
             $v = "KMS"
@@ -192,7 +192,7 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.HierarchyGroupMatchType
-        "Search-CONNUser/SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"
+        "Search-CONNUser/HierarchyGroupCondition_HierarchyGroupMatchType"
         {
             $v = "EXACT","WITH_CHILD_GROUPS"
             break
@@ -330,8 +330,8 @@ $CONN_Completers = {
 
         # Amazon.Connect.SearchContactsMatchType
         {
-            ($_ -eq "Search-CONNContact/SearchCriteria_ContactAnalysis_Transcript_MatchType") -Or
-            ($_ -eq "Search-CONNContact/SearchCriteria_SearchableContactAttributes_MatchType")
+            ($_ -eq "Search-CONNContact/SearchableContactAttributes_MatchType") -Or
+            ($_ -eq "Search-CONNContact/Transcript_MatchType")
         }
         {
             $v = "MATCH_ALL","MATCH_ANY"
@@ -378,16 +378,16 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
-            ($_ -eq "Search-CONNHoursOfOperation/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNPredefinedAttribute/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNPrompt/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNQueue/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNQuickConnect/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNRoutingProfile/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNSecurityProfile/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNUser/SearchCriteria_StringCondition_ComparisonType") -Or
-            ($_ -eq "Search-CONNResourceTag/SearchCriteria_TagSearchCondition_TagKeyComparisonType") -Or
-            ($_ -eq "Search-CONNResourceTag/SearchCriteria_TagSearchCondition_TagValueComparisonType")
+            ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNPredefinedAttribute/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNPrompt/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNQueue/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNQuickConnect/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNRoutingProfile/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNSecurityProfile/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNUser/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagKeyComparisonType") -Or
+            ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagValueComparisonType")
         }
         {
             $v = "CONTAINS","EXACT","STARTS_WITH"
@@ -421,8 +421,8 @@ $CONN_Completers = {
 
         # Amazon.Connect.VideoCapability
         {
-            ($_ -eq "Start-CONNWebRTCContact/AllowedCapabilities_Agent_Video") -Or
-            ($_ -eq "Start-CONNWebRTCContact/AllowedCapabilities_Customer_Video")
+            ($_ -eq "Start-CONNWebRTCContact/Agent_Video") -Or
+            ($_ -eq "Start-CONNWebRTCContact/Customer_Video")
         }
         {
             $v = "SEND"
@@ -481,14 +481,15 @@ $CONN_Completers = {
 }
 
 $CONN_map = @{
+    "Agent_Video"=@("Start-CONNWebRTCContact")
     "AgentAvailabilityTimer"=@("New-CONNRoutingProfile","Update-CONNRoutingProfileAgentAvailabilityTimer")
-    "AllowedCapabilities_Agent_Video"=@("Start-CONNWebRTCContact")
-    "AllowedCapabilities_Customer_Video"=@("Start-CONNWebRTCContact")
     "AttributeType"=@("Get-CONNInstanceAttribute","Update-CONNInstanceAttribute")
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
+    "Customer_Video"=@("Start-CONNWebRTCContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
+    "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
     "Interval_IntervalPeriod"=@("Get-CONNMetricDataV2")
@@ -505,23 +506,22 @@ $CONN_map = @{
     "ResourceType"=@("Add-CONNFlow","Add-CONNInstanceStorageConfig","Get-CONNFlowAssociation","Get-CONNFlowAssociationBatch","Get-CONNFlowAssociationList","Get-CONNInstanceStorageConfig","Get-CONNInstanceStorageConfigList","Remove-CONNFlow","Remove-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "ScoringStrategy_Mode"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
-    "SearchCriteria_ContactAnalysis_Transcript_MatchType"=@("Search-CONNContact")
-    "SearchCriteria_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
+    "SearchableContactAttributes_MatchType"=@("Search-CONNContact")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
-    "SearchCriteria_SearchableContactAttributes_MatchType"=@("Search-CONNContact")
-    "SearchCriteria_StringCondition_ComparisonType"=@("Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
-    "SearchCriteria_TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
-    "SearchCriteria_TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
     "Sort_FieldName"=@("Search-CONNContact")
     "Sort_Order"=@("Search-CONNContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
-    "StorageConfig_KinesisVideoStreamConfig_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StorageConfig_S3Config_EncryptionConfig_EncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
+    "StringCondition_ComparisonType"=@("Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
+    "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
+    "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
     "TimeRange_Type"=@("Search-CONNContact")
     "TrafficType"=@("Start-CONNOutboundVoiceContact")
+    "Transcript_MatchType"=@("Search-CONNContact")
     "TriggerEventSource_EventSourceName"=@("New-CONNRule")
     "Type"=@("Get-CONNViewList","New-CONNContactFlow")
     "UseCaseType"=@("New-CONNUseCase")

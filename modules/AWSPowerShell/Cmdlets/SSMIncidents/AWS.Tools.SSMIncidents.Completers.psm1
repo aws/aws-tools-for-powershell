@@ -89,8 +89,8 @@ $SSMI_Completers = {
 
         # Amazon.SSMIncidents.ItemType
         {
-            ($_ -eq "Update-SSMIRelatedItem/RelatedItemsUpdate_ItemToAdd_Identifier_Type") -Or
-            ($_ -eq "Update-SSMIRelatedItem/RelatedItemsUpdate_ItemToRemove_Type")
+            ($_ -eq "Update-SSMIRelatedItem/Identifier_Type") -Or
+            ($_ -eq "Update-SSMIRelatedItem/ItemToRemove_Type")
         }
         {
             $v = "ANALYSIS","ATTACHMENT","AUTOMATION","INCIDENT","INVOLVED_RESOURCE","METRIC","OTHER","PARENT","TASK"
@@ -120,8 +120,8 @@ $SSMI_Completers = {
 }
 
 $SSMI_map = @{
-    "RelatedItemsUpdate_ItemToAdd_Identifier_Type"=@("Update-SSMIRelatedItem")
-    "RelatedItemsUpdate_ItemToRemove_Type"=@("Update-SSMIRelatedItem")
+    "Identifier_Type"=@("Update-SSMIRelatedItem")
+    "ItemToRemove_Type"=@("Update-SSMIRelatedItem")
     "SortBy"=@("Get-SSMITimelineEventList")
     "SortOrder"=@("Get-SSMITimelineEventList")
     "Status"=@("Update-SSMIIncidentRecord")

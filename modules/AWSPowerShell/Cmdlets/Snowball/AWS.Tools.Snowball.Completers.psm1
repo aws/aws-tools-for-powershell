@@ -172,18 +172,18 @@ $SNOW_Completers = {
 
         # Amazon.Snowball.StorageUnit
         {
-            ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
-            ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
-            ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
-            ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit") -Or
-            ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
-            ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
-            ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
-            ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit") -Or
-            ($_ -eq "New-SNOWCluster/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
-            ($_ -eq "New-SNOWJob/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
-            ($_ -eq "Update-SNOWCluster/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit") -Or
-            ($_ -eq "Update-SNOWJob/OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit")
+            ($_ -eq "New-SNOWCluster/NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWJob/NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWCluster/NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWJob/NFSOnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWCluster/S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWJob/S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWCluster/S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWJob/S3OnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWCluster/TGWOnDeviceService_StorageUnit") -Or
+            ($_ -eq "New-SNOWJob/TGWOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWCluster/TGWOnDeviceService_StorageUnit") -Or
+            ($_ -eq "Update-SNOWJob/TGWOnDeviceService_StorageUnit")
         }
         {
             $v = "TB"
@@ -203,15 +203,15 @@ $SNOW_map = @{
     "ImpactLevel"=@("New-SNOWJob")
     "JobType"=@("New-SNOWCluster","New-SNOWJob")
     "LongTermPricingType"=@("New-SNOWLongTermPricing")
-    "OnDeviceServiceConfiguration_NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
-    "OnDeviceServiceConfiguration_S3OnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
-    "OnDeviceServiceConfiguration_TGWOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
+    "NFSOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "RemoteManagement"=@("New-SNOWCluster","New-SNOWJob")
+    "S3OnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
     "ServiceName"=@("Get-SNOWServiceVersion")
     "ShipmentState"=@("Update-SNOWJobShipmentState")
     "ShippingOption"=@("New-SNOWCluster","New-SNOWJob","New-SNOWReturnShippingLabel","Update-SNOWCluster","Update-SNOWJob")
     "SnowballCapacityPreference"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWJob")
     "SnowballType"=@("New-SNOWCluster","New-SNOWJob","New-SNOWLongTermPricing")
+    "TGWOnDeviceService_StorageUnit"=@("New-SNOWCluster","New-SNOWJob","Update-SNOWCluster","Update-SNOWJob")
 }
 
 _awsArgumentCompleterRegistration $SNOW_Completers $SNOW_map

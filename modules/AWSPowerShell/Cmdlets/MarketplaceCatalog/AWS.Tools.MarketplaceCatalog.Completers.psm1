@@ -81,21 +81,21 @@ $MCAT_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.MarketplaceCatalog.AmiProductSortBy
-        "Get-MCATEntityList/EntityTypeSort_AmiProductSort_SortBy"
+        "Get-MCATEntityList/AmiProductSort_SortBy"
         {
             $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
         }
 
         # Amazon.MarketplaceCatalog.ContainerProductSortBy
-        "Get-MCATEntityList/EntityTypeSort_ContainerProductSort_SortBy"
+        "Get-MCATEntityList/ContainerProductSort_SortBy"
         {
             $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
         }
 
         # Amazon.MarketplaceCatalog.DataProductSortBy
-        "Get-MCATEntityList/EntityTypeSort_DataProductSort_SortBy"
+        "Get-MCATEntityList/DataProductSort_SortBy"
         {
             $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
@@ -109,7 +109,7 @@ $MCAT_Completers = {
         }
 
         # Amazon.MarketplaceCatalog.OfferSortBy
-        "Get-MCATEntityList/EntityTypeSort_OfferSort_SortBy"
+        "Get-MCATEntityList/OfferSort_SortBy"
         {
             $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","State","Targeting"
             break
@@ -123,14 +123,14 @@ $MCAT_Completers = {
         }
 
         # Amazon.MarketplaceCatalog.ResaleAuthorizationSortBy
-        "Get-MCATEntityList/EntityTypeSort_ResaleAuthorizationSort_SortBy"
+        "Get-MCATEntityList/ResaleAuthorizationSort_SortBy"
         {
             $v = "AvailabilityEndDate","CreatedDate","EntityId","LastModifiedDate","ManufacturerAccountId","ManufacturerLegalName","Name","OfferExtendedStatus","ProductId","ProductName","ResellerAccountID","ResellerLegalName","Status"
             break
         }
 
         # Amazon.MarketplaceCatalog.SaaSProductSortBy
-        "Get-MCATEntityList/EntityTypeSort_SaaSProductSort_SortBy"
+        "Get-MCATEntityList/SaaSProductSort_SortBy"
         {
             $v = "EntityId","LastModifiedDate","ProductTitle","Visibility"
             break
@@ -138,12 +138,12 @@ $MCAT_Completers = {
 
         # Amazon.MarketplaceCatalog.SortOrder
         {
-            ($_ -eq "Get-MCATEntityList/EntityTypeSort_AmiProductSort_SortOrder") -Or
-            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ContainerProductSort_SortOrder") -Or
-            ($_ -eq "Get-MCATEntityList/EntityTypeSort_DataProductSort_SortOrder") -Or
-            ($_ -eq "Get-MCATEntityList/EntityTypeSort_OfferSort_SortOrder") -Or
-            ($_ -eq "Get-MCATEntityList/EntityTypeSort_ResaleAuthorizationSort_SortOrder") -Or
-            ($_ -eq "Get-MCATEntityList/EntityTypeSort_SaaSProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/AmiProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/ContainerProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/DataProductSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/OfferSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/ResaleAuthorizationSort_SortOrder") -Or
+            ($_ -eq "Get-MCATEntityList/SaaSProductSort_SortOrder") -Or
             ($_ -eq "Get-MCATChangeSetList/Sort_SortOrder") -Or
             ($_ -eq "Get-MCATEntityList/Sort_SortOrder")
         }
@@ -161,20 +161,20 @@ $MCAT_Completers = {
 }
 
 $MCAT_map = @{
-    "EntityTypeSort_AmiProductSort_SortBy"=@("Get-MCATEntityList")
-    "EntityTypeSort_AmiProductSort_SortOrder"=@("Get-MCATEntityList")
-    "EntityTypeSort_ContainerProductSort_SortBy"=@("Get-MCATEntityList")
-    "EntityTypeSort_ContainerProductSort_SortOrder"=@("Get-MCATEntityList")
-    "EntityTypeSort_DataProductSort_SortBy"=@("Get-MCATEntityList")
-    "EntityTypeSort_DataProductSort_SortOrder"=@("Get-MCATEntityList")
-    "EntityTypeSort_OfferSort_SortBy"=@("Get-MCATEntityList")
-    "EntityTypeSort_OfferSort_SortOrder"=@("Get-MCATEntityList")
-    "EntityTypeSort_ResaleAuthorizationSort_SortBy"=@("Get-MCATEntityList")
-    "EntityTypeSort_ResaleAuthorizationSort_SortOrder"=@("Get-MCATEntityList")
-    "EntityTypeSort_SaaSProductSort_SortBy"=@("Get-MCATEntityList")
-    "EntityTypeSort_SaaSProductSort_SortOrder"=@("Get-MCATEntityList")
+    "AmiProductSort_SortBy"=@("Get-MCATEntityList")
+    "AmiProductSort_SortOrder"=@("Get-MCATEntityList")
+    "ContainerProductSort_SortBy"=@("Get-MCATEntityList")
+    "ContainerProductSort_SortOrder"=@("Get-MCATEntityList")
+    "DataProductSort_SortBy"=@("Get-MCATEntityList")
+    "DataProductSort_SortOrder"=@("Get-MCATEntityList")
     "Intent"=@("Start-MCATChangeSet")
+    "OfferSort_SortBy"=@("Get-MCATEntityList")
+    "OfferSort_SortOrder"=@("Get-MCATEntityList")
     "OwnershipType"=@("Get-MCATEntityList")
+    "ResaleAuthorizationSort_SortBy"=@("Get-MCATEntityList")
+    "ResaleAuthorizationSort_SortOrder"=@("Get-MCATEntityList")
+    "SaaSProductSort_SortBy"=@("Get-MCATEntityList")
+    "SaaSProductSort_SortOrder"=@("Get-MCATEntityList")
     "Sort_SortOrder"=@("Get-MCATChangeSetList","Get-MCATEntityList")
 }
 

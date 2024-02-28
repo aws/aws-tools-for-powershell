@@ -82,8 +82,8 @@ $PAN_Completers = {
     {
         # Amazon.Panorama.ConnectionType
         {
-            ($_ -eq "Register-PANDevice/NetworkingConfiguration_Ethernet0_ConnectionType") -Or
-            ($_ -eq "Register-PANDevice/NetworkingConfiguration_Ethernet1_ConnectionType")
+            ($_ -eq "Register-PANDevice/Ethernet0_ConnectionType") -Or
+            ($_ -eq "Register-PANDevice/Ethernet1_ConnectionType")
         }
         {
             $v = "DHCP","STATIC_IP"
@@ -157,9 +157,9 @@ $PAN_Completers = {
 $PAN_map = @{
     "Category"=@("Get-PANNodeList")
     "DeviceAggregatedStatusFilter"=@("Get-PANDeviceList")
+    "Ethernet0_ConnectionType"=@("Register-PANDevice")
+    "Ethernet1_ConnectionType"=@("Register-PANDevice")
     "JobType"=@("New-PANJobForDevice","New-PANPackageImportJob")
-    "NetworkingConfiguration_Ethernet0_ConnectionType"=@("Register-PANDevice")
-    "NetworkingConfiguration_Ethernet1_ConnectionType"=@("Register-PANDevice")
     "SortBy"=@("Get-PANDeviceList")
     "SortOrder"=@("Get-PANDeviceList")
     "StatusFilter"=@("Get-PANApplicationInstanceList")

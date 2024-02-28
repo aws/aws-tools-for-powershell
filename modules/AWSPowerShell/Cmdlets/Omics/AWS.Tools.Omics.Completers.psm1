@@ -81,7 +81,7 @@ $OMICS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Omics.Accelerators
-        "New-OMICSWorkflow/Accelerators"
+        "New-OMICSWorkflow/Accelerator"
         {
             $v = "GPU"
             break
@@ -89,8 +89,8 @@ $OMICS_Completers = {
 
         # Amazon.Omics.AnnotationType
         {
-            ($_ -eq "New-OMICSAnnotationStore/StoreOptions_TsvStoreOptions_AnnotationType") -Or
-            ($_ -eq "New-OMICSAnnotationStoreVersion/VersionOptions_TsvVersionOptions_AnnotationType")
+            ($_ -eq "New-OMICSAnnotationStore/TsvStoreOptions_AnnotationType") -Or
+            ($_ -eq "New-OMICSAnnotationStoreVersion/TsvVersionOptions_AnnotationType")
         }
         {
             $v = "CHR_POS","CHR_POS_REF_ALT","CHR_START_END_ONE_BASE","CHR_START_END_REF_ALT_ONE_BASE","CHR_START_END_REF_ALT_ZERO_BASE","CHR_START_END_ZERO_BASE","GENERIC"
@@ -278,7 +278,7 @@ $OMICS_Completers = {
 }
 
 $OMICS_map = @{
-    "Accelerators"=@("New-OMICSWorkflow")
+    "Accelerator"=@("New-OMICSWorkflow")
     "Engine"=@("New-OMICSWorkflow")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
     "Filter_CreationType"=@("Get-OMICSReadSetList")
@@ -291,9 +291,9 @@ $OMICS_map = @{
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
     "StoreFormat"=@("New-OMICSAnnotationStore")
-    "StoreOptions_TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
+    "TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
+    "TsvVersionOptions_AnnotationType"=@("New-OMICSAnnotationStoreVersion")
     "Type"=@("Get-OMICSWorkflow","Get-OMICSWorkflowList")
-    "VersionOptions_TsvVersionOptions_AnnotationType"=@("New-OMICSAnnotationStoreVersion")
     "WorkflowType"=@("Start-OMICSRun")
 }
 
