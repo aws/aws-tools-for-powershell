@@ -430,9 +430,7 @@ namespace AWSPowerShellGenerator.Analysis
         }
 
         /// <summary>
-        /// Creates a simplified property for the specified request or response field. If the field's 
-        /// type is derived from the SDK's ConstantClass 'enum' type, we will also register to emit
-        /// an argument completer unless the field is a member of the result type.
+        /// Creates a simplified property for the specified request or response field.
         /// If the parameter type is a MemoryStream the parameter name is registered for replacement
         /// with a byte[] during cmdlet generation.
         /// </summary>
@@ -537,22 +535,6 @@ namespace AWSPowerShellGenerator.Analysis
             if (isCmdletParameter && simpleProperty.IsStreamType)
             {
                 StreamParameters.Add(simpleProperty);
-            }
-
-            if (simpleProperty.IsConstrainedToSet && isCmdletParameter)
-            {
-                // push the set members and a reference from the current cmdlet into the service 
-                // model so that argument completers can be generated later
-                if (!CurrentModel.ArgumentCompleters.IsConstantClassRegistered(propertyTypeName))
-                {
-                    var setMembers = SimplePropertyInfo.GetConstantClassMembers(property.PropertyType);
-                    CurrentModel.ArgumentCompleters.AddConstantClass(propertyTypeName, setMembers);
-                }
-                CurrentModel.ArgumentCompleters.AddConstantClassReference(propertyTypeName, 
-                                                                          simpleProperty.CmdletParameterName, 
-                                                                          string.Format("{0}-{1}", 
-                                                                                        CurrentOperation.SelectedVerb, 
-                                                                                        CurrentOperation.SelectedNoun));
             }
 
             if (shouldFlatten)
@@ -931,6 +913,8 @@ namespace AWSPowerShellGenerator.Analysis
             FixPaginationParameters();
 
             FinalizeParameterNames();
+
+            RegisterConstantClassReferences();
 
             ValidateParameterNamesDuplications();
 
@@ -1612,6 +1596,31 @@ namespace AWSPowerShellGenerator.Analysis
                         RecordParameterRename(property, alternateName);
                     }
                 }
+            }
+        }
+
+
+        /// <summary>
+        /// Register fields derived from the SDK's ConstantClass 'enum' type
+        /// used to emit an argument completer unless the field is a member of the result type.
+        /// </summary>
+        private void RegisterConstantClassReferences()
+        {
+            foreach (var property in AnalyzedParameters)
+            {
+                if (!property.IsConstrainedToSet) continue;
+
+                if (!CurrentModel.ArgumentCompleters.IsConstantClassRegistered(property.PropertyTypeName))
+                {
+                    var setMembers = SimplePropertyInfo.GetConstantClassMembers(property.PropertyType);
+                    CurrentModel.ArgumentCompleters.AddConstantClass(property.PropertyTypeName, setMembers);
+                }
+
+                CurrentModel.ArgumentCompleters.AddConstantClassReference(property.PropertyTypeName,
+                    property.CmdletParameterName,
+                    string.Format("{0}-{1}",
+                        CurrentOperation.SelectedVerb,
+                        CurrentOperation.SelectedNoun));
             }
         }
 
