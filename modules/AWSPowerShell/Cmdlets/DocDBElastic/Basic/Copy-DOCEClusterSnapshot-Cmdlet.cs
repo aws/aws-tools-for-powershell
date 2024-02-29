@@ -28,78 +28,59 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Restores an elastic cluster from a snapshot.
+    /// Copies a snapshot of an elastic cluster.
     /// </summary>
-    [Cmdlet("Restore", "DOCEClusterFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DocDBElastic.Model.Cluster")]
-    [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters RestoreClusterFromSnapshot API operation.", Operation = new[] {"RestoreClusterFromSnapshot"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse))]
-    [AWSCmdletOutput("Amazon.DocDBElastic.Model.Cluster or Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse",
-        "This cmdlet returns an Amazon.DocDBElastic.Model.Cluster object.",
-        "The service call response (type Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Copy", "DOCEClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DocDBElastic.Model.ClusterSnapshot")]
+    [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters CopyClusterSnapshot API operation.", Operation = new[] {"CopyClusterSnapshot"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse))]
+    [AWSCmdletOutput("Amazon.DocDBElastic.Model.ClusterSnapshot or Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse",
+        "This cmdlet returns an Amazon.DocDBElastic.Model.ClusterSnapshot object.",
+        "The service call response (type Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RestoreDOCEClusterFromSnapshotCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
+    public partial class CopyDOCEClusterSnapshotCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClusterName
+        #region Parameter CopyTag
         /// <summary>
         /// <para>
-        /// <para>The name of the elastic cluster.</para>
+        /// <para>Set to <c>true</c> to copy all tags from the source cluster snapshot to the target
+        /// elastic cluster snapshot. The default is <c>false</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterName { get; set; }
+        [Alias("CopyTags")]
+        public System.Boolean? CopyTag { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier to use to encrypt the new Amazon DocumentDB elastic clusters
-        /// cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
-        /// If you are creating a cluster using the same Amazon account that owns this KMS encryption
-        /// key, you can use the KMS key alias instead of the ARN as the KMS encryption key.</para><para>If an encryption key is not specified here, Amazon DocumentDB uses the default encryption
-        /// key that KMS creates for your account. Your account has a different default encryption
-        /// key for each Amazon Region.</para>
+        /// <para>The Amazon Web Services KMS key ID for an encrypted elastic cluster snapshot. The
+        /// Amazon Web Services KMS key ID is the Amazon Resource Name (ARN), Amazon Web Services
+        /// KMS key identifier, or the Amazon Web Services KMS key alias for the Amazon Web Services
+        /// KMS encryption key.</para><para>If you copy an encrypted elastic cluster snapshot from your Amazon Web Services account,
+        /// you can specify a value for <c>KmsKeyId</c> to encrypt the copy with a new Amazon
+        /// Web ServicesS KMS encryption key. If you don't specify a value for <c>KmsKeyId</c>,
+        /// then the copy of the elastic cluster snapshot is encrypted with the same <c>AWS</c>
+        /// KMS key as the source elastic cluster snapshot.</para><para>To copy an encrypted elastic cluster snapshot to another Amazon Web Services region,
+        /// set <c>KmsKeyId</c> to the Amazon Web Services KMS key ID that you want to use to
+        /// encrypt the copy of the elastic cluster snapshot in the destination region. Amazon
+        /// Web Services KMS encryption keys are specific to the Amazon Web Services region that
+        /// they are created in, and you can't use encryption keys from one Amazon Web Services
+        /// region in another Amazon Web Services region.</para><para>If you copy an unencrypted elastic cluster snapshot and specify a value for the <c>KmsKeyId</c>
+        /// parameter, an error is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String KmsKeyId { get; set; }
         #endregion
         
-        #region Parameter ShardCapacity
-        /// <summary>
-        /// <para>
-        /// <para>The capacity of each shard in the new restored elastic cluster.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? ShardCapacity { get; set; }
-        #endregion
-        
-        #region Parameter ShardInstanceCount
-        /// <summary>
-        /// <para>
-        /// <para>The number of replica instances applying to all shards in the elastic cluster. A <c>shardInstanceCount</c>
-        /// value of 1 means there is one writer instance, and any additional instances are replicas
-        /// that can be used for reads and to improve availability.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? ShardInstanceCount { get; set; }
-        #endregion
-        
         #region Parameter SnapshotArn
         /// <summary>
         /// <para>
-        /// <para>The ARN identifier of the elastic cluster snapshot.</para>
+        /// <para>The Amazon Resource Name (ARN) identifier of the elastic cluster snapshot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,23 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         public System.String SnapshotArn { get; set; }
         #endregion
         
-        #region Parameter SubnetId
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon EC2 subnet IDs for the elastic cluster.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("SubnetIds")]
-        public System.String[] SubnetId { get; set; }
-        #endregion
-        
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of the tag names to be assigned to the restored elastic cluster, in the form
-        /// of an array of key-value pairs in which the key is the tag name and the value is the
-        /// key value.</para>
+        /// <para>The tags to be assigned to the elastic cluster snapshot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,26 +105,33 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
-        #region Parameter VpcSecurityGroupId
+        #region Parameter TargetSnapshotName
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with the elastic cluster.</para>
+        /// <para>The identifier of the new elastic cluster snapshot to create from the source cluster
+        /// snapshot. This parameter is not case sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <c>elastic-cluster-snapshot-5</c></para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("VpcSecurityGroupIds")]
-        public System.String[] VpcSecurityGroupId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TargetSnapshotName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse).
-        /// Specifying the name of a property of type Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Snapshot'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse).
+        /// Specifying the name of a property of type Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Cluster";
+        public string Select { get; set; } = "Snapshot";
         #endregion
         
         #region Parameter PassThru
@@ -184,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restore-DOCEClusterFromSnapshot (RestoreClusterFromSnapshot)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SnapshotArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Copy-DOCEClusterSnapshot (CopyClusterSnapshot)"))
             {
                 return;
             }
@@ -198,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse, RestoreDOCEClusterFromSnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse, CopyDOCEClusterSnapshotCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -210,16 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
                 context.Select = (response, cmdlet) => this.SnapshotArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClusterName = this.ClusterName;
-            #if MODULAR
-            if (this.ClusterName == null && ParameterWasBound(nameof(this.ClusterName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClusterName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.CopyTag = this.CopyTag;
             context.KmsKeyId = this.KmsKeyId;
-            context.ShardCapacity = this.ShardCapacity;
-            context.ShardInstanceCount = this.ShardInstanceCount;
             context.SnapshotArn = this.SnapshotArn;
             #if MODULAR
             if (this.SnapshotArn == null && ParameterWasBound(nameof(this.SnapshotArn)))
@@ -227,10 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
                 WriteWarning("You are passing $null as a value for parameter SnapshotArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.SubnetId != null)
-            {
-                context.SubnetId = new List<System.String>(this.SubnetId);
-            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -239,10 +202,13 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
-            if (this.VpcSecurityGroupId != null)
+            context.TargetSnapshotName = this.TargetSnapshotName;
+            #if MODULAR
+            if (this.TargetSnapshotName == null && ParameterWasBound(nameof(this.TargetSnapshotName)))
             {
-                context.VpcSecurityGroupId = new List<System.String>(this.VpcSecurityGroupId);
+                WriteWarning("You are passing $null as a value for parameter TargetSnapshotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -257,39 +223,27 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotRequest();
+            var request = new Amazon.DocDBElastic.Model.CopyClusterSnapshotRequest();
             
-            if (cmdletContext.ClusterName != null)
+            if (cmdletContext.CopyTag != null)
             {
-                request.ClusterName = cmdletContext.ClusterName;
+                request.CopyTags = cmdletContext.CopyTag.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
                 request.KmsKeyId = cmdletContext.KmsKeyId;
             }
-            if (cmdletContext.ShardCapacity != null)
-            {
-                request.ShardCapacity = cmdletContext.ShardCapacity.Value;
-            }
-            if (cmdletContext.ShardInstanceCount != null)
-            {
-                request.ShardInstanceCount = cmdletContext.ShardInstanceCount.Value;
-            }
             if (cmdletContext.SnapshotArn != null)
             {
                 request.SnapshotArn = cmdletContext.SnapshotArn;
-            }
-            if (cmdletContext.SubnetId != null)
-            {
-                request.SubnetIds = cmdletContext.SubnetId;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
             }
-            if (cmdletContext.VpcSecurityGroupId != null)
+            if (cmdletContext.TargetSnapshotName != null)
             {
-                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupId;
+                request.TargetSnapshotName = cmdletContext.TargetSnapshotName;
             }
             
             CmdletOutput output;
@@ -324,15 +278,15 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         
         #region AWS Service Operation Call
         
-        private Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse CallAWSServiceOperation(IAmazonDocDBElastic client, Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotRequest request)
+        private Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse CallAWSServiceOperation(IAmazonDocDBElastic client, Amazon.DocDBElastic.Model.CopyClusterSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB Elastic Clusters", "RestoreClusterFromSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB Elastic Clusters", "CopyClusterSnapshot");
             try
             {
                 #if DESKTOP
-                return client.RestoreClusterFromSnapshot(request);
+                return client.CopyClusterSnapshot(request);
                 #elif CORECLR
-                return client.RestoreClusterFromSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.CopyClusterSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -352,16 +306,13 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClusterName { get; set; }
+            public System.Boolean? CopyTag { get; set; }
             public System.String KmsKeyId { get; set; }
-            public System.Int32? ShardCapacity { get; set; }
-            public System.Int32? ShardInstanceCount { get; set; }
             public System.String SnapshotArn { get; set; }
-            public List<System.String> SubnetId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public List<System.String> VpcSecurityGroupId { get; set; }
-            public System.Func<Amazon.DocDBElastic.Model.RestoreClusterFromSnapshotResponse, RestoreDOCEClusterFromSnapshotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Cluster;
+            public System.String TargetSnapshotName { get; set; }
+            public System.Func<Amazon.DocDBElastic.Model.CopyClusterSnapshotResponse, CopyDOCEClusterSnapshotCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Snapshot;
         }
         
     }

@@ -152,7 +152,8 @@ $DOCE_SelectCompleters = {
 }
 
 $DOCE_SelectMap = @{
-    "Select"=@("New-DOCECluster",
+    "Select"=@("Copy-DOCEClusterSnapshot",
+               "New-DOCECluster",
                "New-DOCEClusterSnapshot",
                "Remove-DOCECluster",
                "Remove-DOCEClusterSnapshot",
@@ -162,6 +163,8 @@ $DOCE_SelectMap = @{
                "Get-DOCEClusterSnapshotList",
                "Get-DOCEResourceTag",
                "Restore-DOCEClusterFromSnapshot",
+               "Start-DOCECluster",
+               "Stop-DOCECluster",
                "Add-DOCEResourceTag",
                "Remove-DOCEResourceTag",
                "Update-DOCECluster")

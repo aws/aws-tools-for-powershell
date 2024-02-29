@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Security Lake resource to retrieve the
-        /// tags for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Security Lake resource for which you
+        /// want to retrieve the tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

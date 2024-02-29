@@ -20626,7 +20626,8 @@ $DOCE_SelectCompleters = {
 }
 
 $DOCE_SelectMap = @{
-    "Select"=@("New-DOCECluster",
+    "Select"=@("Copy-DOCEClusterSnapshot",
+               "New-DOCECluster",
                "New-DOCEClusterSnapshot",
                "Remove-DOCECluster",
                "Remove-DOCEClusterSnapshot",
@@ -20636,6 +20637,8 @@ $DOCE_SelectMap = @{
                "Get-DOCEClusterSnapshotList",
                "Get-DOCEResourceTag",
                "Restore-DOCEClusterFromSnapshot",
+               "Start-DOCECluster",
+               "Stop-DOCECluster",
                "Add-DOCEResourceTag",
                "Remove-DOCEResourceTag",
                "Update-DOCECluster")
@@ -24257,7 +24260,7 @@ $EKS_Completers = {
         # Amazon.EKS.AMITypes
         "New-EKSNodegroup/AmiType"
         {
-            $v = "AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
+            $v = "AL2023_ARM_64_STANDARD","AL2023_x86_64_STANDARD","AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
             break
         }
 
@@ -44052,7 +44055,7 @@ $MHO_Completers = {
         # Amazon.MigrationHubOrchestrator.StepStatus
         "Update-MHOWorkflowStep/Status"
         {
-            $v = "AWAITING_DEPENDENCIES","COMPLETED","FAILED","IN_PROGRESS","PAUSED","READY","USER_ATTENTION_REQUIRED"
+            $v = "AWAITING_DEPENDENCIES","COMPLETED","FAILED","IN_PROGRESS","PAUSED","READY","SKIPPED","USER_ATTENTION_REQUIRED"
             break
         }
 
@@ -44131,9 +44134,11 @@ $MHO_SelectCompleters = {
 }
 
 $MHO_SelectMap = @{
-    "Select"=@("New-MHOWorkflow",
+    "Select"=@("New-MHOTemplate",
+               "New-MHOWorkflow",
                "New-MHOWorkflowStep",
                "New-MHOWorkflowStepGroup",
+               "Remove-MHOTemplate",
                "Remove-MHOWorkflow",
                "Remove-MHOWorkflowStep",
                "Remove-MHOWorkflowStepGroup",
@@ -44156,6 +44161,7 @@ $MHO_SelectMap = @{
                "Stop-MHOWorkflow",
                "Add-MHOResourceTag",
                "Remove-MHOResourceTag",
+               "Update-MHOTemplate",
                "Update-MHOWorkflow",
                "Update-MHOWorkflowStep",
                "Update-MHOWorkflowStepGroup")

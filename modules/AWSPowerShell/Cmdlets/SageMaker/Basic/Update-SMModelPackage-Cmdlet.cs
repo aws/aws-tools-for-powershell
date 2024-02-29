@@ -66,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String ApprovalDescription { get; set; }
         #endregion
         
+        #region Parameter InferenceSpecification_Container
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon ECR registry path of the Docker image that contains the inference code.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceSpecification_Containers")]
+        public Amazon.SageMaker.Model.ModelPackageContainerDefinition[] InferenceSpecification_Container { get; set; }
+        #endregion
+        
         #region Parameter CustomerMetadataProperty
         /// <summary>
         /// <para>
@@ -113,6 +124,61 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ModelPackageArn { get; set; }
+        #endregion
+        
+        #region Parameter SourceUri
+        /// <summary>
+        /// <para>
+        /// <para>The URI of the source for the model package.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceUri { get; set; }
+        #endregion
+        
+        #region Parameter InferenceSpecification_SupportedContentType
+        /// <summary>
+        /// <para>
+        /// <para>The supported MIME types for the input data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceSpecification_SupportedContentTypes")]
+        public System.String[] InferenceSpecification_SupportedContentType { get; set; }
+        #endregion
+        
+        #region Parameter InferenceSpecification_SupportedRealtimeInferenceInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>A list of the instance types that are used to generate inferences in real-time.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceSpecification_SupportedRealtimeInferenceInstanceTypes")]
+        public System.String[] InferenceSpecification_SupportedRealtimeInferenceInstanceType { get; set; }
+        #endregion
+        
+        #region Parameter InferenceSpecification_SupportedResponseMIMEType
+        /// <summary>
+        /// <para>
+        /// <para>The supported MIME types for the output data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceSpecification_SupportedResponseMIMETypes")]
+        public System.String[] InferenceSpecification_SupportedResponseMIMEType { get; set; }
+        #endregion
+        
+        #region Parameter InferenceSpecification_SupportedTransformInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>A list of the instance types on which a transformation job can be run or on which
+        /// an endpoint can be deployed.</para><para>This parameter is required for unversioned models, and optional for versioned models.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InferenceSpecification_SupportedTransformInstanceTypes")]
+        public System.String[] InferenceSpecification_SupportedTransformInstanceType { get; set; }
         #endregion
         
         #region Parameter Select
@@ -194,6 +260,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.CustomerMetadataPropertiesToRemove = new List<System.String>(this.CustomerMetadataPropertiesToRemove);
             }
+            if (this.InferenceSpecification_Container != null)
+            {
+                context.InferenceSpecification_Container = new List<Amazon.SageMaker.Model.ModelPackageContainerDefinition>(this.InferenceSpecification_Container);
+            }
+            if (this.InferenceSpecification_SupportedContentType != null)
+            {
+                context.InferenceSpecification_SupportedContentType = new List<System.String>(this.InferenceSpecification_SupportedContentType);
+            }
+            if (this.InferenceSpecification_SupportedRealtimeInferenceInstanceType != null)
+            {
+                context.InferenceSpecification_SupportedRealtimeInferenceInstanceType = new List<System.String>(this.InferenceSpecification_SupportedRealtimeInferenceInstanceType);
+            }
+            if (this.InferenceSpecification_SupportedResponseMIMEType != null)
+            {
+                context.InferenceSpecification_SupportedResponseMIMEType = new List<System.String>(this.InferenceSpecification_SupportedResponseMIMEType);
+            }
+            if (this.InferenceSpecification_SupportedTransformInstanceType != null)
+            {
+                context.InferenceSpecification_SupportedTransformInstanceType = new List<System.String>(this.InferenceSpecification_SupportedTransformInstanceType);
+            }
             context.ModelApprovalStatus = this.ModelApprovalStatus;
             context.ModelPackageArn = this.ModelPackageArn;
             #if MODULAR
@@ -202,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter ModelPackageArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SourceUri = this.SourceUri;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -234,6 +321,65 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.CustomerMetadataPropertiesToRemove = cmdletContext.CustomerMetadataPropertiesToRemove;
             }
+            
+             // populate InferenceSpecification
+            var requestInferenceSpecificationIsNull = true;
+            request.InferenceSpecification = new Amazon.SageMaker.Model.InferenceSpecification();
+            List<Amazon.SageMaker.Model.ModelPackageContainerDefinition> requestInferenceSpecification_inferenceSpecification_Container = null;
+            if (cmdletContext.InferenceSpecification_Container != null)
+            {
+                requestInferenceSpecification_inferenceSpecification_Container = cmdletContext.InferenceSpecification_Container;
+            }
+            if (requestInferenceSpecification_inferenceSpecification_Container != null)
+            {
+                request.InferenceSpecification.Containers = requestInferenceSpecification_inferenceSpecification_Container;
+                requestInferenceSpecificationIsNull = false;
+            }
+            List<System.String> requestInferenceSpecification_inferenceSpecification_SupportedContentType = null;
+            if (cmdletContext.InferenceSpecification_SupportedContentType != null)
+            {
+                requestInferenceSpecification_inferenceSpecification_SupportedContentType = cmdletContext.InferenceSpecification_SupportedContentType;
+            }
+            if (requestInferenceSpecification_inferenceSpecification_SupportedContentType != null)
+            {
+                request.InferenceSpecification.SupportedContentTypes = requestInferenceSpecification_inferenceSpecification_SupportedContentType;
+                requestInferenceSpecificationIsNull = false;
+            }
+            List<System.String> requestInferenceSpecification_inferenceSpecification_SupportedRealtimeInferenceInstanceType = null;
+            if (cmdletContext.InferenceSpecification_SupportedRealtimeInferenceInstanceType != null)
+            {
+                requestInferenceSpecification_inferenceSpecification_SupportedRealtimeInferenceInstanceType = cmdletContext.InferenceSpecification_SupportedRealtimeInferenceInstanceType;
+            }
+            if (requestInferenceSpecification_inferenceSpecification_SupportedRealtimeInferenceInstanceType != null)
+            {
+                request.InferenceSpecification.SupportedRealtimeInferenceInstanceTypes = requestInferenceSpecification_inferenceSpecification_SupportedRealtimeInferenceInstanceType;
+                requestInferenceSpecificationIsNull = false;
+            }
+            List<System.String> requestInferenceSpecification_inferenceSpecification_SupportedResponseMIMEType = null;
+            if (cmdletContext.InferenceSpecification_SupportedResponseMIMEType != null)
+            {
+                requestInferenceSpecification_inferenceSpecification_SupportedResponseMIMEType = cmdletContext.InferenceSpecification_SupportedResponseMIMEType;
+            }
+            if (requestInferenceSpecification_inferenceSpecification_SupportedResponseMIMEType != null)
+            {
+                request.InferenceSpecification.SupportedResponseMIMETypes = requestInferenceSpecification_inferenceSpecification_SupportedResponseMIMEType;
+                requestInferenceSpecificationIsNull = false;
+            }
+            List<System.String> requestInferenceSpecification_inferenceSpecification_SupportedTransformInstanceType = null;
+            if (cmdletContext.InferenceSpecification_SupportedTransformInstanceType != null)
+            {
+                requestInferenceSpecification_inferenceSpecification_SupportedTransformInstanceType = cmdletContext.InferenceSpecification_SupportedTransformInstanceType;
+            }
+            if (requestInferenceSpecification_inferenceSpecification_SupportedTransformInstanceType != null)
+            {
+                request.InferenceSpecification.SupportedTransformInstanceTypes = requestInferenceSpecification_inferenceSpecification_SupportedTransformInstanceType;
+                requestInferenceSpecificationIsNull = false;
+            }
+             // determine if request.InferenceSpecification should be set to null
+            if (requestInferenceSpecificationIsNull)
+            {
+                request.InferenceSpecification = null;
+            }
             if (cmdletContext.ModelApprovalStatus != null)
             {
                 request.ModelApprovalStatus = cmdletContext.ModelApprovalStatus;
@@ -241,6 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.ModelPackageArn != null)
             {
                 request.ModelPackageArn = cmdletContext.ModelPackageArn;
+            }
+            if (cmdletContext.SourceUri != null)
+            {
+                request.SourceUri = cmdletContext.SourceUri;
             }
             
             CmdletOutput output;
@@ -307,8 +457,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ApprovalDescription { get; set; }
             public Dictionary<System.String, System.String> CustomerMetadataProperty { get; set; }
             public List<System.String> CustomerMetadataPropertiesToRemove { get; set; }
+            public List<Amazon.SageMaker.Model.ModelPackageContainerDefinition> InferenceSpecification_Container { get; set; }
+            public List<System.String> InferenceSpecification_SupportedContentType { get; set; }
+            public List<System.String> InferenceSpecification_SupportedRealtimeInferenceInstanceType { get; set; }
+            public List<System.String> InferenceSpecification_SupportedResponseMIMEType { get; set; }
+            public List<System.String> InferenceSpecification_SupportedTransformInstanceType { get; set; }
             public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
             public System.String ModelPackageArn { get; set; }
+            public System.String SourceUri { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateModelPackageResponse, UpdateSMModelPackageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ModelPackageArn;
         }

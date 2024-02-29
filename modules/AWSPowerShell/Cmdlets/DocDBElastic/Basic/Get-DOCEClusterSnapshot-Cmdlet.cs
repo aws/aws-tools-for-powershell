@@ -28,7 +28,7 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Returns information about a specific Elastic DocumentDB snapshot
+    /// Returns information about a specific elastic cluster snapshot
     /// </summary>
     [Cmdlet("Get", "DOCEClusterSnapshot")]
     [OutputType("Amazon.DocDBElastic.Model.ClusterSnapshot")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter SnapshotArn
         /// <summary>
         /// <para>
-        /// <para>The arn of the Elastic DocumentDB snapshot.</para>
+        /// <para>The ARN identifier of the elastic cluster snapshot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Delete a Elastic DocumentDB snapshot.
+    /// Delete an elastic cluster snapshot.
     /// </summary>
     [Cmdlet("Remove", "DOCEClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDBElastic.Model.ClusterSnapshot")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter SnapshotArn
         /// <summary>
         /// <para>
-        /// <para>The arn of the Elastic DocumentDB snapshot that is to be deleted.</para>
+        /// <para>The ARN identifier of the elastic cluster snapshot that is to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

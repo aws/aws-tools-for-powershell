@@ -51,14 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         /// <para>The configuration ID of the application configured in Application Discovery Service.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ApplicationConfigurationId { get; set; }
         #endregion
         
@@ -189,12 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.MHO
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ApplicationConfigurationId = this.ApplicationConfigurationId;
-            #if MODULAR
-            if (this.ApplicationConfigurationId == null && ParameterWasBound(nameof(this.ApplicationConfigurationId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ApplicationConfigurationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Description = this.Description;
             if (this.InputParameter != null)
             {

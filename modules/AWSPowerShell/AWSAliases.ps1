@@ -8081,6 +8081,7 @@ Set-Alias -Name DOC-RestoreDBClusterFromSnapshot -Value Restore-DOCDBClusterFrom
 Set-Alias -Name DOC-RestoreDBClusterToPointInTime -Value Restore-DOCDBClusterToPointInTime
 Set-Alias -Name DOC-StartDBCluster -Value Start-DOCDBCluster
 Set-Alias -Name DOC-StopDBCluster -Value Stop-DOCDBCluster
+Set-Alias -Name DOCE-CopyClusterSnapshot -Value Copy-DOCEClusterSnapshot
 Set-Alias -Name Create-DOCECluster -Value New-DOCECluster
 Set-Alias -Name DOCE-CreateCluster -Value New-DOCECluster
 Set-Alias -Name Create-DOCEClusterSnapshot -Value New-DOCEClusterSnapshot
@@ -8099,6 +8100,8 @@ Set-Alias -Name List-DOCEClusterSnapshotList -Value Get-DOCEClusterSnapshotList
 Set-Alias -Name DOCE-ListClusterSnapshots -Value Get-DOCEClusterSnapshotList
 Set-Alias -Name DOCE-ListTagsForResource -Value Get-DOCEResourceTag
 Set-Alias -Name DOCE-RestoreClusterFromSnapshot -Value Restore-DOCEClusterFromSnapshot
+Set-Alias -Name DOCE-StartCluster -Value Start-DOCECluster
+Set-Alias -Name DOCE-StopCluster -Value Stop-DOCECluster
 Set-Alias -Name DOCE-TagResource -Value Add-DOCEResourceTag
 Set-Alias -Name DOCE-UntagResource -Value Remove-DOCEResourceTag
 Set-Alias -Name DOCE-UpdateCluster -Value Update-DOCECluster
@@ -18466,12 +18469,16 @@ Set-Alias -Name Describe-MHCHomeRegionControls -Value Get-MHCHomeRegionControl
 Set-Alias -Name Describe-MHCHomeRegionControl -Value Get-MHCHomeRegionControl
 Set-Alias -Name MHC-DescribeHomeRegionControls -Value Get-MHCHomeRegionControl
 Set-Alias -Name MHC-GetHomeRegion -Value Get-MHCHomeRegion
+Set-Alias -Name Create-MHOTemplate -Value New-MHOTemplate
+Set-Alias -Name MHO-CreateTemplate -Value New-MHOTemplate
 Set-Alias -Name Create-MHOWorkflow -Value New-MHOWorkflow
 Set-Alias -Name MHO-CreateWorkflow -Value New-MHOWorkflow
 Set-Alias -Name Create-MHOWorkflowStep -Value New-MHOWorkflowStep
 Set-Alias -Name MHO-CreateWorkflowStep -Value New-MHOWorkflowStep
 Set-Alias -Name Create-MHOWorkflowStepGroup -Value New-MHOWorkflowStepGroup
 Set-Alias -Name MHO-CreateWorkflowStepGroup -Value New-MHOWorkflowStepGroup
+Set-Alias -Name Delete-MHOTemplate -Value Remove-MHOTemplate
+Set-Alias -Name MHO-DeleteTemplate -Value Remove-MHOTemplate
 Set-Alias -Name Delete-MHOWorkflow -Value Remove-MHOWorkflow
 Set-Alias -Name MHO-DeleteWorkflow -Value Remove-MHOWorkflow
 Set-Alias -Name Delete-MHOWorkflowStep -Value Remove-MHOWorkflowStep
@@ -18512,6 +18519,7 @@ Set-Alias -Name MHO-StartWorkflow -Value Start-MHOWorkflow
 Set-Alias -Name MHO-StopWorkflow -Value Stop-MHOWorkflow
 Set-Alias -Name MHO-TagResource -Value Add-MHOResourceTag
 Set-Alias -Name MHO-UntagResource -Value Remove-MHOResourceTag
+Set-Alias -Name MHO-UpdateTemplate -Value Update-MHOTemplate
 Set-Alias -Name MHO-UpdateWorkflow -Value Update-MHOWorkflow
 Set-Alias -Name MHO-UpdateWorkflowStep -Value Update-MHOWorkflowStep
 Set-Alias -Name MHO-UpdateWorkflowStepGroup -Value Update-MHOWorkflowStepGroup

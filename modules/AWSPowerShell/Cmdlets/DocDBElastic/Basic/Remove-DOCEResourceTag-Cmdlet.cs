@@ -28,7 +28,7 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Removes metadata tags to a Elastic DocumentDB resource
+    /// Removes metadata tags from an elastic cluster resource
     /// </summary>
     [Cmdlet("Remove", "DOCEResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The arn of the Elastic DocumentDB resource.</para>
+        /// <para>The ARN identifier of the elastic cluster resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys to be removed from the Elastic DocumentDB resource.</para>
+        /// <para>The tag keys to be removed from the elastic cluster resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

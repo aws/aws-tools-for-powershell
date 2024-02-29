@@ -28,7 +28,7 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Lists all tags on a Elastic DocumentDB resource
+    /// Lists all tags on a elastic cluster resource
     /// </summary>
     [Cmdlet("Get", "DOCEResourceTag")]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The arn of the Elastic DocumentDB resource.</para>
+        /// <para>The ARN identifier of the elastic cluster resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

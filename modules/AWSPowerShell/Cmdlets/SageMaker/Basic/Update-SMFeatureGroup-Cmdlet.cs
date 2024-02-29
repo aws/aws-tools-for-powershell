@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// applies for all records added to the feature group <i>after the feature group is updated</i>.
     /// If a record level <c>TtlDuration</c> exists from using the <c>PutRecord</c> API, the
     /// record level <c>TtlDuration</c> applies to that record instead of the default <c>TtlDuration</c>.
+    /// To remove the default <c>TtlDuration</c> from an existing feature group, use the <c>UpdateFeatureGroup</c>
+    /// API and set the <c>TtlDuration</c><c>Unit</c> and <c>Value</c> to <c>null</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SMFeatureGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

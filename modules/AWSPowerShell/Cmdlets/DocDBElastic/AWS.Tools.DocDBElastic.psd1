@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-DOCEResourceTag', 
+        'Copy-DOCEClusterSnapshot', 
         'Get-DOCECluster', 
         'Get-DOCEClusterList', 
         'Get-DOCEClusterSnapshot', 
@@ -98,6 +99,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DOCEClusterSnapshot', 
         'Remove-DOCEResourceTag', 
         'Restore-DOCEClusterFromSnapshot', 
+        'Start-DOCECluster', 
+        'Stop-DOCECluster', 
         'Update-DOCECluster')
 
     # Variables to export from this module

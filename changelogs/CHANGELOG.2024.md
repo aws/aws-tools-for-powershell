@@ -1,4 +1,27 @@
-﻿### 4.1.526 (2024-02-28 21:38Z)
+﻿### 4.1.527 (2024-02-29 21:42Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.759.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DocumentDB Elastic Clusters
+    * Added cmdlet Copy-DOCEClusterSnapshot leveraging the CopyClusterSnapshot service API.
+    * Added cmdlet Start-DOCECluster leveraging the StartCluster service API.
+    * Added cmdlet Stop-DOCECluster leveraging the StopCluster service API.
+    * Modified cmdlet Get-DOCEClusterSnapshotList: added parameter SnapshotType.
+    * Modified cmdlet New-DOCECluster: added parameters BackupRetentionPeriod, PreferredBackupWindow and ShardInstanceCount.
+    * Modified cmdlet Restore-DOCEClusterFromSnapshot: added parameters ShardCapacity and ShardInstanceCount.
+    * Modified cmdlet Update-DOCECluster: added parameters BackupRetentionPeriod, PreferredBackupWindow and ShardInstanceCount.
+  * Amazon Lex Model Building V2
+    * Modified cmdlet New-LMBV2Intent: added parameters BedrockKnowledgeStoreConfiguration_BedrockKnowledgeBaseArn, BedrockModelConfiguration_ModelArn, ExactResponseFields_AnswerField, ExactResponseFields_QuestionField, KendraConfiguration_ExactResponse, OpensearchConfiguration_DomainEndpoint, OpensearchConfiguration_ExactResponse, OpensearchConfiguration_IncludeField, OpensearchConfiguration_IndexName, QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_KendraIndex, QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterString and QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterStringEnabled.
+    * Modified cmdlet Update-LMBV2Intent: added parameters BedrockKnowledgeStoreConfiguration_BedrockKnowledgeBaseArn, BedrockModelConfiguration_ModelArn, ExactResponseFields_AnswerField, ExactResponseFields_QuestionField, KendraConfiguration_ExactResponse, OpensearchConfiguration_DomainEndpoint, OpensearchConfiguration_ExactResponse, OpensearchConfiguration_IncludeField, OpensearchConfiguration_IndexName, QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_KendraIndex, QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterString and QnAIntentConfiguration_DataSourceConfiguration_KendraConfiguration_QueryFilterStringEnabled.
+  * Amazon Migration Hub Orchestrator
+    * Added cmdlet New-MHOTemplate leveraging the CreateTemplate service API.
+    * Added cmdlet Remove-MHOTemplate leveraging the DeleteTemplate service API.
+    * Added cmdlet Update-MHOTemplate leveraging the UpdateTemplate service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMModelPackage: added parameter SourceUri.
+    * Modified cmdlet Update-SMModelPackage: added parameters InferenceSpecification_Container, InferenceSpecification_SupportedContentType, InferenceSpecification_SupportedRealtimeInferenceInstanceType, InferenceSpecification_SupportedResponseMIMEType, InferenceSpecification_SupportedTransformInstanceType and SourceUri.
+  * Amazon Security Lake
+    * Modified cmdlet Update-SLKDataLake: added parameters MetaStoreManagerRoleArn and PassThru.
+
+### 4.1.526 (2024-02-28 21:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.758.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet Register-BATJobDefinition: added parameters EcsProperties_TaskProperty, PodProperties_InitContainer and PodProperties_ShareProcessNamespace.

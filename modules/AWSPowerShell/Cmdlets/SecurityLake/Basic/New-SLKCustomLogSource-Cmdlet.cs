@@ -66,7 +66,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <para>The external ID used to estalish trust relationship with the AWS identity.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Configuration_ProviderIdentity_ExternalId")]
         public System.String ProviderIdentity_ExternalId { get; set; }
         #endregion
@@ -77,7 +84,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// <para>The AWS identity principal.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Configuration_ProviderIdentity_Principal")]
         public System.String ProviderIdentity_Principal { get; set; }
         #endregion
@@ -89,7 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.SLK
         /// be used by the Glue crawler. The recommended IAM policies are:</para><ul><li><para>The managed policy <c>AWSGlueServiceRole</c></para></li><li><para>A custom policy granting access to your Amazon S3 Data Lake</para></li></ul>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Configuration_CrawlerConfiguration_RoleArn")]
         public System.String CrawlerConfiguration_RoleArn { get; set; }
         #endregion
@@ -186,8 +207,26 @@ namespace Amazon.PowerShell.Cmdlets.SLK
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CrawlerConfiguration_RoleArn = this.CrawlerConfiguration_RoleArn;
+            #if MODULAR
+            if (this.CrawlerConfiguration_RoleArn == null && ParameterWasBound(nameof(this.CrawlerConfiguration_RoleArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CrawlerConfiguration_RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ProviderIdentity_ExternalId = this.ProviderIdentity_ExternalId;
+            #if MODULAR
+            if (this.ProviderIdentity_ExternalId == null && ParameterWasBound(nameof(this.ProviderIdentity_ExternalId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProviderIdentity_ExternalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ProviderIdentity_Principal = this.ProviderIdentity_Principal;
+            #if MODULAR
+            if (this.ProviderIdentity_Principal == null && ParameterWasBound(nameof(this.ProviderIdentity_Principal)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProviderIdentity_Principal which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.EventClass != null)
             {
                 context.EventClass = new List<System.String>(this.EventClass);

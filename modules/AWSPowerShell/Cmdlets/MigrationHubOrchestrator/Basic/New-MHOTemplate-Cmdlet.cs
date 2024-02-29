@@ -22,30 +22,50 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DocDBElastic;
-using Amazon.DocDBElastic.Model;
+using Amazon.MigrationHubOrchestrator;
+using Amazon.MigrationHubOrchestrator.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DOCE
+namespace Amazon.PowerShell.Cmdlets.MHO
 {
     /// <summary>
-    /// Creates a snapshot of an elastic cluster.
+    /// Creates a migration workflow template.
     /// </summary>
-    [Cmdlet("New", "DOCEClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DocDBElastic.Model.ClusterSnapshot")]
-    [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters CreateClusterSnapshot API operation.", Operation = new[] {"CreateClusterSnapshot"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse))]
-    [AWSCmdletOutput("Amazon.DocDBElastic.Model.ClusterSnapshot or Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse",
-        "This cmdlet returns an Amazon.DocDBElastic.Model.ClusterSnapshot object.",
-        "The service call response (type Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "MHOTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse")]
+    [AWSCmdlet("Calls the AWS Migration Hub Orchestrator CreateTemplate API operation.", Operation = new[] {"CreateTemplate"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse))]
+    [AWSCmdletOutput("Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse",
+        "This cmdlet returns an Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewDOCEClusterSnapshotCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
+    public partial class NewMHOTemplateCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClusterArn
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The ARN identifier of the elastic cluster of which you want to create a snapshot.</para>
+        /// <para>The tags to add to the migration workflow template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter TemplateDescription
+        /// <summary>
+        /// <para>
+        /// <para>A description of the migration workflow template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TemplateDescription { get; set; }
+        #endregion
+        
+        #region Parameter TemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the migration workflow template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,54 +76,48 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterArn { get; set; }
+        public System.String TemplateName { get; set; }
         #endregion
         
-        #region Parameter SnapshotName
+        #region Parameter TemplateSource_WorkflowId
         /// <summary>
         /// <para>
-        /// <para>The name of the new elastic cluster snapshot.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String SnapshotName { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>The tags to be assigned to the new elastic cluster snapshot.</para>
+        /// <para>The ID of the workflow from the source migration workflow template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String TemplateSource_WorkflowId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. For more information, see <a href="https://smithy.io/2.0/spec/behavior-traits.html#idempotencytoken-trait">Idempotency</a>
+        /// in the Smithy documentation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Snapshot'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse).
-        /// Specifying the name of a property of type Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse).
+        /// Specifying the name of a property of type Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Snapshot";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TemplateName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TemplateName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TemplateName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SnapshotName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DOCEClusterSnapshot (CreateClusterSnapshot)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TemplateName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MHOTemplate (CreateTemplate)"))
             {
                 return;
             }
@@ -137,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse, NewDOCEClusterSnapshotCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse, NewMHOTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,23 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterArn;
+                context.Select = (response, cmdlet) => this.TemplateName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClusterArn = this.ClusterArn;
-            #if MODULAR
-            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.SnapshotName = this.SnapshotName;
-            #if MODULAR
-            if (this.SnapshotName == null && ParameterWasBound(nameof(this.SnapshotName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SnapshotName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.ClientToken = this.ClientToken;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -171,6 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.TemplateDescription = this.TemplateDescription;
+            context.TemplateName = this.TemplateName;
+            #if MODULAR
+            if (this.TemplateName == null && ParameterWasBound(nameof(this.TemplateName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TemplateName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TemplateSource_WorkflowId = this.TemplateSource_WorkflowId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,19 +195,42 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DocDBElastic.Model.CreateClusterSnapshotRequest();
+            var request = new Amazon.MigrationHubOrchestrator.Model.CreateTemplateRequest();
             
-            if (cmdletContext.ClusterArn != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ClusterArn = cmdletContext.ClusterArn;
-            }
-            if (cmdletContext.SnapshotName != null)
-            {
-                request.SnapshotName = cmdletContext.SnapshotName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.TemplateDescription != null)
+            {
+                request.TemplateDescription = cmdletContext.TemplateDescription;
+            }
+            if (cmdletContext.TemplateName != null)
+            {
+                request.TemplateName = cmdletContext.TemplateName;
+            }
+            
+             // populate TemplateSource
+            var requestTemplateSourceIsNull = true;
+            request.TemplateSource = new Amazon.MigrationHubOrchestrator.Model.TemplateSource();
+            System.String requestTemplateSource_templateSource_WorkflowId = null;
+            if (cmdletContext.TemplateSource_WorkflowId != null)
+            {
+                requestTemplateSource_templateSource_WorkflowId = cmdletContext.TemplateSource_WorkflowId;
+            }
+            if (requestTemplateSource_templateSource_WorkflowId != null)
+            {
+                request.TemplateSource.WorkflowId = requestTemplateSource_templateSource_WorkflowId;
+                requestTemplateSourceIsNull = false;
+            }
+             // determine if request.TemplateSource should be set to null
+            if (requestTemplateSourceIsNull)
+            {
+                request.TemplateSource = null;
             }
             
             CmdletOutput output;
@@ -232,15 +265,15 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         
         #region AWS Service Operation Call
         
-        private Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse CallAWSServiceOperation(IAmazonDocDBElastic client, Amazon.DocDBElastic.Model.CreateClusterSnapshotRequest request)
+        private Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse CallAWSServiceOperation(IAmazonMigrationHubOrchestrator client, Amazon.MigrationHubOrchestrator.Model.CreateTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB Elastic Clusters", "CreateClusterSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub Orchestrator", "CreateTemplate");
             try
             {
                 #if DESKTOP
-                return client.CreateClusterSnapshot(request);
+                return client.CreateTemplate(request);
                 #elif CORECLR
-                return client.CreateClusterSnapshotAsync(request).GetAwaiter().GetResult();
+                return client.CreateTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -260,11 +293,13 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClusterArn { get; set; }
-            public System.String SnapshotName { get; set; }
+            public System.String ClientToken { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.DocDBElastic.Model.CreateClusterSnapshotResponse, NewDOCEClusterSnapshotCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Snapshot;
+            public System.String TemplateDescription { get; set; }
+            public System.String TemplateName { get; set; }
+            public System.String TemplateSource_WorkflowId { get; set; }
+            public System.Func<Amazon.MigrationHubOrchestrator.Model.CreateTemplateResponse, NewMHOTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

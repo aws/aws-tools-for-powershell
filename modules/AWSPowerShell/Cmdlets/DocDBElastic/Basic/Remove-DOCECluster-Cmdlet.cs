@@ -28,7 +28,7 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Delete a Elastic DocumentDB cluster.
+    /// Delete an elastic cluster.
     /// </summary>
     [Cmdlet("Remove", "DOCECluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DocDBElastic.Model.Cluster")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter ClusterArn
         /// <summary>
         /// <para>
-        /// <para>The arn of the Elastic DocumentDB cluster that is to be deleted.</para>
+        /// <para>The ARN identifier of the elastic cluster that is to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

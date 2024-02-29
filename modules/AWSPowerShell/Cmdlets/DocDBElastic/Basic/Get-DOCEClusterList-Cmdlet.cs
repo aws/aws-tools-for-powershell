@@ -28,7 +28,7 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Returns information about provisioned Elastic DocumentDB clusters.
+    /// Returns information about provisioned Amazon DocumentDB elastic clusters.
     /// </summary>
     [Cmdlet("Get", "DOCEClusterList")]
     [OutputType("Amazon.DocDBElastic.Model.ClusterInList")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of entries to recieve in the response.</para>
+        /// <para>The maximum number of elastic cluster snapshot results to receive in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The nextToken which is used the get the next page of data.</para>
+        /// <para>A pagination token provided by a previous request. If this parameter is specified,
+        /// the response includes only records beyond this token, up to the value specified by
+        /// <c>max-results</c>.</para><para>If there is no more data in the responce, the <c>nextToken</c> will not be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

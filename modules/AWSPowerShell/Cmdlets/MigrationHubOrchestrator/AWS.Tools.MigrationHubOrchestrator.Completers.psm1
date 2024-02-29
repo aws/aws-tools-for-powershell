@@ -110,7 +110,7 @@ $MHO_Completers = {
         # Amazon.MigrationHubOrchestrator.StepStatus
         "Update-MHOWorkflowStep/Status"
         {
-            $v = "AWAITING_DEPENDENCIES","COMPLETED","FAILED","IN_PROGRESS","PAUSED","READY","USER_ATTENTION_REQUIRED"
+            $v = "AWAITING_DEPENDENCIES","COMPLETED","FAILED","IN_PROGRESS","PAUSED","READY","SKIPPED","USER_ATTENTION_REQUIRED"
             break
         }
 
@@ -189,9 +189,11 @@ $MHO_SelectCompleters = {
 }
 
 $MHO_SelectMap = @{
-    "Select"=@("New-MHOWorkflow",
+    "Select"=@("New-MHOTemplate",
+               "New-MHOWorkflow",
                "New-MHOWorkflowStep",
                "New-MHOWorkflowStepGroup",
+               "Remove-MHOTemplate",
                "Remove-MHOWorkflow",
                "Remove-MHOWorkflowStep",
                "Remove-MHOWorkflowStepGroup",
@@ -214,6 +216,7 @@ $MHO_SelectMap = @{
                "Stop-MHOWorkflow",
                "Add-MHOResourceTag",
                "Remove-MHOResourceTag",
+               "Update-MHOTemplate",
                "Update-MHOWorkflow",
                "Update-MHOWorkflowStep",
                "Update-MHOWorkflowStepGroup")

@@ -28,7 +28,7 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Adds metadata tags to a Elastic DocumentDB resource
+    /// Adds metadata tags to an elastic cluster resource
     /// </summary>
     [Cmdlet("Add", "DOCEResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The arn of the Elastic DocumentDB resource.</para>
+        /// <para>The ARN identifier of the elastic cluster resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to be assigned to the Elastic DocumentDB resource.</para>
+        /// <para>The tags that are assigned to the elastic cluster resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

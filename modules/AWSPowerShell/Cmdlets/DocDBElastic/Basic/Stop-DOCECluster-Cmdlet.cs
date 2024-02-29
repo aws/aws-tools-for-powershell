@@ -28,16 +28,17 @@ using Amazon.DocDBElastic.Model;
 namespace Amazon.PowerShell.Cmdlets.DOCE
 {
     /// <summary>
-    /// Returns information about snapshots for a specified elastic cluster.
+    /// Stops the running elastic cluster that is specified by <c>clusterArn</c>. The elastic
+    /// cluster must be in the <i>available</i> state.
     /// </summary>
-    [Cmdlet("Get", "DOCEClusterSnapshotList")]
-    [OutputType("Amazon.DocDBElastic.Model.ClusterSnapshotInList")]
-    [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters ListClusterSnapshots API operation.", Operation = new[] {"ListClusterSnapshots"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse))]
-    [AWSCmdletOutput("Amazon.DocDBElastic.Model.ClusterSnapshotInList or Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse",
-        "This cmdlet returns a collection of Amazon.DocDBElastic.Model.ClusterSnapshotInList objects.",
-        "The service call response (type Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "DOCECluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DocDBElastic.Model.Cluster")]
+    [AWSCmdlet("Calls the Amazon DocumentDB Elastic Clusters StopCluster API operation.", Operation = new[] {"StopCluster"}, SelectReturnType = typeof(Amazon.DocDBElastic.Model.StopClusterResponse))]
+    [AWSCmdletOutput("Amazon.DocDBElastic.Model.Cluster or Amazon.DocDBElastic.Model.StopClusterResponse",
+        "This cmdlet returns an Amazon.DocDBElastic.Model.Cluster object.",
+        "The service call response (type Amazon.DocDBElastic.Model.StopClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDOCEClusterSnapshotListCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
+    public partial class StopDOCEClusterCmdlet : AmazonDocDBElasticClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -48,55 +49,26 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         /// <para>The ARN identifier of the elastic cluster.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ClusterArn { get; set; }
-        #endregion
-        
-        #region Parameter SnapshotType
-        /// <summary>
-        /// <para>
-        /// <para>The type of cluster snapshots to be returned. You can specify one of the following
-        /// values:</para><ul><li><para><c>automated</c> - Return all cluster snapshots that Amazon DocumentDB has automatically
-        /// created for your Amazon Web Services account.</para></li><li><para><c>manual</c> - Return all cluster snapshots that you have manually created for your
-        /// Amazon Web Services account.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String SnapshotType { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of elastic cluster snapshot results to receive in the response.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A pagination token provided by a previous request. If this parameter is specified,
-        /// the response includes only records beyond this token, up to the value specified by
-        /// <c>max-results</c>.</para><para>If there is no more data in the responce, the <c>nextToken</c> will not be returned.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Snapshots'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse).
-        /// Specifying the name of a property of type Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Cluster'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DocDBElastic.Model.StopClusterResponse).
+        /// Specifying the name of a property of type Amazon.DocDBElastic.Model.StopClusterResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Snapshots";
+        public string Select { get; set; } = "Cluster";
         #endregion
         
         #region Parameter PassThru
@@ -109,10 +81,26 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-DOCECluster (StopCluster)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -122,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse, GetDOCEClusterSnapshotListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DocDBElastic.Model.StopClusterResponse, StopDOCEClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,9 +123,12 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClusterArn = this.ClusterArn;
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.SnapshotType = this.SnapshotType;
+            #if MODULAR
+            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,23 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DocDBElastic.Model.ListClusterSnapshotsRequest();
+            var request = new Amazon.DocDBElastic.Model.StopClusterRequest();
             
             if (cmdletContext.ClusterArn != null)
             {
                 request.ClusterArn = cmdletContext.ClusterArn;
-            }
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.SnapshotType != null)
-            {
-                request.SnapshotType = cmdletContext.SnapshotType;
             }
             
             CmdletOutput output;
@@ -203,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         
         #region AWS Service Operation Call
         
-        private Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse CallAWSServiceOperation(IAmazonDocDBElastic client, Amazon.DocDBElastic.Model.ListClusterSnapshotsRequest request)
+        private Amazon.DocDBElastic.Model.StopClusterResponse CallAWSServiceOperation(IAmazonDocDBElastic client, Amazon.DocDBElastic.Model.StopClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB Elastic Clusters", "ListClusterSnapshots");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB Elastic Clusters", "StopCluster");
             try
             {
                 #if DESKTOP
-                return client.ListClusterSnapshots(request);
+                return client.StopCluster(request);
                 #elif CORECLR
-                return client.ListClusterSnapshotsAsync(request).GetAwaiter().GetResult();
+                return client.StopClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -232,11 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.DOCE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterArn { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String SnapshotType { get; set; }
-            public System.Func<Amazon.DocDBElastic.Model.ListClusterSnapshotsResponse, GetDOCEClusterSnapshotListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Snapshots;
+            public System.Func<Amazon.DocDBElastic.Model.StopClusterResponse, StopDOCEClusterCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Cluster;
         }
         
     }

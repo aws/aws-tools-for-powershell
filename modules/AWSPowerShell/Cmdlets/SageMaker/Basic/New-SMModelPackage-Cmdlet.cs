@@ -780,6 +780,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.SourceAlgorithm[] SourceAlgorithmSpecification_SourceAlgorithm { get; set; }
         #endregion
         
+        #region Parameter SourceUri
+        /// <summary>
+        /// <para>
+        /// <para>The URI of the source for the model package. If you want to clone a model package,
+        /// set it to the model package Amazon Resource Name (ARN). If you want to register a
+        /// model, set it to the model ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SourceUri { get; set; }
+        #endregion
+        
         #region Parameter InferenceSpecification_SupportedContentType
         /// <summary>
         /// <para>
@@ -1047,6 +1059,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.SourceAlgorithmSpecification_SourceAlgorithm = new List<Amazon.SageMaker.Model.SourceAlgorithm>(this.SourceAlgorithmSpecification_SourceAlgorithm);
             }
+            context.SourceUri = this.SourceUri;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -2147,6 +2160,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.SourceAlgorithmSpecification = null;
             }
+            if (cmdletContext.SourceUri != null)
+            {
+                request.SourceUri = cmdletContext.SourceUri;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -2317,6 +2334,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String SamplePayloadUrl { get; set; }
             public Amazon.SageMaker.SkipModelValidation SkipModelValidation { get; set; }
             public List<Amazon.SageMaker.Model.SourceAlgorithm> SourceAlgorithmSpecification_SourceAlgorithm { get; set; }
+            public System.String SourceUri { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String Task { get; set; }
             public List<Amazon.SageMaker.Model.ModelPackageValidationProfile> ValidationSpecification_ValidationProfile { get; set; }

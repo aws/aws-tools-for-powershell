@@ -28,15 +28,16 @@ using Amazon.MigrationHubOrchestrator.Model;
 namespace Amazon.PowerShell.Cmdlets.MHO
 {
     /// <summary>
-    /// Get a step in the migration workflow.
+    /// Deletes a migration workflow template.
     /// </summary>
-    [Cmdlet("Get", "MHOWorkflowStep")]
-    [OutputType("Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse")]
-    [AWSCmdlet("Calls the AWS Migration Hub Orchestrator GetWorkflowStep API operation.", Operation = new[] {"GetWorkflowStep"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse))]
-    [AWSCmdletOutput("Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse",
-        "This cmdlet returns an Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "MHOTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Migration Hub Orchestrator DeleteTemplate API operation.", Operation = new[] {"DeleteTemplate"}, SelectReturnType = typeof(Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse))]
+    [AWSCmdletOutput("None or Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMHOWorkflowStepCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
+    public partial class RemoveMHOTemplateCmdlet : AmazonMigrationHubOrchestratorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the step.</para>
+        /// <para>The ID of the request to delete a migration workflow template.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,45 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         public System.String Id { get; set; }
         #endregion
         
-        #region Parameter StepGroupId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the step group.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String StepGroupId { get; set; }
-        #endregion
-        
-        #region Parameter WorkflowId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the migration workflow.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkflowId { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse).
-        /// Specifying the name of a property of type Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,10 +79,26 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-MHOTemplate (DeleteTemplate)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -126,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.MHO
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse, GetMHOWorkflowStepCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse, RemoveMHOTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,20 +127,6 @@ namespace Amazon.PowerShell.Cmdlets.MHO
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.StepGroupId = this.StepGroupId;
-            #if MODULAR
-            if (this.StepGroupId == null && ParameterWasBound(nameof(this.StepGroupId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter StepGroupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.WorkflowId = this.WorkflowId;
-            #if MODULAR
-            if (this.WorkflowId == null && ParameterWasBound(nameof(this.WorkflowId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter WorkflowId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepRequest();
+            var request = new Amazon.MigrationHubOrchestrator.Model.DeleteTemplateRequest();
             
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
-            }
-            if (cmdletContext.StepGroupId != null)
-            {
-                request.StepGroupId = cmdletContext.StepGroupId;
-            }
-            if (cmdletContext.WorkflowId != null)
-            {
-                request.WorkflowId = cmdletContext.WorkflowId;
             }
             
             CmdletOutput output;
@@ -220,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         
         #region AWS Service Operation Call
         
-        private Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse CallAWSServiceOperation(IAmazonMigrationHubOrchestrator client, Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepRequest request)
+        private Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse CallAWSServiceOperation(IAmazonMigrationHubOrchestrator client, Amazon.MigrationHubOrchestrator.Model.DeleteTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub Orchestrator", "GetWorkflowStep");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub Orchestrator", "DeleteTemplate");
             try
             {
                 #if DESKTOP
-                return client.GetWorkflowStep(request);
+                return client.DeleteTemplate(request);
                 #elif CORECLR
-                return client.GetWorkflowStepAsync(request).GetAwaiter().GetResult();
+                return client.DeleteTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,10 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.MHO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Id { get; set; }
-            public System.String StepGroupId { get; set; }
-            public System.String WorkflowId { get; set; }
-            public System.Func<Amazon.MigrationHubOrchestrator.Model.GetWorkflowStepResponse, GetMHOWorkflowStepCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.MigrationHubOrchestrator.Model.DeleteTemplateResponse, RemoveMHOTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

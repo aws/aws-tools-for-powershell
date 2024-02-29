@@ -89,10 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
-        /// is authorized to access during the lifetime of the session. If you choose <c>Dashboard</c>
-        /// embedding experience, pass the list of dashboard ARNs in the account that you want
-        /// the user to be able to view. Currently, you can pass up to 25 dashboard ARNs in each
-        /// API call.</para>
+        /// is authorized to access during the lifetime of the session.</para><para>If you choose <c>Dashboard</c> embedding experience, pass the list of dashboard ARNs
+        /// in the account that you want the user to be able to view.</para><para>Currently, you can pass up to 25 dashboard ARNs in each API call.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

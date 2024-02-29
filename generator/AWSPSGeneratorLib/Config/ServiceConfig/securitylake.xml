@@ -134,7 +134,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataLake" OutputProperty="DataLakes" Verb="Update" Noun="DataLake" ShouldProcessTarget="Configurations" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateDataLake" OutputProperty="DataLakes" Verb="Update" Noun="DataLake" ShouldProcessTarget="MetaStoreManagerRoleArn" PipelineParameter="MetaStoreManagerRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
