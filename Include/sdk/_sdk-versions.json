@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.759.0",
+    "ProductVersion"    : "3.7.759.1",
     "CoreVersion"       : "3.7.302.15",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -15,7 +15,7 @@
             "InPreview"               : false
         },
         "AutoScaling" : {
-            "Version" : "3.7.302.12",
+            "Version" : "3.7.302.13",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
@@ -153,7 +153,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.315.1",
+            "Version" : "3.7.315.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
@@ -1651,7 +1651,7 @@
             "InPreview"               : false
         },
         "AccessAnalyzer"                  : {
-            "Version" : "3.7.302.43",
+            "Version" : "3.7.302.44",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"

@@ -37,11 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas
     /// for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
-    /// For introductory exercises for creating an Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html">Getting
-    /// started with Amazon EC2 Auto Scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html">Tutorial:
-    /// Set up a scaled and load-balanced application</a> in the <i>Amazon EC2 Auto Scaling
-    /// User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto
-    /// Scaling groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// If you're new to Amazon EC2 Auto Scaling, see the introductory tutorials in <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/get-started-with-ec2-auto-scaling.html">Get
+    /// started with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
     /// Every Auto Scaling group has three size properties (<c>DesiredCapacity</c>, <c>MaxSize</c>,
     /// and <c>MinSize</c>). Usually, you set these sizes based on a specific number of instances.

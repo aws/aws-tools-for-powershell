@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         /// <summary>
         /// <para>
         /// <para>The type of analyzer to create. Only <c>ACCOUNT</c>, <c>ORGANIZATION</c>, <c>ACCOUNT_UNUSED_ACCESS</c>,
-        /// and <c>ORGANIZTAION_UNUSED_ACCESS</c> analyzers are supported. You can create only
+        /// and <c>ORGANIZATION_UNUSED_ACCESS</c> analyzers are supported. You can create only
         /// one analyzer per account per Region. You can create up to 5 analyzers per organization
         /// per Region.</para>
         /// </para>

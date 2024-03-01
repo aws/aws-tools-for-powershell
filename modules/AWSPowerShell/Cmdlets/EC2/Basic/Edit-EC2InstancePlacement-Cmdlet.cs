@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  <ul><li><para>
     /// Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
     /// Host</a>. When affinity is set to <c>host</c> and the instance is not associated with
-    /// a specific Dedicated Host, the next time the instance is launched, it is automatically
+    /// a specific Dedicated Host, the next time the instance is started, it is automatically
     /// associated with the host on which it lands. If the instance is restarted or rebooted,
     /// this relationship persists.
     /// </para></li><li><para>
@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Affinity
         /// <summary>
         /// <para>
-        /// <para>The affinity setting for the instance.</para>
+        /// <para>The affinity setting for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity">Host
+        /// affinity</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

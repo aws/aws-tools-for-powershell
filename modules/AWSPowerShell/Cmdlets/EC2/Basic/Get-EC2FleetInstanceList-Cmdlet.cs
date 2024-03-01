@@ -30,9 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Describes the running instances for the specified EC2 Fleet.
     /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor
+    ///  <note><para>
+    /// Currently, <c>DescribeFleetInstances</c> does not support fleets of type <c>instant</c>.
+    /// Instead, use <c>DescribeFleets</c>, specifying the <c>instant</c> fleet ID in the
+    /// request.
+    /// </para></note><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Describe
     /// your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

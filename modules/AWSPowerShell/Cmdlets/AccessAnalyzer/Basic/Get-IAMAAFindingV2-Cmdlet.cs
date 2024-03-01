@@ -28,7 +28,10 @@ using Amazon.AccessAnalyzer.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
-    /// Retrieves information about the specified finding.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves information about the specified finding. GetFinding and GetFindingV2 both
+    /// use <c>access-analyzer:GetFinding</c> in the <c>Action</c> element of an IAM policy
+    /// statement. You must have permission to perform the <c>access-analyzer:GetFinding</c>
+    /// action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMAAFindingV2")]
     [OutputType("Amazon.AccessAnalyzer.Model.GetFindingV2Response")]

@@ -28,11 +28,13 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the specified EC2 Fleets or all of your EC2 Fleets.
+    /// Describes the specified EC2 Fleet or all of your EC2 Fleets.
     /// 
-    ///  
-    /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Monitor
+    ///  <important><para>
+    /// If a fleet is of type <c>instant</c>, you must specify the fleet ID in the request,
+    /// otherwise the fleet does not appear in the response.
+    /// </para></important><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#monitor-ec2-fleet">Describe
     /// your EC2 Fleet</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

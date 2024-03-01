@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
     /// Retrieves a list of resources of the specified type that have been analyzed by the
-    /// specified analyzer..<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// specified external access analyzer. This action is not supported for unused access
+    /// analyzers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "IAMAAAnalyzedResourceList")]
     [OutputType("Amazon.AccessAnalyzer.Model.AnalyzedResourceSummary")]

@@ -28,8 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes Capacity Block offerings available for purchase. With Capacity Blocks, you
-    /// purchase a specific instance type for a period of time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes Capacity Block offerings available for purchase in the Amazon Web Services
+    /// Region that you're currently using. With Capacity Blocks, you purchase a specific
+    /// instance type for a period of time.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2CapacityBlockOffering")]
     [OutputType("Amazon.EC2.Model.CapacityBlockOffering")]

@@ -335,11 +335,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// identified price is from the lowest priced current generation instance types, and
         /// failing that, from the lowest priced previous generation instance types that match
         /// your attributes. When Amazon EC2 selects instance types with your attributes, it will
-        /// exclude instance types whose price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To indicate no price protection threshold, specify a high value, such as <c>999999</c>.</para><para>If you set <c>DesiredCapacityType</c> to <c>vcpu</c> or <c>memory-mib</c>, the price
+        /// exclude instance types whose price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>If you set <c>DesiredCapacityType</c> to <c>vcpu</c> or <c>memory-mib</c>, the price
         /// protection threshold is based on the per vCPU or per memory price instead of the per
         /// instance price.</para><note><para>Only one of <c>SpotMaxPricePercentageOverLowestPrice</c> or <c>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</c>
-        /// can be specified. If you don't specify either, then <c>SpotMaxPricePercentageOverLowestPrice</c>
-        /// is used and the value for that parameter defaults to <c>100</c>.</para></note>
+        /// can be specified. If you don't specify either, Amazon EC2 will automatically apply
+        /// optimal price protection to consistently select from a wide range of instance types.
+        /// To indicate no price protection threshold for Spot Instances, meaning you want to
+        /// consider all instance types that match your attributes, include one of these parameters
+        /// and specify a high value, such as <c>999999</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -513,12 +516,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// then the identified Spot price is from the lowest priced current generation instance
         /// types, and failing that, from the lowest priced previous generation instance types
         /// that match your attributes. When Amazon EC2 selects instance types with your attributes,
-        /// it will exclude instance types whose Spot price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>To indicate no price protection threshold, specify a high value, such as <c>999999</c>.</para><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
+        /// it will exclude instance types whose Spot price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
         /// price protection threshold is applied based on the per-vCPU or per-memory price instead
         /// of the per-instance price.</para><para>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a>
         /// and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</para><note><para>Only one of <c>SpotMaxPricePercentageOverLowestPrice</c> or <c>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</c>
-        /// can be specified. If you don't specify either, then <c>SpotMaxPricePercentageOverLowestPrice</c>
-        /// is used and the value for that parameter defaults to <c>100</c>.</para></note><para>Default: <c>100</c></para>
+        /// can be specified. If you don't specify either, Amazon EC2 will automatically apply
+        /// optimal price protection to consistently select from a wide range of instance types.
+        /// To indicate no price protection threshold for Spot Instances, meaning you want to
+        /// consider all instance types that match your attributes, include one of these parameters
+        /// and specify a high value, such as <c>999999</c>.</para></note><para>Default: <c>100</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
