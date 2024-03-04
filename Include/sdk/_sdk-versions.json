@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.759.1",
+    "ProductVersion"    : "3.7.760.0",
     "CoreVersion"       : "3.7.302.15",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -31,7 +31,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.303.10",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
@@ -747,7 +747,7 @@
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "3.7.300.55",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
@@ -1291,7 +1291,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.303.32",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"

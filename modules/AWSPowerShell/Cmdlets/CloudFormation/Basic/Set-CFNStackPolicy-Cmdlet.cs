@@ -77,8 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>Location of a file containing the stack policy. The URL must point to a policy (maximum
         /// size: 16 KB) located in an Amazon S3 bucket in the same Amazon Web Services Region
-        /// as the stack. You can specify either the <c>StackPolicyBody</c> or the <c>StackPolicyURL</c>
-        /// parameter, but not both.</para>
+        /// as the stack. The location for an Amazon S3 bucket must start with <c>https://</c>.
+        /// You can specify either the <c>StackPolicyBody</c> or the <c>StackPolicyURL</c> parameter,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

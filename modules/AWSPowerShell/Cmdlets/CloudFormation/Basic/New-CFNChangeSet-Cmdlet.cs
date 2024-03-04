@@ -78,12 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// one of these capabilities.</para><para>The following IAM resources require you to specify either the <c>CAPABILITY_IAM</c>
         /// or <c>CAPABILITY_NAMED_IAM</c> capability.</para><ul><li><para>If you have IAM resources, you can specify either capability.</para></li><li><para>If you have IAM resources with custom names, you <i>must</i> specify <c>CAPABILITY_NAMED_IAM</c>.</para></li><li><para>If you don't specify either of these capabilities, CloudFormation returns an <c>InsufficientCapabilities</c>
         /// error.</para></li></ul><para>If your stack template contains these resources, we suggest that you review all permissions
-        /// associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html">
-        /// AWS::IAM::AccessKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">
-        /// AWS::IAM::Group</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html">
-        /// AWS::IAM::Policy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">
-        /// AWS::IAM::Role</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html">
-        /// AWS::IAM::User</a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html">AWS::IAM::UserToGroupAddition</a></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
+        /// associated with them and edit their permissions if necessary.</para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html"><c>AWS::IAM::AccessKey</c></a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html"><c>AWS::IAM::Group</c></a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html"><c>AWS::IAM::InstanceProfile</c></a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html"><c>AWS::IAM::Policy</c></a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html"><c>AWS::IAM::Role</c></a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html"><c>AWS::IAM::User</c></a></para></li><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html"><c>AWS::IAM::UserToGroupAddition</c></a></para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging
         /// IAM resources in CloudFormation templates</a>.</para></li><li><para><c>CAPABILITY_AUTO_EXPAND</c></para><para>Some template contain macros. Macros perform custom processing on templates; this
         /// can include simple actions like find-and-replace operations, all the way to extensive
         /// transformations of entire templates. Because of this, users typically create a change
@@ -91,9 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// the macros before actually creating the stack. If your stack template contains one
         /// or more macros, and you choose to create a stack directly from the processed template,
         /// without first reviewing the resulting changes in a change set, you must acknowledge
-        /// this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a>
-        /// and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a>
-        /// transforms, which are macros hosted by CloudFormation.</para><note><para>This capacity doesn't apply to creating change sets, and specifying it when creating
+        /// this capability. This includes the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html"><c>AWS::Include</c></a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html"><c>AWS::Serverless</c></a> transforms, which are macros hosted by CloudFormation.</para><note><para>This capacity doesn't apply to creating change sets, and specifying it when creating
         /// change sets has no effect.</para><para>If you want to create a stack from a stack template that contains macros <i>and</i>
         /// nested stacks, you must create or update the stack directly from the template using
         /// the <a>CreateStack</a> or <a>UpdateStack</a> action, and specifying this capability.</para></note><para>For more information about macros, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-macros.html">Using
@@ -197,14 +190,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>Determines what action will be taken if stack creation fails. If this parameter is
-        /// specified, the <c>DisableRollback</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a>
-        /// API operation must not be specified. This must be one of these values:</para><ul><li><para><c>DELETE</c> - Deletes the change set if the stack creation fails. This is only
+        /// specified, the <c>DisableRollback</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html"><c>ExecuteChangeSet</c></a> API operation must not be specified. This must be one
+        /// of these values:</para><ul><li><para><c>DELETE</c> - Deletes the change set if the stack creation fails. This is only
         /// valid when the <c>ChangeSetType</c> parameter is set to <c>CREATE</c>. If the deletion
         /// of the stack fails, the status of the stack is <c>DELETE_FAILED</c>.</para></li><li><para><c>DO_NOTHING</c> - if the stack creation fails, do nothing. This is equivalent to
-        /// specifying <c>true</c> for the <c>DisableRollback</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a>
-        /// API operation.</para></li><li><para><c>ROLLBACK</c> - if the stack creation fails, roll back the stack. This is equivalent
-        /// to specifying <c>false</c> for the <c>DisableRollback</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html">ExecuteChangeSet</a>
-        /// API operation.</para></li></ul><para>For nested stacks, when the <c>OnStackFailure</c> parameter is set to <c>DELETE</c>
+        /// specifying <c>true</c> for the <c>DisableRollback</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html"><c>ExecuteChangeSet</c></a> API operation.</para></li><li><para><c>ROLLBACK</c> - if the stack creation fails, roll back the stack. This is equivalent
+        /// to specifying <c>false</c> for the <c>DisableRollback</c> parameter to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ExecuteChangeSet.html"><c>ExecuteChangeSet</c></a> API operation.</para></li></ul><para>For nested stacks, when the <c>OnStackFailure</c> parameter is set to <c>DELETE</c>
         /// for the change set for the parent stack, any failure in a child stack will cause the
         /// parent stack creation to fail and all stacks to be deleted.</para>
         /// </para>
@@ -329,7 +320,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The location of the file that contains the revised template. The URL must point to
         /// a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket or a Systems
         /// Manager document. CloudFormation generates the change set by comparing this template
-        /// with the stack that you specified.</para><para>Conditional: You must specify only <c>TemplateBody</c> or <c>TemplateURL</c>.</para>
+        /// with the stack that you specified. The location for an Amazon S3 bucket must start
+        /// with <c>https://</c>.</para><para>Conditional: You must specify only <c>TemplateBody</c> or <c>TemplateURL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

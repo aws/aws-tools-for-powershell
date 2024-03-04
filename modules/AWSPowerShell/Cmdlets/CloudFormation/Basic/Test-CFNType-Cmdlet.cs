@@ -43,11 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// in your account and Region for testing.
     /// </para><para>
     /// To perform testing, CloudFormation assumes the execution role specified when the type
-    /// was registered. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.
+    /// was registered. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html"><c>RegisterType</c></a>.
     /// </para><para>
     /// Once you've initiated testing on an extension using <c>TestType</c>, you can pass
-    /// the returned <c>TypeVersionArn</c> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>
-    /// to monitor the current test status and test status description for the extension.
+    /// the returned <c>TypeVersionArn</c> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html"><c>DescribeType</c></a> to monitor the current test status and test status description
+    /// for the extension.
     /// </para><para>
     /// An extension must have a test status of <c>PASSED</c> before it can be published.
     /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing

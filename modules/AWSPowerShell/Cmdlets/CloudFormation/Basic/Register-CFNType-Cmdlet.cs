@@ -44,14 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Resource Providers</a> in the <i>CloudFormation CLI User Guide</i>.
     /// </para><para>
     /// You can have a maximum of 50 resource extension versions registered at a time. This
-    /// maximum is per account and per Region. Use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html">DeregisterType</a>
-    /// to deregister specific extension versions if necessary.
+    /// maximum is per account and per Region. Use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html"><c>DeregisterType</c></a> to deregister specific extension versions if necessary.
     /// </para><para>
     /// Once you have initiated a registration request using <a>RegisterType</a>, you can
     /// use <a>DescribeTypeRegistration</a> to monitor the progress of the registration request.
     /// </para><para>
-    /// Once you have registered a private extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>
-    /// to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
+    /// Once you have registered a private extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html"><c>SetTypeConfiguration</c></a> to specify configuration properties for the extension.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
     /// </para>
     /// </summary>

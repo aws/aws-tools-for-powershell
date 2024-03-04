@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Specifies the type of volume you are creating. Valid values are the following:</para><ul><li><para><c>RW</c> specifies a read/write volume. <c>RW</c> is the default.</para></li><li><para><c>DP</c> specifies a data-protection volume. A <c>DP</c> volume is read-only and
         /// can be used as the destination of a NetApp SnapMirror relationship.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types">Volume
-        /// types</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</para>
+        /// types</a> in the Amazon FSx for NetApp ONTAP User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,14 +304,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Specifies the security style for the volume. If a volume's security style is not specified,
         /// it is automatically set to the root volume's security style. The security style determines
         /// the type of permissions that FSx for ONTAP uses to control data access. For more information,
-        /// see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style">Volume
+        /// see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-security-style">Volume
         /// security style</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>. Specify one
         /// of the following values:</para><ul><li><para><c>UNIX</c> if the file system is managed by a UNIX administrator, the majority of
         /// users are NFS clients, and an application accessing the data uses a UNIX user as the
         /// service account. </para></li><li><para><c>NTFS</c> if the file system is managed by a Windows administrator, the majority
         /// of users are SMB clients, and an application accessing the data uses a Windows user
-        /// as the service account.</para></li><li><para><c>MIXED</c> if the file system is managed by both UNIX and Windows administrators
-        /// and users consist of both NFS and SMB clients.</para></li></ul>
+        /// as the service account.</para></li><li><para><c>MIXED</c> This is an advanced setting. For more information, see the topic <a href="https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html">What
+        /// the security styles and their effects are</a> in the NetApp Documentation Center.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-security-style.html">Volume
+        /// security style</a> in the FSx for ONTAP User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -322,7 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_SizeInByte
         /// <summary>
         /// <para>
-        /// <para>The configured size of the volume, in bytes.</para>
+        /// <para>Specifies the configured size of the volume, in bytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -373,7 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// that it only retains one snapshot from the weekly schedule.</para></li><li><para><c>none</c>: This policy does not take any snapshots. This policy can be assigned
         /// to volumes to prevent automatic snapshots from being taken.</para></li></ul><para>You can also provide the name of a custom policy that you created with the ONTAP CLI
         /// or REST API.</para><para>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot
-        /// policies</a> in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</para>
+        /// policies</a> in the Amazon FSx for NetApp ONTAP User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -416,7 +417,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Set to true to enable deduplication, compression, and compaction storage efficiency
-        /// features on the volume, or set to false to disable them. This parameter is required.</para>
+        /// features on the volume, or set to false to disable them.</para><para><c>StorageEfficiencyEnabled</c> is required when creating a <c>RW</c> volume (<c>OntapVolumeType</c>
+        /// set to <c>RW</c>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,7 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OpenZFSConfiguration_UserAndGroupQuota
         /// <summary>
         /// <para>
-        /// <para>An object specifying how much storage users or groups can use on the volume.</para>
+        /// <para>Configures how much storage users and groups can use on the volume.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -582,9 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_VolumeStyle
         /// <summary>
         /// <para>
-        /// <para>Use to specify the style of an ONTAP volume. For more information about FlexVols and
-        /// FlexGroups, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types.html">Volume
-        /// types</a> in Amazon FSx for NetApp ONTAP User Guide.</para>
+        /// <para>Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes
+        /// that you can use for different purposes, FlexVol and FlexGroup volumes. For more information,
+        /// see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-styles.html">Volume
+        /// styles</a> in the Amazon FSx for NetApp ONTAP User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -613,7 +616,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter OntapConfiguration_SizeInMegabyte
         /// <summary>
         /// <para>
-        /// <para>Specifies the size of the volume, in megabytes (MB), that you are creating.</para>
+        /// <para>Use <c>SizeInBytes</c> instead. Specifies the size of the volume, in megabytes (MB),
+        /// that you are creating.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

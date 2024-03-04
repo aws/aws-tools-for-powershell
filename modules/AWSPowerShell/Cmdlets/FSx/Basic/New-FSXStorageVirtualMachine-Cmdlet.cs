@@ -172,10 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>The security style of the root volume of the SVM. Specify one of the following values:</para><ul><li><para><c>UNIX</c> if the file system is managed by a UNIX administrator, the majority of
         /// users are NFS clients, and an application accessing the data uses a UNIX user as the
-        /// service account.</para></li><li><para><c>NTFS</c> if the file system is managed by a Windows administrator, the majority
-        /// of users are SMB clients, and an application accessing the data uses a Windows user
-        /// as the service account.</para></li><li><para><c>MIXED</c> if the file system is managed by both UNIX and Windows administrators
-        /// and users consist of both NFS and SMB clients.</para></li></ul>
+        /// service account.</para></li><li><para><c>NTFS</c> if the file system is managed by a Microsoft Windows administrator, the
+        /// majority of users are SMB clients, and an application accessing the data uses a Microsoft
+        /// Windows user as the service account.</para></li><li><para><c>MIXED</c> This is an advanced setting. For more information, see <a href="fsx/latest/ONTAPGuide/volume-security-style.html">Volume
+        /// security style</a> in the Amazon FSx for NetApp ONTAP User Guide.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
