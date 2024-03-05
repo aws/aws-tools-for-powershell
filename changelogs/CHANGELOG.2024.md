@@ -1,4 +1,11 @@
-﻿### 4.1.529 (2024-03-04 21:26Z)
+﻿### 4.1.530 (2024-03-05 21:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.761.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2DeliverabilityTestReport: added parameters Simple_Header and Template_Header.
+    * Modified cmdlet Send-SES2BulkEmail: added parameter Template_Header.
+    * Modified cmdlet Send-SES2Email: added parameters Simple_Header and Template_Header.
+
+### 4.1.529 (2024-03-04 21:26Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.760.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.528 (2024-03-01 21:40Z)

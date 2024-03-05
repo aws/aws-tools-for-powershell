@@ -136,6 +136,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String FromEmailAddressIdentityArn { get; set; }
         #endregion
         
+        #region Parameter Template_Header
+        /// <summary>
+        /// <para>
+        /// <para>The list of message headers that will be added to the email message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultContent_Template_Headers")]
+        public Amazon.SimpleEmailV2.Model.MessageHeader[] Template_Header { get; set; }
+        #endregion
+        
         #region Parameter ReplyToAddress
         /// <summary>
         /// <para>
@@ -237,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             #endif
             context.ConfigurationSetName = this.ConfigurationSetName;
+            if (this.Template_Header != null)
+            {
+                context.Template_Header = new List<Amazon.SimpleEmailV2.Model.MessageHeader>(this.Template_Header);
+            }
             context.Template_TemplateArn = this.Template_TemplateArn;
             context.Template_TemplateData = this.Template_TemplateData;
             context.Template_TemplateName = this.Template_TemplateName;
@@ -285,6 +300,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
              // populate Template
             var requestDefaultContent_defaultContent_TemplateIsNull = true;
             requestDefaultContent_defaultContent_Template = new Amazon.SimpleEmailV2.Model.Template();
+            List<Amazon.SimpleEmailV2.Model.MessageHeader> requestDefaultContent_defaultContent_Template_template_Header = null;
+            if (cmdletContext.Template_Header != null)
+            {
+                requestDefaultContent_defaultContent_Template_template_Header = cmdletContext.Template_Header;
+            }
+            if (requestDefaultContent_defaultContent_Template_template_Header != null)
+            {
+                requestDefaultContent_defaultContent_Template.Headers = requestDefaultContent_defaultContent_Template_template_Header;
+                requestDefaultContent_defaultContent_TemplateIsNull = false;
+            }
             System.String requestDefaultContent_defaultContent_Template_template_TemplateArn = null;
             if (cmdletContext.Template_TemplateArn != null)
             {
@@ -417,6 +442,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             public List<Amazon.SimpleEmailV2.Model.BulkEmailEntry> BulkEmailEntry { get; set; }
             public System.String ConfigurationSetName { get; set; }
+            public List<Amazon.SimpleEmailV2.Model.MessageHeader> Template_Header { get; set; }
             public System.String Template_TemplateArn { get; set; }
             public System.String Template_TemplateData { get; set; }
             public System.String Template_TemplateName { get; set; }

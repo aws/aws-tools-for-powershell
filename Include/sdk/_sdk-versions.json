@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.760.0",
+    "ProductVersion"    : "3.7.761.0",
     "CoreVersion"       : "3.7.302.15",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -483,7 +483,7 @@
             "InPreview"               : false
         },
         "APIGateway"                      : {
-            "Version" : "3.7.300.55",
+            "Version" : "3.7.300.56",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
@@ -747,7 +747,7 @@
             "InPreview"               : false
         },
         "Organizations"                   : {
-            "Version" : "3.7.301.0",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
@@ -1571,7 +1571,7 @@
             "InPreview"               : false
         },
         "SimpleEmailV2"                   : {
-            "Version" : "3.7.300.54",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
@@ -3035,7 +3035,7 @@
             "InPreview"               : false
         },
         "Chatbot"                             : {
-            "Version" : "3.7.300.2",
+            "Version" : "3.7.300.3",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.15"
