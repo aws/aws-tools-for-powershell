@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DataShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing
-        /// for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the datashare namespace that producers are to authorize
+        /// sharing for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

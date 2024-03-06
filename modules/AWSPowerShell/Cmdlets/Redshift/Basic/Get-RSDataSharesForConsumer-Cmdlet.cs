@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ConsumerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the consumer that returns in the list of datashares.</para>
+        /// <para>The Amazon Resource Name (ARN) of the consumer namespace that returns in the list
+        /// of datashares.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

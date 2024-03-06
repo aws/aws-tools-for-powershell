@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ConsumerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the consumer that is associated with the datashare.</para>
+        /// <para>The Amazon Resource Name (ARN) of the consumer namespace associated with the datashare.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DataShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the datashare that the consumer is to use with the
-        /// account or the namespace.</para>
+        /// <para>The Amazon Resource Name (ARN) of the datashare that the consumer is to use.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

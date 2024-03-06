@@ -44,9 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// If the policy doesn't pass validation, the operation fails and the policy isn't stored.
     /// </para></note><note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
-    /// consistent</a></i>. It can take a few seconds for a new or changed element to be
-    /// propagate through the service and be visible in the results of other Verified Permissions
-    /// operations.
+    /// consistent</a></i>. It can take a few seconds for a new or changed element to propagate
+    /// through the service and be visible in the results of other Verified Permissions operations.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "AVPPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -169,7 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// that you use a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID
         /// type of value.</a>.</para><para>If you don't provide this value, then Amazon Web Services generates a random one for
         /// you.</para><para>If you retry the operation with the same <c>ClientToken</c>, but with different parameters,
-        /// the retry fails with an <c>IdempotentParameterMismatch</c> error.</para>
+        /// the retry fails with an <c>ConflictException</c> error.</para><para>Verified Permissions recognizes a <c>ClientToken</c> for eight hours. After eight
+        /// hours, the next request with the same parameters performs the operation again regardless
+        /// of the value of <c>ClientToken</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

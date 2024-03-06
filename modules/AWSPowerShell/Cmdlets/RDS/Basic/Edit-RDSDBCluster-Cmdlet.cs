@@ -159,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? BackupRetentionPeriod { get; set; }
         #endregion
         
+        #region Parameter CACertificateIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The CA certificate identifier to use for the DB cluster's server certificate.</para><para>Valid for Cluster Type: Multi-AZ DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CACertificateIdentifier { get; set; }
+        #endregion
+        
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
@@ -773,6 +783,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.AwsBackupRecoveryPointArn = this.AwsBackupRecoveryPointArn;
             context.BacktrackWindow = this.BacktrackWindow;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
+            context.CACertificateIdentifier = this.CACertificateIdentifier;
             if (this.CloudwatchLogsExportConfiguration_DisableLogType != null)
             {
                 context.CloudwatchLogsExportConfiguration_DisableLogType = new List<System.String>(this.CloudwatchLogsExportConfiguration_DisableLogType);
@@ -878,6 +889,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.BackupRetentionPeriod != null)
             {
                 request.BackupRetentionPeriod = cmdletContext.BackupRetentionPeriod.Value;
+            }
+            if (cmdletContext.CACertificateIdentifier != null)
+            {
+                request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
             }
             
              // populate CloudwatchLogsExportConfiguration
@@ -1207,6 +1222,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String AwsBackupRecoveryPointArn { get; set; }
             public System.Int64? BacktrackWindow { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String CACertificateIdentifier { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
             public List<System.String> CloudwatchLogsExportConfiguration_EnableLogType { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }

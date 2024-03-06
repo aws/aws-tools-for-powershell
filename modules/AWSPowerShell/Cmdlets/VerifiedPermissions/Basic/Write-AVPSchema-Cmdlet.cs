@@ -37,9 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// 
     ///  <note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually
-    /// consistent</a></i>. It can take a few seconds for a new or changed element to be
-    /// propagate through the service and be visible in the results of other Verified Permissions
-    /// operations.
+    /// consistent</a></i>. It can take a few seconds for a new or changed element to propagate
+    /// through the service and be visible in the results of other Verified Permissions operations.
     /// </para></note>
     /// </summary>
     [Cmdlet("Write", "AVPSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ConsumerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the consumer that association for the datashare
-        /// is removed from.</para>
+        /// <para>The Amazon Resource Name (ARN) of the consumer namespace that association for the
+        /// datashare is removed from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DataShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the datashare to remove association for. </para>
+        /// <para>The Amazon Resource Name (ARN) of the datashare to remove association for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

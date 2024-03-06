@@ -467,7 +467,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The port number on which the cluster accepts incoming connections.</para><para>The cluster is accessible only via the JDBC and ODBC connection strings. Part of the
         /// connection string requires the port on which the cluster will listen for incoming
-        /// connections.</para><para>Default: <c>5439</c></para><para>Valid Values: <c>1150-65535</c></para>
+        /// connections.</para><para>Default: <c>5439</c></para><para>Valid Values: </para><ul><li><para>For clusters with ra3 nodes - Select a port within the ranges <c>5431-5455</c> or
+        /// <c>8191-8215</c>. (If you have an existing cluster with ra3 nodes, it isn't required
+        /// that you change the port to these ranges.)</para></li><li><para>For clusters with ds2 or dc2 nodes - Select a port within the range <c>1150-65535</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

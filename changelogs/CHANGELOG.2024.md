@@ -1,4 +1,10 @@
-﻿### 4.1.530 (2024-03-05 21:52Z)
+﻿### 4.1.531 (2024-03-06 22:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.762.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBCluster: added parameter CACertificateIdentifier.
+    * Modified cmdlet New-RDSDBCluster: added parameter CACertificateIdentifier.
+
+### 4.1.530 (2024-03-05 21:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.761.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Simple Email Service V2 (SES V2)
     * Modified cmdlet New-SES2DeliverabilityTestReport: added parameters Simple_Header and Template_Header.

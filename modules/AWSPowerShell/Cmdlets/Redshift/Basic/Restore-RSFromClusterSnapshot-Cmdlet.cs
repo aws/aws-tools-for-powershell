@@ -391,7 +391,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the cluster accepts connections.</para><para>Default: The same port as the original cluster.</para><para>Constraints: Must be between <c>1115</c> and <c>65535</c>.</para>
+        /// <para>The port number on which the cluster accepts connections.</para><para>Default: The same port as the original cluster.</para><para>Valid values: For clusters with ds2 or dc2 nodes, must be within the range <c>1150</c>-<c>65535</c>.
+        /// For clusters with ra3 nodes, must be within the ranges <c>5431</c>-<c>5455</c> or
+        /// <c>8191</c>-<c>8215</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

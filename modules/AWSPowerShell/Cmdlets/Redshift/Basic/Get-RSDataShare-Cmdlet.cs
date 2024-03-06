@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DataShareArn
         /// <summary>
         /// <para>
-        /// <para>The identifier of the datashare to describe details of.</para>
+        /// <para>The Amazon resource name (ARN) of the datashare to describe details of.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

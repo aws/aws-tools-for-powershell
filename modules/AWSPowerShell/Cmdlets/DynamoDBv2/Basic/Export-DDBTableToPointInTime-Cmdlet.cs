@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Web Services account that owns the bucket the export will be
-        /// stored in.</para>
+        /// stored in.</para><note><para>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

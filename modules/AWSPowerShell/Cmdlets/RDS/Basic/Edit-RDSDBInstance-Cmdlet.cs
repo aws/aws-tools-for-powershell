@@ -852,8 +852,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB instance.</para><para>If you specify Provisioned IOPS (<c>io1</c>), you must also include a value for the
-        /// <c>Iops</c> parameter.</para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
+        /// <para>The storage type to associate with the DB instance.</para><para>If you specify <c>io1</c>), <c>io2</c>, or <c>gp3</c> you must also include a value
+        /// for the <c>Iops</c> parameter.</para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
         /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
         /// time. The duration of the migration depends on several factors such as database load,
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
@@ -863,7 +863,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// degradation. While the migration takes place, nightly backups for the instance are
         /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// read replica for the instance, and creating a DB snapshot of the instance.</para><para>Valid Values: <c>gp2 | gp3 | io1 | standard</c></para><para>Default: <c>io1</c>, if the <c>Iops</c> parameter is specified. Otherwise, <c>gp2</c>.</para>
+        /// read replica for the instance, and creating a DB snapshot of the instance.</para><para>Valid Values: <c>gp2 | gp3 | io1 | io2 | standard</c></para><para>Default: <c>io1</c>, if the <c>Iops</c> parameter is specified. Otherwise, <c>gp2</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

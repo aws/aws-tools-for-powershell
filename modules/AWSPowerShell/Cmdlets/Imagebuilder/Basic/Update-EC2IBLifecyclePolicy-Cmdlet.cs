@@ -148,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2IB
         #region Parameter ResourceSelection_TagMap
         /// <summary>
         /// <para>
-        /// <para>A list of tags that are used as selection criteria for the resources that the lifecycle
-        /// policy applies to.</para>
+        /// <para>A list of tags that are used as selection criteria for the Image Builder image resources
+        /// that the lifecycle policy applies to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

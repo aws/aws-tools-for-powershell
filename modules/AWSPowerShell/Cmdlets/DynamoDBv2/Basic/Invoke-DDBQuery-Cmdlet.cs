@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// but before the data is returned to you. Items that do not satisfy the <c>FilterExpression</c>
         /// criteria are not returned.</para><para>A <c>FilterExpression</c> does not allow key attributes. You cannot define a filter
         /// expression based on a partition key or a sort key.</para><note><para>A <c>FilterExpression</c> is applied after the items have already been read; the process
-        /// of filtering does not consume any additional read capacity units.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter
+        /// of filtering does not consume any additional read capacity units.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter
         /// Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
         /// </para>
         /// </summary>

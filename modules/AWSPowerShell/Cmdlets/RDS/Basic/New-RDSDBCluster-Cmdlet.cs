@@ -129,6 +129,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32? BackupRetentionPeriod { get; set; }
         #endregion
         
+        #region Parameter CACertificateIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The CA certificate identifier to use for the DB cluster's server certificate.</para><para>Valid for Cluster Type: Multi-AZ DB clusters</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CACertificateIdentifier { get; set; }
+        #endregion
+        
         #region Parameter CharacterSetName
         /// <summary>
         /// <para>
@@ -920,6 +930,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             context.BacktrackWindow = this.BacktrackWindow;
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
+            context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CharacterSetName = this.CharacterSetName;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseName = this.DatabaseName;
@@ -1035,6 +1046,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.BackupRetentionPeriod != null)
             {
                 request.BackupRetentionPeriod = cmdletContext.BackupRetentionPeriod.Value;
+            }
+            if (cmdletContext.CACertificateIdentifier != null)
+            {
+                request.CACertificateIdentifier = cmdletContext.CACertificateIdentifier;
             }
             if (cmdletContext.CharacterSetName != null)
             {
@@ -1416,6 +1431,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<System.String> AvailabilityZone { get; set; }
             public System.Int64? BacktrackWindow { get; set; }
             public System.Int32? BackupRetentionPeriod { get; set; }
+            public System.String CACertificateIdentifier { get; set; }
             public System.String CharacterSetName { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DatabaseName { get; set; }

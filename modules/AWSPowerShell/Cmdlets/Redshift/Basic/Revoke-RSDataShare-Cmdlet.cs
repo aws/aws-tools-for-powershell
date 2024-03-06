@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DataShareArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the datashare to remove authorization from.</para>
+        /// <para>The namespace Amazon Resource Name (ARN) of the datashare to remove authorization
+        /// from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
