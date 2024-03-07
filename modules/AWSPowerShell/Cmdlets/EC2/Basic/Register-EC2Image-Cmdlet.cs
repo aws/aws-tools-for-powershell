@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Registers an AMI. When you're creating an AMI, this is the final step you must complete
-    /// before you can launch an instance from the AMI. For more information about creating
+    /// Registers an AMI. When you're creating an instance-store backed AMI, registering the
+    /// AMI is the final step in the creation process. For more information about creating
     /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create
     /// your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// 
@@ -260,6 +260,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SriovNetSupport { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the AMI.</para><para>To tag the AMI, the value for <c>ResourceType</c> must be <c>image</c>. If you specify
+        /// another value for <c>ResourceType</c>, the request fails.</para><para>To tag an AMI after it has been registered, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter TpmSupport
         /// <summary>
         /// <para>
@@ -384,6 +396,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.RamdiskId = this.RamdiskId;
             context.RootDeviceName = this.RootDeviceName;
             context.SriovNetSupport = this.SriovNetSupport;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.TpmSupport = this.TpmSupport;
             context.UefiData = this.UefiData;
             context.VirtualizationType = this.VirtualizationType;
@@ -454,6 +470,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SriovNetSupport != null)
             {
                 request.SriovNetSupport = cmdletContext.SriovNetSupport;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             if (cmdletContext.TpmSupport != null)
             {
@@ -541,6 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String RamdiskId { get; set; }
             public System.String RootDeviceName { get; set; }
             public System.String SriovNetSupport { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.TpmSupportValues TpmSupport { get; set; }
             public System.String UefiData { get; set; }
             public System.String VirtualizationType { get; set; }

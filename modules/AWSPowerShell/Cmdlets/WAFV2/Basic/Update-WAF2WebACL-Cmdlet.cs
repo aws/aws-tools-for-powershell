@@ -259,10 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         #region Parameter AssociationConfig_RequestBody
         /// <summary>
         /// <para>
-        /// <para>Customizes the maximum size of the request body that your protected CloudFront distributions
-        /// forward to WAF for inspection. The default size is 16 KB (16,384 bytes). </para><note><para>You are charged additional fees when your protected resources forward body sizes that
+        /// <para>Customizes the maximum size of the request body that your protected CloudFront, API
+        /// Gateway, Amazon Cognito, App Runner, and Verified Access resources forward to WAF
+        /// for inspection. The default size is 16 KB (16,384 bytes). You can change the setting
+        /// for any of the available resource types. </para><note><para>You are charged additional fees when your protected resources forward body sizes that
         /// are larger than the default. For more information, see <a href="http://aws.amazon.com/waf/pricing/">WAF
-        /// Pricing</a>.</para></note>
+        /// Pricing</a>.</para></note><para>Example JSON: <c> { "API_GATEWAY": "KB_48", "APP_RUNNER_SERVICE": "KB_32" }</c></para><para>For Application Load Balancer and AppSync, the limit is fixed at 8 KB (8,192 bytes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

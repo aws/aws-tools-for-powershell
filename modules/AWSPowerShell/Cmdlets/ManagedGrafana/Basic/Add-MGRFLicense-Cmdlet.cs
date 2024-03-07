@@ -46,10 +46,22 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter GrafanaToken
+        /// <summary>
+        /// <para>
+        /// <para>A token from Grafana Labs that ties your Amazon Web Services account with a Grafana
+        /// Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register
+        /// with Grafana Labs</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GrafanaToken { get; set; }
+        #endregion
+        
         #region Parameter LicenseType
         /// <summary>
         /// <para>
-        /// <para>The type of license to associate with the workspace.</para>
+        /// <para>The type of license to associate with the workspace.</para><note><para>Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
                 context.Select = (response, cmdlet) => this.WorkspaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.GrafanaToken = this.GrafanaToken;
             context.LicenseType = this.LicenseType;
             #if MODULAR
             if (this.LicenseType == null && ParameterWasBound(nameof(this.LicenseType)))
@@ -172,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             // create request
             var request = new Amazon.ManagedGrafana.Model.AssociateLicenseRequest();
             
+            if (cmdletContext.GrafanaToken != null)
+            {
+                request.GrafanaToken = cmdletContext.GrafanaToken;
+            }
             if (cmdletContext.LicenseType != null)
             {
                 request.LicenseType = cmdletContext.LicenseType;
@@ -241,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String GrafanaToken { get; set; }
             public Amazon.ManagedGrafana.LicenseType LicenseType { get; set; }
             public System.String WorkspaceId { get; set; }
             public System.Func<Amazon.ManagedGrafana.Model.AssociateLicenseResponse, AddMGRFLicenseCmdlet, object> Select { get; set; } =

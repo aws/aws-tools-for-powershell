@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance to bundle.</para><para>Type: String</para><para>Default: None</para><para>Required: Yes</para>
+        /// <para>The ID of the instance to bundle.</para><para>Default: None</para>
         /// </para>
         /// </summary>
         #if !MODULAR

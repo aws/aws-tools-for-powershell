@@ -28,8 +28,8 @@ using Amazon.PaymentCryptographyData.Model;
 namespace Amazon.PowerShell.Cmdlets.PAYCD
 {
     /// <summary>
-    /// Encrypts plaintext data to ciphertext using symmetric, asymmetric, or DUKPT data encryption
-    /// key. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/encrypt-data.html">Encrypt
+    /// Encrypts plaintext data to ciphertext using a symmetric (TDES, AES), asymmetric (RSA),
+    /// or derived (DUKPT or EMV) encryption key scheme. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/encrypt-data.html">Encrypt
     /// data</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.
     /// 
     ///  
@@ -40,14 +40,23 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// For this operation, the key must have <c>KeyModesOfUse</c> set to <c>Encrypt</c>.
     /// In asymmetric encryption, plaintext is encrypted using public component. You can import
     /// the public component of an asymmetric key pair created outside Amazon Web Services
-    /// Payment Cryptography by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>).
+    /// Payment Cryptography by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>.
     /// 
     /// </para><para>
-    /// for symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography supports
-    /// <c>TDES</c> and <c>AES</c> algorithms. For asymmetric encryption, Amazon Web Services
-    /// Payment Cryptography supports <c>RSA</c>. To encrypt using DUKPT, you must already
-    /// have a DUKPT key in your account with <c>KeyModesOfUse</c> set to <c>DeriveKey</c>,
-    /// or you can generate a new DUKPT key by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.
+    /// For symmetric and DUKPT encryption, Amazon Web Services Payment Cryptography supports
+    /// <c>TDES</c> and <c>AES</c> algorithms. For EMV encryption, Amazon Web Services Payment
+    /// Cryptography supports <c>TDES</c> algorithms.For asymmetric encryption, Amazon Web
+    /// Services Payment Cryptography supports <c>RSA</c>. 
+    /// </para><para>
+    /// When you use TDES or TDES DUKPT, the plaintext data length must be a multiple of 8
+    /// bytes. For AES or AES DUKPT, the plaintext data length must be a multiple of 16 bytes.
+    /// For RSA, it sould be equal to the key size unless padding is enabled.
+    /// </para><para>
+    /// To encrypt using DUKPT, you must already have a BDK (Base Derivation Key) key in your
+    /// account with <c>KeyModesOfUse</c> set to <c>DeriveKey</c>, or you can generate a new
+    /// DUKPT key by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.
+    /// To encrypt using EMV, you must already have an IMK (Issuer Master Key) key in your
+    /// account with <c>KeyModesOfUse</c> set to <c>DeriveKey</c>.
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -102,10 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter Dukpt_InitializationVector
         /// <summary>
         /// <para>
-        /// <para>An input to cryptographic primitive used to provide the intial state. Typically the
-        /// <c>InitializationVector</c> must have a random or psuedo-random value, but sometimes
-        /// it only needs to be unpredictable or unique. If you don't provide a value, Amazon
-        /// Web Services Payment Cryptography generates a random value.</para>
+        /// <para>An input used to provide the intial state. If no value is provided, Amazon Web Services
+        /// Payment Cryptography defaults it to zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,13 +120,23 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String Dukpt_InitializationVector { get; set; }
         #endregion
         
+        #region Parameter Emv_InitializationVector
+        /// <summary>
+        /// <para>
+        /// <para>An input used to provide the intial state. If no value is provided, Amazon Web Services
+        /// Payment Cryptography defaults it to zero.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionAttributes_Emv_InitializationVector")]
+        public System.String Emv_InitializationVector { get; set; }
+        #endregion
+        
         #region Parameter Symmetric_InitializationVector
         /// <summary>
         /// <para>
-        /// <para>An input to cryptographic primitive used to provide the intial state. The <c>InitializationVector</c>
-        /// is typically required have a random or psuedo-random value, but sometimes it only
-        /// needs to be unpredictable or unique. If a value is not provided, Amazon Web Services
-        /// Payment Cryptography generates a random value.</para>
+        /// <para>An input used to provide the intial state. If no value is provided, Amazon Web Services
+        /// Payment Cryptography defaults it to zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,14 +175,23 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String Dukpt_KeySerialNumber { get; set; }
         #endregion
         
+        #region Parameter Emv_MajorKeyDerivationMode
+        /// <summary>
+        /// <para>
+        /// <para>The EMV derivation mode to use for ICC master key derivation as per EMV version 4.3
+        /// book 2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionAttributes_Emv_MajorKeyDerivationMode")]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.EmvMajorKeyDerivationMode")]
+        public Amazon.PaymentCryptographyData.EmvMajorKeyDerivationMode Emv_MajorKeyDerivationMode { get; set; }
+        #endregion
+        
         #region Parameter Dukpt_Mode
         /// <summary>
         /// <para>
-        /// <para>The block cipher mode of operation. Block ciphers are designed to encrypt a block
-        /// of data of fixed size, for example, 128 bits. The size of the input block is usually
-        /// same as the size of the encrypted output block, while the key length can be different.
-        /// A mode of operation describes how to repeatedly apply a cipher's single-block operation
-        /// to securely transform amounts of data larger than a block.</para><para>The default is CBC.</para>
+        /// <para>The block cipher method to use for encryption.</para><para>The default is CBC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,14 +200,22 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public Amazon.PaymentCryptographyData.DukptEncryptionMode Dukpt_Mode { get; set; }
         #endregion
         
+        #region Parameter Emv_Mode
+        /// <summary>
+        /// <para>
+        /// <para>The block cipher method to use for encryption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionAttributes_Emv_Mode")]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.EmvEncryptionMode")]
+        public Amazon.PaymentCryptographyData.EmvEncryptionMode Emv_Mode { get; set; }
+        #endregion
+        
         #region Parameter Symmetric_Mode
         /// <summary>
         /// <para>
-        /// <para>The block cipher mode of operation. Block ciphers are designed to encrypt a block
-        /// of data of fixed size (for example, 128 bits). The size of the input block is usually
-        /// same as the size of the encrypted output block, while the key length can be different.
-        /// A mode of operation describes how to repeatedly apply a cipher's single-block operation
-        /// to securely transform amounts of data larger than a block.</para>
+        /// <para>The block cipher method to use for encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -214,10 +248,25 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public Amazon.PaymentCryptographyData.PaddingType Symmetric_PaddingType { get; set; }
         #endregion
         
+        #region Parameter Emv_PanSequenceNumber
+        /// <summary>
+        /// <para>
+        /// <para>A number that identifies and differentiates payment cards with the same Primary Account
+        /// Number (PAN).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionAttributes_Emv_PanSequenceNumber")]
+        public System.String Emv_PanSequenceNumber { get; set; }
+        #endregion
+        
         #region Parameter PlainText
         /// <summary>
         /// <para>
-        /// <para>The plaintext to be encrypted.</para>
+        /// <para>The plaintext to be encrypted.</para><note><para>For encryption using asymmetric keys, plaintext data length is constrained by encryption
+        /// key strength that you define in <c>KeyAlgorithm</c> and padding type that you define
+        /// in <c>AsymmetricEncryptionAttributes</c>. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/encrypt-data.html">Encrypt
+        /// data</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -229,6 +278,31 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PlainText { get; set; }
+        #endregion
+        
+        #region Parameter Emv_PrimaryAccountNumber
+        /// <summary>
+        /// <para>
+        /// <para>The Primary Account Number (PAN), a unique identifier for a payment credit or debit
+        /// card and associates the card to a specific account holder.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionAttributes_Emv_PrimaryAccountNumber")]
+        public System.String Emv_PrimaryAccountNumber { get; set; }
+        #endregion
+        
+        #region Parameter Emv_SessionDerivationData
+        /// <summary>
+        /// <para>
+        /// <para>The derivation value used to derive the ICC session key. It is typically the application
+        /// transaction counter value padded with zeros or previous ARQC value padded with zeros
+        /// as per EMV version 4.3 book 2.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionAttributes_Emv_SessionDerivationData")]
+        public System.String Emv_SessionDerivationData { get; set; }
         #endregion
         
         #region Parameter Select
@@ -299,6 +373,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             context.Dukpt_InitializationVector = this.Dukpt_InitializationVector;
             context.Dukpt_KeySerialNumber = this.Dukpt_KeySerialNumber;
             context.Dukpt_Mode = this.Dukpt_Mode;
+            context.Emv_InitializationVector = this.Emv_InitializationVector;
+            context.Emv_MajorKeyDerivationMode = this.Emv_MajorKeyDerivationMode;
+            context.Emv_Mode = this.Emv_Mode;
+            context.Emv_PanSequenceNumber = this.Emv_PanSequenceNumber;
+            context.Emv_PrimaryAccountNumber = this.Emv_PrimaryAccountNumber;
+            context.Emv_SessionDerivationData = this.Emv_SessionDerivationData;
             context.Symmetric_InitializationVector = this.Symmetric_InitializationVector;
             context.Symmetric_Mode = this.Symmetric_Mode;
             context.Symmetric_PaddingType = this.Symmetric_PaddingType;
@@ -471,6 +551,81 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 request.EncryptionAttributes.Dukpt = requestEncryptionAttributes_encryptionAttributes_Dukpt;
                 requestEncryptionAttributesIsNull = false;
             }
+            Amazon.PaymentCryptographyData.Model.EmvEncryptionAttributes requestEncryptionAttributes_encryptionAttributes_Emv = null;
+            
+             // populate Emv
+            var requestEncryptionAttributes_encryptionAttributes_EmvIsNull = true;
+            requestEncryptionAttributes_encryptionAttributes_Emv = new Amazon.PaymentCryptographyData.Model.EmvEncryptionAttributes();
+            System.String requestEncryptionAttributes_encryptionAttributes_Emv_emv_InitializationVector = null;
+            if (cmdletContext.Emv_InitializationVector != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv_emv_InitializationVector = cmdletContext.Emv_InitializationVector;
+            }
+            if (requestEncryptionAttributes_encryptionAttributes_Emv_emv_InitializationVector != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv.InitializationVector = requestEncryptionAttributes_encryptionAttributes_Emv_emv_InitializationVector;
+                requestEncryptionAttributes_encryptionAttributes_EmvIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.EmvMajorKeyDerivationMode requestEncryptionAttributes_encryptionAttributes_Emv_emv_MajorKeyDerivationMode = null;
+            if (cmdletContext.Emv_MajorKeyDerivationMode != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv_emv_MajorKeyDerivationMode = cmdletContext.Emv_MajorKeyDerivationMode;
+            }
+            if (requestEncryptionAttributes_encryptionAttributes_Emv_emv_MajorKeyDerivationMode != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv.MajorKeyDerivationMode = requestEncryptionAttributes_encryptionAttributes_Emv_emv_MajorKeyDerivationMode;
+                requestEncryptionAttributes_encryptionAttributes_EmvIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.EmvEncryptionMode requestEncryptionAttributes_encryptionAttributes_Emv_emv_Mode = null;
+            if (cmdletContext.Emv_Mode != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv_emv_Mode = cmdletContext.Emv_Mode;
+            }
+            if (requestEncryptionAttributes_encryptionAttributes_Emv_emv_Mode != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv.Mode = requestEncryptionAttributes_encryptionAttributes_Emv_emv_Mode;
+                requestEncryptionAttributes_encryptionAttributes_EmvIsNull = false;
+            }
+            System.String requestEncryptionAttributes_encryptionAttributes_Emv_emv_PanSequenceNumber = null;
+            if (cmdletContext.Emv_PanSequenceNumber != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv_emv_PanSequenceNumber = cmdletContext.Emv_PanSequenceNumber;
+            }
+            if (requestEncryptionAttributes_encryptionAttributes_Emv_emv_PanSequenceNumber != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv.PanSequenceNumber = requestEncryptionAttributes_encryptionAttributes_Emv_emv_PanSequenceNumber;
+                requestEncryptionAttributes_encryptionAttributes_EmvIsNull = false;
+            }
+            System.String requestEncryptionAttributes_encryptionAttributes_Emv_emv_PrimaryAccountNumber = null;
+            if (cmdletContext.Emv_PrimaryAccountNumber != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv_emv_PrimaryAccountNumber = cmdletContext.Emv_PrimaryAccountNumber;
+            }
+            if (requestEncryptionAttributes_encryptionAttributes_Emv_emv_PrimaryAccountNumber != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv.PrimaryAccountNumber = requestEncryptionAttributes_encryptionAttributes_Emv_emv_PrimaryAccountNumber;
+                requestEncryptionAttributes_encryptionAttributes_EmvIsNull = false;
+            }
+            System.String requestEncryptionAttributes_encryptionAttributes_Emv_emv_SessionDerivationData = null;
+            if (cmdletContext.Emv_SessionDerivationData != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv_emv_SessionDerivationData = cmdletContext.Emv_SessionDerivationData;
+            }
+            if (requestEncryptionAttributes_encryptionAttributes_Emv_emv_SessionDerivationData != null)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv.SessionDerivationData = requestEncryptionAttributes_encryptionAttributes_Emv_emv_SessionDerivationData;
+                requestEncryptionAttributes_encryptionAttributes_EmvIsNull = false;
+            }
+             // determine if requestEncryptionAttributes_encryptionAttributes_Emv should be set to null
+            if (requestEncryptionAttributes_encryptionAttributes_EmvIsNull)
+            {
+                requestEncryptionAttributes_encryptionAttributes_Emv = null;
+            }
+            if (requestEncryptionAttributes_encryptionAttributes_Emv != null)
+            {
+                request.EncryptionAttributes.Emv = requestEncryptionAttributes_encryptionAttributes_Emv;
+                requestEncryptionAttributesIsNull = false;
+            }
              // determine if request.EncryptionAttributes should be set to null
             if (requestEncryptionAttributesIsNull)
             {
@@ -551,6 +706,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public System.String Dukpt_InitializationVector { get; set; }
             public System.String Dukpt_KeySerialNumber { get; set; }
             public Amazon.PaymentCryptographyData.DukptEncryptionMode Dukpt_Mode { get; set; }
+            public System.String Emv_InitializationVector { get; set; }
+            public Amazon.PaymentCryptographyData.EmvMajorKeyDerivationMode Emv_MajorKeyDerivationMode { get; set; }
+            public Amazon.PaymentCryptographyData.EmvEncryptionMode Emv_Mode { get; set; }
+            public System.String Emv_PanSequenceNumber { get; set; }
+            public System.String Emv_PrimaryAccountNumber { get; set; }
+            public System.String Emv_SessionDerivationData { get; set; }
             public System.String Symmetric_InitializationVector { get; set; }
             public Amazon.PaymentCryptographyData.EncryptionMode Symmetric_Mode { get; set; }
             public Amazon.PaymentCryptographyData.PaddingType Symmetric_PaddingType { get; set; }

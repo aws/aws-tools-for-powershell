@@ -132,7 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CACertificateIdentifier
         /// <summary>
         /// <para>
-        /// <para>The CA certificate identifier to use for the DB cluster's server certificate.</para><para>Valid for Cluster Type: Multi-AZ DB clusters</para>
+        /// <para>The CA certificate identifier to use for the DB cluster's server certificate.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using
+        /// SSL/TLS to encrypt a connection to a DB instance</a> in the <i>Amazon RDS User Guide</i>.</para><para>Valid for Cluster Type: Multi-AZ DB clusters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -803,7 +804,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// configurations for Amazon Aurora DB clusters</a>. For information on storage types
         /// for Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/create-multi-az-db-cluster.html#create-multi-az-db-cluster-settings">Settings
         /// for creating Multi-AZ DB clusters</a>.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>When specified for a Multi-AZ DB cluster, a value for the <c>Iops</c> parameter is
-        /// required.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para>Aurora DB clusters - <c>aurora | aurora-iopt1</c></para></li><li><para>Multi-AZ DB clusters - <c>io1</c></para></li></ul><para>Default:</para><ul><li><para>Aurora DB clusters - <c>aurora</c></para></li><li><para>Multi-AZ DB clusters - <c>io1</c></para></li></ul><note><para>When you create an Aurora DB cluster with the storage type set to <c>aurora-iopt1</c>,
+        /// required.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para>Aurora DB clusters - <c>aurora | aurora-iopt1</c></para></li><li><para>Multi-AZ DB clusters - <c>io1 | io2 | gp3</c></para></li></ul><para>Default:</para><ul><li><para>Aurora DB clusters - <c>aurora</c></para></li><li><para>Multi-AZ DB clusters - <c>io1</c></para></li></ul><note><para>When you create an Aurora DB cluster with the storage type set to <c>aurora-iopt1</c>,
         /// the storage type is returned in the response. The storage type isn't returned when
         /// you set it to <c>aurora</c>.</para></note>
         /// </para>

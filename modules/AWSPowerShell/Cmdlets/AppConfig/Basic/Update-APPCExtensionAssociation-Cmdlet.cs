@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
     /// Updates an association. For more information about extensions and associations, see
-    /// <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-    /// with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.
+    /// <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
+    /// workflows</a> in the <i>AppConfig User Guide</i>.
     /// </summary>
     [Cmdlet("Update", "APPCExtensionAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.UpdateExtensionAssociationResponse")]

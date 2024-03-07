@@ -33,10 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// 
     ///  
     /// <para>
-    /// You can use this operation when keys won't be shared but mutual data is present on
-    /// both ends for validation. In this case, known data values are used to generate a MAC
-    /// on both ends for comparision without sending or receiving data in ciphertext or plaintext.
-    /// You can use this operation to generate a DUPKT, HMAC or EMV MAC by setting generation
+    /// You can use this operation to authenticate card-related data by using known data values
+    /// to generate MAC for data validation between the sending and receiving parties. This
+    /// operation uses message data, a secret encryption key and MAC algorithm to generate
+    /// a unique MAC value for transmission. The receiving party of the MAC must use the same
+    /// message data, secret encryption key and MAC algorithm to reproduce another MAC value
+    /// for comparision.
+    /// </para><para>
+    /// You can use this operation to generate a DUPKT, CMAC, HMAC or EMV MAC by setting generation
     /// attributes and algorithm to the associated values. The MAC generation encryption key
     /// must have valid values for <c>KeyUsage</c> such as <c>TR31_M7_HMAC_KEY</c> for HMAC
     /// generation, and they key must have <c>KeyModesOfUse</c> set to <c>Generate</c> and
@@ -255,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter MessageData
         /// <summary>
         /// <para>
-        /// <para>The data for which a MAC is under generation.</para>
+        /// <para>The data for which a MAC is under generation. This value must be hexBinary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

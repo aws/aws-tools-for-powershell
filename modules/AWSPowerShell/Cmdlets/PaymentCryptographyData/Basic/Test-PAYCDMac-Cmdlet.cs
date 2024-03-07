@@ -32,12 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// 
     ///  
     /// <para>
-    /// You can use this operation when keys won't be shared but mutual data is present on
-    /// both ends for validation. In this case, known data values are used to generate a MAC
-    /// on both ends for verification without sending or receiving data in ciphertext or plaintext.
-    /// You can use this operation to verify a DUPKT, HMAC or EMV MAC by setting generation
-    /// attributes and algorithm to the associated values. Use the same encryption key for
-    /// MAC verification as you use for <a>GenerateMac</a>. 
+    /// You can use this operation to verify MAC for message data authentication such as .
+    /// In this operation, you must use the same message data, secret encryption key and MAC
+    /// algorithm that was used to generate MAC. You can use this operation to verify a DUPKT,
+    /// CMAC, HMAC or EMV MAC by setting generation attributes and algorithm to the associated
+    /// values. 
     /// </para><para>
     /// For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding
     /// key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key
@@ -270,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter MessageData
         /// <summary>
         /// <para>
-        /// <para>The data on for which MAC is under verification.</para>
+        /// <para>The data on for which MAC is under verification. This value must be hexBinary.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

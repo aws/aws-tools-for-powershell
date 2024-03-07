@@ -121,6 +121,18 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter DynamicExtensionParameter
+        /// <summary>
+        /// <para>
+        /// <para>A map of dynamic extension parameter names to values to pass to associated extensions
+        /// with <c>PRE_START_DEPLOYMENT</c> actions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DynamicExtensionParameters")]
+        public System.Collections.Hashtable DynamicExtensionParameter { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentId
         /// <summary>
         /// <para>
@@ -252,6 +264,14 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             #endif
             context.Description = this.Description;
+            if (this.DynamicExtensionParameter != null)
+            {
+                context.DynamicExtensionParameter = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DynamicExtensionParameter.Keys)
+                {
+                    context.DynamicExtensionParameter.Add((String)hashKey, (System.String)(this.DynamicExtensionParameter[hashKey]));
+                }
+            }
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
             if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
@@ -303,6 +323,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.DynamicExtensionParameter != null)
+            {
+                request.DynamicExtensionParameters = cmdletContext.DynamicExtensionParameter;
             }
             if (cmdletContext.EnvironmentId != null)
             {
@@ -382,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             public System.String ConfigurationVersion { get; set; }
             public System.String DeploymentStrategyId { get; set; }
             public System.String Description { get; set; }
+            public Dictionary<System.String, System.String> DynamicExtensionParameter { get; set; }
             public System.String EnvironmentId { get; set; }
             public System.String KmsKeyIdentifier { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

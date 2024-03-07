@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </para></li><li><para>
     /// You don't need to specify the <c>PCOIP</c> protocol for Linux bundles because <c>WSP</c>
     /// is the default protocol for those bundles.
+    /// </para></li><li><para>
+    /// User-decoupled WorkSpaces are only supported by Amazon WorkSpaces Core.
     /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

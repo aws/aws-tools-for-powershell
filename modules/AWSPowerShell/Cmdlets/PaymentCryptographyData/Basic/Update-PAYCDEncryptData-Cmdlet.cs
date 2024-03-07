@@ -159,10 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter IncomingEncryptionAttributes_Dukpt_InitializationVector
         /// <summary>
         /// <para>
-        /// <para>An input to cryptographic primitive used to provide the intial state. Typically the
-        /// <c>InitializationVector</c> must have a random or psuedo-random value, but sometimes
-        /// it only needs to be unpredictable or unique. If you don't provide a value, Amazon
-        /// Web Services Payment Cryptography generates a random value.</para>
+        /// <para>An input used to provide the intial state. If no value is provided, Amazon Web Services
+        /// Payment Cryptography defaults it to zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -172,10 +170,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter IncomingEncryptionAttributes_Symmetric_InitializationVector
         /// <summary>
         /// <para>
-        /// <para>An input to cryptographic primitive used to provide the intial state. The <c>InitializationVector</c>
-        /// is typically required have a random or psuedo-random value, but sometimes it only
-        /// needs to be unpredictable or unique. If a value is not provided, Amazon Web Services
-        /// Payment Cryptography generates a random value.</para>
+        /// <para>An input used to provide the intial state. If no value is provided, Amazon Web Services
+        /// Payment Cryptography defaults it to zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,10 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter OutgoingEncryptionAttributes_Dukpt_InitializationVector
         /// <summary>
         /// <para>
-        /// <para>An input to cryptographic primitive used to provide the intial state. Typically the
-        /// <c>InitializationVector</c> must have a random or psuedo-random value, but sometimes
-        /// it only needs to be unpredictable or unique. If you don't provide a value, Amazon
-        /// Web Services Payment Cryptography generates a random value.</para>
+        /// <para>An input used to provide the intial state. If no value is provided, Amazon Web Services
+        /// Payment Cryptography defaults it to zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,10 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter OutgoingEncryptionAttributes_Symmetric_InitializationVector
         /// <summary>
         /// <para>
-        /// <para>An input to cryptographic primitive used to provide the intial state. The <c>InitializationVector</c>
-        /// is typically required have a random or psuedo-random value, but sometimes it only
-        /// needs to be unpredictable or unique. If a value is not provided, Amazon Web Services
-        /// Payment Cryptography generates a random value.</para>
+        /// <para>An input used to provide the intial state. If no value is provided, Amazon Web Services
+        /// Payment Cryptography defaults it to zero.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -235,11 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter IncomingEncryptionAttributes_Dukpt_Mode
         /// <summary>
         /// <para>
-        /// <para>The block cipher mode of operation. Block ciphers are designed to encrypt a block
-        /// of data of fixed size, for example, 128 bits. The size of the input block is usually
-        /// same as the size of the encrypted output block, while the key length can be different.
-        /// A mode of operation describes how to repeatedly apply a cipher's single-block operation
-        /// to securely transform amounts of data larger than a block.</para><para>The default is CBC.</para>
+        /// <para>The block cipher method to use for encryption.</para><para>The default is CBC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,11 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter IncomingEncryptionAttributes_Symmetric_Mode
         /// <summary>
         /// <para>
-        /// <para>The block cipher mode of operation. Block ciphers are designed to encrypt a block
-        /// of data of fixed size (for example, 128 bits). The size of the input block is usually
-        /// same as the size of the encrypted output block, while the key length can be different.
-        /// A mode of operation describes how to repeatedly apply a cipher's single-block operation
-        /// to securely transform amounts of data larger than a block.</para>
+        /// <para>The block cipher method to use for encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -265,11 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter OutgoingEncryptionAttributes_Dukpt_Mode
         /// <summary>
         /// <para>
-        /// <para>The block cipher mode of operation. Block ciphers are designed to encrypt a block
-        /// of data of fixed size, for example, 128 bits. The size of the input block is usually
-        /// same as the size of the encrypted output block, while the key length can be different.
-        /// A mode of operation describes how to repeatedly apply a cipher's single-block operation
-        /// to securely transform amounts of data larger than a block.</para><para>The default is CBC.</para>
+        /// <para>The block cipher method to use for encryption.</para><para>The default is CBC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,11 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         #region Parameter OutgoingEncryptionAttributes_Symmetric_Mode
         /// <summary>
         /// <para>
-        /// <para>The block cipher mode of operation. Block ciphers are designed to encrypt a block
-        /// of data of fixed size (for example, 128 bits). The size of the input block is usually
-        /// same as the size of the encrypted output block, while the key length can be different.
-        /// A mode of operation describes how to repeatedly apply a cipher's single-block operation
-        /// to securely transform amounts of data larger than a block.</para>
+        /// <para>The block cipher method to use for encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

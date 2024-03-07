@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
     /// Returns information about an AppConfig extension association. For more information
-    /// about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-    /// with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.
+    /// about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
+    /// workflows</a> in the <i>AppConfig User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "APPCExtensionAssociation")]
     [OutputType("Amazon.AppConfig.Model.GetExtensionAssociationResponse")]

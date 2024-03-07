@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     /// For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS message
     /// queue in the <c>Uri</c> field. 
     /// </para></li></ul><para>
-    /// For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-    /// with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.
+    /// For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
+    /// workflows</a> in the <i>AppConfig User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "APPCExtension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -133,6 +133,26 @@ $PAYCD_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptographyData.EmvEncryptionMode
+        {
+            ($_ -eq "Protect-PAYCDData/Emv_Mode") -Or
+            ($_ -eq "Unprotect-PAYCDData/Emv_Mode")
+        }
+        {
+            $v = "CBC","ECB"
+            break
+        }
+
+        # Amazon.PaymentCryptographyData.EmvMajorKeyDerivationMode
+        {
+            ($_ -eq "Protect-PAYCDData/Emv_MajorKeyDerivationMode") -Or
+            ($_ -eq "Unprotect-PAYCDData/Emv_MajorKeyDerivationMode")
+        }
+        {
+            $v = "EMV_OPTION_A","EMV_OPTION_B"
+            break
+        }
+
         # Amazon.PaymentCryptographyData.EncryptionMode
         {
             ($_ -eq "Update-PAYCDEncryptData/IncomingEncryptionAttributes_Symmetric_Mode") -Or
@@ -220,6 +240,8 @@ $PAYCD_map = @{
     "DukptIso9797Algorithm1_DukptKeyVariant"=@("New-PAYCDMac","Test-PAYCDMac")
     "DukptIso9797Algorithm3_DukptDerivationType"=@("New-PAYCDMac","Test-PAYCDMac")
     "DukptIso9797Algorithm3_DukptKeyVariant"=@("New-PAYCDMac","Test-PAYCDMac")
+    "Emv_MajorKeyDerivationMode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
+    "Emv_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "EmvMac_MajorKeyDerivationMode"=@("New-PAYCDMac","Test-PAYCDMac")
     "EmvMac_SessionKeyDerivationMode"=@("New-PAYCDMac","Test-PAYCDMac")
     "GenerationAttributes_Algorithm"=@("New-PAYCDMac")

@@ -183,6 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SourceRegion { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the new AMI and new snapshots. You can tag the AMI, the snapshots,
+        /// or both.</para><ul><li><para>To tag the new AMI, the value for <c>ResourceType</c> must be <c>image</c>.</para></li><li><para>To tag the new snapshots, the value for <c>ResourceType</c> must be <c>snapshot</c>.
+        /// The same tag is applied to all the new snapshots.</para></li></ul><para>If you specify other values for <c>ResourceType</c>, the request fails.</para><para>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -284,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter SourceRegion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -335,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.SourceRegion != null)
             {
                 request.SourceRegion = cmdletContext.SourceRegion;
+            }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
             }
             
             CmdletOutput output;
@@ -406,6 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Name { get; set; }
             public System.String SourceImageId { get; set; }
             public System.String SourceRegion { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CopyImageResponse, CopyEC2ImageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageId;
         }

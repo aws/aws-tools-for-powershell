@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter EKSOnDeviceService_EKSAnywhereVersion
         /// <summary>
         /// <para>
-        /// <para>The version of EKS Anywhere on the Snow Family device.</para>
+        /// <para>The optional version of EKS Anywhere on the Snow Family device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

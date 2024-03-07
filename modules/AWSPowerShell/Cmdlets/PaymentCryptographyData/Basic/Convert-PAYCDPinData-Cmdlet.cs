@@ -39,10 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// PIN block data leaving Amazon Web Services Payment Cryptography. The encryption key
     /// transformation can be from PEK (Pin Encryption Key) to BDK (Base Derivation Key) for
     /// DUKPT or from BDK for DUKPT to PEK. Amazon Web Services Payment Cryptography supports
-    /// <c>TDES</c> and <c>AES</c> key derivation type for DUKPT tranlations. You can use
-    /// this operation for P2PE (Point to Point Encryption) use cases where the encryption
-    /// keys should change but the processing system either does not need to, or is not permitted
-    /// to, decrypt the data.
+    /// <c>TDES</c> and <c>AES</c> key derivation type for DUKPT translations. 
     /// </para><para>
     /// The allowed combinations of PIN block format translations are guided by PCI. It is
     /// important to note that not all encrypted PIN block formats (example, format 1) require
@@ -55,8 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
     /// types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography
     /// User Guide</i>.
     /// </para><note><para>
-    /// At this time, Amazon Web Services Payment Cryptography does not support translations
-    /// to PIN format 4.
+    /// Amazon Web Services Payment Cryptography currently supports ISO PIN block 4 translation
+    /// for PIN block built using legacy PAN length. That is, PAN is the right most 12 digits
+    /// excluding the check digits.
     /// </para></note><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
     /// Services accounts.
     /// </para><para><b>Related operations:</b></para><ul><li><para><a>GeneratePinData</a></para></li><li><para><a>VerifyPinData</a></para></li></ul>

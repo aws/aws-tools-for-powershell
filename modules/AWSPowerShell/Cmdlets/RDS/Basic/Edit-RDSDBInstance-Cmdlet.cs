@@ -852,7 +852,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>The storage type to associate with the DB instance.</para><para>If you specify <c>io1</c>), <c>io2</c>, or <c>gp3</c> you must also include a value
+        /// <para>The storage type to associate with the DB instance.</para><para>If you specify <c>io1</c>, <c>io2</c>, or <c>gp3</c> you must also include a value
         /// for the <c>Iops</c> parameter.</para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
         /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
         /// time. The duration of the migration depends on several factors such as database load,

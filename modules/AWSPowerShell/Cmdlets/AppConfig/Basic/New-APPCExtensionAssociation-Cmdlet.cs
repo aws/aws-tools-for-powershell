@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
     /// Defining which extension to associate with an AppConfig resource is called an <i>extension
     /// association</i>. An extension association is a specified relationship between an extension
     /// and an AppConfig resource, such as an application or a configuration profile. For
-    /// more information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working
-    /// with AppConfig extensions</a> in the <i>AppConfig User Guide</i>.
+    /// more information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
+    /// workflows</a> in the <i>AppConfig User Guide</i>.
     /// </summary>
     [Cmdlet("New", "APPCExtensionAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.CreateExtensionAssociationResponse")]

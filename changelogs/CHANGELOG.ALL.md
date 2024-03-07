@@ -1,4 +1,17 @@
-﻿### 4.1.531 (2024-03-06 22:20Z)
+﻿### 4.1.532 (2024-03-07 21:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.763.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppConfig
+    * Modified cmdlet Start-APPCDeployment: added parameter DynamicExtensionParameter.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Copy-EC2Image: added parameter TagSpecification.
+    * Modified cmdlet Register-EC2Image: added parameter TagSpecification.
+  * Amazon Managed Grafana
+    * Modified cmdlet Add-MGRFLicense: added parameter GrafanaToken.
+  * Amazon Payment Cryptography Data
+    * Modified cmdlet Protect-PAYCDData: added parameters Emv_InitializationVector, Emv_MajorKeyDerivationMode, Emv_Mode, Emv_PanSequenceNumber, Emv_PrimaryAccountNumber and Emv_SessionDerivationData.
+    * Modified cmdlet Unprotect-PAYCDData: added parameters Emv_InitializationVector, Emv_MajorKeyDerivationMode, Emv_Mode, Emv_PanSequenceNumber, Emv_PrimaryAccountNumber and Emv_SessionDerivationData.
+
+### 4.1.531 (2024-03-06 22:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.762.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Relational Database Service
     * Modified cmdlet Edit-RDSDBCluster: added parameter CACertificateIdentifier.
