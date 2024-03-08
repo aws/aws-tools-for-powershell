@@ -94,6 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String JobQueueName { get; set; }
         #endregion
         
+        #region Parameter JobStateTimeLimitAction
+        /// <summary>
+        /// <para>
+        /// <para>The set of actions that Batch performs on jobs that remain at the head of the job
+        /// queue in the specified state longer than specified times. Batch will perform each
+        /// action after <c>maxTimeSeconds</c> has passed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JobStateTimeLimitActions")]
+        public Amazon.Batch.Model.JobStateTimeLimitAction[] JobStateTimeLimitAction { get; set; }
+        #endregion
+        
         #region Parameter Priority
         /// <summary>
         /// <para>
@@ -216,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 WriteWarning("You are passing $null as a value for parameter JobQueueName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.JobStateTimeLimitAction != null)
+            {
+                context.JobStateTimeLimitAction = new List<Amazon.Batch.Model.JobStateTimeLimitAction>(this.JobStateTimeLimitAction);
+            }
             context.Priority = this.Priority;
             #if MODULAR
             if (this.Priority == null && ParameterWasBound(nameof(this.Priority)))
@@ -256,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.JobQueueName != null)
             {
                 request.JobQueueName = cmdletContext.JobQueueName;
+            }
+            if (cmdletContext.JobStateTimeLimitAction != null)
+            {
+                request.JobStateTimeLimitActions = cmdletContext.JobStateTimeLimitAction;
             }
             if (cmdletContext.Priority != null)
             {
@@ -336,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         {
             public List<Amazon.Batch.Model.ComputeEnvironmentOrder> ComputeEnvironmentOrder { get; set; }
             public System.String JobQueueName { get; set; }
+            public List<Amazon.Batch.Model.JobStateTimeLimitAction> JobStateTimeLimitAction { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String SchedulingPolicyArn { get; set; }
             public Amazon.Batch.JQState State { get; set; }

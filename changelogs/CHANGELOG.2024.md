@@ -1,4 +1,10 @@
-﻿### 4.1.532 (2024-03-07 21:39Z)
+﻿### 4.1.533 (2024-03-08 21:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.764.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet New-BATJobQueue: added parameter JobStateTimeLimitAction.
+    * Modified cmdlet Update-BATJobQueue: added parameter JobStateTimeLimitAction.
+
+### 4.1.532 (2024-03-07 21:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.763.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppConfig
     * Modified cmdlet Start-APPCDeployment: added parameter DynamicExtensionParameter.

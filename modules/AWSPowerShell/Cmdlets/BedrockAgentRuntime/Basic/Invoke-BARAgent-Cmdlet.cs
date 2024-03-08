@@ -28,8 +28,32 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Invokes the specified Bedrock model to run inference using the input provided in the
-    /// request body.
+    /// Sends a prompt for the agent to process and respond to.
+    /// 
+    ///  <note><para>
+    /// The CLI doesn't support <c>InvokeAgent</c>.
+    /// </para></note><ul><li><para>
+    /// To continue the same conversation with an agent, use the same <c>sessionId</c> value
+    /// in the request.
+    /// </para></li><li><para>
+    /// To activate trace enablement, turn <c>enableTrace</c> to <c>true</c>. Trace enablement
+    /// helps you follow the agent's reasoning process that led it to the information it processed,
+    /// the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace
+    /// enablement</a>.
+    /// </para></li><li><para>
+    /// End a conversation by setting <c>endSession</c> to <c>true</c>.
+    /// </para></li><li><para>
+    /// Include attributes for the session or prompt in the <c>sessionState</c> object.
+    /// </para></li></ul><para>
+    /// The response is returned in the <c>bytes</c> field of the <c>chunk</c> object.
+    /// </para><ul><li><para>
+    /// The <c>attribution</c> object contains citations for parts of the response.
+    /// </para></li><li><para>
+    /// If you set <c>enableTrace</c> to <c>true</c> in the request, you can trace the agent's
+    /// steps and reasoning process that led it to the response.
+    /// </para></li><li><para>
+    /// Errors are also surfaced in the response.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Invoke", "BARAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.InvokeAgentResponse")]
@@ -47,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter AgentAliasId
         /// <summary>
         /// <para>
-        /// <para>Identifier for Agent Alias</para>
+        /// <para>The alias of the agent to use.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Identifier for Agent</para>
+        /// <para>The unique identifier of the agent to use.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter EnableTrace
         /// <summary>
         /// <para>
-        /// <para>Enable agent trace events for improved debugging</para>
+        /// <para>Specifies whether to turn on the trace or not to track the agent's reasoning process.
+        /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace
+        /// enablement</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter EndSession
         /// <summary>
         /// <para>
-        /// <para>End current session</para>
+        /// <para>Specifies whether to end the session with the agent or not.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter InputText
         /// <summary>
         /// <para>
-        /// <para>Input data in the format specified in the Content-Type request header.</para>
+        /// <para>The prompt text to send the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,7 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter SessionState_PromptSessionAttribute
         /// <summary>
         /// <para>
-        /// <para>Prompt Session Attributes</para>
+        /// <para>Contains attributes that persist across a prompt and the values of those attributes.
+        /// These attributes replace the $prompt_session_attributes$ placeholder variable in the
+        /// orchestration prompt template. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt
+        /// template placeholder variables</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter SessionState_SessionAttribute
         /// <summary>
         /// <para>
-        /// <para>Session Attributes</para>
+        /// <para>Contains attributes that persist across a session and the values of those attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,7 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>Identifier used for the current session</para>
+        /// <para>The unique identifier of the session. Use the same value across requests to continue
+        /// the same conversation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -34,6 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// 
     ///  
     /// <para>
+    /// Specifying both EKS Runtime Monitoring (<c>EKS_RUNTIME_MONITORING</c>) and Runtime
+    /// Monitoring (<c>RUNTIME_MONITORING</c>) will cause an error. You can add only one of
+    /// these two features because Runtime Monitoring already includes the threat detection
+    /// for Amazon EKS resources. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime
+    /// Monitoring</a>.
+    /// </para><para>
     /// There might be regional differences because some data sources might not be available
     /// in all the Amazon Web Services Regions where GuardDuty is presently supported. For
     /// more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions
@@ -97,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// automatically. This includes <c>NEW</c> accounts that join the organization and accounts
         /// that may have been suspended or removed from the organization in GuardDuty.</para><para>It may take up to 24 hours to update the configuration for all the member accounts.</para></li><li><para><c>NONE</c>: Indicates that GuardDuty will not be automatically enabled for any account
         /// in the organization. The administrator must manage GuardDuty for each account in the
-        /// organization individually.</para></li></ul>
+        /// organization individually.</para><para>When you update the auto-enable setting from <c>ALL</c> or <c>NEW</c> to <c>NONE</c>,
+        /// this action doesn't disable the corresponding option for your existing accounts. This
+        /// configuration will apply to the new accounts that join the organization. After you
+        /// update the auto-enable settings, no new account will have the corresponding option
+        /// as enabled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

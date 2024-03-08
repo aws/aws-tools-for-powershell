@@ -28,7 +28,7 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Retrieve from knowledge base.
+    /// Queries a knowledge base and retrieves information from it.
     /// </summary>
     [Cmdlet("Invoke", "BARRetrieve", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.RetrieveResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base to query.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter VectorSearchConfiguration_NumberOfResult
         /// <summary>
         /// <para>
-        /// <para>Top-K results to retrieve from knowledge base.</para>
+        /// <para>The number of results to return.</para><note><para>The <c>numberOfResults</c> field is currently unsupported for <c>RetrieveAndGenerate</c>.
+        /// Don't include it in this field if you are sending a <c>RetrieveAndGenerate</c> request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,7 +77,13 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter VectorSearchConfiguration_OverrideSearchType
         /// <summary>
         /// <para>
-        /// <para>Override the type of query to be performed on data store</para>
+        /// <para>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon
+        /// OpenSearch Serverless vector store that contains a filterable text field, you can
+        /// specify whether to query the knowledge base with a <c>HYBRID</c> search using both
+        /// vector embeddings and raw text, or <c>SEMANTIC</c> search using only vector embeddings.
+        /// For other vector store configurations, only <c>SEMANTIC</c> search is available. For
+        /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-test.html">Test
+        /// a knowledge base</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter RetrievalQuery_Text
         /// <summary>
         /// <para>
-        /// <para>Knowledge base input query in text</para>
+        /// <para>The text of the query made to the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If there are more results than can fit in the response, the response returns a <c>nextToken</c>.
+        /// Use this token in the <c>nextToken</c> field of another request to retrieve the next
+        /// batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

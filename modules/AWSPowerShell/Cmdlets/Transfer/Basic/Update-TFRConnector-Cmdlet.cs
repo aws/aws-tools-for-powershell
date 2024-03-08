@@ -122,8 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter As2Config_EncryptionAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The algorithm that is used to encrypt the file.</para><note><para>You can only specify <c>NONE</c> if the URL for your connector uses HTTPS. This ensures
-        /// that no traffic is sent in clear text.</para></note>
+        /// <para>The algorithm that is used to encrypt the file.</para><para>Note the following:</para><ul><li><para>Do not use the <c>DES_EDE3_CBC</c> algorithm unless you must support a legacy client
+        /// that requires it, as it is a weak encryption algorithm.</para></li><li><para>You can only specify <c>NONE</c> if the URL for your connector uses HTTPS. Using HTTPS
+        /// ensures that no traffic is sent in clear text.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,7 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// Specify only the <c>&lt;key type&gt;</c> and <c>&lt;body base64&gt;</c>: do not enter
         /// the <c>&lt;comment&gt;</c> portion of the key.</para><para>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</para><ul><li><para>For RSA keys, the <c>&lt;key type&gt;</c> string is <c>ssh-rsa</c>.</para></li><li><para>For ECDSA keys, the <c>&lt;key type&gt;</c> string is either <c>ecdsa-sha2-nistp256</c>,
         /// <c>ecdsa-sha2-nistp384</c>, or <c>ecdsa-sha2-nistp521</c>, depending on the size of
-        /// the key you generated.</para></li></ul>
+        /// the key you generated.</para></li></ul><para>Run this command to retrieve the SFTP server host key, where your SFTP server name
+        /// is <c>ftp.host.com</c>.</para><para><c>ssh-keyscan ftp.host.com</c></para><para>This prints the public host key to standard output.</para><para><c>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key</c></para><para>Copy and paste this string into the <c>TrustedHostKeys</c> field for the <c>create-connector</c>
+        /// command or into the <b>Trusted host keys</b> field in the console.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

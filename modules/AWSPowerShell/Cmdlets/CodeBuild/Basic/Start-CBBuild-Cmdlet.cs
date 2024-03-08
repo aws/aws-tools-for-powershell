@@ -28,7 +28,16 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Starts running a build.
+    /// Starts running a build with the settings defined in the project. These setting include:
+    /// how to run a build, where to get the source code, which build environment to use,
+    /// which build commands to run, and where to store the build output.
+    /// 
+    ///  
+    /// <para>
+    /// You can also start a build run by overriding some of the build settings in the project.
+    /// The overrides only apply for that specific start build request. The settings in the
+    /// project are unaltered.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "CBBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeBuild.Model.Build")]
@@ -78,15 +87,19 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter BuildspecOverride
         /// <summary>
         /// <para>
-        /// <para>A buildspec file declaration that overrides, for this build only, the latest one already
-        /// defined in the build project.</para><para> If this value is set, it can be either an inline buildspec definition, the path to
+        /// <para>A buildspec file declaration that overrides the latest one defined in the build project,
+        /// for this build only. The buildspec defined on the project is not changed.</para><para>If this value is set, it can be either an inline buildspec definition, the path to
         /// an alternate buildspec file relative to the value of the built-in <c>CODEBUILD_SRC_DIR</c>
         /// environment variable, or the path to an S3 bucket. The bucket must be in the same
         /// Amazon Web Services Region as the build project. Specify the buildspec file using
         /// its ARN (for example, <c>arn:aws:s3:::my-codebuild-sample2/buildspec.yml</c>). If
         /// this value is not provided or is set to an empty string, the source code must contain
         /// a buildspec file in its root directory. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage">Buildspec
-        /// File Name and Storage Location</a>. </para>
+        /// File Name and Storage Location</a>.</para><note><para>Since this property allows you to change the build commands that will run in the container,
+        /// you should note that an IAM principal with the ability to call this API and set this
+        /// parameter can override the default settings. Moreover, we encourage that you use a
+        /// trustworthy buildspec location like a file in your source repository or a Amazon S3
+        /// bucket.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

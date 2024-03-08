@@ -28,7 +28,15 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// RetrieveAndGenerate API
+    /// Queries a knowledge base and generates responses based on the retrieved results. The
+    /// response cites up to five sources but only selects the ones that are relevant to the
+    /// query.
+    /// 
+    ///  <note><para>
+    /// The <c>numberOfResults</c> field is currently unsupported for <c>RetrieveAndGenerate</c>.
+    /// Don't include it in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.html">vectorSearchConfiguration</a>
+    /// object.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "BARRetrieveAndGenerate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse")]
@@ -48,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter SessionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The KMS key arn to encrypt the customer data of the session.</para>
+        /// <para>The ARN of the KMS key encrypting the session.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter KnowledgeBaseConfiguration_KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base that is queried and the foundation model
+        /// used for generation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter KnowledgeBaseConfiguration_ModelArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the foundation model used to generate a response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter VectorSearchConfiguration_NumberOfResult
         /// <summary>
         /// <para>
-        /// <para>Top-K results to retrieve from knowledge base.</para>
+        /// <para>The number of results to return.</para><note><para>The <c>numberOfResults</c> field is currently unsupported for <c>RetrieveAndGenerate</c>.
+        /// Don't include it in this field if you are sending a <c>RetrieveAndGenerate</c> request.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +101,13 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter VectorSearchConfiguration_OverrideSearchType
         /// <summary>
         /// <para>
-        /// <para>Override the type of query to be performed on data store</para>
+        /// <para>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon
+        /// OpenSearch Serverless vector store that contains a filterable text field, you can
+        /// specify whether to query the knowledge base with a <c>HYBRID</c> search using both
+        /// vector embeddings and raw text, or <c>SEMANTIC</c> search using only vector embeddings.
+        /// For other vector store configurations, only <c>SEMANTIC</c> search is available. For
+        /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-test.html">Test
+        /// a knowledge base</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the session. Reuse the same value to continue the same session
+        /// with the knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter Input_Text
         /// <summary>
         /// <para>
-        /// <para>Customer input of the turn in text</para>
+        /// <para>The query made to the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -130,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter RetrieveAndGenerateConfiguration_Type
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of resource that is queried by the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

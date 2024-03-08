@@ -54,8 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// <summary>
         /// <para>
         /// <para>A list of address allocation IDs that are required to attach an Elastic IP address
-        /// to your server's endpoint.</para><note><para>This property can only be set when <c>EndpointType</c> is set to <c>VPC</c> and it
-        /// is only valid in the <c>UpdateServer</c> API.</para></note>
+        /// to your server's endpoint.</para><para>An address allocation ID corresponds to the allocation ID of an Elastic IP address.
+        /// This value can be retrieved from the <c>allocationId</c> field from the Amazon EC2
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html">Address</a>
+        /// data type. One way to retrieve this value is by calling the EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html">DescribeAddresses</a>
+        /// API.</para><para>This parameter is optional. Set this parameter if you want to make your VPC endpoint
+        /// public-facing. For details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint">Create
+        /// an internet-facing endpoint for your server</a>.</para><note><para>This property can only be set as follows:</para><ul><li><para><c>EndpointType</c> must be set to <c>VPC</c></para></li><li><para>The Transfer Family server must be offline.</para></li><li><para>You cannot set this parameter for Transfer Family servers that use the FTP protocol.</para></li><li><para>The server must already have <c>SubnetIds</c> populated (<c>SubnetIds</c> and <c>AddressAllocationIds</c>
+        /// cannot be updated simultaneously).</para></li><li><para><c>AddressAllocationIds</c> can't contain duplicates, and must be equal in length
+        /// to <c>SubnetIds</c>. For example, if you have three subnet IDs, you must also specify
+        /// three address allocation IDs.</para></li><li><para>Call the <c>UpdateServer</c> API to set or change this parameter.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
