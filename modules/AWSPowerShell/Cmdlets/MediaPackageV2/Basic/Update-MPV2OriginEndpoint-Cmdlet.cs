@@ -389,6 +389,17 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String SpekeKeyProvider_Url { get; set; }
         #endregion
         
+        #region Parameter ETag
+        /// <summary>
+        /// <para>
+        /// <para>The expected current Entity Tag (ETag) for the resource. If the specified ETag does
+        /// not match the resource's current entity tag, the update request will be rejected.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ETag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -473,6 +484,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             }
             #endif
             context.Description = this.Description;
+            context.ETag = this.ETag;
             if (this.HlsManifest != null)
             {
                 context.HlsManifest = new List<Amazon.MediaPackageV2.Model.CreateHlsManifestConfiguration>(this.HlsManifest);
@@ -542,6 +554,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ETag != null)
+            {
+                request.ETag = cmdletContext.ETag;
             }
             if (cmdletContext.HlsManifest != null)
             {
@@ -868,6 +884,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String ChannelName { get; set; }
             public Amazon.MediaPackageV2.ContainerType ContainerType { get; set; }
             public System.String Description { get; set; }
+            public System.String ETag { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateHlsManifestConfiguration> HlsManifest { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateLowLatencyHlsManifestConfiguration> LowLatencyHlsManifest { get; set; }
             public System.String OriginEndpointName { get; set; }

@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// This API can be used to create a standalone regional replication group or a secondary
     /// replication group associated with a Global datastore.
     /// </para><para>
-    /// A Redis (cluster mode disabled) replication group is a collection of clusters, where
-    /// one of the clusters is a read/write primary and the others are read-only replicas.
-    /// Writes to the primary are asynchronously propagated to the replicas.
+    /// A Redis (cluster mode disabled) replication group is a collection of nodes, where
+    /// one of the nodes is a read/write primary and the others are read-only replicas. Writes
+    /// to the primary are asynchronously propagated to the replicas.
     /// </para><para>
     /// A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
     /// node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
@@ -412,9 +412,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
-        /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
-        /// The minimum maintenance window is a 60 minute period. Valid values for <c>ddd</c>
-        /// are:</para><para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period.</para><para>Valid values for <c>ddd</c> are:</para><ul><li><para><c>sun</c></para></li><li><para><c>mon</c></para></li><li><para><c>tue</c></para></li><li><para><c>wed</c></para></li><li><para><c>thu</c></para></li><li><para><c>fri</c></para></li><li><para><c>sat</c></para></li></ul><para>Example: <c>sun:23:00-mon:01:30</c></para>
         /// </para>

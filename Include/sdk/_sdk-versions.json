@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.764.0",
+    "ProductVersion"    : "3.7.765.0",
     "CoreVersion"       : "3.7.302.16",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -169,7 +169,7 @@
             "InPreview"               : false
         },
         "ElastiCache"       : {
-            "Version" : "3.7.301.45",
+            "Version" : "3.7.301.46",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"
@@ -1747,7 +1747,7 @@
             "InPreview"               : false
         },
         "CodeStarconnections"             : {
-            "Version" : "3.7.304.27",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"
@@ -2747,7 +2747,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "3.7.300.55",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"

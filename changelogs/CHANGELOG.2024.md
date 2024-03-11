@@ -1,4 +1,14 @@
-﻿### 4.1.533 (2024-03-08 21:50Z)
+﻿### 4.1.534 (2024-03-11 21:14Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.765.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeStar Connections
+    * Modified cmdlet New-CSTCSyncConfiguration: added parameters PublishDeploymentStatus and TriggerResourceUpdateOn.
+    * Modified cmdlet Update-CSTCSyncConfiguration: added parameters PublishDeploymentStatus and TriggerResourceUpdateOn.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet Update-MPV2Channel: added parameter ETag.
+    * Modified cmdlet Update-MPV2ChannelGroup: added parameter ETag.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameter ETag.
+
+### 4.1.533 (2024-03-08 21:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.764.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet New-BATJobQueue: added parameter JobStateTimeLimitAction.

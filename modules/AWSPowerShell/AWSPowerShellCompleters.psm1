@@ -13906,6 +13906,16 @@ $CSTC_Completers = {
             break
         }
 
+        # Amazon.CodeStarconnections.PublishDeploymentStatus
+        {
+            ($_ -eq "New-CSTCSyncConfiguration/PublishDeploymentStatus") -Or
+            ($_ -eq "Update-CSTCSyncConfiguration/PublishDeploymentStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CodeStarconnections.SyncConfigurationType
         {
             ($_ -eq "Get-CSTCRepositorySyncDefinitionList/SyncType") -Or
@@ -13924,6 +13934,16 @@ $CSTC_Completers = {
             break
         }
 
+        # Amazon.CodeStarconnections.TriggerResourceUpdateOn
+        {
+            ($_ -eq "New-CSTCSyncConfiguration/TriggerResourceUpdateOn") -Or
+            ($_ -eq "Update-CSTCSyncConfiguration/TriggerResourceUpdateOn")
+        }
+        {
+            $v = "ANY_CHANGE","FILE_CHANGE"
+            break
+        }
+
 
     }
 
@@ -13935,7 +13955,9 @@ $CSTC_Completers = {
 $CSTC_map = @{
     "ProviderType"=@("New-CSTCConnection","New-CSTCHost")
     "ProviderTypeFilter"=@("Get-CSTCConnectionList")
+    "PublishDeploymentStatus"=@("New-CSTCSyncConfiguration","Update-CSTCSyncConfiguration")
     "SyncType"=@("Get-CSTCRepositorySyncDefinitionList","Get-CSTCRepositorySyncStatus","Get-CSTCResourceSyncStatus","Get-CSTCSyncBlockerSummary","Get-CSTCSyncConfiguration","Get-CSTCSyncConfigurationList","New-CSTCSyncConfiguration","Remove-CSTCSyncConfiguration","Update-CSTCSyncBlocker","Update-CSTCSyncConfiguration")
+    "TriggerResourceUpdateOn"=@("New-CSTCSyncConfiguration","Update-CSTCSyncConfiguration")
 }
 
 _awsArgumentCompleterRegistration $CSTC_Completers $CSTC_map

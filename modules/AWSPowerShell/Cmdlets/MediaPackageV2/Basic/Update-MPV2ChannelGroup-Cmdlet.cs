@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ETag
+        /// <summary>
+        /// <para>
+        /// <para>The expected current Entity Tag (ETag) for the resource. If the specified ETag does
+        /// not match the resource's current entity tag, the update request will be rejected.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ETag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -147,6 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             }
             #endif
             context.Description = this.Description;
+            context.ETag = this.ETag;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ETag != null)
+            {
+                request.ETag = cmdletContext.ETag;
             }
             
             CmdletOutput output;
@@ -234,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         {
             public System.String ChannelGroupName { get; set; }
             public System.String Description { get; set; }
+            public System.String ETag { get; set; }
             public System.Func<Amazon.MediaPackageV2.Model.UpdateChannelGroupResponse, UpdateMPV2ChannelGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

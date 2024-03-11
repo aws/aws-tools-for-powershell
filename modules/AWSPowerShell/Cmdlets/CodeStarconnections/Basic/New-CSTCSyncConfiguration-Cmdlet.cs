@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         public System.String ConfigFile { get; set; }
         #endregion
         
+        #region Parameter PublishDeploymentStatus
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable or disable publishing of deployment status to source providers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeStarconnections.PublishDeploymentStatus")]
+        public Amazon.CodeStarconnections.PublishDeploymentStatus PublishDeploymentStatus { get; set; }
+        #endregion
+        
         #region Parameter RepositoryLinkId
         /// <summary>
         /// <para>
@@ -150,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         public Amazon.CodeStarconnections.SyncConfigurationType SyncType { get; set; }
         #endregion
         
+        #region Parameter TriggerResourceUpdateOn
+        /// <summary>
+        /// <para>
+        /// <para>When to trigger Git sync to begin the stack update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeStarconnections.TriggerResourceUpdateOn")]
+        public Amazon.CodeStarconnections.TriggerResourceUpdateOn TriggerResourceUpdateOn { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'SyncConfiguration'.
@@ -206,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
                 WriteWarning("You are passing $null as a value for parameter ConfigFile which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PublishDeploymentStatus = this.PublishDeploymentStatus;
             context.RepositoryLinkId = this.RepositoryLinkId;
             #if MODULAR
             if (this.RepositoryLinkId == null && ParameterWasBound(nameof(this.RepositoryLinkId)))
@@ -234,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
                 WriteWarning("You are passing $null as a value for parameter SyncType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TriggerResourceUpdateOn = this.TriggerResourceUpdateOn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -258,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             {
                 request.ConfigFile = cmdletContext.ConfigFile;
             }
+            if (cmdletContext.PublishDeploymentStatus != null)
+            {
+                request.PublishDeploymentStatus = cmdletContext.PublishDeploymentStatus;
+            }
             if (cmdletContext.RepositoryLinkId != null)
             {
                 request.RepositoryLinkId = cmdletContext.RepositoryLinkId;
@@ -273,6 +301,10 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
             if (cmdletContext.SyncType != null)
             {
                 request.SyncType = cmdletContext.SyncType;
+            }
+            if (cmdletContext.TriggerResourceUpdateOn != null)
+            {
+                request.TriggerResourceUpdateOn = cmdletContext.TriggerResourceUpdateOn;
             }
             
             CmdletOutput output;
@@ -337,10 +369,12 @@ namespace Amazon.PowerShell.Cmdlets.CSTC
         {
             public System.String Branch { get; set; }
             public System.String ConfigFile { get; set; }
+            public Amazon.CodeStarconnections.PublishDeploymentStatus PublishDeploymentStatus { get; set; }
             public System.String RepositoryLinkId { get; set; }
             public System.String ResourceName { get; set; }
             public System.String RoleArn { get; set; }
             public Amazon.CodeStarconnections.SyncConfigurationType SyncType { get; set; }
+            public Amazon.CodeStarconnections.TriggerResourceUpdateOn TriggerResourceUpdateOn { get; set; }
             public System.Func<Amazon.CodeStarconnections.Model.CreateSyncConfigurationResponse, NewCSTCSyncConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.SyncConfiguration;
         }
