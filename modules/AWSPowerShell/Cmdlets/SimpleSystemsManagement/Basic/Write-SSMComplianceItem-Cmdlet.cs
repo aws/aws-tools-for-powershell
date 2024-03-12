@@ -69,8 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// PatchGroup: The name of a patch group.
     /// </para></li><li><para>
     /// InstalledTime: The time the association, patch, or custom compliance item was applied
-    /// to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'
-    /// </para></li></ul>
+    /// to the resource. Specify the time by using the following format: <c>yyyy-MM-dd'T'HH:mm:ss'Z'</c></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "SSMComplianceItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -117,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The time the execution ran as a datetime object that is saved in the following format:
-        /// yyyy-MM-dd'T'HH:mm:ss'Z'.</para>
+        /// <c>yyyy-MM-dd'T'HH:mm:ss'Z'</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

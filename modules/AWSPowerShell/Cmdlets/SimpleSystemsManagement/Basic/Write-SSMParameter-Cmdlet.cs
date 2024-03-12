@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// parameters are created successfully, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html">Setting
         /// up notifications or trigger actions based on Parameter Store events</a>. For more
         /// information about AMI format validation , see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native
-        /// parameter support for Amazon Machine Image (AMI) IDs</a>. </para></note>
+        /// parameter support for Amazon Machine Image IDs</a>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,9 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </para><para>Advanced parameters have a content size limit of 8 KB and can be configured to use
         /// parameter policies. You can create a maximum of 100,000 advanced parameters for each
         /// Region in an Amazon Web Services account. Advanced parameters incur a charge. For
-        /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Standard
-        /// and advanced parameter tiers</a> in the <i>Amazon Web Services Systems Manager User
-        /// Guide</i>.</para><para>You can change a standard parameter to an advanced parameter any time. But you can't
+        /// more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Managing
+        /// parameter tiers</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><para>You can change a standard parameter to an advanced parameter any time. But you can't
         /// revert an advanced parameter to a standard parameter. Reverting an advanced parameter
         /// to a standard parameter would result in data loss because the system would truncate
         /// the size of the parameter from 8 KB to 4 KB. Reverting would also remove any policies
@@ -212,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// an advanced parameter are included in the request, Parameter Store create a parameter
         /// in the advanced-parameter tier.</para><para>This approach helps control your parameter-related costs by always creating standard
         /// parameters unless an advanced parameter is necessary. </para></li></ul><para>Options that require an advanced parameter include the following:</para><ul><li><para>The content size of the parameter is more than 4 KB.</para></li><li><para>The parameter uses a parameter policy.</para></li><li><para>More than 10,000 parameters already exist in your Amazon Web Services account in the
-        /// current Amazon Web Services Region.</para></li></ul><para>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying
+        /// current Amazon Web Services Region.</para></li></ul><para>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html#ps-default-tier">Specifying
         /// a default parameter tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>

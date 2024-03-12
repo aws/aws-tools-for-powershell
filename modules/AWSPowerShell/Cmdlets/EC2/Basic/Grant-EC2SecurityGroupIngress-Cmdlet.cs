@@ -33,19 +33,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// An inbound rule permits instances to receive traffic from the specified IPv4 or IPv6
-    /// CIDR address range, or from the instances that are associated with the specified destination
-    /// security groups. When specifying an inbound rule for your security group in a VPC,
-    /// the <c>IpPermissions</c> must include a source for the traffic.
+    /// address range, the IP address ranges that are specified by a prefix list, or the instances
+    /// that are associated with a destination security group. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-group-rules.html">Security
+    /// group rules</a>.
     /// </para><para>
-    /// You specify a protocol for each rule (for example, TCP). For TCP and UDP, you must
-    /// also specify the destination port or port range. For ICMP/ICMPv6, you must also specify
-    /// the ICMP/ICMPv6 type and code. You can use -1 to mean all types or all codes.
+    /// You must specify exactly one of the following sources: an IPv4 or IPv6 address range,
+    /// a prefix list, or a security group. You must specify a protocol for each rule (for
+    /// example, TCP). If the protocol is TCP or UDP, you must also specify a port or port
+    /// range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type
+    /// and code.
     /// </para><para>
-    /// Rule changes are propagated to instances within the security group as quickly as possible.
-    /// However, a small delay might occur.
+    /// Rule changes are propagated to instances associated with the security group as quickly
+    /// as possible. However, a small delay might occur.
     /// </para><para>
-    /// For more information about VPC security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
-    /// VPC quotas</a>.
+    /// For examples of rules that you can add to security groups for specific access scenarios,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-rules-reference.html">Security
+    /// group rules for different use cases</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para><para>
+    /// For more information about security group quotas, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon
+    /// VPC quotas</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,9 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group. You must specify either the security group ID or the
-        /// security group name in the request. For security groups in a nondefault VPC, you must
-        /// specify the security group ID.</para>
+        /// <para>The ID of the security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[Default VPC] The name of the security group. You must specify either the security
-        /// group ID or the security group name in the request. For security groups in a nondefault
-        /// VPC, you must specify the security group ID.</para>
+        /// <para>[Default VPC] The name of the security group. For security groups for a default VPC
+        /// you can specify either the ID or the name of the security group. For security groups
+        /// for a nondefault VPC, you must specify the ID of the security group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpPermission
         /// <summary>
         /// <para>
-        /// <para>The sets of IP permissions.</para>
+        /// <para>The permissions for the security group rules.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
-        /// <para>[VPC Only] The tags applied to the security group rule.</para>
+        /// <para>The tags applied to the security group rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

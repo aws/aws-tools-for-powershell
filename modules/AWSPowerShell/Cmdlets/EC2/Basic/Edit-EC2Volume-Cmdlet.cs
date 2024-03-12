@@ -32,23 +32,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// volume type, and IOPS capacity. If your EBS volume is attached to a current-generation
     /// EC2 instance type, you might be able to apply these changes without stopping the instance
     /// or detaching the volume from it. For more information about modifying EBS volumes,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modify-volume.html">Amazon
-    /// EBS Elastic Volumes</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-modify-volume.html">Amazon
-    /// EBS Elastic Volumes</a> (Windows instances).
+    /// see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modify-volume.html">Amazon
+    /// EBS Elastic Volumes</a> in the <i>Amazon EBS User Guide</i>.
     /// 
     ///  
     /// <para>
     /// When you complete a resize operation on your volume, you need to extend the volume's
     /// file-system size to take advantage of the new storage capacity. For more information,
-    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extend
-    /// a Linux file system</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extend
-    /// a Windows file system</a>.
+    /// see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html">Extend
+    /// the file system</a>.
     /// </para><para>
     ///  You can use CloudWatch Events to check the status of a modification to an EBS volume.
     /// For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
     /// CloudWatch Events User Guide</a>. You can also track the status of a modification
     /// using <a>DescribeVolumesModifications</a>. For information about tracking status changes
-    /// using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-modifications.html">Monitor
+    /// using either method, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor
     /// the progress of volume modifications</a>.
     /// </para><para>
     /// With previous-generation instance types, resizing an EBS volume might require detaching
@@ -91,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
         /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
         /// Nitro-based instances</a> in the same Availability Zone. This parameter is supported
-        /// with <c>io1</c> and <c>io2</c> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
-        /// Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// with <c>io1</c> and <c>io2</c> volumes only. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+        /// Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeType
         /// <summary>
         /// <para>
-        /// <para>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
-        /// EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>Default: The existing type is retained.</para>
+        /// <para>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon
+        /// EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</para><para>Default: The existing type is retained.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

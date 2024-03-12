@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para>
         /// <para>The user name for the account. For instances not using SAML for identity management,
         /// the user name can include up to 20 characters. If you are using SAML for identity
-        /// management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</para>
+        /// management, the user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</para><para>Username can include @ only if used in an email format. For example:</para><ul><li><para>Correct: testuser</para></li><li><para>Correct: testuser@example.com</para></li><li><para>Incorrect: testuser@example</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

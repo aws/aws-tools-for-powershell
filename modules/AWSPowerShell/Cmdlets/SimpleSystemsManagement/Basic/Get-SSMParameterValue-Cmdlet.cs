@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The names or Amazon Resource Names (ARNs) of the parameters that you want to query.
         /// For parameters shared with you from another account, you must use the full ARNs.</para><para>To query by parameter label, use <c>"Name": "name:label"</c>. To query by parameter
-        /// version, use <c>"Name": "name:version"</c>.</para><para>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sharing.html">Working
+        /// version, use <c>"Name": "name:version"</c>.</para><para>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working
         /// with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>

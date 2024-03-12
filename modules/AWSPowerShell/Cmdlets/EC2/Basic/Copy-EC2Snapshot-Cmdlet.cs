@@ -46,15 +46,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// Snapshots copied to an Outpost are encrypted by default using the default encryption
     /// key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>.
-    /// Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud
-    /// User Guide</i>.
+    /// Outposts do not support unencrypted snapshots. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">
+    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><para>
     /// Snapshots created by copying another snapshot have an arbitrary volume ID that should
     /// not be used for any purpose.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copy
-    /// an Amazon EBS snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-copy-snapshot.html">Copy
+    /// an Amazon EBS snapshot</a> in the <i>Amazon EBS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// specify this parameter when copying a snapshot from an Amazon Web Services Region
         /// to an Outpost. The snapshot must be in the Region for the destination Outpost. You
         /// cannot copy a snapshot from an Outpost to a Region, from one Outpost to another, or
-        /// within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
+        /// within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-snapshots">
         /// Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon
-        /// Elastic Compute Cloud User Guide</i>.</para>
+        /// EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// enable encryption using this parameter. Otherwise, omit this parameter. Encrypted
         /// snapshots are encrypted, even if you omit this parameter and encryption by default
         /// is not enabled. You cannot set this parameter to false. For more information, see
-        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
+        /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

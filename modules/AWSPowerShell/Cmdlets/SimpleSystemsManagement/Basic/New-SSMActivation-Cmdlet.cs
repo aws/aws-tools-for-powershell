@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Systems Manager capabilities. You use the activation code and ID when installing SSM
     /// Agent on machines in your hybrid environment. For more information about requirements
     /// for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting
-    /// up Amazon Web Services Systems Manager for hybrid environments</a> in the <i>Amazon
-    /// Web Services Systems Manager User Guide</i>. 
+    /// up Amazon Web Services Systems Manager for hybrid and multicloud environments</a>
+    /// in the <i>Amazon Web Services Systems Manager User Guide</i>. 
     /// 
     ///  <note><para>
     /// Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// to the managed node. This IAM role must provide AssumeRole permissions for the Amazon
         /// Web Services Systems Manager service principal <c>ssm.amazonaws.com</c>. For more
         /// information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
-        /// an IAM service role for a hybrid environment</a> in the <i>Amazon Web Services Systems
-        /// Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
+        /// an IAM service role for a hybrid and multicloud environment</a> in the <i>Amazon Web
+        /// Services Systems Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
         /// unique role.</para></note>
         /// </para>
         /// </summary>

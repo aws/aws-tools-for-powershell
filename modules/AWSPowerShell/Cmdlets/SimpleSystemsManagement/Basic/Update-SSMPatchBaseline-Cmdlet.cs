@@ -168,11 +168,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// list.</para><ul><li><para><b><c>ALLOW_AS_DEPENDENCY</c></b>: A package in the <c>Rejected</c> patches list
         /// is installed only if it is a dependency of another package. It is considered compliant
         /// with the patch baseline, and its status is reported as <c>InstalledOther</c>. This
-        /// is the default action if no option is specified.</para></li><li><para><b><c>BLOCK</c></b>: Packages in the <c>RejectedPatches</c> list, and packages
-        /// that include them as dependencies, aren't installed under any circumstances. If a
-        /// package was installed before it was added to the <c>Rejected</c> patches list, it
-        /// is considered non-compliant with the patch baseline, and its status is reported as
-        /// <c>InstalledRejected</c>.</para></li></ul>
+        /// is the default action if no option is specified.</para></li><li><para><b>BLOCK</b>: Packages in the <b>Rejected patches</b> list, and packages that include
+        /// them as dependencies, aren't installed by Patch Manager under any circumstances. If
+        /// a package was installed before it was added to the <b>Rejected patches</b> list, or
+        /// is installed outside of Patch Manager afterward, it's considered noncompliant with
+        /// the patch baseline and its status is reported as <i>InstalledRejected</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

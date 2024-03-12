@@ -36,7 +36,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete
     /// Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator
     /// Guide</i>.
-    /// </para>
+    /// </para><important><para>
+    /// After calling DeleteUser, call <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteQuickConnect.html">DeleteQuickConnect</a>
+    /// to delete any records related to the deleted users. This will help you:
+    /// </para><ul><li><para>
+    /// Avoid dangling resources that impact your service quotas.
+    /// </para></li><li><para>
+    /// Remove deleted users so they don't appear to agents as transfer options.
+    /// </para></li><li><para>
+    /// Avoid the disruption of other Amazon Connect processes, such as instance replication
+    /// and syncing if you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon
+    /// Connect Global Resiliency</a>. 
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Remove", "CONNUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

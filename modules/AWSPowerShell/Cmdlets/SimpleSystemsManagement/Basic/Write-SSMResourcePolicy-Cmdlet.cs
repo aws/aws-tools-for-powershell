@@ -39,15 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// using Resource Access Manager (RAM). 
     /// </para><para>
     /// To share a parameter, it must be in the advanced parameter tier. For information about
-    /// parameter tiers, see <a href="https://docs.aws.amazon.com/parameter-store- advanced-parameters.html">Managing
+    /// parameter tiers, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Managing
     /// parameter tiers</a>. For information about changing an existing standard parameter
-    /// to an advanced parameter, see <a href="https://docs.aws.amazon.com/parameter-store-advanced-parameters.html#parameter-&#xD;&#xA;            store-advanced-parameters-enabling">Changing a standard parameter to an advanced parameter</a>.
+    /// to an advanced parameter, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html#parameter-store-advanced-parameters-enabling">Changing
+    /// a standard parameter to an advanced parameter</a>.
     /// </para><para>
     /// To share a <c>SecureString</c> parameter, it must be encrypted with a customer managed
     /// key, and you must share the key separately through Key Management Service. Amazon
     /// Web Services managed keys cannot be shared. Parameters encrypted with the default
     /// Amazon Web Services managed key can be updated to use a customer managed key instead.
-    /// For KMS key definitions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt">KMS
+    /// For KMS key definitions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">KMS
     /// concepts</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><important><para>
     /// While you can share a parameter using the Systems Manager <c>PutResourcePolicy</c>

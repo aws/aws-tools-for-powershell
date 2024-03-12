@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// For more information about Availability Zones, Local Zones, and Wavelength Zones,
     /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions
     /// and zones</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para>
+    /// </para><note><para>
+    /// The order of the elements in the response, including those within nested structures,
+    /// might vary. Applications should not assume the elements appear in a particular order.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EC2AvailabilityZone")]
     [OutputType("Amazon.EC2.Model.AvailabilityZone")]
@@ -70,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The filters.</para><ul><li><para><c>group-name</c> - For Availability Zones, use the Region name. For Local Zones,
         /// use the name of the group associated with the Local Zone (for example, <c>us-west-2-lax-1</c>)
         /// For Wavelength Zones, use the name of the group associated with the Wavelength Zone
-        /// (for example, <c>us-east-1-wl1-bos-wlz-1</c>).</para></li><li><para><c>message</c> - The Zone message.</para></li><li><para><c>opt-in-status</c> - The opt-in status (<c>opted-in</c> | <c>not-opted-in</c> |
+        /// (for example, <c>us-east-1-wl1</c>).</para></li><li><para><c>message</c> - The Zone message.</para></li><li><para><c>opt-in-status</c> - The opt-in status (<c>opted-in</c> | <c>not-opted-in</c> |
         /// <c>opt-in-not-required</c>).</para></li><li><para><c>parent-zone-id</c> - The ID of the zone that handles some of the Local Zone and
         /// Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>parent-zone-name</c> - The ID of the zone that handles some of the Local Zone
         /// and Wavelength Zone control plane operations, such as API calls.</para></li><li><para><c>region-name</c> - The name of the Region for the Zone (for example, <c>us-east-1</c>).</para></li><li><para><c>state</c> - The state of the Availability Zone, the Local Zone, or the Wavelength

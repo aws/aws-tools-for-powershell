@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can tag your snapshots during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
     /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">Amazon
-    /// Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-    /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html">Amazon
+    /// Elastic Block Store</a> and <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
+    /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -96,9 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// created in the same Region as the volume.</para></li><li><para>To create a snapshot of a volume on an Outpost and store the snapshot in the Region,
         /// omit this parameter. The snapshot is created in the Region for the Outpost.</para></li><li><para>To create a snapshot of a volume on an Outpost and store the snapshot on an Outpost,
         /// specify the ARN of the destination Outpost. The snapshot must be created on the same
-        /// Outpost as the volume.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">Create
-        /// local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute Cloud
-        /// User Guide</i>.</para>
+        /// Outpost as the volume.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">Create
+        /// local snapshots from volumes on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

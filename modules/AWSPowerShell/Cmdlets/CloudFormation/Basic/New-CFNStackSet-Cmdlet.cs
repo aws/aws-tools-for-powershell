@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>
         /// <para>The structure that contains the template body, with a minimum length of 1 byte and
         /// a maximum length of 51,200 bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
+        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
         /// but not both.</para>
         /// </para>
         /// </summary>
@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The location of the file that contains the template body. The URL must point to a
         /// template (maximum size: 460,800 bytes) that's located in an Amazon S3 bucket or a
         /// Systems Manager document. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
-        /// Anatomy</a> in the CloudFormation User Guide.</para><para>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
+        /// Anatomy</a> in the <i>CloudFormation User Guide</i>.</para><para>Conditional: You must specify either the TemplateBody or the TemplateURL parameter,
         /// but not both.</para>
         /// </para>
         /// </summary>

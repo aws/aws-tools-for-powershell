@@ -40,9 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// the mode to <c>block-new-sharing</c>, all snapshots that were previously publicly
     /// shared are no longer treated as private and they become publicly accessible again.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html">
-    /// Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User
-    /// Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
+    /// Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "EC2SnapshotBlockPublicAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

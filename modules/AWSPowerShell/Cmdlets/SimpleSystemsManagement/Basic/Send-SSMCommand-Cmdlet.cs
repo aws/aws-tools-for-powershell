@@ -117,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The name of the Amazon Web Services Systems Manager document (SSM document) to run.
         /// This can be a public document or a custom document. To run a shared document belonging
         /// to another account, specify the document Amazon Resource Name (ARN). For more information
-        /// about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using
-        /// shared SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><note><para>If you specify a document name or ARN that hasn't been shared with your account, you
+        /// about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Sharing
+        /// SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><note><para>If you specify a document name or ARN that hasn't been shared with your account, you
         /// receive an <c>InvalidDocument</c> error. </para></note>
         /// </para>
         /// </summary>
@@ -167,9 +167,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// you can specify up to 50 IDs.</para><para>To target a larger number of managed nodes, or if you prefer not to list individual
         /// node IDs, we recommend using the <c>Targets</c> option instead. Using <c>Targets</c>,
         /// which accepts tag key-value pairs to identify the managed nodes to send commands to,
-        /// you can a send command to tens, hundreds, or thousands of nodes at once.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using
-        /// targets and rate controls to send commands to a fleet</a> in the <i>Amazon Web Services
-        /// Systems Manager User Guide</i>.</para>
+        /// you can a send command to tens, hundreds, or thousands of nodes at once.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run
+        /// commands at scale</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -309,8 +308,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// to a large number of managed nodes at once. Using <c>Targets</c>, which accepts tag
         /// key-value pairs to identify managed nodes, you can send a command to tens, hundreds,
         /// or thousands of nodes at once.</para><para>To send a command to a smaller number of managed nodes, you can use the <c>InstanceIds</c>
-        /// option instead.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
-        /// commands to a fleet</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
+        /// option instead.</para><para>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run
+        /// commands at scale</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

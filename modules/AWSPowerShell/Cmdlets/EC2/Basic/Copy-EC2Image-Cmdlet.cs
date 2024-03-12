@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Backing snapshots copied to an Outpost are encrypted by default using the default
     /// encryption key for the Region, or a different key that you specify in the request
     /// using <b>KmsKeyId</b>. Outposts do not support unencrypted snapshots. For more information,
-    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.
+    /// <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">
+    /// Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><para>
     /// For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an
     /// AMI</a> in the <i>Amazon EC2 User Guide</i>.
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify
         /// this parameter when copying an AMI from an Amazon Web Services Region to an Outpost.
         /// The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from
-        /// an Outpost to a Region, from one Outpost to another, or within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
-        /// Copy AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon EC2
-        /// User Guide</i>.</para>
+        /// an Outpost to a Region, from one Outpost to another, or within the same Outpost.</para><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-amis">Copy
+        /// AMIs from an Amazon Web Services Region to an Outpost</a> in the <i>Amazon EBS User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
         /// copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you
         /// specify a non-default Key Management Service (KMS) KMS key using <c>KmsKeyId</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-        /// EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
+        /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

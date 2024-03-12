@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// that was shared using the <a>PutResourcePolicy</a> command to be returned, the associated
         /// <c>RAM Resource Share Created From Policy</c> must have been promoted to a standard
         /// Resource Share using the RAM <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a>
-        /// API operation.</para><para>For more information about sharing parameters, see <a href="systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working
+        /// API operation.</para><para>For more information about sharing parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working
         /// with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para></note>
         /// </para>
         /// </summary>

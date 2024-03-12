@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.765.0",
+    "ProductVersion"    : "3.7.766.0",
     "CoreVersion"       : "3.7.302.16",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -31,7 +31,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.304.1",
+            "Version" : "3.7.304.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"
@@ -153,7 +153,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.316.1",
+            "Version" : "3.7.316.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"
@@ -371,7 +371,7 @@
             "InPreview"               : false
         },
         "SimpleSystemsManagement"   : {
-            "Version" : "3.7.303.3",
+            "Version" : "3.7.303.4",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"
@@ -1059,7 +1059,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.312.14",
+            "Version" : "3.7.313.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"
@@ -1323,7 +1323,7 @@
             "InPreview"               : false
         },
         "Kafka"                           : {
-            "Version" : "3.7.301.51",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.16"

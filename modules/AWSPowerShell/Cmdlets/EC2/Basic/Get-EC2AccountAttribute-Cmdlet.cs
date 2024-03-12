@@ -42,7 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// allocate.
     /// </para></li><li><para><c>vpc-max-security-groups-per-interface</c>: The maximum number of security groups
     /// that you can assign to a network interface.
-    /// </para></li></ul>
+    /// </para></li></ul><note><para>
+    /// The order of the elements in the response, including those within nested structures,
+    /// might vary. Applications should not assume the elements appear in a particular order.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EC2AccountAttribute")]
     [OutputType("Amazon.EC2.Model.AccountAttribute")]

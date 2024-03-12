@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// pass, the overall status of the volume is <c>ok</c>. If the check fails, the overall
     /// status is <c>impaired</c>. If the status is <c>insufficient-data</c>, then the checks
     /// might still be taking place on your volume at the time. We recommend that you retry
-    /// the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor
-    /// the status of your volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// the request. For more information about volume status, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-status.html">Monitor
+    /// the status of your volumes</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><para><i>Events</i>: Reflect the cause of a volume status and might require you to take
     /// action. For example, if your volume returns an <c>impaired</c> status, then the volume
     /// event might be <c>potential-data-inconsistency</c>. This means that your volume has
@@ -61,7 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Volume status is based on the volume status checks, and does not reflect the volume
     /// state. Therefore, volume status does not indicate volumes in the <c>error</c> state
     /// (for example, when a volume is incapable of accepting I/O.)
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// </para><note><para>
+    /// The order of the elements in the response, including those within nested structures,
+    /// might vary. Applications should not assume the elements appear in a particular order.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VolumeStatus")]
     [OutputType("Amazon.EC2.Model.VolumeStatusItem")]

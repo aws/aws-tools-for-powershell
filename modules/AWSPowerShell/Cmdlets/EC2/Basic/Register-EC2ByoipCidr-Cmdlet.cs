@@ -63,9 +63,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix
-        /// that you can specify is /24. The most specific IPv6 prefix you can specify is /56.
-        /// The address range cannot overlap with another address range that you've brought to
-        /// this or another Region.</para>
+        /// that you can specify is /24. The most specific IPv6 address range that you can bring
+        /// is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly
+        /// advertisable. The address range cannot overlap with another address range that you've
+        /// brought to this or another Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

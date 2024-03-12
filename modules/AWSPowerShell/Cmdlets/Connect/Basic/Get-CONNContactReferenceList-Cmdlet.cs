@@ -33,7 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     ///  
     /// <para>
     /// For the specified <c>referenceTypes</c>, returns a list of references associated with
-    /// the contact. 
+    /// the contact. <i>References</i> are links to documents that are related to a contact,
+    /// such as emails, attachments, or URLs.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CONNContactReferenceList")]

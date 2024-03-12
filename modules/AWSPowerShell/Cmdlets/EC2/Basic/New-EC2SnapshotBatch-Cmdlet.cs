@@ -125,9 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// are created in the same Region as the instance.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots in the
         /// Region, omit this parameter. The snapshots are created in the Region for the Outpost.</para></li><li><para>To create snapshots from an instance on an Outpost and store the snapshots on an Outpost,
         /// specify the ARN of the destination Outpost. The snapshots must be created on the same
-        /// Outpost as the instance.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
+        /// Outpost as the instance.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-multivol-snapshot">
         /// Create multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon
-        /// Elastic Compute Cloud User Guide</i>.</para>
+        /// EBS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

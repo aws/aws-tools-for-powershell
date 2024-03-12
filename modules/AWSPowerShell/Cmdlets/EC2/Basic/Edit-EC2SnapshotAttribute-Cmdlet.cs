@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// cannot be made public. Snapshots encrypted with your default KMS key cannot be shared
     /// with other accounts.
     /// </para><para>
-    /// For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share
-    /// a snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html">Share
+    /// a snapshot</a> in the <i>Amazon EBS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2SnapshotAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

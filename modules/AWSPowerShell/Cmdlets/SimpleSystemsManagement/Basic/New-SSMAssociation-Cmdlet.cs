@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The document version you want to associate with the target(s). Can be a specific version
+        /// <para>The document version you want to associate with the targets. Can be a specific version
         /// or the default version.</para><important><para>State Manager doesn't support running associations that use a new version of a document
         /// if that document is shared from another account. State Manager always runs the <c>default</c>
         /// version of a document if shared from another account, even though the Systems Manager
@@ -294,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A cron expression when the association will be applied to the target(s).</para>
+        /// <para>A cron expression when the association will be applied to the targets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -383,9 +383,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// Web Services resource groups, all managed nodes in an Amazon Web Services account,
         /// or individual managed node IDs. You can target all managed nodes in an Amazon Web
         /// Services account by specifying the <c>InstanceIds</c> key with a value of <c>*</c>.
-        /// For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using
-        /// targets and rate controls with State Manager associations</a> in the <i>Amazon Web
-        /// Services Systems Manager User Guide</i>.</para>
+        /// For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">About
+        /// targets and rate controls in State Manager associations</a> in the <i>Amazon Web Services
+        /// Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

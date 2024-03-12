@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing
     /// Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference</i>.
-    /// </para>
+    /// </para><note><para>
+    /// The order of the elements in the response, including those within nested structures,
+    /// might vary. Applications should not assume the elements appear in a particular order.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "EC2Region")]
     [OutputType("Amazon.EC2.Model.Region")]

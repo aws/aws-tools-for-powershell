@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <para>
     /// Operations engineers and IT professionals use Amazon Web Services Systems Manager
     /// OpsCenter to view, investigate, and remediate operational issues impacting the performance
-    /// and health of their Amazon Web Services resources. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a>
-    /// in the <i>Amazon Web Services Systems Manager User Guide</i>. 
+    /// and health of their Amazon Web Services resources. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">Amazon
+    /// Web Services Systems Manager OpsCenter</a> in the <i>Amazon Web Services Systems Manager
+    /// User Guide</i>. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SSMOpsItemSummary")]

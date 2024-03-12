@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The Amazon Web Services users that should no longer have access to the document. The
         /// Amazon Web Services user can either be a group of account IDs or <i>All</i>. This
-        /// action has a higher priority than <i>AccountIdsToAdd</i>. If you specify an ID to
+        /// action has a higher priority than <c>AccountIdsToAdd</c>. If you specify an ID to
         /// add and the same ID to remove, the system removes access to the document.</para>
         /// </para>
         /// </summary>

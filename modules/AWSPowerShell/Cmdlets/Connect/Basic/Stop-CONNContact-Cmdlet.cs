@@ -28,8 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Ends the specified contact. This call does not work for voice contacts that use the
-    /// following initiation methods:
+    /// Ends the specified contact. Use this API to stop queued callbacks. It does not work
+    /// for voice contacts that use the following initiation methods:
     /// 
     ///  <ul><li><para>
     /// DISCONNECT
@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// </para></li><li><para>
     /// QUEUE_TRANSFER
     /// </para></li></ul><para>
-    /// Chat and task contacts, however, can be terminated in any state, regardless of initiation
-    /// method.
+    /// Chat and task contacts can be terminated in any state, regardless of initiation method.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "CONNContact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

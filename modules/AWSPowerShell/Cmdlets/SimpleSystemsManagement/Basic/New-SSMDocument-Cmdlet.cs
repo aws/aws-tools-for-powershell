@@ -65,9 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// must not exceed 64KB. This quota also includes the content specified for input parameters
         /// at runtime. We recommend storing the contents for your new document in an external
         /// JSON or YAML file and referencing the file in a command.</para><para>For examples, see the following topics in the <i>Amazon Web Services Systems Manager
-        /// User Guide</i>.</para><ul><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create
-        /// an SSM document (Amazon Web Services API)</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create
-        /// an SSM document (Amazon Web Services CLI)</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create
+        /// User Guide</i>.</para><ul><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-console">Create
+        /// an SSM document (console)</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-document-cli">Create
+        /// an SSM document (command line)</a></para></li><li><para><a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-document-api">Create
         /// an SSM document (API)</a></para></li></ul>
         /// </para>
         /// </summary>

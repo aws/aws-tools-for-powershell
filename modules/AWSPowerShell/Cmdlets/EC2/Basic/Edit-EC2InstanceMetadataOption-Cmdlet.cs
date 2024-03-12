@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Set to <c>enabled</c> to allow access to instance tags from the instance metadata.
         /// Set to <c>disabled</c> to turn off access to instance tags from the instance metadata.
         /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work
-        /// with instance tags using the instance metadata</a>.</para><para>Default: <c>disabled</c></para>
+        /// with instance tags using the instance metadata</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

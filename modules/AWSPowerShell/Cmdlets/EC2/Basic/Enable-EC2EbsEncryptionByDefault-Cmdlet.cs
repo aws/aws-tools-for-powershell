@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// After you enable encryption by default, the EBS volumes that you create are always
     /// encrypted, either using the default KMS key or the KMS key that you specified when
-    /// you created each volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
-    /// EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// you created each volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon
+    /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><para>
     /// You can specify the default KMS key for encryption by default using <a>ModifyEbsDefaultKmsKeyId</a>
     /// or <a>ResetEbsDefaultKmsKeyId</a>.
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// volumes.
     /// </para><para>
     /// After you enable encryption by default, you can no longer launch instances using instance
-    /// types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+    /// types that do not support encryption. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported
     /// instance types</a>.
     /// </para>
     /// </summary>

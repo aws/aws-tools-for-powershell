@@ -71,9 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DeliverLogsPermissionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch
-        /// Logs log group in your account.</para><para>This parameter is required if the destination type is <c>cloud-watch-logs</c> and
-        /// unsupported otherwise.</para>
+        /// <para>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to the log destination.</para><para>This parameter is required if the destination type is <c>cloud-watch-logs</c>, or
+        /// if the destination type is <c>kinesis-data-firehose</c> and the delivery stream and
+        /// the resources to monitor are in different accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
