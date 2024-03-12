@@ -1,3 +1,0 @@
-﻿# IoTRoboRunner
-
-Export-ModuleMember -Alias *

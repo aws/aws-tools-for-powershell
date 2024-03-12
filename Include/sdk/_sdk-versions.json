@@ -2562,14 +2562,6 @@
             },
             "InPreview"               : false
         },
-        "IoTRoboRunner"                       : {
-            "Version" : "3.7.300.56",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.302.17"
-            },
-            "InPreview"               : false
-        },
         "SsmSap"                              : {
             "Version" : "3.7.301.53",
             "AssemblyVersionOverride" : "3.3",
