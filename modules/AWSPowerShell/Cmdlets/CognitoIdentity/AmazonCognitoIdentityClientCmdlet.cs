@@ -64,4 +64,42 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             Client = CreateClient(_CurrentCredentials, _RegionEndpoint);
         }
     }
+    
+    [AWSClientCmdlet("Amazon Cognito Identity", "CGI", "2014-06-30", "CognitoIdentity")]
+    public abstract partial class AnonymousAmazonCognitoIdentityClientCmdlet : AnonymousServiceCmdlet
+    {
+        protected IAmazonCognitoIdentity Client { get; private set; }
+        
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public AmazonCognitoIdentityConfig ClientConfig
+        {
+            get
+            {
+                return base._ClientConfig as AmazonCognitoIdentityConfig;
+            }
+            set
+            {
+                base._ClientConfig = value;
+            }
+        }
+        
+        protected IAmazonCognitoIdentity CreateClient(RegionEndpoint region)
+        {
+            var config = this.ClientConfig ?? new AmazonCognitoIdentityConfig();
+            if (region != null) config.RegionEndpoint = region;
+            Amazon.PowerShell.Utils.Common.PopulateConfig(this, config);
+            this.CustomizeClientConfig(config);
+            var client = new AmazonCognitoIdentityClient(new AnonymousAWSCredentials(), config);
+            client.BeforeRequestEvent += RequestEventHandler;
+            client.AfterResponseEvent += ResponseEventHandler;
+            return client;
+        }
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            Client = CreateClient(_RegionEndpoint);
+        }
+    }
 }

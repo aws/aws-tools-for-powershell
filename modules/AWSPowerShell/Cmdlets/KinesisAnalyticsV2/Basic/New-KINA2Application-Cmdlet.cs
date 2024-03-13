@@ -28,8 +28,8 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Creates a Kinesis Data Analytics application. For information about creating a Kinesis
-    /// Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
+    /// Creates a Managed Service for Apache Flink application. For information about creating
+    /// a Managed Service for Apache Flink application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating
     /// an Application</a>.
     /// </summary>
     [Cmdlet("New", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter ApplicationMode
         /// <summary>
         /// <para>
-        /// <para>Use the <c>STREAMING</c> mode to create a Kinesis Data Analytics For Flink application.
-        /// To create a Kinesis Data Analytics Studio notebook, use the <c>INTERACTIVE</c> mode.</para>
+        /// <para>Use the <c>STREAMING</c> mode to create a Managed Service for Apache Flink application.
+        /// To create a Managed Service for Apache Flink Studio notebook, use the <c>INTERACTIVE</c>
+        /// mode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

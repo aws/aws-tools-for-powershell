@@ -90,6 +90,41 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.String Grid_FeaturedParticipantAttribute { get; set; }
         #endregion
         
+        #region Parameter Pip_FeaturedParticipantAttribute
+        /// <summary>
+        /// <para>
+        /// <para>This attribute name identifies the featured slot. A participant with this attribute
+        /// set to <c>"true"</c> (as a string value) in <a>ParticipantTokenConfiguration</a> is
+        /// placed in the featured slot.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_FeaturedParticipantAttribute")]
+        public System.String Pip_FeaturedParticipantAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Grid_GridGap
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the spacing between participant tiles in pixels. Default: <c>2</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Grid_GridGap")]
+        public System.Int32? Grid_GridGap { get; set; }
+        #endregion
+        
+        #region Parameter Pip_GridGap
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the spacing between participant tiles in pixels. Default: <c>0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_GridGap")]
+        public System.Int32? Pip_GridGap { get; set; }
+        #endregion
+        
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
@@ -98,6 +133,104 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdempotencyToken { get; set; }
+        #endregion
+        
+        #region Parameter Grid_OmitStoppedVideo
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether to omit participants with stopped video in the composition. Default:
+        /// <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Grid_OmitStoppedVideo")]
+        public System.Boolean? Grid_OmitStoppedVideo { get; set; }
+        #endregion
+        
+        #region Parameter Pip_OmitStoppedVideo
+        /// <summary>
+        /// <para>
+        /// <para>Determines whether to omit participants with stopped video in the composition. Default:
+        /// <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_OmitStoppedVideo")]
+        public System.Boolean? Pip_OmitStoppedVideo { get; set; }
+        #endregion
+        
+        #region Parameter Pip_PipBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Defines PiP behavior when all participants have left. Default: <c>STATIC</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_PipBehavior")]
+        [AWSConstantClassSource("Amazon.IVSRealTime.PipBehavior")]
+        public Amazon.IVSRealTime.PipBehavior Pip_PipBehavior { get; set; }
+        #endregion
+        
+        #region Parameter Pip_PipHeight
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the height of the PiP window in pixels. When this is not set explicitly,
+        /// <c>pipHeight</c>’s value will be based on the size of the composition and the aspect
+        /// ratio of the participant’s video.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_PipHeight")]
+        public System.Int32? Pip_PipHeight { get; set; }
+        #endregion
+        
+        #region Parameter Pip_PipOffset
+        /// <summary>
+        /// <para>
+        /// <para>Sets the PiP window’s offset position in pixels from the closest edges determined
+        /// by <c>PipPosition</c>. Default: <c>0</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_PipOffset")]
+        public System.Int32? Pip_PipOffset { get; set; }
+        #endregion
+        
+        #region Parameter Pip_PipParticipantAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the PiP slot. A participant with this attribute set to <c>"true"</c> (as
+        /// a string value) in <a>ParticipantTokenConfiguration</a> is placed in the PiP slot.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_PipParticipantAttribute")]
+        public System.String Pip_PipParticipantAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Pip_PipPosition
+        /// <summary>
+        /// <para>
+        /// <para>Determines the corner position of the PiP window. Default: <c>BOTTOM_RIGHT</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_PipPosition")]
+        [AWSConstantClassSource("Amazon.IVSRealTime.PipPosition")]
+        public Amazon.IVSRealTime.PipPosition Pip_PipPosition { get; set; }
+        #endregion
+        
+        #region Parameter Pip_PipWidth
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the width of the PiP window in pixels. When this is not set explicitly,
+        /// <c>pipWidth</c>’s value will be based on the size of the composition and the aspect
+        /// ratio of the participant’s video.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_PipWidth")]
+        public System.Int32? Pip_PipWidth { get; set; }
         #endregion
         
         #region Parameter StageArn
@@ -130,6 +263,44 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Grid_VideoAspectRatio
+        /// <summary>
+        /// <para>
+        /// <para>Sets the non-featured participant display mode. Default: <c>VIDEO</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Grid_VideoAspectRatio")]
+        [AWSConstantClassSource("Amazon.IVSRealTime.VideoAspectRatio")]
+        public Amazon.IVSRealTime.VideoAspectRatio Grid_VideoAspectRatio { get; set; }
+        #endregion
+        
+        #region Parameter Grid_VideoFillMode
+        /// <summary>
+        /// <para>
+        /// <para>Defines how video fits within the participant tile. When not set, <c>videoFillMode</c>
+        /// defaults to <c>COVER</c> fill mode for participants in the grid and to <c>CONTAIN</c>
+        /// fill mode for featured participants.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Grid_VideoFillMode")]
+        [AWSConstantClassSource("Amazon.IVSRealTime.VideoFillMode")]
+        public Amazon.IVSRealTime.VideoFillMode Grid_VideoFillMode { get; set; }
+        #endregion
+        
+        #region Parameter Pip_VideoFillMode
+        /// <summary>
+        /// <para>
+        /// <para>Defines how video fits within the participant tile. Default: <c>COVER</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Layout_Pip_VideoFillMode")]
+        [AWSConstantClassSource("Amazon.IVSRealTime.VideoFillMode")]
+        public Amazon.IVSRealTime.VideoFillMode Pip_VideoFillMode { get; set; }
         #endregion
         
         #region Parameter Select
@@ -206,6 +377,20 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             #endif
             context.IdempotencyToken = this.IdempotencyToken;
             context.Grid_FeaturedParticipantAttribute = this.Grid_FeaturedParticipantAttribute;
+            context.Grid_GridGap = this.Grid_GridGap;
+            context.Grid_OmitStoppedVideo = this.Grid_OmitStoppedVideo;
+            context.Grid_VideoAspectRatio = this.Grid_VideoAspectRatio;
+            context.Grid_VideoFillMode = this.Grid_VideoFillMode;
+            context.Pip_FeaturedParticipantAttribute = this.Pip_FeaturedParticipantAttribute;
+            context.Pip_GridGap = this.Pip_GridGap;
+            context.Pip_OmitStoppedVideo = this.Pip_OmitStoppedVideo;
+            context.Pip_PipBehavior = this.Pip_PipBehavior;
+            context.Pip_PipHeight = this.Pip_PipHeight;
+            context.Pip_PipOffset = this.Pip_PipOffset;
+            context.Pip_PipParticipantAttribute = this.Pip_PipParticipantAttribute;
+            context.Pip_PipPosition = this.Pip_PipPosition;
+            context.Pip_PipWidth = this.Pip_PipWidth;
+            context.Pip_VideoFillMode = this.Pip_VideoFillMode;
             context.StageArn = this.StageArn;
             #if MODULAR
             if (this.StageArn == null && ParameterWasBound(nameof(this.StageArn)))
@@ -264,6 +449,46 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 requestLayout_layout_Grid.FeaturedParticipantAttribute = requestLayout_layout_Grid_grid_FeaturedParticipantAttribute;
                 requestLayout_layout_GridIsNull = false;
             }
+            System.Int32? requestLayout_layout_Grid_grid_GridGap = null;
+            if (cmdletContext.Grid_GridGap != null)
+            {
+                requestLayout_layout_Grid_grid_GridGap = cmdletContext.Grid_GridGap.Value;
+            }
+            if (requestLayout_layout_Grid_grid_GridGap != null)
+            {
+                requestLayout_layout_Grid.GridGap = requestLayout_layout_Grid_grid_GridGap.Value;
+                requestLayout_layout_GridIsNull = false;
+            }
+            System.Boolean? requestLayout_layout_Grid_grid_OmitStoppedVideo = null;
+            if (cmdletContext.Grid_OmitStoppedVideo != null)
+            {
+                requestLayout_layout_Grid_grid_OmitStoppedVideo = cmdletContext.Grid_OmitStoppedVideo.Value;
+            }
+            if (requestLayout_layout_Grid_grid_OmitStoppedVideo != null)
+            {
+                requestLayout_layout_Grid.OmitStoppedVideo = requestLayout_layout_Grid_grid_OmitStoppedVideo.Value;
+                requestLayout_layout_GridIsNull = false;
+            }
+            Amazon.IVSRealTime.VideoAspectRatio requestLayout_layout_Grid_grid_VideoAspectRatio = null;
+            if (cmdletContext.Grid_VideoAspectRatio != null)
+            {
+                requestLayout_layout_Grid_grid_VideoAspectRatio = cmdletContext.Grid_VideoAspectRatio;
+            }
+            if (requestLayout_layout_Grid_grid_VideoAspectRatio != null)
+            {
+                requestLayout_layout_Grid.VideoAspectRatio = requestLayout_layout_Grid_grid_VideoAspectRatio;
+                requestLayout_layout_GridIsNull = false;
+            }
+            Amazon.IVSRealTime.VideoFillMode requestLayout_layout_Grid_grid_VideoFillMode = null;
+            if (cmdletContext.Grid_VideoFillMode != null)
+            {
+                requestLayout_layout_Grid_grid_VideoFillMode = cmdletContext.Grid_VideoFillMode;
+            }
+            if (requestLayout_layout_Grid_grid_VideoFillMode != null)
+            {
+                requestLayout_layout_Grid.VideoFillMode = requestLayout_layout_Grid_grid_VideoFillMode;
+                requestLayout_layout_GridIsNull = false;
+            }
              // determine if requestLayout_layout_Grid should be set to null
             if (requestLayout_layout_GridIsNull)
             {
@@ -272,6 +497,121 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (requestLayout_layout_Grid != null)
             {
                 request.Layout.Grid = requestLayout_layout_Grid;
+                requestLayoutIsNull = false;
+            }
+            Amazon.IVSRealTime.Model.PipConfiguration requestLayout_layout_Pip = null;
+            
+             // populate Pip
+            var requestLayout_layout_PipIsNull = true;
+            requestLayout_layout_Pip = new Amazon.IVSRealTime.Model.PipConfiguration();
+            System.String requestLayout_layout_Pip_pip_FeaturedParticipantAttribute = null;
+            if (cmdletContext.Pip_FeaturedParticipantAttribute != null)
+            {
+                requestLayout_layout_Pip_pip_FeaturedParticipantAttribute = cmdletContext.Pip_FeaturedParticipantAttribute;
+            }
+            if (requestLayout_layout_Pip_pip_FeaturedParticipantAttribute != null)
+            {
+                requestLayout_layout_Pip.FeaturedParticipantAttribute = requestLayout_layout_Pip_pip_FeaturedParticipantAttribute;
+                requestLayout_layout_PipIsNull = false;
+            }
+            System.Int32? requestLayout_layout_Pip_pip_GridGap = null;
+            if (cmdletContext.Pip_GridGap != null)
+            {
+                requestLayout_layout_Pip_pip_GridGap = cmdletContext.Pip_GridGap.Value;
+            }
+            if (requestLayout_layout_Pip_pip_GridGap != null)
+            {
+                requestLayout_layout_Pip.GridGap = requestLayout_layout_Pip_pip_GridGap.Value;
+                requestLayout_layout_PipIsNull = false;
+            }
+            System.Boolean? requestLayout_layout_Pip_pip_OmitStoppedVideo = null;
+            if (cmdletContext.Pip_OmitStoppedVideo != null)
+            {
+                requestLayout_layout_Pip_pip_OmitStoppedVideo = cmdletContext.Pip_OmitStoppedVideo.Value;
+            }
+            if (requestLayout_layout_Pip_pip_OmitStoppedVideo != null)
+            {
+                requestLayout_layout_Pip.OmitStoppedVideo = requestLayout_layout_Pip_pip_OmitStoppedVideo.Value;
+                requestLayout_layout_PipIsNull = false;
+            }
+            Amazon.IVSRealTime.PipBehavior requestLayout_layout_Pip_pip_PipBehavior = null;
+            if (cmdletContext.Pip_PipBehavior != null)
+            {
+                requestLayout_layout_Pip_pip_PipBehavior = cmdletContext.Pip_PipBehavior;
+            }
+            if (requestLayout_layout_Pip_pip_PipBehavior != null)
+            {
+                requestLayout_layout_Pip.PipBehavior = requestLayout_layout_Pip_pip_PipBehavior;
+                requestLayout_layout_PipIsNull = false;
+            }
+            System.Int32? requestLayout_layout_Pip_pip_PipHeight = null;
+            if (cmdletContext.Pip_PipHeight != null)
+            {
+                requestLayout_layout_Pip_pip_PipHeight = cmdletContext.Pip_PipHeight.Value;
+            }
+            if (requestLayout_layout_Pip_pip_PipHeight != null)
+            {
+                requestLayout_layout_Pip.PipHeight = requestLayout_layout_Pip_pip_PipHeight.Value;
+                requestLayout_layout_PipIsNull = false;
+            }
+            System.Int32? requestLayout_layout_Pip_pip_PipOffset = null;
+            if (cmdletContext.Pip_PipOffset != null)
+            {
+                requestLayout_layout_Pip_pip_PipOffset = cmdletContext.Pip_PipOffset.Value;
+            }
+            if (requestLayout_layout_Pip_pip_PipOffset != null)
+            {
+                requestLayout_layout_Pip.PipOffset = requestLayout_layout_Pip_pip_PipOffset.Value;
+                requestLayout_layout_PipIsNull = false;
+            }
+            System.String requestLayout_layout_Pip_pip_PipParticipantAttribute = null;
+            if (cmdletContext.Pip_PipParticipantAttribute != null)
+            {
+                requestLayout_layout_Pip_pip_PipParticipantAttribute = cmdletContext.Pip_PipParticipantAttribute;
+            }
+            if (requestLayout_layout_Pip_pip_PipParticipantAttribute != null)
+            {
+                requestLayout_layout_Pip.PipParticipantAttribute = requestLayout_layout_Pip_pip_PipParticipantAttribute;
+                requestLayout_layout_PipIsNull = false;
+            }
+            Amazon.IVSRealTime.PipPosition requestLayout_layout_Pip_pip_PipPosition = null;
+            if (cmdletContext.Pip_PipPosition != null)
+            {
+                requestLayout_layout_Pip_pip_PipPosition = cmdletContext.Pip_PipPosition;
+            }
+            if (requestLayout_layout_Pip_pip_PipPosition != null)
+            {
+                requestLayout_layout_Pip.PipPosition = requestLayout_layout_Pip_pip_PipPosition;
+                requestLayout_layout_PipIsNull = false;
+            }
+            System.Int32? requestLayout_layout_Pip_pip_PipWidth = null;
+            if (cmdletContext.Pip_PipWidth != null)
+            {
+                requestLayout_layout_Pip_pip_PipWidth = cmdletContext.Pip_PipWidth.Value;
+            }
+            if (requestLayout_layout_Pip_pip_PipWidth != null)
+            {
+                requestLayout_layout_Pip.PipWidth = requestLayout_layout_Pip_pip_PipWidth.Value;
+                requestLayout_layout_PipIsNull = false;
+            }
+            Amazon.IVSRealTime.VideoFillMode requestLayout_layout_Pip_pip_VideoFillMode = null;
+            if (cmdletContext.Pip_VideoFillMode != null)
+            {
+                requestLayout_layout_Pip_pip_VideoFillMode = cmdletContext.Pip_VideoFillMode;
+            }
+            if (requestLayout_layout_Pip_pip_VideoFillMode != null)
+            {
+                requestLayout_layout_Pip.VideoFillMode = requestLayout_layout_Pip_pip_VideoFillMode;
+                requestLayout_layout_PipIsNull = false;
+            }
+             // determine if requestLayout_layout_Pip should be set to null
+            if (requestLayout_layout_PipIsNull)
+            {
+                requestLayout_layout_Pip = null;
+            }
+            if (requestLayout_layout_Pip != null)
+            {
+                request.Layout.Pip = requestLayout_layout_Pip;
                 requestLayoutIsNull = false;
             }
              // determine if request.Layout should be set to null
@@ -351,6 +691,20 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             public List<Amazon.IVSRealTime.Model.DestinationConfiguration> Destination { get; set; }
             public System.String IdempotencyToken { get; set; }
             public System.String Grid_FeaturedParticipantAttribute { get; set; }
+            public System.Int32? Grid_GridGap { get; set; }
+            public System.Boolean? Grid_OmitStoppedVideo { get; set; }
+            public Amazon.IVSRealTime.VideoAspectRatio Grid_VideoAspectRatio { get; set; }
+            public Amazon.IVSRealTime.VideoFillMode Grid_VideoFillMode { get; set; }
+            public System.String Pip_FeaturedParticipantAttribute { get; set; }
+            public System.Int32? Pip_GridGap { get; set; }
+            public System.Boolean? Pip_OmitStoppedVideo { get; set; }
+            public Amazon.IVSRealTime.PipBehavior Pip_PipBehavior { get; set; }
+            public System.Int32? Pip_PipHeight { get; set; }
+            public System.Int32? Pip_PipOffset { get; set; }
+            public System.String Pip_PipParticipantAttribute { get; set; }
+            public Amazon.IVSRealTime.PipPosition Pip_PipPosition { get; set; }
+            public System.Int32? Pip_PipWidth { get; set; }
+            public Amazon.IVSRealTime.VideoFillMode Pip_VideoFillMode { get; set; }
             public System.String StageArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IVSRealTime.Model.StartCompositionResponse, StartIVSRTCompositionCmdlet, object> Select { get; set; } =

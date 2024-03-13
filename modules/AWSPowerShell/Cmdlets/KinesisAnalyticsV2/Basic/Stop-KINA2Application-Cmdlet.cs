@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     /// You can use the <a>DescribeApplication</a> operation to find the application status.
     /// 
     /// </para><para>
-    /// Kinesis Data Analytics takes a snapshot when the application is stopped, unless <c>Force</c>
-    /// is set to <c>true</c>.
+    /// Managed Service for Apache Flink takes a snapshot when the application is stopped,
+    /// unless <c>Force</c> is set to <c>true</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,9 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         /// <summary>
         /// <para>
         /// <para>Set to <c>true</c> to force the application to stop. If you set <c>Force</c> to <c>true</c>,
-        /// Kinesis Data Analytics stops the application without taking a snapshot. </para><note><para>Force-stopping your application may lead to data loss or duplication. To prevent data
+        /// Managed Service for Apache Flink stops the application without taking a snapshot.
+        /// </para><note><para>Force-stopping your application may lead to data loss or duplication. To prevent data
         /// loss or duplicate processing of data during application restarts, we recommend you
-        /// to take frequent snapshots of your application.</para></note><para>You can only force stop a Flink-based Kinesis Data Analytics application. You can't
+        /// to take frequent snapshots of your application.</para></note><para>You can only force stop a Managed Service for Apache Flink application. You can't
         /// force stop a SQL-based Kinesis Data Analytics application.</para><para>The application must be in the <c>STARTING</c>, <c>UPDATING</c>, <c>STOPPING</c>,
         /// <c>AUTOSCALING</c>, or <c>RUNNING</c> status. </para>
         /// </para>

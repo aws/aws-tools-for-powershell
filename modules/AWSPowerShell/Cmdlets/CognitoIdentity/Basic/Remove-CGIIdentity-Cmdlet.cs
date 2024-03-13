@@ -22,71 +22,66 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KinesisAnalyticsV2;
-using Amazon.KinesisAnalyticsV2.Model;
+using Amazon.CognitoIdentity;
+using Amazon.CognitoIdentity.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KINA2
+namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Starts the specified Managed Service for Apache Flink application. After creating
-    /// an application, you must exclusively call this operation to start your application.
+    /// Deletes identities from an identity pool. You can specify a list of 1-60 identities
+    /// that you want to delete.
+    /// 
+    ///  
+    /// <para>
+    /// You must use AWS Developer credentials to call this API.
+    /// </para>
     /// </summary>
-    [Cmdlet("Start", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 StartApplication API operation.", Operation = new[] {"StartApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse))]
-    [AWSCmdletOutput("None or Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CGIIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.CognitoIdentity.Model.UnprocessedIdentityId")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity DeleteIdentities API operation.", Operation = new[] {"DeleteIdentities"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentity.Model.UnprocessedIdentityId or Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse",
+        "This cmdlet returns a collection of Amazon.CognitoIdentity.Model.UnprocessedIdentityId objects.",
+        "The service call response (type Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StartKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
+    public partial class RemoveCGIIdentityCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationName
+        #region Parameter IdentityIdsToDelete
         /// <summary>
         /// <para>
-        /// <para>The name of the application.</para>
+        /// <para>A list of 1-60 identities that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationName { get; set; }
-        #endregion
-        
-        #region Parameter RunConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>Identifies the run configuration (start parameters) of a Managed Service for Apache
-        /// Flink application.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public Amazon.KinesisAnalyticsV2.Model.RunConfiguration RunConfiguration { get; set; }
+        public System.String[] IdentityIdsToDelete { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'UnprocessedIdentityIds'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "UnprocessedIdentityIds";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RunConfiguration parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RunConfiguration' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IdentityIdsToDelete parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IdentityIdsToDelete' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RunConfiguration' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IdentityIdsToDelete' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-KINA2Application (StartApplication)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IdentityIdsToDelete), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CGIIdentity (DeleteIdentities)"))
             {
                 return;
             }
@@ -120,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse, StartKINA2ApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse, RemoveCGIIdentityCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,17 +124,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RunConfiguration;
+                context.Select = (response, cmdlet) => this.IdentityIdsToDelete;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationName = this.ApplicationName;
-            #if MODULAR
-            if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
+            if (this.IdentityIdsToDelete != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.IdentityIdsToDelete = new List<System.String>(this.IdentityIdsToDelete);
+            }
+            #if MODULAR
+            if (this.IdentityIdsToDelete == null && ParameterWasBound(nameof(this.IdentityIdsToDelete)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IdentityIdsToDelete which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RunConfiguration = this.RunConfiguration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,15 +151,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisAnalyticsV2.Model.StartApplicationRequest();
+            var request = new Amazon.CognitoIdentity.Model.DeleteIdentitiesRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.IdentityIdsToDelete != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
-            }
-            if (cmdletContext.RunConfiguration != null)
-            {
-                request.RunConfiguration = cmdletContext.RunConfiguration;
+                request.IdentityIdsToDelete = cmdletContext.IdentityIdsToDelete;
             }
             
             CmdletOutput output;
@@ -197,15 +190,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.StartApplicationRequest request)
+        private Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.DeleteIdentitiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "StartApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity", "DeleteIdentities");
             try
             {
                 #if DESKTOP
-                return client.StartApplication(request);
+                return client.DeleteIdentities(request);
                 #elif CORECLR
-                return client.StartApplicationAsync(request).GetAwaiter().GetResult();
+                return client.DeleteIdentitiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,10 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public Amazon.KinesisAnalyticsV2.Model.RunConfiguration RunConfiguration { get; set; }
-            public System.Func<Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse, StartKINA2ApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<System.String> IdentityIdsToDelete { get; set; }
+            public System.Func<Amazon.CognitoIdentity.Model.DeleteIdentitiesResponse, RemoveCGIIdentityCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.UnprocessedIdentityIds;
         }
         
     }

@@ -22,40 +22,45 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KinesisAnalyticsV2;
-using Amazon.KinesisAnalyticsV2.Model;
+using Amazon.CognitoIdentity;
+using Amazon.CognitoIdentity.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KINA2
+namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Lists all the versions for the specified application, including versions that were
-    /// rolled back. The response also includes a summary of the configuration associated
-    /// with each version.
+    /// Lists the identities in an identity pool.
     /// 
     ///  
     /// <para>
-    /// To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a>
-    /// operation.
-    /// </para><note><para>
-    /// This operation is supported only for Managed Service for Apache Flink.
-    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// You must use AWS Developer credentials to call this API.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "KINA2ApplicationVersionList")]
-    [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationVersionSummary")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 ListApplicationVersions API operation.", Operation = new[] {"ListApplicationVersions"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse))]
-    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationVersionSummary or Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse",
-        "This cmdlet returns a collection of Amazon.KinesisAnalyticsV2.Model.ApplicationVersionSummary objects.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIIdentityList")]
+    [OutputType("Amazon.CognitoIdentity.Model.ListIdentitiesResponse")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity ListIdentities API operation.", Operation = new[] {"ListIdentities"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.ListIdentitiesResponse))]
+    [AWSCmdletOutput("Amazon.CognitoIdentity.Model.ListIdentitiesResponse",
+        "This cmdlet returns an Amazon.CognitoIdentity.Model.ListIdentitiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKINA2ApplicationVersionListCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
+    public partial class GetCGIIdentityListCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationName
+        #region Parameter HideDisabled
         /// <summary>
         /// <para>
-        /// <para>The name of the application for which you want to list all versions.</para>
+        /// <para>An optional boolean parameter that allows you to hide disabled identities. If omitted,
+        /// the ListIdentities API will include disabled identities in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HideDisabled { get; set; }
+        #endregion
+        
+        #region Parameter IdentityPoolId
+        /// <summary>
+        /// <para>
+        /// <para>An identity pool ID in the format REGION:GUID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,26 +71,30 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationName { get; set; }
+        public System.String IdentityPoolId { get; set; }
         #endregion
         
-        #region Parameter Limit
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of versions to list in this invocation of the operation.</para>
+        /// <para>The maximum number of identities to return.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Limit { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If a previous invocation of this operation returned a pagination token, pass it into
-        /// this value to retrieve the next set of results. For more information about pagination,
-        /// see <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using
-        /// the Amazon Command Line Interface's Pagination Options</a>.</para>
+        /// <para>A pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -98,21 +107,21 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationVersionSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse).
-        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentity.Model.ListIdentitiesResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentity.Model.ListIdentitiesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationVersionSummaries";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ApplicationName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IdentityPoolId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IdentityPoolId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IdentityPoolId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -140,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse, GetKINA2ApplicationVersionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentity.Model.ListIdentitiesResponse, GetCGIIdentityListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,17 +158,24 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ApplicationName;
+                context.Select = (response, cmdlet) => this.IdentityPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationName = this.ApplicationName;
+            context.HideDisabled = this.HideDisabled;
+            context.IdentityPoolId = this.IdentityPoolId;
             #if MODULAR
-            if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
+            if (this.IdentityPoolId == null && ParameterWasBound(nameof(this.IdentityPoolId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IdentityPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Limit = this.Limit;
+            context.MaxResult = this.MaxResult;
+            #if MODULAR
+            if (this.MaxResult == null && ParameterWasBound(nameof(this.MaxResult)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MaxResult which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -179,15 +195,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsRequest();
+            var request = new Amazon.CognitoIdentity.Model.ListIdentitiesRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.HideDisabled != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
+                request.HideDisabled = cmdletContext.HideDisabled.Value;
             }
-            if (cmdletContext.Limit != null)
+            if (cmdletContext.IdentityPoolId != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
+                request.IdentityPoolId = cmdletContext.IdentityPoolId;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -246,15 +266,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsRequest request)
+        private Amazon.CognitoIdentity.Model.ListIdentitiesResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.ListIdentitiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "ListApplicationVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity", "ListIdentities");
             try
             {
                 #if DESKTOP
-                return client.ListApplicationVersions(request);
+                return client.ListIdentities(request);
                 #elif CORECLR
-                return client.ListApplicationVersionsAsync(request).GetAwaiter().GetResult();
+                return client.ListIdentitiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -274,11 +294,12 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public System.Int32? Limit { get; set; }
+            public System.Boolean? HideDisabled { get; set; }
+            public System.String IdentityPoolId { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.KinesisAnalyticsV2.Model.ListApplicationVersionsResponse, GetKINA2ApplicationVersionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationVersionSummaries;
+            public System.Func<Amazon.CognitoIdentity.Model.ListIdentitiesResponse, GetCGIIdentityListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -87,6 +87,37 @@ $IVSRT_Completers = {
             break
         }
 
+        # Amazon.IVSRealTime.PipBehavior
+        "Start-IVSRTComposition/Pip_PipBehavior"
+        {
+            $v = "DYNAMIC","STATIC"
+            break
+        }
+
+        # Amazon.IVSRealTime.PipPosition
+        "Start-IVSRTComposition/Pip_PipPosition"
+        {
+            $v = "BOTTOM_LEFT","BOTTOM_RIGHT","TOP_LEFT","TOP_RIGHT"
+            break
+        }
+
+        # Amazon.IVSRealTime.VideoAspectRatio
+        "Start-IVSRTComposition/Grid_VideoAspectRatio"
+        {
+            $v = "AUTO","PORTRAIT","SQUARE","VIDEO"
+            break
+        }
+
+        # Amazon.IVSRealTime.VideoFillMode
+        {
+            ($_ -eq "Start-IVSRTComposition/Grid_VideoFillMode") -Or
+            ($_ -eq "Start-IVSRTComposition/Pip_VideoFillMode")
+        }
+        {
+            $v = "CONTAIN","COVER","FILL"
+            break
+        }
+
 
     }
 
@@ -97,6 +128,11 @@ $IVSRT_Completers = {
 
 $IVSRT_map = @{
     "FilterByState"=@("Get-IVSRTParticipantList")
+    "Grid_VideoAspectRatio"=@("Start-IVSRTComposition")
+    "Grid_VideoFillMode"=@("Start-IVSRTComposition")
+    "Pip_PipBehavior"=@("Start-IVSRTComposition")
+    "Pip_PipPosition"=@("Start-IVSRTComposition")
+    "Pip_VideoFillMode"=@("Start-IVSRTComposition")
 }
 
 _awsArgumentCompleterRegistration $IVSRT_Completers $IVSRT_map

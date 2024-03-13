@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         /// <summary>
         /// <para>
         /// <para>The point at which you want Kinesis Data Analytics to start reading records from the
-        /// specified streaming source discovery purposes.</para>
+        /// specified streaming source for discovery purposes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

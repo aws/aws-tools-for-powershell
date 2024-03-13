@@ -1,4 +1,23 @@
-﻿### 4.1.535 (2024-03-12 20:34Z)
+﻿### 4.1.536 (2024-03-13 20:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.767.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity
+    * Added cmdlet Dismount-CGIDeveloperIdentity leveraging the UnlinkDeveloperIdentity service API.
+    * Added cmdlet Dismount-CGIIdentity leveraging the UnlinkIdentity service API.
+    * Added cmdlet Find-CGIDeveloperIdentity leveraging the LookupDeveloperIdentity service API.
+    * Added cmdlet Get-CGICredentialsForIdentity leveraging the GetCredentialsForIdentity service API.
+    * Added cmdlet Get-CGIId leveraging the GetId service API.
+    * Added cmdlet Get-CGIIdentity leveraging the DescribeIdentity service API.
+    * Added cmdlet Get-CGIIdentityList leveraging the ListIdentities service API.
+    * Added cmdlet Get-CGIOpenIdToken leveraging the GetOpenIdToken service API.
+    * Added cmdlet Get-CGIOpenIdTokenForDeveloperIdentity leveraging the GetOpenIdTokenForDeveloperIdentity service API.
+    * Added cmdlet Merge-CGIDeveloperIdentity leveraging the MergeDeveloperIdentities service API.
+    * Added cmdlet Remove-CGIIdentity leveraging the DeleteIdentities service API.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet Start-IVSRTComposition: added parameters Grid_GridGap, Grid_OmitStoppedVideo, Grid_VideoAspectRatio, Grid_VideoFillMode, Pip_FeaturedParticipantAttribute, Pip_GridGap, Pip_OmitStoppedVideo, Pip_PipBehavior, Pip_PipHeight, Pip_PipOffset, Pip_PipParticipantAttribute, Pip_PipPosition, Pip_PipWidth and Pip_VideoFillMode.
+  * Amazon Kinesis Analytics V2
+    * Modified cmdlet Update-KINA2Application: added parameter RuntimeEnvironmentUpdate.
+
+### 4.1.535 (2024-03-12 20:34Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.766.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.534 (2024-03-11 21:14Z)

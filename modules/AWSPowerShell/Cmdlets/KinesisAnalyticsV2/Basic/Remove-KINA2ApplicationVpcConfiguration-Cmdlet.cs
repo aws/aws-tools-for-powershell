@@ -28,7 +28,7 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Removes a VPC configuration from a Kinesis Data Analytics application.
+    /// Removes a VPC configuration from a Managed Service for Apache Flink application.
     /// </summary>
     [Cmdlet("Remove", "KINA2ApplicationVpcConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.KinesisAnalyticsV2.Model.DeleteApplicationVpcConfigurationResponse")]

@@ -28,7 +28,7 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics application.
+    /// Deletes an Amazon CloudWatch log stream from an SQL-based Kinesis Data Analytics application.
     /// </summary>
     [Cmdlet("Remove", "KINA2ApplicationCloudWatchLoggingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.KinesisAnalyticsV2.Model.DeleteApplicationCloudWatchLoggingOptionResponse")]

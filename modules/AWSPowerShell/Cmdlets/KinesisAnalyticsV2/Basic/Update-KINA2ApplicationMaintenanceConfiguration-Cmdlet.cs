@@ -28,7 +28,8 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Updates the maintenance configuration of the Kinesis Data Analytics application. 
+    /// Updates the maintenance configuration of the Managed Service for Apache Flink application.
+    /// 
     /// 
     ///  
     /// <para>
@@ -45,10 +46,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     /// To see the current maintenance configuration of your application, invoke the <a>DescribeApplication</a>
     /// operation.
     /// </para><para>
-    /// For information about application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Kinesis
-    /// Data Analytics for Apache Flink Maintenance</a>.
+    /// For information about application maintenance, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/maintenance.html">Managed
+    /// Service for Apache Flink for Apache Flink Maintenance</a>.
     /// </para><note><para>
-    /// This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.
+    /// This operation is supported only for Managed Service for Apache Flink.
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "KINA2ApplicationMaintenanceConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

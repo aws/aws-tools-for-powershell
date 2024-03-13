@@ -124,15 +124,26 @@ $CGI_SelectCompleters = {
 
 $CGI_SelectMap = @{
     "Select"=@("New-CGIIdentityPool",
+               "Remove-CGIIdentity",
                "Remove-CGIIdentityPool",
+               "Get-CGIIdentity",
                "Get-CGIIdentityPool",
+               "Get-CGICredentialsForIdentity",
+               "Get-CGIId",
                "Get-CGIIdentityPoolRole",
+               "Get-CGIOpenIdToken",
+               "Get-CGIOpenIdTokenForDeveloperIdentity",
                "Get-CGIPrincipalTagAttributeMap",
+               "Get-CGIIdentityList",
                "Get-CGIIdentityPoolList",
                "Get-CGIResourceTag",
+               "Find-CGIDeveloperIdentity",
+               "Merge-CGIDeveloperIdentity",
                "Set-CGIIdentityPoolRole",
                "Set-CGIPrincipalTagAttributeMap",
                "Add-CGIResourceTag",
+               "Dismount-CGIDeveloperIdentity",
+               "Dismount-CGIIdentity",
                "Remove-CGIResourceTag",
                "Update-CGIIdentityPool")
 }

@@ -28,18 +28,14 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Updates an existing Kinesis Data Analytics application. Using this operation, you
-    /// can update application code, input configuration, and output configuration. 
+    /// Updates an existing Managed Service for Apache Flink application. Using this operation,
+    /// you can update application code, input configuration, and output configuration. 
     /// 
     ///  
     /// <para>
-    /// Kinesis Data Analytics updates the <c>ApplicationVersionId</c> each time you update
-    /// your application. 
-    /// </para><note><para>
-    /// You cannot update the <c>RuntimeEnvironment</c> of an existing application. If you
-    /// need to update an application's <c>RuntimeEnvironment</c>, you must delete the application
-    /// and create it again.
-    /// </para></note>
+    /// Managed Service for Apache Flink updates the <c>ApplicationVersionId</c> each time
+    /// you update your application. 
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail")]
@@ -130,6 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         public Amazon.KinesisAnalyticsV2.Model.RunConfigurationUpdate RunConfigurationUpdate { get; set; }
         #endregion
         
+        #region Parameter RuntimeEnvironmentUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Updates the Managed Service for Apache Flink runtime environment used to run your
+        /// code. To avoid issues you must:</para><ul><li><para>Ensure your new jar and dependencies are compatible with the new runtime selected.</para></li><li><para>Ensure your new code's state is compatible with the snapshot from which your application
+        /// will start</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.KinesisAnalyticsV2.RuntimeEnvironment")]
+        public Amazon.KinesisAnalyticsV2.RuntimeEnvironment RuntimeEnvironmentUpdate { get; set; }
+        #endregion
+        
         #region Parameter ServiceExecutionRoleUpdate
         /// <summary>
         /// <para>
@@ -217,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             context.ConditionalToken = this.ConditionalToken;
             context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
             context.RunConfigurationUpdate = this.RunConfigurationUpdate;
+            context.RuntimeEnvironmentUpdate = this.RuntimeEnvironmentUpdate;
             context.ServiceExecutionRoleUpdate = this.ServiceExecutionRoleUpdate;
             
             // allow further manipulation of loaded context prior to processing
@@ -257,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             if (cmdletContext.RunConfigurationUpdate != null)
             {
                 request.RunConfigurationUpdate = cmdletContext.RunConfigurationUpdate;
+            }
+            if (cmdletContext.RuntimeEnvironmentUpdate != null)
+            {
+                request.RuntimeEnvironmentUpdate = cmdletContext.RuntimeEnvironmentUpdate;
             }
             if (cmdletContext.ServiceExecutionRoleUpdate != null)
             {
@@ -329,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             public System.String ConditionalToken { get; set; }
             public System.Int64? CurrentApplicationVersionId { get; set; }
             public Amazon.KinesisAnalyticsV2.Model.RunConfigurationUpdate RunConfigurationUpdate { get; set; }
+            public Amazon.KinesisAnalyticsV2.RuntimeEnvironment RuntimeEnvironmentUpdate { get; set; }
             public System.String ServiceExecutionRoleUpdate { get; set; }
             public System.Func<Amazon.KinesisAnalyticsV2.Model.UpdateApplicationResponse, UpdateKINA2ApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ApplicationDetail;

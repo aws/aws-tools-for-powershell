@@ -88,7 +88,10 @@ $KINA2_Completers = {
         }
 
         # Amazon.KinesisAnalyticsV2.RuntimeEnvironment
-        "New-KINA2Application/RuntimeEnvironment"
+        {
+            ($_ -eq "New-KINA2Application/RuntimeEnvironment") -Or
+            ($_ -eq "Update-KINA2Application/RuntimeEnvironmentUpdate")
+        }
         {
             $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
             break
@@ -112,6 +115,7 @@ $KINA2_Completers = {
 $KINA2_map = @{
     "ApplicationMode"=@("New-KINA2Application")
     "RuntimeEnvironment"=@("New-KINA2Application")
+    "RuntimeEnvironmentUpdate"=@("Update-KINA2Application")
     "UrlType"=@("New-KINA2ApplicationPresignedUrl")
 }
 

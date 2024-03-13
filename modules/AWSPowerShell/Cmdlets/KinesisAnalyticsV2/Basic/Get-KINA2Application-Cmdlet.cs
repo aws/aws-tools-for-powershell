@@ -28,7 +28,7 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Returns information about a specific Kinesis Data Analytics application.
+    /// Returns information about a specific Managed Service for Apache Flink application.
     /// 
     ///  
     /// <para>
@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter IncludeAdditionalDetail
         /// <summary>
         /// <para>
-        /// <para>Displays verbose information about a Kinesis Data Analytics application, including
-        /// the application's job plan.</para>
+        /// <para>Displays verbose information about a Managed Service for Apache Flink application,
+        /// including the application's job plan.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

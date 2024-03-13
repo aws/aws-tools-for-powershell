@@ -28,9 +28,9 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Returns a list of Kinesis Data Analytics applications in your account. For each application,
-    /// the response includes the application name, Amazon Resource Name (ARN), and status.
-    /// 
+    /// Returns a list of Managed Service for Apache Flink applications in your account. For
+    /// each application, the response includes the application name, Amazon Resource Name
+    /// (ARN), and status. 
     /// 
     ///  
     /// <para>

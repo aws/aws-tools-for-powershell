@@ -22,36 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KinesisAnalyticsV2;
-using Amazon.KinesisAnalyticsV2.Model;
+using Amazon.CognitoIdentity;
+using Amazon.CognitoIdentity.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KINA2
+namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Provides a detailed description of a specified version of the application. To see
-    /// a list of all the versions of an application, invoke the <a>ListApplicationVersions</a>
-    /// operation.
+    /// Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit
+    /// linked account.
     /// 
-    ///  <note><para>
-    /// This operation is supported only for Managed Service for Apache Flink.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// This is a public API. You do not need any credentials to call this API.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "KINA2ApplicationVersion")]
-    [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 DescribeApplicationVersion API operation.", Operation = new[] {"DescribeApplicationVersion"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse))]
-    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail or Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse",
-        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.ApplicationDetail object.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIId")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity GetId API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"GetId"}, SelectReturnType = typeof(Amazon.CognitoIdentity.Model.GetIdResponse))]
+    [AWSCmdletOutput("System.String or Amazon.CognitoIdentity.Model.GetIdResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.CognitoIdentity.Model.GetIdResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKINA2ApplicationVersionCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
+    public partial class GetCGIIdCmdlet : AnonymousAmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationName
+        #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The name of the application for which you want to get the version description.</para>
+        /// <para>A standard AWS account ID (9+ digits).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AccountId { get; set; }
+        #endregion
+        
+        #region Parameter IdentityPoolId
+        /// <summary>
+        /// <para>
+        /// <para>An identity pool ID in the format REGION:GUID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,42 +72,39 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationName { get; set; }
+        public System.String IdentityPoolId { get; set; }
         #endregion
         
-        #region Parameter ApplicationVersionId
+        #region Parameter Login
         /// <summary>
         /// <para>
-        /// <para>The ID of the application version for which you want to get the description.</para>
+        /// <para>A set of optional name-value pairs that map provider names to provider tokens. The
+        /// available provider names for <c>Logins</c> are as follows:</para><ul><li><para>Facebook: <c>graph.facebook.com</c></para></li><li><para>Amazon Cognito user pool: <c>cognito-idp.&lt;region&gt;.amazonaws.com/&lt;YOUR_USER_POOL_ID&gt;</c>,
+        /// for example, <c>cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789</c>. </para></li><li><para>Google: <c>accounts.google.com</c></para></li><li><para>Amazon: <c>www.amazon.com</c></para></li><li><para>Twitter: <c>api.twitter.com</c></para></li><li><para>Digits: <c>www.digits.com</c></para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int64? ApplicationVersionId { get; set; }
+        [Alias("Logins")]
+        public System.Collections.Hashtable Login { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationVersionDetail'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse).
-        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IdentityId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CognitoIdentity.Model.GetIdResponse).
+        /// Specifying the name of a property of type Amazon.CognitoIdentity.Model.GetIdResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationVersionDetail";
+        public string Select { get; set; } = "IdentityId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ApplicationName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IdentityPoolId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IdentityPoolId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IdentityPoolId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse, GetKINA2ApplicationVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CognitoIdentity.Model.GetIdResponse, GetCGIIdCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -124,23 +131,25 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ApplicationName;
+                context.Select = (response, cmdlet) => this.IdentityPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationName = this.ApplicationName;
+            context.AccountId = this.AccountId;
+            context.IdentityPoolId = this.IdentityPoolId;
             #if MODULAR
-            if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
+            if (this.IdentityPoolId == null && ParameterWasBound(nameof(this.IdentityPoolId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IdentityPoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ApplicationVersionId = this.ApplicationVersionId;
-            #if MODULAR
-            if (this.ApplicationVersionId == null && ParameterWasBound(nameof(this.ApplicationVersionId)))
+            if (this.Login != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationVersionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Login = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Login.Keys)
+                {
+                    context.Login.Add((String)hashKey, (System.String)(this.Login[hashKey]));
+                }
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,21 +164,25 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionRequest();
+            var request = new Amazon.CognitoIdentity.Model.GetIdRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.AccountId != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
+                request.AccountId = cmdletContext.AccountId;
             }
-            if (cmdletContext.ApplicationVersionId != null)
+            if (cmdletContext.IdentityPoolId != null)
             {
-                request.ApplicationVersionId = cmdletContext.ApplicationVersionId.Value;
+                request.IdentityPoolId = cmdletContext.IdentityPoolId;
+            }
+            if (cmdletContext.Login != null)
+            {
+                request.Logins = cmdletContext.Login;
             }
             
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            var client = Client ?? CreateClient(_RegionEndpoint);
             try
             {
                 var response = CallAWSServiceOperation(client, request);
@@ -198,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionRequest request)
+        private Amazon.CognitoIdentity.Model.GetIdResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.GetIdRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "DescribeApplicationVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity", "GetId");
             try
             {
                 #if DESKTOP
-                return client.DescribeApplicationVersion(request);
+                return client.GetId(request);
                 #elif CORECLR
-                return client.DescribeApplicationVersionAsync(request).GetAwaiter().GetResult();
+                return client.GetIdAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -226,10 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public System.Int64? ApplicationVersionId { get; set; }
-            public System.Func<Amazon.KinesisAnalyticsV2.Model.DescribeApplicationVersionResponse, GetKINA2ApplicationVersionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationVersionDetail;
+            public System.String AccountId { get; set; }
+            public System.String IdentityPoolId { get; set; }
+            public Dictionary<System.String, System.String> Login { get; set; }
+            public System.Func<Amazon.CognitoIdentity.Model.GetIdResponse, GetCGIIdCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IdentityId;
         }
         
     }

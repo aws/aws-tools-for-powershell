@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
-        /// <para>The version ID of the Kinesis Data Analytics application. You must provide the <c>CurrentApplicationVersionId</c>
-        /// or the <c>ConditionalToken</c>.You can retrieve the application version ID using <a>DescribeApplication</a>.
-        /// For better concurrency support, use the <c>ConditionalToken</c> parameter instead
-        /// of <c>CurrentApplicationVersionId</c>.</para>
+        /// <para>The version ID of the SQL-based Kinesis Data Analytics application. You must provide
+        /// the <c>CurrentApplicationVersionId</c> or the <c>ConditionalToken</c>.You can retrieve
+        /// the application version ID using <a>DescribeApplication</a>. For better concurrency
+        /// support, use the <c>ConditionalToken</c> parameter instead of <c>CurrentApplicationVersionId</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
