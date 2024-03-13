@@ -25,7 +25,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentities" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteIdentities" OutputProperty="UnprocessedIdentityIds" Verb="Remove" Noun="Identity" ShouldProcessTarget="IdentityIdsToDelete" PipelineParameter="IdentityIdsToDelete" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -33,7 +33,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeIdentity" OutputProperty="*" Verb="Get" Noun="Identity" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -41,11 +41,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCredentialsForIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetCredentialsForIdentity" OutputProperty="*" Verb="Get" Noun="CredentialsForIdentity" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetId" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetId" OutputProperty="IdentityId" Verb="Get" Noun="Id" AnonymousAuthentication="Always" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -53,11 +53,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpenIdToken" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOpenIdToken" OutputProperty="*" Verb="Get" Noun="OpenIdToken" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpenIdTokenForDeveloperIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetOpenIdTokenForDeveloperIdentity" OutputProperty="*" Verb="Get" Noun="OpenIdTokenForDeveloperIdentity" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -65,7 +65,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentities" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListIdentities" OutputProperty="*" Verb="Get" Noun="IdentityList" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -77,11 +77,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="LookupDeveloperIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="LookupDeveloperIdentity" OutputProperty="*" Verb="Find" Noun="DeveloperIdentity" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeDeveloperIdentities" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="MergeDeveloperIdentities" OutputProperty="IdentityId" Verb="Merge" Noun="DeveloperIdentity" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -97,11 +97,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnlinkDeveloperIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UnlinkDeveloperIdentity" Verb="Dismount" Noun="DeveloperIdentity" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnlinkIdentity" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UnlinkIdentity" Verb="Dismount" Noun="Identity" ShouldProcessTarget="IdentityId" AnonymousAuthentication="Always" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
