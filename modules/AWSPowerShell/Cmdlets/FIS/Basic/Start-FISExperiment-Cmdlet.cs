@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ExperimentOptions_ActionsMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the actions mode for experiment options.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.FIS.ActionsMode")]
+        public Amazon.FIS.ActionsMode ExperimentOptions_ActionsMode { get; set; }
+        #endregion
+        
         #region Parameter ExperimentTemplateId
         /// <summary>
         /// <para>
@@ -144,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.ExperimentOptions_ActionsMode = this.ExperimentOptions_ActionsMode;
             context.ExperimentTemplateId = this.ExperimentTemplateId;
             #if MODULAR
             if (this.ExperimentTemplateId == null && ParameterWasBound(nameof(this.ExperimentTemplateId)))
@@ -178,6 +190,25 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate ExperimentOptions
+            var requestExperimentOptionsIsNull = true;
+            request.ExperimentOptions = new Amazon.FIS.Model.StartExperimentExperimentOptionsInput();
+            Amazon.FIS.ActionsMode requestExperimentOptions_experimentOptions_ActionsMode = null;
+            if (cmdletContext.ExperimentOptions_ActionsMode != null)
+            {
+                requestExperimentOptions_experimentOptions_ActionsMode = cmdletContext.ExperimentOptions_ActionsMode;
+            }
+            if (requestExperimentOptions_experimentOptions_ActionsMode != null)
+            {
+                request.ExperimentOptions.ActionsMode = requestExperimentOptions_experimentOptions_ActionsMode;
+                requestExperimentOptionsIsNull = false;
+            }
+             // determine if request.ExperimentOptions should be set to null
+            if (requestExperimentOptionsIsNull)
+            {
+                request.ExperimentOptions = null;
             }
             if (cmdletContext.ExperimentTemplateId != null)
             {
@@ -249,6 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.FIS.ActionsMode ExperimentOptions_ActionsMode { get; set; }
             public System.String ExperimentTemplateId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.FIS.Model.StartExperimentResponse, StartFISExperimentCmdlet, object> Select { get; set; } =

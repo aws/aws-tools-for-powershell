@@ -22,47 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FIS;
-using Amazon.FIS.Model;
+using Amazon.TimestreamInfluxDB;
+using Amazon.TimestreamInfluxDB.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FIS
+namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
-    /// Deletes the specified target account configuration of the experiment template.
+    /// Removes the tag from the specified resource.
     /// </summary>
-    [Cmdlet("Remove", "FISTargetAccountConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.FIS.Model.TargetAccountConfiguration")]
-    [AWSCmdlet("Calls the AWS Fault Injection Simulator DeleteTargetAccountConfiguration API operation.", Operation = new[] {"DeleteTargetAccountConfiguration"}, SelectReturnType = typeof(Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.FIS.Model.TargetAccountConfiguration or Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse",
-        "This cmdlet returns an Amazon.FIS.Model.TargetAccountConfiguration object.",
-        "The service call response (type Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "TIDBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Timestream InfluxDB UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.TimestreamInfluxDB.Model.UntagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.TimestreamInfluxDB.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFISTargetAccountConfigurationCmdlet : AmazonFISClientCmdlet, IExecutor
+    public partial class RemoveTIDBResourceTagCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID of the target account.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccountId { get; set; }
-        #endregion
-        
-        #region Parameter ExperimentTemplateId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the experiment template.</para>
+        /// <para>The Amazon Resource Name (ARN) of the tagged resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,26 +56,43 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExperimentTemplateId { get; set; }
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The keys used to identify the tags.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'TargetAccountConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "TargetAccountConfiguration";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExperimentTemplateId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExperimentTemplateId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExperimentTemplateId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExperimentTemplateId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FISTargetAccountConfiguration (DeleteTargetAccountConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-TIDBResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse, RemoveFISTargetAccountConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.UntagResourceResponse, RemoveTIDBResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,21 +135,24 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ExperimentTemplateId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ExperimentTemplateId = this.ExperimentTemplateId;
-            #if MODULAR
-            if (this.ExperimentTemplateId == null && ParameterWasBound(nameof(this.ExperimentTemplateId)))
+            if (this.TagKey != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ExperimentTemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TagKey = new List<System.String>(this.TagKey);
+            }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FIS.Model.DeleteTargetAccountConfigurationRequest();
+            var request = new Amazon.TimestreamInfluxDB.Model.UntagResourceRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.ExperimentTemplateId != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.ExperimentTemplateId = cmdletContext.ExperimentTemplateId;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -209,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         #region AWS Service Operation Call
         
-        private Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse CallAWSServiceOperation(IAmazonFIS client, Amazon.FIS.Model.DeleteTargetAccountConfigurationRequest request)
+        private Amazon.TimestreamInfluxDB.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Fault Injection Simulator", "DeleteTargetAccountConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteTargetAccountConfiguration(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.DeleteTargetAccountConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,10 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.String ExperimentTemplateId { get; set; }
-            public System.Func<Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse, RemoveFISTargetAccountConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TargetAccountConfiguration;
+            public System.String ResourceArn { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.TimestreamInfluxDB.Model.UntagResourceResponse, RemoveTIDBResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

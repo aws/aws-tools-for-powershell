@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>This parameter isn't currently supported.</para>
+        /// <para>A filter that specifies one or more global database clusters to describe. This parameter
+        /// is case-sensitive.</para><para>Currently, the only supported filter is <c>region</c>.</para><para>If used, the request returns information about any global cluster with at least one
+        /// member (primary or secondary) in the specified Amazon Web Services Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

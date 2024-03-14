@@ -22,56 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Amplify;
-using Amazon.Amplify.Model;
+using Amazon.TimestreamInfluxDB;
+using Amazon.TimestreamInfluxDB.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AMP
+namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
-    /// Returns a backend environment for an Amplify app. 
-    /// 
-    ///  
-    /// <para>
-    /// This API is available only to Amplify Gen 1 applications where the backend was created
-    /// using Amplify Studio or the Amplify command line interface (CLI). This API isn’t available
-    /// to applications created using the Amplify Gen 2 public preview. When you deploy an
-    /// application with Amplify Gen 2, you provision the app's backend infrastructure using
-    /// Typescript code.
-    /// </para>
+    /// Returns a Timestream for InfluxDB DB parameter group.
     /// </summary>
-    [Cmdlet("Get", "AMPBackendEnvironment")]
-    [OutputType("Amazon.Amplify.Model.BackendEnvironment")]
-    [AWSCmdlet("Calls the AWS Amplify GetBackendEnvironment API operation.", Operation = new[] {"GetBackendEnvironment"}, SelectReturnType = typeof(Amazon.Amplify.Model.GetBackendEnvironmentResponse))]
-    [AWSCmdletOutput("Amazon.Amplify.Model.BackendEnvironment or Amazon.Amplify.Model.GetBackendEnvironmentResponse",
-        "This cmdlet returns an Amazon.Amplify.Model.BackendEnvironment object.",
-        "The service call response (type Amazon.Amplify.Model.GetBackendEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "TIDBDbParameterGroup")]
+    [OutputType("Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse")]
+    [AWSCmdlet("Calls the Amazon Timestream InfluxDB GetDbParameterGroup API operation.", Operation = new[] {"GetDbParameterGroup"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse))]
+    [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse",
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAMPBackendEnvironmentCmdlet : AmazonAmplifyClientCmdlet, IExecutor
+    public partial class GetTIDBDbParameterGroupCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AppId
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The unique id for an Amplify app. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppId { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentName
-        /// <summary>
-        /// <para>
-        /// <para>The name for the backend environment. </para>
+        /// <para>The id of the DB parameter group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,26 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentName { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'BackendEnvironment'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Amplify.Model.GetBackendEnvironmentResponse).
-        /// Specifying the name of a property of type Amazon.Amplify.Model.GetBackendEnvironmentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse).
+        /// Specifying the name of a property of type Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "BackendEnvironment";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Amplify.Model.GetBackendEnvironmentResponse, GetAMPBackendEnvironmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse, GetTIDBDbParameterGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,21 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentName;
+                context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppId = this.AppId;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.AppId == null && ParameterWasBound(nameof(this.AppId)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.EnvironmentName = this.EnvironmentName;
-            #if MODULAR
-            if (this.EnvironmentName == null && ParameterWasBound(nameof(this.EnvironmentName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -159,15 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Amplify.Model.GetBackendEnvironmentRequest();
+            var request = new Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupRequest();
             
-            if (cmdletContext.AppId != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.AppId = cmdletContext.AppId;
-            }
-            if (cmdletContext.EnvironmentName != null)
-            {
-                request.EnvironmentName = cmdletContext.EnvironmentName;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -202,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         
         #region AWS Service Operation Call
         
-        private Amazon.Amplify.Model.GetBackendEnvironmentResponse CallAWSServiceOperation(IAmazonAmplify client, Amazon.Amplify.Model.GetBackendEnvironmentRequest request)
+        private Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Amplify", "GetBackendEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "GetDbParameterGroup");
             try
             {
                 #if DESKTOP
-                return client.GetBackendEnvironment(request);
+                return client.GetDbParameterGroup(request);
                 #elif CORECLR
-                return client.GetBackendEnvironmentAsync(request).GetAwaiter().GetResult();
+                return client.GetDbParameterGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -230,10 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppId { get; set; }
-            public System.String EnvironmentName { get; set; }
-            public System.Func<Amazon.Amplify.Model.GetBackendEnvironmentResponse, GetAMPBackendEnvironmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.BackendEnvironment;
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.TimestreamInfluxDB.Model.GetDbParameterGroupResponse, GetTIDBDbParameterGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

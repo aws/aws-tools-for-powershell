@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the target account.</para>
+        /// <para>The Amazon Web Services account ID of the target account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

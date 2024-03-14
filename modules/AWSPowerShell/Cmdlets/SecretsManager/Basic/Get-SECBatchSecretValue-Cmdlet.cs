@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>The number of results to include in the response.</para><para>If there are more results available, in the response, Secrets Manager includes <c>NextToken</c>.
         /// To get the next results, call <c>BatchGetSecretValue</c> again with the value from
-        /// <c>NextToken</c>.</para>
+        /// <c>NextToken</c>. To use this parameter, you must also use the <c>Filters</c> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

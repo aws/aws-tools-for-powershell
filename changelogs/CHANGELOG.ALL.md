@@ -1,4 +1,12 @@
-﻿### 4.1.536 (2024-03-13 20:52Z)
+﻿### 4.1.537 (2024-03-14 20:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.768.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon IoT RoboRunner
+  * Amazon Fault Injection Simulator
+    * Modified cmdlet Get-FISExperimentList: added parameters ExperimentTemplateId and PassThru.
+    * Modified cmdlet Start-FISExperiment: added parameter ExperimentOptions_ActionsMode.
+  * Amazon Timestream InfluxDB. Added cmdlets to support the service. Cmdlets for the service have the noun prefix TIDB and can be listed using the command 'Get-AWSCmdletName -Service TIDB'.
+
+### 4.1.536 (2024-03-13 20:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.767.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity
     * Added cmdlet Dismount-CGIDeveloperIdentity leveraging the UnlinkDeveloperIdentity service API.

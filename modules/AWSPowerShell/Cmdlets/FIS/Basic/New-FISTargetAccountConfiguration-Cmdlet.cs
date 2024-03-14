@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
     /// Creates a target account configuration for the experiment template. A target account
     /// configuration is required when <c>accountTargeting</c> of <c>experimentOptions</c>
     /// is set to <c>multi-account</c>. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html">experiment
-    /// options</a> in the <i>Fault Injection Simulator User Guide</i>.
+    /// options</a> in the <i>Fault Injection Service User Guide</i>.
     /// </summary>
     [Cmdlet("New", "FISTargetAccountConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FIS.Model.TargetAccountConfiguration")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the target account.</para>
+        /// <para>The Amazon Web Services account ID of the target account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

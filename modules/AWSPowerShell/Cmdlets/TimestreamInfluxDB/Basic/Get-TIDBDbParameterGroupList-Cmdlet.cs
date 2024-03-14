@@ -22,41 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FIS;
-using Amazon.FIS.Model;
+using Amazon.TimestreamInfluxDB;
+using Amazon.TimestreamInfluxDB.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FIS
+namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
-    /// Lists your experiments.
+    /// Returns a list of Timestream for InfluxDB DB parameter groups.
     /// </summary>
-    [Cmdlet("Get", "FISExperimentList")]
-    [OutputType("Amazon.FIS.Model.ExperimentSummary")]
-    [AWSCmdlet("Calls the AWS Fault Injection Simulator ListExperiments API operation.", Operation = new[] {"ListExperiments"}, SelectReturnType = typeof(Amazon.FIS.Model.ListExperimentsResponse))]
-    [AWSCmdletOutput("Amazon.FIS.Model.ExperimentSummary or Amazon.FIS.Model.ListExperimentsResponse",
-        "This cmdlet returns a collection of Amazon.FIS.Model.ExperimentSummary objects.",
-        "The service call response (type Amazon.FIS.Model.ListExperimentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "TIDBDbParameterGroupList")]
+    [OutputType("Amazon.TimestreamInfluxDB.Model.DbParameterGroupSummary")]
+    [AWSCmdlet("Calls the Amazon Timestream InfluxDB ListDbParameterGroups API operation.", Operation = new[] {"ListDbParameterGroups"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse))]
+    [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.DbParameterGroupSummary or Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse",
+        "This cmdlet returns a collection of Amazon.TimestreamInfluxDB.Model.DbParameterGroupSummary objects.",
+        "The service call response (type Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetFISExperimentListCmdlet : AmazonFISClientCmdlet, IExecutor
+    public partial class GetTIDBDbParameterGroupListCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ExperimentTemplateId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the experiment template.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ExperimentTemplateId { get; set; }
-        #endregion
-        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned <c>nextToken</c> value.</para>
+        /// <para>The maximum number of items to return in the output. If the total number of items
+        /// available is more than the value specified, a NextToken is provided in the output.
+        /// To resume pagination, provide the NextToken value as argument of a subsequent API
+        /// invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>The pagination token. To resume pagination, provide the NextToken value as argument
+        /// of a subsequent API invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,23 +69,13 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Experiments'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FIS.Model.ListExperimentsResponse).
-        /// Specifying the name of a property of type Amazon.FIS.Model.ListExperimentsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse).
+        /// Specifying the name of a property of type Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Experiments";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExperimentTemplateId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExperimentTemplateId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExperimentTemplateId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "Items";
         #endregion
         
         protected override void ProcessRecord()
@@ -105,22 +88,11 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FIS.Model.ListExperimentsResponse, GetFISExperimentListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse, GetTIDBDbParameterGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.ExperimentTemplateId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ExperimentTemplateId = this.ExperimentTemplateId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -137,12 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FIS.Model.ListExperimentsRequest();
+            var request = new Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsRequest();
             
-            if (cmdletContext.ExperimentTemplateId != null)
-            {
-                request.ExperimentTemplateId = cmdletContext.ExperimentTemplateId;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -184,15 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         #region AWS Service Operation Call
         
-        private Amazon.FIS.Model.ListExperimentsResponse CallAWSServiceOperation(IAmazonFIS client, Amazon.FIS.Model.ListExperimentsRequest request)
+        private Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Fault Injection Simulator", "ListExperiments");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "ListDbParameterGroups");
             try
             {
                 #if DESKTOP
-                return client.ListExperiments(request);
+                return client.ListDbParameterGroups(request);
                 #elif CORECLR
-                return client.ListExperimentsAsync(request).GetAwaiter().GetResult();
+                return client.ListDbParameterGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -212,11 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ExperimentTemplateId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.FIS.Model.ListExperimentsResponse, GetFISExperimentListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Experiments;
+            public System.Func<Amazon.TimestreamInfluxDB.Model.ListDbParameterGroupsResponse, GetTIDBDbParameterGroupListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

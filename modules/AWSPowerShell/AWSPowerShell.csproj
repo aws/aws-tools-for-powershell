@@ -1102,6 +1102,9 @@
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Textract.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.TimestreamInfluxDB">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamInfluxDB.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.TimestreamQuery">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TimestreamQuery.dll</HintPath>
     </Reference>
@@ -2216,6 +2219,9 @@
     </Reference>
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Textract.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.TimestreamInfluxDB">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TimestreamInfluxDB.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.TimestreamQuery">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TimestreamQuery.dll</HintPath>

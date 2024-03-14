@@ -67,7 +67,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListExperiments" OutputProperty="Experiments" Verb="Get" Noun="ExperimentList" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListExperiments" OutputProperty="Experiments" Verb="Get" Noun="ExperimentList" PipelineParameter="ExperimentTemplateId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -402,6 +402,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.SupportApp.dll',
         'AWSSDK.Synthetics.dll',
         'AWSSDK.Textract.dll',
+        'AWSSDK.TimestreamInfluxDB.dll',
         'AWSSDK.TimestreamQuery.dll',
         'AWSSDK.TimestreamWrite.dll',
         'AWSSDK.Tnb.dll',

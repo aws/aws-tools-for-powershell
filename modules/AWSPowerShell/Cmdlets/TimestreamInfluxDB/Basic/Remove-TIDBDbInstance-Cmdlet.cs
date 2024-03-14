@@ -22,47 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FIS;
-using Amazon.FIS.Model;
+using Amazon.TimestreamInfluxDB;
+using Amazon.TimestreamInfluxDB.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FIS
+namespace Amazon.PowerShell.Cmdlets.TIDB
 {
     /// <summary>
-    /// Deletes the specified target account configuration of the experiment template.
+    /// Deletes a Timestream for InfluxDB DB instance.
     /// </summary>
-    [Cmdlet("Remove", "FISTargetAccountConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.FIS.Model.TargetAccountConfiguration")]
-    [AWSCmdlet("Calls the AWS Fault Injection Simulator DeleteTargetAccountConfiguration API operation.", Operation = new[] {"DeleteTargetAccountConfiguration"}, SelectReturnType = typeof(Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse))]
-    [AWSCmdletOutput("Amazon.FIS.Model.TargetAccountConfiguration or Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse",
-        "This cmdlet returns an Amazon.FIS.Model.TargetAccountConfiguration object.",
-        "The service call response (type Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "TIDBDbInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse")]
+    [AWSCmdlet("Calls the Amazon Timestream InfluxDB DeleteDbInstance API operation.", Operation = new[] {"DeleteDbInstance"}, SelectReturnType = typeof(Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse))]
+    [AWSCmdletOutput("Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse",
+        "This cmdlet returns an Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveFISTargetAccountConfigurationCmdlet : AmazonFISClientCmdlet, IExecutor
+    public partial class RemoveTIDBDbInstanceCmdlet : AmazonTimestreamInfluxDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID of the target account.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccountId { get; set; }
-        #endregion
-        
-        #region Parameter ExperimentTemplateId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the experiment template.</para>
+        /// <para>The id of the DB instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,26 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExperimentTemplateId { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'TargetAccountConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse).
-        /// Specifying the name of a property of type Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse).
+        /// Specifying the name of a property of type Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "TargetAccountConfiguration";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExperimentTemplateId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExperimentTemplateId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExperimentTemplateId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExperimentTemplateId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-FISTargetAccountConfiguration (DeleteTargetAccountConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-TIDBDbInstance (DeleteDbInstance)"))
             {
                 return;
             }
@@ -126,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse, RemoveFISTargetAccountConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse, RemoveTIDBDbInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,21 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.FIS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ExperimentTemplateId;
+                context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.ExperimentTemplateId = this.ExperimentTemplateId;
-            #if MODULAR
-            if (this.ExperimentTemplateId == null && ParameterWasBound(nameof(this.ExperimentTemplateId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ExperimentTemplateId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.FIS.Model.DeleteTargetAccountConfigurationRequest();
+            var request = new Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.AccountId = cmdletContext.AccountId;
-            }
-            if (cmdletContext.ExperimentTemplateId != null)
-            {
-                request.ExperimentTemplateId = cmdletContext.ExperimentTemplateId;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -209,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         #region AWS Service Operation Call
         
-        private Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse CallAWSServiceOperation(IAmazonFIS client, Amazon.FIS.Model.DeleteTargetAccountConfigurationRequest request)
+        private Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse CallAWSServiceOperation(IAmazonTimestreamInfluxDB client, Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Fault Injection Simulator", "DeleteTargetAccountConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream InfluxDB", "DeleteDbInstance");
             try
             {
                 #if DESKTOP
-                return client.DeleteTargetAccountConfiguration(request);
+                return client.DeleteDbInstance(request);
                 #elif CORECLR
-                return client.DeleteTargetAccountConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDbInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,10 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.FIS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.String ExperimentTemplateId { get; set; }
-            public System.Func<Amazon.FIS.Model.DeleteTargetAccountConfigurationResponse, RemoveFISTargetAccountConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TargetAccountConfiguration;
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.TimestreamInfluxDB.Model.DeleteDbInstanceResponse, RemoveTIDBDbInstanceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

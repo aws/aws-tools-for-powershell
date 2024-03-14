@@ -72,35 +72,46 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS Fault Injection Simulator
+# Argument completions for service Amazon Timestream InfluxDB
 
 
-$FIS_Completers = {
+$TIDB_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.FIS.AccountTargeting
-        "New-FISExperimentTemplate/ExperimentOptions_AccountTargeting"
+        # Amazon.TimestreamInfluxDB.DbInstanceType
+        "New-TIDBDbInstance/DbInstanceType"
         {
-            $v = "multi-account","single-account"
+            $v = "db.influx.12xlarge","db.influx.16xlarge","db.influx.2xlarge","db.influx.4xlarge","db.influx.8xlarge","db.influx.large","db.influx.medium","db.influx.xlarge"
             break
         }
 
-        # Amazon.FIS.ActionsMode
-        "Start-FISExperiment/ExperimentOptions_ActionsMode"
+        # Amazon.TimestreamInfluxDB.DbStorageType
+        "New-TIDBDbInstance/DbStorageType"
         {
-            $v = "run-all","skip-all"
+            $v = "InfluxIOIncludedT1","InfluxIOIncludedT2","InfluxIOIncludedT3"
             break
         }
 
-        # Amazon.FIS.EmptyTargetResolutionMode
+        # Amazon.TimestreamInfluxDB.DeploymentType
+        "New-TIDBDbInstance/DeploymentType"
         {
-            ($_ -eq "New-FISExperimentTemplate/ExperimentOptions_EmptyTargetResolutionMode") -Or
-            ($_ -eq "Update-FISExperimentTemplate/ExperimentOptions_EmptyTargetResolutionMode")
+            $v = "SINGLE_AZ","WITH_MULTIAZ_STANDBY"
+            break
         }
+
+        # Amazon.TimestreamInfluxDB.LogLevel
+        "New-TIDBDbParameterGroup/InfluxDBv2_LogLevel"
         {
-            $v = "fail","skip"
+            $v = "debug","error","info"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.TracingType
+        "New-TIDBDbParameterGroup/InfluxDBv2_TracingType"
+        {
+            $v = "jaeger","log"
             break
         }
 
@@ -112,18 +123,20 @@ $FIS_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$FIS_map = @{
-    "ExperimentOptions_AccountTargeting"=@("New-FISExperimentTemplate")
-    "ExperimentOptions_ActionsMode"=@("Start-FISExperiment")
-    "ExperimentOptions_EmptyTargetResolutionMode"=@("New-FISExperimentTemplate","Update-FISExperimentTemplate")
+$TIDB_map = @{
+    "DbInstanceType"=@("New-TIDBDbInstance")
+    "DbStorageType"=@("New-TIDBDbInstance")
+    "DeploymentType"=@("New-TIDBDbInstance")
+    "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
 }
 
-_awsArgumentCompleterRegistration $FIS_Completers $FIS_map
+_awsArgumentCompleterRegistration $TIDB_Completers $TIDB_map
 
-$FIS_SelectCompleters = {
+$TIDB_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.FIS.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.TIDB.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -167,32 +180,19 @@ $FIS_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$FIS_SelectMap = @{
-    "Select"=@("New-FISExperimentTemplate",
-               "New-FISTargetAccountConfiguration",
-               "Remove-FISExperimentTemplate",
-               "Remove-FISTargetAccountConfiguration",
-               "Get-FISAction",
-               "Get-FISExperiment",
-               "Get-FISExperimentTargetAccountConfiguration",
-               "Get-FISExperimentTemplate",
-               "Get-FISTargetAccountConfiguration",
-               "Get-FISTargetResourceType",
-               "Get-FISActionList",
-               "Get-FISExperimentResolvedTargetList",
-               "Get-FISExperimentList",
-               "Get-FISExperimentTargetAccountConfigurationList",
-               "Get-FISExperimentTemplateList",
-               "Get-FISResourceTag",
-               "Get-FISTargetAccountConfigurationList",
-               "Get-FISTargetResourceTypeList",
-               "Start-FISExperiment",
-               "Stop-FISExperiment",
-               "Add-FISResourceTag",
-               "Remove-FISResourceTag",
-               "Update-FISExperimentTemplate",
-               "Update-FISTargetAccountConfiguration")
+$TIDB_SelectMap = @{
+    "Select"=@("New-TIDBDbInstance",
+               "New-TIDBDbParameterGroup",
+               "Remove-TIDBDbInstance",
+               "Get-TIDBDbInstance",
+               "Get-TIDBDbParameterGroup",
+               "Get-TIDBDbInstanceList",
+               "Get-TIDBDbParameterGroupList",
+               "Get-TIDBResourceTag",
+               "Add-TIDBResourceTag",
+               "Remove-TIDBResourceTag",
+               "Update-TIDBDbInstance")
 }
 
-_awsArgumentCompleterRegistration $FIS_SelectCompleters $FIS_SelectMap
+_awsArgumentCompleterRegistration $TIDB_SelectCompleters $TIDB_SelectMap
 

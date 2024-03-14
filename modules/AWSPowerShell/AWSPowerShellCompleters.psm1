@@ -27780,6 +27780,13 @@ $FIS_Completers = {
             break
         }
 
+        # Amazon.FIS.ActionsMode
+        "Start-FISExperiment/ExperimentOptions_ActionsMode"
+        {
+            $v = "run-all","skip-all"
+            break
+        }
+
         # Amazon.FIS.EmptyTargetResolutionMode
         {
             ($_ -eq "New-FISExperimentTemplate/ExperimentOptions_EmptyTargetResolutionMode") -Or
@@ -27800,6 +27807,7 @@ $FIS_Completers = {
 
 $FIS_map = @{
     "ExperimentOptions_AccountTargeting"=@("New-FISExperimentTemplate")
+    "ExperimentOptions_ActionsMode"=@("Start-FISExperiment")
     "ExperimentOptions_EmptyTargetResolutionMode"=@("New-FISExperimentTemplate","Update-FISExperimentTemplate")
 }
 
@@ -64981,6 +64989,129 @@ $TXT_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $TXT_SelectCompleters $TXT_SelectMap
+# Argument completions for service Amazon Timestream InfluxDB
+
+
+$TIDB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.TimestreamInfluxDB.DbInstanceType
+        "New-TIDBDbInstance/DbInstanceType"
+        {
+            $v = "db.influx.12xlarge","db.influx.16xlarge","db.influx.2xlarge","db.influx.4xlarge","db.influx.8xlarge","db.influx.large","db.influx.medium","db.influx.xlarge"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.DbStorageType
+        "New-TIDBDbInstance/DbStorageType"
+        {
+            $v = "InfluxIOIncludedT1","InfluxIOIncludedT2","InfluxIOIncludedT3"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.DeploymentType
+        "New-TIDBDbInstance/DeploymentType"
+        {
+            $v = "SINGLE_AZ","WITH_MULTIAZ_STANDBY"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.LogLevel
+        "New-TIDBDbParameterGroup/InfluxDBv2_LogLevel"
+        {
+            $v = "debug","error","info"
+            break
+        }
+
+        # Amazon.TimestreamInfluxDB.TracingType
+        "New-TIDBDbParameterGroup/InfluxDBv2_TracingType"
+        {
+            $v = "jaeger","log"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TIDB_map = @{
+    "DbInstanceType"=@("New-TIDBDbInstance")
+    "DbStorageType"=@("New-TIDBDbInstance")
+    "DeploymentType"=@("New-TIDBDbInstance")
+    "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
+    "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
+}
+
+_awsArgumentCompleterRegistration $TIDB_Completers $TIDB_map
+
+$TIDB_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.TIDB.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TIDB_SelectMap = @{
+    "Select"=@("New-TIDBDbInstance",
+               "New-TIDBDbParameterGroup",
+               "Remove-TIDBDbInstance",
+               "Get-TIDBDbInstance",
+               "Get-TIDBDbParameterGroup",
+               "Get-TIDBDbInstanceList",
+               "Get-TIDBDbParameterGroupList",
+               "Get-TIDBResourceTag",
+               "Add-TIDBResourceTag",
+               "Remove-TIDBResourceTag",
+               "Update-TIDBDbInstance")
+}
+
+_awsArgumentCompleterRegistration $TIDB_SelectCompleters $TIDB_SelectMap
 # Argument completions for service Amazon Timestream Query
 
 
