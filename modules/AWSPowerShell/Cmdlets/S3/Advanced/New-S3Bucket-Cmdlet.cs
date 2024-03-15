@@ -38,8 +38,25 @@ namespace Amazon.PowerShell.Cmdlets.S3
     {
         #region Parameter BucketName
         /// <summary>
-        /// The name that will be given to the new bucket. This name needs to be
-        /// unique across Amazon S3.
+        /// <para>
+        /// The name of the bucket to create.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>General purpose buckets</b> - For information about bucket naming restrictions,
+        /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket
+        /// naming rules</a> in the <i>Amazon S3 User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>Directory buckets </b> - When you use this operation with a directory bucket,
+        /// you must use path-style requests in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
+        /// </c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
+        /// be unique in the chosen Availability Zone. Bucket names must also follow the format
+        /// <c> <i>bucket_base_name</i>--<i>az_id</i>--x-s3</c> (for example, <c> <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>).
+        /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i> 
+        /// </para>
         /// </summary>
         [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [Amazon.PowerShell.Common.AWSRequiredParameter]
