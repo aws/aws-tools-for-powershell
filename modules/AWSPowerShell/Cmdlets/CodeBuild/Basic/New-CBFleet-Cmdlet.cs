@@ -144,6 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter OverflowBehavior
+        /// <summary>
+        /// <para>
+        /// <para>The compute fleet overflow behavior.</para><ul><li><para>For overflow behavior <c>QUEUE</c>, your overflow builds need to wait on the existing
+        /// fleet instance to become available.</para></li><li><para>For overflow behavior <c>ON_DEMAND</c>, your overflow builds run on CodeBuild on-demand.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.FleetOverflowBehavior")]
+        public Amazon.CodeBuild.FleetOverflowBehavior OverflowBehavior { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_ScalingType
         /// <summary>
         /// <para>
@@ -248,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OverflowBehavior = this.OverflowBehavior;
             context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
             context.ScalingConfiguration_ScalingType = this.ScalingConfiguration_ScalingType;
             if (this.ScalingConfiguration_TargetTrackingScalingConfig != null)
@@ -289,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OverflowBehavior != null)
+            {
+                request.OverflowBehavior = cmdletContext.OverflowBehavior;
             }
             
              // populate ScalingConfiguration
@@ -398,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ComputeType ComputeType { get; set; }
             public Amazon.CodeBuild.EnvironmentType EnvironmentType { get; set; }
             public System.String Name { get; set; }
+            public Amazon.CodeBuild.FleetOverflowBehavior OverflowBehavior { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public Amazon.CodeBuild.FleetScalingType ScalingConfiguration_ScalingType { get; set; }
             public List<Amazon.CodeBuild.Model.TargetTrackingScalingConfiguration> ScalingConfiguration_TargetTrackingScalingConfig { get; set; }

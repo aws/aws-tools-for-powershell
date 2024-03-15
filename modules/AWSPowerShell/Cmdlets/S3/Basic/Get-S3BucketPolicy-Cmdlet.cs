@@ -88,16 +88,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The bucket name to get the bucket policy for.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket,
-        /// you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></code>. Virtual-hosted-style requests aren't supported. Directory bucket names must
+        /// you must use path-style requests in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
         /// be unique in the chosen Availability Zone. Bucket names must also follow the format
-        /// <code><i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>).
+        /// <c><i>bucket_base_name</i>--<i>az_id</i>--x-s3</c> (for example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>).
         /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
         /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i></para><para><b>Access points</b> - When you use this API operation with an access point, provide
         /// the alias of the access point in place of the bucket name.</para><para><b>Object Lambda access points</b> - When you use this API operation with an Object
         /// Lambda access point, provide the alias of the Object Lambda access point in place
         /// of the bucket name. If the Object Lambda access point alias in a request is not valid,
-        /// the error code <code>InvalidAccessPointAliasError</code> is returned. For more information
-        /// about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
+        /// the error code <c>InvalidAccessPointAliasError</c> is returned. For more information
+        /// about <c>InvalidAccessPointAliasError</c>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List
         /// of Error Codes</a>.</para><note><para>Access points and Object Lambda access points are not supported by directory buckets.</para></note>
         /// </para>
         /// </summary>
@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para><note><para>For directory buckets, this header is not supported in this API operation. If you
-        /// specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</para></note>
+        /// <c>403 Forbidden</c> (access denied).</para><note><para>For directory buckets, this header is not supported in this API operation. If you
+        /// specify this header, the request fails with the HTTP status code <c>501 Not Implemented</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

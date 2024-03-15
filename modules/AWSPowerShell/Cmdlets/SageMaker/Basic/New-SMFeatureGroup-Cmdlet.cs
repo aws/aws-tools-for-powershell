@@ -162,7 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the <c>FeatureGroup</c>. The name must be unique within an Amazon Web
-        /// Services Region in an Amazon Web Services account. The name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contain alphanumeric character and hyphens. Spaces are not allowed. </para></li></ul>
+        /// Services Region in an Amazon Web Services account.</para><para>The name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only include alphanumeric characters, underscores, and hyphens. Spaces are not
+        /// allowed.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

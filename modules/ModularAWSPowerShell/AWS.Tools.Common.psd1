@@ -115,7 +115,11 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
         'Clear-DefaultAWSRegion', 
         'Get-DefaultAWSRegion', 
         'Get-AWSRegion', 
-        'Remove-AWSCredentialProfile')
+        'Remove-AWSCredentialProfile', 
+        'Invoke-AWSSSOLogin', 
+        'Initialize-AWSSSOConfiguration', 
+        'Set-AWSSSOSessionConfiguration', 
+        'Invoke-AWSSSOLogout')
 
     # Variables to export from this module
     VariablesToExport = '*'

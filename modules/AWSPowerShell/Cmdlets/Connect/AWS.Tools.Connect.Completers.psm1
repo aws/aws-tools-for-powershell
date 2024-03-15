@@ -192,7 +192,11 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.HierarchyGroupMatchType
-        "Search-CONNUser/HierarchyGroupCondition_HierarchyGroupMatchType"
+        {
+            ($_ -eq "Search-CONNUser/HierarchyGroupCondition_HierarchyGroupMatchType") -Or
+            ($_ -eq "Search-CONNUser/SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType") -Or
+            ($_ -eq "Search-CONNUser/SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType")
+        }
         {
             $v = "EXACT","WITH_CHILD_GROUPS"
             break
@@ -508,6 +512,8 @@ $CONN_map = @{
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchableContactAttributes_MatchType"=@("Search-CONNContact")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
+    "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
+    "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
     "Sort_Order"=@("Search-CONNContact")
     "SourceType"=@("New-CONNIntegrationAssociation")

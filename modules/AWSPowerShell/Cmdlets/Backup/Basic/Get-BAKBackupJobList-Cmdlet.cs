@@ -157,7 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByState
         /// <summary>
         /// <para>
-        /// <para>Returns only backup jobs that are in the specified state.</para>
+        /// <para>Returns only backup jobs that are in the specified state.</para><para><c>Completed with issues</c> is a status found only in the Backup console. For API,
+        /// this status refers to jobs with a state of <c>COMPLETED</c> and a <c>MessageCategory</c>
+        /// with a value other than <c>SUCCESS</c>; that is, the status is completed but comes
+        /// with a status message.</para><para>To obtain the job count for <c>Completed with issues</c>, run two GET requests, and
+        /// subtract the second, smaller number:</para><para>GET /backup-jobs/?state=COMPLETED</para><para>GET /backup-jobs/?messageCategory=SUCCESS&amp;state=COMPLETED</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

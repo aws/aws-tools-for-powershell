@@ -88,9 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The name of the bucket.</para><para><b>Directory buckets </b> - When you use this operation with a directory bucket,
-        /// you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></code>. Virtual-hosted-style requests aren't supported. Directory bucket names must
+        /// you must use path-style requests in the format <c>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i></c>. Virtual-hosted-style requests aren't supported. Directory bucket names must
         /// be unique in the chosen Availability Zone. Bucket names must also follow the format
-        /// <code><i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>).
+        /// <c><i>bucket_base_name</i>--<i>az_id</i>--x-s3</c> (for example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>).
         /// For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
         /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i></para>
         /// </para>
@@ -104,11 +104,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>Indicates the algorithm used to create the checksum for the object when you use the
         /// SDK. This header will not provide any additional functionality if you don't use the
-        /// SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i></code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the
-        /// request with the HTTP status code <code>400 Bad Request</code>.</para><para>For the <code>x-amz-checksum-<i>algorithm</i></code> header, replace <code><i>algorithm</i></code> with the supported algorithm from the following list: </para><ul><li><para>CRC32</para></li><li><para>CRC32C</para></li><li><para>SHA1</para></li><li><para>SHA256</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
-        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i></code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>,
-        /// Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter and uses the
-        /// checksum algorithm that matches the provided value in <code>x-amz-checksum-<i>algorithm</i></code>.</para><note><para>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is
+        /// SDK. When you send this header, there must be a corresponding <c>x-amz-checksum-<i>algorithm</i></c> or <c>x-amz-trailer</c> header sent. Otherwise, Amazon S3 fails the
+        /// request with the HTTP status code <c>400 Bad Request</c>.</para><para>For the <c>x-amz-checksum-<i>algorithm</i></c> header, replace <c><i>algorithm</i></c> with the supported algorithm from the following list: </para><ul><li><para>CRC32</para></li><li><para>CRC32C</para></li><li><para>SHA1</para></li><li><para>SHA256</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking
+        /// object integrity</a> in the <i>Amazon S3 User Guide</i>.</para><para>If the individual checksum value you provide through <c>x-amz-checksum-<i>algorithm</i></c> doesn't match the checksum algorithm you set through <c>x-amz-sdk-checksum-algorithm</c>,
+        /// Amazon S3 ignores any provided <c>ChecksumAlgorithm</c> parameter and uses the
+        /// checksum algorithm that matches the provided value in <c>x-amz-checksum-<i>algorithm</i></c>.</para><note><para>For directory buckets, when you use Amazon Web Services SDKs, <c>CRC32</c> is
         /// the default checksum algorithm that's used for performance.</para></note>
         /// </para>
         /// </summary>
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para><note><para>For directory buckets, this header is not supported in this API operation. If you
-        /// specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</para></note>
+        /// <c>403 Forbidden</c> (access denied).</para><note><para>For directory buckets, this header is not supported in this API operation. If you
+        /// specify this header, the request fails with the HTTP status code <c>501 Not Implemented</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The bucket policy as a JSON document.</para><para>For directory buckets, the only IAM action supported in the bucket policy is <code>s3express:CreateSession</code>.</para>
+        /// <para>The bucket policy as a JSON document.</para><para>For directory buckets, the only IAM action supported in the bucket policy is <c>s3express:CreateSession</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

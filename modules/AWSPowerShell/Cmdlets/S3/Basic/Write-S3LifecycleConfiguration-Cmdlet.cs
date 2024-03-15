@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// your storage lifecycle</a>.
     /// </para><note><para>
     /// Bucket lifecycle configuration now supports specifying a lifecycle rule using an object
-    /// key name prefix, one or more object tags, or a combination of both. Accordingly, this
-    /// section describes the latest API. The previous version of the API supported filtering
-    /// based only on an object key name prefix, which is supported for backward compatibility.
-    /// For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.
+    /// key name prefix, one or more object tags, object size, or any combination of these.
+    /// Accordingly, this section describes the latest API. The previous version of the API
+    /// supported filtering based only on an object key name prefix, which is supported for
+    /// backward compatibility. For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.
     /// </para></note><dl><dt>Rules</dt><dd><para>
     /// You specify the lifecycle configuration in your request body. The lifecycle configuration
     /// is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle configuration
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// following:
     /// </para><ul><li><para>
     /// A filter identifying a subset of objects to which the rule applies. The filter can
-    /// be based on a key name prefix, object tags, or a combination of both.
+    /// be based on a key name prefix, object tags, object size, or any combination of these.
     /// </para></li><li><para>
     /// A status indicating whether the rule is in effect.
     /// </para></li><li><para>
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

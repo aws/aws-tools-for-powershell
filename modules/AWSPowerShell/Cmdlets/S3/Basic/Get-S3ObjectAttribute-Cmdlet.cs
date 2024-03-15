@@ -129,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The name of the bucket that contains the object.</para><para><b>Directory buckets</b> - When you use this operation with a directory bucket, you
-        /// must use virtual-hosted-style requests in the format <code><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.
+        /// must use virtual-hosted-style requests in the format <c><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</c>.
         /// Path-style requests are not supported. Directory bucket names must be unique in the
-        /// chosen Availability Zone. Bucket names must follow the format <code><i>bucket_base_name</i>--<i>az-id</i>--x-s3</code>
-        /// (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For
-        /// information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
+        /// chosen Availability Zone. Bucket names must follow the format <c><i>bucket_base_name</i>--<i>az-id</i>--x-s3</c>
+        /// (for example, <c><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</c>). For information
+        /// about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory
         /// bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</para><para><b>Access points</b> - When you use this action with an access point, you must provide
         /// the alias of the access point in place of the bucket name or specify the access point
         /// ARN. When using the access point ARN, you must direct requests to the access point
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using
         /// access points</a> in the <i>Amazon S3 User Guide</i>.</para><note><para>Access points and Object Lambda access points are not supported by directory buckets.</para></note><para><b>S3 on Outposts</b> - When you use this action with Amazon S3 on Outposts, you
         /// must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes
-        /// the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>.
+        /// the form <c><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</c>.
         /// When you use this action with S3 on Outposts through the Amazon Web Services SDKs,
         /// you provide the Outposts access point ARN in place of the bucket name. For more information
         /// about S3 on Outposts ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>
         /// <para>The account ID of the expected bucket owner. If the account ID that you provide does
         /// not match the actual owner of the bucket, the request fails with the HTTP status code
-        /// <code>403 Forbidden</code> (access denied).</para>
+        /// <c>403 Forbidden</c> (access denied).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -244,7 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <para>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting
         /// data. This value is used to store the object and then it is discarded; Amazon S3 does
         /// not store the encryption key. The key must be appropriate for use with the algorithm
-        /// specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.</para><note><para>This functionality is not supported for directory buckets.</para></note>
+        /// specified in the <c>x-amz-server-side-encryption-customer-algorithm</c> header.</para><note><para>This functionality is not supported for directory buckets.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,8 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// <para>
         /// <para>The version ID used to reference a specific version of the object.</para><note><para>S3 Versioning isn't enabled and supported for directory buckets. For this API operation,
-        /// only the <code>null</code> value of the version ID is supported by directory buckets.
-        /// You can only specify <code>null</code> to the <code>versionId</code> query parameter
+        /// only the <c>null</c> value of the version ID is supported by directory buckets.
+        /// You can only specify <c>null</c> to the <c>versionId</c> query parameter
         /// in the request.</para></note>
         /// </para>
         /// </summary>

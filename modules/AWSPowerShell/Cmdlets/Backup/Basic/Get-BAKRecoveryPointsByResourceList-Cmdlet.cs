@@ -47,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ManagedByAWSBackupOnly
+        /// <summary>
+        /// <para>
+        /// <para>This attribute filters recovery points based on ownership.</para><para>If this is set to <c>TRUE</c>, the response will contain recovery points associated
+        /// with the selected resources that are managed by Backup.</para><para>If this is set to <c>FALSE</c>, the response will contain all recovery points associated
+        /// with the selected resource.</para><para>Type: Boolean</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManagedByAWSBackupOnly { get; set; }
+        #endregion
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
@@ -153,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ManagedByAWSBackupOnly = this.ManagedByAWSBackupOnly;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -192,6 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListRecoveryPointsByResourceRequest();
             
+            if (cmdletContext.ManagedByAWSBackupOnly != null)
+            {
+                request.ManagedByAWSBackupOnly = cmdletContext.ManagedByAWSBackupOnly.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -255,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             
             // create request and set iteration invariants
             var request = new Amazon.Backup.Model.ListRecoveryPointsByResourceRequest();
+            if (cmdletContext.ManagedByAWSBackupOnly != null)
+            {
+                request.ManagedByAWSBackupOnly = cmdletContext.ManagedByAWSBackupOnly.Value;
+            }
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
@@ -378,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ManagedByAWSBackupOnly { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String ResourceArn { get; set; }

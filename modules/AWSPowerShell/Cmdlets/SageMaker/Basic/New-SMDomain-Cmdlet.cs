@@ -267,9 +267,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain
-        /// with an Amazon Web Services managed key by default. For more control, specify a customer
-        /// managed key.</para>
+        /// <para>SageMaker uses Amazon Web Services KMS to encrypt EFS and EBS volumes attached to
+        /// the domain with an Amazon Web Services managed key by default. For more control, specify
+        /// a customer managed key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

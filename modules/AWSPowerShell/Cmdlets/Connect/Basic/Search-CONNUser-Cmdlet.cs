@@ -104,6 +104,30 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.HierarchyGroupMatchType HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
         #endregion
         
+        #region Parameter SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType
+        /// <summary>
+        /// <para>
+        /// <para>The type of hierarchy group match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SF_UA_HierarchyGroupCondition_HierarchyGroupMatchType")]
+        [AWSConstantClassSource("Amazon.Connect.HierarchyGroupMatchType")]
+        public Amazon.Connect.HierarchyGroupMatchType SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType
+        /// <summary>
+        /// <para>
+        /// <para>The type of hierarchy group match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SF_HierarchyGroupCondition_HierarchyGroupMatchType")]
+        [AWSConstantClassSource("Amazon.Connect.HierarchyGroupMatchType")]
+        public Amazon.Connect.HierarchyGroupMatchType SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -145,6 +169,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.Model.TagCondition[][] TagFilter_OrCondition { get; set; }
         #endregion
         
+        #region Parameter UserAttributeFilter_OrCondition
+        /// <summary>
+        /// <para>
+        /// <para>A list of conditions which would be applied together with an <c>OR</c> condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_UserAttributeFilter_OrConditions")]
+        public Amazon.Connect.Model.AttributeAndCondition[] UserAttributeFilter_OrCondition { get; set; }
+        #endregion
+        
+        #region Parameter AndCondition_TagCondition
+        /// <summary>
+        /// <para>
+        /// <para>A leaf node condition which can be used to specify a tag condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_UserAttributeFilter_AndCondition_TagConditions")]
+        public Amazon.Connect.Model.TagCondition[] AndCondition_TagCondition { get; set; }
+        #endregion
+        
         #region Parameter SearchFilter_TagFilter_TagCondition_TagKey
         /// <summary>
         /// <para>
@@ -156,6 +202,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String SearchFilter_TagFilter_TagCondition_TagKey { get; set; }
         #endregion
         
+        #region Parameter TagCondition_TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag key in the tag condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_UserAttributeFilter_TagCondition_TagKey")]
+        public System.String TagCondition_TagKey { get; set; }
+        #endregion
+        
         #region Parameter SearchFilter_TagFilter_TagCondition_TagValue
         /// <summary>
         /// <para>
@@ -165,6 +222,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SF_TagFilter_TagCondition_TagValue")]
         public System.String SearchFilter_TagFilter_TagCondition_TagValue { get; set; }
+        #endregion
+        
+        #region Parameter TagCondition_TagValue
+        /// <summary>
+        /// <para>
+        /// <para>The tag value in the tag condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchFilter_UserAttributeFilter_TagCondition_TagValue")]
+        public System.String TagCondition_TagValue { get; set; }
         #endregion
         
         #region Parameter HierarchyGroupCondition_Value
@@ -187,6 +255,28 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchCriteria_StringCondition_Value")]
         public System.String StringCondition_Value { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value in the hierarchy group condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SF_UA_HierarchyGroupCondition_Value")]
+        public System.String SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value { get; set; }
+        #endregion
+        
+        #region Parameter SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value in the hierarchy group condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SF_HierarchyGroupCondition_Value")]
+        public System.String SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -323,6 +413,20 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             context.SearchFilter_TagFilter_TagCondition_TagKey = this.SearchFilter_TagFilter_TagCondition_TagKey;
             context.SearchFilter_TagFilter_TagCondition_TagValue = this.SearchFilter_TagFilter_TagCondition_TagValue;
+            context.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType = this.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType;
+            context.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value = this.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value;
+            if (this.AndCondition_TagCondition != null)
+            {
+                context.AndCondition_TagCondition = new List<Amazon.Connect.Model.TagCondition>(this.AndCondition_TagCondition);
+            }
+            context.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType = this.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType;
+            context.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value = this.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value;
+            if (this.UserAttributeFilter_OrCondition != null)
+            {
+                context.UserAttributeFilter_OrCondition = new List<Amazon.Connect.Model.AttributeAndCondition>(this.UserAttributeFilter_OrCondition);
+            }
+            context.TagCondition_TagKey = this.TagCondition_TagKey;
+            context.TagCondition_TagValue = this.TagCondition_TagValue;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -534,6 +638,161 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 request.SearchFilter.TagFilter = requestSearchFilter_searchFilter_TagFilter;
                 requestSearchFilterIsNull = false;
             }
+            Amazon.Connect.Model.ControlPlaneUserAttributeFilter requestSearchFilter_searchFilter_UserAttributeFilter = null;
+            
+             // populate UserAttributeFilter
+            var requestSearchFilter_searchFilter_UserAttributeFilterIsNull = true;
+            requestSearchFilter_searchFilter_UserAttributeFilter = new Amazon.Connect.Model.ControlPlaneUserAttributeFilter();
+            List<Amazon.Connect.Model.AttributeAndCondition> requestSearchFilter_searchFilter_UserAttributeFilter_userAttributeFilter_OrCondition = null;
+            if (cmdletContext.UserAttributeFilter_OrCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_userAttributeFilter_OrCondition = cmdletContext.UserAttributeFilter_OrCondition;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_userAttributeFilter_OrCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter.OrConditions = requestSearchFilter_searchFilter_UserAttributeFilter_userAttributeFilter_OrCondition;
+                requestSearchFilter_searchFilter_UserAttributeFilterIsNull = false;
+            }
+            Amazon.Connect.Model.AttributeAndCondition requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition = null;
+            
+             // populate AndCondition
+            var requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndConditionIsNull = true;
+            requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition = new Amazon.Connect.Model.AttributeAndCondition();
+            List<Amazon.Connect.Model.TagCondition> requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_andCondition_TagCondition = null;
+            if (cmdletContext.AndCondition_TagCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_andCondition_TagCondition = cmdletContext.AndCondition_TagCondition;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_andCondition_TagCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition.TagConditions = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_andCondition_TagCondition;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndConditionIsNull = false;
+            }
+            Amazon.Connect.Model.HierarchyGroupCondition requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition = null;
+            
+             // populate HierarchyGroupCondition
+            var requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupConditionIsNull = true;
+            requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition = new Amazon.Connect.Model.HierarchyGroupCondition();
+            Amazon.Connect.HierarchyGroupMatchType requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType = null;
+            if (cmdletContext.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType = cmdletContext.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition.HierarchyGroupMatchType = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupConditionIsNull = false;
+            }
+            System.String requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value = null;
+            if (cmdletContext.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value = cmdletContext.SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition.Value = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition should be set to null
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition.HierarchyGroupCondition = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition_searchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition should be set to null
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter.AndCondition = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_AndCondition;
+                requestSearchFilter_searchFilter_UserAttributeFilterIsNull = false;
+            }
+            Amazon.Connect.Model.HierarchyGroupCondition requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition = null;
+            
+             // populate HierarchyGroupCondition
+            var requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupConditionIsNull = true;
+            requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition = new Amazon.Connect.Model.HierarchyGroupCondition();
+            Amazon.Connect.HierarchyGroupMatchType requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType = null;
+            if (cmdletContext.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType = cmdletContext.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition.HierarchyGroupMatchType = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupConditionIsNull = false;
+            }
+            System.String requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_Value = null;
+            if (cmdletContext.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_Value = cmdletContext.SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_Value != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition.Value = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition_searchFilter_UserAttributeFilter_HierarchyGroupCondition_Value;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition should be set to null
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter.HierarchyGroupCondition = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_HierarchyGroupCondition;
+                requestSearchFilter_searchFilter_UserAttributeFilterIsNull = false;
+            }
+            Amazon.Connect.Model.TagCondition requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition = null;
+            
+             // populate TagCondition
+            var requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagConditionIsNull = true;
+            requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition = new Amazon.Connect.Model.TagCondition();
+            System.String requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagKey = null;
+            if (cmdletContext.TagCondition_TagKey != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagKey = cmdletContext.TagCondition_TagKey;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagKey != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition.TagKey = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagKey;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagConditionIsNull = false;
+            }
+            System.String requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagValue = null;
+            if (cmdletContext.TagCondition_TagValue != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagValue = cmdletContext.TagCondition_TagValue;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagValue != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition.TagValue = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition_tagCondition_TagValue;
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagConditionIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition should be set to null
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagConditionIsNull)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition = null;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition != null)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter.TagCondition = requestSearchFilter_searchFilter_UserAttributeFilter_searchFilter_UserAttributeFilter_TagCondition;
+                requestSearchFilter_searchFilter_UserAttributeFilterIsNull = false;
+            }
+             // determine if requestSearchFilter_searchFilter_UserAttributeFilter should be set to null
+            if (requestSearchFilter_searchFilter_UserAttributeFilterIsNull)
+            {
+                requestSearchFilter_searchFilter_UserAttributeFilter = null;
+            }
+            if (requestSearchFilter_searchFilter_UserAttributeFilter != null)
+            {
+                request.SearchFilter.UserAttributeFilter = requestSearchFilter_searchFilter_UserAttributeFilter;
+                requestSearchFilterIsNull = false;
+            }
              // determine if request.SearchFilter should be set to null
             if (requestSearchFilterIsNull)
             {
@@ -638,6 +897,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<List<Amazon.Connect.Model.TagCondition>> TagFilter_OrCondition { get; set; }
             public System.String SearchFilter_TagFilter_TagCondition_TagKey { get; set; }
             public System.String SearchFilter_TagFilter_TagCondition_TagValue { get; set; }
+            public Amazon.Connect.HierarchyGroupMatchType SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+            public System.String SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value { get; set; }
+            public List<Amazon.Connect.Model.TagCondition> AndCondition_TagCondition { get; set; }
+            public Amazon.Connect.HierarchyGroupMatchType SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
+            public System.String SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value { get; set; }
+            public List<Amazon.Connect.Model.AttributeAndCondition> UserAttributeFilter_OrCondition { get; set; }
+            public System.String TagCondition_TagKey { get; set; }
+            public System.String TagCondition_TagValue { get; set; }
             public System.Func<Amazon.Connect.Model.SearchUsersResponse, SearchCONNUserCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

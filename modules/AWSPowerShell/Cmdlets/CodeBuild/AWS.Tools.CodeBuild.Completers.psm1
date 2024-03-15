@@ -202,6 +202,16 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.FleetOverflowBehavior
+        {
+            ($_ -eq "New-CBFleet/OverflowBehavior") -Or
+            ($_ -eq "Update-CBFleet/OverflowBehavior")
+        }
+        {
+            $v = "ON_DEMAND","QUEUE"
+            break
+        }
+
         # Amazon.CodeBuild.FleetScalingType
         {
             ($_ -eq "New-CBFleet/ScalingConfiguration_ScalingType") -Or
@@ -442,6 +452,7 @@ $CB_map = @{
     "ExportConfig_ExportConfigType"=@("New-CBReportGroup","Update-CBReportGroup")
     "Filter_Status"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBReportList","Get-CBReportsForReportGroupList")
     "ImagePullCredentialsTypeOverride"=@("Start-CBBatch","Start-CBBuild")
+    "OverflowBehavior"=@("New-CBFleet","Update-CBFleet")
     "ProjectVisibility"=@("Update-CBProjectVisibility")
     "RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBatch","Start-CBBuild")

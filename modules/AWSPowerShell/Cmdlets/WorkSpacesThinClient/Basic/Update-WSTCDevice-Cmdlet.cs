@@ -73,16 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         public System.String Id { get; set; }
         #endregion
         
-        #region Parameter KmsKeyArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Key Management Service key to use for the update.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String KmsKeyArn { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -174,7 +164,6 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.KmsKeyArn = this.KmsKeyArn;
             context.Name = this.Name;
             context.SoftwareSetUpdateSchedule = this.SoftwareSetUpdateSchedule;
             
@@ -200,10 +189,6 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
-            }
-            if (cmdletContext.KmsKeyArn != null)
-            {
-                request.KmsKeyArn = cmdletContext.KmsKeyArn;
             }
             if (cmdletContext.Name != null)
             {
@@ -276,7 +261,6 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         {
             public System.String DesiredSoftwareSetId { get; set; }
             public System.String Id { get; set; }
-            public System.String KmsKeyArn { get; set; }
             public System.String Name { get; set; }
             public Amazon.WorkSpacesThinClient.SoftwareSetUpdateSchedule SoftwareSetUpdateSchedule { get; set; }
             public System.Func<Amazon.WorkSpacesThinClient.Model.UpdateDeviceResponse, UpdateWSTCDeviceCmdlet, object> Select { get; set; } =

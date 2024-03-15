@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AllowedAccessControlHierarchyGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the hierarchy group that a security profile uses to restrict access
+        /// to resources in Amazon Connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AllowedAccessControlHierarchyGroupId { get; set; }
+        #endregion
+        
         #region Parameter AllowedAccessControlTag
         /// <summary>
         /// <para>
@@ -73,6 +84,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter HierarchyRestrictedResource
+        /// <summary>
+        /// <para>
+        /// <para>The list of resources that a security profile applies hierarchy restrictions to in
+        /// Amazon Connect. Following are acceptable ResourceNames: <c>User</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("HierarchyRestrictedResources")]
+        public System.String[] HierarchyRestrictedResource { get; set; }
         #endregion
         
         #region Parameter InstanceId
@@ -196,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Select = (response, cmdlet) => this.SecurityProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AllowedAccessControlHierarchyGroupId = this.AllowedAccessControlHierarchyGroupId;
             if (this.AllowedAccessControlTag != null)
             {
                 context.AllowedAccessControlTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -209,6 +233,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 context.Application = new List<Amazon.Connect.Model.Application>(this.Application);
             }
             context.Description = this.Description;
+            if (this.HierarchyRestrictedResource != null)
+            {
+                context.HierarchyRestrictedResource = new List<System.String>(this.HierarchyRestrictedResource);
+            }
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -247,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // create request
             var request = new Amazon.Connect.Model.UpdateSecurityProfileRequest();
             
+            if (cmdletContext.AllowedAccessControlHierarchyGroupId != null)
+            {
+                request.AllowedAccessControlHierarchyGroupId = cmdletContext.AllowedAccessControlHierarchyGroupId;
+            }
             if (cmdletContext.AllowedAccessControlTag != null)
             {
                 request.AllowedAccessControlTags = cmdletContext.AllowedAccessControlTag;
@@ -258,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.HierarchyRestrictedResource != null)
+            {
+                request.HierarchyRestrictedResources = cmdletContext.HierarchyRestrictedResource;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -336,9 +372,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AllowedAccessControlHierarchyGroupId { get; set; }
             public Dictionary<System.String, System.String> AllowedAccessControlTag { get; set; }
             public List<Amazon.Connect.Model.Application> Application { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> HierarchyRestrictedResource { get; set; }
             public System.String InstanceId { get; set; }
             public List<System.String> Permission { get; set; }
             public System.String SecurityProfileId { get; set; }

@@ -219,7 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The launch specifications for the Spot Fleet request. If you specify <c>LaunchSpecifications</c>,
         /// you can't specify <c>LaunchTemplateConfigs</c>. If you include On-Demand capacity
-        /// in your request, you must use <c>LaunchTemplateConfigs</c>.</para>
+        /// in your request, you must use <c>LaunchTemplateConfigs</c>.</para><note><para>If an AMI specified in a launch specification is deregistered or disabled, no new
+        /// instances can be launched from the AMI. For fleets of type <c>maintain</c>, the target
+        /// capacity will not be maintained.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

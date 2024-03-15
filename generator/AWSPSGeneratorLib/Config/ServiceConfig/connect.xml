@@ -782,8 +782,14 @@
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagKey" NewName="SearchFilter_TagFilter_TagCondition_TagKey" Alias="SF_TagFilter_TagCondition_TagKey" />
                 <Param Name="SearchCriteria_TagCondition_TagValue" NewName="SearchCriteria_TagCondition_TagValue" Alias="SC_TagCondition_TagValue" />
                 <Param Name="SearchFilter_TagFilter_TagCondition_TagValue" NewName="SearchFilter_TagFilter_TagCondition_TagValue" Alias="SF_TagFilter_TagCondition_TagValue" />
+                <Param Name="SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value" NewName="SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value" Alias="SF_HierarchyGroupCondition_Value" />
+                <Param Name="SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType" NewName="SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType" Alias="SF_HierarchyGroupCondition_HierarchyGroupMatchType" />
+                <Param Name="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value" NewName="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value" Alias="SF_UA_HierarchyGroupCondition_Value" />
+                <Param Name="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType" NewName="SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType" Alias="SF_UA_HierarchyGroupCondition_HierarchyGroupMatchType" />
             </Params>
-            <TypesNotToFlatten />
+            <TypesNotToFlatten>
+                <Type>Amazon.Connect.Model.SearchUsersRequest</Type>
+            </TypesNotToFlatten>
         </ServiceOperation>
         <ServiceOperation MethodName="SearchVocabularies" OutputProperty="VocabularySummaryList" Verb="Search" Noun="Vocabulary" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />

@@ -1,4 +1,23 @@
-﻿### 4.1.537 (2024-03-14 20:50Z)
+﻿### 4.1.538 (2024-03-15 20:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.769.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * 
+    * Added cmdlet Initialize-AWSSSOConfiguration.
+    * Added cmdlet Invoke-AWSSSOLogin.
+    * Added cmdlet Invoke-AWSSSOLogout.
+    * Added cmdlet Set-AWSSSOSessionConfiguration.
+  * Amazon Backup
+    * Modified cmdlet Get-BAKRecoveryPointsByResourceList: added parameter ManagedByAWSBackupOnly.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBFleet: added parameter OverflowBehavior.
+    * Modified cmdlet Update-CBFleet: added parameter OverflowBehavior.
+  * Amazon Connect Service
+    * Modified cmdlet New-CONNSecurityProfile: added parameters AllowedAccessControlHierarchyGroupId and HierarchyRestrictedResource.
+    * Modified cmdlet Search-CONNUser: added parameters AndCondition_TagCondition, SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType, SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_Value, SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType, SearchFilter_UserAttributeFilter_HierarchyGroupCondition_Value, TagCondition_TagKey, TagCondition_TagValue and UserAttributeFilter_OrCondition.
+    * Modified cmdlet Update-CONNSecurityProfile: added parameters AllowedAccessControlHierarchyGroupId and HierarchyRestrictedResource.
+  * Amazon WorkSpaces Thin Client
+    * [Breaking Change] Modified cmdlet Update-WSTCDevice: removed parameter KmsKeyArn.
+
+### 4.1.537 (2024-03-14 20:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.768.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon IoT RoboRunner
   * Amazon Fault Injection Simulator
