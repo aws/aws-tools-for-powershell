@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Invoke-AWSSSOLogin -ProfileName "sso-test-profile"
+Get-S3Bucket -ProfileName "sso-test-profile"
+    </code>
+    <description>Initiates the SSO login flow for the profile "sso-test-profile". The command will attempt to automatically open the SSO authorization page in the default web browser. Once the authentication process is complete, an AWS SSO access token is retrieved and cached, and can be exchanged for AWS credentials by passing the profile name to service cmdlets.</description>
+  </example>
+</examples>

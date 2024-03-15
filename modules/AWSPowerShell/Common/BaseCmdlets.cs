@@ -25,6 +25,7 @@ using Amazon.Runtime;
 using System.Collections;
 using Amazon.Util.Internal;
 using Amazon.PowerShell.Common.Internal;
+using Amazon.Runtime.CredentialManagement;
 
 namespace Amazon.PowerShell.Common
 {
@@ -808,6 +809,13 @@ namespace Amazon.PowerShell.Common
 
                 _CurrentCredentials = awsPSCredentials.Credentials;
                 WriteCredentialSourceDiagnostic(awsPSCredentials);
+                if (_CurrentCredentials is SSOAWSCredentials ssoAWSCredentials)
+                {
+                    // Setting SupportsGettingNewToken to false ensures that the sso login flow is not initiated when
+                    // sso token has expired.
+                    ssoAWSCredentials.Options.SupportsGettingNewToken = false;
+                    ValidateSSOToken(ssoAWSCredentials);
+                }
             }
 
             this.TryGetRegion(useInstanceMetadata: true, out var region, out var regionSource, SessionState);
@@ -855,6 +863,21 @@ namespace Amazon.PowerShell.Common
             else
             {
                 WriteRegionSourceDiagnostic(regionSource, region.SystemName);
+            }
+        }
+
+        private void ValidateSSOToken(SSOAWSCredentials ssoAWSCredentials)
+        {
+            var ssoTokenManagerGetTokenOptions = SSOUtils.BuildSSOTokenManagerGetTokenOptions(ssoAWSCredentials, supportsGettingNewToken: false, ssoVerificationCallback: null);
+
+            bool isLoginRequired = SSOUtils.IsSsoLoginRequiredAsync(ssoTokenManagerGetTokenOptions).GetAwaiter().GetResult();
+            if (isLoginRequired)
+            {
+                string message = $"SSO Token has expired. Please login by running Invoke-AWSSSOLogin.";
+                this.ThrowTerminatingError(new ErrorRecord(new UnauthorizedAccessException(message),
+                                                            "UnauthorizedAccessException",
+                                                            ErrorCategory.PermissionDenied,
+                                                            this));
             }
         }
     }

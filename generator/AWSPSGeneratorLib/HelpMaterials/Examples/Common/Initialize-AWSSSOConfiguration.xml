@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+      Initialize-AWSSSOConfiguration
+    </code>
+    <description>Interactively prompts for the configuration values required to create a profile.</description>
+  </example>
+  <example>
+    <code>$params = @{
+      ProfileName = 'sso-test-profile'
+      AccountId = '012345678901'
+      RoleName = 'ReadOnlyAccess'
+      SessionName = 'sso-session-d-xxxxxxxxxx'
+      StartUrl = 'https://d-xxxxxxxxxx.awsapps.com/start'
+      SSORegion = 'us-east-1'
+      };
+      Initialize-AWSSSOConfiguration @params
+    </code>
+    <description>Creates a profile 'sso-test-profile' with the configuration values and then initiates SSO login flow.</description>
+  </example>
+</examples>

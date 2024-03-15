@@ -59,7 +59,15 @@ namespace Amazon.PowerShell.Common
             }
 
             if (currentCredentials != null)
+            {
+                if (currentCredentials.Credentials is SSOAWSCredentials ssoAWSCredentials)
+                {
+                    // Setting SupportsGettingNewToken to false ensures that the sso login flow is not initiated when
+                    // sso token has expired.
+                    ssoAWSCredentials.Options.SupportsGettingNewToken = false;
+                }
                 WriteObject(currentCredentials.Credentials);
+            }
         }
     }
 
@@ -384,16 +392,31 @@ namespace Amazon.PowerShell.Common
 
             if (string.IsNullOrEmpty(ProfileName))
             {
+                // Setting SupportsGettingNewToken to false ensures that the sso login flow is not initiated when
+                // sso token has expired.
+
                 var creds = this.SessionState.PSVariable.Get(SessionKeys.AWSCredentialsVariableName);
                 if (creds != null && creds.Value != null && creds.Value is AWSPSCredentials)
+                {
+                    if (creds.Value is SSOAWSCredentials ssoAWSCredentials)
+                    {
+                        ssoAWSCredentials.Options.SupportsGettingNewToken = false;
+                    }
+
                     WriteObject((creds.Value as AWSPSCredentials).Credentials);
+                }
             }
             else
             {
                 CredentialProfile profile;
                 if (SettingsStore.TryGetProfile(ProfileName, ProfileLocation, out profile))
                 {
-                    WriteObject(profile.GetAWSCredentials(profile.CredentialProfileStore));
+                    var profileCreds = profile.GetAWSCredentials(profile.CredentialProfileStore);
+                    if (profileCreds is SSOAWSCredentials ssoAWSCredentials)
+                    {
+                        ssoAWSCredentials.Options.SupportsGettingNewToken = false;
+                    }
+                    WriteObject(profileCreds);
                 }
             }
         }

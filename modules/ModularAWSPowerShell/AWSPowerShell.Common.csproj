@@ -58,6 +58,12 @@
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>..\..\Include\sdk\ExtractedNuGet\netstandard2.0\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
+	  <Reference Include="AWSSDK.SSOOIDC">
+      <HintPath>..\..\Include\sdk\assemblies\netstandard2.0\AWSSDK.SSOOIDC.dll</HintPath>
+    </Reference>
+	  <Reference Include="AWSSDK.SSO">
+	    <HintPath>..\..\Include\sdk\assemblies\netstandard2.0\AWSSDK.SSO.dll</HintPath>
+	  </Reference>
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

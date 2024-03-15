@@ -47,6 +47,8 @@ foreach ($suffix in $binFilesSuffixes)
 }
 Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.Core.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.Core.dll"
 Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SecurityToken.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.SecurityToken.dll"
+Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SSOOIDC.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.SSOOIDC.dll"
+Copy-Item -Path "$commonModuleFolder/$releaseBitPath/AWSSDK.SSO.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/AWSSDK.SSO.dll"
 Copy-Item -Path "$monolithicModuleFolder/ImportGuard.ps1" -Destination "$modularDeploymentFolder/AWS.Tools.Common/ImportGuard.ps1"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt.dll"
 Copy-Item -Path "$assembliesFolder/netstandard2.0/aws-crt-auth.dll" -Destination "$modularDeploymentFolder/AWS.Tools.Common/aws-crt-auth.dll"

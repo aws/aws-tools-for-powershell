@@ -110,41 +110,39 @@ namespace Amazon.PowerShell.Utils
         }
 
         /// <summary>
-        /// Add the session info given. If the profile already exists, update it.
+        /// Add the session info given. If the sso-session section already exists, update it.
         /// </summary>
-        public static void RegisterSsoSession(this CredentialProfile profile)
+        public static void RegisterSsoSession(this CredentialProfileOptions profileOptions)
         {
             SharedCredentialsFile sharedCredentialsFile = new SharedCredentialsFile();
 
-            if (profile == null)
+            if (profileOptions == null)
             {
-                throw new ArgumentNullException(nameof(profile));
+                throw new ArgumentNullException(nameof(profileOptions));
             }
 
-            var options = profile.Options;
-
-            ThrowOnNullOrWhiteSpace(nameof(options.SsoSession), options.SsoSession);
-            ThrowOnNullOrWhiteSpace(nameof(options.SsoRegion), options.SsoRegion);
-            ThrowOnNullOrWhiteSpace(nameof(options.SsoStartUrl), options.SsoStartUrl);
+            ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoSession), profileOptions.SsoSession);
+            ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoRegion), profileOptions.SsoRegion);
+            ThrowOnNullOrWhiteSpace(nameof(profileOptions.SsoStartUrl), profileOptions.SsoStartUrl);
 
             // Only sso_start_url and sso_region supported in sso-session sections for IAM Identity Center
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.
             var ssoSessionProperties = new SortedDictionary<string, string>()
         {
-            { _ssoRegionPropertyName, options.SsoRegion },
-            { _ssoStartUrlPropertyName, options.SsoStartUrl },
+            { _ssoRegionPropertyName, profileOptions.SsoRegion },
+            { _ssoStartUrlPropertyName, profileOptions.SsoStartUrl },
         };
 
-            if (!string.IsNullOrWhiteSpace(options.SsoRegistrationScopes))
+            if (!string.IsNullOrWhiteSpace(profileOptions.SsoRegistrationScopes))
             {
-                ssoSessionProperties.Add(_ssoRegistrationScopes, options.SsoRegistrationScopes);
+                ssoSessionProperties.Add(_ssoRegistrationScopes, profileOptions.SsoRegistrationScopes);
             }
 
             var configFile = sharedCredentialsFile.GetSharedConfigFile();
 
-            configFile.EnsureSectionExists(SSOProfileMethods.CreateSsoSessionProfileName(options.SsoSession));
+            configFile.EnsureSectionExists(SSOProfileMethods.CreateSsoSessionProfileName(profileOptions.SsoSession));
 
-            configFile.EditSection(options.SsoSession, true, ssoSessionProperties); // Section must already exist to edit sso-session
+            configFile.EditSection(profileOptions.SsoSession, true, ssoSessionProperties); // Section must already exist to edit sso-session
             configFile.Persist();
         }
 
@@ -165,10 +163,8 @@ namespace Amazon.PowerShell.Utils
             ThrowOnNullOrWhiteSpace(nameof(options.SsoSession), options.SsoSession);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoRegion), options.SsoRegion);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoStartUrl), options.SsoStartUrl);
-            ThrowOnNullOrWhiteSpace(nameof(profile.Region.SystemName), profile.Region.SystemName);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoAccountId), options.SsoAccountId);
             ThrowOnNullOrWhiteSpace(nameof(options.SsoRoleName), options.SsoRoleName);
-            ThrowOnNullOrWhiteSpace(nameof(options.SsoSession), options.SsoSession);
 
             // Only sso_start_url and sso_region supported in sso-session sections for IAM Identity Center
             // Legacy profiles don't support sso_session sections, all Sso* keys defined directly in profile.
@@ -180,7 +176,6 @@ namespace Amazon.PowerShell.Utils
 
             var profileProperties = new SortedDictionary<string, string>()
         {
-            { _regionPropertyName, profile.Region.SystemName },
             { _ssoAccountIdPropertyName, options.SsoAccountId },
             { _ssoRoleNamePropertyName, options.SsoRoleName },
             { _ssoSessionPropertyName, options.SsoSession },
@@ -191,6 +186,11 @@ namespace Amazon.PowerShell.Utils
                 ssoSessionProperties.Add(_ssoRegistrationScopes, options.SsoRegistrationScopes);
             }
 
+            if (!string.IsNullOrWhiteSpace(profile.Region?.SystemName))
+            {
+                profileProperties.Add(_regionPropertyName, profile.Region.SystemName);
+            }
+
             var configFile = sharedCredentialsFile.GetSharedConfigFile();
             configFile.EnsureSectionExists(SSOProfileMethods.CreateProfileName(profile.Name));
             configFile.EnsureSectionExists(SSOProfileMethods.CreateSsoSessionProfileName(options.SsoSession));
@@ -199,5 +199,31 @@ namespace Amazon.PowerShell.Utils
             configFile.EditSection(options.SsoSession, true, ssoSessionProperties);
             configFile.Persist();
         }
+
+        /// <summary>
+        /// Retrieves sso-session from the SharedCredentialsFile '~/.aws/config'.
+        /// </summary>
+        public static CredentialProfileOptions GetSsoSessionSection(string sessionName)
+        {
+            CredentialProfileOptions profileOptions = null;
+            var sharedCredentialsFile = new SharedCredentialsFile();
+            var configFile = sharedCredentialsFile.GetSharedConfigFile();
+
+            if (configFile.TryGetSection(sessionName, isSsoSession: true, isServicesSection: false, out var properties,
+                    nestedProperties: out var _))
+            {
+
+                profileOptions = new CredentialProfileOptions
+                {
+                    SsoSession = sessionName,
+                    SsoStartUrl = properties["sso_start_url"],
+                    SsoRegistrationScopes = properties["sso_registration_scopes"],
+                    SsoRegion = properties["sso_region"]
+                };
+            }
+
+            return profileOptions;
+        }
+
     }
 }
