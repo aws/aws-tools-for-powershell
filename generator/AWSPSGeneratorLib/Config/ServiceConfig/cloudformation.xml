@@ -270,6 +270,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListStackSetAutoDeploymentTargets" OutputProperty="Summaries" Verb="Get" Noun="StackSetAutoDeploymentTarget" PipelineParameter="StackSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListStackSetOperationResults" OutputProperty="Summaries" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />

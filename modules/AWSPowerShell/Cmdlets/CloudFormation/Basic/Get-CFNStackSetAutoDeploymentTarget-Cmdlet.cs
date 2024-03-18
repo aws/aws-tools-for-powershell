@@ -22,40 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MediaTailor;
-using Amazon.MediaTailor.Model;
+using Amazon.CloudFormation;
+using Amazon.CloudFormation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EMT
+namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Retrieves information about your channel's schedule.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns summary information about deployment targets for a stack set.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "EMTChannelSchedule")]
-    [OutputType("Amazon.MediaTailor.Model.ScheduleEntry")]
-    [AWSCmdlet("Calls the AWS Elemental MediaTailor GetChannelSchedule API operation.", Operation = new[] {"GetChannelSchedule"}, SelectReturnType = typeof(Amazon.MediaTailor.Model.GetChannelScheduleResponse))]
-    [AWSCmdletOutput("Amazon.MediaTailor.Model.ScheduleEntry or Amazon.MediaTailor.Model.GetChannelScheduleResponse",
-        "This cmdlet returns a collection of Amazon.MediaTailor.Model.ScheduleEntry objects.",
-        "The service call response (type Amazon.MediaTailor.Model.GetChannelScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CFNStackSetAutoDeploymentTarget")]
+    [OutputType("Amazon.CloudFormation.Model.StackSetAutoDeploymentTargetSummary")]
+    [AWSCmdlet("Calls the AWS CloudFormation ListStackSetAutoDeploymentTargets API operation.", Operation = new[] {"ListStackSetAutoDeploymentTargets"}, SelectReturnType = typeof(Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse))]
+    [AWSCmdletOutput("Amazon.CloudFormation.Model.StackSetAutoDeploymentTargetSummary or Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse",
+        "This cmdlet returns a collection of Amazon.CloudFormation.Model.StackSetAutoDeploymentTargetSummary objects.",
+        "The service call response (type Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetEMTChannelScheduleCmdlet : AmazonMediaTailorClientCmdlet, IExecutor
+    public partial class GetCFNStackSetAutoDeploymentTargetCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Audience
+        #region Parameter CallAs
         /// <summary>
         /// <para>
-        /// <para>The single audience for GetChannelScheduleRequest.</para>
+        /// <para>Specifies whether you are acting as an account administrator in the organization's
+        /// management account or as a delegated administrator in a member account.</para><para>By default, <c>SELF</c> is specified. Use <c>SELF</c> for StackSets with self-managed
+        /// permissions.</para><ul><li><para>If you are signed in to the management account, specify <c>SELF</c>.</para></li><li><para>If you are signed in to a delegated administrator account, specify <c>DELEGATED_ADMIN</c>.</para><para>Your Amazon Web Services account must be registered as a delegated administrator in
+        /// the management account. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html">Register
+        /// a delegated administrator</a> in the <i>CloudFormation User Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Audience { get; set; }
+        [AWSConstantClassSource("Amazon.CloudFormation.CallAs")]
+        public Amazon.CloudFormation.CallAs CallAs { get; set; }
         #endregion
         
-        #region Parameter ChannelName
+        #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the channel associated with this Channel Schedule.</para>
+        /// <para>The name or unique ID of the stack set that you want to get automatic deployment targets
+        /// for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,26 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ChannelName { get; set; }
-        #endregion
-        
-        #region Parameter DurationMinute
-        /// <summary>
-        /// <para>
-        /// <para>The duration in minutes of the channel schedule.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("DurationMinutes")]
-        public System.String DurationMinute { get; set; }
+        public System.String StackSetName { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of channel schedules that you want MediaTailor to return in response
-        /// to the current request. If there are more than <c>MaxResults</c> channel schedules,
-        /// use the value of <c>NextToken</c> in the response to get the next page of results.</para>
+        /// <para>The maximum number of results to be returned with a single call. If the number of
+        /// available results exceeds this maximum, the response includes a <c>NextToken</c> value
+        /// that you can assign to the <c>NextToken</c> request parameter to get the next set
+        /// of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) If the playback configuration has more than <c>MaxResults</c> channel schedules,
-        /// use <c>NextToken</c> to get the second and subsequent pages of results.</para><para>For the first <c>GetChannelScheduleRequest</c> request, omit this value.</para><para>For the second and subsequent requests, get the value of <c>NextToken</c> from the
-        /// previous response and specify that value for <c>NextToken</c> in the request.</para><para>If the previous response didn't include a <c>NextToken</c> element, there are no more
-        /// channel schedules to get.</para>
+        /// <para>A string that identifies the next page of stack set deployment targets that you want
+        /// to retrieve.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -112,21 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MediaTailor.Model.GetChannelScheduleResponse).
-        /// Specifying the name of a property of type Amazon.MediaTailor.Model.GetChannelScheduleResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Summaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse).
+        /// Specifying the name of a property of type Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "Summaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ChannelName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ChannelName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StackSetName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StackSetName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ChannelName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StackSetName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -154,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MediaTailor.Model.GetChannelScheduleResponse, GetEMTChannelScheduleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse, GetCFNStackSetAutoDeploymentTargetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -163,20 +157,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ChannelName;
+                context.Select = (response, cmdlet) => this.StackSetName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Audience = this.Audience;
-            context.ChannelName = this.ChannelName;
-            #if MODULAR
-            if (this.ChannelName == null && ParameterWasBound(nameof(this.ChannelName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ChannelName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.DurationMinute = this.DurationMinute;
+            context.CallAs = this.CallAs;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.StackSetName = this.StackSetName;
+            #if MODULAR
+            if (this.StackSetName == null && ParameterWasBound(nameof(this.StackSetName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter StackSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,23 +188,19 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.MediaTailor.Model.GetChannelScheduleRequest();
+            var request = new Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsRequest();
             
-            if (cmdletContext.Audience != null)
+            if (cmdletContext.CallAs != null)
             {
-                request.Audience = cmdletContext.Audience;
-            }
-            if (cmdletContext.ChannelName != null)
-            {
-                request.ChannelName = cmdletContext.ChannelName;
-            }
-            if (cmdletContext.DurationMinute != null)
-            {
-                request.DurationMinutes = cmdletContext.DurationMinute;
+                request.CallAs = cmdletContext.CallAs;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.StackSetName != null)
+            {
+                request.StackSetName = cmdletContext.StackSetName;
             }
             
             // Initialize loop variant and commence piping
@@ -270,15 +259,15 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         #region AWS Service Operation Call
         
-        private Amazon.MediaTailor.Model.GetChannelScheduleResponse CallAWSServiceOperation(IAmazonMediaTailor client, Amazon.MediaTailor.Model.GetChannelScheduleRequest request)
+        private Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaTailor", "GetChannelSchedule");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "ListStackSetAutoDeploymentTargets");
             try
             {
                 #if DESKTOP
-                return client.GetChannelSchedule(request);
+                return client.ListStackSetAutoDeploymentTargets(request);
                 #elif CORECLR
-                return client.GetChannelScheduleAsync(request).GetAwaiter().GetResult();
+                return client.ListStackSetAutoDeploymentTargetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -298,13 +287,12 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Audience { get; set; }
-            public System.String ChannelName { get; set; }
-            public System.String DurationMinute { get; set; }
+            public Amazon.CloudFormation.CallAs CallAs { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.MediaTailor.Model.GetChannelScheduleResponse, GetEMTChannelScheduleCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public System.String StackSetName { get; set; }
+            public System.Func<Amazon.CloudFormation.Model.ListStackSetAutoDeploymentTargetsResponse, GetCFNStackSetAutoDeploymentTargetCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Summaries;
         }
         
     }

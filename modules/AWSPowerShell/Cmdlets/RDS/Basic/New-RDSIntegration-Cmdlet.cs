@@ -53,6 +53,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Collections.Hashtable AdditionalEncryptionContext { get; set; }
         #endregion
         
+        #region Parameter DataFilter
+        /// <summary>
+        /// <para>
+        /// <para>Data filtering options for the integration. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/zero-etl.filtering.html">Data
+        /// filtering for Aurora zero-ETL integrations with Amazon Redshift</a>. </para><para>Valid for: Integrations with Aurora MySQL source DB clusters only</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataFilter { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A description of the integration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter IntegrationName
         /// <summary>
         /// <para>
@@ -197,6 +218,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                     context.AdditionalEncryptionContext.Add((String)hashKey, (System.String)(this.AdditionalEncryptionContext[hashKey]));
                 }
             }
+            context.DataFilter = this.DataFilter;
+            context.Description = this.Description;
             context.IntegrationName = this.IntegrationName;
             #if MODULAR
             if (this.IntegrationName == null && ParameterWasBound(nameof(this.IntegrationName)))
@@ -242,6 +265,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.AdditionalEncryptionContext != null)
             {
                 request.AdditionalEncryptionContext = cmdletContext.AdditionalEncryptionContext;
+            }
+            if (cmdletContext.DataFilter != null)
+            {
+                request.DataFilter = cmdletContext.DataFilter;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.IntegrationName != null)
             {
@@ -325,6 +356,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AdditionalEncryptionContext { get; set; }
+            public System.String DataFilter { get; set; }
+            public System.String Description { get; set; }
             public System.String IntegrationName { get; set; }
             public System.String KMSKeyId { get; set; }
             public System.String SourceArn { get; set; }

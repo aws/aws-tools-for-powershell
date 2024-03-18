@@ -4019,6 +4019,9 @@ Set-Alias -Name CFN-ListStackResources -Value Get-CFNStackResourceSummary
 Set-Alias -Name List-CFNStacks -Value Get-CFNStackSummary
 Set-Alias -Name List-CFNStackSummary -Value Get-CFNStackSummary
 Set-Alias -Name CFN-ListStacks -Value Get-CFNStackSummary
+Set-Alias -Name List-CFNStackSetAutoDeploymentTargets -Value Get-CFNStackSetAutoDeploymentTarget
+Set-Alias -Name List-CFNStackSetAutoDeploymentTarget -Value Get-CFNStackSetAutoDeploymentTarget
+Set-Alias -Name CFN-ListStackSetAutoDeploymentTargets -Value Get-CFNStackSetAutoDeploymentTarget
 Set-Alias -Name List-CFNStackSetOperationResults -Value Get-CFNStackSetOperationResultList
 Set-Alias -Name List-CFNStackSetOperationResultList -Value Get-CFNStackSetOperationResultList
 Set-Alias -Name CFN-ListStackSetOperationResults -Value Get-CFNStackSetOperationResultList
@@ -22417,6 +22420,8 @@ Set-Alias -Name Modify-RDSEventSubscription -Value Edit-RDSEventSubscription
 Set-Alias -Name RDS-ModifyEventSubscription -Value Edit-RDSEventSubscription
 Set-Alias -Name Modify-RDSGlobalCluster -Value Edit-RDSGlobalCluster
 Set-Alias -Name RDS-ModifyGlobalCluster -Value Edit-RDSGlobalCluster
+Set-Alias -Name Modify-RDSIntegration -Value Edit-RDSIntegration
+Set-Alias -Name RDS-ModifyIntegration -Value Edit-RDSIntegration
 Set-Alias -Name Modify-RDSOptionGroup -Value Edit-RDSOptionGroup
 Set-Alias -Name RDS-ModifyOptionGroup -Value Edit-RDSOptionGroup
 Set-Alias -Name Modify-RDSTenantDatabase -Value Edit-RDSTenantDatabase

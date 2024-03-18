@@ -99,6 +99,7 @@ $CFN_Completers = {
             ($_ -eq "Get-CFNStackInstanceList/CallAs") -Or
             ($_ -eq "Get-CFNStackInstanceResourceDrift/CallAs") -Or
             ($_ -eq "Get-CFNStackSet/CallAs") -Or
+            ($_ -eq "Get-CFNStackSetAutoDeploymentTarget/CallAs") -Or
             ($_ -eq "Get-CFNStackSetList/CallAs") -Or
             ($_ -eq "Get-CFNStackSetOperation/CallAs") -Or
             ($_ -eq "Get-CFNStackSetOperationList/CallAs") -Or
@@ -307,7 +308,7 @@ $CFN_Completers = {
 }
 
 $CFN_map = @{
-    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackInstanceResourceDrift","Get-CFNStackSet","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
+    "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackInstanceResourceDrift","Get-CFNStackSet","Get-CFNStackSetAutoDeploymentTarget","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
@@ -437,6 +438,7 @@ $CFN_SelectMap = @{
                "Get-CFNStackInstanceList",
                "Get-CFNStackResourceSummary",
                "Get-CFNStackSummary",
+               "Get-CFNStackSetAutoDeploymentTarget",
                "Get-CFNStackSetOperationResultList",
                "Get-CFNStackSetOperationList",
                "Get-CFNStackSetList",

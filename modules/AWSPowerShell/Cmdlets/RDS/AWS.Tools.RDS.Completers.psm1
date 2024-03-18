@@ -345,6 +345,7 @@ $RDS_SelectMap = @{
                "Edit-RDSDBSubnetGroup",
                "Edit-RDSEventSubscription",
                "Edit-RDSGlobalCluster",
+               "Edit-RDSIntegration",
                "Edit-RDSOptionGroup",
                "Edit-RDSTenantDatabase",
                "Convert-RDSReadReplicaToStandalone",

@@ -125,17 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the key policy. The only valid value is <c>default</c>.</para>
+        /// <para>The name of the key policy. If no policy name is specified, the default value is <c>default</c>.
+        /// The only valid value is <c>default</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String PolicyName { get; set; }
         #endregion
         
@@ -216,12 +210,6 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             }
             #endif
             context.PolicyName = this.PolicyName;
-            #if MODULAR
-            if (this.PolicyName == null && ParameterWasBound(nameof(this.PolicyName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter PolicyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

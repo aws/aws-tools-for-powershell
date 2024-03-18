@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
     /// <summary>
     /// A synchronous operation that allows you to submit a query with parameters to be stored
     /// by Timestream for later running. Timestream only supports using this operation with
-    /// the <c>PrepareQueryRequest$ValidateOnly</c> set to <c>true</c>.
+    /// <c>ValidateOnly</c> set to <c>true</c>.
     /// </summary>
     [Cmdlet("Initialize", "TSQQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TimestreamQuery.Model.PrepareQueryResponse")]

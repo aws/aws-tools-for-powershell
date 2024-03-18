@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Audience
+        /// <summary>
+        /// <para>
+        /// <para>The list of audiences defined in channel.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Audiences")]
+        public System.String[] Audience { get; set; }
+        #endregion
+        
         #region Parameter ChannelName
         /// <summary>
         /// <para>
@@ -173,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 context.Select = (response, cmdlet) => this.ChannelName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Audience != null)
+            {
+                context.Audience = new List<System.String>(this.Audience);
+            }
             context.ChannelName = this.ChannelName;
             #if MODULAR
             if (this.ChannelName == null && ParameterWasBound(nameof(this.ChannelName)))
@@ -209,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             // create request
             var request = new Amazon.MediaTailor.Model.UpdateChannelRequest();
             
+            if (cmdletContext.Audience != null)
+            {
+                request.Audiences = cmdletContext.Audience;
+            }
             if (cmdletContext.ChannelName != null)
             {
                 request.ChannelName = cmdletContext.ChannelName;
@@ -326,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Audience { get; set; }
             public System.String ChannelName { get; set; }
             public System.String FillerSlate_SourceLocationName { get; set; }
             public System.String FillerSlate_VodSourceName { get; set; }

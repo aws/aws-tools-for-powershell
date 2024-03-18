@@ -45,9 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the same key material</a> into that KMS key, but you cannot import different key material.
     /// You might reimport key material to replace key material that expired or key material
     /// that you deleted. You might also reimport key material to change the expiration model
-    /// or expiration date of the key material. Before reimporting key material, if necessary,
-    /// call <a>DeleteImportedKeyMaterial</a> to delete the current imported key material.
-    /// 
+    /// or expiration date of the key material. 
     /// </para><para>
     /// Each time you import key material into KMS, you can determine whether (<c>ExpirationModel</c>)
     /// and when (<c>ValidTo</c>) the key material expires. To change the expiration of your

@@ -565,6 +565,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIntegration" OutputProperty="*" Verb="Edit" Noun="Integration" ShouldProcessTarget="IntegrationIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyOptionGroup" OutputProperty="OptionGroup" Verb="Edit" Noun="OptionGroup" ShouldProcessTarget="OptionGroupName" PositionalParameters="ApplyImmediately" PipelineParameter="OptionGroupName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -1,4 +1,18 @@
-﻿### 4.1.538 (2024-03-15 20:57Z)
+﻿### 4.1.539 (2024-03-18 21:15Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.770.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Added cmdlet Get-CFNStackSetAutoDeploymentTarget leveraging the ListStackSetAutoDeploymentTargets service API.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Get-EMTChannelSchedule: added parameter Audience.
+    * Modified cmdlet New-EMTChannel: added parameter Audience.
+    * Modified cmdlet New-EMTProgram: added parameters AudienceMedia and ClipRange_StartOffsetMilli.
+    * Modified cmdlet Update-EMTChannel: added parameter Audience.
+    * Modified cmdlet Update-EMTProgram: added parameters AudienceMedia and ClipRange_StartOffsetMilli.
+  * Amazon Relational Database Service
+    * Added cmdlet Edit-RDSIntegration leveraging the ModifyIntegration service API.
+    * Modified cmdlet New-RDSIntegration: added parameters DataFilter and Description.
+
+### 4.1.538 (2024-03-15 20:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.769.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * 
     * Added cmdlet Initialize-AWSSSOConfiguration.

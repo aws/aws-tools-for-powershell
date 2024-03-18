@@ -119,6 +119,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-RDSDBSubnetGroup', 
         'Edit-RDSEventSubscription', 
         'Edit-RDSGlobalCluster', 
+        'Edit-RDSIntegration', 
         'Edit-RDSOptionGroup', 
         'Edit-RDSTenantDatabase', 
         'Enable-RDSDBSecurityGroupIngress', 
