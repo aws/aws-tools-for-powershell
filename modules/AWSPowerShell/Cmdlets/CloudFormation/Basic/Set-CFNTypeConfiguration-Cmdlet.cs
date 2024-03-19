@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     ///  
     /// <para>
     /// To view the current configuration data for an extension, refer to the <c>ConfigurationSchema</c>
-    /// element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html"><c>DescribeType</c></a>. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
+    /// element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
     /// </para><important><para>
     /// It's strongly recommended that you use dynamic references to restrict sensitive configuration
@@ -59,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The configuration data for the extension, in this account and Region.</para><para>The configuration data must be formatted as JSON, and validate against the schema
-        /// returned in the <c>ConfigurationSchema</c> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html"><c>DescribeType</c></a>. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
+        /// returned in the <c>ConfigurationSchema</c> response element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-model.html#resource-type-howto-configuration">Defining
         /// account-level configuration data for an extension</a> in the <i>CloudFormation CLI
         /// User Guide</i>.</para>
         /// </para>
@@ -100,8 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter TypeArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the extension, in this account and Region.</para><para>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html"><c>ActivateType</c></a> API operation in this account and Region. For private extensions,
-        /// this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html"><c>RegisterType</c></a> API operation in this account and Region.</para><para>Do not include the extension versions suffix at the end of the ARN. You can set the
+        /// <para>The Amazon Resource Name (ARN) for the extension, in this account and Region.</para><para>For public extensions, this will be the ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a>
+        /// API operation in this account and Region. For private extensions, this will be the
+        /// ARN assigned when you call the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>
+        /// API operation in this account and Region.</para><para>Do not include the extension versions suffix at the end of the ARN. You can set the
         /// configuration for an extension, but not for a specific extension version.</para>
         /// </para>
         /// </summary>

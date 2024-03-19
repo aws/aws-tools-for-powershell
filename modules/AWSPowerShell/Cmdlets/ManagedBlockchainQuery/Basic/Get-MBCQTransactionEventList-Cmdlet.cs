@@ -28,8 +28,7 @@ using Amazon.ManagedBlockchainQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.MBCQ
 {
     /// <summary>
-    /// An array of <c>TransactionEvent</c> objects. Each object contains details about the
-    /// transaction event.
+    /// Lists all the transaction events for a transaction 
     /// 
     ///  <note><para>
     /// This action will return transaction details for all transactions that are <i>confirmed</i>
@@ -69,25 +68,27 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter TransactionHash
         /// <summary>
         /// <para>
-        /// <para>The hash of the transaction. It is generated whenever a transaction is verified and
-        /// added to the blockchain.</para>
+        /// <para>The hash of a transaction. It is generated when a transaction is created.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TransactionHash { get; set; }
+        #endregion
+        
+        #region Parameter TransactionId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of a Bitcoin transaction. It is generated when a transaction is created.</para><note><para><c>transactionId</c> is only supported on the Bitcoin networks.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TransactionId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of transaction events to list.</para><para>Default:<c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
+        /// <para>The maximum number of transaction events to list.</para><para>Default: <c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
         /// <c>maxResults</c> or an empty array of results.</para><para>To retrieve the next set of results, make another request with the returned <c>nextToken</c>
         /// value. The value of <c>nextToken</c> is <c>null</c> when there are no more results
         /// to return</para></note>
@@ -144,12 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             #endif
             context.NextToken = this.NextToken;
             context.TransactionHash = this.TransactionHash;
-            #if MODULAR
-            if (this.TransactionHash == null && ParameterWasBound(nameof(this.TransactionHash)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TransactionHash which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.TransactionId = this.TransactionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -181,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             if (cmdletContext.TransactionHash != null)
             {
                 request.TransactionHash = cmdletContext.TransactionHash;
+            }
+            if (cmdletContext.TransactionId != null)
+            {
+                request.TransactionId = cmdletContext.TransactionId;
             }
             
             CmdletOutput output;
@@ -247,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             public Amazon.ManagedBlockchainQuery.QueryNetwork Network { get; set; }
             public System.String NextToken { get; set; }
             public System.String TransactionHash { get; set; }
+            public System.String TransactionId { get; set; }
             public System.Func<Amazon.ManagedBlockchainQuery.Model.ListTransactionEventsResponse, GetMBCQTransactionEventListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Events;
         }

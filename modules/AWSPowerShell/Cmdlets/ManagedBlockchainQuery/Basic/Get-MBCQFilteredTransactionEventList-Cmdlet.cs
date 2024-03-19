@@ -28,36 +28,23 @@ using Amazon.ManagedBlockchainQuery.Model;
 namespace Amazon.PowerShell.Cmdlets.MBCQ
 {
     /// <summary>
-    /// Lists all the transaction events for a transaction.
+    /// Lists all the transaction events for an address on the blockchain.
+    /// 
+    ///  <note><para>
+    /// This operation is only supported on the Bitcoin networks.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Get", "MBCQTransactionList")]
-    [OutputType("Amazon.ManagedBlockchainQuery.Model.TransactionOutputItem")]
-    [AWSCmdlet("Calls the Amazon Managed Blockchain Query ListTransactions API operation.", Operation = new[] {"ListTransactions"}, SelectReturnType = typeof(Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse))]
-    [AWSCmdletOutput("Amazon.ManagedBlockchainQuery.Model.TransactionOutputItem or Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse",
-        "This cmdlet returns a collection of Amazon.ManagedBlockchainQuery.Model.TransactionOutputItem objects.",
-        "The service call response (type Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MBCQFilteredTransactionEventList")]
+    [OutputType("Amazon.ManagedBlockchainQuery.Model.TransactionEvent")]
+    [AWSCmdlet("Calls the Amazon Managed Blockchain Query ListFilteredTransactionEvents API operation.", Operation = new[] {"ListFilteredTransactionEvents"}, SelectReturnType = typeof(Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse))]
+    [AWSCmdletOutput("Amazon.ManagedBlockchainQuery.Model.TransactionEvent or Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse",
+        "This cmdlet returns a collection of Amazon.ManagedBlockchainQuery.Model.TransactionEvent objects.",
+        "The service call response (type Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMBCQTransactionListCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
+    public partial class GetMBCQFilteredTransactionEventListCmdlet : AmazonManagedBlockchainQueryClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter Address
-        /// <summary>
-        /// <para>
-        /// <para>The address (either a contract or wallet), whose transactions are being requested.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Address { get; set; }
-        #endregion
         
         #region Parameter ConfirmationStatusFilter_Include
         /// <summary>
@@ -73,37 +60,37 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter Network
         /// <summary>
         /// <para>
-        /// <para>The blockchain network where the transactions occurred.</para>
+        /// <para>The blockchain network where the transaction occurred.</para><para>Valid Values: <c>BITCOIN_MAINNET</c> | <c>BITCOIN_TESTNET</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.ManagedBlockchainQuery.QueryNetwork")]
-        public Amazon.ManagedBlockchainQuery.QueryNetwork Network { get; set; }
+        public System.String Network { get; set; }
         #endregion
         
         #region Parameter Sort_SortBy
         /// <summary>
         /// <para>
-        /// <para>Defaults to the value <c>TRANSACTION_TIMESTAMP</c>.</para>
+        /// <para>Container on how the results will be sorted by?</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.ManagedBlockchainQuery.ListTransactionsSortBy")]
-        public Amazon.ManagedBlockchainQuery.ListTransactionsSortBy Sort_SortBy { get; set; }
+        [AWSConstantClassSource("Amazon.ManagedBlockchainQuery.ListFilteredTransactionEventsSortBy")]
+        public Amazon.ManagedBlockchainQuery.ListFilteredTransactionEventsSortBy Sort_SortBy { get; set; }
         #endregion
         
         #region Parameter Sort_SortOrder
         /// <summary>
         /// <para>
-        /// <para>The container for the <i>sort order</i> for <c>ListTransactions</c>. The <c>SortOrder</c>
-        /// field only accepts the values <c>ASCENDING</c> and <c>DESCENDING</c>. Not providing
-        /// <c>SortOrder</c> will default to <c>ASCENDING</c>.</para>
+        /// <para>The container for the <i>sort order</i> for <c>ListFilteredTransactionEvents</c>.
+        /// The <c>SortOrder</c> field only accepts the values <c>ASCENDING</c> and <c>DESCENDING</c>.
+        /// Not providing <c>SortOrder</c> will default to <c>ASCENDING</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,30 +98,59 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         public Amazon.ManagedBlockchainQuery.SortOrder Sort_SortOrder { get; set; }
         #endregion
         
-        #region Parameter FromBlockchainInstant_Time
+        #region Parameter From_Time
         /// <summary>
         /// <para>
         /// <para>The container of the <c>Timestamp</c> of the blockchain instant.</para><note><para>This <c>timestamp</c> will only be recorded up to the second.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? FromBlockchainInstant_Time { get; set; }
+        [Alias("TimeFilter_From_Time")]
+        public System.DateTime? From_Time { get; set; }
         #endregion
         
-        #region Parameter ToBlockchainInstant_Time
+        #region Parameter To_Time
         /// <summary>
         /// <para>
         /// <para>The container of the <c>Timestamp</c> of the blockchain instant.</para><note><para>This <c>timestamp</c> will only be recorded up to the second.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? ToBlockchainInstant_Time { get; set; }
+        [Alias("TimeFilter_To_Time")]
+        public System.DateTime? To_Time { get; set; }
+        #endregion
+        
+        #region Parameter AddressIdentifierFilter_TransactionEventToAddress
+        /// <summary>
+        /// <para>
+        /// <para>The container for the recipient address of the transaction. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String[] AddressIdentifierFilter_TransactionEventToAddress { get; set; }
+        #endregion
+        
+        #region Parameter VoutFilter_VoutSpent
+        /// <summary>
+        /// <para>
+        /// <para>Specifies if the transaction output is spent or unspent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? VoutFilter_VoutSpent { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of transactions to list.</para><para>Default: <c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
+        /// <para>The maximum number of transaction events to list.</para><para>Default: <c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
         /// <c>maxResults</c> or an empty array of results.</para><para>To retrieve the next set of results, make another request with the returned <c>nextToken</c>
         /// value. The value of <c>nextToken</c> is <c>null</c> when there are no more results
         /// to return</para></note>
@@ -157,13 +173,13 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Transactions'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse).
-        /// Specifying the name of a property of type Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Events'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse).
+        /// Specifying the name of a property of type Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Transactions";
+        public string Select { get; set; } = "Events";
         #endregion
         
         protected override void ProcessRecord()
@@ -178,21 +194,23 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse, GetMBCQTransactionListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse, GetMBCQFilteredTransactionEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Address = this.Address;
-            #if MODULAR
-            if (this.Address == null && ParameterWasBound(nameof(this.Address)))
+            if (this.AddressIdentifierFilter_TransactionEventToAddress != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Address which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.AddressIdentifierFilter_TransactionEventToAddress = new List<System.String>(this.AddressIdentifierFilter_TransactionEventToAddress);
+            }
+            #if MODULAR
+            if (this.AddressIdentifierFilter_TransactionEventToAddress == null && ParameterWasBound(nameof(this.AddressIdentifierFilter_TransactionEventToAddress)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AddressIdentifierFilter_TransactionEventToAddress which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             if (this.ConfirmationStatusFilter_Include != null)
             {
                 context.ConfirmationStatusFilter_Include = new List<System.String>(this.ConfirmationStatusFilter_Include);
             }
-            context.FromBlockchainInstant_Time = this.FromBlockchainInstant_Time;
             context.MaxResult = this.MaxResult;
             context.Network = this.Network;
             #if MODULAR
@@ -204,7 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             context.NextToken = this.NextToken;
             context.Sort_SortBy = this.Sort_SortBy;
             context.Sort_SortOrder = this.Sort_SortOrder;
-            context.ToBlockchainInstant_Time = this.ToBlockchainInstant_Time;
+            context.From_Time = this.From_Time;
+            context.To_Time = this.To_Time;
+            context.VoutFilter_VoutSpent = this.VoutFilter_VoutSpent;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -219,11 +239,26 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ManagedBlockchainQuery.Model.ListTransactionsRequest();
+            var request = new Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsRequest();
             
-            if (cmdletContext.Address != null)
+            
+             // populate AddressIdentifierFilter
+            var requestAddressIdentifierFilterIsNull = true;
+            request.AddressIdentifierFilter = new Amazon.ManagedBlockchainQuery.Model.AddressIdentifierFilter();
+            List<System.String> requestAddressIdentifierFilter_addressIdentifierFilter_TransactionEventToAddress = null;
+            if (cmdletContext.AddressIdentifierFilter_TransactionEventToAddress != null)
             {
-                request.Address = cmdletContext.Address;
+                requestAddressIdentifierFilter_addressIdentifierFilter_TransactionEventToAddress = cmdletContext.AddressIdentifierFilter_TransactionEventToAddress;
+            }
+            if (requestAddressIdentifierFilter_addressIdentifierFilter_TransactionEventToAddress != null)
+            {
+                request.AddressIdentifierFilter.TransactionEventToAddress = requestAddressIdentifierFilter_addressIdentifierFilter_TransactionEventToAddress;
+                requestAddressIdentifierFilterIsNull = false;
+            }
+             // determine if request.AddressIdentifierFilter should be set to null
+            if (requestAddressIdentifierFilterIsNull)
+            {
+                request.AddressIdentifierFilter = null;
             }
             
              // populate ConfirmationStatusFilter
@@ -244,25 +279,6 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             {
                 request.ConfirmationStatusFilter = null;
             }
-            
-             // populate FromBlockchainInstant
-            var requestFromBlockchainInstantIsNull = true;
-            request.FromBlockchainInstant = new Amazon.ManagedBlockchainQuery.Model.BlockchainInstant();
-            System.DateTime? requestFromBlockchainInstant_fromBlockchainInstant_Time = null;
-            if (cmdletContext.FromBlockchainInstant_Time != null)
-            {
-                requestFromBlockchainInstant_fromBlockchainInstant_Time = cmdletContext.FromBlockchainInstant_Time.Value;
-            }
-            if (requestFromBlockchainInstant_fromBlockchainInstant_Time != null)
-            {
-                request.FromBlockchainInstant.Time = requestFromBlockchainInstant_fromBlockchainInstant_Time.Value;
-                requestFromBlockchainInstantIsNull = false;
-            }
-             // determine if request.FromBlockchainInstant should be set to null
-            if (requestFromBlockchainInstantIsNull)
-            {
-                request.FromBlockchainInstant = null;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -278,8 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
             
              // populate Sort
             var requestSortIsNull = true;
-            request.Sort = new Amazon.ManagedBlockchainQuery.Model.ListTransactionsSort();
-            Amazon.ManagedBlockchainQuery.ListTransactionsSortBy requestSort_sort_SortBy = null;
+            request.Sort = new Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsSort();
+            Amazon.ManagedBlockchainQuery.ListFilteredTransactionEventsSortBy requestSort_sort_SortBy = null;
             if (cmdletContext.Sort_SortBy != null)
             {
                 requestSort_sort_SortBy = cmdletContext.Sort_SortBy;
@@ -305,23 +321,82 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
                 request.Sort = null;
             }
             
-             // populate ToBlockchainInstant
-            var requestToBlockchainInstantIsNull = true;
-            request.ToBlockchainInstant = new Amazon.ManagedBlockchainQuery.Model.BlockchainInstant();
-            System.DateTime? requestToBlockchainInstant_toBlockchainInstant_Time = null;
-            if (cmdletContext.ToBlockchainInstant_Time != null)
+             // populate TimeFilter
+            var requestTimeFilterIsNull = true;
+            request.TimeFilter = new Amazon.ManagedBlockchainQuery.Model.TimeFilter();
+            Amazon.ManagedBlockchainQuery.Model.BlockchainInstant requestTimeFilter_timeFilter_From = null;
+            
+             // populate From
+            var requestTimeFilter_timeFilter_FromIsNull = true;
+            requestTimeFilter_timeFilter_From = new Amazon.ManagedBlockchainQuery.Model.BlockchainInstant();
+            System.DateTime? requestTimeFilter_timeFilter_From_from_Time = null;
+            if (cmdletContext.From_Time != null)
             {
-                requestToBlockchainInstant_toBlockchainInstant_Time = cmdletContext.ToBlockchainInstant_Time.Value;
+                requestTimeFilter_timeFilter_From_from_Time = cmdletContext.From_Time.Value;
             }
-            if (requestToBlockchainInstant_toBlockchainInstant_Time != null)
+            if (requestTimeFilter_timeFilter_From_from_Time != null)
             {
-                request.ToBlockchainInstant.Time = requestToBlockchainInstant_toBlockchainInstant_Time.Value;
-                requestToBlockchainInstantIsNull = false;
+                requestTimeFilter_timeFilter_From.Time = requestTimeFilter_timeFilter_From_from_Time.Value;
+                requestTimeFilter_timeFilter_FromIsNull = false;
             }
-             // determine if request.ToBlockchainInstant should be set to null
-            if (requestToBlockchainInstantIsNull)
+             // determine if requestTimeFilter_timeFilter_From should be set to null
+            if (requestTimeFilter_timeFilter_FromIsNull)
             {
-                request.ToBlockchainInstant = null;
+                requestTimeFilter_timeFilter_From = null;
+            }
+            if (requestTimeFilter_timeFilter_From != null)
+            {
+                request.TimeFilter.From = requestTimeFilter_timeFilter_From;
+                requestTimeFilterIsNull = false;
+            }
+            Amazon.ManagedBlockchainQuery.Model.BlockchainInstant requestTimeFilter_timeFilter_To = null;
+            
+             // populate To
+            var requestTimeFilter_timeFilter_ToIsNull = true;
+            requestTimeFilter_timeFilter_To = new Amazon.ManagedBlockchainQuery.Model.BlockchainInstant();
+            System.DateTime? requestTimeFilter_timeFilter_To_to_Time = null;
+            if (cmdletContext.To_Time != null)
+            {
+                requestTimeFilter_timeFilter_To_to_Time = cmdletContext.To_Time.Value;
+            }
+            if (requestTimeFilter_timeFilter_To_to_Time != null)
+            {
+                requestTimeFilter_timeFilter_To.Time = requestTimeFilter_timeFilter_To_to_Time.Value;
+                requestTimeFilter_timeFilter_ToIsNull = false;
+            }
+             // determine if requestTimeFilter_timeFilter_To should be set to null
+            if (requestTimeFilter_timeFilter_ToIsNull)
+            {
+                requestTimeFilter_timeFilter_To = null;
+            }
+            if (requestTimeFilter_timeFilter_To != null)
+            {
+                request.TimeFilter.To = requestTimeFilter_timeFilter_To;
+                requestTimeFilterIsNull = false;
+            }
+             // determine if request.TimeFilter should be set to null
+            if (requestTimeFilterIsNull)
+            {
+                request.TimeFilter = null;
+            }
+            
+             // populate VoutFilter
+            var requestVoutFilterIsNull = true;
+            request.VoutFilter = new Amazon.ManagedBlockchainQuery.Model.VoutFilter();
+            System.Boolean? requestVoutFilter_voutFilter_VoutSpent = null;
+            if (cmdletContext.VoutFilter_VoutSpent != null)
+            {
+                requestVoutFilter_voutFilter_VoutSpent = cmdletContext.VoutFilter_VoutSpent.Value;
+            }
+            if (requestVoutFilter_voutFilter_VoutSpent != null)
+            {
+                request.VoutFilter.VoutSpent = requestVoutFilter_voutFilter_VoutSpent.Value;
+                requestVoutFilterIsNull = false;
+            }
+             // determine if request.VoutFilter should be set to null
+            if (requestVoutFilterIsNull)
+            {
+                request.VoutFilter = null;
             }
             
             CmdletOutput output;
@@ -356,15 +431,15 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         
         #region AWS Service Operation Call
         
-        private Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse CallAWSServiceOperation(IAmazonManagedBlockchainQuery client, Amazon.ManagedBlockchainQuery.Model.ListTransactionsRequest request)
+        private Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse CallAWSServiceOperation(IAmazonManagedBlockchainQuery client, Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Blockchain Query", "ListTransactions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Blockchain Query", "ListFilteredTransactionEvents");
             try
             {
                 #if DESKTOP
-                return client.ListTransactions(request);
+                return client.ListFilteredTransactionEvents(request);
                 #elif CORECLR
-                return client.ListTransactionsAsync(request).GetAwaiter().GetResult();
+                return client.ListFilteredTransactionEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -384,17 +459,18 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Address { get; set; }
+            public List<System.String> AddressIdentifierFilter_TransactionEventToAddress { get; set; }
             public List<System.String> ConfirmationStatusFilter_Include { get; set; }
-            public System.DateTime? FromBlockchainInstant_Time { get; set; }
             public System.Int32? MaxResult { get; set; }
-            public Amazon.ManagedBlockchainQuery.QueryNetwork Network { get; set; }
+            public System.String Network { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.ManagedBlockchainQuery.ListTransactionsSortBy Sort_SortBy { get; set; }
+            public Amazon.ManagedBlockchainQuery.ListFilteredTransactionEventsSortBy Sort_SortBy { get; set; }
             public Amazon.ManagedBlockchainQuery.SortOrder Sort_SortOrder { get; set; }
-            public System.DateTime? ToBlockchainInstant_Time { get; set; }
-            public System.Func<Amazon.ManagedBlockchainQuery.Model.ListTransactionsResponse, GetMBCQTransactionListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Transactions;
+            public System.DateTime? From_Time { get; set; }
+            public System.DateTime? To_Time { get; set; }
+            public System.Boolean? VoutFilter_VoutSpent { get; set; }
+            public System.Func<Amazon.ManagedBlockchainQuery.Model.ListFilteredTransactionEventsResponse, GetMBCQFilteredTransactionEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Events;
         }
         
     }

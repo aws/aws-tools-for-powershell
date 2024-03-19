@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// version of that extension. If you do deregister the default version of an extension,
     /// the extension type itself is deregistered as well and marked as deprecated.
     /// </para><para>
-    /// To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html"><c>DescribeType</c></a>.
+    /// To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "CFNType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -89,6 +89,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-MBCQAssetContract', 
         'Get-MBCQAssetContractList', 
         'Get-MBCQBatchTokenBalance', 
+        'Get-MBCQFilteredTransactionEventList', 
         'Get-MBCQTokenBalance', 
         'Get-MBCQTokenBalanceList', 
         'Get-MBCQTransaction', 

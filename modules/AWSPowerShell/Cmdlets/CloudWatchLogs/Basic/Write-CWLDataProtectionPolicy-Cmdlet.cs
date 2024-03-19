@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// sensitive data terms. This <c>Audit</c> action must contain a <c>FindingsDestination</c>
         /// object. You can optionally use that <c>FindingsDestination</c> object to list one
         /// or more destinations to send audit findings to. If you specify destinations such as
-        /// log groups, Kinesis Data Firehose streams, and S3 buckets, they must already exist.</para></li><li><para>The second block must include both a <c>DataIdentifer</c> array and an <c>Operation</c>
+        /// log groups, Firehose streams, and S3 buckets, they must already exist.</para></li><li><para>The second block must include both a <c>DataIdentifer</c> array and an <c>Operation</c>
         /// property with an <c>Deidentify</c> action. The <c>DataIdentifer</c> array must exactly
         /// match the <c>DataIdentifer</c> array in the first block of the policy.</para><para>The <c>Operation</c> property with the <c>Deidentify</c> action is what actually masks
         /// the data, and it must contain the <c> "MaskConfig": {}</c> object. The <c> "MaskConfig":

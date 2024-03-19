@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// publisher, <c>DescribePublisher</c> returns information about your own publisher account.
     /// </para><para>
     /// For more information about registering as a publisher, see:
-    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html"><c>RegisterPublisher</c></a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a></para></li><li><para><a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
     /// extensions to make them available for public use</a> in the <i>CloudFormation CLI
     /// User Guide</i></para></li></ul>
     /// </summary>

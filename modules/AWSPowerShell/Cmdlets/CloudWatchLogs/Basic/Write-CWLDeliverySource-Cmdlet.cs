@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates or updates a logical <i>delivery source</i>. A delivery source represents
     /// an Amazon Web Services resource that sends logs to an logs delivery destination. The
-    /// destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+    /// destination can be CloudWatch Logs, Amazon S3, or Firehose.
     /// 
     ///  
     /// <para>
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogType
         /// <summary>
         /// <para>
-        /// <para>Defines the type of log that the source is sending. For Amazon CodeWhisperer, the
-        /// valid value is <c>EVENT_LOGS</c>.</para>
+        /// <para>Defines the type of log that the source is sending.</para><ul><li><para>For Amazon CodeWhisperer, the valid value is <c>EVENT_LOGS</c>.</para></li><li><para>For IAM Identity Centerr, the valid value is <c>ERROR_LOGS</c>.</para></li><li><para>For Amazon WorkMail, the valid values are <c>ACCESS_CONTROL_LOGS</c>, <c>AUTHENTICATION_LOGS</c>,
+        /// <c>WORKMAIL_AVAILABILITY_PROVIDER_LOGS</c>, and <c>WORKMAIL_MAILBOX_ACCESS_LOGS</c>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

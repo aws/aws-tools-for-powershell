@@ -317,6 +317,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2LocalGatewayVirtualInterface', 
         'Get-EC2LocalGatewayVirtualInterfaceGroup', 
         'Get-EC2LockedSnapshot', 
+        'Get-EC2MacHost', 
         'Get-EC2ManagedPrefixList', 
         'Get-EC2ManagedPrefixListAssociation', 
         'Get-EC2ManagedPrefixListEntry', 

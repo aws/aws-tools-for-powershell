@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.770.0",
+    "ProductVersion"    : "3.7.771.0",
     "CoreVersion"       : "3.7.302.20",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -31,7 +31,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.305.0",
+            "Version" : "3.7.305.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.20"
@@ -87,7 +87,7 @@
             "InPreview"               : false
         },
         "CloudWatchLogs"    : {
-            "Version" : "3.7.304.13",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.20"
@@ -153,7 +153,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.317.1",
+            "Version" : "3.7.318.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.20"
@@ -2115,7 +2115,7 @@
             "InPreview"               : false
         },
         "Finspace"                        : {
-            "Version" : "3.7.304.20",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.20"
@@ -2803,7 +2803,7 @@
             "InPreview"               : false
         },
         "ManagedBlockchainQuery"              : {
-            "Version" : "3.7.302.14",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.302.20"

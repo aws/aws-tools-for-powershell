@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <summary>
     /// Creates or updates a logical <i>delivery destination</i>. A delivery destination is
     /// an Amazon Web Services resource that represents an Amazon Web Services service that
-    /// logs can be sent to. CloudWatch Logs, Amazon S3, and Kinesis Data Firehose are supported
-    /// as logs delivery destinations.
+    /// logs can be sent to. CloudWatch Logs, Amazon S3, and Firehose are supported as logs
+    /// delivery destinations.
     /// 
     ///  
     /// <para>
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The ARN of the Amazon Web Services destination that this delivery destination represents.
         /// That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon
-        /// S3 bucket, or a delivery stream in Kinesis Data Firehose.</para>
+        /// S3 bucket, or a delivery stream in Firehose.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

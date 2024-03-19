@@ -1,4 +1,14 @@
-﻿### 4.1.539 (2024-03-18 21:15Z)
+﻿### 4.1.540 (2024-03-19 20:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.771.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2MacHost leveraging the DescribeMacHosts service API.
+  * Amazon FinSpace User Environment Management Service
+    * Modified cmdlet New-FINSPKxDataview: added parameter ReadWrite.
+  * Amazon Managed Blockchain Query
+    * Added cmdlet Get-MBCQFilteredTransactionEventList leveraging the ListFilteredTransactionEvents service API.
+    * Modified cmdlet Get-MBCQTransactionEventList: added parameter TransactionId.
+
+### 4.1.539 (2024-03-18 21:15Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.770.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Added cmdlet Get-CFNStackSetAutoDeploymentTarget leveraging the ListStackSetAutoDeploymentTargets service API.

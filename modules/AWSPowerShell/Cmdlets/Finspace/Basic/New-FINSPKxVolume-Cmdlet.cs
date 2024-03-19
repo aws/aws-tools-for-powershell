@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter AzMode
         /// <summary>
         /// <para>
-        /// <para>The number of availability zones you want to assign per cluster. Currently, FinSpace
-        /// only support <c>SINGLE</c> for volumes.</para>
+        /// <para>The number of availability zones you want to assign per volume. Currently, FinSpace
+        /// only supports <c>SINGLE</c> for volumes. This places dataview in a single AZ.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

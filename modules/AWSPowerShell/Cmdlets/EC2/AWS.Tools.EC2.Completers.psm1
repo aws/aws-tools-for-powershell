@@ -1629,6 +1629,7 @@ $EC2_SelectMap = @{
                "Get-EC2LocalGatewayVirtualInterfaceGroup",
                "Get-EC2LocalGatewayVirtualInterface",
                "Get-EC2LockedSnapshot",
+               "Get-EC2MacHost",
                "Get-EC2ManagedPrefixList",
                "Get-EC2MovingAddress",
                "Get-EC2NatGateway",

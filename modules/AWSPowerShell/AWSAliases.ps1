@@ -9142,6 +9142,9 @@ Set-Alias -Name EC2-DescribeLocalGatewayVirtualInterfaces -Value Get-EC2LocalGat
 Set-Alias -Name Describe-EC2LockedSnapshots -Value Get-EC2LockedSnapshot
 Set-Alias -Name Describe-EC2LockedSnapshot -Value Get-EC2LockedSnapshot
 Set-Alias -Name EC2-DescribeLockedSnapshots -Value Get-EC2LockedSnapshot
+Set-Alias -Name Describe-EC2MacHosts -Value Get-EC2MacHost
+Set-Alias -Name Describe-EC2MacHost -Value Get-EC2MacHost
+Set-Alias -Name EC2-DescribeMacHosts -Value Get-EC2MacHost
 Set-Alias -Name Describe-EC2ManagedPrefixLists -Value Get-EC2ManagedPrefixList
 Set-Alias -Name Describe-EC2ManagedPrefixList -Value Get-EC2ManagedPrefixList
 Set-Alias -Name EC2-DescribeManagedPrefixLists -Value Get-EC2ManagedPrefixList
@@ -17637,6 +17640,9 @@ Set-Alias -Name MBCQ-GetTransaction -Value Get-MBCQTransaction
 Set-Alias -Name List-MBCQAssetContracts -Value Get-MBCQAssetContractList
 Set-Alias -Name List-MBCQAssetContractList -Value Get-MBCQAssetContractList
 Set-Alias -Name MBCQ-ListAssetContracts -Value Get-MBCQAssetContractList
+Set-Alias -Name List-MBCQFilteredTransactionEvents -Value Get-MBCQFilteredTransactionEventList
+Set-Alias -Name List-MBCQFilteredTransactionEventList -Value Get-MBCQFilteredTransactionEventList
+Set-Alias -Name MBCQ-ListFilteredTransactionEvents -Value Get-MBCQFilteredTransactionEventList
 Set-Alias -Name List-MBCQTokenBalances -Value Get-MBCQTokenBalanceList
 Set-Alias -Name List-MBCQTokenBalanceList -Value Get-MBCQTokenBalanceList
 Set-Alias -Name MBCQ-ListTokenBalances -Value Get-MBCQTokenBalanceList

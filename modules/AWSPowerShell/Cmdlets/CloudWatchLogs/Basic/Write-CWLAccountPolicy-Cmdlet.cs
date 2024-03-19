@@ -74,24 +74,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// A subscription filter policy sets up a real-time feed of log events from CloudWatch
     /// Logs to other Amazon Web Services services. Account-level subscription filter policies
     /// apply to both existing log groups and log groups that are created later in this account.
-    /// Supported destinations are Kinesis Data Streams, Kinesis Data Firehose, and Lambda.
-    /// When log events are sent to the receiving service, they are Base64 encoded and compressed
-    /// with the GZIP format.
+    /// Supported destinations are Kinesis Data Streams, Firehose, and Lambda. When log events
+    /// are sent to the receiving service, they are Base64 encoded and compressed with the
+    /// GZIP format.
     /// </para><para>
     /// The following destinations are supported for subscription filters:
     /// </para><ul><li><para>
     /// An Kinesis Data Streams data stream in the same account as the subscription policy,
     /// for same-account delivery.
     /// </para></li><li><para>
-    /// An Kinesis Data Firehose data stream in the same account as the subscription policy,
-    /// for same-account delivery.
+    /// An Firehose data stream in the same account as the subscription policy, for same-account
+    /// delivery.
     /// </para></li><li><para>
     /// A Lambda function in the same account as the subscription policy, for same-account
     /// delivery.
     /// </para></li><li><para>
     /// A logical destination in a different account created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a>,
-    /// for cross-account delivery. Kinesis Data Streams and Kinesis Data Firehose are supported
-    /// as logical destinations.
+    /// for cross-account delivery. Kinesis Data Streams and Firehose are supported as logical
+    /// destinations.
     /// </para></li></ul><para>
     /// Each account can have one account-level subscription filter policy. If you are updating
     /// an existing filter, you must specify the correct name in <c>PolicyName</c>. To perform
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// sensitive data terms. This <c>Audit</c> action must contain a <c>FindingsDestination</c>
         /// object. You can optionally use that <c>FindingsDestination</c> object to list one
         /// or more destinations to send audit findings to. If you specify destinations such as
-        /// log groups, Kinesis Data Firehose streams, and S3 buckets, they must already exist.</para></li><li><para>The second block must include both a <c>DataIdentifer</c> array and an <c>Operation</c>
+        /// log groups, Firehose streams, and S3 buckets, they must already exist.</para></li><li><para>The second block must include both a <c>DataIdentifer</c> array and an <c>Operation</c>
         /// property with an <c>Deidentify</c> action. The <c>DataIdentifer</c> array must exactly
         /// match the <c>DataIdentifer</c> array in the first block of the policy.</para><para>The <c>Operation</c> property with the <c>Deidentify</c> action is what actually masks
         /// the data, and it must contain the <c> "MaskConfig": {}</c> object. The <c> "MaskConfig":
@@ -131,11 +131,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// operation's <c>policyName</c> parameter, and is used as a dimension when CloudWatch
         /// Logs reports audit findings metrics to CloudWatch.</para><para>The JSON specified in <c>policyDocument</c> can be up to 30,720 characters long.</para><para><b>Subscription filter policy</b></para><para>A subscription filter policy can include the following attributes in a JSON block:</para><ul><li><para><b>DestinationArn</b> The ARN of the destination to deliver log events to. Supported
         /// destinations are:</para><ul><li><para>An Kinesis Data Streams data stream in the same account as the subscription policy,
-        /// for same-account delivery.</para></li><li><para>An Kinesis Data Firehose data stream in the same account as the subscription policy,
-        /// for same-account delivery.</para></li><li><para>A Lambda function in the same account as the subscription policy, for same-account
+        /// for same-account delivery.</para></li><li><para>An Firehose data stream in the same account as the subscription policy, for same-account
+        /// delivery.</para></li><li><para>A Lambda function in the same account as the subscription policy, for same-account
         /// delivery.</para></li><li><para>A logical destination in a different account created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a>,
-        /// for cross-account delivery. Kinesis Data Streams and Kinesis Data Firehose are supported
-        /// as logical destinations.</para></li></ul></li><li><para><b>RoleArn</b> The ARN of an IAM role that grants CloudWatch Logs permissions to
+        /// for cross-account delivery. Kinesis Data Streams and Firehose are supported as logical
+        /// destinations.</para></li></ul></li><li><para><b>RoleArn</b> The ARN of an IAM role that grants CloudWatch Logs permissions to
         /// deliver ingested log events to the destination stream. You don't need to provide the
         /// ARN when you are working with a logical destination for cross-account delivery.</para></li><li><para><b>FilterPattern</b> A filter pattern for subscribing to a filtered stream of log
         /// events.</para></li><li><para><b>Distribution</b>The method used to distribute log data to the destination. By

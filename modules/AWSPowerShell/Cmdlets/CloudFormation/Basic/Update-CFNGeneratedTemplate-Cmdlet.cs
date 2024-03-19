@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <summary>
         /// <para>
         /// <para>The <c>DeletionPolicy</c> assigned to resources in the generated template. Supported
-        /// values are:</para><ul><li><para><c>DELETE</c> - delete all resources when the stack is deleted.</para></li><li><para><c>RETAIN</c> - retain all resources when the stack is deleted.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html"><c>DeletionPolicy</c> attribute</a> in the <i>CloudFormation User Guide</i>.</para>
+        /// values are:</para><ul><li><para><c>DELETE</c> - delete all resources when the stack is deleted.</para></li><li><para><c>RETAIN</c> - retain all resources when the stack is deleted.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html">DeletionPolicy
+        /// attribute</a> in the <i>CloudFormation User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The <c>UpdateReplacePolicy</c> assigned to resources in the generated template. Supported
         /// values are:</para><ul><li><para><c>DELETE</c> - delete all resources when the resource is replaced during an update
         /// operation.</para></li><li><para><c>RETAIN</c> - retain all resources when the resource is replaced during an update
-        /// operation.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html"><c>UpdateReplacePolicy</c> attribute</a> in the <i>CloudFormation User Guide</i>.</para>
+        /// operation.</para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html">UpdateReplacePolicy
+        /// attribute</a> in the <i>CloudFormation User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

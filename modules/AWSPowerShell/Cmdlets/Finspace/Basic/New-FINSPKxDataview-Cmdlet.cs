@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter AzMode
         /// <summary>
         /// <para>
-        /// <para>The number of availability zones you want to assign per cluster. This can be one of
-        /// the following </para><ul><li><para><c>SINGLE</c> – Assigns one availability zone per cluster.</para></li><li><para><c>MULTI</c> – Assigns all the availability zones per cluster.</para></li></ul>
+        /// <para>The number of availability zones you want to assign per volume. Currently, FinSpace
+        /// only supports <c>SINGLE</c> for volumes. This places dataview in a single AZ.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,6 +153,21 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EnvironmentId { get; set; }
+        #endregion
+        
+        #region Parameter ReadWrite
+        /// <summary>
+        /// <para>
+        /// <para> The option to specify whether you want to make the dataview writable to perform database
+        /// maintenance. The following are some considerations related to writable dataviews.  </para><ul><li><para>You cannot create partial writable dataviews. When you create writeable dataviews
+        /// you must provide the entire database path.</para></li><li><para>You cannot perform updates on a writeable dataview. Hence, <c>autoUpdate</c> must
+        /// be set as <b>False</b> if <c>readWrite</c> is <b>True</b> for a dataview.</para></li><li><para>You must also use a unique volume for creating a writeable dataview. So, if you choose
+        /// a volume that is already in use by another dataview, the dataview creation fails.</para></li><li><para>Once you create a dataview as writeable, you cannot change it to read-only. So, you
+        /// cannot update the <c>readWrite</c> parameter later.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ReadWrite { get; set; }
         #endregion
         
         #region Parameter SegmentConfiguration
@@ -286,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
                 WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ReadWrite = this.ReadWrite;
             if (this.SegmentConfiguration != null)
             {
                 context.SegmentConfiguration = new List<Amazon.Finspace.Model.KxDataviewSegmentConfiguration>(this.SegmentConfiguration);
@@ -349,6 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
+            }
+            if (cmdletContext.ReadWrite != null)
+            {
+                request.ReadWrite = cmdletContext.ReadWrite.Value;
             }
             if (cmdletContext.SegmentConfiguration != null)
             {
@@ -428,6 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
             public System.String DataviewName { get; set; }
             public System.String Description { get; set; }
             public System.String EnvironmentId { get; set; }
+            public System.Boolean? ReadWrite { get; set; }
             public List<Amazon.Finspace.Model.KxDataviewSegmentConfiguration> SegmentConfiguration { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Finspace.Model.CreateKxDataviewResponse, NewFINSPKxDataviewCmdlet, object> Select { get; set; } =

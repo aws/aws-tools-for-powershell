@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of contracts to list.</para><para>Default:<c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
+        /// <para>The maximum number of contracts to list.</para><para>Default: <c>100</c></para><note><para>Even if additional results can be retrieved, the request can return less results than
         /// <c>maxResults</c> or an empty array of results.</para><para>To retrieve the next set of results, make another request with the returned <c>nextToken</c>
         /// value. The value of <c>nextToken</c> is <c>null</c> when there are no more results
         /// to return</para></note>

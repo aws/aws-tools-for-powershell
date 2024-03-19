@@ -22,50 +22,67 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudWatchLogs;
-using Amazon.CloudWatchLogs.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWL
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Retrieves a list of the deliveries that have been created in the account.
-    /// 
-    ///  
-    /// <para>
-    /// A <i>delivery</i> is a connection between a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html"><i>delivery source</i></a> and a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html"><i>delivery destination</i></a>.
-    /// </para><para>
-    /// A delivery source represents an Amazon Web Services resource that sends logs to an
-    /// logs delivery destination. The destination can be CloudWatch Logs, Amazon S3, or Firehose.
-    /// Only some Amazon Web Services services support being configured as a delivery source.
-    /// These services are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enable
-    /// logging from Amazon Web Services services.</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified EC2 Mac Dedicated Host or all of your EC2 Mac Dedicated Hosts.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Find", "CWLDelivery")]
-    [OutputType("Amazon.CloudWatchLogs.Model.Delivery")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs DescribeDeliveries API operation.", Operation = new[] {"DescribeDeliveries"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Delivery or Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse",
-        "This cmdlet returns a collection of Amazon.CloudWatchLogs.Model.Delivery objects.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2MacHost")]
+    [OutputType("Amazon.EC2.Model.MacHost")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DescribeMacHosts API operation.", Operation = new[] {"DescribeMacHosts"}, SelectReturnType = typeof(Amazon.EC2.Model.DescribeMacHostsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.MacHost or Amazon.EC2.Model.DescribeMacHostsResponse",
+        "This cmdlet returns a collection of Amazon.EC2.Model.MacHost objects.",
+        "The service call response (type Amazon.EC2.Model.DescribeMacHostsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class FindCWLDeliveryCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class GetEC2MacHostCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Limit
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optionally specify the maximum number of deliveries to return in the response.</para>
+        /// <para>The filters.</para><ul><li><para><c>availability-zone</c> - The Availability Zone of the EC2 Mac Dedicated Host.</para></li><li><para><c>instance-type</c> - The instance type size that the EC2 Mac Dedicated Host is
+        /// configured to support.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Limit { get; set; }
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter HostId
+        /// <summary>
+        /// <para>
+        /// <para> The IDs of the EC2 Mac Dedicated Hosts. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [Alias("HostIds")]
+        public System.String[] HostId { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return for the request in a single page. The remaining
+        /// results can be seen by sending another request with the returned <c>nextToken</c>
+        /// value. This value can be between 5 and 500. If <c>maxResults</c> is given a larger
+        /// value than 500, you receive an error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The token to use to retrieve the next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -78,13 +95,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Deliveries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'MacHosts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DescribeMacHostsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DescribeMacHostsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Deliveries";
+        public string Select { get; set; } = "MacHosts";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the HostId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^HostId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HostId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -107,12 +134,30 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse, FindCWLDeliveryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DescribeMacHostsResponse, GetEC2MacHostCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.Limit = this.Limit;
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.HostId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.EC2.Model.Filter>(this.Filter);
+            }
+            if (this.HostId != null)
+            {
+                context.HostId = new List<System.String>(this.HostId);
+            }
+            context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -127,14 +172,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudWatchLogs.Model.DescribeDeliveriesRequest();
+            var request = new Amazon.EC2.Model.DescribeMacHostsRequest();
             
-            if (cmdletContext.Limit != null)
+            if (cmdletContext.Filter != null)
             {
-                request.Limit = cmdletContext.Limit.Value;
+                request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.HostId != null)
+            {
+                request.HostIds = cmdletContext.HostId;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -193,15 +248,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.DescribeDeliveriesRequest request)
+        private Amazon.EC2.Model.DescribeMacHostsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeMacHostsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "DescribeDeliveries");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DescribeMacHosts");
             try
             {
                 #if DESKTOP
-                return client.DescribeDeliveries(request);
+                return client.DescribeMacHosts(request);
                 #elif CORECLR
-                return client.DescribeDeliveriesAsync(request).GetAwaiter().GetResult();
+                return client.DescribeMacHostsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,10 +276,12 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? Limit { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filter { get; set; }
+            public List<System.String> HostId { get; set; }
+            public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.DescribeDeliveriesResponse, FindCWLDeliveryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Deliveries;
+            public System.Func<Amazon.EC2.Model.DescribeMacHostsResponse, GetEC2MacHostCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.MacHosts;
         }
         
     }

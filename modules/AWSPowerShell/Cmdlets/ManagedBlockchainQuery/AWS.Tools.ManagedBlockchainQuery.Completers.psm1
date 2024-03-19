@@ -80,6 +80,13 @@ $MBCQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ManagedBlockchainQuery.ListFilteredTransactionEventsSortBy
+        "Get-MBCQFilteredTransactionEventList/Sort_SortBy"
+        {
+            $v = "blockchainInstant"
+            break
+        }
+
         # Amazon.ManagedBlockchainQuery.ListTransactionsSortBy
         "Get-MBCQTransactionList/Sort_SortBy"
         {
@@ -110,7 +117,10 @@ $MBCQ_Completers = {
         }
 
         # Amazon.ManagedBlockchainQuery.SortOrder
-        "Get-MBCQTransactionList/Sort_SortOrder"
+        {
+            ($_ -eq "Get-MBCQFilteredTransactionEventList/Sort_SortOrder") -Or
+            ($_ -eq "Get-MBCQTransactionList/Sort_SortOrder")
+        }
         {
             $v = "ASCENDING","DESCENDING"
             break
@@ -129,8 +139,8 @@ $MBCQ_map = @{
     "ContractFilter_TokenStandard"=@("Get-MBCQAssetContractList")
     "ContractIdentifier_Network"=@("Get-MBCQAssetContract")
     "Network"=@("Get-MBCQTransaction","Get-MBCQTransactionEventList","Get-MBCQTransactionList")
-    "Sort_SortBy"=@("Get-MBCQTransactionList")
-    "Sort_SortOrder"=@("Get-MBCQTransactionList")
+    "Sort_SortBy"=@("Get-MBCQFilteredTransactionEventList","Get-MBCQTransactionList")
+    "Sort_SortOrder"=@("Get-MBCQFilteredTransactionEventList","Get-MBCQTransactionList")
     "TokenFilter_Network"=@("Get-MBCQTokenBalanceList")
     "TokenIdentifier_Network"=@("Get-MBCQTokenBalance")
 }
@@ -190,6 +200,7 @@ $MBCQ_SelectMap = @{
                "Get-MBCQTokenBalance",
                "Get-MBCQTransaction",
                "Get-MBCQAssetContractList",
+               "Get-MBCQFilteredTransactionEventList",
                "Get-MBCQTokenBalanceList",
                "Get-MBCQTransactionEventList",
                "Get-MBCQTransactionList")

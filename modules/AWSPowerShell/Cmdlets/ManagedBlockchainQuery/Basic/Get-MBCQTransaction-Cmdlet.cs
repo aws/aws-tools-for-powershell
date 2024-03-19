@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.MBCQ
         #region Parameter TransactionHash
         /// <summary>
         /// <para>
-        /// <para>The hash of the transaction. It is generated whenever a transaction is verified and
-        /// added to the blockchain.</para>
+        /// <para>The hash of a transaction. It is generated when a transaction is created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
