@@ -1,4 +1,15 @@
-﻿### 4.1.540 (2024-03-19 20:43Z)
+﻿### 4.1.541 (2024-03-20 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.772.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DynamoDB
+    * Added cmdlet Get-DDBResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-DDBResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-DDBResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon Managed Blockchain Query
+    * Modified cmdlet Get-MBCQTransaction: added parameter TransactionId.
+  * Amazon Savings Plans
+    * Added cmdlet Invoke-SPReturnSavingsPlan leveraging the ReturnSavingsPlan service API.
+
+### 4.1.540 (2024-03-19 20:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.771.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Get-EC2MacHost leveraging the DescribeMacHosts service API.

@@ -124,7 +124,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 
@@ -141,7 +141,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ValidatePolicyResourceType
         "Use-IAMAAPolicyValidation/ValidatePolicyResourceType"
         {
-            $v = "AWS::IAM::AssumeRolePolicyDocument","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3ObjectLambda::AccessPoint"
+            $v = "AWS::DynamoDB::Table","AWS::IAM::AssumeRolePolicyDocument","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3ObjectLambda::AccessPoint"
             break
         }
 
@@ -15867,7 +15867,7 @@ $CONN_Completers = {
             ($_ -eq "Update-CONNInstanceStorageConfig/ResourceType")
         }
         {
-            $v = "AGENT_EVENTS","ATTACHMENTS","CALL_RECORDINGS","CHAT_TRANSCRIPTS","CONTACT_EVALUATIONS","CONTACT_TRACE_RECORDS","MEDIA_STREAMS","REAL_TIME_CONTACT_ANALYSIS_SEGMENTS","SCHEDULED_REPORTS","SCREEN_RECORDINGS"
+            $v = "AGENT_EVENTS","ATTACHMENTS","CALL_RECORDINGS","CHAT_TRANSCRIPTS","CONTACT_EVALUATIONS","CONTACT_TRACE_RECORDS","MEDIA_STREAMS","REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS","REAL_TIME_CONTACT_ANALYSIS_SEGMENTS","REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS","SCHEDULED_REPORTS","SCREEN_RECORDINGS"
             break
         }
 
@@ -21485,6 +21485,7 @@ $DDB_SelectMap = @{
                "New-DDBGlobalTable",
                "Remove-DDBBackup",
                "Remove-DDBItem",
+               "Remove-DDBResourcePolicy",
                "Remove-DDBTable",
                "Get-DDBBackup",
                "Get-DDBContinuousBackup",
@@ -21505,6 +21506,7 @@ $DDB_SelectMap = @{
                "Invoke-DDBDDBExecuteTransaction",
                "Export-DDBTableToPointInTime",
                "Get-DDBItem",
+               "Get-DDBResourcePolicy",
                "Import-DDBTable",
                "Get-DDBBackupList",
                "Get-DDBContributorInsightList",
@@ -21514,6 +21516,7 @@ $DDB_SelectMap = @{
                "Get-DDBTableList",
                "Get-DDBResourceTag",
                "Set-DDBItem",
+               "Write-DDBResourcePolicy",
                "Invoke-DDBQuery",
                "Restore-DDBTableFromBackup",
                "Restore-DDBTableToPointInTime",
@@ -60045,6 +60048,7 @@ $SP_SelectMap = @{
                "Get-SPSavingsPlansOfferingRate",
                "Get-SPSavingsPlansOffering",
                "Get-SPResourceTag",
+               "Invoke-SPReturnSavingsPlan",
                "Add-SPResourceTag",
                "Remove-SPResourceTag")
 }

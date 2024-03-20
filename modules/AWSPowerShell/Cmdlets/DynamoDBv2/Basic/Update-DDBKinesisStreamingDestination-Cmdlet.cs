@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter StreamArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the Kinesis stream input.</para>
+        /// <para>The Amazon Resource Name (ARN) for the Kinesis stream input.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The table name for the Kinesis streaming destination input.</para>
+        /// <para>The table name for the Kinesis streaming destination input. You can also provide the
+        /// ARN of the table in this parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

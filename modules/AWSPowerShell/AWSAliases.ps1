@@ -8366,6 +8366,8 @@ Set-Alias -Name Delete-DDBBackup -Value Remove-DDBBackup
 Set-Alias -Name DDB-DeleteBackup -Value Remove-DDBBackup
 Set-Alias -Name Delete-DDBItem -Value Remove-DDBItem
 Set-Alias -Name DDB-DeleteItem -Value Remove-DDBItem
+Set-Alias -Name Delete-DDBResourcePolicy -Value Remove-DDBResourcePolicy
+Set-Alias -Name DDB-DeleteResourcePolicy -Value Remove-DDBResourcePolicy
 Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name Describe-DDBBackup -Value Get-DDBBackup
@@ -8409,6 +8411,7 @@ Set-Alias -Name Execute-DDBDDBExecuteTransaction -Value Invoke-DDBDDBExecuteTran
 Set-Alias -Name DDB-ExecuteTransaction -Value Invoke-DDBDDBExecuteTransaction
 Set-Alias -Name DDB-ExportTableToPointInTime -Value Export-DDBTableToPointInTime
 Set-Alias -Name DDB-GetItem -Value Get-DDBItem
+Set-Alias -Name DDB-GetResourcePolicy -Value Get-DDBResourcePolicy
 Set-Alias -Name DDB-ImportTable -Value Import-DDBTable
 Set-Alias -Name List-DDBBackups -Value Get-DDBBackupList
 Set-Alias -Name List-DDBBackupList -Value Get-DDBBackupList
@@ -8433,6 +8436,8 @@ Set-Alias -Name List-DDBResourceTag -Value Get-DDBResourceTag
 Set-Alias -Name DDB-ListTagsOfResource -Value Get-DDBResourceTag
 Set-Alias -Name Put-DDBItem -Value Set-DDBItem
 Set-Alias -Name DDB-PutItem -Value Set-DDBItem
+Set-Alias -Name Put-DDBResourcePolicy -Value Write-DDBResourcePolicy
+Set-Alias -Name DDB-PutResourcePolicy -Value Write-DDBResourcePolicy
 Set-Alias -Name Query-DDB -Value Invoke-DDBQuery
 Set-Alias -Name Query-DDBQuery -Value Invoke-DDBQuery
 Set-Alias -Name DDB-Query -Value Invoke-DDBQuery
@@ -24896,6 +24901,9 @@ Set-Alias -Name Describe-SPSavingsPlansOfferings -Value Get-SPSavingsPlansOfferi
 Set-Alias -Name Describe-SPSavingsPlansOffering -Value Get-SPSavingsPlansOffering
 Set-Alias -Name SP-DescribeSavingsPlansOfferings -Value Get-SPSavingsPlansOffering
 Set-Alias -Name SP-ListTagsForResource -Value Get-SPResourceTag
+Set-Alias -Name Return-SPSavingsPlan -Value Invoke-SPReturnSavingsPlan
+Set-Alias -Name Return-SPReturnSavingsPlan -Value Invoke-SPReturnSavingsPlan
+Set-Alias -Name SP-ReturnSavingsPlan -Value Invoke-SPReturnSavingsPlan
 Set-Alias -Name SP-TagResource -Value Add-SPResourceTag
 Set-Alias -Name SP-UntagResource -Value Remove-SPResourceTag
 Set-Alias -Name Create-SCHSchedule -Value New-SCHSchedule

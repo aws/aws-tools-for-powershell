@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SPSavingsPlanRate', 
         'Get-SPSavingsPlansOffering', 
         'Get-SPSavingsPlansOfferingRate', 
+        'Invoke-SPReturnSavingsPlan', 
         'New-SPSavingsPlan', 
         'Remove-SPQueuedSavingsPlan', 
         'Remove-SPResourceTag')

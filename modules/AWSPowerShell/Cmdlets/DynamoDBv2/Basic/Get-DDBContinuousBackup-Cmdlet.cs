@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <summary>
         /// <para>
         /// <para>Name of the table for which the customer wants to check the continuous backups and
-        /// point in time recovery settings.</para>
+        /// point in time recovery settings.</para><para>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

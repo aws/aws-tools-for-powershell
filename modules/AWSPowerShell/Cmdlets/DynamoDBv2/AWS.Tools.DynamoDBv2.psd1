@@ -116,6 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DDBItemTransactionally', 
         'Get-DDBKinesisStreamingDestination', 
         'Get-DDBProvisionLimit', 
+        'Get-DDBResourcePolicy', 
         'Get-DDBResourceTag', 
         'Get-DDBStream', 
         'Get-DDBStreamList', 
@@ -137,6 +138,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-DDBTableSchema', 
         'Remove-DDBBackup', 
         'Remove-DDBItem', 
+        'Remove-DDBResourcePolicy', 
         'Remove-DDBResourceTag', 
         'Remove-DDBTable', 
         'Restore-DDBTableFromBackup', 
@@ -152,7 +154,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-DDBTable', 
         'Update-DDBTableReplicaAutoScaling', 
         'Update-DDBTimeToLive', 
-        'Write-DDBItemTransactionally')
+        'Write-DDBItemTransactionally', 
+        'Write-DDBResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

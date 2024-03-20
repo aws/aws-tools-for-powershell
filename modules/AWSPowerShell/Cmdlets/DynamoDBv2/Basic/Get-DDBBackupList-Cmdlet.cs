@@ -72,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The backups from the table specified by <c>TableName</c> are listed. </para>
+        /// <para>Lists the backups from the table specified in <c>TableName</c>. You can also provide
+        /// the Amazon Resource Name (ARN) of the table in this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

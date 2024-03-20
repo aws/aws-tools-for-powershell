@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter RequestItem
         /// <summary>
         /// <para>
-        /// <para>A map of one or more table names and, for each table, a map that describes one or
-        /// more items to retrieve from that table. Each table name can be used only once per
-        /// <c>BatchGetItem</c> request.</para><para>Each element in the map of items to retrieve consists of the following:</para><ul><li><para><c>ConsistentRead</c> - If <c>true</c>, a strongly consistent read is used; if <c>false</c>
+        /// <para>A map of one or more table names or table ARNs and, for each table, a map that describes
+        /// one or more items to retrieve from that table. Each table name or ARN can be used
+        /// only once per <c>BatchGetItem</c> request.</para><para>Each element in the map of items to retrieve consists of the following:</para><ul><li><para><c>ConsistentRead</c> - If <c>true</c>, a strongly consistent read is used; if <c>false</c>
         /// (the default), an eventually consistent read is used.</para></li><li><para><c>ExpressionAttributeNames</c> - One or more substitution tokens for attribute names
         /// in the <c>ProjectionExpression</c> parameter. The following are some use cases for
         /// using <c>ExpressionAttributeNames</c>:</para><ul><li><para>To access an attribute whose name conflicts with a DynamoDB reserved word.</para></li><li><para>To create a placeholder for repeating occurrences of an attribute name in an expression.</para></li><li><para>To prevent special characters in an attribute name from being misinterpreted in an

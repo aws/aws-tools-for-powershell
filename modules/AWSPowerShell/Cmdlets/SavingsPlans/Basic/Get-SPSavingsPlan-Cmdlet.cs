@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter State
         /// <summary>
         /// <para>
-        /// <para>The states.</para>
+        /// <para>The current states of the Savings Plans.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

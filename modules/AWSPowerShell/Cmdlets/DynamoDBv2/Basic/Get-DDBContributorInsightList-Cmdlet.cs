@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table.</para>
+        /// <para>The name of the table. You can also provide the Amazon Resource Name (ARN) of the
+        /// table in this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

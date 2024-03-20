@@ -28,57 +28,58 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Updates the status for contributor insights for a specific table or index. CloudWatch
-    /// Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
-    /// sort key of frequently accessed items and frequently throttled items in plaintext.
-    /// If you require the use of Amazon Web Services Key Management Service (KMS) to encrypt
-    /// this table’s partition key and sort key data with an Amazon Web Services managed key
-    /// or customer managed key, you should not enable CloudWatch Contributor Insights for
-    /// DynamoDB for this table.
+    /// Deletes the resource-based policy attached to the resource, which can be a table or
+    /// stream.
+    /// 
+    ///  
+    /// <para><c>DeleteResourcePolicy</c> is an idempotent operation; running it multiple times
+    /// on the same resource <i>doesn't</i> result in an error response, unless you specify
+    /// an <c>ExpectedRevisionId</c>, which will then return a <c>PolicyNotFoundException</c>.
+    /// </para><important><para>
+    /// To make sure that you don't inadvertently lock yourself out of your own resources,
+    /// the root principal in your Amazon Web Services account can perform <c>DeleteResourcePolicy</c>
+    /// requests, even if your resource-based policy explicitly denies the root principal's
+    /// access. 
+    /// </para></important><note><para><c>DeleteResourcePolicy</c> is an asynchronous operation. If you issue a <c>GetResourcePolicy</c>
+    /// request immediately after running the <c>DeleteResourcePolicy</c> request, DynamoDB
+    /// might still return the deleted policy. This is because the policy for your resource
+    /// might not have been deleted yet. Wait for a few seconds, and then try the <c>GetResourcePolicy</c>
+    /// request again.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Update", "DDBContributorInsight", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse")]
-    [AWSCmdlet("Calls the Amazon DynamoDB UpdateContributorInsights API operation.", Operation = new[] {"UpdateContributorInsights"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse))]
-    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "DDBResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon DynamoDB DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateDDBContributorInsightCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class RemoveDDBResourcePolicyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ContributorInsightsAction
+        #region Parameter ExpectedRevisionId
         /// <summary>
         /// <para>
-        /// <para>Represents the contributor insights action.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.DynamoDBv2.ContributorInsightsAction")]
-        public Amazon.DynamoDBv2.ContributorInsightsAction ContributorInsightsAction { get; set; }
-        #endregion
-        
-        #region Parameter IndexName
-        /// <summary>
-        /// <para>
-        /// <para>The global secondary index name, if applicable.</para>
+        /// <para>A string value that you can use to conditionally delete your policy. When you provide
+        /// an expected revision ID, if the revision ID of the existing policy on the resource
+        /// doesn't match or if there's no policy attached to the resource, the request will fail
+        /// and return a <c>PolicyNotFoundException</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String IndexName { get; set; }
+        public System.String ExpectedRevisionId { get; set; }
         #endregion
         
-        #region Parameter TableName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the table. You can also provide the Amazon Resource Name (ARN) of the
-        /// table in this parameter.</para>
+        /// <para>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will
+        /// be removed. The resources you can specify include tables and streams. If you remove
+        /// the policy of a table, it will also remove the permissions for the table's indexes
+        /// defined in that policy document. This is because index permissions are defined in
+        /// the table's policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,26 +90,26 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TableName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse).
-        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RevisionId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "RevisionId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TableName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TableName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TableName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -128,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TableName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DDBContributorInsight (UpdateContributorInsights)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DDBResourcePolicy (DeleteResourcePolicy)"))
             {
                 return;
             }
@@ -142,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse, UpdateDDBContributorInsightCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse, RemoveDDBResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -151,22 +152,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TableName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ContributorInsightsAction = this.ContributorInsightsAction;
+            context.ExpectedRevisionId = this.ExpectedRevisionId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ContributorInsightsAction == null && ParameterWasBound(nameof(this.ContributorInsightsAction)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ContributorInsightsAction which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.IndexName = this.IndexName;
-            context.TableName = this.TableName;
-            #if MODULAR
-            if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -183,19 +177,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.UpdateContributorInsightsRequest();
+            var request = new Amazon.DynamoDBv2.Model.DeleteResourcePolicyRequest();
             
-            if (cmdletContext.ContributorInsightsAction != null)
+            if (cmdletContext.ExpectedRevisionId != null)
             {
-                request.ContributorInsightsAction = cmdletContext.ContributorInsightsAction;
+                request.ExpectedRevisionId = cmdletContext.ExpectedRevisionId;
             }
-            if (cmdletContext.IndexName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.IndexName = cmdletContext.IndexName;
-            }
-            if (cmdletContext.TableName != null)
-            {
-                request.TableName = cmdletContext.TableName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -230,15 +220,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.UpdateContributorInsightsRequest request)
+        private Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "UpdateContributorInsights");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DeleteResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.UpdateContributorInsights(request);
+                return client.DeleteResourcePolicy(request);
                 #elif CORECLR
-                return client.UpdateContributorInsightsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -258,11 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.DynamoDBv2.ContributorInsightsAction ContributorInsightsAction { get; set; }
-            public System.String IndexName { get; set; }
-            public System.String TableName { get; set; }
-            public System.Func<Amazon.DynamoDBv2.Model.UpdateContributorInsightsResponse, UpdateDDBContributorInsightCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ExpectedRevisionId { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.DynamoDBv2.Model.DeleteResourcePolicyResponse, RemoveDDBResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RevisionId;
         }
         
     }

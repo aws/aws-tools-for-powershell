@@ -45,9 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// you can use <c>UpdateTable</c> to perform other operations.
     /// </para></li></ul><para><c>UpdateTable</c> is an asynchronous operation; while it's executing, the table
     /// status changes from <c>ACTIVE</c> to <c>UPDATING</c>. While it's <c>UPDATING</c>,
-    /// you can't issue another <c>UpdateTable</c> request on the base table nor any replicas.
-    /// When the table returns to the <c>ACTIVE</c> state, the <c>UpdateTable</c> operation
-    /// is complete.
+    /// you can't issue another <c>UpdateTable</c> request. When the table returns to the
+    /// <c>ACTIVE</c> state, the <c>UpdateTable</c> operation is complete.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -223,7 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table to be updated.</para>
+        /// <para>The name of the table to be updated. You can also provide the Amazon Resource Name
+        /// (ARN) of the table in this parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

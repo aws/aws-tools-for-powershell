@@ -22,43 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.Model;
+using Amazon.SavingsPlans;
+using Amazon.SavingsPlans.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DDB
+namespace Amazon.PowerShell.Cmdlets.SP
 {
     /// <summary>
-    /// Returns information about the table, including the current status of the table, when
-    /// it was created, the primary key schema, and any indexes on the table.
-    /// 
-    ///  <important><para>
-    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-    /// 2019.11.21 (Current)</a> of global tables. 
-    /// </para></important><note><para>
-    /// If you issue a <c>DescribeTable</c> request immediately after a <c>CreateTable</c>
-    /// request, DynamoDB might return a <c>ResourceNotFoundException</c>. This is because
-    /// <c>DescribeTable</c> uses an eventually consistent query, and the metadata for your
-    /// table might not be available at that moment. Wait for a few seconds, and then try
-    /// the <c>DescribeTable</c> request again.
-    /// </para></note>
+    /// Returns the specified Savings Plan.
     /// </summary>
-    [Cmdlet("Get", "DDBTable")]
-    [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Calls the Amazon DynamoDB DescribeTable API operation.", Operation = new[] {"DescribeTable"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeTableResponse))]
-    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription or Amazon.DynamoDBv2.Model.DescribeTableResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.TableDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Invoke", "SPReturnSavingsPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Savings Plans ReturnSavingsPlan API operation.", Operation = new[] {"ReturnSavingsPlan"}, SelectReturnType = typeof(Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse))]
+    [AWSCmdletOutput("System.String or Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class InvokeSPReturnSavingsPlanCmdlet : AmazonSavingsPlansClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter TableName
+        #region Parameter SavingsPlanId
         /// <summary>
         /// <para>
-        /// <para>The name of the table to describe. You can also provide the Amazon Resource Name (ARN)
-        /// of the table in this parameter.</para>
+        /// <para>The ID of the Savings Plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,34 +56,61 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TableName { get; set; }
+        public System.String SavingsPlanId { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Table'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.DescribeTableResponse).
-        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.DescribeTableResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SavingsPlanId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse).
+        /// Specifying the name of a property of type Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Table";
+        public string Select { get; set; } = "SavingsPlanId";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TableName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TableName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the SavingsPlanId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^SavingsPlanId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TableName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^SavingsPlanId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SavingsPlanId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Invoke-SPReturnSavingsPlan (ReturnSavingsPlan)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -106,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.DescribeTableResponse, GetDDBTableCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse, InvokeSPReturnSavingsPlanCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -115,14 +129,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TableName;
+                context.Select = (response, cmdlet) => this.SavingsPlanId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.TableName = this.TableName;
+            context.ClientToken = this.ClientToken;
+            context.SavingsPlanId = this.SavingsPlanId;
             #if MODULAR
-            if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
+            if (this.SavingsPlanId == null && ParameterWasBound(nameof(this.SavingsPlanId)))
             {
-                WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SavingsPlanId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,11 +154,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.DescribeTableRequest();
+            var request = new Amazon.SavingsPlans.Model.ReturnSavingsPlanRequest();
             
-            if (cmdletContext.TableName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.TableName = cmdletContext.TableName;
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.SavingsPlanId != null)
+            {
+                request.SavingsPlanId = cmdletContext.SavingsPlanId;
             }
             
             CmdletOutput output;
@@ -178,15 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.DescribeTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeTableRequest request)
+        private Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse CallAWSServiceOperation(IAmazonSavingsPlans client, Amazon.SavingsPlans.Model.ReturnSavingsPlanRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DescribeTable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Savings Plans", "ReturnSavingsPlan");
             try
             {
                 #if DESKTOP
-                return client.DescribeTable(request);
+                return client.ReturnSavingsPlan(request);
                 #elif CORECLR
-                return client.DescribeTableAsync(request).GetAwaiter().GetResult();
+                return client.ReturnSavingsPlanAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,9 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TableName { get; set; }
-            public System.Func<Amazon.DynamoDBv2.Model.DescribeTableResponse, GetDDBTableCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Table;
+            public System.String ClientToken { get; set; }
+            public System.String SavingsPlanId { get; set; }
+            public System.Func<Amazon.SavingsPlans.Model.ReturnSavingsPlanResponse, InvokeSPReturnSavingsPlanCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SavingsPlanId;
         }
         
     }

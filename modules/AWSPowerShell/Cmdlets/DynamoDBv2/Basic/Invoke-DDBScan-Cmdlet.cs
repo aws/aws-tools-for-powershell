@@ -317,8 +317,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the table containing the requested items; or, if you provide <c>IndexName</c>,
-        /// the name of the table to which that index belongs.</para>
+        /// <para>The name of the table containing the requested items or if you provide <c>IndexName</c>,
+        /// the name of the table to which that index belongs.</para><para>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

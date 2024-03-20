@@ -28,37 +28,52 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    /// Returns information about the table, including the current status of the table, when
-    /// it was created, the primary key schema, and any indexes on the table.
+    /// Returns the resource-based policy document attached to the resource, which can be
+    /// a table or stream, in JSON format.
     /// 
-    ///  <important><para>
-    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-    /// 2019.11.21 (Current)</a> of global tables. 
-    /// </para></important><note><para>
-    /// If you issue a <c>DescribeTable</c> request immediately after a <c>CreateTable</c>
-    /// request, DynamoDB might return a <c>ResourceNotFoundException</c>. This is because
-    /// <c>DescribeTable</c> uses an eventually consistent query, and the metadata for your
-    /// table might not be available at that moment. Wait for a few seconds, and then try
-    /// the <c>DescribeTable</c> request again.
-    /// </para></note>
+    ///  
+    /// <para><c>GetResourcePolicy</c> follows an <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html"><i>eventually consistent</i></a> model. The following list describes the outcomes
+    /// when you issue the <c>GetResourcePolicy</c> request immediately after issuing another
+    /// request:
+    /// </para><ul><li><para>
+    /// If you issue a <c>GetResourcePolicy</c> request immediately after a <c>PutResourcePolicy</c>
+    /// request, DynamoDB might return a <c>PolicyNotFoundException</c>.
+    /// </para></li><li><para>
+    /// If you issue a <c>GetResourcePolicy</c>request immediately after a <c>DeleteResourcePolicy</c>
+    /// request, DynamoDB might return the policy that was present before the deletion request.
+    /// </para></li><li><para>
+    /// If you issue a <c>GetResourcePolicy</c> request immediately after a <c>CreateTable</c>
+    /// request, which includes a resource-based policy, DynamoDB might return a <c>ResourceNotFoundException</c>
+    /// or a <c>PolicyNotFoundException</c>.
+    /// </para></li></ul><para>
+    /// Because <c>GetResourcePolicy</c> uses an <i>eventually consistent</i> query, the metadata
+    /// for your policy or table might not be available at that moment. Wait for a few seconds,
+    /// and then retry the <c>GetResourcePolicy</c> request.
+    /// </para><para>
+    /// After a <c>GetResourcePolicy</c> request returns a policy created using the <c>PutResourcePolicy</c>
+    /// request, you can assume the policy will start getting applied in the authorization
+    /// of requests to the resource. Because this process is eventually consistent, it will
+    /// take some time to apply the policy to all requests to a resource. Policies that you
+    /// attach while creating a table using the <c>CreateTable</c> request will always be
+    /// applied to all requests for that table.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "DDBTable")]
-    [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Calls the Amazon DynamoDB DescribeTable API operation.", Operation = new[] {"DescribeTable"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.DescribeTableResponse))]
-    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription or Amazon.DynamoDBv2.Model.DescribeTableResponse",
-        "This cmdlet returns an Amazon.DynamoDBv2.Model.TableDescription object.",
-        "The service call response (type Amazon.DynamoDBv2.Model.DescribeTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DDBResourcePolicy")]
+    [OutputType("Amazon.DynamoDBv2.Model.GetResourcePolicyResponse")]
+    [AWSCmdlet("Calls the Amazon DynamoDB GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.DynamoDBv2.Model.GetResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.DynamoDBv2.Model.GetResourcePolicyResponse",
+        "This cmdlet returns an Amazon.DynamoDBv2.Model.GetResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDDBTableCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
+    public partial class GetDDBResourcePolicyCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter TableName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the table to describe. You can also provide the Amazon Resource Name (ARN)
-        /// of the table in this parameter.</para>
+        /// <para>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached.
+        /// The resources you can specify include tables and streams.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,26 +84,26 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TableName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Table'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.DescribeTableResponse).
-        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.DescribeTableResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DynamoDBv2.Model.GetResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.DynamoDBv2.Model.GetResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Table";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TableName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TableName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TableName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.DescribeTableResponse, GetDDBTableCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DynamoDBv2.Model.GetResourcePolicyResponse, GetDDBResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -115,14 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TableName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.TableName = this.TableName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.TableName == null && ParameterWasBound(nameof(this.TableName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter TableName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -139,11 +154,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DynamoDBv2.Model.DescribeTableRequest();
+            var request = new Amazon.DynamoDBv2.Model.GetResourcePolicyRequest();
             
-            if (cmdletContext.TableName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.TableName = cmdletContext.TableName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -178,15 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #region AWS Service Operation Call
         
-        private Amazon.DynamoDBv2.Model.DescribeTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.DescribeTableRequest request)
+        private Amazon.DynamoDBv2.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "DescribeTable");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "GetResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DescribeTable(request);
+                return client.GetResourcePolicy(request);
                 #elif CORECLR
-                return client.DescribeTableAsync(request).GetAwaiter().GetResult();
+                return client.GetResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -206,9 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String TableName { get; set; }
-            public System.Func<Amazon.DynamoDBv2.Model.DescribeTableResponse, GetDDBTableCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Table;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.DynamoDBv2.Model.GetResourcePolicyResponse, GetDDBResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

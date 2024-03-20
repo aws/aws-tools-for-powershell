@@ -28,7 +28,7 @@ using Amazon.SavingsPlans.Model;
 namespace Amazon.PowerShell.Cmdlets.SP
 {
     /// <summary>
-    /// Describes the specified Savings Plans offering rates.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the offering rates for the specified Savings Plans.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SPSavingsPlansOfferingRate")]
     [OutputType("Amazon.SavingsPlans.Model.SavingsPlanOfferingRate")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>The specific AWS operation for the line item in the billing report.</para>
+        /// <para>The specific Amazon Web Services operation for the line item in the billing report.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter Product
         /// <summary>
         /// <para>
-        /// <para>The AWS products.</para>
+        /// <para>The Amazon Web Services products.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

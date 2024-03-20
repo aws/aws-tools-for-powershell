@@ -124,7 +124,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ResourceType
         "Get-IAMAAAnalyzedResourceList/ResourceType"
         {
-            $v = "AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EC2::Snapshot","AWS::ECR::Repository","AWS::EFS::FileSystem","AWS::IAM::Role","AWS::KMS::Key","AWS::Lambda::Function","AWS::Lambda::LayerVersion","AWS::RDS::DBClusterSnapshot","AWS::RDS::DBSnapshot","AWS::S3::Bucket","AWS::S3Express::DirectoryBucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
             break
         }
 
@@ -141,7 +141,7 @@ $IAMAA_Completers = {
         # Amazon.AccessAnalyzer.ValidatePolicyResourceType
         "Use-IAMAAPolicyValidation/ValidatePolicyResourceType"
         {
-            $v = "AWS::IAM::AssumeRolePolicyDocument","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3ObjectLambda::AccessPoint"
+            $v = "AWS::DynamoDB::Table","AWS::IAM::AssumeRolePolicyDocument","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::MultiRegionAccessPoint","AWS::S3ObjectLambda::AccessPoint"
             break
         }
 

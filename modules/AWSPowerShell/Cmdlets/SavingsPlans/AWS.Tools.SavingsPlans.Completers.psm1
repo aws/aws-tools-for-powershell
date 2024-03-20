@@ -156,6 +156,7 @@ $SP_SelectMap = @{
                "Get-SPSavingsPlansOfferingRate",
                "Get-SPSavingsPlansOffering",
                "Get-SPResourceTag",
+               "Invoke-SPReturnSavingsPlan",
                "Add-SPResourceTag",
                "Remove-SPResourceTag")
 }

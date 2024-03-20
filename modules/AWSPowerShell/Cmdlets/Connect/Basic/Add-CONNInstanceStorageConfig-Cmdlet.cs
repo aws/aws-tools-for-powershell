@@ -175,7 +175,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>A valid resource type.</para>
+        /// <para>A valid resource type. To <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-contact-analysis-segment-streams.html">enable
+        /// streaming for real-time analysis of contacts</a>, use the following types:</para><ul><li><para>For chat contacts, use <c>REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS</c>.</para></li><li><para>For voice contacts, use <c>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</c>.</para></li></ul><note><para><c>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</c> is deprecated, but it is still supported
+        /// and will apply only to VOICE channel contacts. Use <c>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</c>
+        /// for voice contacts moving forward.</para><para>If you have previously associated a stream with <c>REAL_TIME_CONTACT_ANALYSIS_SEGMENTS</c>,
+        /// no action is needed to update the stream to <c>REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

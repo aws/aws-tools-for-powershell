@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter TableName
         /// <summary>
         /// <para>
-        /// <para>The name of the global table to be updated.</para>
+        /// <para>The name of the global table to be updated. You can also provide the Amazon Resource
+        /// Name (ARN) of the table in this parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

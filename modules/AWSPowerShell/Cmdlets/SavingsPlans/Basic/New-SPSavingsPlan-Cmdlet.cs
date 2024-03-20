@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter Commitment
         /// <summary>
         /// <para>
-        /// <para>The hourly commitment, in USD. This is a value between 0.001 and 1 million. You cannot
-        /// specify more than five digits after the decimal point.</para>
+        /// <para>The hourly commitment, in the same currency of the <c>savingsPlanOfferingId</c>. This
+        /// is a value between 0.001 and 1 million. You cannot specify more than five digits after
+        /// the decimal point.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter PurchaseTime
         /// <summary>
         /// <para>
-        /// <para>The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ).</para>
+        /// <para>The purchase time of the Savings Plan in UTC format (YYYY-MM-DDTHH:MM:SSZ).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SP
         /// <summary>
         /// <para>
         /// <para>The up-front payment amount. This is a whole number between 50 and 99 percent of the
-        /// total value of the Savings Plan. This parameter is supported only if the payment option
+        /// total value of the Savings Plan. This parameter is only supported if the payment option
         /// is <c>Partial Upfront</c>.</para>
         /// </para>
         /// </summary>
@@ -113,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SP
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -117,9 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter RequestItem
         /// <summary>
         /// <para>
-        /// <para>A map of one or more table names and, for each table, a list of operations to be performed
-        /// (<c>DeleteRequest</c> or <c>PutRequest</c>). Each element in the map consists of the
-        /// following:</para><ul><li><para><c>DeleteRequest</c> - Perform a <c>DeleteItem</c> operation on the specified item.
+        /// <para>A map of one or more table names or table ARNs and, for each table, a list of operations
+        /// to be performed (<c>DeleteRequest</c> or <c>PutRequest</c>). Each element in the map
+        /// consists of the following:</para><ul><li><para><c>DeleteRequest</c> - Perform a <c>DeleteItem</c> operation on the specified item.
         /// The item to be deleted is identified by a <c>Key</c> subelement:</para><ul><li><para><c>Key</c> - A map of primary key attribute values that uniquely identify the item.
         /// Each entry in this map consists of an attribute name and an attribute value. For each
         /// primary key, you must provide <i>all</i> of the key attributes. For example, with
