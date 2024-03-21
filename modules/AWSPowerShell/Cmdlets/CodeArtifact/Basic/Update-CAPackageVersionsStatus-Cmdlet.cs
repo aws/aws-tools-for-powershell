@@ -106,9 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace of the package version to be updated. The package version component
-        /// that specifies its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm package version is its <c>scope</c>. </para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li><li><para> The namespace of a generic package is its <c>namespace</c>. </para></li></ul>
+        /// <para>The namespace of the package version to be updated. The package component that specifies
+        /// its namespace depends on its type. For example:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm or Swift package version is its <c>scope</c>. </para></li><li><para>The namespace of a generic package is its <c>namespace</c>.</para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
+        /// versions of those formats do not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

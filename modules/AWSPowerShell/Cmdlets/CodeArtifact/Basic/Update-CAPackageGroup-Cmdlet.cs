@@ -28,24 +28,35 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Creates a repository.
+    /// Updates a package group. This API cannot be used to update a package group's origin
+    /// configuration or pattern. To update a package group's origin configuration, use <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_UpdatePackageGroupOriginConfiguration.html">UpdatePackageGroupOriginConfiguration</a>.
     /// </summary>
-    [Cmdlet("New", "CARepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeArtifact.Model.RepositoryDescription")]
-    [AWSCmdlet("Calls the AWS CodeArtifact CreateRepository API operation.", Operation = new[] {"CreateRepository"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.CreateRepositoryResponse))]
-    [AWSCmdletOutput("Amazon.CodeArtifact.Model.RepositoryDescription or Amazon.CodeArtifact.Model.CreateRepositoryResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.RepositoryDescription object.",
-        "The service call response (type Amazon.CodeArtifact.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CAPackageGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CodeArtifact.Model.PackageGroupDescription")]
+    [AWSCmdlet("Calls the AWS CodeArtifact UpdatePackageGroup API operation.", Operation = new[] {"UpdatePackageGroup"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.UpdatePackageGroupResponse))]
+    [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageGroupDescription or Amazon.CodeArtifact.Model.UpdatePackageGroupResponse",
+        "This cmdlet returns an Amazon.CodeArtifact.Model.PackageGroupDescription object.",
+        "The service call response (type Amazon.CodeArtifact.Model.UpdatePackageGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCARepositoryCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
+    public partial class UpdateCAPackageGroupCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ContactInfo
+        /// <summary>
+        /// <para>
+        /// <para> Contact information which you want to update the requested package group with. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContactInfo { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> A description of the created repository. </para>
+        /// <para> The description you want to update the requested package group with. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> The name of the domain that contains the created repository. </para>
+        /// <para> The name of the domain which contains the package group to be updated. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,57 +91,42 @@ namespace Amazon.PowerShell.Cmdlets.CA
         public System.String DomainOwner { get; set; }
         #endregion
         
-        #region Parameter Repository
+        #region Parameter PackageGroup
         /// <summary>
         /// <para>
-        /// <para>The name of the repository to create. </para>
+        /// <para> The pattern of the package group to be updated. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Repository { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>One or more tag key-value pairs for the repository.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.CodeArtifact.Model.Tag[] Tag { get; set; }
-        #endregion
-        
-        #region Parameter Upstream
-        /// <summary>
-        /// <para>
-        /// <para> A list of upstream repositories to associate with the repository. The order of the
-        /// upstream repositories in the list determines their priority order when CodeArtifact
-        /// looks for a requested package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working
-        /// with upstream repositories</a>. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Upstreams")]
-        public Amazon.CodeArtifact.Model.UpstreamRepository[] Upstream { get; set; }
+        public System.String PackageGroup { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Repository'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.CreateRepositoryResponse).
-        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.CreateRepositoryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PackageGroup'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.UpdatePackageGroupResponse).
+        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.UpdatePackageGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Repository";
+        public string Select { get; set; } = "PackageGroup";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the PackageGroup parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PackageGroup' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PackageGroup' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -148,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Repository), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CARepository (CreateRepository)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PackageGroup), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CAPackageGroup (UpdatePackageGroup)"))
             {
                 return;
             }
@@ -159,11 +155,22 @@ namespace Amazon.PowerShell.Cmdlets.CA
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.CreateRepositoryResponse, NewCARepositoryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.UpdatePackageGroupResponse, UpdateCAPackageGroupCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.PackageGroup;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContactInfo = this.ContactInfo;
             context.Description = this.Description;
             context.Domain = this.Domain;
             #if MODULAR
@@ -173,21 +180,13 @@ namespace Amazon.PowerShell.Cmdlets.CA
             }
             #endif
             context.DomainOwner = this.DomainOwner;
-            context.Repository = this.Repository;
+            context.PackageGroup = this.PackageGroup;
             #if MODULAR
-            if (this.Repository == null && ParameterWasBound(nameof(this.Repository)))
+            if (this.PackageGroup == null && ParameterWasBound(nameof(this.PackageGroup)))
             {
-                WriteWarning("You are passing $null as a value for parameter Repository which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PackageGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.CodeArtifact.Model.Tag>(this.Tag);
-            }
-            if (this.Upstream != null)
-            {
-                context.Upstream = new List<Amazon.CodeArtifact.Model.UpstreamRepository>(this.Upstream);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -202,8 +201,12 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeArtifact.Model.CreateRepositoryRequest();
+            var request = new Amazon.CodeArtifact.Model.UpdatePackageGroupRequest();
             
+            if (cmdletContext.ContactInfo != null)
+            {
+                request.ContactInfo = cmdletContext.ContactInfo;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -216,17 +219,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
             {
                 request.DomainOwner = cmdletContext.DomainOwner;
             }
-            if (cmdletContext.Repository != null)
+            if (cmdletContext.PackageGroup != null)
             {
-                request.Repository = cmdletContext.Repository;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
-            if (cmdletContext.Upstream != null)
-            {
-                request.Upstreams = cmdletContext.Upstream;
+                request.PackageGroup = cmdletContext.PackageGroup;
             }
             
             CmdletOutput output;
@@ -261,15 +256,15 @@ namespace Amazon.PowerShell.Cmdlets.CA
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeArtifact.Model.CreateRepositoryResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.CreateRepositoryRequest request)
+        private Amazon.CodeArtifact.Model.UpdatePackageGroupResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.UpdatePackageGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "CreateRepository");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "UpdatePackageGroup");
             try
             {
                 #if DESKTOP
-                return client.CreateRepository(request);
+                return client.UpdatePackageGroup(request);
                 #elif CORECLR
-                return client.CreateRepositoryAsync(request).GetAwaiter().GetResult();
+                return client.UpdatePackageGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -289,14 +284,13 @@ namespace Amazon.PowerShell.Cmdlets.CA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContactInfo { get; set; }
             public System.String Description { get; set; }
             public System.String Domain { get; set; }
             public System.String DomainOwner { get; set; }
-            public System.String Repository { get; set; }
-            public List<Amazon.CodeArtifact.Model.Tag> Tag { get; set; }
-            public List<Amazon.CodeArtifact.Model.UpstreamRepository> Upstream { get; set; }
-            public System.Func<Amazon.CodeArtifact.Model.CreateRepositoryResponse, NewCARepositoryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Repository;
+            public System.String PackageGroup { get; set; }
+            public System.Func<Amazon.CodeArtifact.Model.UpdatePackageGroupResponse, UpdateCAPackageGroupCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PackageGroup;
         }
         
     }

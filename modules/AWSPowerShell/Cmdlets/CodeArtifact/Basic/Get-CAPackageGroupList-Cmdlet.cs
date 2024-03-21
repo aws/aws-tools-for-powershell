@@ -28,19 +28,16 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Returns the endpoint of a repository for a specific package format. A repository
-    /// has one endpoint for each package format: 
-    /// 
-    ///  <ul><li><para><c>generic</c></para></li><li><para><c>maven</c></para></li><li><para><c>npm</c></para></li><li><para><c>nuget</c></para></li><li><para><c>pypi</c></para></li><li><para><c>swift</c></para></li></ul>
+    /// Returns a list of package groups in the requested domain.
     /// </summary>
-    [Cmdlet("Get", "CARepositoryEndpoint")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS CodeArtifact GetRepositoryEndpoint API operation.", Operation = new[] {"GetRepositoryEndpoint"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CAPackageGroupList")]
+    [OutputType("Amazon.CodeArtifact.Model.PackageGroupSummary")]
+    [AWSCmdlet("Calls the AWS CodeArtifact ListPackageGroups API operation.", Operation = new[] {"ListPackageGroups"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.ListPackageGroupsResponse))]
+    [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageGroupSummary or Amazon.CodeArtifact.Model.ListPackageGroupsResponse",
+        "This cmdlet returns a collection of Amazon.CodeArtifact.Model.PackageGroupSummary objects.",
+        "The service call response (type Amazon.CodeArtifact.Model.ListPackageGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCARepositoryEndpointCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
+    public partial class GetCAPackageGroupListCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -48,13 +45,13 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para> The name of the domain that contains the repository. </para>
+        /// <para> The domain for which you want to list package groups. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -65,58 +62,66 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter DomainOwner
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain
-        /// that contains the repository. It does not include dashes or spaces. </para>
+        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain.
+        /// It does not include dashes or spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainOwner { get; set; }
         #endregion
         
-        #region Parameter Format
+        #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// <para> Returns which endpoint of a repository to return. A repository has one endpoint for
-        /// each package format. </para>
+        /// <para> A prefix for which to search package groups. When included, <c>ListPackageGroups</c>
+        /// will return only package groups with patterns that match the prefix. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.CodeArtifact.PackageFormat")]
-        public Amazon.CodeArtifact.PackageFormat Format { get; set; }
+        public System.String Prefix { get; set; }
         #endregion
         
-        #region Parameter Repository
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The name of the repository. </para>
+        /// <para> The maximum number of results to return per page. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Repository { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para> The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RepositoryEndpoint'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse).
-        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PackageGroups'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.ListPackageGroupsResponse).
+        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.ListPackageGroupsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RepositoryEndpoint";
+        public string Select { get; set; } = "PackageGroups";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Domain parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -129,11 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.CA
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse, GetCARepositoryEndpointCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.ListPackageGroupsResponse, GetCAPackageGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.Domain;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Domain = this.Domain;
             #if MODULAR
             if (this.Domain == null && ParameterWasBound(nameof(this.Domain)))
@@ -142,20 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.CA
             }
             #endif
             context.DomainOwner = this.DomainOwner;
-            context.Format = this.Format;
-            #if MODULAR
-            if (this.Format == null && ParameterWasBound(nameof(this.Format)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Repository = this.Repository;
-            #if MODULAR
-            if (this.Repository == null && ParameterWasBound(nameof(this.Repository)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Repository which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.Prefix = this.Prefix;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeArtifact.Model.GetRepositoryEndpointRequest();
+            var request = new Amazon.CodeArtifact.Model.ListPackageGroupsRequest();
             
             if (cmdletContext.Domain != null)
             {
@@ -180,13 +184,17 @@ namespace Amazon.PowerShell.Cmdlets.CA
             {
                 request.DomainOwner = cmdletContext.DomainOwner;
             }
-            if (cmdletContext.Format != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Format = cmdletContext.Format;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Repository != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Repository = cmdletContext.Repository;
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Prefix != null)
+            {
+                request.Prefix = cmdletContext.Prefix;
             }
             
             CmdletOutput output;
@@ -221,15 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.CA
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.GetRepositoryEndpointRequest request)
+        private Amazon.CodeArtifact.Model.ListPackageGroupsResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.ListPackageGroupsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "GetRepositoryEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "ListPackageGroups");
             try
             {
                 #if DESKTOP
-                return client.GetRepositoryEndpoint(request);
+                return client.ListPackageGroups(request);
                 #elif CORECLR
-                return client.GetRepositoryEndpointAsync(request).GetAwaiter().GetResult();
+                return client.ListPackageGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -251,10 +259,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             public System.String Domain { get; set; }
             public System.String DomainOwner { get; set; }
-            public Amazon.CodeArtifact.PackageFormat Format { get; set; }
-            public System.String Repository { get; set; }
-            public System.Func<Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse, GetCARepositoryEndpointCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RepositoryEndpoint;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String Prefix { get; set; }
+            public System.Func<Amazon.CodeArtifact.Model.ListPackageGroupsResponse, GetCAPackageGroupListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PackageGroups;
         }
         
     }

@@ -28,18 +28,19 @@ using Amazon.CodeArtifact.Model;
 namespace Amazon.PowerShell.Cmdlets.CA
 {
     /// <summary>
-    /// Deletes a package and all associated package versions. A deleted package cannot be
-    /// restored. To delete one or more package versions, use the <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DeletePackageVersions.html">DeletePackageVersions</a>
-    /// API.
+    /// Lists the repositories in the added repositories list of the specified restriction
+    /// type for a package group. For more information about restriction types and added repository
+    /// lists, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/package-group-origin-controls.html">Package
+    /// group origin controls</a> in the <i>CodeArtifact User Guide</i>.
     /// </summary>
-    [Cmdlet("Remove", "CAPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.CodeArtifact.Model.PackageSummary")]
-    [AWSCmdlet("Calls the AWS CodeArtifact DeletePackage API operation.", Operation = new[] {"DeletePackage"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.DeletePackageResponse))]
-    [AWSCmdletOutput("Amazon.CodeArtifact.Model.PackageSummary or Amazon.CodeArtifact.Model.DeletePackageResponse",
-        "This cmdlet returns an Amazon.CodeArtifact.Model.PackageSummary object.",
-        "The service call response (type Amazon.CodeArtifact.Model.DeletePackageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CAAllowedRepositoriesForGroupList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS CodeArtifact ListAllowedRepositoriesForGroup API operation.", Operation = new[] {"ListAllowedRepositoriesForGroup"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse))]
+    [AWSCmdletOutput("System.String or Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCAPackageCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
+    public partial class GetCAAllowedRepositoriesForGroupListCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -47,7 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         #region Parameter Domain
         /// <summary>
         /// <para>
-        /// <para>The name of the domain that contains the package to delete.</para>
+        /// <para> The name of the domain that contains the package group from which to list allowed
+        /// repositories. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -72,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.CA
         public System.String DomainOwner { get; set; }
         #endregion
         
-        #region Parameter Format
+        #region Parameter OriginRestrictionType
         /// <summary>
         /// <para>
-        /// <para>The format of the requested package to delete.</para>
+        /// <para>The origin configuration restriction type of which to list allowed repositories.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -85,26 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.CA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.CodeArtifact.PackageFormat")]
-        public Amazon.CodeArtifact.PackageFormat Format { get; set; }
+        [AWSConstantClassSource("Amazon.CodeArtifact.PackageGroupOriginRestrictionType")]
+        public Amazon.CodeArtifact.PackageGroupOriginRestrictionType OriginRestrictionType { get; set; }
         #endregion
         
-        #region Parameter Namespace
+        #region Parameter PackageGroup
         /// <summary>
         /// <para>
-        /// <para>The namespace of the package to delete. The package component that specifies its namespace
-        /// depends on its type. For example:</para><note><para>The namespace is required when deleting packages of the following formats:</para><ul><li><para>Maven</para></li><li><para>Swift</para></li><li><para>generic</para></li></ul></note><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm or Swift package version is its <c>scope</c>. </para></li><li><para>The namespace of a generic package is its <c>namespace</c>.</para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Namespace { get; set; }
-        #endregion
-        
-        #region Parameter Package
-        /// <summary>
-        /// <para>
-        /// <para>The name of the package to delete.</para>
+        /// <para>The pattern of the package group from which to list allowed repositories.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,57 +105,46 @@ namespace Amazon.PowerShell.Cmdlets.CA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Package { get; set; }
+        public System.String PackageGroup { get; set; }
         #endregion
         
-        #region Parameter Repository
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The name of the repository that contains the package to delete.</para>
+        /// <para> The maximum number of results to return per page. </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Repository { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para> The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DeletedPackage'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.DeletePackageResponse).
-        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.DeletePackageResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AllowedRepositories'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse).
+        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DeletedPackage";
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public string Select { get; set; } = "AllowedRepositories";
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Package), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CAPackage (DeletePackage)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -174,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.DeletePackageResponse, RemoveCAPackageCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse, GetCAAllowedRepositoriesForGroupListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.Domain = this.Domain;
@@ -185,26 +164,20 @@ namespace Amazon.PowerShell.Cmdlets.CA
             }
             #endif
             context.DomainOwner = this.DomainOwner;
-            context.Format = this.Format;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.OriginRestrictionType = this.OriginRestrictionType;
             #if MODULAR
-            if (this.Format == null && ParameterWasBound(nameof(this.Format)))
+            if (this.OriginRestrictionType == null && ParameterWasBound(nameof(this.OriginRestrictionType)))
             {
-                WriteWarning("You are passing $null as a value for parameter Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OriginRestrictionType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Namespace = this.Namespace;
-            context.Package = this.Package;
+            context.PackageGroup = this.PackageGroup;
             #if MODULAR
-            if (this.Package == null && ParameterWasBound(nameof(this.Package)))
+            if (this.PackageGroup == null && ParameterWasBound(nameof(this.PackageGroup)))
             {
-                WriteWarning("You are passing $null as a value for parameter Package which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Repository = this.Repository;
-            #if MODULAR
-            if (this.Repository == null && ParameterWasBound(nameof(this.Repository)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Repository which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PackageGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -221,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeArtifact.Model.DeletePackageRequest();
+            var request = new Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupRequest();
             
             if (cmdletContext.Domain != null)
             {
@@ -231,21 +204,21 @@ namespace Amazon.PowerShell.Cmdlets.CA
             {
                 request.DomainOwner = cmdletContext.DomainOwner;
             }
-            if (cmdletContext.Format != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.Format = cmdletContext.Format;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.Namespace != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.Namespace = cmdletContext.Namespace;
+                request.NextToken = cmdletContext.NextToken;
             }
-            if (cmdletContext.Package != null)
+            if (cmdletContext.OriginRestrictionType != null)
             {
-                request.Package = cmdletContext.Package;
+                request.OriginRestrictionType = cmdletContext.OriginRestrictionType;
             }
-            if (cmdletContext.Repository != null)
+            if (cmdletContext.PackageGroup != null)
             {
-                request.Repository = cmdletContext.Repository;
+                request.PackageGroup = cmdletContext.PackageGroup;
             }
             
             CmdletOutput output;
@@ -280,15 +253,15 @@ namespace Amazon.PowerShell.Cmdlets.CA
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeArtifact.Model.DeletePackageResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.DeletePackageRequest request)
+        private Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "DeletePackage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "ListAllowedRepositoriesForGroup");
             try
             {
                 #if DESKTOP
-                return client.DeletePackage(request);
+                return client.ListAllowedRepositoriesForGroup(request);
                 #elif CORECLR
-                return client.DeletePackageAsync(request).GetAwaiter().GetResult();
+                return client.ListAllowedRepositoriesForGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -310,12 +283,12 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             public System.String Domain { get; set; }
             public System.String DomainOwner { get; set; }
-            public Amazon.CodeArtifact.PackageFormat Format { get; set; }
-            public System.String Namespace { get; set; }
-            public System.String Package { get; set; }
-            public System.String Repository { get; set; }
-            public System.Func<Amazon.CodeArtifact.Model.DeletePackageResponse, RemoveCAPackageCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DeletedPackage;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.CodeArtifact.PackageGroupOriginRestrictionType OriginRestrictionType { get; set; }
+            public System.String PackageGroup { get; set; }
+            public System.Func<Amazon.CodeArtifact.Model.ListAllowedRepositoriesForGroupResponse, GetCAAllowedRepositoriesForGroupListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AllowedRepositories;
         }
         
     }

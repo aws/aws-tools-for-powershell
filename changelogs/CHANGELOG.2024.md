@@ -1,4 +1,18 @@
-﻿### 4.1.541 (2024-03-20 20:56Z)
+﻿### 4.1.542 (2024-03-21 20:37Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.773.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeArtifact
+    * Added cmdlet Get-CAAllowedRepositoriesForGroupList leveraging the ListAllowedRepositoriesForGroup service API.
+    * Added cmdlet Get-CAAssociatedPackageGroup leveraging the GetAssociatedPackageGroup service API.
+    * Added cmdlet Get-CAAssociatedPackageList leveraging the ListAssociatedPackages service API.
+    * Added cmdlet Get-CAPackageGroup leveraging the DescribePackageGroup service API.
+    * Added cmdlet Get-CAPackageGroupList leveraging the ListPackageGroups service API.
+    * Added cmdlet Get-CASubPackageGroupList leveraging the ListSubPackageGroups service API.
+    * Added cmdlet New-CAPackageGroup leveraging the CreatePackageGroup service API.
+    * Added cmdlet Remove-CAPackageGroup leveraging the DeletePackageGroup service API.
+    * Added cmdlet Update-CAPackageGroup leveraging the UpdatePackageGroup service API.
+    * Added cmdlet Update-CAPackageGroupOriginConfiguration leveraging the UpdatePackageGroupOriginConfiguration service API.
+
+### 4.1.541 (2024-03-20 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.772.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DynamoDB
     * Added cmdlet Get-DDBResourcePolicy leveraging the GetResourcePolicy service API.

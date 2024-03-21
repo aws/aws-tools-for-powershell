@@ -103,6 +103,7 @@ $CA_Completers = {
         # Amazon.CodeArtifact.PackageFormat
         {
             ($_ -eq "Copy-CAPackageVersion/Format") -Or
+            ($_ -eq "Get-CAAssociatedPackageGroup/Format") -Or
             ($_ -eq "Get-CAPackage/Format") -Or
             ($_ -eq "Get-CAPackageList/Format") -Or
             ($_ -eq "Get-CAPackageVersion/Format") -Or
@@ -121,6 +122,13 @@ $CA_Completers = {
         }
         {
             $v = "generic","maven","npm","nuget","pypi","swift"
+            break
+        }
+
+        # Amazon.CodeArtifact.PackageGroupOriginRestrictionType
+        "Get-CAAllowedRepositoriesForGroupList/OriginRestrictionType"
+        {
+            $v = "EXTERNAL_UPSTREAM","INTERNAL_UPSTREAM","PUBLISH"
             break
         }
 
@@ -161,7 +169,8 @@ $CA_Completers = {
 
 $CA_map = @{
     "ExpectedStatus"=@("Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
-    "Format"=@("Copy-CAPackageVersion","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Publish-CAPackageVersion","Remove-CAPackage","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
+    "Format"=@("Copy-CAPackageVersion","Get-CAAssociatedPackageGroup","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Publish-CAPackageVersion","Remove-CAPackage","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
+    "OriginRestrictionType"=@("Get-CAAllowedRepositoriesForGroupList")
     "OriginType"=@("Get-CAPackageVersionList")
     "Publish"=@("Get-CAPackageList")
     "Restrictions_Publish"=@("Write-CAPackageOriginConfiguration")
@@ -225,32 +234,40 @@ $CA_SelectMap = @{
     "Select"=@("Connect-CAExternalConnection",
                "Copy-CAPackageVersion",
                "New-CADomain",
+               "New-CAPackageGroup",
                "New-CARepository",
                "Remove-CADomain",
                "Remove-CADomainPermissionsPolicy",
                "Remove-CAPackage",
+               "Remove-CAPackageGroup",
                "Remove-CAPackageVersion",
                "Remove-CARepository",
                "Remove-CARepositoryPermissionsPolicy",
                "Get-CADomain",
                "Get-CAPackage",
+               "Get-CAPackageGroup",
                "Get-CAPackageVersion",
                "Get-CARepository",
                "Disconnect-CAExternalConnection",
                "Unpublish-CAPackageVersion",
+               "Get-CAAssociatedPackageGroup",
                "Get-CAAuthorizationToken",
                "Get-CADomainPermissionsPolicy",
                "Get-CAPackageVersionAsset",
                "Get-CAPackageVersionReadme",
                "Get-CARepositoryEndpoint",
                "Get-CARepositoryPermissionsPolicy",
+               "Get-CAAllowedRepositoriesForGroupList",
+               "Get-CAAssociatedPackageList",
                "Get-CADomainList",
+               "Get-CAPackageGroupList",
                "Get-CAPackageList",
                "Get-CAPackageVersionAssetList",
                "Get-CAPackageVersionDependencyList",
                "Get-CAPackageVersionList",
                "Get-CARepositoryList",
                "Get-CARepositoriesInDomainList",
+               "Get-CASubPackageGroupList",
                "Get-CAResourceTag",
                "Publish-CAPackageVersion",
                "Write-CADomainPermissionsPolicy",
@@ -258,6 +275,8 @@ $CA_SelectMap = @{
                "Write-CARepositoryPermissionsPolicy",
                "Add-CAResourceTag",
                "Remove-CAResourceTag",
+               "Update-CAPackageGroup",
+               "Update-CAPackageGroupOriginConfiguration",
                "Update-CAPackageVersionsStatus",
                "Update-CARepository")
 }
