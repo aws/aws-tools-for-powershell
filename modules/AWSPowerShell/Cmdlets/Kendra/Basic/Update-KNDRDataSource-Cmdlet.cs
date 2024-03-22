@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Updates an existing Amazon Kendra data source connector.
+    /// Updates an Amazon Kendra data source connector.
     /// </summary>
     [Cmdlet("Update", "KNDRDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

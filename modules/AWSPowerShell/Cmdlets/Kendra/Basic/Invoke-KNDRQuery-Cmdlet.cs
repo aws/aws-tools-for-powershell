@@ -262,7 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         /// <para>
         /// <para>The input query text for the search. Amazon Kendra truncates queries at 30 token words,
         /// which excludes punctuation and stop words. Truncation still applies if you use Boolean
-        /// or more advanced, complex queries. </para>
+        /// or more advanced, complex queries. For example, <c>Timeoff AND October AND Category:HR</c>
+        /// is counted as 3 tokens: <c>timeoff</c>, <c>october</c>, <c>hr</c>. For more information,
+        /// see <a href="https://docs.aws.amazon.com/kendra/latest/dg/searching-example.html#searching-index-query-syntax">Searching
+        /// with advanced query syntax</a> in the Amazon Kendra Developer Guide. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

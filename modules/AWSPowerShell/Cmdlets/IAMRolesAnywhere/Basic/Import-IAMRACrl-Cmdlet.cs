@@ -29,8 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
 {
     /// <summary>
     /// Imports the certificate revocation list (CRL). A CRL is a list of certificates that
-    /// have been revoked by the issuing certificate Authority (CA). IAM Roles Anywhere validates
-    /// against the CRL before issuing credentials. 
+    /// have been revoked by the issuing certificate Authority (CA).In order to be properly
+    /// imported, a CRL must be in PEM format. IAM Roles Anywhere validates against the CRL
+    /// before issuing credentials. 
     /// 
     ///  
     /// <para><b>Required permissions: </b><c>rolesanywhere:ImportCrl</c>. 

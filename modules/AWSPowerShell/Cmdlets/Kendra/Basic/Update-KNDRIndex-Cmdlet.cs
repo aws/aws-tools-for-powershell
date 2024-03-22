@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Updates an existing Amazon Kendra index.
+    /// Updates an Amazon Kendra index.
     /// </summary>
     [Cmdlet("Update", "KNDRIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.KNDR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the index you want to update.</para>
+        /// <para>A new name for the index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

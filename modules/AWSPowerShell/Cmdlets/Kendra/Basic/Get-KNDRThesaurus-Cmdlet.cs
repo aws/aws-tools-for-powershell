@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Gets information about an existing Amazon Kendra thesaurus.
+    /// Gets information about an Amazon Kendra thesaurus.
     /// </summary>
     [Cmdlet("Get", "KNDRThesaurus")]
     [OutputType("Amazon.Kendra.Model.DescribeThesaurusResponse")]

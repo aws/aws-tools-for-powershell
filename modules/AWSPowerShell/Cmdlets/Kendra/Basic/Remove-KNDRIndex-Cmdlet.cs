@@ -28,8 +28,8 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
-    /// already being deleted. While the index is being deleted, the <c>Status</c> field returned
+    /// Deletes an Amazon Kendra index. An exception is not thrown if the index is already
+    /// being deleted. While the index is being deleted, the <c>Status</c> field returned
     /// by a call to the <c>DescribeIndex</c> API is set to <c>DELETING</c>.
     /// </summary>
     [Cmdlet("Remove", "KNDRIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

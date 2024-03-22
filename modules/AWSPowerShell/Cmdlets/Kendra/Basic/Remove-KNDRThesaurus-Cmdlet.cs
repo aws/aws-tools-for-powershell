@@ -28,7 +28,7 @@ using Amazon.Kendra.Model;
 namespace Amazon.PowerShell.Cmdlets.KNDR
 {
     /// <summary>
-    /// Deletes an existing Amazon Kendra thesaurus.
+    /// Deletes an Amazon Kendra thesaurus.
     /// </summary>
     [Cmdlet("Remove", "KNDRThesaurus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
