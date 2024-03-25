@@ -9483,6 +9483,8 @@ Set-Alias -Name EC2-GetFlowLogsIntegrationTemplate -Value Get-EC2FlowLogsIntegra
 Set-Alias -Name EC2-GetGroupsForCapacityReservation -Value Get-EC2GroupsForCapacityReservation
 Set-Alias -Name EC2-GetHostReservationPurchasePreview -Value Get-EC2HostReservationPurchasePreview
 Set-Alias -Name EC2-GetImageBlockPublicAccessState -Value Get-EC2ImageBlockPublicAccessState
+Set-Alias -Name Get-EC2InstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
+Set-Alias -Name EC2-GetInstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
 Set-Alias -Name Get-EC2InstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceUefiData -Value Get-EC2InstanceUefiData
@@ -9587,6 +9589,9 @@ Set-Alias -Name EC2-ModifyInstanceEventWindow -Value Edit-EC2InstanceEventWindow
 Set-Alias -Name Modify-EC2InstanceMaintenanceOptions -Value Edit-EC2InstanceMaintenanceOption
 Set-Alias -Name Modify-EC2InstanceMaintenanceOption -Value Edit-EC2InstanceMaintenanceOption
 Set-Alias -Name EC2-ModifyInstanceMaintenanceOptions -Value Edit-EC2InstanceMaintenanceOption
+Set-Alias -Name Modify-EC2InstanceMetadataDefaults -Value Set-EC2InstanceMetadataDefault
+Set-Alias -Name Modify-EC2InstanceMetadataDefault -Value Set-EC2InstanceMetadataDefault
+Set-Alias -Name EC2-ModifyInstanceMetadataDefaults -Value Set-EC2InstanceMetadataDefault
 Set-Alias -Name Modify-EC2InstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name Modify-EC2InstanceMetadataOption -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name EC2-ModifyInstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption

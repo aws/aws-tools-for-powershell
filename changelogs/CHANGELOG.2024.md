@@ -1,4 +1,10 @@
-﻿### 4.1.543 (2024-03-22 20:56Z)
+﻿### 4.1.544 (2024-03-25 21:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.775.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2InstanceMetadataDefault leveraging the GetInstanceMetadataDefaults service API.
+    * Added cmdlet Set-EC2InstanceMetadataDefault leveraging the ModifyInstanceMetadataDefaults service API.
+
+### 4.1.543 (2024-03-22 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.774.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.542 (2024-03-21 20:37Z)

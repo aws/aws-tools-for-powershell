@@ -30,8 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Modifies the parameters of a service.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// The following change began on March 21, 2024. When the task definition revision is
+    /// not specified, Amazon ECS resolves the task definition revision before it authorizes
+    /// the task definition.
+    /// </para></note><para>
     /// For services using the rolling update (<c>ECS</c>) you can update the desired count,
     /// deployment configuration, network configuration, load balancers, service registries,
     /// enable ECS managed tags option, propagate tags option, task placement constraints

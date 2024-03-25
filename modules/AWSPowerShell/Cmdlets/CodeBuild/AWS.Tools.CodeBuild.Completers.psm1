@@ -119,7 +119,7 @@ $CB_Completers = {
         # Amazon.CodeBuild.AuthType
         "Import-CBSourceCredential/AuthType"
         {
-            $v = "BASIC_AUTH","OAUTH","PERSONAL_ACCESS_TOKEN"
+            $v = "BASIC_AUTH","CODECONNECTIONS","OAUTH","PERSONAL_ACCESS_TOKEN"
             break
         }
 
@@ -339,7 +339,7 @@ $CB_Completers = {
         # Amazon.CodeBuild.ServerType
         "Import-CBSourceCredential/ServerType"
         {
-            $v = "BITBUCKET","GITHUB","GITHUB_ENTERPRISE"
+            $v = "BITBUCKET","GITHUB","GITHUB_ENTERPRISE","GITLAB","GITLAB_SELF_MANAGED"
             break
         }
 
@@ -381,7 +381,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/SourceAuthOverride_Type")
         }
         {
-            $v = "OAUTH"
+            $v = "CODECONNECTIONS","OAUTH"
             break
         }
 
@@ -393,7 +393,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/SourceTypeOverride")
         }
         {
-            $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","GITHUB_ENTERPRISE","NO_SOURCE","S3"
+            $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","GITHUB_ENTERPRISE","GITLAB","GITLAB_SELF_MANAGED","NO_SOURCE","S3"
             break
         }
 

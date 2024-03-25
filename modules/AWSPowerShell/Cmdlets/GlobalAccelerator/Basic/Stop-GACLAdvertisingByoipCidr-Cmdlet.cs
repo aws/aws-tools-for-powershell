@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The address range, in CIDR notation.</para>
+        /// <para>The address range, in CIDR notation.</para><para> For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+        /// your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// List the cross-account endpoints available to add to an accelerator.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// List the cross-account resources available to work with.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GACLCrossAccountResourceList")]
     [OutputType("Amazon.GlobalAccelerator.Model.CrossAccountResource")]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of cross-account endpoints objects that you want to return with this call.
+        /// <para>The number of cross-account resource objects that you want to return with this call.
         /// The default value is 10.</para>
         /// </para>
         /// </summary>

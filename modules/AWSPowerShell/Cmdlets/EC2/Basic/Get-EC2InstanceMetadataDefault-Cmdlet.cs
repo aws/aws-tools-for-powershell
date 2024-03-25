@@ -22,42 +22,42 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GlobalAccelerator;
-using Amazon.GlobalAccelerator.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GACL
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// List the accounts that have cross-account resources.
+    /// Gets the default instance metadata service (IMDS) settings that are set at the account
+    /// level in the specified Amazon Web Services  Region.
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html">
-    /// Working with cross-account attachments and resources in Global Accelerator</a> in
-    /// the <i> Global Accelerator Developer Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order
+    /// of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "GACLCrossAccountResourceAccountList")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Global Accelerator ListCrossAccountResourceAccounts API operation.", Operation = new[] {"ListCrossAccountResourceAccounts"}, SelectReturnType = typeof(Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse))]
-    [AWSCmdletOutput("System.String or Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse",
-        "This cmdlet returns a collection of System.String objects.",
-        "The service call response (type Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "EC2InstanceMetadataDefault")]
+    [OutputType("Amazon.EC2.Model.InstanceMetadataDefaultsResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) GetInstanceMetadataDefaults API operation.", Operation = new[] {"GetInstanceMetadataDefaults"}, SelectReturnType = typeof(Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.InstanceMetadataDefaultsResponse or Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse",
+        "This cmdlet returns an Amazon.EC2.Model.InstanceMetadataDefaultsResponse object.",
+        "The service call response (type Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGACLCrossAccountResourceAccountListCmdlet : AmazonGlobalAcceleratorClientCmdlet, IExecutor
+    public partial class GetEC2InstanceMetadataDefaultCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceOwnerAwsAccountIds'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse).
-        /// Specifying the name of a property of type Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AccountLevel'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ResourceOwnerAwsAccountIds";
+        public string Select { get; set; } = "AccountLevel";
         #endregion
         
         protected override void ProcessRecord()
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse, GetGACLCrossAccountResourceAccountListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse, GetEC2InstanceMetadataDefaultCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsRequest();
+            var request = new Amazon.EC2.Model.GetInstanceMetadataDefaultsRequest();
             
             
             CmdletOutput output;
@@ -124,15 +124,15 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         
         #region AWS Service Operation Call
         
-        private Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse CallAWSServiceOperation(IAmazonGlobalAccelerator client, Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsRequest request)
+        private Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetInstanceMetadataDefaultsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Global Accelerator", "ListCrossAccountResourceAccounts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "GetInstanceMetadataDefaults");
             try
             {
                 #if DESKTOP
-                return client.ListCrossAccountResourceAccounts(request);
+                return client.GetInstanceMetadataDefaults(request);
                 #elif CORECLR
-                return client.ListCrossAccountResourceAccountsAsync(request).GetAwaiter().GetResult();
+                return client.GetInstanceMetadataDefaultsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Func<Amazon.GlobalAccelerator.Model.ListCrossAccountResourceAccountsResponse, GetGACLCrossAccountResourceAccountListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ResourceOwnerAwsAccountIds;
+            public System.Func<Amazon.EC2.Model.GetInstanceMetadataDefaultsResponse, GetEC2InstanceMetadataDefaultCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AccountLevel;
         }
         
     }

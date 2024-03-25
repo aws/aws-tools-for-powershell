@@ -30,8 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Starts a new task using the specified task definition.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// The following change began on March 21, 2024. When the task definition revision is
+    /// not specified, Amazon ECS resolves the task definition revision before it authorizes
+    /// the task definition.
+    /// </para></note><para>
     /// You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS
     /// places tasks using placement constraints and placement strategies. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
@@ -39,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><para>
     /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
     /// manually on specific container instances.
-    /// </para><note><para>
+    /// </para><para>
     /// Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
     /// Elastic Inference (EI), and will help current customers migrate their workloads to
     /// options that offer better price and performance. After April 15, 2023, new customers
@@ -47,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once
     /// during the past 30-day period are considered current customers and will be able to
     /// continue using the service. 
-    /// </para></note><para>
+    /// </para><para>
     /// You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when
     /// creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon
     /// EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
@@ -322,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported
-        /// value is <c>21</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
+        /// value is <c>20</c> GiB and the maximum supported value is <c>200</c> GiB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

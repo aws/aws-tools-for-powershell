@@ -715,8 +715,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SourceAuthOverride_Type
         /// <summary>
         /// <para>
-        /// <note><para> This data type is deprecated and is no longer accurate or used. </para></note><para>The authorization type to use. The only valid value is <c>OAUTH</c>, which represents
-        /// the OAuth authorization type.</para>
+        /// <para>The authorization type to use. Valid options are OAUTH or CODECONNECTIONS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

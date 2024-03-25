@@ -91,8 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// without a session token, you receive the IMDSv1 role credentials. If you retrieve
         /// IAM role credentials using a valid session token, you receive the IMDSv2 role credentials.</para></li><li><para><c>required</c> - IMDSv2 is required. You must send a session token in your instance
         /// metadata retrieval requests. With this option, retrieving the IAM role credentials
-        /// always returns IMDSv2 credentials; IMDSv1 credentials are not available.</para></li></ul><para>Default: If the value of <c>ImdsSupport</c> for the Amazon Machine Image (AMI) for
-        /// your instance is <c>v2.0</c>, the default is <c>required</c>.</para>
+        /// always returns IMDSv2 credentials; IMDSv1 credentials are not available.</para></li></ul><para>Default:</para><ul><li><para>If the value of <c>ImdsSupport</c> for the Amazon Machine Image (AMI) for your instance
+        /// is <c>v2.0</c> and the account level default is set to <c>no-preference</c>, the default
+        /// is <c>required</c>.</para></li><li><para>If the value of <c>ImdsSupport</c> for the Amazon Machine Image (AMI) for your instance
+        /// is <c>v2.0</c>, but the account level default is set to <c>V1 or V2</c>, the default
+        /// is <c>optional</c>.</para></li></ul><para>The default value can also be affected by other combinations of parameters. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order
+        /// of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

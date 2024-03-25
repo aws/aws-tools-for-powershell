@@ -243,6 +243,20 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.DefaultInstanceMetadataEndpointState
+        "Set-EC2InstanceMetadataDefault/HttpEndpoint"
+        {
+            $v = "disabled","enabled","no-preference"
+            break
+        }
+
+        # Amazon.EC2.DefaultInstanceMetadataTagsState
+        "Set-EC2InstanceMetadataDefault/InstanceMetadataTag"
+        {
+            $v = "disabled","enabled","no-preference"
+            break
+        }
+
         # Amazon.EC2.DefaultRouteTableAssociationValue
         {
             ($_ -eq "Edit-EC2TransitGateway/Options_DefaultRouteTableAssociation") -Or
@@ -728,6 +742,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.MetadataDefaultHttpTokensState
+        "Set-EC2InstanceMetadataDefault/HttpToken"
+        {
+            $v = "no-preference","optional","required"
+            break
+        }
+
         # Amazon.EC2.MetricType
         {
             ($_ -eq "Disable-EC2AwsNetworkPerformanceMetricSubscription/Metric") -Or
@@ -1190,16 +1211,16 @@ $EC2_map = @{
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
-    "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption")
+    "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption","Set-EC2InstanceMetadataDefault")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
-    "HttpToken"=@("Edit-EC2InstanceMetadataOption")
+    "HttpToken"=@("Edit-EC2InstanceMetadataOption","Set-EC2InstanceMetadataDefault")
     "ImageBlockPublicAccessState"=@("Enable-EC2ImageBlockPublicAccess")
     "ImdsSupport"=@("Register-EC2Image")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
     "InstanceMatchCriterion"=@("Add-EC2CapacityReservation","New-EC2CapacityReservationFleet")
-    "InstanceMetadataTag"=@("Edit-EC2InstanceMetadataOption")
+    "InstanceMetadataTag"=@("Edit-EC2InstanceMetadataOption","Set-EC2InstanceMetadataDefault")
     "InstancePlatform"=@("Add-EC2CapacityReservation","New-EC2EC2CapacityBlock")
     "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
     "InstanceRequirements_BurstablePerformance"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
@@ -1777,6 +1798,7 @@ $EC2_SelectMap = @{
                "Get-EC2GroupsForCapacityReservation",
                "Get-EC2HostReservationPurchasePreview",
                "Get-EC2ImageBlockPublicAccessState",
+               "Get-EC2InstanceMetadataDefault",
                "Get-EC2InstanceTypesFromInstanceRequirement",
                "Get-EC2InstanceUefiData",
                "Get-EC2IpamAddressHistory",
@@ -1835,6 +1857,7 @@ $EC2_SelectMap = @{
                "Edit-EC2InstanceEventStartTime",
                "Edit-EC2InstanceEventWindow",
                "Edit-EC2InstanceMaintenanceOption",
+               "Set-EC2InstanceMetadataDefault",
                "Edit-EC2InstanceMetadataOption",
                "Edit-EC2InstancePlacement",
                "Edit-EC2Ipam",

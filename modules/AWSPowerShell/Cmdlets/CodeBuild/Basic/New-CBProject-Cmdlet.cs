@@ -460,7 +460,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// and then choose <b>Authorize application</b>. (After you have connected to your GitHub
         /// account, you do not need to finish creating the build project. You can leave the CodeBuild
         /// console.) To instruct CodeBuild to use this connection, in the <c>source</c> object,
-        /// set the <c>auth</c> object's <c>type</c> value to <c>OAUTH</c>.</para></li><li><para>For source code in a Bitbucket repository, the HTTPS clone URL to the repository that
+        /// set the <c>auth</c> object's <c>type</c> value to <c>OAUTH</c>.</para></li><li><para>For source code in an GitLab or self-managed GitLab repository, the HTTPS clone URL
+        /// to the repository that contains the source and the buildspec file. You must connect
+        /// your Amazon Web Services account to your GitLab account. Use the CodeBuild console
+        /// to start creating a build project. When you use the console to connect (or reconnect)
+        /// with GitLab, on the Connections <b>Authorize application</b> page, choose <b>Authorize</b>.
+        /// Then on the CodeStar Connections <b>Create GitLab connection</b> page, choose <b>Connect
+        /// to GitLab</b>. (After you have connected to your GitLab account, you do not need to
+        /// finish creating the build project. You can leave the CodeBuild console.) To instruct
+        /// CodeBuild to override the default connection and use this connection instead, set
+        /// the <c>auth</c> object's <c>type</c> value to <c>CODECONNECTIONS</c> in the <c>source</c>
+        /// object.</para></li><li><para>For source code in a Bitbucket repository, the HTTPS clone URL to the repository that
         /// contains the source and the buildspec file. You must connect your Amazon Web Services
         /// account to your Bitbucket account. Use the CodeBuild console to start creating a build
         /// project. When you use the console to connect (or reconnect) with Bitbucket, on the
@@ -643,8 +653,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> Set to true to report the status of a build's start and finish to your source provider.
         /// This option is valid only when your source provider is GitHub, GitHub Enterprise,
-        /// or Bitbucket. If this is set and you use a different source provider, an <c>invalidInputException</c>
-        /// is thrown. </para><para>To be able to report the build status to the source provider, the user associated
+        /// GitLab, GitLab Self Managed, or Bitbucket. If this is set and you use a different
+        /// source provider, an <c>invalidInputException</c> is thrown. </para><para>To be able to report the build status to the source provider, the user associated
         /// with the source provider must have write access to the repo. If the user does not
         /// have write access, the build status cannot be updated. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html">Source
         /// provider access</a> in the <i>CodeBuild User Guide</i>.</para><para>The status of a build triggered by a webhook is always reported to your source provider.
@@ -936,8 +946,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Auth_Type
         /// <summary>
         /// <para>
-        /// <note><para> This data type is deprecated and is no longer accurate or used. </para></note><para>The authorization type to use. The only valid value is <c>OAUTH</c>, which represents
-        /// the OAuth authorization type.</para>
+        /// <para>The authorization type to use. Valid options are OAUTH or CODECONNECTIONS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -950,7 +959,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><c>BITBUCKET</c>: The source code is in a Bitbucket repository.</para></li><li><para><c>CODECOMMIT</c>: The source code is in an CodeCommit repository.</para></li><li><para><c>CODEPIPELINE</c>: The source code settings are specified in the source action
-        /// of a pipeline in CodePipeline.</para></li><li><para><c>GITHUB</c>: The source code is in a GitHub or GitHub Enterprise Cloud repository.</para></li><li><para><c>GITHUB_ENTERPRISE</c>: The source code is in a GitHub Enterprise Server repository.</para></li><li><para><c>NO_SOURCE</c>: The project does not have input source code.</para></li><li><para><c>S3</c>: The source code is in an Amazon S3 bucket.</para></li></ul>
+        /// of a pipeline in CodePipeline.</para></li><li><para><c>GITHUB</c>: The source code is in a GitHub repository.</para></li><li><para><c>GITHUB_ENTERPRISE</c>: The source code is in a GitHub Enterprise Server repository.</para></li><li><para><c>GITLAB</c>: The source code is in a GitLab repository.</para></li><li><para><c>GITLAB_SELF_MANAGED</c>: The source code is in a self-managed GitLab repository.</para></li><li><para><c>NO_SOURCE</c>: The project does not have input source code.</para></li><li><para><c>S3</c>: The source code is in an Amazon S3 bucket.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

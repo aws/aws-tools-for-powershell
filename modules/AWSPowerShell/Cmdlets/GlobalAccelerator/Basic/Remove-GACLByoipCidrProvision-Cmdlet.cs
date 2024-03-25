@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>The address range, in CIDR notation. The prefix must be the same prefix that you specified
-        /// when you provisioned the address range.</para>
+        /// when you provisioned the address range.</para><para> For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring
+        /// your own IP addresses (BYOIP)</a> in the Global Accelerator Developer Guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

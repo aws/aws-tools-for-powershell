@@ -29,18 +29,27 @@ namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
     /// Create a cross-account attachment in Global Accelerator. You create a cross-account
-    /// attachment to specify the <i>principals</i> who have permission to add to accelerators
-    /// in their own account the resources in your account that you also list in the attachment.
+    /// attachment to specify the <i>principals</i> who have permission to work with <i>resources</i>
+    /// in accelerators in their own account. You specify, in the same attachment, the resources
+    /// that are shared.
     /// 
     ///  
     /// <para>
     /// A principal can be an Amazon Web Services account number or the Amazon Resource Name
-    /// (ARN) for an accelerator. For account numbers that are listed as principals, to add
-    /// a resource listed in the attachment to an accelerator, you must sign in to an account
-    /// specified as a principal. Then you can add the resources that are listed to any of
-    /// your accelerators. If an accelerator ARN is listed in the cross-account attachment
-    /// as a principal, anyone with permission to make updates to the accelerator can add
-    /// as endpoints resources that are listed in the attachment. 
+    /// (ARN) for an accelerator. For account numbers that are listed as principals, to work
+    /// with a resource listed in the attachment, you must sign in to an account specified
+    /// as a principal. Then, you can work with resources that are listed, with any of your
+    /// accelerators. If an accelerator ARN is listed in the cross-account attachment as a
+    /// principal, anyone with permission to make updates to the accelerator can work with
+    /// resources that are listed in the attachment. 
+    /// </para><para>
+    /// Specify each principal and resource separately. To specify two CIDR address pools,
+    /// list them individually under <c>Resources</c>, and so on. For a command line operation,
+    /// for example, you might use a statement like the following:
+    /// </para><para><c> "Resources": [{"Cidr": "169.254.60.0/24"},{"Cidr": "169.254.59.0/24"}]</c></para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html">
+    /// Working with cross-account attachments and resources in Global Accelerator</a> in
+    /// the <i> Global Accelerator Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GACLCrossAccountAttachment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The principals to list in the cross-account attachment. A principal can be an Amazon
+        /// <para>The principals to include in the cross-account attachment. A principal can be an Amazon
         /// Web Services account number or the Amazon Resource Name (ARN) for an accelerator.
         /// </para>
         /// </para>
@@ -99,9 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Names (ARNs) for the resources to list in the cross-account attachment.
-        /// A resource can be any supported Amazon Web Services resource type for Global Accelerator.
-        /// </para>
+        /// <para>The Amazon Resource Names (ARNs) for the resources to include in the cross-account
+        /// attachment. A resource can be any supported Amazon Web Services resource type for
+        /// Global Accelerator or a CIDR range for a bring your own IP address (BYOIP) address
+        /// pool. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Create tags for cross-account attachment.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+        /// <para>Add tags for a cross-account attachment.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
         /// in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</para>
         /// </para>
         /// </summary>
