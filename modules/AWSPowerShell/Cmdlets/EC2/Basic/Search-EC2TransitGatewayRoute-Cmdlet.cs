@@ -83,8 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of routes to return. If a value is not provided, the default is
-        /// 1000.</para>
+        /// <para>The maximum number of routes to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

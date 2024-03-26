@@ -31,12 +31,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// Queries a knowledge base and generates responses based on the retrieved results. The
     /// response cites up to five sources but only selects the ones that are relevant to the
     /// query.
-    /// 
-    ///  <note><para>
-    /// The <c>numberOfResults</c> field is currently unsupported for <c>RetrieveAndGenerate</c>.
-    /// Don't include it in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_KnowledgeBaseVectorSearchConfiguration.html">vectorSearchConfiguration</a>
-    /// object.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Invoke", "BARRetrieveAndGenerate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse")]
@@ -89,8 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter VectorSearchConfiguration_NumberOfResult
         /// <summary>
         /// <para>
-        /// <para>The number of results to return.</para><note><para>The <c>numberOfResults</c> field is currently unsupported for <c>RetrieveAndGenerate</c>.
-        /// Don't include it in this field if you are sending a <c>RetrieveAndGenerate</c> request.</para></note>
+        /// <para>The number of source chunks to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,6 +135,22 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Input_Text { get; set; }
+        #endregion
+        
+        #region Parameter PromptTemplate_TextPromptTemplate
+        /// <summary>
+        /// <para>
+        /// <para>The template for the prompt that's sent to the model for response generation. You
+        /// can include prompt placeholders, which become replaced before the prompt is sent to
+        /// the model to provide instructions and context to the model. In addition, you can include
+        /// XML tags to delineate meaningful sections of the prompt template.</para><para>For more information, see the following resources:</para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge
+        /// base prompt templates</a></para></li><li><para><a href="https://docs.anthropic.com/claude/docs/use-xml-tags">Use XML tags with Anthropic
+        /// Claude models</a></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate")]
+        public System.String PromptTemplate_TextPromptTemplate { get; set; }
         #endregion
         
         #region Parameter RetrieveAndGenerateConfiguration_Type
@@ -224,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter Input_Text which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.PromptTemplate_TextPromptTemplate = this.PromptTemplate_TextPromptTemplate;
             context.KnowledgeBaseConfiguration_KnowledgeBaseId = this.KnowledgeBaseConfiguration_KnowledgeBaseId;
             context.KnowledgeBaseConfiguration_ModelArn = this.KnowledgeBaseConfiguration_ModelArn;
             context.VectorSearchConfiguration_NumberOfResult = this.VectorSearchConfiguration_NumberOfResult;
@@ -303,6 +313,46 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_knowledgeBaseConfiguration_ModelArn != null)
             {
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.ModelArn = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_knowledgeBaseConfiguration_ModelArn;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.GenerationConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = null;
+            
+             // populate GenerationConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = new Amazon.BedrockAgentRuntime.Model.GenerationConfiguration();
+            Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = null;
+            
+             // populate PromptTemplate
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = new Amazon.BedrockAgentRuntime.Model.PromptTemplate();
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate = null;
+            if (cmdletContext.PromptTemplate_TextPromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate = cmdletContext.PromptTemplate_TextPromptTemplate;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate.TextPromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.PromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.GenerationConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.KnowledgeBaseRetrievalConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration = null;
@@ -455,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Input_Text { get; set; }
+            public System.String PromptTemplate_TextPromptTemplate { get; set; }
             public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
             public System.String KnowledgeBaseConfiguration_ModelArn { get; set; }
             public System.Int32? VectorSearchConfiguration_NumberOfResult { get; set; }

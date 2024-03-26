@@ -2691,6 +2691,9 @@ Set-Alias -Name CE-GetSavingsPlansUtilizationDetails -Value Get-CESavingsPlansUt
 Set-Alias -Name Get-CETags -Value Get-CETag
 Set-Alias -Name CE-GetTags -Value Get-CETag
 Set-Alias -Name CE-GetUsageForecast -Value Get-CEUsageForecast
+Set-Alias -Name List-CECostAllocationTagBackfillHistory -Value Get-CECostAllocationTagBackfillHistoryList
+Set-Alias -Name List-CECostAllocationTagBackfillHistoryList -Value Get-CECostAllocationTagBackfillHistoryList
+Set-Alias -Name CE-ListCostAllocationTagBackfillHistory -Value Get-CECostAllocationTagBackfillHistoryList
 Set-Alias -Name List-CECostAllocationTags -Value Get-CECostAllocationTagList
 Set-Alias -Name List-CECostAllocationTagList -Value Get-CECostAllocationTagList
 Set-Alias -Name CE-ListCostAllocationTags -Value Get-CECostAllocationTagList
@@ -2703,6 +2706,7 @@ Set-Alias -Name CE-ListSavingsPlansPurchaseRecommendationGeneration -Value Get-C
 Set-Alias -Name CE-ListTagsForResource -Value Get-CEResourceTag
 Set-Alias -Name Provide-CEAnomalyFeedback -Value Set-CEAnomalyFeedback
 Set-Alias -Name CE-ProvideAnomalyFeedback -Value Set-CEAnomalyFeedback
+Set-Alias -Name CE-StartCostAllocationTagBackfill -Value Start-CECostAllocationTagBackfill
 Set-Alias -Name CE-StartSavingsPlansPurchaseRecommendationGeneration -Value Start-CESavingsPlansPurchaseRecommendationGeneration
 Set-Alias -Name CE-TagResource -Value Add-CEResourceTag
 Set-Alias -Name CE-UntagResource -Value Remove-CEResourceTag
@@ -9589,9 +9593,9 @@ Set-Alias -Name EC2-ModifyInstanceEventWindow -Value Edit-EC2InstanceEventWindow
 Set-Alias -Name Modify-EC2InstanceMaintenanceOptions -Value Edit-EC2InstanceMaintenanceOption
 Set-Alias -Name Modify-EC2InstanceMaintenanceOption -Value Edit-EC2InstanceMaintenanceOption
 Set-Alias -Name EC2-ModifyInstanceMaintenanceOptions -Value Edit-EC2InstanceMaintenanceOption
-Set-Alias -Name Modify-EC2InstanceMetadataDefaults -Value Set-EC2InstanceMetadataDefault
-Set-Alias -Name Modify-EC2InstanceMetadataDefault -Value Set-EC2InstanceMetadataDefault
-Set-Alias -Name EC2-ModifyInstanceMetadataDefaults -Value Set-EC2InstanceMetadataDefault
+Set-Alias -Name Modify-EC2InstanceMetadataDefaults -Value Edit-EC2InstanceMetadataDefault
+Set-Alias -Name Modify-EC2InstanceMetadataDefault -Value Edit-EC2InstanceMetadataDefault
+Set-Alias -Name EC2-ModifyInstanceMetadataDefaults -Value Edit-EC2InstanceMetadataDefault
 Set-Alias -Name Modify-EC2InstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name Modify-EC2InstanceMetadataOption -Value Edit-EC2InstanceMetadataOption
 Set-Alias -Name EC2-ModifyInstanceMetadataOptions -Value Edit-EC2InstanceMetadataOption
@@ -11506,6 +11510,8 @@ Set-Alias -Name Delete-FINSPEnvironment -Value Remove-FINSPEnvironment
 Set-Alias -Name FINSP-DeleteEnvironment -Value Remove-FINSPEnvironment
 Set-Alias -Name Delete-FINSPKxCluster -Value Remove-FINSPKxCluster
 Set-Alias -Name FINSP-DeleteKxCluster -Value Remove-FINSPKxCluster
+Set-Alias -Name Delete-FINSPKxClusterNode -Value Remove-FINSPKxClusterNode
+Set-Alias -Name FINSP-DeleteKxClusterNode -Value Remove-FINSPKxClusterNode
 Set-Alias -Name Delete-FINSPKxDatabase -Value Remove-FINSPKxDatabase
 Set-Alias -Name FINSP-DeleteKxDatabase -Value Remove-FINSPKxDatabase
 Set-Alias -Name Delete-FINSPKxDataview -Value Remove-FINSPKxDataview

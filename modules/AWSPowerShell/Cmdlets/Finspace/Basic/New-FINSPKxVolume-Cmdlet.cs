@@ -108,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         #region Parameter Nas1Configuration_Size
         /// <summary>
         /// <para>
-        /// <para> The size of the network attached storage.</para>
+        /// <para> The size of the network attached storage. For storage type <c>SSD_1000</c> and <c>SSD_250</c>
+        /// you can select the minimum size as 1200 GB or increments of 2400 GB. For storage type
+        /// <c>HDD_12</c> you can select the minimum size as 6000 GB or increments of 6000 GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

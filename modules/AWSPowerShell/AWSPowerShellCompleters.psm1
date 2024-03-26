@@ -7679,11 +7679,13 @@ $CE_SelectMap = @{
                "Get-CESavingsPlansUtilizationDetail",
                "Get-CETag",
                "Get-CEUsageForecast",
+               "Get-CECostAllocationTagBackfillHistoryList",
                "Get-CECostAllocationTagList",
                "Get-CECostCategoryDefinitionList",
                "Get-CESavingsPlansPurchaseRecommendationGenerationList",
                "Get-CEResourceTag",
                "Set-CEAnomalyFeedback",
+               "Start-CECostAllocationTagBackfill",
                "Start-CESavingsPlansPurchaseRecommendationGeneration",
                "Add-CEResourceTag",
                "Remove-CEResourceTag",
@@ -21949,14 +21951,14 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.DefaultInstanceMetadataEndpointState
-        "Set-EC2InstanceMetadataDefault/HttpEndpoint"
+        "Edit-EC2InstanceMetadataDefault/HttpEndpoint"
         {
             $v = "disabled","enabled","no-preference"
             break
         }
 
         # Amazon.EC2.DefaultInstanceMetadataTagsState
-        "Set-EC2InstanceMetadataDefault/InstanceMetadataTag"
+        "Edit-EC2InstanceMetadataDefault/InstanceMetadataTag"
         {
             $v = "disabled","enabled","no-preference"
             break
@@ -22448,7 +22450,7 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.MetadataDefaultHttpTokensState
-        "Set-EC2InstanceMetadataDefault/HttpToken"
+        "Edit-EC2InstanceMetadataDefault/HttpToken"
         {
             $v = "no-preference","optional","required"
             break
@@ -22916,16 +22918,16 @@ $EC2_map = @{
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "HostMaintenance"=@("Edit-EC2Host","New-EC2Host")
     "HostRecovery"=@("Edit-EC2Host","New-EC2Host")
-    "HttpEndpoint"=@("Edit-EC2InstanceMetadataOption","Set-EC2InstanceMetadataDefault")
+    "HttpEndpoint"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "HttpProtocolIpv6"=@("Edit-EC2InstanceMetadataOption")
-    "HttpToken"=@("Edit-EC2InstanceMetadataOption","Set-EC2InstanceMetadataDefault")
+    "HttpToken"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "ImageBlockPublicAccessState"=@("Enable-EC2ImageBlockPublicAccess")
     "ImdsSupport"=@("Register-EC2Image")
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
     "InstanceMatchCriterion"=@("Add-EC2CapacityReservation","New-EC2CapacityReservationFleet")
-    "InstanceMetadataTag"=@("Edit-EC2InstanceMetadataOption","Set-EC2InstanceMetadataDefault")
+    "InstanceMetadataTag"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "InstancePlatform"=@("Add-EC2CapacityReservation","New-EC2EC2CapacityBlock")
     "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
     "InstanceRequirements_BurstablePerformance"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
@@ -23562,7 +23564,7 @@ $EC2_SelectMap = @{
                "Edit-EC2InstanceEventStartTime",
                "Edit-EC2InstanceEventWindow",
                "Edit-EC2InstanceMaintenanceOption",
-               "Set-EC2InstanceMetadataDefault",
+               "Edit-EC2InstanceMetadataDefault",
                "Edit-EC2InstanceMetadataOption",
                "Edit-EC2InstancePlacement",
                "Edit-EC2Ipam",
@@ -27404,6 +27406,7 @@ $FINSP_SelectMap = @{
                "New-FINSPKxVolume",
                "Remove-FINSPEnvironment",
                "Remove-FINSPKxCluster",
+               "Remove-FINSPKxClusterNode",
                "Remove-FINSPKxDatabase",
                "Remove-FINSPKxDataview",
                "Remove-FINSPKxEnvironment",

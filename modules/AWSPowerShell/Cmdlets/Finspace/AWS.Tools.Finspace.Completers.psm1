@@ -247,6 +247,7 @@ $FINSP_SelectMap = @{
                "New-FINSPKxVolume",
                "Remove-FINSPEnvironment",
                "Remove-FINSPKxCluster",
+               "Remove-FINSPKxClusterNode",
                "Remove-FINSPKxDatabase",
                "Remove-FINSPKxDataview",
                "Remove-FINSPKxEnvironment",

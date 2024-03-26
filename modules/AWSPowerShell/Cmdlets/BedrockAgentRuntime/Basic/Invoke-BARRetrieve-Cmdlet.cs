@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter VectorSearchConfiguration_NumberOfResult
         /// <summary>
         /// <para>
-        /// <para>The number of results to return.</para><note><para>The <c>numberOfResults</c> field is currently unsupported for <c>RetrieveAndGenerate</c>.
-        /// Don't include it in this field if you are sending a <c>RetrieveAndGenerate</c> request.</para></note>
+        /// <para>The number of source chunks to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

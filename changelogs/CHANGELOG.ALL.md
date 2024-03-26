@@ -1,4 +1,17 @@
-﻿### 4.1.544 (2024-03-25 21:03Z)
+﻿### 4.1.545 (2024-03-26 22:18Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.776.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameter PromptTemplate_TextPromptTemplate.
+  * Amazon Cost Explorer
+    * Added cmdlet Get-CECostAllocationTagBackfillHistoryList leveraging the ListCostAllocationTagBackfillHistory service API.
+    * Added cmdlet Start-CECostAllocationTagBackfill leveraging the StartCostAllocationTagBackfill service API.
+  * EC2
+    * [Breaking Change] Removed cmdlet Set-EC2InstanceMetadataDefault.
+    * Added cmdlet Edit-EC2InstanceMetadataDefault leveraging the ModifyInstanceMetadataDefaults service API.
+  * Amazon FinSpace User Environment Management Service
+    * Added cmdlet Remove-FINSPKxClusterNode leveraging the DeleteKxClusterNode service API.
+
+### 4.1.544 (2024-03-25 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.775.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Get-EC2InstanceMetadataDefault leveraging the GetInstanceMetadataDefaults service API.

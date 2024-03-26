@@ -129,6 +129,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCostAllocationTagBackfillHistory" OutputProperty="BackfillRequests" Verb="Get" Noun="CostAllocationTagBackfillHistoryList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCostAllocationTags" OutputProperty="CostAllocationTags" Verb="Get" Noun="CostAllocationTagList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -147,6 +151,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ProvideAnomalyFeedback" OutputProperty="AnomalyId" Verb="Set" Noun="AnomalyFeedback" ShouldProcessTarget="AnomalyId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCostAllocationTagBackfill" OutputProperty="BackfillRequest" Verb="Start" Noun="CostAllocationTagBackfill" ShouldProcessTarget="BackfillFrom" PipelineParameter="BackfillFrom" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

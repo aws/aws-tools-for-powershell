@@ -38,14 +38,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para></note>
     /// </summary>
-    [Cmdlet("Set", "EC2InstanceMetadataDefault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Edit", "EC2InstanceMetadataDefault", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceMetadataDefaults API operation.", Operation = new[] {"ModifyInstanceMetadataDefaults"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse))]
     [AWSCmdletOutput("System.Boolean or Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse",
         "This cmdlet returns a System.Boolean object.",
         "The service call response (type Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SetEC2InstanceMetadataDefaultCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class EditEC2InstanceMetadataDefaultCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-EC2InstanceMetadataDefault (ModifyInstanceMetadataDefaults)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2InstanceMetadataDefault (ModifyInstanceMetadataDefaults)"))
             {
                 return;
             }
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse, SetEC2InstanceMetadataDefaultCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse, EditEC2InstanceMetadataDefaultCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.HttpEndpoint = this.HttpEndpoint;
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? HttpPutResponseHopLimit { get; set; }
             public Amazon.EC2.MetadataDefaultHttpTokensState HttpToken { get; set; }
             public Amazon.EC2.DefaultInstanceMetadataTagsState InstanceMetadataTag { get; set; }
-            public System.Func<Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse, SetEC2InstanceMetadataDefaultCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.EC2.Model.ModifyInstanceMetadataDefaultsResponse, EditEC2InstanceMetadataDefaultCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;
         }
         

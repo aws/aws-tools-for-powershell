@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para>A list of change request objects that are run in order. A change request object consists
-        /// of <c>changeType</c> , <c>s3Path</c>, and <c>dbPath</c>. A changeType can has the
+        /// of <c>changeType</c> , <c>s3Path</c>, and <c>dbPath</c>. A changeType can have the
         /// following values: </para><ul><li><para>PUT – Adds or updates files in a database.</para></li><li><para>DELETE – Deletes files in a database.</para></li></ul><para>All the change requests require a mandatory <c>dbPath</c> attribute that defines the
         /// path within the database directory. All database paths must start with a leading /
         /// and end with a trailing /. The <c>s3Path</c> attribute defines the s3 source file

@@ -1913,7 +1913,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceMetadataDefaults" OutputProperty="AccountLevel" Verb="Get" Noun="InstanceMetadataDefault" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetInstanceMetadataDefaults" OutputProperty="AccountLevel" Verb="Get" Noun="InstanceMetadataDefault" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2177,7 +2177,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyInstanceMetadataDefaults" OutputProperty="Return" Verb="Set" Noun="InstanceMetadataDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ModifyInstanceMetadataDefaults" OutputProperty="Return" Verb="Edit" Noun="InstanceMetadataDefault" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
