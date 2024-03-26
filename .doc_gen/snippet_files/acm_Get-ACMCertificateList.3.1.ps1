@@ -1,0 +1,1 @@
+Get-ACMCertificateList -Region us-east-1 -Includes_KeyType RSA_2048 -Includes_ExtendedKeyUsage CODE_SIGNING

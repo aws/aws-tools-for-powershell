@@ -1,0 +1,1 @@
+Remove-S3Object -BucketName test-files -KeyCollection @( "sample1.txt", "sample2.txt", "sample3.txt" )

@@ -1,0 +1,1 @@
+(Get-SSMParameterValue -Name "Welcome").Parameters

@@ -1,0 +1,1 @@
+Remove-CPPipeline -Name CodePipelineDemo

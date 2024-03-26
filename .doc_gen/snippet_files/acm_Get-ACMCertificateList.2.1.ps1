@@ -1,0 +1,1 @@
+Get-ACMCertificateList -CertificateStatus "VALIDATION_TIMED_OUT","FAILED"

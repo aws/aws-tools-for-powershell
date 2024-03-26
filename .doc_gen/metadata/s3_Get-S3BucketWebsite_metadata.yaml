@@ -1,0 +1,19 @@
+---
+s3_GetBucketWebsite:
+  title: Use Get-S3BucketWebsite
+  title_abbrev: Get-S3BucketWebsite
+  synopsis: use Get-S3BucketWebsite
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command returns the details of the static website configurations of the given S3 bucket.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketWebsite.1.1.ps1
+          description: 
+  services:
+    s3:
+      GetBucketWebsite: 
+

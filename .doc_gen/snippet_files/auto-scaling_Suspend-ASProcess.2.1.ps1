@@ -1,0 +1,1 @@
+Suspend-ASProcess -AutoScalingGroupName my-asg

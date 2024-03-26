@@ -1,0 +1,1 @@
+Get-EC2Snapshot | ? { $_.Tags.Count -gt 0 -and $_.Tags.Key -eq "Name" -and $_.Tags.Value -eq "TestValue" }

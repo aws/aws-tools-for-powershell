@@ -1,0 +1,20 @@
+---
+directory-service_DeleteLogSubscription:
+  title: Use Remove-DSLogSubscription
+  title_abbrev: Remove-DSLogSubscription
+  synopsis: use Remove-DSLogSubscription
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command removes the Log Subscription of specified Directory-id</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Remove-DSLogSubscription.1.1.ps1
+  services:
+    directory-service:
+      DeleteLogSubscription: 
+
+

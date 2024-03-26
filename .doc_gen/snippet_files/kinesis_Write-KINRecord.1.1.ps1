@@ -1,0 +1,1 @@
+Write-KINRecord -Text "test data from string" -StreamName "mystream" -PartitionKey "Key1"

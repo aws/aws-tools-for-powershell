@@ -1,0 +1,19 @@
+---
+s3_PutBucketEncryption:
+  title: Use Set-S3BucketEncryption
+  title_abbrev: Set-S3BucketEncryption
+  synopsis: use Set-S3BucketEncryption
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command enables default AES256 server side encryption with Amazon S3 Managed Keys(SSE-S3) on the given bucket. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Set-S3BucketEncryption.1.1.ps1
+  services:
+    s3:
+      PutBucketEncryption: 
+

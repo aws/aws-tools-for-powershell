@@ -1,0 +1,1 @@
+Get-DDBTable -TableName "myTable"

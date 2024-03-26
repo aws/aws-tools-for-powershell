@@ -1,0 +1,19 @@
+---
+sts_AssumeRoleWithWebIdentity:
+  title: Use Use-STSWebIdentityRole
+  title_abbrev: Use-STSWebIdentityRole
+  synopsis: use Use-STSWebIdentityRole
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns a temporary set of credentials, valid for one hour, for a user who has been authenticated with the Login with Amazon identity provider. The credentials assume the access policy associated with the role identified by the role ARN. Optionally, you can pass a JSON policy to the -Policy parameter that further refine the access permissions (you cannot grant more permissions than are available in the permissions associated with the role). The value supplied to the -WebIdentityToken is the unique user identifier that was returned by the identity provider. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sts_Use-STSWebIdentityRole.1.1.ps1
+  services:
+    sts:
+      AssumeRoleWithWebIdentity: 
+

@@ -1,0 +1,1 @@
+Get-ASLaunchConfiguration | format-table -property LaunchConfigurationName

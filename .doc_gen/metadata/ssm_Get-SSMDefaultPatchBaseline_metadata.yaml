@@ -1,0 +1,23 @@
+---
+ssm_GetDefaultPatchBaseline:
+  title: Use Get-SSMDefaultPatchBaseline
+  title_abbrev: Get-SSMDefaultPatchBaseline
+  synopsis: use Get-SSMDefaultPatchBaseline
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example displays the default patch baseline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMDefaultPatchBaseline.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-04fb4ae6142167966</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetDefaultPatchBaseline: 
+

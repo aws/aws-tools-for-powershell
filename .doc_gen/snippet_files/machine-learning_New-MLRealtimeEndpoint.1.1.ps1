@@ -1,0 +1,1 @@
+New-MLRealtimeEndpoint -ModelId ID

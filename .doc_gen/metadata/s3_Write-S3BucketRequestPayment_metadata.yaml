@@ -1,0 +1,19 @@
+---
+s3_PutBucketRequestPayment:
+  title: Use Write-S3BucketRequestPayment
+  title_abbrev: Write-S3BucketRequestPayment
+  synopsis: use Write-S3BucketRequestPayment
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Updates the request payment configuration for the bucket named 'mybucket' so that the person requesting downloads from the bucket will be charged for the download. By default the bucket owner pays for downloads. To set the request payment back to the default use 'BucketOwner' for the RequestPaymentConfiguration_Payer parameter.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Write-S3BucketRequestPayment.1.1.ps1
+  services:
+    s3:
+      PutBucketRequestPayment: 
+

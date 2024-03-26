@@ -1,0 +1,20 @@
+---
+directory-service_CreateMicrosoftAD:
+  title: Use New-DSMicrosoftAD
+  title_abbrev: New-DSMicrosoftAD
+  synopsis: use New-DSMicrosoftAD
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates new Microsoft AD Directory in &AWS-Cloud;.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_New-DSMicrosoftAD.1.1.ps1
+  services:
+    directory-service:
+      CreateMicrosoftAD: 
+
+

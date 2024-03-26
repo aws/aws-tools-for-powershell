@@ -1,0 +1,23 @@
+---
+ssm_CreateMaintenanceWindow:
+  title: Use New-SSMMaintenanceWindow
+  title_abbrev: New-SSMMaintenanceWindow
+  synopsis: use New-SSMMaintenanceWindow
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new maintenance window with the specified name that runs at 4 PM on every Tuesday for 4 hours, with a 1 hour cutoff, and that allows unassociated targets.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMMaintenanceWindow.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">mw-03eb53e1ea7383998</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      CreateMaintenanceWindow: 
+

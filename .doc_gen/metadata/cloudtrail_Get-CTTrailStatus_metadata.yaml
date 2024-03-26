@@ -1,0 +1,24 @@
+---
+cloudtrail_GetTrailStatus:
+  title: Use Get-CTTrailStatus
+  title_abbrev: Get-CTTrailStatus
+  synopsis: use Get-CTTrailStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Returns status information for the trail with name 'myExampleTrail'. Returned data includes information on delivery errors, Amazon SNS and Amazon S3 errors, and start and stop logging times for the trail. This example assumes the trail was created in the same region as the current shell default.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudtrail_Get-CTTrailStatus.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Returns status information for a trail that was created in a region other than the current shell default (in this case, the Frankfurt (eu-central-1) region).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudtrail_Get-CTTrailStatus.2.1.ps1
+  services:
+    cloudtrail:
+      GetTrailStatus: 
+

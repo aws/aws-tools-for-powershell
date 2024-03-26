@@ -1,0 +1,32 @@
+---
+directory-service_AcceptSharedDirectory:
+  title: Use Confirm-DSSharedDirectory
+  title_abbrev: Confirm-DSSharedDirectory
+  synopsis: use Confirm-DSSharedDirectory
+  languages:
+    PowerShell:
+      versions:
+        - sdk_version: 4
+          excerpts:
+            - description: '<emphasis role="bold">Example 1: This example accepts a directory sharing request sent from the directory owner &AWS-account;.</emphasis>'
+              snippet_files: []
+            - description:
+              snippet_files:
+                - .doc_gen/snippet_files/directory-service_Confirm-DSSharedDirectory.1.1.ps1
+            - description: <emphasis role="bold">Output:</emphasis>
+              snippet_files: []
+            - description: |-
+                <programlisting language="none" role="nocopy">CreatedDateTime     : 12/30/2019 4:20:27 AM
+                LastUpdatedDateTime : 12/30/2019 4:21:40 AM
+                OwnerAccountId      : 123456781234
+                OwnerDirectoryId    : d-123456ijkl
+                SharedAccountId     : 123456784321
+                SharedDirectoryId   : d-9067012345
+                ShareMethod         :
+                ShareNotes          : This is test sharing
+                ShareStatus         : Sharing</programlisting>
+              snippet_files: []
+  services:
+    directory-service:
+      AcceptSharedDirectory:
+

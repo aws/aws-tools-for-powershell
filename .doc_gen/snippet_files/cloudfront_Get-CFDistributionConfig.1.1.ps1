@@ -1,0 +1,1 @@
+Get-CFDistributionConfig -Id EXAMPLE0000ID

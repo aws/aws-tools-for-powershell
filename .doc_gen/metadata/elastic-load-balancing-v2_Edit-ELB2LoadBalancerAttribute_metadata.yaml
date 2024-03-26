@@ -1,0 +1,33 @@
+---
+elastic-load-balancing-v2_ModifyLoadBalancerAttributes:
+  title: Use Edit-ELB2LoadBalancerAttribute
+  title_abbrev: Edit-ELB2LoadBalancerAttribute
+  synopsis: use Edit-ELB2LoadBalancerAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example modifes the Attributes of the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Edit-ELB2LoadBalancerAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Key                                             Value
+            ---                                             -----
+            deletion_protection.enabled                     true
+            access_logs.s3.enabled                          false
+            access_logs.s3.bucket
+            access_logs.s3.prefix
+            idle_timeout.timeout_seconds                    60
+            routing.http2.enabled                           true
+            routing.http.drop_invalid_header_fields.enabled false</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      ModifyLoadBalancerAttributes: 
+
+

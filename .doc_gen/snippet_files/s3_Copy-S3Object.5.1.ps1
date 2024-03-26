@@ -1,0 +1,1 @@
+Copy-S3Object -BucketName test-files -KeyPrefix data -LocalFolder c:\downloads

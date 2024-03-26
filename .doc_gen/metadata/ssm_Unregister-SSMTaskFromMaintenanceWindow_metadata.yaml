@@ -1,0 +1,26 @@
+---
+ssm_DeregisterTaskFromMaintenanceWindow:
+  title: Use Unregister-SSMTaskFromMaintenanceWindow
+  title_abbrev: Unregister-SSMTaskFromMaintenanceWindow
+  synopsis: use Unregister-SSMTaskFromMaintenanceWindow
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example removes a task from a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Unregister-SSMTaskFromMaintenanceWindow.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">WindowId             WindowTaskId
+            --------             ------------
+            mw-03a342e62c96d31b0 f34a2c47-ddfd-4c85-a88d-72366b69af1b</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DeregisterTaskFromMaintenanceWindow: 
+

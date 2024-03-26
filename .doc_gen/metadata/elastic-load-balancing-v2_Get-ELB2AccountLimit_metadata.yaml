@@ -1,0 +1,40 @@
+---
+elastic-load-balancing-v2_DescribeAccountLimits:
+  title: Use Get-ELB2AccountLimit
+  title_abbrev: Get-ELB2AccountLimit
+  synopsis: use Get-ELB2AccountLimit
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command lists ELB2 account limits for a given region.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2AccountLimit.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Max  Name
+            ---  ----
+            3000 target-groups
+            1000 targets-per-application-load-balancer
+            50   listeners-per-application-load-balancer
+            100  rules-per-application-load-balancer
+            50   network-load-balancers
+            3000 targets-per-network-load-balancer
+            500  targets-per-availability-zone-per-network-load-balancer
+            50   listeners-per-network-load-balancer
+            5    condition-values-per-alb-rule
+            5    condition-wildcards-per-alb-rule
+            100  target-groups-per-application-load-balancer
+            5    target-groups-per-action-on-application-load-balancer
+            1    target-groups-per-action-on-network-load-balancer
+            50   application-load-balancers</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DescribeAccountLimits: 
+
+

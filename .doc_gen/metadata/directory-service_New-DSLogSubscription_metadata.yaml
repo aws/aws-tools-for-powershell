@@ -1,0 +1,19 @@
+---
+directory-service_CreateLogSubscription:
+  title: Use New-DSLogSubscription
+  title_abbrev: New-DSLogSubscription
+  synopsis: use New-DSLogSubscription
+  languages:
+    PowerShell:
+      versions:
+        - sdk_version: 4
+          excerpts:
+            - description: '<emphasis role="bold">Example 1: This example creates a subscription to forward real-time Directory Service domain controller security logs to the specified Amazon CloudWatch log group in your &AWS-account;.</emphasis>'
+              snippet_files: []
+            - description:
+              snippet_files:
+                - .doc_gen/snippet_files/directory-service_New-DSLogSubscription.1.1.ps1
+  services:
+    directory-service:
+      CreateLogSubscription:
+

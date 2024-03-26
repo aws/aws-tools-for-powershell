@@ -1,0 +1,1 @@
+Unregister-WKSIpGroup -GroupId wsipg-12abcdphq -DirectoryId d-123454b123

@@ -1,0 +1,19 @@
+---
+ssm_CancelCommand:
+  title: Use Stop-SSMCommand
+  title_abbrev: Stop-SSMCommand
+  synopsis: use Stop-SSMCommand
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example attempts to cancel a command. There is no output if the operation succeeds.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Stop-SSMCommand.1.1.ps1
+  services:
+    ssm:
+      CancelCommand: 
+

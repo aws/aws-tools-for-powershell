@@ -1,0 +1,1 @@
+Publish-SNSMessage -TopicArn "arn:aws:sns:us-west-2:123456789012:my-topic" -Message "Hello" -MessageAttribute @{'City'=[Amazon.SimpleNotificationService.Model.MessageAttributeValue]@{DataType='String'; StringValue ='AnyCity'}}

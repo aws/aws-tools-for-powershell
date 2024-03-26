@@ -1,0 +1,1 @@
+Update-APSFleet -Name PowershellFleet -EnableDefaultInternetAccess $True -DisconnectTimeoutInSecond 950

@@ -1,0 +1,19 @@
+---
+codepipeline_DeletePipeline:
+  title: Use Remove-CPPipeline
+  title_abbrev: Remove-CPPipeline
+  synopsis: use Remove-CPPipeline
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the specified pipeline. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the pipeline without a prompt.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Remove-CPPipeline.1.1.ps1
+  services:
+    codepipeline:
+      DeletePipeline: 
+

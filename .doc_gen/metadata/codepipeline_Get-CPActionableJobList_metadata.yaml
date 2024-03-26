@@ -1,0 +1,26 @@
+---
+codepipeline_PollForJobs:
+  title: Use Get-CPActionableJobList
+  title_abbrev: Get-CPActionableJobList
+  synopsis: use Get-CPActionableJobList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about all actionable jobs for the specified action category, owner, provider, version, and query parameters.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Get-CPActionableJobList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccountId       Data                                 Id                                      Nonce
+            ---------       ----                                 --                                      -----
+            80398EXAMPLE    Amazon.CodePipeline.Model.JobData    0de392f5-712d-4f41-ace3-f57a0EXAMPLE    3</programlisting>
+          snippet_files: []
+  services:
+    codepipeline:
+      PollForJobs: 
+

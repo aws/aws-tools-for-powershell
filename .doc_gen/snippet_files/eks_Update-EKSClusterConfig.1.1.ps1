@@ -1,0 +1,1 @@
+Update-EKSClusterConfig -Name "PROD" -Logging_ClusterLogging @{Types="api","audit","authenticator","controllerManager","scheduler",Enabled="True"}

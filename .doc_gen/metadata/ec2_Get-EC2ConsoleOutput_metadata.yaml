@@ -1,0 +1,31 @@
+---
+ec2_GetConsoleOutput:
+  title: Use Get-EC2ConsoleOutput
+  title_abbrev: Get-EC2ConsoleOutput
+  synopsis: use Get-EC2ConsoleOutput
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets the console output for the specified Linux instance. The console output is encoded.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ConsoleOutput.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InstanceId          Output
+            ----------          ------
+            i-0e194d3c47c123637 WyAgICAwLjAwMDAwMF0gQ29tbW...bGU9dHR5UzAgc2Vs</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example stores the encoded console output in a variable and then decodes it.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ConsoleOutput.2.1.ps1
+  services:
+    ec2:
+      GetConsoleOutput: 
+

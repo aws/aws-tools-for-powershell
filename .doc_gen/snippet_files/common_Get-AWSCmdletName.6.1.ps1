@@ -1,0 +1,1 @@
+Get-AWSCmdletName -ApiOperation listmetrics -Service cloudwatch

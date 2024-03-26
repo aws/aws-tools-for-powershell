@@ -1,0 +1,25 @@
+---
+sqs_ListDeadLetterSourceQueues:
+  title: Use Get-SQSDeadLetterSourceQueue
+  title_abbrev: Get-SQSDeadLetterSourceQueue
+  synopsis: use Get-SQSDeadLetterSourceQueue
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists the URLs of any queues that rely on the specified queue as their dead letter queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Get-SQSDeadLetterSourceQueue.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+            https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue</programlisting>
+          snippet_files: []
+  services:
+    sqs:
+      ListDeadLetterSourceQueues: 
+

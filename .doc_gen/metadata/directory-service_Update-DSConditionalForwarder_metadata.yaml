@@ -1,0 +1,20 @@
+---
+directory-service_UpdateConditionalForwarder:
+  title: Use Update-DSConditionalForwarder
+  title_abbrev: Update-DSConditionalForwarder
+  synopsis: use Update-DSConditionalForwarder
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example updates a conditional forwarder that has been set up for your &AWS; directory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Update-DSConditionalForwarder.1.1.ps1
+  services:
+    directory-service:
+      UpdateConditionalForwarder: 
+
+

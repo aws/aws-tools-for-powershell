@@ -1,0 +1,23 @@
+---
+ec2_EnableVpcClassicLink:
+  title: Use Enable-EC2VpcClassicLink
+  title_abbrev: Enable-EC2VpcClassicLink
+  synopsis: use Enable-EC2VpcClassicLink
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example enables VPC vpc-0123456b789b0d12f for ClassicLink</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Enable-EC2VpcClassicLink.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">True</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      EnableVpcClassicLink: 
+

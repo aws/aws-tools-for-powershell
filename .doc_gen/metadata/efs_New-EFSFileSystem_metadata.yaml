@@ -1,0 +1,35 @@
+---
+efs_CreateFileSystem:
+  title: Use New-EFSFileSystem
+  title_abbrev: New-EFSFileSystem
+  synopsis: use New-EFSFileSystem
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates a new, empty file system. The token used to ensure idempotent creation will be generated automatically and can be accessed from the <code>CreationToken</code> member of the returned object.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/efs_New-EFSFileSystem.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CreationTime         : 5/26/2015 4:02:38 PM
+            CreationToken        : 1a2bff54-85e0-4747-bd95-7bc172c4f555
+            FileSystemId         : fs-1a2b3c4d
+            LifeCycleState       : creating
+            Name                 :
+            NumberOfMountTargets : 0
+            OwnerId              : 123456789012
+            SizeInBytes          : Amazon.ElasticFileSystem.Model.FileSystemSize</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: Creates a new, empty file system using a custom token to ensure idempotent creation.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/efs_New-EFSFileSystem.2.1.ps1
+  services:
+    efs:
+      CreateFileSystem: 

@@ -1,0 +1,26 @@
+---
+appstream_TagResource:
+  title: Use Add-APSResourceTag
+  title_abbrev: Add-APSResourceTag
+  synopsis: use Add-APSResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample adds a resource Tag to AppStream resource</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Add-APSResourceTag.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Name                           Value
+            ----                           -----
+            StackState                     Test</programlisting>
+  services:
+    appstream:
+      TagResource: 
+

@@ -1,0 +1,27 @@
+---
+config-service_DescribeDeliveryChannels:
+  title: Use Get-CFGDeliveryChannel
+  title_abbrev: Get-CFGDeliveryChannel
+  synopsis: use Get-CFGDeliveryChannel
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example retrieves the delivery channel for the region and displays details.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGDeliveryChannel.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name    S3BucketName               S3KeyPrefix DeliveryFrequency
+            ----    ------------               ----------- -----------------
+            default config-bucket-NA my          TwentyFour_Hours</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeDeliveryChannels: 
+
+

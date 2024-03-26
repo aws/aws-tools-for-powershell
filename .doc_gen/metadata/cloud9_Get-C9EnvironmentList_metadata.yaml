@@ -1,0 +1,25 @@
+---
+cloud9_ListEnvironments:
+  title: Use Get-C9EnvironmentList
+  title_abbrev: Get-C9EnvironmentList
+  synopsis: use Get-C9EnvironmentList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets a list of available &AWS; Cloud9 development environment identifiers.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Get-C9EnvironmentList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">685f892f431b45c2b28cb69eadcdb0EX
+            1980b80e5f584920801c09086667f0EX</programlisting>
+          snippet_files: []
+  services:
+    cloud9:
+      ListEnvironments: 
+

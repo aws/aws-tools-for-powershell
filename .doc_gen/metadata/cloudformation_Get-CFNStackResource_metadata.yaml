@@ -1,0 +1,19 @@
+---
+cloudformation_DescribeStackResource:
+  title: Use Get-CFNStackResource
+  title_abbrev: Get-CFNStackResource
+  synopsis: use Get-CFNStackResource
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the description of a resource identified in the template associated with the specified stack by the logical ID "MyDBInstance".</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Get-CFNStackResource.1.1.ps1
+  services:
+    cloudformation:
+      DescribeStackResource: 
+

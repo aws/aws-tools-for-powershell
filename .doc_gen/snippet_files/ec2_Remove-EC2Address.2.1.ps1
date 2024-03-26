@@ -1,0 +1,1 @@
+Remove-EC2Address -PublicIp 198.51.100.2 -Force

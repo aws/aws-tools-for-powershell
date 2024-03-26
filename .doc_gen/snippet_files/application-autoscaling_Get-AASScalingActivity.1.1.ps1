@@ -1,0 +1,1 @@
+Get-AASScalingActivity -ServiceNamespace AppStream

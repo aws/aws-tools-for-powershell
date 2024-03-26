@@ -1,0 +1,33 @@
+---
+auto-scaling_DetachInstances:
+  title: Use Dismount-ASInstance
+  title_abbrev: Dismount-ASInstance
+  synopsis: use Dismount-ASInstance
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example detaches the specified instance from the specified Auto Scaling group and decreases the desired capacity so that Auto Scaling does not launch a replacement instance.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Dismount-ASInstance.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">ActivityId           : 06733445-ce94-4039-be1b-b9f1866e276e\nAutoScalingGroupName : my-asg\nCause                : At 2015-11-20T22:34:59Z instance i-93633f9b was detached in response to a user request, shrinking\n                       the capacity from 2 to 1.\nDescription          : Detaching EC2 instance: i-93633f9b\nDetails              : {\"Availability Zone\":\"us-west-2b\",\"Subnet ID\":\"subnet-5264e837\"}\nEndTime              : \nProgress             : 50\nStartTime            : 11/20/2015 2:34:59 PM\nStatusCode           : InProgress\nStatusMessage        :</programlisting>"
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example detaches the specified instance from the specified Auto Scaling group without decreasing the desired capacity. Auto Scaling launches a replacement instance.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Dismount-ASInstance.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">ActivityId           : f43a3cd4-d38c-4af7-9fe0-d76ec2307b6d\nAutoScalingGroupName : my-asg\nCause                : At 2015-11-20T22:34:59Z instance i-7bf746a2 was detached in response to a user request.\nDescription          : Detaching EC2 instance: i-7bf746a2\nDetails              : {\"Availability Zone\":\"us-west-2b\",\"Subnet ID\":\"subnet-5264e837\"}\nEndTime              : \nProgress             : 50\nStartTime            : 11/20/2015 2:34:59 PM\nStatusCode           : InProgress\nStatusMessage        :</programlisting>"
+  services:
+    auto-scaling:
+      DetachInstances: 
+
+

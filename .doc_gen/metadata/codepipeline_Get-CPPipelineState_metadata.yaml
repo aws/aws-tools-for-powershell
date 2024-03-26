@@ -1,0 +1,133 @@
+---
+codepipeline_GetPipelineState:
+  title: Use Get-CPPipelineState
+  title_abbrev: Get-CPPipelineState
+  synopsis: use Get-CPPipelineState
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets general information about the stages for the specified pipeline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Get-CPPipelineState.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Created         : 8/13/2015 10:17:54 PM
+            PipelineName    : CodePipelineDemo
+            PipelineVersion : 1
+            StageStates     : {Source, Build, Beta, TestStage}
+            Updated         : 8/13/2015 10:17:54 PM</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example gets detailed information about the state of the specified pipeline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Get-CPPipelineState.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">For Source:
+              InboundTransitionState:
+                DisabledReason =
+                Enabled =
+                LastChangedAt =
+                LastChangedBy =
+              ActionStates:
+                For Source:
+                  CurrentRevision:
+                    Created =
+                    RevisionChangeId =
+                    RevisionId =
+                  EntityUrl = https://github.com/my-user-name/MyRepoName/tree/master
+                  LatestExecution:
+                    ErrorDetails:
+                      Code =
+                      Message =
+                    ExternalExecutionId =
+                    ExternalExecutionUrl =
+                    LastStatusChange = 07/20/2015 23:28:45
+                    PercentComplete = 0
+                    Status = Succeeded
+                    Summary =
+                  RevisionUrl =
+            For Build:
+              InboundTransitionState:
+                DisabledReason =
+                Enabled = True
+                LastChangedAt = 01/01/0001 00:00:00
+                LastChangedBy =
+              ActionStates:
+                For Build:
+                  CurrentRevision:
+                    Created =
+                    RevisionChangeId =
+                    RevisionId =
+                  EntityUrl = http://54.174.131.1EX/job/MyJenkinsDemo
+                  LatestExecution:
+                    ErrorDetails:
+                      Code = TimeoutError
+                      Message = The action failed because a job worker exceeded its time limit. If this is a custom action, make sure that the job worker is configured correctly.
+                    ExternalExecutionId =
+                    ExternalExecutionUrl =
+                    LastStatusChange = 07/21/2015 00:29:29
+                    PercentComplete = 0
+                    Status = Failed
+                    Summary =
+                  RevisionUrl =
+            For Beta:
+              InboundTransitionState:
+                DisabledReason =
+                Enabled = True
+                LastChangedAt = 01/01/0001 00:00:00
+                LastChangedBy =
+              ActionStates:
+                For CodePipelineDemoFleet:
+                  CurrentRevision:
+                    Created =
+                    RevisionChangeId =
+                    RevisionId =
+                  EntityUrl = https://console.aws.amazon.com/codedeploy/home?#/applications/CodePipelineDemoApplication/deployment-groups/CodePipelineDemoFleet
+                  LatestExecution:
+                    ErrorDetails:
+                      Code =
+                      Message =
+                    ExternalExecutionId = d-D5LTCZXEX
+                    ExternalExecutionUrl = https://console.aws.amazon.com/codedeploy/home?#/deployments/d-D5LTCZXEX
+                    LastStatusChange = 07/08/2015 22:07:42
+                    PercentComplete = 0
+                    Status = Succeeded
+                    Summary = Deployment Succeeded
+                  RevisionUrl =
+            For TestStage:
+              InboundTransitionState:
+                DisabledReason =
+                Enabled = True
+                LastChangedAt = 01/01/0001 00:00:00
+                LastChangedBy =
+              ActionStates:
+                For MyJenkinsTestAction25:
+                  CurrentRevision:
+                    Created =
+                    RevisionChangeId =
+                    RevisionId =
+                  EntityUrl = http://54.174.131.1EX/job/MyJenkinsDemo
+                  LatestExecution:
+                    ErrorDetails:
+                      Code =
+                      Message =
+                    ExternalExecutionId = 5
+                    ExternalExecutionUrl = http://54.174.131.1EX/job/MyJenkinsDemo/5
+                    LastStatusChange = 07/08/2015 22:09:03
+                    PercentComplete = 0
+                    Status = Succeeded
+                    Summary = Finished
+                  RevisionUrl =</programlisting>
+          snippet_files: []
+  services:
+    codepipeline:
+      GetPipelineState: 
+

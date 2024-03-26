@@ -1,0 +1,1 @@
+Unregister-DSCertificate -DirectoryId d-123456ijkl -CertificateId c-906731e34f

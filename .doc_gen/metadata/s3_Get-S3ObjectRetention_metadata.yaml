@@ -1,0 +1,19 @@
+---
+s3_GetObjectRetention:
+  title: Use Get-S3ObjectRetention
+  title_abbrev: Get-S3ObjectRetention
+  synopsis: use Get-S3ObjectRetention
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: The command returns the mode and date till the object would be retained.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3ObjectRetention.1.1.ps1
+          description: 
+  services:
+    s3:
+      GetObjectRetention: 
+

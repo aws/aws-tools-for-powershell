@@ -1,0 +1,20 @@
+---
+directory-service_AddIpRoutes:
+  title: Use Add-DSIpRoute
+  title_abbrev: Add-DSIpRoute
+  synopsis: use Add-DSIpRoute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command removes the Resource Tag assigned to the specified Directory-id</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Add-DSIpRoute.1.1.ps1
+  services:
+    directory-service:
+      AddIpRoutes: 
+
+

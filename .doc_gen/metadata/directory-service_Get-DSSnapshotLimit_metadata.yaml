@@ -1,0 +1,27 @@
+---
+directory-service_GetSnapshotLimits:
+  title: Use Get-DSSnapshotLimit
+  title_abbrev: Get-DSSnapshotLimit
+  synopsis: use Get-DSSnapshotLimit
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command gets the manual snapshot limits for a specified directory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Get-DSSnapshotLimit.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ManualSnapshotsCurrentCount ManualSnapshotsLimit ManualSnapshotsLimitReached
+            --------------------------- -------------------- ---------------------------
+            0                           5                    False</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      GetSnapshotLimits: 
+
+

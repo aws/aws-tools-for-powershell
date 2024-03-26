@@ -1,0 +1,18 @@
+---
+iam_UpdateAccessKey:
+  title: Use Update-IAMAccessKey
+  title_abbrev: Update-IAMAccessKey
+  synopsis: use Update-IAMAccessKey
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example changes the status of the access key <code>AKIAIOSFODNN7EXAMPLE</code> for the IAM user named <code>Bob</code> to <code>Inactive</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMAccessKey.1.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateAccessKey: 

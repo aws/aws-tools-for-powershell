@@ -1,0 +1,1 @@
+Get-DSLogSubscriptionList -DirectoryId d-123456ijkl

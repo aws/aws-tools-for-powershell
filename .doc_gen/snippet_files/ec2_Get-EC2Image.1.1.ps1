@@ -1,0 +1,1 @@
+Get-EC2Image -ImageId ami-12345678

@@ -1,0 +1,1 @@
+Write-S3BucketWebsite -BucketName 's3testbucket' -WebsiteConfiguration_IndexDocumentSuffix 'index.html' -WebsiteConfiguration_ErrorDocument 'error.html'

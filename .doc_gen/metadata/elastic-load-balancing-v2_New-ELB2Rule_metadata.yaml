@@ -1,0 +1,29 @@
+---
+elastic-load-balancing-v2_CreateRule:
+  title: Use New-ELB2Rule
+  title_abbrev: New-ELB2Rule
+  synopsis: use New-ELB2Rule
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates new Listener rule with fixed-response action based on the customer header value for the specified Listener.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_New-ELB2Rule.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+            Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+            IsDefault  : False
+            Priority   : 10
+            RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/testALB/3e2f03b558e19676/1c84f02aec143e80/f4f51dfaa033a8cc</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      CreateRule: 
+
+

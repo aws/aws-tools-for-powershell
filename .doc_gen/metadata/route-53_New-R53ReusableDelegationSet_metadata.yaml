@@ -1,0 +1,27 @@
+---
+route-53_CreateReusableDelegationSet:
+  title: Use New-R53ReusableDelegationSet
+  title_abbrev: New-R53ReusableDelegationSet
+  synopsis: use New-R53ReusableDelegationSet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example creates a reusable delegation set of 4 name servers that can be resused by multiple hosted zones.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_New-R53ReusableDelegationSet.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">DelegationSet                      Location
+            -------------                      --------
+            Amazon.Route53.Model.DelegationSet https://route53.amazonaws.com/2013-04-01/delegationset/N23DS9XAAAAAXM</programlisting>
+  services:
+    route-53:
+      CreateReusableDelegationSet: 
+
+

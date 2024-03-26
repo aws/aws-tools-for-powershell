@@ -1,0 +1,19 @@
+---
+lambda_CreateAlias:
+  title: Use New-LMAlias
+  title_abbrev: New-LMAlias
+  synopsis: use New-LMAlias
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example creates a New Lambda Alias for specified version and routing configuration to specify the percentage of invocation requests that it receives.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_New-LMAlias.1.1.ps1
+          description: 
+  services:
+    lambda:
+      CreateAlias: 
+

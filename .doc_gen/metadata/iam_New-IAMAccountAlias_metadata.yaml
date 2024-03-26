@@ -1,0 +1,18 @@
+---
+iam_CreateAccountAlias:
+  title: Use New-IAMAccountAlias
+  title_abbrev: New-IAMAccountAlias
+  synopsis: use New-IAMAccountAlias
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example changes the account alias for your &AWS; account to <code>mycompanyaws</code>. The address of the user logon page chages to https://mycompanyaws.signin.aws.amazon.com/console. The original URL using your account ID number instead of the alias (https://&lt;accountidnumber&gt;.signin.aws.amazon.com/console) continues to work. However, any previously defined alias-based URLs stop working.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_New-IAMAccountAlias.1.1.ps1
+  services:
+    iam:
+      CreateAccountAlias: 

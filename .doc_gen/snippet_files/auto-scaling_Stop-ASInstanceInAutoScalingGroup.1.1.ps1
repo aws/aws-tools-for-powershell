@@ -1,0 +1,1 @@
+Stop-ASInstanceInAutoScalingGroup -InstanceId i-93633f9b -ShouldDecrementDesiredCapacity $true

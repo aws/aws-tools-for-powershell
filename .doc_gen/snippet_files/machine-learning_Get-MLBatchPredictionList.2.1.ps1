@@ -1,0 +1,1 @@
+Get-MLBatchPredictionList -FilterVariable Status -EQ COMPLETED

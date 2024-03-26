@@ -1,0 +1,32 @@
+---
+directory-service_GetDirectoryLimits:
+  title: Use Get-DSDirectoryLimit
+  title_abbrev: Get-DSDirectoryLimit
+  synopsis: use Get-DSDirectoryLimit
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example dislpays the directory limit information for the us-east-1 region. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Get-DSDirectoryLimit.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CloudOnlyDirectoriesCurrentCount : 1
+            CloudOnlyDirectoriesLimit        : 10
+            CloudOnlyDirectoriesLimitReached : False
+            CloudOnlyMicrosoftADCurrentCount : 1
+            CloudOnlyMicrosoftADLimit        : 20
+            CloudOnlyMicrosoftADLimitReached : False
+            ConnectedDirectoriesCurrentCount : 1
+            ConnectedDirectoriesLimit        : 10</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      GetDirectoryLimits: 
+
+

@@ -1,0 +1,23 @@
+---
+sqs_DeleteMessageBatch:
+  title: Use Remove-SQSMessageBatch
+  title_abbrev: Remove-SQSMessageBatch
+  synopsis: use Remove-SQSMessageBatch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes 2 messages with the specified receipt handles from the specified queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Remove-SQSMessageBatch.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Failed    Successful                                                                    \n------    ----------                                                                    \n{}        {Request1, Request2}</programlisting>"
+          snippet_files: []
+  services:
+    sqs:
+      DeleteMessageBatch: 
+

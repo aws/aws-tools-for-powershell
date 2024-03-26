@@ -1,0 +1,26 @@
+---
+ec2_DescribeVolumeAttribute:
+  title: Use Get-EC2VolumeAttribute
+  title_abbrev: Get-EC2VolumeAttribute
+  synopsis: use Get-EC2VolumeAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified attribute of the specified volume.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VolumeAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AutoEnableIO    ProductCodes    VolumeId
+            ------------    ------------    --------
+            False           {}              vol-12345678</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeVolumeAttribute: 
+

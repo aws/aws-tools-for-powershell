@@ -1,0 +1,1 @@
+Wait-CFNStack -StackName MyStack -Timeout 300 -Status CREATE_COMPLETE,ROLLBACK_COMPLETE

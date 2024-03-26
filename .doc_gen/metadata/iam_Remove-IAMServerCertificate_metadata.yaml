@@ -1,0 +1,18 @@
+---
+iam_DeleteServerCertificate:
+  title: Use Remove-IAMServerCertificate
+  title_abbrev: Remove-IAMServerCertificate
+  synopsis: use Remove-IAMServerCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the server certificate named <code>MyServerCert</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMServerCertificate.1.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteServerCertificate: 

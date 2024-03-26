@@ -1,0 +1,58 @@
+---
+ssm_DescribeAvailablePatches:
+  title: Use Get-SSMAvailablePatch
+  title_abbrev: Get-SSMAvailablePatch
+  synopsis: use Get-SSMAvailablePatch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAvailablePatch.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Classification : SecurityUpdates
+            ContentUrl     : https://support.microsoft.com/en-us/kb/2727528
+            Description    : A security issue has been identified that could allow an unauthenticated remote attacker to compromise your system and gain control
+                             over it. You can help protect your system by installing this update from Microsoft. After you install this update, you may have to
+                             restart your system.
+            Id             : 1eb507be-2040-4eeb-803d-abc55700b715
+            KbNumber       : KB2727528
+            Language       : All
+            MsrcNumber     : MS12-072
+            MsrcSeverity   : Critical
+            Product        : WindowsServer2012
+            ProductFamily  : Windows
+            ReleaseDate    : 11/13/2012 6:00:00 PM
+            Title          : Security Update for Windows Server 2012 (KB2727528)
+            Vendor         : Microsoft
+            ...</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: With PowerShell version 2, you must use New-Object to create each filter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAvailablePatch.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example fetches all the updates which are released in last 20 days and applicable to products matching WindowsServer2019</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAvailablePatch.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ReleaseDate         Product           Title
+            -----------         -------           -----
+            4/9/2019 5:00:12 PM WindowsServer2019 2019-04 Security Update for Adobe Flash Player for Windows Server 2019 for x64-based Systems (KB4493478)
+            4/9/2019 5:00:06 PM WindowsServer2019 2019-04 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4493509)
+            4/2/2019 5:00:06 PM WindowsServer2019 2019-03 Servicing Stack Update for Windows Server 2019 for x64-based Systems (KB4493510)</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeAvailablePatches: 
+

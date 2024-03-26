@@ -1,0 +1,20 @@
+---
+elastic-load-balancing-v2_RegisterTargets:
+  title: Use Register-ELB2Target
+  title_abbrev: Register-ELB2Target
+  synopsis: use Register-ELB2Target
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example registers 'i-0672a4c4cdeae3111' instance with the specified target group.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Register-ELB2Target.1.1.ps1
+  services:
+    elastic-load-balancing-v2:
+      RegisterTargets: 
+
+

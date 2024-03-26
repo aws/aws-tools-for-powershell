@@ -1,0 +1,1 @@
+Get-STSSessionToken -DurationInSeconds 3600 -ProfileName myprofile -SerialNumber YourMFADeviceSerialNumber -TokenCode 123456

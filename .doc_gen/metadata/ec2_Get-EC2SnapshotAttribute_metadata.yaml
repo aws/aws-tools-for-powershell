@@ -1,0 +1,38 @@
+---
+ec2_DescribeSnapshotAttribute:
+  title: Use Get-EC2SnapshotAttribute
+  title_abbrev: Get-EC2SnapshotAttribute
+  synopsis: use Get-EC2SnapshotAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified attribute of the specified snapshot.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SnapshotAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CreateVolumePermissions    ProductCodes    SnapshotId
+            -----------------------    ------------    ----------
+            {}                         {}              snap-12345678</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the specified attribute of the specified snapshot.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SnapshotAttribute.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Group    UserId
+            -----    ------
+            all</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeSnapshotAttribute: 
+

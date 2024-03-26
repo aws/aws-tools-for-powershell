@@ -1,0 +1,41 @@
+---
+config-service_DescribeAggregateComplianceByConfigRules:
+  title: Use Get-CFGAggregateComplianceByConfigRuleList
+  title_abbrev: Get-CFGAggregateComplianceByConfigRuleList
+  synopsis: use Get-CFGAggregateComplianceByConfigRuleList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example fetches the details from ConfigurationAggregator 'kaju' filtering for the given config rule and expands/returns the 'Compliance' of the rule.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateComplianceByConfigRuleList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ComplianceContributorCount                            ComplianceType
+            --------------------------                            --------------
+            Amazon.ConfigService.Model.ComplianceContributorCount NON_COMPLIANT</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example fetches details from the given ConfigurationAggregator, filters it for the given account for all regions covered in the aggregator and further retuns the compliance for all the rules.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateComplianceByConfigRuleList.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ConfigRuleName                      Compliance
+            --------------                      ----------
+            ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK NON_COMPLIANT
+            ec2-instance-no-public-ip           NON_COMPLIANT
+            desired-instance-type               NON_COMPLIANT</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeAggregateComplianceByConfigRules: 
+
+

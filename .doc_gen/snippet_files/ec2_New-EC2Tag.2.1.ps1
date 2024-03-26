@@ -1,0 +1,1 @@
+New-EC2Tag -Resource i-12345678 -Tag @( @{ Key="myTag"; Value="newTagValue" }, @{ Key="test"; Value="anotherTagValue" } )

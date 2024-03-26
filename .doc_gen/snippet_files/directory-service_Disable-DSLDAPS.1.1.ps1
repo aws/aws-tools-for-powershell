@@ -1,0 +1,1 @@
+Disable-DSLDAPS -DirectoryId d-123456ijkl -Type Client

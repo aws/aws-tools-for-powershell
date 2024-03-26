@@ -1,0 +1,1 @@
+Get-EC2ImageByName -Names WINDOWS_2016_BASE

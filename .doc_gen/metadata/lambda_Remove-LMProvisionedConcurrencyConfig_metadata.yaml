@@ -1,0 +1,19 @@
+---
+lambda_DeleteProvisionedConcurrencyConfig:
+  title: Use Remove-LMProvisionedConcurrencyConfig
+  title_abbrev: Remove-LMProvisionedConcurrencyConfig
+  synopsis: use Remove-LMProvisionedConcurrencyConfig
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example removes the Provisioned Concurrency Configuration for a specific Alias.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Remove-LMProvisionedConcurrencyConfig.1.1.ps1
+          description: 
+  services:
+    lambda:
+      DeleteProvisionedConcurrencyConfig: 
+

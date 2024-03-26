@@ -1,0 +1,1 @@
+Update-APSStack -Name PowershellStack -ApplicationSettings_Enabled $True -ApplicationSettings_SettingsGroup PowershellStack -StorageConnector @{ConnectorType="HOMEFOLDERS"}

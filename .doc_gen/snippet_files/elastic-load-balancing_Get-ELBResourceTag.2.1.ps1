@@ -1,0 +1,1 @@
+(Get-ELBResourceTag -LoadBalancerName my-load-balancer).Tags

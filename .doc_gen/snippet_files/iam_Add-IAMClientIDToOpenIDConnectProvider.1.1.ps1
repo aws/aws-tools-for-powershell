@@ -1,0 +1,1 @@
+Add-IAMClientIDToOpenIDConnectProvider -ClientID "my-application-ID" -OpenIDConnectProviderARN "arn:aws:iam::123456789012:oidc-provider/server.example.com"

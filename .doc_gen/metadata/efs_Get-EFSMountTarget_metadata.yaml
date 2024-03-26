@@ -1,0 +1,31 @@
+---
+efs_DescribeMountTargets:
+  title: Use Get-EFSMountTarget
+  title_abbrev: Get-EFSMountTarget
+  synopsis: use Get-EFSMountTarget
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the collection of mount targets associated with the specified file system.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/efs_Get-EFSMountTarget.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">FileSystemId       : fs-1a2b3c4d
+            IpAddress          : 10.0.0.131
+            LifeCycleState     : available
+            MountTargetId      : fsmt-1a2b3c4d
+            NetworkInterfaceId : eni-1a2b3c4d
+            OwnerId            : 123456789012
+            SubnetId           : subnet-1a2b3c4d</programlisting>
+          snippet_files: []
+  services:
+    efs:
+      DescribeMountTargets: 
+
+

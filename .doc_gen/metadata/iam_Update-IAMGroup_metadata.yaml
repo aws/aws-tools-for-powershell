@@ -1,0 +1,23 @@
+---
+iam_UpdateGroup:
+  title: Use Update-IAMGroup
+  title_abbrev: Update-IAMGroup
+  synopsis: use Update-IAMGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example renames the IAM group <code>Testers</code> to <code>AppTesters</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMGroup.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example changes the path of the IAM group <code>AppTesters</code> to <code>/Org1/Org2/</code>. This changes the ARN for the group to <code>arn:aws:iam::123456789012:group/Org1/Org2/AppTesters</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMGroup.2.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateGroup: 

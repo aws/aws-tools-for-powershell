@@ -1,0 +1,31 @@
+---
+directory-service_ListSchemaExtensions:
+  title: Use Get-DSSchemaExtension
+  title_abbrev: Get-DSSchemaExtension
+  synopsis: use Get-DSSchemaExtension
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all schema extensions applied to a Microsoft AD Directory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Get-DSSchemaExtension.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Description                 : ManagedADSchemaExtension
+            DirectoryId                 : d-123456ijkl
+            EndDateTime                 : 4/12/2020 10:30:49 AM
+            SchemaExtensionId           : e-9067306643
+            SchemaExtensionStatus       : Completed
+            SchemaExtensionStatusReason : Schema updates are complete.
+            StartDateTime               : 4/12/2020 10:28:42 AM</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      ListSchemaExtensions: 
+
+

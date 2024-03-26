@@ -1,0 +1,1 @@
+Complete-ASLifecycleAction -LifecycleHookName myLifecycleHook -AutoScalingGroupName my-asg -LifecycleActionResult CONTINUE -LifecycleActionToken bcd2f1b8-9a78-44d3-8a7a-4dd07d7cf635

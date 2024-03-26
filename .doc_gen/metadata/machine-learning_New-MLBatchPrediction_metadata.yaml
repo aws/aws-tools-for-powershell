@@ -1,0 +1,20 @@
+---
+machine-learning_CreateBatchPrediction:
+  title: Use New-MLBatchPrediction
+  title_abbrev: New-MLBatchPrediction
+  synopsis: use New-MLBatchPrediction
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Create a new batch prediction request for model with id ID and put the output at the specified S3 location.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_New-MLBatchPrediction.1.1.ps1
+          description: 
+  services:
+    machine-learning:
+      CreateBatchPrediction: 
+
+

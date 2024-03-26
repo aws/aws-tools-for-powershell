@@ -1,0 +1,40 @@
+---
+acm_DescribeCertificate:
+  title: Use Get-ACMCertificateDetail
+  title_abbrev: Get-ACMCertificateDetail
+  synopsis: use Get-ACMCertificateDetail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns details of the specified certificate.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_Get-ACMCertificateDetail.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">CertificateArn          : arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012
+            CreatedAt               : 1/21/2016 5:55:59 PM
+            DomainName              : www.example.com
+            DomainValidationOptions : {www.example.com}
+            InUseBy                 : {}
+            IssuedAt                : 1/1/0001 12:00:00 AM
+            Issuer                  :
+            KeyAlgorithm            : RSA-2048
+            NotAfter                : 1/1/0001 12:00:00 AM
+            NotBefore               : 1/1/0001 12:00:00 AM
+            RevocationReason        :
+            RevokedAt               : 1/1/0001 12:00:00 AM
+            Serial                  :
+            SignatureAlgorithm      : SHA256WITHRSA
+            Status                  : PENDING_VALIDATION
+            Subject                 : CN=www.example.com
+            SubjectAlternativeNames : {www.example.net}</programlisting>
+  services:
+    acm:
+      DescribeCertificate: 
+

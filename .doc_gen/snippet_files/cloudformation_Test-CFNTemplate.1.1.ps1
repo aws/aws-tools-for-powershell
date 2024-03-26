@@ -1,0 +1,1 @@
+Test-CFNTemplate -TemplateBody "{TEMPLATE CONTENT HERE}"

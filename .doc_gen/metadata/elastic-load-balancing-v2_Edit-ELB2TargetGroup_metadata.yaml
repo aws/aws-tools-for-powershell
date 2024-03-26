@@ -1,0 +1,40 @@
+---
+elastic-load-balancing-v2_ModifyTargetGroup:
+  title: Use Edit-ELB2TargetGroup
+  title_abbrev: Edit-ELB2TargetGroup
+  synopsis: use Edit-ELB2TargetGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example modifes the properties of the specified Target Group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Edit-ELB2TargetGroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">HealthCheckEnabled         : True
+            HealthCheckIntervalSeconds : 60
+            HealthCheckPath            : /index.html
+            HealthCheckPort            : 8080
+            HealthCheckProtocol        : HTTP
+            HealthCheckTimeoutSeconds  : 5
+            HealthyThresholdCount      : 5
+            LoadBalancerArns           : {}
+            Matcher                    : Amazon.ElasticLoadBalancingV2.Model.Matcher
+            Port                       : 80
+            Protocol                   : HTTP
+            TargetGroupArn             : arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/test-tg/a4e04b3688be1970
+            TargetGroupName            : test-tg
+            TargetType                 : instance
+            UnhealthyThresholdCount    : 2
+            VpcId                      : vpc-2cfd7000</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      ModifyTargetGroup: 
+
+

@@ -1,0 +1,1 @@
+Update-DDBTable -TableName "myTable" -ReadCapacity 10 -WriteCapacity 5

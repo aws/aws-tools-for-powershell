@@ -1,0 +1,50 @@
+---
+ec2_DescribeNetworkInterfaceAttribute:
+  title: Use Get-EC2NetworkInterfaceAttribute
+  title_abbrev: Get-EC2NetworkInterfaceAttribute
+  synopsis: use Get-EC2NetworkInterfaceAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified network interface.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2NetworkInterfaceAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">Attachment         : Amazon.EC2.Model.NetworkInterfaceAttachment</programlisting>'
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the specified network interface.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2NetworkInterfaceAttribute.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">Description        : My description</programlisting>'
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example describes the specified network interface.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2NetworkInterfaceAttribute.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">Groups             : {my-security-group}</programlisting>'
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 4: This example describes the specified network interface.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2NetworkInterfaceAttribute.4.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">SourceDestCheck    : True</programlisting>'
+          snippet_files: []
+  services:
+    ec2:
+      DescribeNetworkInterfaceAttribute: 
+

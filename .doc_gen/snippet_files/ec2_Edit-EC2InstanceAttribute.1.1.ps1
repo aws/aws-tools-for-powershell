@@ -1,0 +1,1 @@
+Edit-EC2InstanceAttribute -InstanceId i-12345678 -InstanceType m3.medium

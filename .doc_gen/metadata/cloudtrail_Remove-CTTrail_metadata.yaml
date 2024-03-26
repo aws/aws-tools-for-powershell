@@ -1,0 +1,19 @@
+---
+cloudtrail_DeleteTrail:
+  title: Use Remove-CTTrail
+  title_abbrev: Remove-CTTrail
+  synopsis: use Remove-CTTrail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Deletes the specified trail. You will be prompted for confirmation before the command is run. To suppress confirmation, add the -Force switch parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudtrail_Remove-CTTrail.1.1.ps1
+  services:
+    cloudtrail:
+      DeleteTrail: 
+

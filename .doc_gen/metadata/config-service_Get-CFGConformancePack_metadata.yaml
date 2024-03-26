@@ -1,0 +1,32 @@
+---
+config-service_DescribeConformancePacks:
+  title: Use Get-CFGConformancePack
+  title_abbrev: Get-CFGConformancePack
+  synopsis: use Get-CFGConformancePack
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample lists all conformance packs.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGConformancePack.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ConformancePackArn             : arn:aws:config:eu-west-1:123456789012:conformance-pack/dono/conformance-pack-p0acq8bpz
+            ConformancePackId              : conformance-pack-p0acabcde
+            ConformancePackInputParameters : {}
+            ConformancePackName            : dono
+            CreatedBy                      :
+            DeliveryS3Bucket               : kt-ps-examples
+            DeliveryS3KeyPrefix            :
+            LastUpdateRequestedTime        : 12/31/2019 8:45:31 AM</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeConformancePacks: 
+
+

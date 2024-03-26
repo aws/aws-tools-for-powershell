@@ -1,0 +1,27 @@
+---
+eks_UntagResource:
+  title: Use Remove-EKSResourceTag
+  title_abbrev: Remove-EKSResourceTag
+  synopsis: use Remove-EKSResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet deletes specified tags from an EKS resource.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/eks_Remove-EKSResourceTag.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-EKSResourceTag (UntagResource)" on target "arn:aws:eks:us-west-2:012345678912:cluster/PROD".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</programlisting>
+          snippet_files: []
+  services:
+    eks:
+      UntagResource: 
+

@@ -1,0 +1,1 @@
+Remove-CFNStack -StackName "myStack"

@@ -1,0 +1,28 @@
+---
+codedeploy_GetDeploymentInstance:
+  title: Use Get-CDDeploymentInstance
+  title_abbrev: Get-CDDeploymentInstance
+  synopsis: use Get-CDDeploymentInstance
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about the specified instance for the specified deployment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDDeploymentInstance.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DeploymentId    : d-QZMRGSTEX
+            InstanceId      : arn:aws:ec2:us-east-1:80398EXAMPLE:instance/i-254e22EX
+            LastUpdatedAt   : 7/23/2015 11:25:24 PM
+            LifecycleEvents : {ApplicationStop, DownloadBundle, BeforeInstall, Install...}
+            Status          : Succeeded</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      GetDeploymentInstance: 
+

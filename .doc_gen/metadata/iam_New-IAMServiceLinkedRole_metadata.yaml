@@ -1,0 +1,19 @@
+---
+iam_CreateServiceLinkedRole:
+  title: Use New-IAMServiceLinkedRole
+  title_abbrev: New-IAMServiceLinkedRole
+  synopsis: use New-IAMServiceLinkedRole
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a servicelinked role for autoscaling service.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_New-IAMServiceLinkedRole.1.1.ps1
+  services:
+    iam:
+      CreateServiceLinkedRole: 
+

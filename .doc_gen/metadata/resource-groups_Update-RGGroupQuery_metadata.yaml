@@ -1,0 +1,26 @@
+---
+resource-groups_UpdateGroupQuery:
+  title: Use Update-RGGroupQuery
+  title_abbrev: Update-RGGroupQuery
+  synopsis: use Update-RGGroupQuery
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example creates a query object and updates the query for the group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/resource-groups_Update-RGGroupQuery.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">GroupName ResourceQuery
+            --------- -------------
+            build600  Amazon.ResourceGroups.Model.ResourceQuery</programlisting>
+  services:
+    resource-groups:
+      UpdateGroupQuery: 
+

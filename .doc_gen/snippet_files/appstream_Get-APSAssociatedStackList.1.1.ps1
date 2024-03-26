@@ -1,0 +1,1 @@
+Get-APSAssociatedStackList -FleetName PowershellFleet

@@ -1,0 +1,1 @@
+Get-DSSchemaExtension -DirectoryId d-123456ijkl

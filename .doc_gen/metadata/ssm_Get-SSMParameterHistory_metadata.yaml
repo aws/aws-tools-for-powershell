@@ -1,0 +1,30 @@
+---
+ssm_GetParameterHistory:
+  title: Use Get-SSMParameterHistory
+  title_abbrev: Get-SSMParameterHistory
+  synopsis: use Get-SSMParameterHistory
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists the value history for a parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMParameterHistory.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Description      :
+            KeyId            :
+            LastModifiedDate : 3/3/2017 6:55:25 PM
+            LastModifiedUser : arn:aws:iam::123456789012:user/admin
+            Name             : Welcome
+            Type             : String
+            Value            : helloWorld</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetParameterHistory: 
+

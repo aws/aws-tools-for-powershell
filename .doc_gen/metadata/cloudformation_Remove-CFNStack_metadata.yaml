@@ -1,0 +1,19 @@
+---
+cloudformation_DeleteStack:
+  title: Use Remove-CFNStack
+  title_abbrev: Remove-CFNStack
+  synopsis: use Remove-CFNStack
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Deletes the specified stack.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Remove-CFNStack.1.1.ps1
+  services:
+    cloudformation:
+      DeleteStack: 
+

@@ -1,0 +1,1 @@
+Get-EC2VpnGateway -VpnGatewayId vgw-1a2b3c4d

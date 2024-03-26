@@ -1,0 +1,1 @@
+Remove-EC2SpotDatafeedSubscription

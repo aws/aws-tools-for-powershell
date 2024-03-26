@@ -1,0 +1,1 @@
+Get-RGGroup -GroupName auto-no

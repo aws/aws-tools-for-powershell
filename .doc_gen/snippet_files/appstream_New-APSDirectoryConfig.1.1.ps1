@@ -1,0 +1,1 @@
+New-APSDirectoryConfig -ServiceAccountCredentials_AccountName contoso\ServiceAccount -ServiceAccountCredentials_AccountPassword MyPass -DirectoryName contoso.com -OrganizationalUnitDistinguishedName "OU=AppStream,OU=Contoso,DC=Contoso,DC=com"

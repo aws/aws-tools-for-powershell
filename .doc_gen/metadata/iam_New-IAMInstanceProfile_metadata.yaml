@@ -1,0 +1,30 @@
+---
+iam_CreateInstanceProfile:
+  title: Use New-IAMInstanceProfile
+  title_abbrev: New-IAMInstanceProfile
+  synopsis: use New-IAMInstanceProfile
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: |-
+            <emphasis role="bold">Example 1: This example creates a new IAM instance profile named <code>ProfileForDevEC2Instance</code>.
+             You must separately run the  <code>Add-IAMRoleToInstanceProfile</code> command to associate the instance profile with an existing IAM role that provides permissions to the instance. Finally, attach the instance profile to an EC2 instance when you launch it. To do that, use the <code>New-EC2Instance</code> cmdlet with either the <code>InstanceProfile_Arn</code> or <code>InstanceProfile_Name</code> parameter.</emphasis>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_New-IAMInstanceProfile.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn                 : arn:aws:iam::123456789012:instance-profile/ProfileForDevEC2Instance
+            CreateDate          : 4/14/2015 11:31:39 AM
+            InstanceProfileId   : DYMFXL556EY46EXAMPLE1
+            InstanceProfileName : ProfileForDevEC2Instance
+            Path                : /
+            Roles               : {}</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      CreateInstanceProfile: 

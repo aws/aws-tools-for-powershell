@@ -1,0 +1,1 @@
+Remove-SSMParameter -Name "helloWorld"

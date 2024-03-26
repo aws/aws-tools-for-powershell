@@ -1,0 +1,1 @@
+New-EC2Volume -Size 50 -AvailabilityZone us-west-2a -VolumeType gp2

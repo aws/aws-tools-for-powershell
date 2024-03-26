@@ -1,0 +1,27 @@
+---
+directory-service_CreateComputer:
+  title: Use New-DSComputer
+  title_abbrev: New-DSComputer
+  synopsis: use New-DSComputer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new Active Directory computer object.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_New-DSComputer.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ComputerAttributes                  ComputerId                                    ComputerName
+            ------------------                  ----------                                    ------------
+            {WindowsSamName, DistinguishedName} S-1-5-21-1191241402-978882507-2717148213-1662 ADMemberServer</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      CreateComputer: 
+
+

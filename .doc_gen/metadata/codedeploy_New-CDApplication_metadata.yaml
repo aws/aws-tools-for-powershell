@@ -1,0 +1,23 @@
+---
+codedeploy_CreateApplication:
+  title: Use New-CDApplication
+  title_abbrev: New-CDApplication
+  synopsis: use New-CDApplication
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new application with the specified name.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_New-CDApplication.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">f19e4b61-2231-4328-b0fd-e57f5EXAMPLE</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      CreateApplication: 
+

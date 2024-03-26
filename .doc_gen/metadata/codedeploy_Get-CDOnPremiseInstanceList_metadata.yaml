@@ -1,0 +1,25 @@
+---
+codedeploy_ListOnPremisesInstances:
+  title: Use Get-CDOnPremiseInstanceList
+  title_abbrev: Get-CDOnPremiseInstanceList
+  synopsis: use Get-CDOnPremiseInstanceList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets a list of available on-premises instance names.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDOnPremiseInstanceList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AssetTag12010298EX
+            AssetTag12010298EX-2</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      ListOnPremisesInstances: 
+

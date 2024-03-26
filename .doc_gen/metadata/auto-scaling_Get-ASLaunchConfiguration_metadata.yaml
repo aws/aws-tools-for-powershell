@@ -1,0 +1,55 @@
+---
+auto-scaling_DescribeLaunchConfigurations:
+  title: Use Get-ASLaunchConfiguration
+  title_abbrev: Get-ASLaunchConfiguration
+  synopsis: use Get-ASLaunchConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example lists the names of your launch configurations.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">LaunchConfigurationName
+            -----------------------
+            my-lc-1
+            my-lc-2
+            my-lc-3
+            my-lc-4
+            my-lc-5</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example describes the specified launch configuration.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">AssociatePublicIpAddress     : True\nBlockDeviceMappings          : {/dev/xvda}\nClassicLinkVPCId             :\nClassicLinkVPCSecurityGroups : {}\nCreatedTime                  : 12/12/2014 3:22:08 PM\nEbsOptimized                 : False\nIamInstanceProfile           :\nImageId                      : ami-043a5034\nInstanceMonitoring           : Amazon.AutoScaling.Model.InstanceMonitoring\nInstanceType                 : t2.micro\nKernelId                     :\nKeyName                      : \nLaunchConfigurationARN       : arn:aws:autoscaling:us-west-2:123456789012:launchConfiguration:7e5f31e4-693b-4604-9322-\n                               e6f68d7fafad:launchConfigurationName/my-lc-1\nLaunchConfigurationName      : my-lc-1\nPlacementTenancy             :\nRamdiskId                    :\nSecurityGroups               : {sg-67ef0308}\nSpotPrice                    :\nUserData                     :</programlisting>"
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This example describes the specified two launch configurations.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.3.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 4: This example describes all your launch configurations.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.4.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 5: This example describes all your launch configurations, in batches of 10.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.5.1.ps1
+          description: 
+  services:
+    auto-scaling:
+      DescribeLaunchConfigurations: 
+
+

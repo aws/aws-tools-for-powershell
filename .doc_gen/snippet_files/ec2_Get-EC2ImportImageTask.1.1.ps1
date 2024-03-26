@@ -1,0 +1,1 @@
+Get-EC2ImportImageTask -ImportTaskId import-ami-hgfedcba

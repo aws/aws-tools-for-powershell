@@ -1,0 +1,26 @@
+---
+s3_GetObjectTagging:
+  title: Use Get-S3ObjectTagSet
+  title_abbrev: Get-S3ObjectTagSet
+  synopsis: use Get-S3ObjectTagSet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: The sample returns the tags associated with the object present on the given S3 bucket.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3ObjectTagSet.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Key  Value
+            ---  -----
+            test value</programlisting>
+  services:
+    s3:
+      GetObjectTagging: 
+

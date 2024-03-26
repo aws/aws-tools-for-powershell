@@ -1,0 +1,26 @@
+---
+ec2_DescribeIdentityIdFormat:
+  title: Use Get-EC2IdentityIdFormat
+  title_abbrev: Get-EC2IdentityIdFormat
+  synopsis: use Get-EC2IdentityIdFormat
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example returns the ID format for the resouce 'image' for the role given</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2IdentityIdFormat.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Deadline             Resource UseLongIds
+            --------             -------- ----------
+            8/2/2018 11:30:00 PM image    True</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeIdentityIdFormat: 
+

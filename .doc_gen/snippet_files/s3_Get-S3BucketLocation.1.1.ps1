@@ -1,0 +1,1 @@
+Get-S3BucketLocation -BucketName 's3testbucket'

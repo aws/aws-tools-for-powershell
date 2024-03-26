@@ -1,0 +1,26 @@
+---
+resource-groups_GetGroup:
+  title: Use Get-RGGroup
+  title_abbrev: Get-RGGroup
+  synopsis: use Get-RGGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example retrieves resource group as per the group name</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/resource-groups_Get-RGGroup.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Description GroupArn                                                     Name
+            ----------- --------                                                     ----
+                        arn:aws:resource-groups:eu-west-1:123456789012:group/auto-no auto-no</programlisting>
+  services:
+    resource-groups:
+      GetGroup: 
+

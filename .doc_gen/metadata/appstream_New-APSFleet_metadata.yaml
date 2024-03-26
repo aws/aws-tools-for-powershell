@@ -1,0 +1,42 @@
+---
+appstream_CreateFleet:
+  title: Use New-APSFleet
+  title_abbrev: New-APSFleet
+  synopsis: use New-APSFleet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample creates a new AppStream fleet</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_New-APSFleet.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Arn                            : arn:aws:appstream:us-west-2:123456789012:fleet/TestFleet
+            ComputeCapacityStatus          : Amazon.AppStream.Model.ComputeCapacityStatus
+            CreatedTime                    : 12/27/2019 11:24:42 AM
+            Description                    :
+            DisconnectTimeoutInSeconds     : 900
+            DisplayName                    : TestFleet
+            DomainJoinInfo                 :
+            EnableDefaultInternetAccess    : True
+            FleetErrors                    : {}
+            FleetType                      : ON_DEMAND
+            IamRoleArn                     :
+            IdleDisconnectTimeoutInSeconds : 0
+            ImageArn                       : arn:aws:appstream:us-west-2:123456789012:image/SessionScriptTest
+            ImageName                      : SessionScriptTest
+            InstanceType                   : stream.standard.medium
+            MaxUserDurationInSeconds       : 57600
+            Name                           : TestFleet
+            State                          : STOPPED
+            VpcConfig                      : Amazon.AppStream.Model.VpcConfig</programlisting>
+  services:
+    appstream:
+      CreateFleet: 
+

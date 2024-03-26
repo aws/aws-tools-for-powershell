@@ -1,0 +1,1 @@
+Get-MLEvaluationList -FilterVariable Status -EQ COMPLETED

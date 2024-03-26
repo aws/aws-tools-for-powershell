@@ -1,0 +1,38 @@
+---
+ec2_AllocateAddress:
+  title: Use New-EC2Address
+  title_abbrev: New-EC2Address
+  synopsis: use New-EC2Address
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example allocates an Elastic IP address to use with an instance in a VPC.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2Address.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllocationId         Domain      PublicIp
+            ------------         ------      --------
+            eipalloc-12345678    vpc         198.51.100.2</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example allocates an Elastic IP address to use with an instance in EC2-Classic.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2Address.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllocationId         Domain      PublicIp
+            ------------         ------      --------
+                                 standard    203.0.113.17</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      AllocateAddress: 
+

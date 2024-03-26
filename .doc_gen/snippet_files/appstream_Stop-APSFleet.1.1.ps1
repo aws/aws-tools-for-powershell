@@ -1,0 +1,1 @@
+Stop-APSFleet -Name PowershellFleet

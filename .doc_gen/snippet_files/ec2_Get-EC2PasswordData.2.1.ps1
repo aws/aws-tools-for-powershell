@@ -1,0 +1,1 @@
+Get-EC2PasswordData -InstanceId i-12345678 -Decrypt

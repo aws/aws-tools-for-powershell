@@ -1,0 +1,1 @@
+Get-S3BucketInventoryConfiguration -BucketName 's3testbucket' -InventoryId 'testinventory'

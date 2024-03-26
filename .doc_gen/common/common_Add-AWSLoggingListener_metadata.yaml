@@ -1,0 +1,24 @@
+---
+Common_Add-AWSLoggingListener:
+  title: Use Add-AWSLoggingListener
+  title_abbrev: Add-AWSLoggingListener
+  synopsis: use Add-AWSLoggingListener
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Attaches a listener for the source 'Amazon', matching responses from all services for the current script or shell. Log output will be written to the specified file (the folder path must exist). Multiple listeners for different namespaces can be active at a time. By default only error responses are logged.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Add-AWSLoggingListener.1.1.ps1
+        - description: "<emphasis role=\"bold\">Example 2: Attaches a listener for the source 'Amazon.S3'. Responses matching only this namespace will be logged to the specified file (the folder path must exist). Multiple listeners for different namespaces can be active at a time. By default only error responses are logged.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Add-AWSLoggingListener.2.1.ps1
+  services:
+    Common:
+      Add-AWSLoggingListener: 
+

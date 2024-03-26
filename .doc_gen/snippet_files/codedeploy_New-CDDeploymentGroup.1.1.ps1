@@ -1,0 +1,1 @@
+New-CDDeploymentGroup -ApplicationName MyNewApplication -AutoScalingGroup CodeDeployDemo-ASG -DeploymentConfigName CodeDeployDefault.OneAtATime -DeploymentGroupName MyNewDeploymentGroup -Ec2TagFilter @{Key="Name"; Type="KEY_AND_VALUE"; Value="CodeDeployDemo"} -ServiceRoleArn arn:aws:iam::80398EXAMPLE:role/CodeDeployDemo

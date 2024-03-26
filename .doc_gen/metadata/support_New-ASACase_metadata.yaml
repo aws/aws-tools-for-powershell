@@ -1,0 +1,19 @@
+---
+support_CreateCase:
+  title: Use New-ASACase
+  title_abbrev: New-ASACase
+  synopsis: use New-ASACase
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: \n      Creates a new case in the &AWS; Support Center. Values for the -ServiceCode and -CategoryCode parameters can be obtained using the Get-ASAService cmdlet. The value for the -SeverityCode parameter can be obtained using the Get-ASASeverityLevel cmdlet. The -IssueType parameter value can be either \"customer-service\" or \"technical\". If successful the &AWS; Support case number is output.\n      By default the case will be handled in English, to use Japanese add the -Language \"ja\" parameter.\n      The -ServiceCode, -CategoryCode, -Subject and -CommunicationBody parameters are mandatory.\n    </emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/support_New-ASACase.1.1.ps1
+  services:
+    support:
+      CreateCase: 
+

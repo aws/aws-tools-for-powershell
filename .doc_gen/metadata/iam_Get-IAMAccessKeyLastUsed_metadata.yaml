@@ -1,0 +1,19 @@
+---
+iam_GetAccessKeyLastUsed:
+  title: Use Get-IAMAccessKeyLastUsed
+  title_abbrev: Get-IAMAccessKeyLastUsed
+  synopsis: use Get-IAMAccessKeyLastUsed
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the owning user name and last-usage information for the supplied access key.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMAccessKeyLastUsed.1.1.ps1
+  services:
+    iam:
+      GetAccessKeyLastUsed: 
+

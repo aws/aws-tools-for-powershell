@@ -1,0 +1,42 @@
+---
+appstream_UpdateFleet:
+  title: Use Update-APSFleet
+  title_abbrev: Update-APSFleet
+  synopsis: use Update-APSFleet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample updates properties of a fleet</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Update-APSFleet.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Arn                            : arn:aws:appstream:us-east-1:123456789012:fleet/PowershellFleet
+            ComputeCapacityStatus          : Amazon.AppStream.Model.ComputeCapacityStatus
+            CreatedTime                    : 4/24/2019 8:39:41 AM
+            Description                    : PowershellFleet
+            DisconnectTimeoutInSeconds     : 950
+            DisplayName                    : PowershellFleet
+            DomainJoinInfo                 :
+            EnableDefaultInternetAccess    : True
+            FleetErrors                    : {}
+            FleetType                      : ON_DEMAND
+            IamRoleArn                     :
+            IdleDisconnectTimeoutInSeconds : 900
+            ImageArn                       : arn:aws:appstream:us-east-1:123456789012:image/Powershell
+            ImageName                      : Powershell
+            InstanceType                   : stream.standard.medium
+            MaxUserDurationInSeconds       : 57600
+            Name                           : PowershellFleet
+            State                          : STOPPED
+            VpcConfig                      : Amazon.AppStream.Model.VpcConfig</programlisting>
+  services:
+    appstream:
+      UpdateFleet: 
+

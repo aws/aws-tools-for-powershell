@@ -1,0 +1,26 @@
+---
+ec2_CreateVpcEndpoint:
+  title: Use New-EC2VpcEndpoint
+  title_abbrev: New-EC2VpcEndpoint
+  synopsis: use New-EC2VpcEndpoint
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example create a new VPC Endpoint for the service com.amazonaws.eu-west-1.s3 in the VPC vpc-0fc1ff23f45b678eb</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2VpcEndpoint.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ClientToken VpcEndpoint
+            ----------- -----------
+                        Amazon.EC2.Model.VpcEndpoint</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CreateVpcEndpoint: 
+

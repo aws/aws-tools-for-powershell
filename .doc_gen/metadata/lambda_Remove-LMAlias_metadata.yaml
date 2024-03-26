@@ -1,0 +1,19 @@
+---
+lambda_DeleteAlias:
+  title: Use Remove-LMAlias
+  title_abbrev: Remove-LMAlias
+  synopsis: use Remove-LMAlias
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the Lambda function Alias mentioned in the command.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Remove-LMAlias.1.1.ps1
+          description: 
+  services:
+    lambda:
+      DeleteAlias: 
+

@@ -1,0 +1,19 @@
+---
+codecommit_CreateBranch:
+  title: Use New-CCBranch
+  title_abbrev: New-CCBranch
+  synopsis: use New-CCBranch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new branch with the specified name for the specified repository and the specified commit ID.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codecommit_New-CCBranch.1.1.ps1
+  services:
+    codecommit:
+      CreateBranch: 
+

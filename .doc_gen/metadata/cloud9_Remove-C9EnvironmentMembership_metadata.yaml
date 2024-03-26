@@ -1,0 +1,19 @@
+---
+cloud9_DeleteEnvironmentMembership:
+  title: Use Remove-C9EnvironmentMembership
+  title_abbrev: Remove-C9EnvironmentMembership
+  synopsis: use Remove-C9EnvironmentMembership
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the specified environment member from the specified &AWS; Cloud9 development environment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Remove-C9EnvironmentMembership.1.1.ps1
+  services:
+    cloud9:
+      DeleteEnvironmentMembership: 
+

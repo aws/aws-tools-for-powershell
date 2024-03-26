@@ -1,0 +1,1 @@
+Edit-WKSWorkspaceProperty -WorkspaceId ws-w361s100v -Region us-west-2 -WorkspaceProperties_RunningMode AUTO_STOP

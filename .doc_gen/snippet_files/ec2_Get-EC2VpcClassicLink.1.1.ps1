@@ -1,0 +1,1 @@
+Get-EC2VpcClassicLink -Region eu-west-1

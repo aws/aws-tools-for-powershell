@@ -1,0 +1,19 @@
+---
+lambda_RemovePermission:
+  title: Use Remove-LMPermission
+  title_abbrev: Remove-LMPermission
+  synopsis: use Remove-LMPermission
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example removes the function policy for the specified StatementId of a Lambda Function.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Remove-LMPermission.1.1.ps1
+          description: 
+  services:
+    lambda:
+      RemovePermission: 
+

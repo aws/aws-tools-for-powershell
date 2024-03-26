@@ -1,0 +1,1 @@
+Get-EC2SecurityGroup -GroupId sg-12345678

@@ -1,0 +1,28 @@
+---
+ssm_DescribeMaintenanceWindows:
+  title: Use Get-SSMMaintenanceWindowList
+  title_abbrev: Get-SSMMaintenanceWindowList
+  synopsis: use Get-SSMMaintenanceWindowList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all maintenance windows on your account.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Cutoff   : 1
+            Duration : 4
+            Enabled  : True
+            Name     : My-First-Maintenance-Window
+            WindowId : mw-06d59c1a07c022145</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeMaintenanceWindows: 
+

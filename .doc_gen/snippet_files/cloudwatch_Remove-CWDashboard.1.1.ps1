@@ -1,0 +1,1 @@
+Remove-CWDashboard -DashboardName Dashboard1

@@ -1,0 +1,1 @@
+Remove-AWSLoggingListener -Source Amazon.S3 -Name MyS3Logs

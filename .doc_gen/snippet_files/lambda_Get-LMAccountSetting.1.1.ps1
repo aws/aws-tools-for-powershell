@@ -1,0 +1,1 @@
+Get-LMAccountSetting | Select-Object @{Name="TotalCodeSizeLimit";Expression={$_.AccountLimit.TotalCodeSize}}, @{Name="TotalCodeSizeUsed";Expression={$_.AccountUsage.TotalCodeSize}}

@@ -1,0 +1,1 @@
+Register-CDOnPremiseInstance -IamUserArn arn:aws:iam::80398EXAMPLE:user/CodeDeployDemoUser -InstanceName AssetTag12010298EX

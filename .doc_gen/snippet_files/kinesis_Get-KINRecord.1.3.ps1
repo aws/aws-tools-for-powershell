@@ -1,0 +1,1 @@
+[Text.Encoding]::UTF8.GetString($records.Records[0].Data.ToArray())

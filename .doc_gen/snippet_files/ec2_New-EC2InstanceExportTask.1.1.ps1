@@ -1,0 +1,1 @@
+New-EC2InstanceExportTask -InstanceId i-0800b00a00EXAMPLE -ExportToS3Task_DiskImageFormat VHD -ExportToS3Task_S3Bucket "testbucket-export-instances-2019" -TargetEnvironment Microsoft -Region us-east-1

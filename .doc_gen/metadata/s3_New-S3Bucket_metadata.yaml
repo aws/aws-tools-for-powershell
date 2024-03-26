@@ -1,0 +1,38 @@
+---
+s3_PutBucket:
+  title: Use New-S3Bucket
+  title_abbrev: New-S3Bucket
+  synopsis: use New-S3Bucket
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command creates a new private bucket named "sample-bucket".</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_New-S3Bucket.1.1.ps1
+        - description: |-
+            <emphasis role="bold">Example 2: This command creates a new bucket named "sample-bucket" with read-write
+                  permissions.</emphasis>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_New-S3Bucket.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This command creates a new bucket named "sample-bucket" with read-only permissions.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_New-S3Bucket.3.1.ps1
+        - description: |-
+            <emphasis role="bold">Example 4: This command creates a new Directory bucket named "samplebucket--use1-az5--x-s3"
+                  with PutBucketConfiguration.</emphasis>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_New-S3Bucket.4.1.ps1
+  services:
+    s3:
+      PutBucket: 
+

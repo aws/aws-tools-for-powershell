@@ -1,0 +1,1 @@
+Remove-EC2Snapshot -SnapshotId snap-12345678

@@ -1,0 +1,28 @@
+---
+ec2_CancelCapacityReservation:
+  title: Use Remove-EC2CapacityReservation
+  title_abbrev: Remove-EC2CapacityReservation
+  synopsis: use Remove-EC2CapacityReservation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example cancels the capacity reservation cr-0c1f2345db6f7cdba</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Remove-EC2CapacityReservation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-EC2CapacityReservation (CancelCapacityReservation)" on target "cr-0c1f2345db6f7cdba".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): y
+            True</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CancelCapacityReservation: 
+

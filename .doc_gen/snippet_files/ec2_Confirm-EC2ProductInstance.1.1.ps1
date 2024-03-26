@@ -1,0 +1,1 @@
+Confirm-EC2ProductInstance -ProductCode 774F4FF8 -InstanceId i-12345678

@@ -1,0 +1,1 @@
+Get-EC2ScheduledInstanceAvailability -Recurrence_Frequency Weekly -Recurrence_Interval 1 -Recurrence_OccurrenceDay 1 -FirstSlotStartTimeRange_EarliestTime 2016-01-31T00:00:00Z -FirstSlotStartTimeRange_LatestTime 2016-01-31T04:00:00Z

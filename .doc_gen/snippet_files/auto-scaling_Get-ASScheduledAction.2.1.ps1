@@ -1,0 +1,1 @@
+Get-ASScheduledAction -ScheduledActionName @("myScheduledScaleOut", "myScheduledScaleIn")

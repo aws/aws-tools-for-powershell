@@ -1,0 +1,1 @@
+Get-FSXResourceTagList -ResourceARN $fsx.ResourceARN

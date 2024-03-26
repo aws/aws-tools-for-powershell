@@ -1,0 +1,42 @@
+---
+eks_DeleteCluster:
+  title: Use Remove-EKSCluster
+  title_abbrev: Remove-EKSCluster
+  synopsis: use Remove-EKSCluster
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet deletes the Amazon EKS cluster control plane.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/eks_Remove-EKSCluster.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-EKSCluster (DeleteCluster)" on target "DEV-KUBE-CL".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
+
+            Arn                  : arn:aws:eks:us-west-2:012345678912:cluster/DEV-KUBE-CL
+            CertificateAuthority : Amazon.EKS.Model.Certificate
+            ClientRequestToken   :
+            CreatedAt            : 12/25/2019 9:33:25 AM
+            Endpoint             : https://02E6D31E3E4F8C15D7BE7F58D527776A.yl4.us-west-2.eks.amazonaws.com
+            Identity             : Amazon.EKS.Model.Identity
+            Logging              : Amazon.EKS.Model.Logging
+            Name                 : DEV-KUBE-CL
+            PlatformVersion      : eks.7
+            ResourcesVpcConfig   : Amazon.EKS.Model.VpcConfigResponse
+            RoleArn              : arn:aws:iam::012345678912:role/eks-iam-role
+            Status               : DELETING
+            Tags                 : {}
+            Version              : 1.14</programlisting>
+          snippet_files: []
+  services:
+    eks:
+      DeleteCluster: 
+

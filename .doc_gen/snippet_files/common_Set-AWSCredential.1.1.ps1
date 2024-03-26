@@ -1,0 +1,1 @@
+Set-AWSCredential -ProfileName myCredentials

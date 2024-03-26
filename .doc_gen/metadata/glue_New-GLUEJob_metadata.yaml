@@ -1,0 +1,18 @@
+---
+glue_CreateJob:
+  title: Use New-GLUEJob
+  title_abbrev: New-GLUEJob
+  synopsis: use New-GLUEJob
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new job in &AWS; Glue. The command name value is always <code>glueetl</code>. &AWS; Glue supports running job scripts written in Python or Scala. In this example, the job script (MyTestGlueJob.py) is written in Python. Python parameters are specified in the <code>$DefArgs</code> variable, and then passed to the PowerShell command in the <code>DefaultArguments</code> parameter, which accepts a hashtable. The parameters in the <code>$JobParams</code> variable come from the CreateJob API, documented in the Jobs (https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html) topic of the &AWS; Glue API reference.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/glue_New-GLUEJob.1.1.ps1
+  services:
+    glue:
+      CreateJob: 

@@ -1,0 +1,57 @@
+---
+iam_GetAccountAuthorizationDetails:
+  title: Use Get-IAMAccountAuthorizationDetail
+  title_abbrev: Get-IAMAccountAuthorizationDetail
+  synopsis: use Get-IAMAccountAuthorizationDetail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets authorization details about the identities in the &AWS; account, and displays the element list of the returned object, including users, groups, and roles. For example, the <code>UserDetailList</code> property displays details about the users. Similar information is available in the <code>RoleDetailList</code> and <code>GroupDetailList</code> properties.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMAccountAuthorizationDetail.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">GroupDetailList : {Administrators, Developers, Testers, Backup}
+            IsTruncated     : False
+            Marker          : 
+            RoleDetailList  : {TestRole1, AdminRole, TesterRole, clirole...}
+            UserDetailList  : {Administrator, Bob, BackupToS3, }</programlisting>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMAccountAuthorizationDetail.1.2.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn            : arn:aws:iam::123456789012:user/Administrator
+            CreateDate     : 10/16/2014 9:03:09 AM
+            GroupList      : {Administrators}
+            Path           : /
+            UserId         : AIDACKCEVSQ6CEXAMPLE1
+            UserName       : Administrator
+            UserPolicyList : {}
+
+            Arn            : arn:aws:iam::123456789012:user/Bob
+            CreateDate     : 4/6/2015 12:54:42 PM
+            GroupList      : {Developers}
+            Path           : /
+            UserId         : AIDACKCEVSQ6CEXAMPLE2
+            UserName       : bab
+            UserPolicyList : {}
+
+            Arn            : arn:aws:iam::123456789012:user/BackupToS3
+            CreateDate     : 1/27/2015 10:15:08 AM
+            GroupList      : {Backup}
+            Path           : /
+            UserId         : AIDACKCEVSQ6CEXAMPLE3
+            UserName       : BackupToS3
+            UserPolicyList : {BackupServicePermissionsToS3Buckets}</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      GetAccountAuthorizationDetails: 

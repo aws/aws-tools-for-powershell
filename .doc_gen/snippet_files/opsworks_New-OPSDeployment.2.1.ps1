@@ -1,0 +1,2 @@
+$commandArgs = '{ "Name":"execute_recipes", "Args"{ "recipes":["phpapp::appsetup","testcookbook::secbaseline"] } }'
+New-OPSDeployment -StackID "724z93zz-zz78-4zzz-8z9z-1290123zzz1z" -LayerId "511b99c5-ec78-4caa-8a9d-1440116ffd1b" -InstanceId "d89a6118-0007-4ccf-a51e-59f844127021" -Command_Name $commandArgs -Command_Arg @{Name="allow_reboot";Value="true

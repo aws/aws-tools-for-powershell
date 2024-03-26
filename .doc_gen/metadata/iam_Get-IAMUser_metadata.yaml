@@ -1,0 +1,43 @@
+---
+iam_GetUser:
+  title: Use Get-IAMUser
+  title_abbrev: Get-IAMUser
+  synopsis: use Get-IAMUser
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example retrieves details about the user named <code>David</code>.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMUser.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn              : arn:aws:iam::123456789012:user/David
+            CreateDate       : 12/10/2014 3:39:27 PM
+            PasswordLastUsed : 3/19/2015 8:44:04 AM
+            Path             : /
+            UserId           : Y4FKWQCXTA52QEXAMPLE1
+            UserName         : David</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example retrieves details about the currently signed-in IAM user.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMUser.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn              : arn:aws:iam::123456789012:user/Bob
+            CreateDate       : 10/16/2014 9:03:09 AM
+            PasswordLastUsed : 3/4/2015 12:12:33 PM
+            Path             : /
+            UserId           : 7K3GJEANSKZF2EXAMPLE2
+            UserName         : Bob</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      GetUser: 

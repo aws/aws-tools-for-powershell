@@ -1,0 +1,1 @@
+Get-PLSService -ServiceCode AmazonEC2 -Region us-east-1

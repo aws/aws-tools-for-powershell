@@ -1,0 +1,37 @@
+---
+eks_DeleteFargateProfile:
+  title: Use Remove-EKSFargateProfile
+  title_abbrev: Remove-EKSFargateProfile
+  synopsis: use Remove-EKSFargateProfile
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet deletes an &AWS; Fargate profile. When you delete a Fargate profile, any pods running on Fargate that were created with the profile are deleted. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/eks_Remove-EKSFargateProfile.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-EKSFargateProfile (DeleteFargateProfile)" on target "EKSFargate".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
+
+            ClusterName         : TEST
+            CreatedAt           : 12/26/2019 12:34:47 PM
+            FargateProfileArn   : arn:aws:eks:us-east-2:012345678912:fargateprofile/TEST/EKSFargate/42b7a119-e16b-a279-ce97-bdf303adec92
+            FargateProfileName  : EKSFargate
+            PodExecutionRoleArn : arn:aws:iam::012345678912:role/AmazonEKSFargatePodExecutionRole
+            Selectors           : {Amazon.EKS.Model.FargateProfileSelector}
+            Status              : DELETING
+            Subnets             : {subnet-0cd976f08d5fbfaae, subnet-02f6ff500ff2067a0}
+            Tags                : {}</programlisting>
+          snippet_files: []
+  services:
+    eks:
+      DeleteFargateProfile: 
+

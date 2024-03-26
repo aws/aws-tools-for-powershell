@@ -1,0 +1,19 @@
+---
+s3_GetBucketVersioning:
+  title: Use Get-S3BucketVersioning
+  title_abbrev: Get-S3BucketVersioning
+  synopsis: use Get-S3BucketVersioning
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command returns the status of versioning with respect to the given bucket.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketVersioning.1.1.ps1
+          description: 
+  services:
+    s3:
+      GetBucketVersioning: 
+

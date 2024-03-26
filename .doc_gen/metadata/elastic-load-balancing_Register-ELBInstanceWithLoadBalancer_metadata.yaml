@@ -1,0 +1,28 @@
+---
+elastic-load-balancing_RegisterInstancesWithLoadBalancer:
+  title: Use Register-ELBInstanceWithLoadBalancer
+  title_abbrev: Register-ELBInstanceWithLoadBalancer
+  synopsis: use Register-ELBInstanceWithLoadBalancer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example registers the specified EC2 instance with the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Register-ELBInstanceWithLoadBalancer.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InstanceId
+            ----------
+            i-12345678
+            i-87654321</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing:
+      RegisterInstancesWithLoadBalancer: 
+
+

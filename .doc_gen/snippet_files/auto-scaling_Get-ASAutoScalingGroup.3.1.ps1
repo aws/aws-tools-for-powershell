@@ -1,0 +1,1 @@
+Get-ASAutoScalingGroup -AutoScalingGroupName @("my-asg-1", "my-asg-2")

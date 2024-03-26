@@ -1,0 +1,1 @@
+Get-SSMPatchGroupState -PatchGroup "Production"

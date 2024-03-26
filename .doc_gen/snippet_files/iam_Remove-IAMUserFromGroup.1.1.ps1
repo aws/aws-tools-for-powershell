@@ -1,0 +1,1 @@
+Remove-IAMUserFromGroup -GroupName Testers -UserName Bob

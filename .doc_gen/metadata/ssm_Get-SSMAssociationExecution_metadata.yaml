@@ -1,0 +1,31 @@
+---
+ssm_DescribeAssociationExecutions:
+  title: Use Get-SSMAssociationExecution
+  title_abbrev: Get-SSMAssociationExecution
+  synopsis: use Get-SSMAssociationExecution
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns the executions for the association ID provided</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAssociationExecution.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AssociationId         : 123a45a0-c678-9012-3456-78901234db5e
+            AssociationVersion    : 2
+            CreatedTime           : 3/2/2019 8:53:29 AM
+            DetailedStatus        :
+            ExecutionId           : 123a45a0-c678-9012-3456-78901234db5e
+            LastExecutionDate     : 1/1/0001 12:00:00 AM
+            ResourceCountByStatus : {Success=4}
+            Status                : Success</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeAssociationExecutions: 
+

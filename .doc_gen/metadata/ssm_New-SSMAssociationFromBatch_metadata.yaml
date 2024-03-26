@@ -1,0 +1,31 @@
+---
+ssm_CreateAssociationBatch:
+  title: Use New-SSMAssociationFromBatch
+  title_abbrev: New-SSMAssociationFromBatch
+  synopsis: use New-SSMAssociationFromBatch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example associates a configuration document with multiple instances. The output returns a list of successful and failed operations, if applicable.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMAssociationFromBatch.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Failed  Successful
+            ------  ----------
+            {}      {Amazon.SimpleSystemsManagement.Model.FailedCreateAssociation, Amazon.SimpleSystemsManagement.Model.FailedCreateAsso...</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example will show the full details of a successful operation.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMAssociationFromBatch.2.1.ps1
+  services:
+    ssm:
+      CreateAssociationBatch: 
+

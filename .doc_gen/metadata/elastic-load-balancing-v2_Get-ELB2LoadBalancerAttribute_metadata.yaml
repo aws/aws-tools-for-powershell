@@ -1,0 +1,24 @@
+---
+elastic-load-balancing-v2_DescribeLoadBalancerAttributes:
+  title: Use Get-ELB2LoadBalancerAttribute
+  title_abbrev: Get-ELB2LoadBalancerAttribute
+  synopsis: use Get-ELB2LoadBalancerAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command describes the attributes of given Load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2LoadBalancerAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Key                               Value\n---                               -----\naccess_logs.s3.enabled            false\nload_balancing.cross_zone.enabled true\naccess_logs.s3.prefix             \ndeletion_protection.enabled       false\naccess_logs.s3.bucket</programlisting>"
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DescribeLoadBalancerAttributes: 
+
+

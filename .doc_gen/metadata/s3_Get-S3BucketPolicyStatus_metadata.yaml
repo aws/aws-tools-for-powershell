@@ -1,0 +1,19 @@
+---
+s3_GetBucketPolicyStatus:
+  title: Use Get-S3BucketPolicyStatus
+  title_abbrev: Get-S3BucketPolicyStatus
+  synopsis: use Get-S3BucketPolicyStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command returns policy status for the given S3 bucket, indicating whether the bucket is public.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketPolicyStatus.1.1.ps1
+          description: 
+  services:
+    s3:
+      GetBucketPolicyStatus: 
+

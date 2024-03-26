@@ -1,0 +1,59 @@
+---
+elastic-load-balancing_DescribeLoadBalancerPolicies:
+  title: Use Get-ELBLoadBalancerPolicy
+  title_abbrev: Get-ELBLoadBalancerPolicy
+  synopsis: use Get-ELBLoadBalancerPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the policies associated with the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicy.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">PolicyAttributeDescriptions             PolicyName                              PolicyTypeName
+            ---------------------------             ----------                              --------------
+            {ProxyProtocol}                         my-ProxyProtocol-policy                 ProxyProtocolPolicyType
+            {CookieName}                            my-app-cookie-policy                    AppCookieStickinessPolicyType</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the attributes of the specified policy.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicy.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeName    AttributeValue
+            -------------    --------------
+            ProxyProtocol    true</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example describes the predefined policies, including the sample policies. The names of the sample policies have the ELBSample- prefix.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicy.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">PolicyAttributeDescriptions             PolicyName                              PolicyTypeName
+            ---------------------------             ----------                              --------------
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSecurityPolicy-2015-05               SSLNegotiationPolicyType
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSecurityPolicy-2015-03               SSLNegotiationPolicyType
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSecurityPolicy-2015-02               SSLNegotiationPolicyType
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSecurityPolicy-2014-10               SSLNegotiationPolicyType
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSecurityPolicy-2014-01               SSLNegotiationPolicyType
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSecurityPolicy-2011-08               SSLNegotiationPolicyType
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSample-ELBDefaultCipherPolicy        SSLNegotiationPolicyType
+            {Protocol-SSLv2, Protocol-TLSv1, Pro... ELBSample-OpenSSLDefaultCipherPolicy    SSLNegotiationPolicyType</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing:
+      DescribeLoadBalancerPolicies: 
+
+

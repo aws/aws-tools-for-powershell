@@ -1,0 +1,1 @@
+"dynamodb","s3" | Get-RGTResource

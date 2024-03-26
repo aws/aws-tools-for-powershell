@@ -1,0 +1,19 @@
+---
+ec2_UnassignPrivateIpAddresses:
+  title: Use Unregister-EC2PrivateIpAddress
+  title_abbrev: Unregister-EC2PrivateIpAddress
+  synopsis: use Unregister-EC2PrivateIpAddress
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example unassigns the specified private IP address from the specified network interface.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Unregister-EC2PrivateIpAddress.1.1.ps1
+  services:
+    ec2:
+      UnassignPrivateIpAddresses: 
+

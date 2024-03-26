@@ -1,0 +1,1 @@
+Unregister-IAMRolePolicy -RoleName FedTesterRole -PolicyArn arn:aws:iam::123456789012:policy/FederatedTesterAccessPolicy

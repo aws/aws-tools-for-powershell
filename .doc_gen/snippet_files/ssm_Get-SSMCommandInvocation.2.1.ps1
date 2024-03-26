@@ -1,0 +1,1 @@
+Get-SSMCommandInvocation -CommandId e1eb2e3c-ed4c-5123-45c1-234f5612345f -Detail:$true | Select-Object -ExpandProperty CommandPlugins

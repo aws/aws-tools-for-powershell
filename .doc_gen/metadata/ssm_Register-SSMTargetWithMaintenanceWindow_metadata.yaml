@@ -1,0 +1,41 @@
+---
+ssm_RegisterTargetWithMaintenanceWindow:
+  title: Use Register-SSMTargetWithMaintenanceWindow
+  title_abbrev: Register-SSMTargetWithMaintenanceWindow
+  synopsis: use Register-SSMTargetWithMaintenanceWindow
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example registers an instance with a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Register-SSMTargetWithMaintenanceWindow.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">d8e47760-23ed-46a5-9f28-927337725398</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example registers multiple instances with a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Register-SSMTargetWithMaintenanceWindow.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">6ab5c208-9fc4-4697-84b7-b02a6cc25f7d</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example registers an instance with a maintenance window using EC2 tags.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Register-SSMTargetWithMaintenanceWindow.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">2994977e-aefb-4a71-beac-df620352f184</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      RegisterTargetWithMaintenanceWindow: 
+

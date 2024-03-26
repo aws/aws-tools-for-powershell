@@ -1,0 +1,38 @@
+---
+dynamodb_Add-DDBIndexSchema:
+  title: Use Add-DDBIndexSchema
+  title_abbrev: Add-DDBIndexSchema
+  synopsis: use Add-DDBIndexSchema
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates an empty TableSchema object and adds a new local secondary index definition to it before writing the TableSchema object to the pipeline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Add-DDBIndexSchema.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
+            ---------------                             ---------                                   -------------------------
+            {LastPostDateTime}                          {}                                          {LastPostIndex}</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: Adds a new local secondary index definition to the supplied TableSchema object before writing the TableSchema object back to the pipeline. The TableSchema object can also be supplied using the -Schema parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Add-DDBIndexSchema.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeSchema                             KeySchema                                   LocalSecondaryIndexSchema
+            ---------------                             ---------                                   -------------------------
+            {LastPostDateTime}                          {}                                          {LastPostIndex}</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      Add-DDBIndexSchema: 
+

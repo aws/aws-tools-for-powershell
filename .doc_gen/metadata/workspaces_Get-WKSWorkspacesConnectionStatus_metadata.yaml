@@ -1,0 +1,19 @@
+---
+workspaces_DescribeWorkspacesConnectionStatus:
+  title: Use Get-WKSWorkspacesConnectionStatus
+  title_abbrev: Get-WKSWorkspacesConnectionStatus
+  synopsis: use Get-WKSWorkspacesConnectionStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample fetches the connection status for the specified Workspace</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Get-WKSWorkspacesConnectionStatus.1.1.ps1
+  services:
+    workspaces:
+      DescribeWorkspacesConnectionStatus: 
+

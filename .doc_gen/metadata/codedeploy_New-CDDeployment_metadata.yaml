@@ -1,0 +1,32 @@
+---
+codedeploy_CreateDeployment:
+  title: Use New-CDDeployment
+  title_abbrev: New-CDDeployment
+  synopsis: use New-CDDeployment
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new deployment for the specified application and deployment group with the specified deployment configuration and application revision.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_New-CDDeployment.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">d-ZHROG7UEX</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example shows how to specify groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_New-CDDeployment.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">d-ZHROG7UEX</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      CreateDeployment: 
+

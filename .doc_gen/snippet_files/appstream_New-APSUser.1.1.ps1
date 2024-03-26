@@ -1,0 +1,1 @@
+New-APSUser -UserName Test@lab.com -AuthenticationType USERPOOL -FirstName 'kt' -LastName 'aws' -Select ^UserName

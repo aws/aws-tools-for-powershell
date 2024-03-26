@@ -1,0 +1,39 @@
+---
+ssm_DescribeAutomationStepExecutions:
+  title: Use Get-SSMAutomationStepExecution
+  title_abbrev: Get-SSMAutomationStepExecution
+  synopsis: use Get-SSMAutomationStepExecution
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This exmaple displays information about all active and terminated step executions in an Automation workflow.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAutomationStepExecution.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">StepName                  Action                  StepStatus
+            --------                  ------                  ----------
+            LaunchInstance            aws:runInstances        Success
+            OSCompatibilityCheck      aws:runCommand          Success
+            RunPreUpdateScript        aws:runCommand          Success
+            UpdateEC2Config           aws:runCommand          Cancelled
+            UpdateSSMAgent            aws:runCommand          Pending
+            UpdateAWSPVDriver         aws:runCommand          Pending
+            UpdateAWSEnaNetworkDriver aws:runCommand          Pending
+            UpdateAWSNVMe             aws:runCommand          Pending
+            InstallWindowsUpdates     aws:runCommand          Pending
+            RunPostUpdateScript       aws:runCommand          Pending
+            RunSysprepGeneralize      aws:runCommand          Pending
+            StopInstance              aws:changeInstanceState Pending
+            CreateImage               aws:createImage         Pending
+            TerminateInstance         aws:changeInstanceState Pending</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeAutomationStepExecutions: 
+

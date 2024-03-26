@@ -1,0 +1,26 @@
+---
+ec2_AttachVpnGateway:
+  title: Use Add-EC2VpnGateway
+  title_abbrev: Add-EC2VpnGateway
+  synopsis: use Add-EC2VpnGateway
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example attaches the specified virtual private gateway to the specified VPC.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Add-EC2VpnGateway.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">State        VpcId
+            -----        -----
+            attaching    vpc-12345678</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      AttachVpnGateway: 
+

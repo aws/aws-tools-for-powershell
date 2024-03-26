@@ -1,0 +1,32 @@
+---
+codedeploy_CreateDeploymentGroup:
+  title: Use New-CDDeploymentGroup
+  title_abbrev: New-CDDeploymentGroup
+  synopsis: use New-CDDeploymentGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a deployment group with the specified name, Auto Scaling group, deployment configuration, tag, and service role, for the specified application.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_New-CDDeploymentGroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">16bbf199-95fd-40fc-a909-0bbcfEXAMPLE</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example shows how to specify groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_New-CDDeploymentGroup.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">16bbf199-95fd-40fc-a909-0bbcfEXAMPLE</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      CreateDeploymentGroup: 
+

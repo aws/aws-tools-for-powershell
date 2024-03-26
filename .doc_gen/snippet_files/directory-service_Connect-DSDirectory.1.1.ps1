@@ -1,0 +1,1 @@
+Connect-DSDirectory -Name contoso.com -ConnectSettings_CustomerUserName Administrator -Password $Password -ConnectSettings_CustomerDnsIp 172.31.36.96 -ShortName CONTOSO -Size Small -ConnectSettings_VpcId vpc-123459da -ConnectSettings_SubnetId subnet-1234ccaa, subnet-5678ffbb

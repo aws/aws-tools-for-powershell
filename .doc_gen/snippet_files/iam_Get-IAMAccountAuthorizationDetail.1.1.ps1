@@ -1,0 +1,2 @@
+$Details=Get-IAMAccountAuthorizationDetail
+$Details

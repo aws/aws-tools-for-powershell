@@ -1,0 +1,1 @@
+Set-DSDomainControllerCount -DirectoryId d-123456ijkl -DesiredNumber 3

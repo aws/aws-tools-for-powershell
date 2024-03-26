@@ -1,0 +1,1 @@
+Copy-S3Object -BucketName test-files -Key sample.txt -LocalFile local-sample.txt

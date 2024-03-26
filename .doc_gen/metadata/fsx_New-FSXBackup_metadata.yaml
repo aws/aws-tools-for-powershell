@@ -1,0 +1,33 @@
+---
+fsx_CreateBackup:
+  title: Use New-FSXBackup
+  title_abbrev: New-FSXBackup
+  synopsis: use New-FSXBackup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a back up of the given file system.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/fsx_New-FSXBackup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BackupId        : backup-0b1fac2345623456ba
+            CreationTime    : 6/14/2019 5:37:17 PM
+            FailureDetails  :
+            FileSystem      : Amazon.FSx.Model.FileSystem
+            KmsKeyId        : arn:aws:kms:eu-west-1:123456789012:key/f1af23c4-1b23-1bde-a1f3-e1234c5af678
+            Lifecycle       : CREATING
+            ProgressPercent : 0
+            ResourceARN     : arn:aws:fsx:eu-west-1:123456789012:backup/backup-0b1fac2345623456ba
+            Tags            : {}
+            Type            : USER_INITIATED</programlisting>
+          snippet_files: []
+  services:
+    fsx:
+      CreateBackup: 
+

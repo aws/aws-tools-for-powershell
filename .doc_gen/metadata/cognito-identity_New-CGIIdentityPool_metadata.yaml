@@ -1,0 +1,33 @@
+---
+cognito-identity_CreateIdentityPool:
+  title: Use New-CGIIdentityPool
+  title_abbrev: New-CGIIdentityPool
+  synopsis: use New-CGIIdentityPool
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates a new Identity Pool which allows unauthenticated identities.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cognito-identity_New-CGIIdentityPool.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LoggedAt                       : 8/12/2015 4:56:07 PM
+            AllowUnauthenticatedIdentities : True
+            DeveloperProviderName          :
+            IdentityPoolId                 : us-east-1:15d49393-ab16-431a-b26e-EXAMPLEGUID3
+            IdentityPoolName               : CommonTests13
+            OpenIdConnectProviderARNs      : {}
+            SupportedLoginProviders        : {}
+            ResponseMetadata               : Amazon.Runtime.ResponseMetadata
+            ContentLength                  : 136
+            HttpStatusCode                 : OK</programlisting>
+          snippet_files: []
+  services:
+    cognito-identity:
+      CreateIdentityPool: 
+

@@ -1,0 +1,26 @@
+---
+iam_ListAttachedGroupPolicies:
+  title: Use Get-IAMAttachedGroupPolicyList
+  title_abbrev: Get-IAMAttachedGroupPolicyList
+  synopsis: use Get-IAMAttachedGroupPolicyList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command returns the names and ARNs of the managed policies that are attached to the IAM group named <code>Admins</code> in the &AWS; account. To see the list of inline policies embedded in the group, use the <code>Get-IAMGroupPolicyList</code> command.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMAttachedGroupPolicyList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">PolicyArn                                                 PolicyName
+            ---------                                                 ----------
+            arn:aws:iam::aws:policy/SecurityAudit                     SecurityAudit
+            arn:aws:iam::aws:policy/AdministratorAccess               AdministratorAccess</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      ListAttachedGroupPolicies: 

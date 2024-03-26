@@ -1,0 +1,1 @@
+New-ELBLoadBalancer -LoadBalancerName my-classic-load-balancer -AvailabilityZone us-west-2a` -Listener $httpListener

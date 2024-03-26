@@ -1,0 +1,19 @@
+---
+lambda_PutFunctionConcurrency:
+  title: Use Write-LMFunctionConcurrency
+  title_abbrev: Write-LMFunctionConcurrency
+  synopsis: use Write-LMFunctionConcurrency
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example applies the concurrency settings for the Function as a whole.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Write-LMFunctionConcurrency.1.1.ps1
+          description: 
+  services:
+    lambda:
+      PutFunctionConcurrency: 
+

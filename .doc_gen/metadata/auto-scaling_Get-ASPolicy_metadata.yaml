@@ -1,0 +1,48 @@
+---
+auto-scaling_DescribePolicies:
+  title: Use Get-ASPolicy
+  title_abbrev: Get-ASPolicy
+  synopsis: use Get-ASPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example describes all policies for the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASPolicy.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AdjustmentType          : ChangeInCapacity
+            Alarms                  : {}
+            AutoScalingGroupName    : my-asg
+            Cooldown                : 0
+            EstimatedInstanceWarmup : 0
+            MetricAggregationType   :
+            MinAdjustmentMagnitude  : 0
+            MinAdjustmentStep       : 0
+            PolicyARN               : arn:aws:auto-scaling:us-west-2:123456789012:scalingPolicy:aa3836ab-5462-42c7-adab-e1d769fc24ef
+                                      :autoScalingGroupName/my-asg:policyName/myScaleInPolicy
+            PolicyName              : myScaleInPolicy
+            PolicyType              : SimpleScaling
+            ScalingAdjustment       : -1
+            StepAdjustments         : {}</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example describes the specified policies for the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASPolicy.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This example describes all policies for all your Auto Scaling groups.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASPolicy.3.1.ps1
+          description: 
+  services:
+    auto-scaling:
+      DescribePolicies: 
+
+

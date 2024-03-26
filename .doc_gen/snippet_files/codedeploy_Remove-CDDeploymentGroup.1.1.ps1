@@ -1,0 +1,1 @@
+Remove-CDDeploymentGroup -ApplicationName MyNewApplication -DeploymentGroupName MyNewDeploymentGroup

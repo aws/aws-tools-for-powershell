@@ -1,0 +1,1 @@
+Get-R53HostedZonesByName -DnsName example2.com

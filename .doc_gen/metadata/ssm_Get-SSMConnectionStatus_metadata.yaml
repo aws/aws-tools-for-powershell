@@ -1,0 +1,26 @@
+---
+ssm_GetConnectionStatus:
+  title: Use Get-SSMConnectionStatus
+  title_abbrev: Get-SSMConnectionStatus
+  synopsis: use Get-SSMConnectionStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example retrieves the Session Manager connection status for an instance to determine whether it is connected and ready to receive Session Manager connections. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMConnectionStatus.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Status    Target
+            ------    ------
+            Connected i-0a1caf234f12d3dc4</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetConnectionStatus: 
+

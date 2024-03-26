@@ -1,0 +1,33 @@
+---
+cognito-identity_DescribeIdentityPool:
+  title: Use Get-CGIIdentityPool
+  title_abbrev: Get-CGIIdentityPool
+  synopsis: use Get-CGIIdentityPool
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Retrieves information about a specific Identity Pool by its id.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cognito-identity_Get-CGIIdentityPool.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LoggedAt                       : 8/12/2015 4:29:40 PM
+            AllowUnauthenticatedIdentities : True
+            DeveloperProviderName          :
+            IdentityPoolId                 : us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
+            IdentityPoolName               : CommonTests1
+            OpenIdConnectProviderARNs      : {}
+            SupportedLoginProviders        : {}
+            ResponseMetadata               : Amazon.Runtime.ResponseMetadata
+            ContentLength                  : 142
+            HttpStatusCode                 : OK</programlisting>
+          snippet_files: []
+  services:
+    cognito-identity:
+      DescribeIdentityPool: 
+

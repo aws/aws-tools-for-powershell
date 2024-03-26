@@ -1,0 +1,23 @@
+---
+codedeploy_GetApplicationRevision:
+  title: Use Get-CDApplicationRevision
+  title_abbrev: Get-CDApplicationRevision
+  synopsis: use Get-CDApplicationRevision
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about the specified application revision.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDApplicationRevision.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">Description = Application revision registered by Deployment ID: d-CX9CHN3EX, RegisterTime = 07/20/2015 23:46:42</programlisting>'
+          snippet_files: []
+  services:
+    codedeploy:
+      GetApplicationRevision: 
+

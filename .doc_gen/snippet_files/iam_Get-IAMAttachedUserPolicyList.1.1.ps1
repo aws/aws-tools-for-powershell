@@ -1,0 +1,1 @@
+Get-IAMAttachedUserPolicyList -UserName "Bob"

@@ -1,0 +1,39 @@
+---
+workspaces_DescribeWorkspaceDirectories:
+  title: Use Get-WKSWorkspaceDirectory
+  title_abbrev: Get-WKSWorkspaceDirectory
+  synopsis: use Get-WKSWorkspaceDirectory
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample lists the directory details for registered directories</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Get-WKSWorkspaceDirectory.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Alias                       : TestWorkspace
+            CustomerUserName            : Administrator
+            DirectoryId                 : d-123414a369
+            DirectoryName               : TestDirectory.com
+            DirectoryType               : MicrosoftAD
+            DnsIpAddresses              : {172.31.43.45, 172.31.2.97}
+            IamRoleId                   : arn:aws:iam::761234567801:role/workspaces_RoleDefault
+            IpGroupIds                  : {}
+            RegistrationCode            : WSpdx+4RRT43
+            SelfservicePermissions      : Amazon.WorkSpaces.Model.SelfservicePermissions
+            State                       : REGISTERED
+            SubnetIds                   : {subnet-1m3m7b43, subnet-ard11aba}
+            Tenancy                     : SHARED
+            WorkspaceAccessProperties   : Amazon.WorkSpaces.Model.WorkspaceAccessProperties
+            WorkspaceCreationProperties : Amazon.WorkSpaces.Model.DefaultWorkspaceCreationProperties
+            WorkspaceSecurityGroupId    : sg-0ed2441234a123c43</programlisting>
+          snippet_files: []
+  services:
+    workspaces:
+      DescribeWorkspaceDirectories: 
+

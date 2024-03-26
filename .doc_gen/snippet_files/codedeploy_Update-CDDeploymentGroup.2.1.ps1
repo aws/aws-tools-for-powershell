@@ -1,0 +1,1 @@
+Update-CDDeploymentGroup -ApplicationName MyNewApplication -CurrentDeploymentGroupName MyNewDeploymentGroup -NewDeploymentGroupName MyNewDeploymentGroup-2 -Ec2TagSetList @(@{Key="key1";Type="KEY_ONLY"},@{Key="Key2";Type="KEY_AND_VALUE";Value="Value2"}),@(@{Key="Key3";Type="VALUE_ONLY";Value="Value3"})

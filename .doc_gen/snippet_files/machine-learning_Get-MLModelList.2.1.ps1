@@ -1,0 +1,1 @@
+Get-MLModelList -FilterVariable Status -EQ COMPLETED

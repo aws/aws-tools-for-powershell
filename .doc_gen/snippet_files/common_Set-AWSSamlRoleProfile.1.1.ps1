@@ -1,0 +1,1 @@
+Set-AWSSamlRoleProfile -StoreAs Role1 -EndpointName MyADFSEndpoint

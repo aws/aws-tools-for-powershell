@@ -1,0 +1,28 @@
+---
+codepipeline_CreatePipeline:
+  title: Use New-CPPipeline
+  title_abbrev: New-CPPipeline
+  synopsis: use New-CPPipeline
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This examples creates a new pipeline with the specified settings.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_New-CPPipeline.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ArtifactStore : Amazon.CodePipeline.Model.ArtifactStore
+            Name          : CodePipelineDemo
+            RoleArn       : arn:aws:iam::80398EXAMPLE:role/CodePipelineServiceRole
+            Stages        : {Source, Beta}
+            Version       : 1</programlisting>
+          snippet_files: []
+  services:
+    codepipeline:
+      CreatePipeline: 
+

@@ -1,0 +1,19 @@
+---
+s3_GetBucketEncryption:
+  title: Use Get-S3BucketEncryption
+  title_abbrev: Get-S3BucketEncryption
+  synopsis: use Get-S3BucketEncryption
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command returns all the server side encryption rules associated with the given bucket.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketEncryption.1.1.ps1
+          description: 
+  services:
+    s3:
+      GetBucketEncryption: 
+

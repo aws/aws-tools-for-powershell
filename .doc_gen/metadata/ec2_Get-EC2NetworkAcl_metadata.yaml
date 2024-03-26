@@ -1,0 +1,58 @@
+---
+ec2_DescribeNetworkAcls:
+  title: Use Get-EC2NetworkAcl
+  title_abbrev: Get-EC2NetworkAcl
+  synopsis: use Get-EC2NetworkAcl
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified network ACL.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2NetworkAcl.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Associations : {aclassoc-1a2b3c4d}
+            Entries      : {Amazon.EC2.Model.NetworkAclEntry, Amazon.EC2.Model.NetworkAclEntry}
+            IsDefault    : False
+            NetworkAclId : acl-12345678
+            Tags         : {Name}
+            VpcId        : vpc-12345678</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the rules for the specified network ACL.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2NetworkAcl.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CidrBlock    : 0.0.0.0/0
+            Egress       : True
+            IcmpTypeCode :
+            PortRange    :
+            Protocol     : -1
+            RuleAction   : deny
+            RuleNumber   : 32767
+
+            CidrBlock    : 0.0.0.0/0
+            Egress       : False
+            IcmpTypeCode :
+            PortRange    :
+            Protocol     : -1
+            RuleAction   : deny
+            RuleNumber   : 32767</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example describes all your network ACLs.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2NetworkAcl.3.1.ps1
+  services:
+    ec2:
+      DescribeNetworkAcls: 
+

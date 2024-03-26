@@ -1,0 +1,1 @@
+Get-IAMSigningCertificate -UserName Bob

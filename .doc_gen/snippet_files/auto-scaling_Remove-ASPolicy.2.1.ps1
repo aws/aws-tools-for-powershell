@@ -1,0 +1,1 @@
+Remove-ASPolicy -AutoScalingGroupName my-asg -PolicyName myScaleInPolicy -Force

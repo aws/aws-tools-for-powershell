@@ -1,0 +1,20 @@
+---
+elastic-load-balancing_SetLoadBalancerListenerSSLCertificate:
+  title: Use Set-ELBLoadBalancerListenerSSLCertificate
+  title_abbrev: Set-ELBLoadBalancerListenerSSLCertificate
+  synopsis: use Set-ELBLoadBalancerListenerSSLCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example replaces the certificate that terminates the SSL connections for the specified listener.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Set-ELBLoadBalancerListenerSSLCertificate.1.1.ps1
+  services:
+    elastic-load-balancing:
+      SetLoadBalancerListenerSSLCertificate: 
+
+

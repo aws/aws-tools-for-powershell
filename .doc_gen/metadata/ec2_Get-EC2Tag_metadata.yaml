@@ -1,0 +1,82 @@
+---
+ec2_DescribeTags:
+  title: Use Get-EC2Tag
+  title_abbrev: Get-EC2Tag
+  synopsis: use Get-EC2Tag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example fetches the tags for resource-type 'image'</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Tag.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Key         ResourceId            ResourceType Value
+            ---         ----------            ------------ -----
+            Name        ami-0a123b4ccb567a8ea image        Win7-Imported
+            auto-delete ami-0a123b4ccb567a8ea image        never</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example fetches all the tags for all the resources and groups them by resource type</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Tag.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Count Name                      Group
+            ----- ----                      -----
+                9 subnet                    {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription...}
+               53 instance                  {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription...}
+                3 route-table               {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription}
+                5 security-group            {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription...}
+               30 volume                    {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription...}
+                1 internet-gateway          {Amazon.EC2.Model.TagDescription}
+                3 network-interface         {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription}
+                4 elastic-ip                {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription}
+                1 dhcp-options              {Amazon.EC2.Model.TagDescription}
+                2 image                     {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription}
+                3 vpc                       {Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription, Amazon.EC2.Model.TagDescription}</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 3: This example displays all the resources with tag 'auto-delete' with value 'no' for the given region</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Tag.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Key         ResourceId            ResourceType Value
+            ---         ----------            ------------ -----
+            auto-delete i-0f1bce234d5dd678b   instance     no
+            auto-delete vol-01d234aa5678901a2 volume       no
+            auto-delete vol-01234bfb5def6f7b8 volume       no
+            auto-delete vol-01ccb23f4c5e67890 volume       no</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 4: This example obtains all the resources with tag 'auto-delete' with 'no' value and further filters in the next pipe to parse only 'instance' resource types and eventually creates 'ThisInstance' tag for each instance resources with value being the instance id itself </emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Tag.4.1.ps1
+        - description: "<emphasis role=\"bold\">Example 5: This example fetches tags for all the instance resources as well as 'Name' keys and displays them in a table format</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Tag.5.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ResourceId          Name-Tag
+            ----------          --------
+            i-012e3cb4df567e1aa jump1
+            i-01c23a45d6fc7a89f repro-3</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeTags: 
+

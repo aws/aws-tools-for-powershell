@@ -1,0 +1,19 @@
+---
+ec2_DeregisterImage:
+  title: Use Unregister-EC2Image
+  title_abbrev: Unregister-EC2Image
+  synopsis: use Unregister-EC2Image
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deregisters the specified AMI.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Unregister-EC2Image.1.1.ps1
+  services:
+    ec2:
+      DeregisterImage: 
+

@@ -1,0 +1,1 @@
+New-EC2NetworkAcl -VpcId vpc-12345678

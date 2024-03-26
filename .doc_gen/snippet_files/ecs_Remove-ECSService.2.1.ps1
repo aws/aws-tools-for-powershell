@@ -1,0 +1,1 @@
+Remove-ECSService -Cluster myCluster -Service my-http-service

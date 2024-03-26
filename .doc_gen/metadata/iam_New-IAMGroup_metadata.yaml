@@ -1,0 +1,27 @@
+---
+iam_CreateGroup:
+  title: Use New-IAMGroup
+  title_abbrev: New-IAMGroup
+  synopsis: use New-IAMGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new IAM group named <code>Developers</code>.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_New-IAMGroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn        : arn:aws:iam::123456789012:group/Developers
+            CreateDate : 4/14/2015 11:21:31 AM
+            GroupId    : QNEJ5PM4NFSQCEXAMPLE1
+            GroupName  : Developers
+            Path       : /</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      CreateGroup: 

@@ -1,0 +1,1 @@
+Enable-APSUser -AuthenticationType USERPOOL -UserName TestUser@lab.com

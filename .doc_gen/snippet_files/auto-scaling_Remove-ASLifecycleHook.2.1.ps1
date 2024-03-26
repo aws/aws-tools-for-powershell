@@ -1,0 +1,1 @@
+Remove-ASLifecycleHook -AutoScalingGroupName my-asg -LifecycleHookName myLifecycleHook -Force

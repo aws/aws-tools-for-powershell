@@ -1,0 +1,24 @@
+---
+config-service_GetAggregateResourceconfig-service:
+  title: Use Get-CFGAggregateResourceConfig
+  title_abbrev: Get-CFGAggregateResourceConfig
+  synopsis: use Get-CFGAggregateResourceConfig
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns the Configuration Item for the given resource aggregated and expands Configuration.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateResourceConfig.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">{"description":"default VPC security group","groupName":"default","ipPermissions":[{"ipProtocol":"-1","ipv6Ranges":[],"prefixListIds":[],"userIdGroupPairs":[{"groupId":"sg-4fc1d234","userId":"123456789012"}],"ipv4Ranges":[],"ipRanges":[]},{"fromPort":3389,"ipProtocol":"tcp","ipv6Ranges":[],"prefixListIds":[],"toPort":3389,"userIdGroupPairs":[],"ipv4Ranges":[{"cidrIp":"54.240.197.224/29","description":"office subnet"},{"cidrIp":"72.21.198.65/32","description":"home pc"}],"ipRanges":["54.240.197.224/29","72.21.198.65/32"]}],"ownerId":"123456789012","groupId":"sg-4fc1d234","ipPermissionsEgress":[{"ipProtocol":"-1","ipv6Ranges":[],"prefixListIds":[],"userIdGroupPairs":[],"ipv4Ranges":[{"cidrIp":"0.0.0.0/0"}],"ipRanges":["0.0.0.0/0"]}],"tags":[],"vpcId":"vpc-2d1c2e34"}</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      GetAggregateResourceconfig-service: 
+
+

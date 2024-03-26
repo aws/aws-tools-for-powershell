@@ -1,0 +1,1 @@
+New-APSStreamingURL -StackName SessionScriptTest -FleetName SessionScriptNew -UserId TestUser

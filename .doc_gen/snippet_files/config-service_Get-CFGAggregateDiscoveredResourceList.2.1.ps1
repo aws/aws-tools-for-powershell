@@ -1,0 +1,1 @@
+Get-CFGAggregateDiscoveredResourceList -ConfigurationAggregatorName raju -ResourceType ([Amazon.ConfigService.ResourceType]::AWSEC2SecurityGroup) -Filters_Region us-east-1 -Filters_ResourceName default

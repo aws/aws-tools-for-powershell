@@ -1,0 +1,1 @@
+New-DSTrust -DirectoryId d-123456ijkl -RemoteDomainName contoso.com -TrustDirection Two-Way -TrustType Forest -TrustPassword $Password -ConditionalForwarderIpAddr 172.31.36.96

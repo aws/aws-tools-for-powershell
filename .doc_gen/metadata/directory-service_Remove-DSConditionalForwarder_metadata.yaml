@@ -1,0 +1,20 @@
+---
+directory-service_DeleteConditionalForwarder:
+  title: Use Remove-DSConditionalForwarder
+  title_abbrev: Remove-DSConditionalForwarder
+  synopsis: use Remove-DSConditionalForwarder
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example removes the conditional forwarder that has been set up for your &AWS; Direcotry.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Remove-DSConditionalForwarder.1.1.ps1
+  services:
+    directory-service:
+      DeleteConditionalForwarder: 
+
+

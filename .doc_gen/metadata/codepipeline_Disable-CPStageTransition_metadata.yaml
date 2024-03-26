@@ -1,0 +1,19 @@
+---
+codepipeline_DisableStageTransition:
+  title: Use Disable-CPStageTransition
+  title_abbrev: Disable-CPStageTransition
+  synopsis: use Disable-CPStageTransition
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example disables the inbound transition for the specified stage in the specified pipeline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Disable-CPStageTransition.1.1.ps1
+  services:
+    codepipeline:
+      DisableStageTransition: 
+

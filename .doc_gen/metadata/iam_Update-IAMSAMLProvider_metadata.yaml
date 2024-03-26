@@ -1,0 +1,18 @@
+---
+iam_UpdateSAMLProvider:
+  title: Use Update-IAMSAMLProvider
+  title_abbrev: Update-IAMSAMLProvider
+  synopsis: use Update-IAMSAMLProvider
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example updates the SAML provider in IAM whose ARN is <code>arn:aws:iam::123456789012:saml-provider/SAMLADFS</code> with a new SAML metadata document from the file <code>SAMLMetaData.xml</code>. Note that you must use the <code>-Raw</code> switch parameter to successfully process the contents of the JSON file.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMSAMLProvider.1.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateSAMLProvider: 

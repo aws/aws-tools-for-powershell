@@ -1,0 +1,1 @@
+Get-ASASeverityLevel -Language "ja"

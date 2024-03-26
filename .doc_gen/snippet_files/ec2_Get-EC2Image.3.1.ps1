@@ -1,0 +1,1 @@
+Get-EC2Image -Filter @{ Name="platform"; Values="windows" }

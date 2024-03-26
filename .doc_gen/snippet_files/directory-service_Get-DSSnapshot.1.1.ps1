@@ -1,0 +1,1 @@
+Get-DSSnapshot -DirectoryId d-123456ijkl

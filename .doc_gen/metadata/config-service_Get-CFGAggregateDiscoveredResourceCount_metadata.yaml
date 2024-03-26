@@ -1,0 +1,63 @@
+---
+config-service_GetAggregateDiscoveredResourceCounts:
+  title: Use Get-CFGAggregateDiscoveredResourceCount
+  title_abbrev: Get-CFGAggregateDiscoveredResourceCount
+  synopsis: use Get-CFGAggregateDiscoveredResourceCount
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns the resource count for the given aggregator filtered for region us-east-1.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateDiscoveredResourceCount.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">GroupByKey GroupedResourceCounts NextToken TotalDiscoveredResources
+            ---------- --------------------- --------- ------------------------
+                       {}                              455</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example returns the resource count grouped by RESOURCE_TYPE for the filtered region for the given aggregator.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateDiscoveredResourceCount.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">GroupName                          ResourceCount
+            ---------                          -------------
+            AWS::CloudFormation::Stack         12
+            AWS::CloudFront::Distribution      1
+            AWS::CloudTrail::Trail             1
+            AWS::DynamoDB::Table               1
+            AWS::EC2::EIP                      2
+            AWS::EC2::FlowLog                  2
+            AWS::EC2::InternetGateway          4
+            AWS::EC2::NatGateway               2
+            AWS::EC2::NetworkAcl               4
+            AWS::EC2::NetworkInterface         12
+            AWS::EC2::RouteTable               13
+            AWS::EC2::SecurityGroup            18
+            AWS::EC2::Subnet                   16
+            AWS::EC2::VPC                      4
+            AWS::EC2::VPCEndpoint              2
+            AWS::EC2::VPCPeeringConnection     1
+            AWS::IAM::Group                    2
+            AWS::IAM::Policy                   51
+            AWS::IAM::Role                     78
+            AWS::IAM::User                     7
+            AWS::Lambda::Function              3
+            AWS::RDS::DBSecurityGroup          1
+            AWS::S3::Bucket                    3
+            AWS::SSM::AssociationCompliance    107
+            AWS::SSM::ManagedInstanceInventory 108</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      GetAggregateDiscoveredResourceCounts: 
+
+

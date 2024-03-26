@@ -1,0 +1,59 @@
+---
+Common_Get-AWSRegion:
+  title: Use Get-AWSRegion
+  title_abbrev: Get-AWSRegion
+  synopsis: use Get-AWSRegion
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Returns the list of regions known at the time the the module was built and released. Regions launched after the build and release are not shown but can still be used with other cmdlets in the module by specifying the 'system name' to the cmdlet's -Region parameter on invocation.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSRegion.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Region         Name                      IsShellDefault
+            ------         ----                      --------------
+            ap-northeast-1 Asia Pacific (Tokyo)      False
+            ap-northeast-2 Asia Pacific (Seoul)      False
+            ap-south-1     Asia Pacific (Mumbai)     False
+            ap-southeast-1 Asia Pacific (Singapore)  False
+            ap-southeast-2 Asia Pacific (Sydney)     False
+            ca-central-1   Canada (Central)          False
+            eu-central-1   EU Central (Frankfurt)    False
+            eu-west-1      EU West (Ireland)         False
+            eu-west-2      EU West (London)          False
+            eu-west-3      EU West (Paris)           False
+            sa-east-1      South America (Sao Paulo) False
+            us-east-1      US East (Virginia)        False
+            us-east-2      US East (Ohio)            False
+            us-west-1      US West (N. California)   False
+            us-west-2      US West (Oregon)          True</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example shows how to use a region that is not listed in the output of the Get-AWSRegion cmdlet, likely as the region was launched after the installed version of the module was released. To use the unlisted region, simply pass the 'system name' (eg us-east-1, us-west-2) to the -Region parameter of the cmdlet you want to run (in this example, Get-EC2Instance). In this example 'not-shown-above' is the fictional system code of a new region.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSRegion.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Region         Name                      IsShellDefault
+            ------         ----                      --------------
+            ap-northeast-1 Asia Pacific (Tokyo)      False
+            ap-northeast-2 Asia Pacific (Seoul)      False
+            ap-south-1     Asia Pacific (Mumbai)     False
+            ...
+            us-west-1      US West (N. California)   False
+            us-west-2      US West (Oregon)          True
+
+            Get-EC2Instance -Region not-shown-above</programlisting>
+          snippet_files: []
+  services:
+    Common:
+      Get-AWSRegion: 
+

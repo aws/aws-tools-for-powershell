@@ -1,0 +1,1 @@
+New-EC2Snapshot -VolumeId vol-12345678 -Description "This is a test"

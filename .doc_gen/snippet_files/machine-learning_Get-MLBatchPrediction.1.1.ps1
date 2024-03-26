@@ -1,0 +1,1 @@
+Get-MLBatchPrediction -BatchPredictionId ID

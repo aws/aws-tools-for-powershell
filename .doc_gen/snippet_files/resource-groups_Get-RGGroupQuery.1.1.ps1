@@ -1,0 +1,1 @@
+Get-RGGroupQuery -GroupName auto-no | Select-Object -ExpandProperty ResourceQuery

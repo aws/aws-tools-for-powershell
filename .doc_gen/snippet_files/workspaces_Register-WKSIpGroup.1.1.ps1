@@ -1,0 +1,1 @@
+Register-WKSIpGroup -GroupId wsipg-23ahsdres -DirectoryId d-123412e123

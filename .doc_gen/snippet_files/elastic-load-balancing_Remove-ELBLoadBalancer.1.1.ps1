@@ -1,0 +1,1 @@
+Remove-ELBLoadBalancer -LoadBalancerName my-load-balancer

@@ -1,0 +1,1 @@
+Get-S3BucketAnalyticsConfiguration -BucketName 's3testbucket' -AnalyticsId 'testfilter'

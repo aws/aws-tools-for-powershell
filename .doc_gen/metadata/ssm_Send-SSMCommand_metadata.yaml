@@ -1,0 +1,28 @@
+---
+ssm_SendCommand:
+  title: Use Send-SSMCommand
+  title_abbrev: Send-SSMCommand
+  synopsis: use Send-SSMCommand
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example runs an echo command on a target instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Send-SSMCommand.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">CommandId          : d8d190fc-32c1-4d65-a0df-ff5ff3965524\nComment            : \nCompletedCount     : 0\nDocumentName       : AWS-RunPowerShellScript\nErrorCount         : 0\nExpiresAfter       : 3/7/2017 10:48:37 PM\nInstanceIds        : {}\nMaxConcurrency     : 50\nMaxErrors          : 0\nNotificationConfig : Amazon.SimpleSystemsManagement.Model.NotificationConfig\nOutputS3BucketName : \nOutputS3KeyPrefix  : \nOutputS3Region     : \nParameters         : {[commands, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}\nRequestedDateTime  : 3/7/2017 9:48:37 PM\nServiceRole        : \nStatus             : Pending\nStatusDetails      : Pending\nTargetCount        : 0\nTargets            : {instanceids}</programlisting>"
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example shows how to run a command that accepts nested parameters.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Send-SSMCommand.2.1.ps1
+  services:
+    ssm:
+      SendCommand: 
+

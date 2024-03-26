@@ -1,0 +1,27 @@
+---
+iam_ListEntitiesForPolicy:
+  title: Use Get-IAMEntitiesForPolicy
+  title_abbrev: Get-IAMEntitiesForPolicy
+  synopsis: use Get-IAMEntitiesForPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns a list of IAM groups, roles, and users who have the policy <code>arn:aws:iam::123456789012:policy/TestPolicy</code> attached.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMEntitiesForPolicy.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">IsTruncated  : False
+            Marker       : 
+            PolicyGroups : {}
+            PolicyRoles  : {testRole}
+            PolicyUsers  : {Bob, Theresa}</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      ListEntitiesForPolicy: 

@@ -1,0 +1,1 @@
+Remove-IAMUser -UserName Bob

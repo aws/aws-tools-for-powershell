@@ -1,0 +1,44 @@
+---
+appstream_DeleteImage:
+  title: Use Remove-APSImage
+  title_abbrev: Remove-APSImage
+  synopsis: use Remove-APSImage
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample deletes an Image</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Remove-APSImage.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-APSImage (DeleteImage)" on target "TestImage".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+
+            Applications                : {}
+            AppstreamAgentVersion       : LATEST
+            Arn                         : arn:aws:appstream:us-west-2:123456789012:image/TestImage
+            BaseImageArn                :
+            CreatedTime                 : 12/27/2019 1:34:10 PM
+            Description                 :
+            DisplayName                 : TestImage
+            ImageBuilderName            :
+            ImageBuilderSupported       : True
+            ImagePermissions            :
+            Name                        : TestImage
+            Platform                    : WINDOWS
+            PublicBaseImageReleasedDate : 6/12/2018 12:00:00 AM
+            State                       : AVAILABLE
+            StateChangeReason           :
+            Visibility                  : PRIVATE</programlisting>
+  services:
+    appstream:
+      DeleteImage: 
+

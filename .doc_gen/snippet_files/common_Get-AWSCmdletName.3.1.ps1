@@ -1,0 +1,1 @@
+Get-AWSCmdletName -ApiOperation describeinstances -Service "compute cloud"

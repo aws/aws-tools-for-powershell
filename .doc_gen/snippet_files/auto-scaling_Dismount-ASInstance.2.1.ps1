@@ -1,0 +1,1 @@
+Dismount-ASInstance -InstanceId i-7bf746a2 -AutoScalingGroupName my-asg -ShouldDecrementDesiredCapacity $false

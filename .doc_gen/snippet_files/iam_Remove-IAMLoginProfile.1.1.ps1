@@ -1,0 +1,1 @@
+Remove-IAMLoginProfile -UserName Bob

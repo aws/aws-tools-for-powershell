@@ -1,0 +1,19 @@
+---
+s3_GetBucketPolicy:
+  title: Use Get-S3BucketPolicy
+  title_abbrev: Get-S3BucketPolicy
+  synopsis: use Get-S3BucketPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command outputs the bucket policy associated with the given S3 bucket.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketPolicy.1.1.ps1
+          description: 
+  services:
+    s3:
+      GetBucketPolicy: 
+

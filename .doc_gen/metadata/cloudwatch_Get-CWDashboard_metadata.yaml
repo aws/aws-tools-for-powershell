@@ -1,0 +1,27 @@
+---
+cloudwatch_GetDashboard:
+  title: Use Get-CWDashboard
+  title_abbrev: Get-CWDashboard
+  synopsis: use Get-CWDashboard
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the arn the body of the specified dashboard.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudwatch_Get-CWDashboard.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DashboardArn                                          DashboardBody
+            ------------                                          -------------
+            arn:aws:cloudwatch::123456789012:dashboard/Dashboard1 {...</programlisting>
+          snippet_files: []
+  services:
+    cloudwatch:
+      GetDashboard: 
+
+

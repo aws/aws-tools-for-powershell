@@ -1,0 +1,25 @@
+---
+auto-scaling_DisableMetricsCollection:
+  title: Use Disable-ASMetricsCollection
+  title_abbrev: Disable-ASMetricsCollection
+  synopsis: use Disable-ASMetricsCollection
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example disables monitoring of the specified metrics for the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Disable-ASMetricsCollection.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example disables monitoring of all metrics for the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Disable-ASMetricsCollection.2.1.ps1
+          description: 
+  services:
+    auto-scaling:
+      DisableMetricsCollection: 
+
+

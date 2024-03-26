@@ -1,0 +1,19 @@
+---
+ec2_EnableVpcClassicLinkDnsSupport:
+  title: Use Enable-EC2VpcClassicLinkDnsSupport
+  title_abbrev: Enable-EC2VpcClassicLinkDnsSupport
+  synopsis: use Enable-EC2VpcClassicLinkDnsSupport
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example enables vpc-0b12d3456a7e8910d to support DNS hostname resolution for ClassicLink</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Enable-EC2VpcClassicLinkDnsSupport.1.1.ps1
+  services:
+    ec2:
+      EnableVpcClassicLinkDnsSupport: 
+

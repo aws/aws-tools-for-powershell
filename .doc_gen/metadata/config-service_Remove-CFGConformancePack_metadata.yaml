@@ -1,0 +1,28 @@
+---
+config-service_DeleteConformancePack:
+  title: Use Remove-CFGConformancePack
+  title_abbrev: Remove-CFGConformancePack
+  synopsis: use Remove-CFGConformancePack
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample removes the given conformance pack, along with all the rules, remediation actions and evaluation results for the pack.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Remove-CFGConformancePack.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-CFGConformancePack (DeleteConformancePack)" on target "dono".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DeleteConformancePack: 
+
+

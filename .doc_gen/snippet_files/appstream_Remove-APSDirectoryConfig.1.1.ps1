@@ -1,0 +1,1 @@
+Remove-APSDirectoryConfig -DirectoryName contoso.com

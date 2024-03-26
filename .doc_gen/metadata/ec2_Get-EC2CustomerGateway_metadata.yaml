@@ -1,0 +1,39 @@
+---
+ec2_DescribeCustomerGateways:
+  title: Use Get-EC2CustomerGateway
+  title_abbrev: Get-EC2CustomerGateway
+  synopsis: use Get-EC2CustomerGateway
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified customer gateway.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2CustomerGateway.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BgpAsn            : 65534
+            CustomerGatewayId : cgw-1a2b3c4d
+            IpAddress         : 203.0.113.12
+            State             : available
+            Tags              : {}
+            Type              : ipsec.1</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes any customer gateway whose state is either pending or available.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2CustomerGateway.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example describes all your customer gateways.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2CustomerGateway.3.1.ps1
+  services:
+    ec2:
+      DescribeCustomerGateways: 
+

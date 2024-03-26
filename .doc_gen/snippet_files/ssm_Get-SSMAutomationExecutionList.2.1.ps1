@@ -1,0 +1,1 @@
+Get-SSMAutomationExecutionList | Where-Object AutomationExecutionStatus -ne "Success" | Select-Object AutomationExecutionId, DocumentName, AutomationExecutionStatus, ExecutionStartTime, ExecutionEndTime | Format-Table -AutoSize

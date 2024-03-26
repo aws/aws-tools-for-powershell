@@ -1,0 +1,1 @@
+Remove-IAMServerCertificate -ServerCertificateName MyServerCert

@@ -1,0 +1,2 @@
+$policy =  Get-LMPolicy -FunctionName "MylambdaFunction123" -Select Policy | ConvertFrom-Json| Select-Object -ExpandProperty Statement
+Remove-LMPermission -FunctionName "MylambdaFunction123" -StatementId $policy[0].Sid

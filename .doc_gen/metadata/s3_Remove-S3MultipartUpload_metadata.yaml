@@ -1,0 +1,29 @@
+---
+s3_AbortMultipartUpload:
+  title: Use Remove-S3MultipartUpload
+  title_abbrev: Remove-S3MultipartUpload
+  synopsis: use Remove-S3MultipartUpload
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command aborts multipart uploads created earlier than 5 days ago.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Remove-S3MultipartUpload.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This command aborts multipart uploads created earlier than January 2nd, 2014.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Remove-S3MultipartUpload.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This command aborts multipart uploads created earlier than January 2nd, 2014, 10:45:37.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Remove-S3MultipartUpload.3.1.ps1
+  services:
+    s3:
+      AbortMultipartUpload: 
+

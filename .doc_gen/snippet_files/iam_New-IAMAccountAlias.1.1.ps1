@@ -1,0 +1,1 @@
+New-IAMAccountAlias -AccountAlias mycompanyaws

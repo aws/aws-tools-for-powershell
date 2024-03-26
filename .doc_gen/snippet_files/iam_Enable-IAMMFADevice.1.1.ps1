@@ -1,0 +1,1 @@
+Enable-IAMMFADevice -UserName "Bob" -SerialNumber "987654321098" -AuthenticationCode1 "12345678" -AuthenticationCode2 "87654321"

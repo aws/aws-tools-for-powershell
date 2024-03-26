@@ -1,0 +1,19 @@
+---
+appstream_DisassociateFleet:
+  title: Use Unregister-APSFleet
+  title_abbrev: Unregister-APSFleet
+  synopsis: use Unregister-APSFleet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample unregisters a fleet from stack</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Unregister-APSFleet.1.1.ps1
+          description: 
+  services:
+    appstream:
+      DisassociateFleet: 
+

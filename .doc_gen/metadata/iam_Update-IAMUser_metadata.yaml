@@ -1,0 +1,23 @@
+---
+iam_UpdateUser:
+  title: Use Update-IAMUser
+  title_abbrev: Update-IAMUser
+  synopsis: use Update-IAMUser
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example renames the IAM user <code>Bob</code> to <code>Robert</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMUser.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example changes the path of the IAM User <code>Bob</code> to <code>/Org1/Org2/</code>, which effectively changes the ARN for the user to <code>arn:aws:iam::123456789012:user/Org1/Org2/bob</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMUser.2.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateUser: 

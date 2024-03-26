@@ -1,0 +1,23 @@
+---
+s3_DeletePublicAccessBlock:
+  title: Use Remove-S3PublicAccessBlock
+  title_abbrev: Remove-S3PublicAccessBlock
+  synopsis: use Remove-S3PublicAccessBlock
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command turns off the block public access setting for the given bucket.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Remove-S3PublicAccessBlock.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">s3testbucket</programlisting>
+          snippet_files: []
+  services:
+    s3:
+      DeletePublicAccessBlock: 
+

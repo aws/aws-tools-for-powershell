@@ -1,0 +1,47 @@
+---
+eks_DeleteNodegroup:
+  title: Use Remove-EKSNodegroup
+  title_abbrev: Remove-EKSNodegroup
+  synopsis: use Remove-EKSNodegroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet deletes an Amazon EKS node group for a cluster.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/eks_Remove-EKSNodegroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-EKSNodegroup (DeleteNodegroup)" on target "ProdEKSNodeGroup".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
+
+            AmiType        : AL2_x86_64
+            ClusterName    : PROD
+            CreatedAt      : 12/25/2019 10:16:45 AM
+            DiskSize       : 40
+            Health         : Amazon.EKS.Model.NodegroupHealth
+            InstanceTypes  : {t3.large}
+            Labels         : {}
+            ModifiedAt     : 12/25/2019 11:01:16 AM
+            NodegroupArn   : arn:aws:eks:us-west-2:012345678912:nodegroup/PROD/ProdEKSNodeGroup/7eb79e47-82b6-04d9-e984-95110db6fa85
+            NodegroupName  : ProdEKSNodeGroup
+            NodeRole       : arn:aws:iam::012345678912:role/NodeInstanceRole
+            ReleaseVersion : 1.14.7-20190927
+            RemoteAccess   :
+            Resources      : Amazon.EKS.Model.NodegroupResources
+            ScalingConfig  : Amazon.EKS.Model.NodegroupScalingConfig
+            Status         : DELETING
+            Subnets        : {subnet-0d1a9fff35efa7691, subnet-0a3f4928edbc224d4}
+            Tags           : {}
+            Version        : 1.14</programlisting>
+          snippet_files: []
+  services:
+    eks:
+      DeleteNodegroup: 
+

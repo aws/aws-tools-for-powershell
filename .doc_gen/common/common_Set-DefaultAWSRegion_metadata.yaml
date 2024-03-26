@@ -1,0 +1,19 @@
+---
+Common_Set-DefaultAWSRegion:
+  title: Use Set-DefaultAWSRegion
+  title_abbrev: Set-DefaultAWSRegion
+  synopsis: use Set-DefaultAWSRegion
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Sets the default region for all cmdlets in the current shell to 'us-west-2' (the parameter name can be omitted for brevity). Once a shell default has been set you can override the default by using the -Region parameter with the specific cmdlet(s) as required.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-DefaultAWSRegion.1.1.ps1
+  services:
+    Common:
+      Set-DefaultAWSRegion: 
+

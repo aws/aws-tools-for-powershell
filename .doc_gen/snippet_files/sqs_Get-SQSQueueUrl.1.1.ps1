@@ -1,0 +1,1 @@
+Get-SQSQueueUrl -QueueName MyQueue

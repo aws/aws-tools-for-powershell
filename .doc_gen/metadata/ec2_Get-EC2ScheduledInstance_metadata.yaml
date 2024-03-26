@@ -1,0 +1,28 @@
+---
+ec2_DescribeScheduledInstances:
+  title: Use Get-EC2ScheduledInstance
+  title_abbrev: Get-EC2ScheduledInstance
+  synopsis: use Get-EC2ScheduledInstance
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified Scheduled Instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ScheduledInstance.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">AvailabilityZone            : us-west-2b\nCreateDate                  : 1/25/2016 1:43:38 PM\nHourlyPrice                 : 0.095\nInstanceCount               : 1\nInstanceType                : c4.large\nNetworkPlatform             : EC2-VPC\nNextSlotStartTime           : 1/31/2016 1:00:00 AM\nPlatform                    : Linux/UNIX\nPreviousSlotEndTime         : \nRecurrence                  : Amazon.EC2.Model.ScheduledInstanceRecurrence\nScheduledInstanceId         : sci-1234-1234-1234-1234-123456789012\nSlotDurationInHours         : 32\nTermEndDate                 : 1/31/2017 1:00:00 AM\nTermStartDate               : 1/31/2016 1:00:00 AM\nTotalScheduledInstanceHours : 1696</programlisting>"
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all your Scheduled Instances.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ScheduledInstance.2.1.ps1
+  services:
+    ec2:
+      DescribeScheduledInstances: 
+

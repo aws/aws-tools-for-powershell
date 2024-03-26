@@ -1,0 +1,19 @@
+---
+lambda_DeleteFunctionConcurrency:
+  title: Use Remove-LMFunctionConcurrency
+  title_abbrev: Remove-LMFunctionConcurrency
+  synopsis: use Remove-LMFunctionConcurrency
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This examples removes the Function Concurrency of the Lambda Function.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Remove-LMFunctionConcurrency.1.1.ps1
+          description: 
+  services:
+    lambda:
+      DeleteFunctionConcurrency: 
+

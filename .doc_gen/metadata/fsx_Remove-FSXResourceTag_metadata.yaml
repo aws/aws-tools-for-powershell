@@ -1,0 +1,27 @@
+---
+fsx_UntagResource:
+  title: Use Remove-FSXResourceTag
+  title_abbrev: Remove-FSXResourceTag
+  synopsis: use Remove-FSXResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example removes the resource tag for the given FSX file system resource ARN.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/fsx_Remove-FSXResourceTag.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-FSXResourceTag (UntagResource)" on target "arn:aws:fsx:eu-west-1:933303704102:file-system/fs-07cd45bc6bdf2674a".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</programlisting>
+          snippet_files: []
+  services:
+    fsx:
+      UntagResource: 
+

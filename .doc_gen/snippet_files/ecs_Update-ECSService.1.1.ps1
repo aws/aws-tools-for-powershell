@@ -1,0 +1,1 @@
+Update-ECSService -Service my-http-service -TaskDefinition amazon-ecs-sample

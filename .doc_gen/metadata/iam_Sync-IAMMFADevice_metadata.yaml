@@ -1,0 +1,23 @@
+---
+iam_ResyncMFADevice:
+  title: Use Sync-IAMMFADevice
+  title_abbrev: Sync-IAMMFADevice
+  synopsis: use Sync-IAMMFADevice
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example synchronizes the MFA device that is associated with the IAM user <code>Bob</code> and whose ARN is <code>arn:aws:iam::123456789012:mfa/bob</code> with an authenticator program that provided the two authentication codes.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Sync-IAMMFADevice.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example synchronizes the IAM MFA device that is associated with the IAM user <code>Theresa</code> with a physical device that has the serial number <code>ABCD12345678</code> and that provided the two authentication codes.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Sync-IAMMFADevice.2.1.ps1
+          description: 
+  services:
+    iam:
+      ResyncMFADevice: 

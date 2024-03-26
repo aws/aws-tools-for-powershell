@@ -1,0 +1,38 @@
+---
+codedeploy_GetDeploymentConfig:
+  title: Use Get-CDDeploymentConfig
+  title_abbrev: Get-CDDeploymentConfig
+  synopsis: use Get-CDDeploymentConfig
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets summary information about the specified deployment configuration.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDDeploymentConfig.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CreateTime              DeploymentConfigId                      DeploymentConfigName    MinimumHealthyHosts
+            ----------              ------------------                      --------------------    -------------------
+            10/3/2014 4:32:30 PM    518a3950-d034-46a1-9d2c-3c949EXAMPLE    ThreeQuartersHealthy    Amazon.CodeDeploy.Model.MinimumHealthyHosts</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example gets information about the definition of the specified deployment configuration.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDDeploymentConfig.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Type             Value
+            ----             -----
+            FLEET_PERCENT    75</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      GetDeploymentConfig: 
+

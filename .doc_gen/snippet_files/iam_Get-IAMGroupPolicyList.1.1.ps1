@@ -1,0 +1,1 @@
+Get-IAMGroupPolicyList -GroupName Testers

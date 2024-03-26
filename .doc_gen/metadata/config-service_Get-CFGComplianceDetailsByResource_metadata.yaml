@@ -1,0 +1,30 @@
+---
+config-service_GetComplianceDetailsByResource:
+  title: Use Get-CFGComplianceDetailsByResource
+  title_abbrev: Get-CFGComplianceDetailsByResource
+  synopsis: use Get-CFGComplianceDetailsByResource
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example evaulation results for the given resource.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGComplianceDetailsByResource.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Annotation                 :
+            ComplianceType             : COMPLIANT
+            ConfigRuleInvokedTime      : 8/25/2019 11:34:56 PM
+            EvaluationResultIdentifier : Amazon.ConfigService.Model.EvaluationResultIdentifier
+            ResultRecordedTime         : 8/25/2019 11:34:56 PM
+            ResultToken                :</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      GetComplianceDetailsByResource: 
+
+

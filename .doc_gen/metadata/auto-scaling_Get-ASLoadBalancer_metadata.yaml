@@ -1,0 +1,27 @@
+---
+auto-scaling_DescribeLoadBalancers:
+  title: Use Get-ASLoadBalancer
+  title_abbrev: Get-ASLoadBalancer
+  synopsis: use Get-ASLoadBalancer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example describes the load balancers for the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASLoadBalancer.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">LoadBalancerName    State
+            ----------------    -----
+            my-lb               Added</programlisting>
+  services:
+    auto-scaling:
+      DescribeLoadBalancers: 
+
+

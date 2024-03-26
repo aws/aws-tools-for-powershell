@@ -1,0 +1,23 @@
+---
+iam_DeleteUser:
+  title: Use Remove-IAMUser
+  title_abbrev: Remove-IAMUser
+  synopsis: use Remove-IAMUser
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the IAM user named <code>Bob</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMUser.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example deletes the IAM user named <code>Theresa</code> along with any elements that must be deleted first.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMUser.2.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteUser: 

@@ -1,0 +1,29 @@
+---
+ssm_ListComplianceSummaries:
+  title: Use Get-SSMComplianceSummaryList
+  title_abbrev: Get-SSMComplianceSummaryList
+  synopsis: use Get-SSMComplianceSummaryList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns a summary count of compliant and non-compliant resources for all compliance types. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMComplianceSummaryList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ComplianceType CompliantSummary                                      NonCompliantSummary
+            -------------- ----------------                                      -------------------
+            FleetTotal     Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
+            Association    Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
+            Custom:InSpec  Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
+            Patch          Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      ListComplianceSummaries: 
+

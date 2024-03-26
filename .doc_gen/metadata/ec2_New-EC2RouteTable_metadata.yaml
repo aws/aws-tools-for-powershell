@@ -1,0 +1,29 @@
+---
+ec2_CreateRouteTable:
+  title: Use New-EC2RouteTable
+  title_abbrev: New-EC2RouteTable
+  synopsis: use New-EC2RouteTable
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a route table for the specified VPC.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2RouteTable.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Associations    : {}
+            PropagatingVgws : {}
+            Routes          : {}
+            RouteTableId    : rtb-1a2b3c4d
+            Tags            : {}
+            VpcId           : vpc-12345678</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CreateRouteTable: 
+

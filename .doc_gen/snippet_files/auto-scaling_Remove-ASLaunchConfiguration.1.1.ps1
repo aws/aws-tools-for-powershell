@@ -1,0 +1,1 @@
+Remove-ASLaunchConfiguration -LaunchConfigurationName my-lc

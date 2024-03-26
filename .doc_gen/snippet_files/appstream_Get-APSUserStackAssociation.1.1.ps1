@@ -1,0 +1,1 @@
+Get-APSUserStackAssociation -StackName PowershellStack

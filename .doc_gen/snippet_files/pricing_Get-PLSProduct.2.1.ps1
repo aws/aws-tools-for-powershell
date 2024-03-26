@@ -1,0 +1,1 @@
+Get-PLSProduct -ServiceCode AmazonEC2 -Filter @{Type="TERM_MATCH";Field="volumeType";Value="General Purpose"},@{Type="TERM_MATCH";Field="storageMedia";Value="SSD-backed"} -Region us-east-1

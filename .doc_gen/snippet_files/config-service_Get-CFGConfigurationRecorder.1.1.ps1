@@ -1,0 +1,1 @@
+Get-CFGConfigurationRecorder | Format-List

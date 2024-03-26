@@ -1,0 +1,46 @@
+---
+application-autoscaling_DescribeScalingPolicies:
+  title: Use Get-AASScalingPolicy
+  title_abbrev: Get-AASScalingPolicy
+  synopsis: use Get-AASScalingPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This cmdlet describe the Application Auto Scaling scaling policies for the specified service namespace.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/application-autoscaling_Get-AASScalingPolicy.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Alarms                                   : {Appstream2-LabFleet-default-scale-out-Alarm}
+            CreationTime                             : 9/3/2019 2:48:15 AM
+            PolicyARN                                : arn:aws:autoscaling:us-west-2:012345678912:scalingPolicy:5659b069-b5cd-4af1-9f7f-3e956d36233e:resource/appstream/fleet/LabFleet:
+                                                       policyName/default-scale-out
+            PolicyName                               : default-scale-out
+            PolicyType                               : StepScaling
+            ResourceId                               : fleet/LabFleet
+            ScalableDimension                        : appstream:fleet:DesiredCapacity
+            ServiceNamespace                         : appstream
+            StepScalingPolicyConfiguration           : Amazon.ApplicationAutoScaling.Model.StepScalingPolicyConfiguration
+            TargetTrackingScalingPolicyConfiguration :
+
+            Alarms                                   : {Appstream2-LabFleet-default-scale-in-Alarm}
+            CreationTime                             : 9/3/2019 2:48:15 AM
+            PolicyARN                                : arn:aws:autoscaling:us-west-2:012345678912:scalingPolicy:5659b069-b5cd-4af1-9f7f-3e956d36233e:resource/appstream/fleet/LabFleet:
+                                                       policyName/default-scale-in
+            PolicyName                               : default-scale-in
+            PolicyType                               : StepScaling
+            ResourceId                               : fleet/LabFleet
+            ScalableDimension                        : appstream:fleet:DesiredCapacity
+            ServiceNamespace                         : appstream
+            StepScalingPolicyConfiguration           : Amazon.ApplicationAutoScaling.Model.StepScalingPolicyConfiguration
+            TargetTrackingScalingPolicyConfiguration :</programlisting>
+  services:
+    application-autoscaling:
+      DescribeScalingPolicies: 
+

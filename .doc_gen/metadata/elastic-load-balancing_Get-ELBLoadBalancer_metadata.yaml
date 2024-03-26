@@ -1,0 +1,64 @@
+---
+elastic-load-balancing_DescribeLoadBalancers:
+  title: Use Get-ELBLoadBalancer
+  title_abbrev: Get-ELBLoadBalancer
+  synopsis: use Get-ELBLoadBalancer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists the names of your load balancers.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LoadBalancerName
+            ----------------
+            my-load-balancer
+            my-other-load-balancer
+            my-internal-load-balancer</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AvailabilityZones         : {us-west-2a, us-west-2b}
+            BackendServerDescriptions : {Amazon.ElasticLoadBalancing.Model.BackendServerDescription}
+            CanonicalHostedZoneName   : my-load-balancer-1234567890.us-west-2.elb.amazonaws.com
+            CanonicalHostedZoneNameID : Z3DZXE0EXAMPLE
+            CreatedTime               : 4/11/2015 12:12:45 PM
+            DNSName                   : my-load-balancer-1234567890.us-west-2.elb.amazonaws.com
+            HealthCheck               : Amazon.ElasticLoadBalancing.Model.HealthCheck
+            Instances                 : {i-207d9717, i-afefb49b}
+            ListenerDescriptions      : {Amazon.ElasticLoadBalancing.Model.ListenerDescription}
+            LoadBalancerName          : my-load-balancer
+            Policies                  : Amazon.ElasticLoadBalancing.Model.Policies
+            Scheme                    : internet-facing
+            SecurityGroups            : {sg-a61988c3}
+            SourceSecurityGroup       : Amazon.ElasticLoadBalancing.Model.SourceSecurityGroup
+            Subnets                   : {subnet-15aaab61}
+            VPCId                     : vpc-a01106c2</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example describes all your load balancers in the current &AWS; region.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: This example describes all your load balancers across all available &AWS-Regions;.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.4.1.ps1
+  services:
+    elastic-load-balancing:
+      DescribeLoadBalancers: 
+
+

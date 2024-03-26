@@ -1,0 +1,29 @@
+---
+lambda_GetProvisionedConcurrencyConfig:
+  title: Use Get-LMProvisionedConcurrencyConfig
+  title_abbrev: Get-LMProvisionedConcurrencyConfig
+  synopsis: use Get-LMProvisionedConcurrencyConfig
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example gets the provisioned Concurrency Configuration for the specified Alias of the Lambda Function.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Get-LMProvisionedConcurrencyConfig.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AllocatedProvisionedConcurrentExecutions : 0
+            AvailableProvisionedConcurrentExecutions : 0
+            LastModified                             : 2020-01-15T03:21:26+0000
+            RequestedProvisionedConcurrentExecutions : 70
+            Status                                   : IN_PROGRESS
+            StatusReason                             :</programlisting>
+  services:
+    lambda:
+      GetProvisionedConcurrencyConfig: 
+

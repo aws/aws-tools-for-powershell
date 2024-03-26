@@ -1,0 +1,29 @@
+---
+ec2_CreateCustomerGateway:
+  title: Use New-EC2CustomerGateway
+  title_abbrev: New-EC2CustomerGateway
+  synopsis: use New-EC2CustomerGateway
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates the specified customer gateway.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2CustomerGateway.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BgpAsn            : 65534
+            CustomerGatewayId : cgw-1a2b3c4d
+            IpAddress         : 203.0.113.12
+            State             : available
+            Tags              : {}
+            Type              : ipsec.1</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CreateCustomerGateway: 
+

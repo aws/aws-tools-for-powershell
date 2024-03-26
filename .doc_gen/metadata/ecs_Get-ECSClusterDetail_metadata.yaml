@@ -1,0 +1,29 @@
+---
+ecs_DescribeClusters:
+  title: Use Get-ECSClusterDetail
+  title_abbrev: Get-ECSClusterDetail
+  synopsis: use Get-ECSClusterDetail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet describes one or more of your ECS clusters.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ecs_Get-ECSClusterDetail.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LoggedAt         : 12/27/2019 9:27:41 PM
+            Clusters         : {LAB-ECS-CL}
+            Failures         : {}
+            ResponseMetadata : Amazon.Runtime.ResponseMetadata
+            ContentLength    : 396
+            HttpStatusCode   : OK</programlisting>
+          snippet_files: []
+  services:
+    ecs:
+      DescribeClusters: 
+

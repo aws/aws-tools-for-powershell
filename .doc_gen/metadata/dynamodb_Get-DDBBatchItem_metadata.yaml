@@ -1,0 +1,37 @@
+---
+dynamodb_BatchGetItem:
+  title: Use Get-DDBBatchItem
+  title_abbrev: Get-DDBBatchItem
+  synopsis: use Get-DDBBatchItem
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Gets the item with the SongTitle \"Somewhere Down The Road\" from the DynamoDB tables 'Music' and 'Songs'.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Get-DDBBatchItem.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                           Value
+            ----                           -----
+            Artist                         No One You Know
+            SongTitle                      Somewhere Down The Road
+            AlbumTitle                     Somewhat Famous
+            CriticRating                   10
+            Genre                          Country
+            Price                          1.94
+            Artist                         No One You Know
+            SongTitle                      Somewhere Down The Road
+            AlbumTitle                     Somewhat Famous
+            CriticRating                   10
+            Genre                          Country
+            Price                          1.94</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      BatchGetItem: 
+

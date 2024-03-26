@@ -1,0 +1,1 @@
+Get-CFNStackResourceSummary -StackName "myStack"

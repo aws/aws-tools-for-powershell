@@ -1,0 +1,1 @@
+Get-CFCloudFrontOriginAccessIdentityConfig -Id E3XXXXXXXXXXRT

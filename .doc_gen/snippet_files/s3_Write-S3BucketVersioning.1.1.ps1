@@ -1,0 +1,1 @@
+Write-S3BucketVersioning -BucketName 's3testbucket' -VersioningConfig_Status Enabled

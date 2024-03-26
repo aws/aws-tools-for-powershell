@@ -1,0 +1,23 @@
+---
+iam_DeleteRole:
+  title: Use Remove-IAMRole
+  title_abbrev: Remove-IAMRole
+  synopsis: use Remove-IAMRole
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the role named <code>MyNewRole</code> from the current IAM account. Before you can delete the role you must first use the <code>Unregister-IAMRolePolicy</code> command to detach any managed policies. Inline policies are deleted with the role.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMRole.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example detaches any managed policies from  the role named <code>MyNewRole</code> and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMRole.2.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteRole: 

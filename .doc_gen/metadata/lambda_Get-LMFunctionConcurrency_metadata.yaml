@@ -1,0 +1,26 @@
+---
+lambda_GetFunctionConcurrency:
+  title: Use Get-LMFunctionConcurrency
+  title_abbrev: Get-LMFunctionConcurrency
+  synopsis: use Get-LMFunctionConcurrency
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This examples gets the Reserved concurrency for the Lambda Function</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Get-LMFunctionConcurrency.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">ReservedConcurrentExecutions
+            ----------------------------
+            100</programlisting>
+  services:
+    lambda:
+      GetFunctionConcurrency: 
+

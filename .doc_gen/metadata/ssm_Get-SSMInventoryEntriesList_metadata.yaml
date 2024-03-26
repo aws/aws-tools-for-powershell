@@ -1,0 +1,40 @@
+---
+ssm_ListInventoryEntries:
+  title: Use Get-SSMInventoryEntriesList
+  title_abbrev: Get-SSMInventoryEntriesList
+  synopsis: use Get-SSMInventoryEntriesList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example lists all the custom inventory entries for an instance.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInventoryEntriesList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">CaptureTime   : 2016-08-22T10:01:01Z
+            Entries       : {Amazon.Runtime.Internal.Util.AlwaysSendDictionary`2[System.String,System.String]}
+            InstanceId    : i-0cb2b964d3e14fd9f
+            NextToken     :
+            SchemaVersion : 1.0
+            TypeName      : Custom:RackInfo</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example lists the details.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInventoryEntriesList.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Key          Value
+            ---          -----
+            RackLocation Bay B/Row C/Rack D/Shelf E</programlisting>
+  services:
+    ssm:
+      ListInventoryEntries: 

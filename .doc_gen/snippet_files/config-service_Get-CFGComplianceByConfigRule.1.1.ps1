@@ -1,0 +1,1 @@
+(Get-CFGComplianceByConfigRule -ConfigRuleName ebs-optimized-instance).Compliance

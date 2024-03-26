@@ -1,0 +1,1 @@
+Get-WKSTag -WorkspaceId ws-w361s234r -Region us-west-2

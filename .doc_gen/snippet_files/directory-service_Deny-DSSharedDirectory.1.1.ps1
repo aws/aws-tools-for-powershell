@@ -1,0 +1,1 @@
+Deny-DSSharedDirectory -SharedDirectoryId d-9067012345

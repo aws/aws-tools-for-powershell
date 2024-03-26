@@ -1,0 +1,1 @@
+Get-CFNTemplate -StackName "myStack"

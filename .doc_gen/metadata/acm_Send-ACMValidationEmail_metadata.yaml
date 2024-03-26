@@ -1,0 +1,19 @@
+---
+acm_ResendValidationEmail:
+  title: Use Send-ACMValidationEmail
+  title_abbrev: Send-ACMValidationEmail
+  synopsis: use Send-ACMValidationEmail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: Requests that the email to validate domain ownership for 'www.example.com' be sent. If your shell's $ConfirmPreference is set to 'Medium' or lower, the cmdlet will prompt for confirmation before proceeeding. Add the -Force switch to suppress confirmation prompts.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_Send-ACMValidationEmail.1.1.ps1
+          description: 
+  services:
+    acm:
+      ResendValidationEmail: 
+

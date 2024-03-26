@@ -1,0 +1,52 @@
+---
+iam_ListPolicies:
+  title: Use Get-IAMPolicyList
+  title_abbrev: Get-IAMPolicyList
+  synopsis: use Get-IAMPolicyList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns a collection of the first three managed policies available in the current &AWS; account. Because <code>-scope</code> is not specified, it defaults to <code>all</code> and includes both &AWS; managed and customer managed policies.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMPolicyList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Arn              : arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess\nAttachmentCount  : 0\nCreateDate       : 2/6/2015 10:40:08 AM\nDefaultVersionId : v1\nDescription      : \nIsAttachable     : True\nPath             : /\nPolicyId         : Z27SI6FQMGNQ2EXAMPLE1\nPolicyName       : AWSDirectConnectReadOnlyAccess\nUpdateDate       : 2/6/2015 10:40:08 AM\n      \nArn              : arn:aws:iam::aws:policy/AmazonGlacierReadOnlyAccess\nAttachmentCount  : 0\nCreateDate       : 2/6/2015 10:40:27 AM\nDefaultVersionId : v1\nDescription      : \nIsAttachable     : True\nPath             : /\nPolicyId         : NJKMU274MET4EEXAMPLE2\nPolicyName       : AmazonGlacierReadOnlyAccess\nUpdateDate       : 2/6/2015 10:40:27 AM\n      \nArn              : arn:aws:iam::aws:policy/AWSMarketplaceFullAccess\nAttachmentCount  : 0\nCreateDate       : 2/11/2015 9:21:45 AM\nDefaultVersionId : v1\nDescription      : \nIsAttachable     : True\nPath             : /\nPolicyId         : 5ULJSO2FYVPYGEXAMPLE3\nPolicyName       : AWSMarketplaceFullAccess\nUpdateDate       : 2/11/2015 9:21:45 AM</programlisting>"
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example returns a collection of the first two customer managed policies available in current &AWS; account. It uses <code>-Scope local</code> to limit the output to only customer managed policies. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMPolicyList.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn              : arn:aws:iam::123456789012:policy/MyLocalPolicy
+            AttachmentCount  : 0
+            CreateDate       : 2/12/2015 9:39:09 AM
+            DefaultVersionId : v2
+            Description      : 
+            IsAttachable     : True
+            Path             : /
+            PolicyId         : SQVCBLC4VAOUCEXAMPLE4
+            PolicyName       : MyLocalPolicy
+            UpdateDate       : 2/12/2015 9:39:53 AM
+
+            Arn              : arn:aws:iam::123456789012:policy/policyforec2instancerole
+            AttachmentCount  : 1
+            CreateDate       : 2/17/2015 2:51:38 PM
+            DefaultVersionId : v11
+            Description      : 
+            IsAttachable     : True
+            Path             : /
+            PolicyId         : X5JPBLJH2Z2SOEXAMPLE5
+            PolicyName       : policyforec2instancerole
+            UpdateDate       : 2/18/2015 8:52:31 AM</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      ListPolicies: 

@@ -1,0 +1,34 @@
+---
+ssm_DescribeMaintenanceWindowTasks:
+  title: Use Get-SSMMaintenanceWindowTaskList
+  title_abbrev: Get-SSMMaintenanceWindowTaskList
+  synopsis: use Get-SSMMaintenanceWindowTaskList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all of the tasks for a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowTaskList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LoggingInfo    :
+            MaxConcurrency : 1
+            MaxErrors      : 1
+            Priority       : 10
+            ServiceRoleArn : arn:aws:iam::123456789012:role/MaintenanceWindowsRole
+            Targets        : {InstanceIds}
+            TaskArn        : AWS-RunShellScript
+            TaskParameters : {[commands, Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression]}
+            Type           : RUN_COMMAND
+            WindowId       : mw-06cf17cbefcb4bf4f
+            WindowTaskId   : a23e338d-ff30-4398-8aa3-09cd052ebf17</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeMaintenanceWindowTasks: 
+

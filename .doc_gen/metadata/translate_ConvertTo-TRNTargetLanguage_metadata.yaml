@@ -1,0 +1,19 @@
+---
+translate_TranslateText:
+  title: Use ConvertTo-TRNTargetLanguage
+  title_abbrev: ConvertTo-TRNTargetLanguage
+  synopsis: use ConvertTo-TRNTargetLanguage
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Converts the specified English text to French. The text to convert can also be passed as the -Text parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/translate_ConvertTo-TRNTargetLanguage.1.1.ps1
+  services:
+    translate:
+      TranslateText: 
+

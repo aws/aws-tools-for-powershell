@@ -1,0 +1,1 @@
+Remove-EC2Subnet -SubnetId subnet-1a2b3c4d

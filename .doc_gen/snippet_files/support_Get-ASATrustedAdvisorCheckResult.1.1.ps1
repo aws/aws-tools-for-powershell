@@ -1,0 +1,1 @@
+Get-ASATrustedAdvisorCheckResult -CheckId "checkid1"

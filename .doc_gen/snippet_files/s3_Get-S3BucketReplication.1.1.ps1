@@ -1,0 +1,1 @@
+Get-S3BucketReplication -BucketName mybucket

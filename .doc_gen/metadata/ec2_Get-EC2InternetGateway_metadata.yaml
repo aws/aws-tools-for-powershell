@@ -1,0 +1,39 @@
+---
+ec2_DescribeInternetGateways:
+  title: Use Get-EC2InternetGateway
+  title_abbrev: Get-EC2InternetGateway
+  synopsis: use Get-EC2InternetGateway
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified Internet gateway.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InternetGateway.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Attachments       InternetGatewayId     Tags
+            -----------       -----------------     ----
+            {vpc-1a2b3c4d}    igw-1a2b3c4d          {}</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all your Internet gateways.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InternetGateway.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Attachments       InternetGatewayId     Tags
+            -----------       -----------------     ----
+            {vpc-1a2b3c4d}    igw-1a2b3c4d          {}
+            {}                igw-2a3b4c5d          {}</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeInternetGateways: 
+

@@ -1,0 +1,1 @@
+Remove-WKSIpGroup -GroupId wsipg-32fhgtred

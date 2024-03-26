@@ -1,0 +1,1 @@
+Get-SQSQueue -QueueNamePrefix My

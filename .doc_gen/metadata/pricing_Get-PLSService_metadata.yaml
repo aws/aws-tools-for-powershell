@@ -1,0 +1,44 @@
+---
+pricing_DescribeServices:
+  title: Use Get-PLSService
+  title_abbrev: Get-PLSService
+  synopsis: use Get-PLSService
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns the metadata for all available service codes in the us-east-1 region.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/pricing_Get-PLSService.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AttributeNames                                                  ServiceCode
+            --------------                                                  -----------
+            {productFamily, servicecode, groupDescription, termType...}     AWSBudgets
+            {productFamily, servicecode, termType, usagetype...}            AWSCloudTrail
+            {productFamily, servicecode, termType, usagetype...}            AWSCodeCommit
+            {productFamily, servicecode, termType, usagetype...}            AWSCodeDeploy
+            {productFamily, servicecode, termType, usagetype...}            AWSCodePipeline
+            {productFamily, servicecode, termType, usagetype...}            AWSConfig
+            ...</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Returns the metadata for the Amazon EC2 service in the us-east-1 region.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/pricing_Get-PLSService.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AttributeNames                                                         ServiceCode
+            --------------                                                         -----------
+            {volumeType, maxIopsvolume, instanceCapacity10xlarge, locationType...} AmazonEC2</programlisting>
+  services:
+    pricing:
+      DescribeServices: 
+

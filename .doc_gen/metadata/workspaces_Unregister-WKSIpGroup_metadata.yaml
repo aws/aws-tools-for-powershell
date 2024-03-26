@@ -1,0 +1,19 @@
+---
+workspaces_DisassociateIpGroups:
+  title: Use Unregister-WKSIpGroup
+  title_abbrev: Unregister-WKSIpGroup
+  synopsis: use Unregister-WKSIpGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample unregisters the specified IP Group from the specified Directory</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Unregister-WKSIpGroup.1.1.ps1
+  services:
+    workspaces:
+      DisassociateIpGroups: 
+

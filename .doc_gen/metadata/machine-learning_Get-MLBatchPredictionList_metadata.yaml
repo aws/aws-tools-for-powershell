@@ -1,0 +1,25 @@
+---
+machine-learning_DescribeBatchPredictions:
+  title: Use Get-MLBatchPredictionList
+  title_abbrev: Get-MLBatchPredictionList
+  synopsis: use Get-MLBatchPredictionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns a list of all BatchPredictions and their associated data records that match the search criterion given in the request.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_Get-MLBatchPredictionList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Returns a list of all BatchPredictions with a status of COMPLETED.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_Get-MLBatchPredictionList.2.1.ps1
+          description: 
+  services:
+    machine-learning:
+      DescribeBatchPredictions: 
+
+

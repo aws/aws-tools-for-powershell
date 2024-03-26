@@ -1,0 +1,1 @@
+Write-GLCArchive -VaultName myvault -FilePath c:\temp\blue.bin

@@ -1,0 +1,1 @@
+New-ACMCertificate -DomainName "www.example.com" -SubjectAlternativeName "example.com","www.example.net"

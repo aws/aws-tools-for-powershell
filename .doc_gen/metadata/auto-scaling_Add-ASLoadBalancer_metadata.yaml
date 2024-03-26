@@ -1,0 +1,20 @@
+---
+auto-scaling_AttachLoadBalancers:
+  title: Use Add-ASLoadBalancer
+  title_abbrev: Add-ASLoadBalancer
+  synopsis: use Add-ASLoadBalancer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example attaches the specified load balancer to the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Add-ASLoadBalancer.1.1.ps1
+          description: 
+  services:
+    auto-scaling:
+      AttachLoadBalancers: 
+
+

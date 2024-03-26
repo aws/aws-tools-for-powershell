@@ -1,0 +1,1 @@
+Write-ASLifecycleHook -AutoScalingGroupName my-asg -LifecycleHookName "myLifecycleHook" -LifecycleTransition "autoscaling:EC2_INSTANCE_LAUNCHING" -NotificationTargetARN "arn:aws:sns:us-west-2:123456789012:my-sns-topic" -RoleARN "arn:aws:iam::123456789012:role/my-iam-role"

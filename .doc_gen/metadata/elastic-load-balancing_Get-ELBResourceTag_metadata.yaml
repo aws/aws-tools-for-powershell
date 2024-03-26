@@ -1,0 +1,41 @@
+---
+elastic-load-balancing_DescribeTags:
+  title: Use Get-ELBResourceTag
+  title_abbrev: Get-ELBResourceTag
+  synopsis: use Get-ELBResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists the tags for the specified load balancers.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBResourceTag.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LoadBalancerName             Tags
+            ----------------             ----
+            my-load-balancer             {project, department}
+            my-internal-load-balancer    {project, department}</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the tags for the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBResourceTag.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Key           Value
+            ---           -----
+            project       lima
+            department    digital-media</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing:
+      DescribeTags: 
+
+

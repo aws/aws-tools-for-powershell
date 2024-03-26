@@ -1,0 +1,2 @@
+Set-AWSCredential -AccessKey AKIAIOSFODNN7EXAMPLE -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -StoreAs sourceAccountProfile    
+Set-AWSCredential -SourceProfile sourceAccountProfile -RoleArn arn:aws:iam::123456789012:role/my_role -StoreAs myRoleProfile

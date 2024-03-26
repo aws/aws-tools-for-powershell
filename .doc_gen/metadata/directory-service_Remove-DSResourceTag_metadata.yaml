@@ -1,0 +1,20 @@
+---
+directory-service_RemoveTagsFromResource:
+  title: Use Remove-DSResourceTag
+  title_abbrev: Remove-DSResourceTag
+  synopsis: use Remove-DSResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command removes the Resource Tag assigned to the specified Directory-id</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Remove-DSResourceTag.1.1.ps1
+  services:
+    directory-service:
+      RemoveTagsFromResource: 
+
+

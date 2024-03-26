@@ -1,0 +1,20 @@
+---
+directory-service_RemoveIpRoutes:
+  title: Use Remove-DSIpRoute
+  title_abbrev: Remove-DSIpRoute
+  synopsis: use Remove-DSIpRoute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command removes the specified IP from Configured IP routes of Directory-id. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Remove-DSIpRoute.1.1.ps1
+  services:
+    directory-service:
+      RemoveIpRoutes: 
+
+

@@ -1,0 +1,1 @@
+Get-AWSCmdletName -AwsCliCommand "aws ec2 describe-images"

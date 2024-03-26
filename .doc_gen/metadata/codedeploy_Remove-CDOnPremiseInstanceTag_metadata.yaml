@@ -1,0 +1,19 @@
+---
+codedeploy_RemoveTagsFromOnPremisesInstances:
+  title: Use Remove-CDOnPremiseInstanceTag
+  title_abbrev: Remove-CDOnPremiseInstanceTag
+  synopsis: use Remove-CDOnPremiseInstanceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the specified tag for the on-premises instance with the specified name. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the tag without a prompt.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Remove-CDOnPremiseInstanceTag.1.1.ps1
+  services:
+    codedeploy:
+      RemoveTagsFromOnPremisesInstances: 
+

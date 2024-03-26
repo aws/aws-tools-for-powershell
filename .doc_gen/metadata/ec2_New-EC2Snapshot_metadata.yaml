@@ -1,0 +1,37 @@
+---
+ec2_CreateSnapshot:
+  title: Use New-EC2Snapshot
+  title_abbrev: New-EC2Snapshot
+  synopsis: use New-EC2Snapshot
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a snapshot of the specified volume.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2Snapshot.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DataEncryptionKeyId :
+            Description         : This is a test
+            Encrypted           : False
+            KmsKeyId            :
+            OwnerAlias          :
+            OwnerId             : 123456789012
+            Progress            :
+            SnapshotId          : snap-12345678
+            StartTime           : 12/22/2015 1:28:42 AM
+            State               : pending
+            StateMessage        :
+            Tags                : {}
+            VolumeId            : vol-12345678
+            VolumeSize          : 20</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CreateSnapshot: 
+

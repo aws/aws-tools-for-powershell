@@ -1,0 +1,18 @@
+---
+iam_UpdateSigningCertificate:
+  title: Use Update-IAMSigningCertificate
+  title_abbrev: Update-IAMSigningCertificate
+  synopsis: use Update-IAMSigningCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example updates the certificate that is associated with the IAM user named <code>Bob</code> and whose certificate ID si <code>Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU</code> to mark it as inactive.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMSigningCertificate.1.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateSigningCertificate: 

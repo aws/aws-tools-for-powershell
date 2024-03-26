@@ -1,0 +1,1 @@
+Get-EC2VpcEndpoint -Region eu-west-1 | Select-Object VpcEndpointId, VpcId, ServiceName, PrivateDnsEnabled | Format-Table -AutoSize

@@ -1,0 +1,23 @@
+---
+codedeploy_CreateDeploymentConfig:
+  title: Use New-CDDeploymentConfig
+  title_abbrev: New-CDDeploymentConfig
+  synopsis: use New-CDDeploymentConfig
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new deployment configuration with the specified name and behavior.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_New-CDDeploymentConfig.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">0f3e8187-44ef-42da-aeed-b6823EXAMPLE</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      CreateDeploymentConfig: 
+

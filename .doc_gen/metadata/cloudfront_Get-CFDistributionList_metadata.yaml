@@ -1,0 +1,19 @@
+---
+cloudfront_ListDistributions:
+  title: Use Get-CFDistributionList
+  title_abbrev: Get-CFDistributionList
+  synopsis: use Get-CFDistributionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns distributions.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudfront_Get-CFDistributionList.1.1.ps1
+  services:
+    cloudfront:
+      ListDistributions: 
+

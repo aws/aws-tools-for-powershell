@@ -1,0 +1,30 @@
+---
+sqs_ReceiveMessage:
+  title: Use Receive-SQSMessage
+  title_abbrev: Receive-SQSMessage
+  synopsis: use Receive-SQSMessage
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists information for up to the next 10 messages to be received for the specified queue. The information will contain values for the specified message attributes, if they exist.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Receive-SQSMessage.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Attributes             : {[SenderId, AIDAIAZKMSNQ7TEXAMPLE], [SentTimestamp, 1451495923744]}
+            Body                   : Information about John Doe's grade.
+            MD5OfBody              : ea572796e3c231f974fe75d89EXAMPLE
+            MD5OfMessageAttributes : 48c1ee811f0fe7c4e88fbe0f5EXAMPLE
+            MessageAttributes      : {[StudentGrade, Amazon.SQS.Model.MessageAttributeValue], [StudentName, Amazon.SQS.Model.MessageAttributeValue]}
+            MessageId              : 53828c4b-631b-469b-8833-c093cEXAMPLE
+            ReceiptHandle          : AQEBpfGp...20Q5cg==</programlisting>
+          snippet_files: []
+  services:
+    sqs:
+      ReceiveMessage: 
+

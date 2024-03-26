@@ -1,0 +1,27 @@
+---
+workspaces_DeleteTags:
+  title: Use Remove-WKSTag
+  title_abbrev: Remove-WKSTag
+  synopsis: use Remove-WKSTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample removes the tag associated with the Workspace</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Remove-WKSTag.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-WKSTag (DeleteTags)" on target "ws-w10b3abcd".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</programlisting>
+          snippet_files: []
+  services:
+    workspaces:
+      DeleteTags: 
+

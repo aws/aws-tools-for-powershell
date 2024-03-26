@@ -1,0 +1,1 @@
+Update-CDApplication -ApplicationName MyNewApplication -NewApplicationName MyNewApplication-2

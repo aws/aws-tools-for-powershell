@@ -1,0 +1,1 @@
+(Get-CFGAggregateConfigRuleComplianceSummary -ConfigurationAggregatorName raju).AggregateComplianceCounts.ComplianceSummary.NonCompliantResourceCount

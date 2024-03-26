@@ -1,0 +1,26 @@
+---
+iam_GetSAMLProvider:
+  title: Use Get-IAMSAMLProvider
+  title_abbrev: Get-IAMSAMLProvider
+  synopsis: use Get-IAMSAMLProvider
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example retrieves the details about the SAML 2.0 provider whose ARM is arn:aws:iam::123456789012:saml-provider/SAMLADFS. The response includes the metadata document that you got from the identity provider to create the &AWS; SAML provider entity as well as the creation and expiration dates.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMSAMLProvider.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CreateDate                 SAMLMetadataDocument                                          ValidUntil
+            ----------                 --------------------                                          ----------
+            12/23/2014 12:16:55 PM    &lt;EntityDescriptor ID="_12345678-1234-5678-9012-example1...    12/23/2114 12:16:54 PM</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      GetSAMLProvider: 
+

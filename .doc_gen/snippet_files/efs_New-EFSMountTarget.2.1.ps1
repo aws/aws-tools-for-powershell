@@ -1,0 +1,1 @@
+New-EFSMountTarget -FileSystemId fs-1a2b3c4d -SubnetId subnet-1a2b3c4d -SecurityGroup sg-group1,sg-group2,sg-group3

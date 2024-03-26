@@ -1,0 +1,27 @@
+---
+ec2_DescribePrefixLists:
+  title: Use Get-EC2PrefixList
+  title_abbrev: Get-EC2PrefixList
+  synopsis: use Get-EC2PrefixList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example fetches the available &AWS-services; in a prefix list format for the region</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2PrefixList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Cidrs                                          PrefixListId PrefixListName
+            -----                                          ------------ --------------
+            {52.94.5.0/24, 52.119.240.0/21, 52.94.24.0/23} pl-6fa54006  com.amazonaws.eu-west-1.dynamodb
+            {52.218.0.0/17, 54.231.128.0/19}               pl-6da54004  com.amazonaws.eu-west-1.s3</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribePrefixLists: 
+

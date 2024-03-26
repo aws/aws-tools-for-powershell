@@ -1,0 +1,1 @@
+Remove-SSMMaintenanceWindow -WindowId "mw-06d59c1a07c022145"

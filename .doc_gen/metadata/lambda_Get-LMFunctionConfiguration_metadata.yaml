@@ -1,0 +1,23 @@
+---
+lambda_GetFunctionConfiguration:
+  title: Use Get-LMFunctionConfiguration
+  title_abbrev: Get-LMFunctionConfiguration
+  synopsis: use Get-LMFunctionConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example returns the version specific configuration of a Lambda Function.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Get-LMFunctionConfiguration.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">CodeSha256                 : uWOW0R7z+f0VyLuUg7+/D08hkMFsq0SF4seuyUZJ/R8=\nCodeSize                   : 1426\nDeadLetterConfig           : Amazon.Lambda.Model.DeadLetterConfig\nDescription                : Verson 3 to test Aliases\nEnvironment                : Amazon.Lambda.Model.EnvironmentResponse\nFunctionArn                : arn:aws:lambda:us-east-1:123456789012:function:MylambdaFunction123\n                             :PowershellAlias\nFunctionName               : MylambdaFunction123\nHandler                    : lambda_function.launch_instance\nKMSKeyArn                  : \nLastModified               : 2019-12-25T09:52:59.872+0000\nLastUpdateStatus           : Successful\nLastUpdateStatusReason     : \nLastUpdateStatusReasonCode : \nLayers                     : {}\nMasterArn                  : \nMemorySize                 : 128\nRevisionId                 : 5d7de38b-87f2-4260-8f8a-e87280e10c33\nRole                       : arn:aws:iam::123456789012:role/service-role/lambda\nRuntime                    : python3.8\nState                      : Active\nStateReason                : \nStateReasonCode            : \nTimeout                    : 600\nTracingConfig              : Amazon.Lambda.Model.TracingConfigResponse\nVersion                    : 4\nVpcConfig                  : Amazon.Lambda.Model.VpcConfigDetail</programlisting>"
+  services:
+    lambda:
+      GetFunctionConfiguration: 
+

@@ -1,0 +1,1 @@
+C:\> Register-EC2Address -InstanceId i-12345678 -AllocationId eipalloc-12345678

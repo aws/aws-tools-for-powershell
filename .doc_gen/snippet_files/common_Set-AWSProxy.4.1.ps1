@@ -1,0 +1,1 @@
+Set-AWSProxy -Hostname https://proxy.testserver.com -Port 80 -BypassList "169.254.169.250","169.254.169.251","169.254.169.254"

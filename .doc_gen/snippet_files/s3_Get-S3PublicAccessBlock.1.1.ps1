@@ -1,0 +1,1 @@
+Get-S3PublicAccessBlock -BucketName 's3testbucket'

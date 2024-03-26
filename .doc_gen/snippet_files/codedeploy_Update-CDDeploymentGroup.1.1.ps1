@@ -1,0 +1,1 @@
+Update-CDDeploymentGroup -ApplicationName MyNewApplication -CurrentDeploymentGroupName MyNewDeploymentGroup -NewDeploymentGroupName MyNewDeploymentGroup-2

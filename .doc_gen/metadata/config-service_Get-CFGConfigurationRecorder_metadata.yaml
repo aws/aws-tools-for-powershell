@@ -1,0 +1,27 @@
+---
+config-service_DescribeConfigurationRecorders:
+  title: Use Get-CFGConfigurationRecorder
+  title_abbrev: Get-CFGConfigurationRecorder
+  synopsis: use Get-CFGConfigurationRecorder
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns the details of configuration recorders.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGConfigurationRecorder.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name           : default
+            RecordingGroup : Amazon.ConfigService.Model.RecordingGroup
+            RoleARN        : arn:aws:iam::123456789012:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeConfigurationRecorders: 
+
+

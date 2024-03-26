@@ -1,0 +1,1 @@
+Remove-DSResourceTag -ResourceId d-123456ijkl -TagKey myTag

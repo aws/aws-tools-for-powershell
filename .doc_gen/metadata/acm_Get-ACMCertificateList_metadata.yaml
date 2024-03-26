@@ -1,0 +1,40 @@
+---
+acm_ListCertificates:
+  title: Use Get-ACMCertificateList
+  title_abbrev: Get-ACMCertificateList
+  synopsis: use Get-ACMCertificateList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Retrieves a list of all your certificate ARNs and the domain name for each. The cmdlet will automatically paginate to retrieve all the ARNs. To manually control pagination, use the -MaxItem parameter to control how many certificate ARNs are returned for each service call and the -NextToken parameter to indicate the starting point for each call.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_Get-ACMCertificateList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">CertificateArn                                                                      DomainName
+            --------------                                                                      ----------
+            arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012 www.example.com</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Retrieves a list of all your certificate ARNs where the certificate status matches on the supplied states.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_Get-ACMCertificateList.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This example returns a list of all certificates in the us-east-1 region that have a key type of RSA_2048, and an extended key usage, or purpose, of CODE_SIGNING. You can find the values for these filtering parameters in the ListCertificates Filters API reference topic: https://docs.aws.amazon.com/acm/latest/APIReference/API_Filters.html.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_Get-ACMCertificateList.3.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">CertificateArn                                                                      DomainName                \n--------------                                                                      ----------                \narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-d7c0-48c1-af8d-2133d8f30zzz *.route53docs.com\narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-98a5-443d-a734-800430c80zzz nerdzizm.net               \narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-2be6-4376-8fa7-bad559525zzz                           \narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-e7ca-44c5-803e-24d9f2f36zzz                           \narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-1241-4b71-80b1-090305a62zzz                           \narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-8709-4568-8c64-f94617c99zzz                           \narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-a8fa-4a61-98cf-e08ccc0eezzz                           \narn:aws:acm:us-east-1:8xxxxxxxxxxx:certificate/xxxxxxxx-fa47-40fe-a714-2d277d3eezzz *.route53docs.com</programlisting>"
+  services:
+    acm:
+      ListCertificates: 
+

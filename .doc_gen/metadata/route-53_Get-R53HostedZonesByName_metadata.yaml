@@ -1,0 +1,30 @@
+---
+route-53_ListHostedZonesByName:
+  title: Use Get-R53HostedZonesByName
+  title_abbrev: Get-R53HostedZonesByName
+  synopsis: use Get-R53HostedZonesByName
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns all of your public and private hosted zones in ASCII order by domain name.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Get-R53HostedZonesByName.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Returns your public and private hosted zones, in ASCII order by domain name, starting at the specified DNS name.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Get-R53HostedZonesByName.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This example shows how to manually enumerate the hosted zones by first retrieving a single item and then iterating two at a time until all zones have been returned, using marker properties attached to the service response in the <code>$AWSHistory</code> stack after each call.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Get-R53HostedZonesByName.3.1.ps1
+          description: 
+  services:
+    route-53:
+      ListHostedZonesByName: 
+
+

@@ -1,0 +1,1 @@
+Register-EC2DhcpOption -DhcpOptionsId default -VpcId vpc-12345678

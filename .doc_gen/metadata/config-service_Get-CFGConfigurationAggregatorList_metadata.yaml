@@ -1,0 +1,37 @@
+---
+config-service_DescribeConfigurationAggregators:
+  title: Use Get-CFGConfigurationAggregatorList
+  title_abbrev: Get-CFGConfigurationAggregatorList
+  synopsis: use Get-CFGConfigurationAggregatorList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample returns all the aggregators for the region/account.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGConfigurationAggregatorList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccountAggregationSources     : {Amazon.ConfigService.Model.AccountAggregationSource}
+            ConfigurationAggregatorArn    : arn:aws:config-service:eu-west-1:123456789012:config-aggregator/config-aggregator-xabca1me
+            ConfigurationAggregatorName   : IrelandMaster
+            CreationTime                  : 8/25/2019 11:42:39 PM
+            LastUpdatedTime               : 8/25/2019 11:42:39 PM
+            OrganizationAggregationSource :
+
+            AccountAggregationSources     : {}
+            ConfigurationAggregatorArn    : arn:aws:config-service:eu-west-1:123456789012:config-aggregator/config-aggregator-qubqabcd
+            ConfigurationAggregatorName   : raju
+            CreationTime                  : 8/11/2019 8:39:25 AM
+            LastUpdatedTime               : 8/11/2019 8:39:25 AM
+            OrganizationAggregationSource : Amazon.ConfigService.Model.OrganizationAggregationSource</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeConfigurationAggregators: 
+
+

@@ -1,0 +1,1 @@
+New-EFSFileSystem -CreationToken "MyUniqueToken"

@@ -1,0 +1,1 @@
+Add-ELBResourceTag -LoadBalancerName my-load-balancer -Tag @{ Key="project";Value="lima" },@{ Key="department";Value="digital-media" }

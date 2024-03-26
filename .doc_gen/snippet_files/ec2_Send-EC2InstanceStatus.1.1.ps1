@@ -1,0 +1,1 @@
+Send-EC2InstanceStatus -Instance i-12345678 -Status impaired -ReasonCode unresponsive

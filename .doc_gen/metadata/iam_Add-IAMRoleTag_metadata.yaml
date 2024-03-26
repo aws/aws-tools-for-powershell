@@ -1,0 +1,19 @@
+---
+iam_TagRole:
+  title: Use Add-IAMRoleTag
+  title_abbrev: Add-IAMRoleTag
+  synopsis: use Add-IAMRoleTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example adds tag to Role in Identity Management Service</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Add-IAMRoleTag.1.1.ps1
+  services:
+    iam:
+      TagRole: 
+

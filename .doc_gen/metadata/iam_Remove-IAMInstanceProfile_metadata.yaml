@@ -1,0 +1,18 @@
+---
+iam_DeleteInstanceProfile:
+  title: Use Remove-IAMInstanceProfile
+  title_abbrev: Remove-IAMInstanceProfile
+  synopsis: use Remove-IAMInstanceProfile
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the EC2 instance profile named <code>MyAppInstanceProfile</code>. The first command detaches any roles from the instance profile, and then the second command deletes the instance profile.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMInstanceProfile.1.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteInstanceProfile: 

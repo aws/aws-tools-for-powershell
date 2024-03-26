@@ -1,0 +1,20 @@
+---
+directory-service_DeleteDirectory:
+  title: Use Remove-DSDirectory
+  title_abbrev: Remove-DSDirectory
+  synopsis: use Remove-DSDirectory
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes an &AWS; Directory service directory (Simple AD/Microsoft AD/AD Connector)</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Remove-DSDirectory.1.1.ps1
+  services:
+    directory-service:
+      DeleteDirectory: 
+
+

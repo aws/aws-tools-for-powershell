@@ -1,0 +1,27 @@
+---
+appstream_DescribeDirectoryConfigs:
+  title: Use Get-APSDirectoryConfigList
+  title_abbrev: Get-APSDirectoryConfigList
+  synopsis: use Get-APSDirectoryConfigList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample displays Directory Configurations created in AppStream</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Get-APSDirectoryConfigList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">DirectoryName OrganizationalUnitDistinguishedNames CreatedTime
+            ------------- ------------------------------------ -----------
+            Test.com      {OU=AppStream,DC=Test,DC=com}    9/6/2019 10:56:40 AM
+            contoso.com   {OU=AppStream,OU=contoso,DC=contoso,DC=com}  8/9/2019 9:08:50 AM</programlisting>
+  services:
+    appstream:
+      DescribeDirectoryConfigs: 
+

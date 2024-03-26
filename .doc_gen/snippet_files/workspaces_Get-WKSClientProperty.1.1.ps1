@@ -1,0 +1,1 @@
+Get-WKSClientProperty -ResourceId d-223562a123

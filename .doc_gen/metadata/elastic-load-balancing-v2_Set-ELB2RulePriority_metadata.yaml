@@ -1,0 +1,29 @@
+---
+elastic-load-balancing-v2_SetRulePriorities:
+  title: Use Set-ELB2RulePriority
+  title_abbrev: Set-ELB2RulePriority
+  synopsis: use Set-ELB2RulePriority
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example changes the priority of the specified listener rule.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Set-ELB2RulePriority.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+            Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+            IsDefault  : False
+            Priority   : 11
+            RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/a4eb199fa5046f80/dbf4c6dcef3ec6f8</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      SetRulePriorities: 
+
+

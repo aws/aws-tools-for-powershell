@@ -1,0 +1,23 @@
+---
+ec2_AttachNetworkInterface:
+  title: Use Add-EC2NetworkInterface
+  title_abbrev: Add-EC2NetworkInterface
+  synopsis: use Add-EC2NetworkInterface
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example attaches the specified network interface to the specified instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Add-EC2NetworkInterface.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">eni-attach-1a2b3c4d</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      AttachNetworkInterface: 
+

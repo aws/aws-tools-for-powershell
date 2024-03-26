@@ -1,0 +1,1 @@
+Get-APSImagePermission -Name Powershell  | select SharedAccountId, @{n="AllowFleet";e={$_.ImagePermissions.AllowFleet}}, @{n="AllowImageBuilder";e={$_.ImagePermissions.AllowImageBuilder}}

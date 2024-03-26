@@ -1,0 +1,94 @@
+---
+auto-scaling_DescribeAutoScalingGroups:
+  title: Use Get-ASAutoScalingGroup
+  title_abbrev: Get-ASAutoScalingGroup
+  synopsis: use Get-ASAutoScalingGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example lists the names of your Auto Scaling groups.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AutoScalingGroupName
+            --------------------
+            my-asg-1
+            my-asg-2
+            my-asg-3
+            my-asg-4
+            my-asg-5
+            my-asg-6</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example describes the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AutoScalingGroupARN     : arn:aws:autoscaling:us-west-2:123456789012:autoScalingGroup:930d940e-891e-4781-a11a-7b0acd480
+                                      f03:autoScalingGroupName/my-asg-1
+            AutoScalingGroupName    : my-asg-1
+            AvailabilityZones       : {us-west-2b, us-west-2a}
+            CreatedTime             : 3/1/2015 9:05:31 AM
+            DefaultCooldown         : 300
+            DesiredCapacity         : 2
+            EnabledMetrics          : {}
+            HealthCheckGracePeriod  : 300
+            HealthCheckType         : EC2
+            Instances               : {my-lc}
+            LaunchConfigurationName : my-lc
+            LoadBalancerNames       : {}
+            MaxSize                 : 0
+            MinSize                 : 0
+            PlacementGroup          :
+            Status                  :
+            SuspendedProcesses      : {}
+            Tags                    : {}
+            TerminationPolicies     : {Default}
+            VPCZoneIdentifier       : subnet-e4f33493,subnet-5264e837</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This example describes the specified two Auto Scaling groups.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.3.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 4: This example describes the Auto Scaling instances for the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.4.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 5: This example describes all your Auto Scaling groups.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.5.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 6: This example describes all your Auto Scaling groups, in batches of 10.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.6.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 7: This example describes LaunchTemplate for the specified Auto Scaling group. This example assumes that the "Instance purchase options" is set to "Adhere to launch template". In case this option is set to "Combine purchase options and instance types", LaunchTemplate could be accessed using "MixedInstancesPolicy.LaunchTemplate" property.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.7.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">LaunchTemplateId     LaunchTemplateName   Version
+            ----------------     ------------------   -------
+            lt-06095fd619cb40371 test-launch-template $Default</programlisting>
+  services:
+    auto-scaling:
+      DescribeAutoScalingGroups: 
+
+

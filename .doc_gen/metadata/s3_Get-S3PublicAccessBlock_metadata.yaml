@@ -1,0 +1,19 @@
+---
+s3_GetPublicAccessBlock:
+  title: Use Get-S3PublicAccessBlock
+  title_abbrev: Get-S3PublicAccessBlock
+  synopsis: use Get-S3PublicAccessBlock
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: The command returns the public access block configuration of the given S3 bucket.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3PublicAccessBlock.1.1.ps1
+  services:
+    s3:
+      GetPublicAccessBlock: 
+

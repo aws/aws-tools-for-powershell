@@ -1,0 +1,1 @@
+Get-EC2Image -Region us-west-2

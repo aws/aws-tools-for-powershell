@@ -1,0 +1,1 @@
+Write-SSMParameter -Name "Welcome" -Type "String" -Value "Good day, Sunshine!" -Overwrite $true

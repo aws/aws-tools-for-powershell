@@ -1,0 +1,1 @@
+Get-AWSPublicIpAddressRange -ServiceKey ec2

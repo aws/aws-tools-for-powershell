@@ -1,0 +1,1 @@
+Get-WKSWorkspaces | Reset-WKSWorkspace

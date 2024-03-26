@@ -1,0 +1,23 @@
+---
+codepipeline_ListActionTypes:
+  title: Use Get-CPActionType
+  title_abbrev: Get-CPActionType
+  synopsis: use Get-CPActionType
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about all available actions for the specified owner.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Get-CPActionType.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">For Category = Deploy, Owner = AWS, Provider = ElasticBeanstalk, Version = 1:\n  ActionConfigurationProperties:\n    For ApplicationName:\n      Description = The AWS Elastic Beanstalk Application name\n      Key = True\n      Queryable = False\n      Required = True\n      Secret = False\n    For EnvironmentName:\n      Description = The AWS Elastic Beanstalk Environment name\n      Key = True\n      Queryable = False\n      Required = True\n      Secret = False\n  InputArtifactDetails:\n    MaximumCount = 1\n    MinimumCount = 1\n  OutputArtifactDetails:\n    MaximumCount = 0\n    MinimumCount = 0\n  Settings:\n    EntityUrlTemplate = https://console.aws.amazon.com/elasticbeanstalk/r/application/{Config:ApplicationName}\n    ExecutionUrlTemplate = https://console.aws.amazon.com/elasticbeanstalk/r/application/{Config:ApplicationName} \nFor Category = Deploy, Owner = AWS, Provider = CodeDeploy, Version = 1:\n  ActionConfigurationProperties:\n    For ApplicationName:\n      Description = The AWS CodeDeploy Application name\n      Key = True\n      Queryable = False\n      Required = True\n      Secret = False\n    For DeploymentGroupName:\n      Description = The AWS CodeDeploy Deployment Group name\n      Key = True\n      Queryable = False\n      Required = True\n      Secret = False\n  InputArtifactDetails:\n    MaximumCount = 1\n    MinimumCount = 1\n  OutputArtifactDetails:\n    MaximumCount = 0\n    MinimumCount = 0\n  Settings:\n    EntityUrlTemplate = https://console.aws.amazon.com/codedeploy/home?#/applications/{Config:ApplicationName}/deployment-groups/{Config:DeploymentGroupName}\n    ExecutionUrlTemplate = https://console.aws.amazon.com/codedeploy/home?#/deployments/{ExternalExecutionId}</programlisting>"
+          snippet_files: []
+  services:
+    codepipeline:
+      ListActionTypes: 
+

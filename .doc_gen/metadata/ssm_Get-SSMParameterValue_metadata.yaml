@@ -1,0 +1,38 @@
+---
+ssm_GetParameters:
+  title: Use Get-SSMParameterValue
+  title_abbrev: Get-SSMParameterValue
+  synopsis: use Get-SSMParameterValue
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists the values for a parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMParameterValue.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InvalidParameters Parameters
+            ----------------- ----------
+            {}                {Welcome}</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example lists the details of the value.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMParameterValue.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name    Type   Value
+            ----    ----   -----
+            Welcome String Good day, Sunshine!</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetParameters: 
+

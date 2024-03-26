@@ -1,0 +1,32 @@
+---
+ec2_CreateSubnet:
+  title: Use New-EC2Subnet
+  title_abbrev: New-EC2Subnet
+  synopsis: use New-EC2Subnet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a subnet with the specified CIDR.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2Subnet.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AvailabilityZone        : us-west-2c
+            AvailableIpAddressCount : 251
+            CidrBlock               : 10.0.0.0/24
+            DefaultForAz            : False
+            MapPublicIpOnLaunch     : False
+            State                   : pending
+            SubnetId                : subnet-1a2b3c4d
+            Tag                     : {}
+            VpcId                   : vpc-12345678</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CreateSubnet: 
+

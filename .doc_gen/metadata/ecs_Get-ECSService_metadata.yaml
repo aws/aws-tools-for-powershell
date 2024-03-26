@@ -1,0 +1,24 @@
+---
+ecs_DescribeServices:
+  title: Use Get-ECSService
+  title_abbrev: Get-ECSService
+  synopsis: use Get-ECSService
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example shows how to retrieve details of a specific service from your default cluster.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ecs_Get-ECSService.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example shows how to retrieve details of a specific service running in the named cluster.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ecs_Get-ECSService.2.1.ps1
+  services:
+    ecs:
+      DescribeServices: 
+

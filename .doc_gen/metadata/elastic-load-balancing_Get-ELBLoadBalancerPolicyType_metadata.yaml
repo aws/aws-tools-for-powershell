@@ -1,0 +1,53 @@
+---
+elastic-load-balancing_DescribeLoadBalancerPolicyTypes:
+  title: Use Get-ELBLoadBalancerPolicyType
+  title_abbrev: Get-ELBLoadBalancerPolicyType
+  synopsis: use Get-ELBLoadBalancerPolicyType
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets the policy types supported by Elastic Load Balancing.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicyType.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Description                             PolicyAttributeTypeDescriptions         PolicyTypeName
+            -----------                             -------------------------------         --------------
+            Stickiness policy with session lifet... {CookieExpirationPeriod}                LBCookieStickinessPolicyType
+            Policy that controls authentication ... {PublicKeyPolicyName}                   BackendServerAuthenticationPolicyType
+            Listener policy that defines the cip... {Protocol-SSLv2, Protocol-TLSv1, Pro... SSLNegotiationPolicyType
+            Policy containing a list of public k... {PublicKey}                             PublicKeyPolicyType
+            Stickiness policy with session lifet... {CookieName}                            AppCookieStickinessPolicyType
+            Policy that controls whether to incl... {ProxyProtocol}                         ProxyProtocolPolicyType</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the specified policy type.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicyType.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Description                             PolicyAttributeTypeDescriptions         PolicyTypeName
+            -----------                             -------------------------------         --------------
+            Policy that controls whether to incl... {ProxyProtocol}                         ProxyProtocolPolicyType</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example displays the complete description of the specified policy type.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicyType.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Policy that controls whether to include the IP address and port of the originating request for TCP messages. \nThis policy operates on TCP/SSL listeners only</programlisting>"
+          snippet_files: []
+  services:
+    elastic-load-balancing:
+      DescribeLoadBalancerPolicyTypes: 
+
+

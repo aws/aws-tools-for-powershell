@@ -1,0 +1,1 @@
+Write-S3Object -BucketName test-files -Key "prefix/to/sample.txt" -File .\local-sample.txt

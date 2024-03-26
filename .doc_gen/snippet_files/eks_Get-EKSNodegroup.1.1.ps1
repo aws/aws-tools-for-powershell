@@ -1,0 +1,1 @@
+Get-EKSNodegroup -NodegroupName "ProdEKSNodeGroup" -ClusterName "PROD"

@@ -1,0 +1,1 @@
+Revoke-APSSession -SessionId 6cd2f9a3-f948-4aa1-8014-8a7dcde14877

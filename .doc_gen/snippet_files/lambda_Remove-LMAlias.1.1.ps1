@@ -1,0 +1,1 @@
+Remove-LMAlias -FunctionName "MylambdaFunction123" -Name "NewAlias"

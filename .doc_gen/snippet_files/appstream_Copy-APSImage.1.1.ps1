@@ -1,0 +1,1 @@
+Copy-APSImage -DestinationImageName TestImageCopy -DestinationRegion us-west-2 -SourceImageName Powershell

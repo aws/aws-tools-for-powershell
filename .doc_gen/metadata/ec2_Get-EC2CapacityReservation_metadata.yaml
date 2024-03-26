@@ -1,0 +1,38 @@
+---
+ec2_DescribeCapacityReservations:
+  title: Use Get-EC2CapacityReservation
+  title_abbrev: Get-EC2CapacityReservation
+  synopsis: use Get-EC2CapacityReservation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes one or more of your Capacity Reservations for the region</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2CapacityReservation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AvailabilityZone       : eu-west-1b
+            AvailableInstanceCount : 2
+            CapacityReservationId  : cr-0c1f2345db6f7cdba
+            CreateDate             : 3/28/2019 9:29:41 AM
+            EbsOptimized           : True
+            EndDate                : 1/1/0001 12:00:00 AM
+            EndDateType            : unlimited
+            EphemeralStorage       : False
+            InstanceMatchCriteria  : open
+            InstancePlatform       : Windows
+            InstanceType           : m4.xlarge
+            State                  : active
+            Tags                   : {}
+            Tenancy                : default
+            TotalInstanceCount     : 2</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeCapacityReservations: 
+

@@ -1,0 +1,27 @@
+---
+appstream_DescribeUserStackAssociations:
+  title: Use Get-APSUserStackAssociation
+  title_abbrev: Get-APSUserStackAssociation
+  synopsis: use Get-APSUserStackAssociation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample displays list of users assigned to a stack</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Get-APSUserStackAssociation.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AuthenticationType SendEmailNotification StackName       UserName
+            ------------------ --------------------- ---------       --------
+            USERPOOL           False                 PowershellStack TestUser1@lab.com
+            USERPOOL           False                 PowershellStack TestUser2@lab.com</programlisting>
+  services:
+    appstream:
+      DescribeUserStackAssociations: 
+

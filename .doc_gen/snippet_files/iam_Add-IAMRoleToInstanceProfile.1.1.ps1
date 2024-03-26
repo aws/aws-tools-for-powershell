@@ -1,0 +1,1 @@
+Add-IAMRoleToInstanceProfile -RoleName "S3Access" -InstanceProfileName "webserver"

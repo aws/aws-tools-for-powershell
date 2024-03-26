@@ -1,0 +1,1 @@
+Get-APSUser -AuthenticationType USERPOOL | Select-Object UserName, AuthenticationType, Enabled

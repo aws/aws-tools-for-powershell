@@ -1,0 +1,19 @@
+---
+ssm_StopAutomationExecution:
+  title: Use Stop-SSMAutomationExecution
+  title_abbrev: Stop-SSMAutomationExecution
+  synopsis: use Stop-SSMAutomationExecution
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example stops an Automation Execution. There is no output if the command succeeds.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Stop-SSMAutomationExecution.1.1.ps1
+  services:
+    ssm:
+      StopAutomationExecution: 
+

@@ -1,0 +1,32 @@
+---
+config-service_DescribeConfigurationRecorderStatus:
+  title: Use Get-CFGConfigurationRecorderStatus
+  title_abbrev: Get-CFGConfigurationRecorderStatus
+  synopsis: use Get-CFGConfigurationRecorderStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample returns status of the configuration recorders. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGConfigurationRecorderStatus.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LastErrorCode        :
+            LastErrorMessage     :
+            LastStartTime        : 10/11/2019 10:13:51 AM
+            LastStatus           : Success
+            LastStatusChangeTime : 12/31/2019 6:14:12 AM
+            LastStopTime         : 10/11/2019 10:13:46 AM
+            Name                 : default
+            Recording            : True</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeConfigurationRecorderStatus: 
+
+

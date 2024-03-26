@@ -1,0 +1,39 @@
+---
+ec2_ResetInstanceAttribute:
+  title: Use Reset-EC2InstanceAttribute
+  title_abbrev: Reset-EC2InstanceAttribute
+  synopsis: use Reset-EC2InstanceAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example resets the 'sriovNetSupport' attribute for the specified instance.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Reset-EC2InstanceAttribute.1.1.ps1
+        - description: "<emphasis role=\"bold\">Example 2: This example resets the 'ebsOptimized' attribute for the specified instance.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Reset-EC2InstanceAttribute.2.1.ps1
+        - description: "<emphasis role=\"bold\">Example 3: This example resets the 'sourceDestCheck' attribute for the specified instance.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Reset-EC2InstanceAttribute.3.1.ps1
+        - description: "<emphasis role=\"bold\">Example 4: This example resets the 'disableApiTermination' attribute for the specified instance.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Reset-EC2InstanceAttribute.4.1.ps1
+        - description: "<emphasis role=\"bold\">Example 5: This example resets the 'instanceInitiatedShutdownBehavior' attribute for the specified instance.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Reset-EC2InstanceAttribute.5.1.ps1
+  services:
+    ec2:
+      ResetInstanceAttribute: 
+

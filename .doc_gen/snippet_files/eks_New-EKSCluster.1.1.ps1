@@ -1,0 +1,1 @@
+New-EKSCluster -Name prod -ResourcesVpcConfig @{SubnetIds=@("subnet-0a1b2c3d","subnet-3a2b1c0d");SecurityGroupIds="sg-6979fe18"} -RoleArn "arn:aws:iam::012345678901:role/eks-service-role"

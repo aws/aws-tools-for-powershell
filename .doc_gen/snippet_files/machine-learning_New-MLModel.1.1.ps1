@@ -1,0 +1,1 @@
+New-MLModel -Name NAME -ModelType BINARY -Parameter @{...} -TrainingDataSourceId ID

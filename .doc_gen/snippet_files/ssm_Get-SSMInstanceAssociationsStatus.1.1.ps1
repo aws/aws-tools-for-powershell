@@ -1,0 +1,1 @@
+Get-SSMInstanceAssociationsStatus -InstanceId "i-0000293ffd8c57862"

@@ -1,0 +1,39 @@
+---
+ssm_DescribeMaintenanceWindowExecutions:
+  title: Use Get-SSMMaintenanceWindowExecutionList
+  title_abbrev: Get-SSMMaintenanceWindowExecutionList
+  synopsis: use Get-SSMMaintenanceWindowExecutionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all of the executions for a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowExecutionList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EndTime           : 2/20/2017 6:30:17 PM
+            StartTime         : 2/20/2017 6:30:16 PM
+            Status            : FAILED
+            StatusDetails     : One or more tasks in the orchestration failed.
+            WindowExecutionId : 6f3215cf-4101-4fa0-9b7b-9523269599c7
+            WindowId          : mw-03eb9db42890fb82d</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example lists all of the executions for a maintenance window before a specified date.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowExecutionList.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example lists all of the executions for a maintenance window after a specified date.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowExecutionList.3.1.ps1
+  services:
+    ssm:
+      DescribeMaintenanceWindowExecutions: 
+

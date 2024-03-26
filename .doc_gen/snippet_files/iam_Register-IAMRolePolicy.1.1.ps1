@@ -1,0 +1,1 @@
+Register-IAMRolePolicy -RoleName CoSecurityAuditors -PolicyArn arn:aws:iam::aws:policy/SecurityAudit

@@ -1,0 +1,18 @@
+---
+iam_DeleteLoginProfile:
+  title: Use Remove-IAMLoginProfile
+  title_abbrev: Remove-IAMLoginProfile
+  synopsis: use Remove-IAMLoginProfile
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the login profile from the IAM user named <code>Bob</code>. This prevents the user from signing-in to the &AWS; console. It does not prevent the user from running any &AWS; CLI, PowerShell, or API calls using &AWS; access keys that might still be attached to the user account.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMLoginProfile.1.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteLoginProfile: 

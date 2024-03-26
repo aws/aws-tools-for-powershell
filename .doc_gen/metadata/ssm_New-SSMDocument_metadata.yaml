@@ -1,0 +1,38 @@
+---
+ssm_CreateDocument:
+  title: Use New-SSMDocument
+  title_abbrev: New-SSMDocument
+  synopsis: use New-SSMDocument
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a document in your account. The document must be in JSON format. For more information about writing a configuration document, see Configuration Document in the SSM API Reference.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMDocument.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CreatedDate     : 3/1/2017 1:21:33 AM
+            DefaultVersion  : 1
+            Description     : Run an updated script
+            DocumentType    : Command
+            DocumentVersion : 1
+            Hash            : 1d5ce820e999ff051eb4841ed887593daf77120fd76cae0d18a53cc42e4e22c1
+            HashType        : Sha256
+            LatestVersion   : 1
+            Name            : RunShellScript
+            Owner           : 809632081692
+            Parameters      : {commands}
+            PlatformTypes   : {Linux}
+            SchemaVersion   : 2.0
+            Sha1            :
+            Status          : Creating</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      CreateDocument: 
+

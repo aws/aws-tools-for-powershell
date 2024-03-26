@@ -1,0 +1,49 @@
+---
+Common_Set-AWSProxy:
+  title: Use Set-AWSProxy
+  title_abbrev: Set-AWSProxy
+  synopsis: use Set-AWSProxy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command configures a proxy that does not require special credentials.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSProxy.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This command configures a proxy that requires a username and a password.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSProxy.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This command configures a proxy with default credentials. The -Credentials parameter can be used for any credentials object that implements the ICredentials interface.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSProxy.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: This command configures a proxy at https://proxy.testserver.com that uses port number 80. The -BypassList parameter is added to show that IPv4 addresses 169.254.169.250, 169.254.169.251, and 169.254.169.254 do not use the proxy. Note that because your bypass list includes only IP addresses and not FQDNs, quotation marks around the IP address values are not needed (except when using array sub-expression operator `@()`). You should use comma as a delimiter between IP addresses that you want to bypass. Also, note that if the Windows OS is configured to use IPv4, these IPv4 link-local addresses can be used.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSProxy.4.1.ps1
+        - description: '<emphasis role="bold">Example 5: This command configures a proxy at https://proxy.testserver.com that uses port number 80. The -BypassList parameter is added to show that IPv6 addresses fd00:ec2::240 and fd00:ec2::254 do not use the proxy. If the Windows OS has the IPv4 network protocol stack disabled and uses IPv6 instead, add [fd00:ec2::240] in place of 169.254.169.250 and 169.254.169.251. Then add [fd00:ec2::254] in place of 169.254.169.254.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSProxy.5.1.ps1
+        - description: '<emphasis role="bold">Example 6: This command configures a proxy that uses port number 8888. The -BypassList parameter is added to show that IP address 127.0.0.1, and AWS-based IP addresses, do not use the proxy. Note that because you have a mixture of an IP address and an FQDN, enclose values that you want to bypass in quotation marks as shown in the example, and use a comma as a delimiter. This example formats the values as an array, but you can also format them without parens:  Set-AWSProxy -Port 8888 -Hostname 127.0.0.1 -BypassList "127.0.0.1", "ip-ranges.amazonaws.com"</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSProxy.6.1.ps1
+        - description: '<emphasis role="bold">Example 7: As in the preceding example, this command configures a proxy that uses port number 8888. The -BypassList parameter is added to show that IP address 127.0.0.1, and AWS-based IP addresses, do not use the proxy. Note that because you have a mixture of an IP address and an FQDN, enclose values that you want to bypass in quotation marks as shown in the example, and use a comma as a delimiter. This example formats the BypassList values without the parentheses-enclosed array.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSProxy.7.1.ps1
+  services:
+    Common:
+      Set-AWSProxy: 
+

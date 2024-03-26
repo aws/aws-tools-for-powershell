@@ -1,0 +1,1 @@
+Unregister-EC2Address -AssociationId eipassoc-12345678

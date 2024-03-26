@@ -1,0 +1,29 @@
+---
+lambda_ListVersionsByFunction:
+  title: Use Get-LMVersionsByFunction
+  title_abbrev: Get-LMVersionsByFunction
+  synopsis: use Get-LMVersionsByFunction
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example returns the list of version specific configurations for each version of the Lambda Function.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Get-LMVersionsByFunction.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">FunctionName        Runtime   MemorySize Timeout CodeSize LastModified                 RoleName
+            ------------        -------   ---------- ------- -------- ------------                 --------
+            MylambdaFunction123 python3.8        128     600      659 2020-01-10T03:20:56.390+0000 lambda
+            MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:19:02.238+0000 lambda
+            MylambdaFunction123 python3.8        128       5     1426 2019-12-25T09:39:36.779+0000 lambda
+            MylambdaFunction123 python3.8        128     600     1426 2019-12-25T09:52:59.872+0000 lambda</programlisting>
+  services:
+    lambda:
+      ListVersionsByFunction: 
+

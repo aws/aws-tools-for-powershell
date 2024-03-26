@@ -1,0 +1,20 @@
+---
+machine-learning_GetDataSource:
+  title: Use Get-MLDataSource
+  title_abbrev: Get-MLDataSource
+  synopsis: use Get-MLDataSource
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns the metadata, status, and data file information for a DataSource with the id ID</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_Get-MLDataSource.1.1.ps1
+          description: 
+  services:
+    machine-learning:
+      GetDataSource: 
+
+

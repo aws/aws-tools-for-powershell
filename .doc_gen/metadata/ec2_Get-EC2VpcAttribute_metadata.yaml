@@ -1,0 +1,38 @@
+---
+ec2_DescribeVpcAttribute:
+  title: Use Get-EC2VpcAttribute
+  title_abbrev: Get-EC2VpcAttribute
+  synopsis: use Get-EC2VpcAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example describes the 'enableDnsSupport' attribute.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpcAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EnableDnsSupport
+            ----------------
+            True</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example describes the 'enableDnsHostnames' attribute.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpcAttribute.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EnableDnsHostnames
+            ------------------
+            True</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeVpcAttribute: 
+

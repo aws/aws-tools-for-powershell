@@ -1,0 +1,1 @@
+Move-EC2AddressToVpc -PublicIp 12.345.67.89 -Region us-east-1

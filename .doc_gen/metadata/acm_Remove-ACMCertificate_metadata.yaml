@@ -1,0 +1,19 @@
+---
+acm_DeleteCertificate:
+  title: Use Remove-ACMCertificate
+  title_abbrev: Remove-ACMCertificate
+  synopsis: use Remove-ACMCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Deletes the certificate identified by the supplied ARN and the associated private key. The cmdlet will prompt for confirmation before proceeding; add the -Force switch to suppress confirmation.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_Remove-ACMCertificate.1.1.ps1
+          description: 
+  services:
+    acm:
+      DeleteCertificate: 
+

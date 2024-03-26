@@ -1,0 +1,25 @@
+---
+machine-learning_DescribeDataSources:
+  title: Use Get-MLDataSourceList
+  title_abbrev: Get-MLDataSourceList
+  synopsis: use Get-MLDataSourceList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns a list of all DataSources and their associated data records.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_Get-MLDataSourceList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Returns a list of all DataSources with a status of COMPLETED.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_Get-MLDataSourceList.2.1.ps1
+          description: 
+  services:
+    machine-learning:
+      DescribeDataSources: 
+
+

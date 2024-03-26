@@ -1,0 +1,1 @@
+Get-S3BucketEncryption -BucketName 's3casetestbucket'

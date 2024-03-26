@@ -1,0 +1,42 @@
+---
+ec2_DescribeSpotFleetRequestHistory:
+  title: Use Get-EC2SpotFleetRequestHistory
+  title_abbrev: Get-EC2SpotFleetRequestHistory
+  synopsis: use Get-EC2SpotFleetRequestHistory
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the history of the specified Spot fleet request.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotFleetRequestHistory.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">HistoryRecords     : {Amazon.EC2.Model.HistoryRecord, Amazon.EC2.Model.HistoryRecord...}
+            LastEvaluatedTime  : 12/26/2015 8:29:11 AM
+            NextToken          :
+            SpotFleetRequestId : sfr-088bc5f1-7e7b-451a-bd13-757f10672b93
+            StartTime          : 12/25/2015 8:00:00 AM</programlisting>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotFleetRequestHistory.1.2.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EventInformation                     EventType             Timestamp
+            ----------------                     ---------             ---------
+            Amazon.EC2.Model.EventInformation    fleetRequestChange    12/26/2015 8:23:33 AM
+            Amazon.EC2.Model.EventInformation    fleetRequestChange    12/26/2015 8:23:33 AM
+            Amazon.EC2.Model.EventInformation    fleetRequestChange    12/26/2015 8:23:33 AM
+            Amazon.EC2.Model.EventInformation    launched              12/26/2015 8:25:34 AM
+            Amazon.EC2.Model.EventInformation    launched              12/26/2015 8:25:05 AM</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeSpotFleetRequestHistory: 
+

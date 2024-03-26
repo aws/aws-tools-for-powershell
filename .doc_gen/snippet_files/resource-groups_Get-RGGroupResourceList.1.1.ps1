@@ -1,0 +1,1 @@
+Get-RGGroupResourceList -Filter @{Name="resource-type";Values="AWS::EC2::Instance"} -GroupName auto-yes | Select-Object -ExpandProperty ResourceIdentifiers

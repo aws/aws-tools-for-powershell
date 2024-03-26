@@ -1,0 +1,1 @@
+New-DSAlias -DirectoryId d-123456ijkl -Alias MyOrgName

@@ -1,0 +1,1 @@
+Write-S3Object -BucketName test-files -File "sample.txt" -TagSet @{Key="key1";Value="value1"},@{Key="key2";Value="value2"}

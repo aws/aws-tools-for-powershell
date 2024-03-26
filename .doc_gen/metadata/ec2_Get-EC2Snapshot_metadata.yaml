@@ -1,0 +1,52 @@
+---
+ec2_DescribeSnapshots:
+  title: Use Get-EC2Snapshot
+  title_abbrev: Get-EC2Snapshot
+  synopsis: use Get-EC2Snapshot
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified snapshot.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Snapshot.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DataEncryptionKeyId :
+            Description         : Created by CreateImage(i-1a2b3c4d) for ami-12345678 from vol-12345678
+            Encrypted           : False
+            KmsKeyId            :
+            OwnerAlias          :
+            OwnerId             : 123456789012
+            Progress            : 100%
+            SnapshotId          : snap-12345678
+            StartTime           : 10/23/2014 6:01:28 AM
+            State               : completed
+            StateMessage        :
+            Tags                : {}
+            VolumeId            : vol-12345678
+            VolumeSize          : 8</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example describes the snapshots that have a 'Name' tag.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Snapshot.2.1.ps1
+        - description: "<emphasis role=\"bold\">Example 3: This example describes the snapshots that have a 'Name' tag with the value 'TestValue'.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Snapshot.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: This example describes all your snapshots.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Snapshot.4.1.ps1
+  services:
+    ec2:
+      DescribeSnapshots: 
+

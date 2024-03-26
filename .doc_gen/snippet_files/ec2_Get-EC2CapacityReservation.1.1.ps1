@@ -1,0 +1,1 @@
+Get-EC2CapacityReservation -Region eu-west-1

@@ -1,0 +1,20 @@
+---
+elastic-load-balancing_CreateAppCookieStickinessPolicy:
+  title: Use New-ELBAppCookieStickinessPolicy
+  title_abbrev: New-ELBAppCookieStickinessPolicy
+  synopsis: use New-ELBAppCookieStickinessPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a stickiness policy that follows the sticky session lifetimes of the specified application-generated cookie.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_New-ELBAppCookieStickinessPolicy.1.1.ps1
+  services:
+    elastic-load-balancing:
+      CreateAppCookieStickinessPolicy: 
+
+

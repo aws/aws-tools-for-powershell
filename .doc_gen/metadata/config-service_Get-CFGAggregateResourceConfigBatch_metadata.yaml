@@ -1,0 +1,27 @@
+---
+config-service_BatchGetAggregateResourceconfig-service:
+  title: Use Get-CFGAggregateResourceConfigBatch
+  title_abbrev: Get-CFGAggregateResourceConfigBatch
+  synopsis: use Get-CFGAggregateResourceConfigBatch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example fetches current configuration item for resource (identified) present in the given aggregator.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateResourceConfigBatch.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BaseConfigurationItems UnprocessedResourceIdentifiers
+            ---------------------- ------------------------------
+            {}                     {arn:aws:ec2:eu-west-1:123456789012:instance/i-012e3cb4df567e8aa}</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      BatchGetAggregateResourceconfig-service: 
+
+

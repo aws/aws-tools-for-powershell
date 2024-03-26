@@ -1,0 +1,1 @@
+Remove-CCRepository -RepositoryName MyDemoRepo

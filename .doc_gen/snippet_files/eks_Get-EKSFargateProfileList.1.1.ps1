@@ -1,0 +1,1 @@
+Get-EKSFargateProfileList -ClusterName "TEST"

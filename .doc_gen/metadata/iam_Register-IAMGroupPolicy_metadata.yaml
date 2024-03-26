@@ -1,0 +1,23 @@
+---
+iam_AttachGroupPolicy:
+  title: Use Register-IAMGroupPolicy
+  title_abbrev: Register-IAMGroupPolicy
+  synopsis: use Register-IAMGroupPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example attaches the customer managed policy named <code>TesterPolicy</code> to the IAM group <code>Testers</code>. The users in that group are immediately affected by the permissions defined in the default version of that policy.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Register-IAMGroupPolicy.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example attaches the &AWS; managed policy named <code>AdministratorAccess</code> to the IAM group <code>Admins</code>. The users in that group are immediately affected by the permissions defined in the latest version of that policy.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Register-IAMGroupPolicy.2.1.ps1
+  services:
+    iam:
+      AttachGroupPolicy: 

@@ -1,0 +1,1 @@
+New-SQSQueue -QueueName MyQueue

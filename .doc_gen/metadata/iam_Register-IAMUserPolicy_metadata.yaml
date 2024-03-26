@@ -1,0 +1,18 @@
+---
+iam_AttachUserPolicy:
+  title: Use Register-IAMUserPolicy
+  title_abbrev: Register-IAMUserPolicy
+  synopsis: use Register-IAMUserPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example attaches the &AWS; managed policy named <code>AmazonCognitoPowerUser</code> to the IAM user <code>Bob</code>. The user is immediately affected by the permissions defined in the latest version of that policy.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Register-IAMUserPolicy.1.1.ps1
+  services:
+    iam:
+      AttachUserPolicy: 

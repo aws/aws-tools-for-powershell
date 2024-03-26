@@ -1,0 +1,24 @@
+---
+cloudformation_ValidateTemplate:
+  title: Use Test-CFNTemplate
+  title_abbrev: Test-CFNTemplate
+  synopsis: use Test-CFNTemplate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Validates the specified template content. The output details the capabilities, description and parameters of the template.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Test-CFNTemplate.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Validates the specified template accessed via an Amazon S3 URL. The output details the capabilities, description and parameters of the template.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Test-CFNTemplate.2.1.ps1
+  services:
+    cloudformation:
+      ValidateTemplate: 
+

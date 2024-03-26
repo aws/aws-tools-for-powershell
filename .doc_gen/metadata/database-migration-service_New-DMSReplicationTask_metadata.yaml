@@ -1,0 +1,22 @@
+---
+database-migration-service_CreateReplicationTask:
+  title: Use New-DMSReplicationTask
+  title_abbrev: New-DMSReplicationTask
+  synopsis: use New-DMSReplicationTask
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: |-
+            <emphasis role="bold">Example 1: This example creates a new &AWS; Database Migration Service replication task that uses CdcStartTime instead of CdcStartPosition. The MigrationType is set to "full-load-and-cdc", meaning the target table must be empty.
+                The new task is tagged with a tag that has a key of Stage and a key value of Test. For more information about the values used by this cmdlet, see Creating a Task (https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.Creating.html) in the &AWS; Database Migration Service User Guide.</emphasis>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/database-migration-service_New-DMSReplicationTask.1.1.ps1
+  services:
+    database-migration-service:
+      CreateReplicationTask: 
+
+

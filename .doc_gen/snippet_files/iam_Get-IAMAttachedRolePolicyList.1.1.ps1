@@ -1,0 +1,1 @@
+Get-IAMAttachedRolePolicyList -RoleName "SecurityAuditRole"

@@ -1,0 +1,1 @@
+New-IAMPolicyVersion -PolicyArn arn:aws:iam::123456789012:policy/MyPolicy -PolicyDocument (Get-content -Raw NewPolicyVersion.json) -SetAsDefault $true

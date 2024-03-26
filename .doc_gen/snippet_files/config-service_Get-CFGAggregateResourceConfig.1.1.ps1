@@ -1,0 +1,1 @@
+(Get-CFGAggregateResourceConfig -ResourceIdentifier_SourceRegion us-east-1 -ResourceIdentifier_SourceAccountId 123456789012 -ResourceIdentifier_ResourceId sg-4fc1d234 -ResourceIdentifier_ResourceType ([Amazon.ConfigService.ResourceType]::AWSEC2SecurityGroup) -ConfigurationAggregatorName raju).Configuration | ConvertFrom-Json

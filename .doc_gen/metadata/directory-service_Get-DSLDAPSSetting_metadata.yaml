@@ -1,0 +1,27 @@
+---
+directory-service_DescribeLDAPSSettings:
+  title: Use Get-DSLDAPSSetting
+  title_abbrev: Get-DSLDAPSSetting
+  synopsis: use Get-DSLDAPSSetting
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the status of LDAP security for the specified directory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Get-DSLDAPSSetting.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LastUpdatedDateTime  LDAPSStatus LDAPSStatusReason
+            -------------------  ----------- -----------------
+            4/15/2020 6:51:03 PM Enabled     LDAPS is enabled successfully.</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      DescribeLDAPSSettings: 
+
+

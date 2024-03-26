@@ -1,0 +1,1 @@
+Get-CFNStackEvent -StackName "myStack"

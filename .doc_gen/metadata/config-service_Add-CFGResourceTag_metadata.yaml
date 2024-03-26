@@ -1,0 +1,20 @@
+---
+config-service_TagResource:
+  title: Use Add-CFGResourceTag
+  title_abbrev: Add-CFGResourceTag
+  synopsis: use Add-CFGResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example associates specified tag to the resource ARN, which is config-rule/config-rule-16iyn0 in this case. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Add-CFGResourceTag.1.1.ps1
+  services:
+    config-service:
+      TagResource: 
+
+

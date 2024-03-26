@@ -1,0 +1,26 @@
+---
+dynamodb_UpdateItem:
+  title: Use Update-DDBItem
+  title_abbrev: Update-DDBItem
+  synopsis: use Update-DDBItem
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Sets the genre attribute to 'Rap' on the DynamoDB item with the partition key SongTitle and the sort key Artist.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Update-DDBItem.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                           Value
+            ----                           -----
+            Genre                          Rap</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      UpdateItem: 
+

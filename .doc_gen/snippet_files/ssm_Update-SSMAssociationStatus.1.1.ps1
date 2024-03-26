@@ -1,0 +1,1 @@
+Update-SSMAssociationStatus -Name "AWS-UpdateSSMAgent" -InstanceId "i-0000293ffd8c57862" -AssociationStatus_Date "2015-02-20T08:31:11Z" -AssociationStatus_Name "Pending" -AssociationStatus_Message "temporary_status_change" -AssociationStatus_AdditionalInfo "Additional-Config-Needed"

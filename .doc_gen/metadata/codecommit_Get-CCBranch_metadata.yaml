@@ -1,0 +1,26 @@
+---
+codecommit_GetBranch:
+  title: Use Get-CCBranch
+  title_abbrev: Get-CCBranch
+  synopsis: use Get-CCBranch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about the specified branch for the specified repository.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codecommit_Get-CCBranch.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BranchName                              CommitId
+            ----------                              --------
+            MyNewBranch                             7763222d...561fc9c9</programlisting>
+          snippet_files: []
+  services:
+    codecommit:
+      GetBranch: 
+

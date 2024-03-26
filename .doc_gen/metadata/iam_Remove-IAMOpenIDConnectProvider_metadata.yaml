@@ -1,0 +1,18 @@
+---
+iam_DeleteOpenIDConnectProvider:
+  title: Use Remove-IAMOpenIDConnectProvider
+  title_abbrev: Remove-IAMOpenIDConnectProvider
+  synopsis: use Remove-IAMOpenIDConnectProvider
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: This example deletes the IAM OIDC provider that connects to the provider <code>example.oidcprovider.com</code>. Ensure that you update or delete any roles that reference this provider in the <code>Principal</code> element of the role's trust policy.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMOpenIDConnectProvider.1.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteOpenIDConnectProvider: 

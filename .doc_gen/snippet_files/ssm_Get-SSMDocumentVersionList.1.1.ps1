@@ -1,0 +1,1 @@
+Get-SSMDocumentPermission -Name "RunShellScript" -PermissionType "Share"

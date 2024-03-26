@@ -1,0 +1,1 @@
+New-ECSService -ServiceName ecs-simple-service -TaskDefinition ecs-demo -DesiredCount 10

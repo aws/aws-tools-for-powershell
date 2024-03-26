@@ -1,0 +1,26 @@
+---
+s3_GetBucketNotification:
+  title: Use Get-S3BucketNotification
+  title_abbrev: Get-S3BucketNotification
+  synopsis: use Get-S3BucketNotification
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example retrieves notification configuration of the given bucket</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketNotification.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Id   Topic
+            --   -----
+            mimo arn:aws:sns:eu-west-1:123456789012:topic-1</programlisting>
+  services:
+    s3:
+      GetBucketNotification: 
+

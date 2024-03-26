@@ -1,0 +1,55 @@
+---
+ssm_Get-SSMLatestEC2Image:
+  title: Use Get-SSMLatestEC2Image
+  title_abbrev: Get-SSMLatestEC2Image
+  synopsis: use Get-SSMLatestEC2Image
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all the lastest Windows AMIs.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMLatestEC2Image.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                                                                    Value
+            ----                                                                    -----
+            Windows_Server-2008-R2_SP1-English-64Bit-SQL_2012_SP4_Express           ami-0e5ddd288daff4fab
+            Windows_Server-2012-R2_RTM-Chinese_Simplified-64Bit-Base                ami-0c5ea64e6bec1cb50
+            Windows_Server-2012-R2_RTM-Chinese_Traditional-64Bit-Base               ami-09775eff0bf8c113d
+            Windows_Server-2012-R2_RTM-Dutch-64Bit-Base                             ami-025064b67e28cf5df
+            ...</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example retrieves the AMI id of a specific Amazon Linux image for the us-west-2 region.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMLatestEC2Image.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">ami-09b92cd132204c704</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example lists all the lastest Windows AMIs matching the specified wildcard expression.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMLatestEC2Image.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                                                     Value
+            ----                                                     -----
+            Windows_Server-2019-English-Full-SQL_2017_Web            ami-085e9d27da5b73a42
+            Windows_Server-2019-English-STIG-Core                    ami-0bfd85c29148c7f80
+            Windows_Server-2019-English-Full-SQL_2019_Web            ami-02099560d7fb11f20
+            Windows_Server-2019-English-Full-SQL_2016_SP2_Standard   ami-0d7ae2d81c07bd598
+            ...</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      Get-SSMLatestEC2Image: 
+

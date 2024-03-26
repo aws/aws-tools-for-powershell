@@ -1,0 +1,1 @@
+Remove-APSImagePermission -Name Powershell -SharedAccountId 123456789012

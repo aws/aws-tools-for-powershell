@@ -1,0 +1,20 @@
+---
+route-53_DeleteHostedZone:
+  title: Use Remove-R53HostedZone
+  title_abbrev: Remove-R53HostedZone
+  synopsis: use Remove-R53HostedZone
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Deletes the hosted zone with the specified ID. You will be prompted for confirmation before the command proceeds unless you add the -Force switch parameter.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Remove-R53HostedZone.1.1.ps1
+          description: 
+  services:
+    route-53:
+      DeleteHostedZone: 
+
+

@@ -1,0 +1,1 @@
+Initialize-AWSDefaultConfiguration -AccessKey AKIAIOSFODNN7EXAMPLE -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY -Region us-west-2

@@ -1,0 +1,19 @@
+---
+cloudfront_GetDistributionConfig:
+  title: Use Get-CFDistributionConfig
+  title_abbrev: Get-CFDistributionConfig
+  synopsis: use Get-CFDistributionConfig
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Retrieves the configuration for a specific distribution.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudfront_Get-CFDistributionConfig.1.1.ps1
+  services:
+    cloudfront:
+      GetDistributionConfig: 
+

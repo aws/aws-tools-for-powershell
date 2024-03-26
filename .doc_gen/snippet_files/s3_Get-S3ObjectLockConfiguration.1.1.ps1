@@ -1,0 +1,1 @@
+Get-S3ObjectLockConfiguration -BucketName 's3buckettesting' -Select ObjectLockConfiguration.ObjectLockEnabled

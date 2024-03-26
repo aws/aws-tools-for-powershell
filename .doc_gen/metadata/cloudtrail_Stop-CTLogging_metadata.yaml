@@ -1,0 +1,24 @@
+---
+cloudtrail_StopLogging:
+  title: Use Stop-CTLogging
+  title_abbrev: Stop-CTLogging
+  synopsis: use Stop-CTLogging
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Suspends the recording of &AWS; API calls and log file delivery for the trail named 'myExampleTrail'. This example assumes the trail was created in the same region as the current shell default.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudtrail_Stop-CTLogging.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Suspends the recording of &AWS; API calls and log file delivery for a trail that was created in a region other than the current shell default (in this case, the Frankfurt (eu-central-1) region).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudtrail_Stop-CTLogging.2.1.ps1
+  services:
+    cloudtrail:
+      StopLogging: 
+

@@ -1,0 +1,19 @@
+---
+lambda_TagResource:
+  title: Use Add-LMResourceTag
+  title_abbrev: Add-LMResourceTag
+  synopsis: use Add-LMResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Adds the three tags (Washington, Oregon and California) and their associated values to the specified function identified by its ARN.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Add-LMResourceTag.1.1.ps1
+          description: 
+  services:
+    lambda:
+      TagResource: 
+

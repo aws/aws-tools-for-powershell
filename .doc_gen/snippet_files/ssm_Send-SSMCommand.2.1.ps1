@@ -1,0 +1,1 @@
+Send-SSMCommand -DocumentName "AWS-RunRemoteScript" -Parameter @{ sourceType="GitHub";sourceInfo='{"owner": "me","repository": "amazon-ssm","path": "Examples/Install-Win32OpenSSH"}'; "commandLine"=".\Install-Win32OpenSSH.ps1"} -InstanceId i-0cb2b964d3e14fd9f

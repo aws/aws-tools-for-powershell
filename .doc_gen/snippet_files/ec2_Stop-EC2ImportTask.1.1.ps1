@@ -1,0 +1,1 @@
+Stop-EC2ImportTask -ImportTaskId import-ami-abcdefgh

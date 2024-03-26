@@ -1,0 +1,1 @@
+Get-S3LifecycleConfiguration -BucketName test-bla

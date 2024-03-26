@@ -1,0 +1,1 @@
+Remove-SSMActivation -ActivationId "08e51e79-1e36-446c-8e63-9458569c1363"

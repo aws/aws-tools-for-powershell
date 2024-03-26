@@ -1,0 +1,1 @@
+Get-CTTrail -TrailNameList trailABC,trailDEF -Region eu-central-1

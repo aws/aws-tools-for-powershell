@@ -1,0 +1,19 @@
+---
+codedeploy_DeleteDeploymentGroup:
+  title: Use Remove-CDDeploymentGroup
+  title_abbrev: Remove-CDDeploymentGroup
+  synopsis: use Remove-CDDeploymentGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the deployment group with the specified name for the specified application. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the deployment group without a prompt.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Remove-CDDeploymentGroup.1.1.ps1
+  services:
+    codedeploy:
+      DeleteDeploymentGroup: 
+

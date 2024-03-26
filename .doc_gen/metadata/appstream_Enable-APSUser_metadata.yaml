@@ -1,0 +1,19 @@
+---
+appstream_EnableUser:
+  title: Use Enable-APSUser
+  title_abbrev: Enable-APSUser
+  synopsis: use Enable-APSUser
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample enables a disabled user in USERPOOL</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Enable-APSUser.1.1.ps1
+          description: 
+  services:
+    appstream:
+      EnableUser: 
+

@@ -1,0 +1,1 @@
+Update-CTTrail -Name "awscloudtrail-example" -SnsTopicName "mlog-deliverytopic2"

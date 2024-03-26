@@ -1,0 +1,18 @@
+---
+iam_RemoveClientIDFromOpenIDConnectProvider:
+  title: Use Remove-IAMClientIDFromOpenIDConnectProvider
+  title_abbrev: Remove-IAMClientIDFromOpenIDConnectProvider
+  synopsis: use Remove-IAMClientIDFromOpenIDConnectProvider
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example removes the client ID <code>My-TestApp-3</code> from the list of client IDs associated with the IAM OIDC provider whose ARN is <code>arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code>.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMClientIDFromOpenIDConnectProvider.1.1.ps1
+  services:
+    iam:
+      RemoveClientIDFromOpenIDConnectProvider: 

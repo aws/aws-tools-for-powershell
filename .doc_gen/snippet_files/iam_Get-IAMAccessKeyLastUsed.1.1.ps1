@@ -1,0 +1,1 @@
+Get-IAMAccessKeyLastUsed -AccessKeyId ABCDEXAMPLE

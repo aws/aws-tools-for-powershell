@@ -1,0 +1,1 @@
+New-EKSNodeGroup -NodeGroupName "ProdEKSNodeGroup" -AmiType "AL2_x86_64" -DiskSize 40 -ClusterName "PROD" -ScalingConfig_DesiredSize 2 -ScalingConfig_MinSize 2 -ScalingConfig_MaxSize 5 -InstanceType t3.large -NodeRole "arn:aws:iam::012345678912:role/NodeInstanceRole" -Subnet "subnet-0d1a9fff35efa7691","subnet-0a3f4928edbc224d4"

@@ -1,0 +1,1 @@
+Stop-APSImageBuilder -Name TestImage

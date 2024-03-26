@@ -1,0 +1,151 @@
+---
+Common_Get-AWSCmdletName:
+  title: Use Get-AWSCmdletName
+  title_abbrev: Get-AWSCmdletName
+  synopsis: use Get-AWSCmdletName
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Returns the names of the all cmdlets that invoke an API matching the term 'describeinstances' across all services. In this example, 'Get-EC2Instance' from Amazon EC2 and Get-OPSInstances from Amazon OpsWorks are output.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName            ServiceOperation        ServiceName                            CmdletNounPrefix
+            ----------            ----------------        -----------                            ----------------
+            Get-EC2Instance       DescribeInstances       Amazon Elastic Compute Cloud           EC2
+            Get-OPSInstances      DescribeInstances       AWS OpsWorks                           OPS</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: Returns the names of the all cmdlets that invoke an API matching the term 'describeinstances' for the Amazon EC2 service.In this example, 'Get-EC2Instance' is output.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName            ServiceOperation        ServiceName                            CmdletNounPrefix
+            ----------            ----------------        -----------                            ----------------
+            Get-EC2Instance       DescribeInstances       Amazon Elastic Compute Cloud           EC2</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 3: Returns the names of the all cmdlets that invoke an API matching the term 'describeinstances' for the Amazon EC2 service.In this example, 'Get-EC2Instance' is output.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName            ServiceOperation        ServiceName                            CmdletNounPrefix
+            ----------            ----------------        -----------                            ----------------
+            Get-EC2Instance       DescribeInstances       Amazon Elastic Compute Cloud           EC2</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 4: Returns the names of the all cmdlets that contain the term 'securitygroup' in the operation they invoke, across all services.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.4.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName                              ServiceOperation                        ServiceName                            CmdletNounPrefix
+            ----------                              ----------------                        -----------                            ----------------
+            Approve-ECCacheSecurityGroupIngress     AuthorizeCacheSecurityGroupIngress      Amazon ElastiCache                     EC
+            Get-ECCacheSecurityGroup                DescribeCacheSecurityGroups             Amazon ElastiCache                     EC
+            ...
+            Get-EC2SecurityGroup                    DescribeSecurityGroups                  Amazon Elastic Compute Cloud           EC2
+            Grant-EC2SecurityGroupEgress            AuthorizeSecurityGroupEgress            Amazon Elastic Compute Cloud           EC2
+            Grant-EC2SecurityGroupIngress           AuthorizeSecurityGroupIngress           Amazon Elastic Compute Cloud           EC2
+            ...
+            New-RDSDBSecurityGroup                  CreateDBSecurityGroup                   Amazon Relational Database Service     RDS
+            Remove-RDSDBSecurityGroup               DeleteDBSecurityGroup                   Amazon Relational Database Service     RDS
+            Revoke-RDSDBSecurityGroupIngress        RevokeDBSecurityGroupIngress            Amazon Relational Database Service     RDS
+            ...
+            Approve-RSClusterSecurityGroupIngress   AuthorizeClusterSecurityGroupIngress    Amazon Redshift                        RS
+            Get-RSClusterSecurityGroups             DescribeClusterSecurityGroups           Amazon Redshift                        RS</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 5: Returns the names of the all Amazon EC2 cmdlets that contain the term 'securitygroup' in the operation they invoke.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.5.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName                          ServiceOperation                        ServiceName                            CmdletNounPrefix
+            ----------                          ----------------                        -----------                            ----------------
+            Get-EC2SecurityGroup                DescribeSecurityGroups                  Amazon Elastic Compute Cloud           EC2
+            Grant-EC2SecurityGroupEgress        AuthorizeSecurityGroupEgress            Amazon Elastic Compute Cloud           EC2
+            Grant-EC2SecurityGroupIngress       AuthorizeSecurityGroupIngress           Amazon Elastic Compute Cloud           EC2
+            ...</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 6: Returns the name of the cmdlet that invokes the Amazon CloudWatch 'ListMetrics' operation. In this example, 'Get-CWMetrics' is output. The same result can be obtained by using the service prefix, 'cw' as the value for the -Service parameter.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.6.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName              ServiceOperation        ServiceName            CmdletNounPrefix
+            ----------              ----------------        -----------            ----------------
+            Get-CWMetrics           ListMetrics             Amazon CloudWatch      CW</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 7: Returns the name of the cmdlet that performs the same operation as the specified AWS CLI command. In this example, 'Get-EC2Image' is output. Any options (prefixed by --) in the AWS CLI command are ignored. The initial 'aws' can also be omitted. This format is useful when transcoding an AWS CLI sample to AWS PowerShell.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.7.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName              ServiceOperation        ServiceName                            CmdletNounPrefix
+            ----------              ----------------        -----------                            ----------------
+            Get-EC2Image            DescribeImages          Amazon Elastic Compute Cloud           EC2</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 8: Performs a search to list all cmdlets that have 'ec2' in either the service name or the cmdlet noun prefix. In this example this matches Amazon Elastic Compute Cloud (search term matches noun prefix) and Amazon EC2 Container Service (search term found in the name).</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.8.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName                            ServiceOperation                       ServiceName
+            ----------                            ----------------                       -----------
+            Add-EC2ClassicLinkVpc                 AttachClassicLinkVpc                   Amazon Elastic Compute Cloud
+            Add-EC2InternetGateway                AttachInternetGateway                  Amazon Elastic Compute Cloud
+            Add-EC2NetworkInterface               AttachNetworkInterface                 Amazon Elastic Compute Cloud
+            ...
+            Get-ECSClusterDetail                  DescribeClusters                       Amazon EC2 Container Service
+            Get-ECSClusters                       ListClusters                           Amazon EC2 Container Service
+            Get-ECSClusterService                 ListServices                           Amazon EC2 Container Service
+            ...</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 9: Performs a search to list all cmdlets that have 'compute' in either the service name or the cmdlet noun prefix. In this example the match is for Amazon Elastic Compute Cloud only (search term found in the name).</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSCmdletName.9.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CmdletName                            ServiceOperation                       ServiceName
+            ----------                            ----------------                       -----------
+            Add-EC2ClassicLinkVpc                 AttachClassicLinkVpc                   Amazon Elastic Compute Cloud
+            Add-EC2InternetGateway                AttachInternetGateway                  Amazon Elastic Compute Cloud
+            Add-EC2NetworkInterface               AttachNetworkInterface                 Amazon Elastic Compute Cloud
+            ...
+            Unregister-EC2Image                   DeregisterImage                        Amazon Elastic Compute Cloud
+            Unregister-EC2PrivateIpAddress        UnassignPrivateIpAddresses             Amazon Elastic Compute Cloud
+            Unregister-EC2RouteTable              DisassociateRouteTable                 Amazon Elastic Compute Cloud</programlisting>
+          snippet_files: []
+  services:
+    Common:
+      Get-AWSCmdletName: 
+

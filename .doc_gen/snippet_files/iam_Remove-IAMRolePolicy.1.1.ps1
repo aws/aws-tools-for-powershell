@@ -1,0 +1,1 @@
+Remove-IAMRolePolicy -PolicyName S3AccessPolicy -RoleName S3BackupRole

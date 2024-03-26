@@ -1,0 +1,19 @@
+---
+appstream_ExpireSession:
+  title: Use Revoke-APSSession
+  title_abbrev: Revoke-APSSession
+  synopsis: use Revoke-APSSession
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample revokes a session to AppStream fleet</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Revoke-APSSession.1.1.ps1
+          description: 
+  services:
+    appstream:
+      ExpireSession: 
+

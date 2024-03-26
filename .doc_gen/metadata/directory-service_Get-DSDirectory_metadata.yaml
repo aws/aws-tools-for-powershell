@@ -1,0 +1,29 @@
+---
+directory-service_DescribeDirectories:
+  title: Use Get-DSDirectory
+  title_abbrev: Get-DSDirectory
+  synopsis: use Get-DSDirectory
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command Obtains information about the directories that belong to this account.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Get-DSDirectory.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DirectoryId  Name           DnsIpAddrs                     Type
+            -----------  ----           ----------                     ----
+            d-123456abcd abcd.example.com {172.31.74.189, 172.31.13.145} SimpleAD
+            d-123456efgh wifi.example.com {172.31.16.108, 172.31.10.56}  ADConnector
+            d-123456ijkl lan2.example.com {172.31.10.56, 172.31.16.108}  MicrosoftAD</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      DescribeDirectories: 
+
+

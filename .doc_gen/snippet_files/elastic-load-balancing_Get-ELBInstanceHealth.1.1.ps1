@@ -1,0 +1,1 @@
+Get-ELBInstanceHealth -LoadBalancerName my-load-balancer

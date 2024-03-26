@@ -1,0 +1,19 @@
+---
+workspaces_ModifyWorkspaceAccessProperties:
+  title: Use Edit-WKSWorkspaceAccessProperty
+  title_abbrev: Edit-WKSWorkspaceAccessProperty
+  synopsis: use Edit-WKSWorkspaceAccessProperty
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample enables Workspace access on Android and Chrome OS for the specified Directory</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Edit-WKSWorkspaceAccessProperty.1.1.ps1
+  services:
+    workspaces:
+      ModifyWorkspaceAccessProperties: 
+

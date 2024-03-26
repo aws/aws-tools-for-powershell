@@ -1,0 +1,19 @@
+---
+s3_GetBucketReplication:
+  title: Use Get-S3BucketReplication
+  title_abbrev: Get-S3BucketReplication
+  synopsis: use Get-S3BucketReplication
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: Returns the replication configuration information set on the bucket named 'mybucket'.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketReplication.1.1.ps1
+          description: 
+  services:
+    s3:
+      GetBucketReplication: 
+

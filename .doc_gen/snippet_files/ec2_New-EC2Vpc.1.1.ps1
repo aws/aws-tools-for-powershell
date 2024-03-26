@@ -1,0 +1,1 @@
+New-EC2VPC -CidrBlock 10.0.0.0/16

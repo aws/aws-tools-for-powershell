@@ -1,0 +1,1 @@
+Disable-DSRadius -DirectoryId d-123456ijkl

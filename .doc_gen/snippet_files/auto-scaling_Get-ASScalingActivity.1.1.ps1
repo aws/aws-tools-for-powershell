@@ -1,0 +1,1 @@
+Get-ASScalingActivity -AutoScalingGroupName my-asg

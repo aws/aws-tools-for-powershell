@@ -1,0 +1,1 @@
+Invoke-AWSSSOLogout -ProfileName "sso-test-profile"

@@ -1,0 +1,23 @@
+---
+ec2_AllocateHosts:
+  title: Use New-EC2Host
+  title_abbrev: New-EC2Host
+  synopsis: use New-EC2Host
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example allocates a Dedicated Host to your account for the given instance type and availability zone</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2Host.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">h-01e23f4cd567890f3</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      AllocateHosts: 
+

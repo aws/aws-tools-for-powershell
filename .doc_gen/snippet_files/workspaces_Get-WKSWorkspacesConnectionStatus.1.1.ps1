@@ -1,0 +1,1 @@
+Get-WKSWorkspacesConnectionStatus -WorkspaceId ws-w123s234r

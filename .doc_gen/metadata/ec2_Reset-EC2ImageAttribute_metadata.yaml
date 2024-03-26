@@ -1,0 +1,19 @@
+---
+ec2_ResetImageAttribute:
+  title: Use Reset-EC2ImageAttribute
+  title_abbrev: Reset-EC2ImageAttribute
+  synopsis: use Reset-EC2ImageAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example resets the 'launchPermission' attribute to its default value. By default, AMIs are private.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Reset-EC2ImageAttribute.1.1.ps1
+  services:
+    ec2:
+      ResetImageAttribute: 
+

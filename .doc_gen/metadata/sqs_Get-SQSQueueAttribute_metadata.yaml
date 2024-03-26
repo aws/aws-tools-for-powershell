@@ -1,0 +1,48 @@
+---
+sqs_GetQueueAttributes:
+  title: Use Get-SQSQueueAttribute
+  title_abbrev: Get-SQSQueueAttribute
+  synopsis: use Get-SQSQueueAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all attributes for the specified queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Get-SQSQueueAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">VisibilityTimeout                     : 30\nDelaySeconds                          : 0\nMaximumMessageSize                    : 262144\nMessageRetentionPeriod                : 345600\nApproximateNumberOfMessages           : 0\nApproximateNumberOfMessagesNotVisible : 0\nApproximateNumberOfMessagesDelayed    : 0\nCreatedTimestamp                      : 2/11/2015 5:53:35 PM\nLastModifiedTimestamp                 : 12/29/2015 2:23:17 PM\nQueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue\nPolicy                                : {\"Version\":\"2008-10-17\",\"Id\":\"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy\",\"Statement\":[{\"Sid\":\"Sid14\n                                        495134224EX\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"*\"},\"Action\":\"SQS:SendMessage\",\"Resource\":\"arn:aws:sqs:us-east-1:80\n                                        398EXAMPLE:MyQueue\",\"Condition\":{\"ArnEquals\":{\"aws:SourceArn\":\"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic\"}}},{\"Sid\":\n                                        \"SendMessagesFromMyQueue\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"80398EXAMPLE\"},\"Action\":\"SQS:SendMessage\",\"Resource\":\"\n                                        arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue\"}]}\nAttributes                            : {[QueueArn, arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue], [ApproximateNumberOfMessages, 0], \n                                        [ApproximateNumberOfMessagesNotVisible, 0], [ApproximateNumberOfMessagesDelayed, 0]...}</programlisting>"
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example lists separately only the specified attributes for the specified queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Get-SQSQueueAttribute.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">VisibilityTimeout                     : 30
+            DelaySeconds                          : 0
+            MaximumMessageSize                    : 262144
+            MessageRetentionPeriod                : 345600
+            ApproximateNumberOfMessages           : 0
+            ApproximateNumberOfMessagesNotVisible : 0
+            ApproximateNumberOfMessagesDelayed    : 0
+            CreatedTimestamp                      : 2/11/2015 5:53:35 PM
+            LastModifiedTimestamp                 : 12/29/2015 2:23:17 PM
+            QueueARN                              : arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue
+            Policy                                : {"Version":"2008-10-17","Id":"arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue/SQSDefaultPolicy","Statement":[{"Sid":"Sid14
+                                                    495134224EX","Effect":"Allow","Principal":{"AWS":"*"},"Action":"SQS:SendMessage","Resource":"arn:aws:sqs:us-east-1:80
+                                                    398EXAMPLE:MyQueue","Condition":{"ArnEquals":{"aws:SourceArn":"arn:aws:sns:us-east-1:80398EXAMPLE:MyTopic"}}},{"Sid":
+                                                    "SendMessagesFromMyQueue","Effect":"Allow","Principal":{"AWS":"80398EXAMPLE"},"Action":"SQS:SendMessage","Resource":"
+                                                    arn:aws:sqs:us-east-1:80398EXAMPLE:MyQueue"}]}
+            Attributes                            : {[MaximumMessageSize, 262144], [VisibilityTimeout, 30]}</programlisting>
+          snippet_files: []
+  services:
+    sqs:
+      GetQueueAttributes: 
+

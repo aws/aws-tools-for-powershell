@@ -1,0 +1,26 @@
+---
+ec2_CreateFlowLogs:
+  title: Use New-EC2FlowLog
+  title_abbrev: New-EC2FlowLog
+  synopsis: use New-EC2FlowLog
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example creates EC2 flowlog for the subnet subnet-1d234567 to the cloud-watch-log named 'subnet1-log' for all 'REJECT' traffic using the perimssions of the 'Admin' role</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2FlowLog.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ClientToken                                  FlowLogIds             Unsuccessful
+            -----------                                  ----------             ------------
+            m1VN2cxP3iB4qo//VUKl5EU6cF7gQLOxcqNefvjeTGw= {fl-012fc34eed5678c9d} {}</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CreateFlowLogs: 
+

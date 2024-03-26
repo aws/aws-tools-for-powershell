@@ -1,0 +1,68 @@
+---
+dynamodb_CreateTable:
+  title: Use New-DDBTable
+  title_abbrev: New-DDBTable
+  synopsis: use New-DDBTable
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example creates a table named Thread that has a primary key consisting of 'ForumName' (key type hash) and 'Subject' (key type range). The schema used to construct the table can be piped into each cmdlet as shown or specified using the -Schema parameter.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_New-DDBTable.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeDefinitions   : {ForumName, Subject}
+            TableName              : Thread
+            KeySchema              : {ForumName, Subject}
+            TableStatus            : CREATING
+            CreationDateTime       : 10/28/2013 4:39:49 PM
+            ProvisionedThroughput  : Amazon.DynamoDBv2.Model.ProvisionedThroughputDescription
+            TableSizeBytes         : 0
+            ItemCount              : 0
+            LocalSecondaryIndexes  : {}</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example creates a table named Thread that has a primary key consisting of 'ForumName' (key type hash) and 'Subject' (key type range). A local secondary index is also defined. The key of the local secondary index will be set automatically from the primary hash key on the table (ForumName). The schema used to construct the table can be piped into each cmdlet as shown or specified using the -Schema parameter.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_New-DDBTable.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeDefinitions   : {ForumName, LastPostDateTime, Subject}
+            TableName              : Thread
+            KeySchema              : {ForumName, Subject}
+            TableStatus            : CREATING
+            CreationDateTime       : 10/28/2013 4:39:49 PM
+            ProvisionedThroughput  : Amazon.DynamoDBv2.Model.ProvisionedThroughputDescription
+            TableSizeBytes         : 0
+            ItemCount              : 0
+            LocalSecondaryIndexes  : {LastPostIndex}</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 3: This example shows how to use a single pipeline to create a table named Thread that has a primary key consisting of 'ForumName' (key type hash) and 'Subject' (key type range) and a local secondary index. The Add-DDBKeySchema and Add-DDBIndexSchema create a new TableSchema object for you if one is not supplied from the pipeline or the -Schema parameter.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_New-DDBTable.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeDefinitions   : {ForumName, LastPostDateTime, Subject}
+            TableName              : Thread
+            KeySchema              : {ForumName, Subject}
+            TableStatus            : CREATING
+            CreationDateTime       : 10/28/2013 4:39:49 PM
+            ProvisionedThroughput  : Amazon.DynamoDBv2.Model.ProvisionedThroughputDescription
+            TableSizeBytes         : 0
+            ItemCount              : 0
+            LocalSecondaryIndexes  : {LastPostIndex}</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      CreateTable: 
+

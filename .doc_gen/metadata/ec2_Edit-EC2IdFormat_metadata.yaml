@@ -1,0 +1,24 @@
+---
+ec2_ModifyIdFormat:
+  title: Use Edit-EC2IdFormat
+  title_abbrev: Edit-EC2IdFormat
+  synopsis: use Edit-EC2IdFormat
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example enables the longer ID format for the specified resource type.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2IdFormat.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example disables the longer ID format for the specified resource type.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2IdFormat.2.1.ps1
+  services:
+    ec2:
+      ModifyIdFormat: 
+

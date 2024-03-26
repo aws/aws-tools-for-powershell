@@ -1,0 +1,1 @@
+Remove-S3CORSConfiguration -BucketName 's3testbucket'

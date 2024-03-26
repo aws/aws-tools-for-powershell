@@ -1,0 +1,30 @@
+---
+directory-service_DescribeCertificate:
+  title: Use Get-DSCertificate
+  title_abbrev: Get-DSCertificate
+  synopsis: use Get-DSCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example displays information about the certificate registered for a secured LDAP connection.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Get-DSCertificate.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CertificateId      : c-906731e34f
+            CommonName         : contoso-EC2AMAZ-CTGG2NM-CA
+            ExpiryDateTime     : 4/15/2025 6:34:15 PM
+            RegisteredDateTime : 4/15/2020 6:38:56 PM
+            State              : Registered
+            StateReason        : Certificate registered successfully.</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      DescribeCertificate: 
+
+

@@ -1,0 +1,23 @@
+---
+iam_ListRoles:
+  title: Use Get-IAMRoleList
+  title_abbrev: Get-IAMRoleList
+  synopsis: use Get-IAMRoleList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example retrieves a list of all of the IAM roles in the &AWS-account;.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMRoleList.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example code snippet retrieves a list of IAM roles in the &AWS; account and displays them three at a time, and waits for you to press Enter between each group. It passes the <code>Marker</code> value from the previous call to specify where the next group should begin.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMRoleList.2.1.ps1
+  services:
+    iam:
+      ListRoles: 

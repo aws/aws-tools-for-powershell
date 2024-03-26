@@ -1,0 +1,24 @@
+---
+ec2_ModifySubnetAttribute:
+  title: Use Edit-EC2SubnetAttribute
+  title_abbrev: Edit-EC2SubnetAttribute
+  synopsis: use Edit-EC2SubnetAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example enables public IP addressing for the specified subnet.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2SubnetAttribute.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example disables public IP addressing for the specified subnet.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2SubnetAttribute.2.1.ps1
+  services:
+    ec2:
+      ModifySubnetAttribute: 
+

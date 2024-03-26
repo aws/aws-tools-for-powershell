@@ -1,0 +1,1 @@
+$filter1 = @{Key="OWNER";Values=@("Self")}

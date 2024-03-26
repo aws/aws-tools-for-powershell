@@ -1,0 +1,1 @@
+Get-S3BucketMetricsConfiguration -BucketName 's3testbucket' -MetricsId 'testfilter'

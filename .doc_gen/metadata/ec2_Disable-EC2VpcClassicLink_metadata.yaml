@@ -1,0 +1,19 @@
+---
+ec2_DisableVpcClassicLink:
+  title: Use Disable-EC2VpcClassicLink
+  title_abbrev: Disable-EC2VpcClassicLink
+  synopsis: use Disable-EC2VpcClassicLink
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example disables EC2VpcClassicLink for the vpc-01e23c4a5d6db78e9. It returns either True or False</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Disable-EC2VpcClassicLink.1.1.ps1
+  services:
+    ec2:
+      DisableVpcClassicLink: 
+

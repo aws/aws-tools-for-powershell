@@ -1,0 +1,1 @@
+New-FSXFileSystemFromBackup -BackupId $backupID -Tag @{Key="tag:Name";Value="from-manual-backup"} -SubnetId $SubnetID -SecurityGroupId $SG_ID -WindowsConfiguration @{ThroughputCapacity=8;ActiveDirectoryId=$DirectoryID}

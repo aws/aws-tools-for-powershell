@@ -1,0 +1,26 @@
+---
+ssm_GetInventory:
+  title: Use Get-SSMInventory
+  title_abbrev: Get-SSMInventory
+  synopsis: use Get-SSMInventory
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets the custom metadata for your inventory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInventory.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Data                                                                                  Id
+            ----                                                                                  --
+            {[AWS:InstanceInformation, Amazon.SimpleSystemsManagement.Model.InventoryResultItem]} i-0cb2b964d3e14fd9f</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetInventory: 
+

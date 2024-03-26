@@ -1,0 +1,38 @@
+---
+ec2_DescribeHostReservationOfferings:
+  title: Use Get-EC2HostReservationOffering
+  title_abbrev: Get-EC2HostReservationOffering
+  synopsis: use Get-EC2HostReservationOffering
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example describes the Dedicated Host reservations that are available to purchase for the given filter 'instance-family' where PaymentOption is 'NoUpfront'</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2HostReservationOffering.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CurrencyCode   :
+            Duration       : 94608000
+            HourlyPrice    : 1.307
+            InstanceFamily : m4
+            OfferingId     : hro-0c1f234567890d9ab
+            PaymentOption  : NoUpfront
+            UpfrontPrice   : 0.000
+
+            CurrencyCode   :
+            Duration       : 31536000
+            HourlyPrice    : 1.830
+            InstanceFamily : m4
+            OfferingId     : hro-04ad12aaaf34b5a67
+            PaymentOption  : NoUpfront
+            UpfrontPrice   : 0.000</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeHostReservationOfferings: 
+

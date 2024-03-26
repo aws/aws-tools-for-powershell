@@ -1,0 +1,30 @@
+---
+ssm_DescribeAssociation:
+  title: Use Get-SSMAssociation
+  title_abbrev: Get-SSMAssociation
+  synopsis: use Get-SSMAssociation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the association between an instance and a document.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAssociation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                  : AWS-UpdateSSMAgent
+            InstanceId            : i-0000293ffd8c57862
+            Date                  : 2/23/2017 6:55:22 PM
+            Status.Name           : Pending
+            Status.Date           : 2/20/2015 8:31:11 AM
+            Status.Message        : temp_status_change
+            Status.AdditionalInfo : Additional-Config-Needed</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeAssociation: 
+

@@ -1,0 +1,19 @@
+---
+s3_Test-S3Bucket:
+  title: Use Test-S3Bucket
+  title_abbrev: Test-S3Bucket
+  synopsis: use Test-S3Bucket
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command returns True if the bucket exists, False otherwise. The command returns True even if the bucket does not belong to the user.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Test-S3Bucket.1.1.ps1
+  services:
+    s3:
+      Test-S3Bucket: 
+

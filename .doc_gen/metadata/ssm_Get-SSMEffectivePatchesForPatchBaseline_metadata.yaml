@@ -1,0 +1,38 @@
+---
+ssm_DescribeEffectivePatchesForPatchBaseline:
+  title: Use Get-SSMEffectivePatchesForPatchBaseline
+  title_abbrev: Get-SSMEffectivePatchesForPatchBaseline
+  synopsis: use Get-SSMEffectivePatchesForPatchBaseline
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all patch baselines, with a maximum result list of 1.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMEffectivePatchesForPatchBaseline.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Patch                                      PatchStatus
+            -----                                      -----------
+            Amazon.SimpleSystemsManagement.Model.Patch Amazon.SimpleSystemsManagement.Model.PatchStatus</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example displays the patch status for all patch baselines, with a maximum result list of 1.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMEffectivePatchesForPatchBaseline.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ApprovalDate          DeploymentStatus
+            ------------          ----------------
+            12/21/2010 6:00:00 PM APPROVED</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeEffectivePatchesForPatchBaseline: 
+

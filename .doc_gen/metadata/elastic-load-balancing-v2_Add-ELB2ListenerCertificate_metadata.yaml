@@ -1,0 +1,27 @@
+---
+elastic-load-balancing-v2_AddListenerCertificates:
+  title: Use Add-ELB2ListenerCertificate
+  title_abbrev: Add-ELB2ListenerCertificate
+  synopsis: use Add-ELB2ListenerCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example adds additional certificate to the specified Listener.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Add-ELB2ListenerCertificate.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CertificateArn                                                                      IsDefault
+            --------------                                                                      ---------
+            arn:aws:acm:us-east-1:123456789012:certificate/19478bd5-491d-47d4-b1d7-5217feba1d97 False</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      AddListenerCertificates: 
+
+

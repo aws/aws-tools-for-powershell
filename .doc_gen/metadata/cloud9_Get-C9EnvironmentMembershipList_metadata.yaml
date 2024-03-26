@@ -1,0 +1,68 @@
+---
+cloud9_DescribeEnvironmentMemberships:
+  title: Use Get-C9EnvironmentMembershipList
+  title_abbrev: Get-C9EnvironmentMembershipList
+  synopsis: use Get-C9EnvironmentMembershipList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about environment members for the specified &AWS; Cloud9 development environment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Get-C9EnvironmentMembershipList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
+            LastAccess    : 1/1/0001 12:00:00 AM
+            Permissions   : read-write
+            UserArn       : arn:aws:iam::123456789012:user/AnotherDemoUser
+            UserId        : AIDAJ3BA6O2FMJWCWXHEX
+
+            EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
+            LastAccess    : 1/1/0001 12:00:00 AM
+            Permissions   : owner
+            UserArn       : arn:aws:iam::123456789012:user/MyDemoUser
+            UserId        : AIDAJ3LOROMOUXTBSU6EX</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example gets information about the owner of the specified &AWS; Cloud9 development environment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Get-C9EnvironmentMembershipList.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
+            LastAccess    : 1/1/0001 12:00:00 AM
+            Permissions   : owner
+            UserArn       : arn:aws:iam::123456789012:user/MyDemoUser
+            UserId        : AIDAJ3LOROMOUXTBSU6EX</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example gets information about the specified environment member for multiple &AWS; Cloud9 development environments.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Get-C9EnvironmentMembershipList.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
+            LastAccess    : 1/17/2018 7:48:14 PM
+            Permissions   : owner
+            UserArn       : arn:aws:iam::123456789012:user/MyDemoUser
+            UserId        : AIDAJ3LOROMOUXTBSU6EX
+
+            EnvironmentId : 1980b80e5f584920801c09086667f0EX
+            LastAccess    : 1/16/2018 11:21:24 PM
+            Permissions   : owner
+            UserArn       : arn:aws:iam::123456789012:user/MyDemoUser
+            UserId        : AIDAJ3LOROMOUXTBSU6EX</programlisting>
+          snippet_files: []
+  services:
+    cloud9:
+      DescribeEnvironmentMemberships: 
+

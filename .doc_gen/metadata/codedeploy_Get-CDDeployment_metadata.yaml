@@ -1,0 +1,65 @@
+---
+codedeploy_GetDeployment:
+  title: Use Get-CDDeployment
+  title_abbrev: Get-CDDeployment
+  synopsis: use Get-CDDeployment
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets summary information about the specified deployment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDDeployment.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ApplicationName               : CodeDeployDemoApplication
+            CompleteTime                  : 7/23/2015 11:26:04 PM
+            CreateTime                    : 7/23/2015 11:24:43 PM
+            Creator                       : user
+            DeploymentConfigName          : CodeDeployDefault.OneAtATime
+            DeploymentGroupName           : CodeDeployDemoFleet
+            DeploymentId                  : d-QZMRGSTEX
+            DeploymentOverview            : Amazon.CodeDeploy.Model.DeploymentOverview
+            Description                   :
+            ErrorInformation              :
+            IgnoreApplicationStopFailures : False
+            Revision                      : Amazon.CodeDeploy.Model.RevisionLocation
+            StartTime                     : 1/1/0001 12:00:00 AM
+            Status                        : Succeeded</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example gets information about the status of instances that are participating in the specified deployment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDDeployment.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Failed     : 0
+            InProgress : 0
+            Pending    : 0
+            Skipped    : 0
+            Succeeded  : 3</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example gets information about the application revision for the specified deployment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDDeployment.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Bucket     : MyBucket
+            BundleType : zip
+            ETag       : cfbb81b304ee5e27efc21adaed3EXAMPLE
+            Key        : clzfqEX
+            Version    :</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      GetDeployment: 
+

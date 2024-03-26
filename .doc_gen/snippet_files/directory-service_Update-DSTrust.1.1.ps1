@@ -1,0 +1,1 @@
+Update-DSTrust -TrustId t-9067157123 -SelectiveAuth Enabled

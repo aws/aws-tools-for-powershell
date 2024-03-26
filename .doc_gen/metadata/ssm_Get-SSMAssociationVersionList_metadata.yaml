@@ -1,0 +1,50 @@
+---
+ssm_ListAssociationVersions:
+  title: Use Get-SSMAssociationVersionList
+  title_abbrev: Get-SSMAssociationVersionList
+  synopsis: use Get-SSMAssociationVersionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example retrieves all versions of the association provided.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAssociationVersionList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AssociationId      : 123a45a0-c678-9012-3456-78901234db5e
+            AssociationName    :
+            AssociationVersion : 2
+            ComplianceSeverity :
+            CreatedDate        : 3/12/2019 9:21:01 AM
+            DocumentVersion    :
+            MaxConcurrency     :
+            MaxErrors          :
+            Name               : AWS-GatherSoftwareInventory
+            OutputLocation     :
+            Parameters         : {}
+            ScheduleExpression :
+            Targets            : {InstanceIds}
+
+            AssociationId      : 123a45a0-c678-9012-3456-78901234db5e
+            AssociationName    : test-case-1234567890
+            AssociationVersion : 1
+            ComplianceSeverity :
+            CreatedDate        : 3/2/2019 8:53:29 AM
+            DocumentVersion    :
+            MaxConcurrency     :
+            MaxErrors          :
+            Name               : AWS-GatherSoftwareInventory
+            OutputLocation     :
+            Parameters         : {}
+            ScheduleExpression : rate(30minutes)
+            Targets            : {InstanceIds}</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      ListAssociationVersions: 
+

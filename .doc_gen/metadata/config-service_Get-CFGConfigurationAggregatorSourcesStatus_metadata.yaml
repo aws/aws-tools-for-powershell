@@ -1,0 +1,33 @@
+---
+config-service_DescribeConfigurationAggregatorSourcesStatus:
+  title: Use Get-CFGConfigurationAggregatorSourcesStatus
+  title_abbrev: Get-CFGConfigurationAggregatorSourcesStatus
+  synopsis: use Get-CFGConfigurationAggregatorSourcesStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample displays requested fields for the sources in the given aggregator.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGConfigurationAggregatorSourcesStatus.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">SourceType   LastUpdateStatus LastUpdateTime        SourceId
+            ----------   ---------------- --------------        --------
+            ORGANIZATION SUCCEEDED        12/31/2019 7:45:06 AM Organization
+            ACCOUNT      SUCCEEDED        12/31/2019 7:09:38 AM 612641234567
+            ACCOUNT      SUCCEEDED        12/31/2019 7:12:53 AM 933301234567
+            ACCOUNT      SUCCEEDED        12/31/2019 7:18:10 AM 933301234567
+            ACCOUNT      SUCCEEDED        12/31/2019 7:25:17 AM 933301234567
+            ACCOUNT      SUCCEEDED        12/31/2019 7:25:49 AM 612641234567
+            ACCOUNT      SUCCEEDED        12/31/2019 7:26:11 AM 612641234567</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeConfigurationAggregatorSourcesStatus: 
+
+

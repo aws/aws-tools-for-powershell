@@ -1,0 +1,19 @@
+---
+ec2_ModifyInstanceCreditSpecification:
+  title: Use Edit-EC2InstanceCreditSpecification
+  title_abbrev: Edit-EC2InstanceCreditSpecification
+  synopsis: use Edit-EC2InstanceCreditSpecification
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This enables T2 unlimited credits for instance i-01234567890abcdef.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2InstanceCreditSpecification.1.1.ps1
+  services:
+    ec2:
+      ModifyInstanceCreditSpecification: 
+

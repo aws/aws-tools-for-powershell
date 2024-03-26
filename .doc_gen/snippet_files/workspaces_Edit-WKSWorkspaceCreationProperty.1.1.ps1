@@ -1,0 +1,1 @@
+Edit-WKSWorkspaceCreationProperty -Region us-west-2 -ResourceId d-123454a369 -WorkspaceCreationProperties_EnableInternetAccess $true -WorkspaceCreationProperties_EnableMaintenanceMode $true

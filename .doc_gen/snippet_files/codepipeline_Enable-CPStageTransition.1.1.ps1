@@ -1,0 +1,1 @@
+Enable-CPStageTransition -PipelineName CodePipelineDemo -StageName Beta -TransitionType Inbound

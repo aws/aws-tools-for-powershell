@@ -1,0 +1,1 @@
+Get-EC2VolumeAttribute -VolumeId vol-12345678 -Attribute AutoEnableIO

@@ -1,0 +1,1 @@
+Set-ASTag -Tag @( @{ResourceType="auto-scaling-group"; ResourceId="my-asg"; Key="myTag"; Value="myTagValue"; PropagateAtLaunch=$true} )

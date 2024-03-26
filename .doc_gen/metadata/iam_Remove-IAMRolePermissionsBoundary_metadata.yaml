@@ -1,0 +1,19 @@
+---
+iam_DeleteRolePermissionsBoundary:
+  title: Use Remove-IAMRolePermissionsBoundary
+  title_abbrev: Remove-IAMRolePermissionsBoundary
+  synopsis: use Remove-IAMRolePermissionsBoundary
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example shows how to remove the permission boundary attached to an IAM role.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMRolePermissionsBoundary.1.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteRolePermissionsBoundary: 
+

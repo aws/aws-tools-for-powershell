@@ -1,0 +1,19 @@
+---
+appstream_StopFleet:
+  title: Use Stop-APSFleet
+  title_abbrev: Stop-APSFleet
+  synopsis: use Stop-APSFleet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample stops a fleet</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Stop-APSFleet.1.1.ps1
+          description: 
+  services:
+    appstream:
+      StopFleet: 
+

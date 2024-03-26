@@ -1,0 +1,38 @@
+---
+ec2_CreateDhcpOptions:
+  title: Use New-EC2DhcpOption
+  title_abbrev: New-EC2DhcpOption
+  synopsis: use New-EC2DhcpOption
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates the specified set of DHCP options. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2DhcpOption.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DhcpConfigurations                    DhcpOptionsId    Tags
+            ------------------                    -------------    ----
+            {domain-name, domain-name-servers}    dopt-1a2b3c4d    {}</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: With PowerShell version 2, you must use New-Object to create each DHCP option.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2DhcpOption.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DhcpConfigurations                    DhcpOptionsId    Tags
+            ------------------                    -------------    ----
+            {domain-name, domain-name-servers}    dopt-2a3b4c5d    {}</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      CreateDhcpOptions: 
+

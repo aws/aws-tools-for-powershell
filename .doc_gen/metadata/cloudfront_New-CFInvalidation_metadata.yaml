@@ -1,0 +1,23 @@
+---
+cloudfront_CreateInvalidation:
+  title: Use New-CFInvalidation
+  title_abbrev: New-CFInvalidation
+  synopsis: use New-CFInvalidation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example creates a new invalidation on a distribution with an ID of EXAMPLENSTXAXE. The CallerReference is a unique ID chosen by the user; in this case, a time stamp representing May 15, 2019 at 9:00 a.m. is used. The $Paths variable stores three paths to image and media files that the user does not want as part of the distribution's cache. The -Paths_Quantity parameter value is the total number of paths specified in the -Paths_Item parameter.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudfront_New-CFInvalidation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Invalidation                         Location                                                                                          \n------------                         --------                                                                                          \nAmazon.CloudFront.Model.Invalidation https://cloudfront.amazonaws.com/2018-11-05/distribution/EXAMPLENSTXAXE/invalidation/EXAMPLE8NOK9H</programlisting>"
+          snippet_files: []
+  services:
+    cloudfront:
+      CreateInvalidation: 
+

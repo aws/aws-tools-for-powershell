@@ -1,0 +1,25 @@
+---
+route-53_ListHostedZones:
+  title: Use Get-R53HostedZoneList
+  title_abbrev: Get-R53HostedZoneList
+  synopsis: use Get-R53HostedZoneList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Outputs all of your public and private hosted zones.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Get-R53HostedZoneList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Outputs all of the hosted zones that are associated with the reusable delegation set that has the ID NZ8X2CISAMPLE</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Get-R53HostedZoneList.2.1.ps1
+          description: 
+  services:
+    route-53:
+      ListHostedZones: 
+
+

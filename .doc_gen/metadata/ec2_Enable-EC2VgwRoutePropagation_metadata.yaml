@@ -1,0 +1,19 @@
+---
+ec2_EnableVgwRoutePropagation:
+  title: Use Enable-EC2VgwRoutePropagation
+  title_abbrev: Enable-EC2VgwRoutePropagation
+  synopsis: use Enable-EC2VgwRoutePropagation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example enables the specified VGW to propagate routes automatically to the specified routing table.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Enable-EC2VgwRoutePropagation.1.1.ps1
+  services:
+    ec2:
+      EnableVgwRoutePropagation: 
+

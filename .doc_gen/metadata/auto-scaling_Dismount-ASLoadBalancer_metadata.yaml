@@ -1,0 +1,20 @@
+---
+auto-scaling_DetachLoadBalancers:
+  title: Use Dismount-ASLoadBalancer
+  title_abbrev: Dismount-ASLoadBalancer
+  synopsis: use Dismount-ASLoadBalancer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example detaches the specified load balancer from the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Dismount-ASLoadBalancer.1.1.ps1
+          description: 
+  services:
+    auto-scaling:
+      DetachLoadBalancers: 
+
+

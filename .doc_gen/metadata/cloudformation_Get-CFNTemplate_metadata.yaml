@@ -1,0 +1,19 @@
+---
+cloudformation_GetTemplate:
+  title: Use Get-CFNTemplate
+  title_abbrev: Get-CFNTemplate
+  synopsis: use Get-CFNTemplate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the template associated with the specified stack.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Get-CFNTemplate.1.1.ps1
+  services:
+    cloudformation:
+      GetTemplate: 
+

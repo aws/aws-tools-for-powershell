@@ -1,0 +1,1 @@
+Get-CFNStackResourceList -PhysicalResourceId "i-123456"

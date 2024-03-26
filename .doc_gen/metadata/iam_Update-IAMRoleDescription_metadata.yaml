@@ -1,0 +1,19 @@
+---
+iam_UpdateRoleDescription:
+  title: Use Update-IAMRoleDescription
+  title_abbrev: Update-IAMRoleDescription
+  synopsis: use Update-IAMRoleDescription
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example updates the description of an IAM role in your account.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMRoleDescription.1.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateRoleDescription: 
+

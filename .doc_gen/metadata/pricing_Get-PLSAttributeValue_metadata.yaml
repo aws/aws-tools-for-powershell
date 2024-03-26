@@ -1,0 +1,30 @@
+---
+pricing_GetAttributeValues:
+  title: Use Get-PLSAttributeValue
+  title_abbrev: Get-PLSAttributeValue
+  synopsis: use Get-PLSAttributeValue
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: Returns the values for the attribute 'volumeType' for Amazon EC2 in the us-east-1 region.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/pricing_Get-PLSAttributeValue.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Value
+            -----
+            Cold HDD
+            General Purpose
+            Magnetic
+            Provisioned IOPS
+            Throughput Optimized HDD</programlisting>
+  services:
+    pricing:
+      GetAttributeValues: 
+

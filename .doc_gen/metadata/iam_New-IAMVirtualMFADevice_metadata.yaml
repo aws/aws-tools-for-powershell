@@ -1,0 +1,37 @@
+---
+iam_CreateVirtualMFADevice:
+  title: Use New-IAMVirtualMFADevice
+  title_abbrev: New-IAMVirtualMFADevice
+  synopsis: use New-IAMVirtualMFADevice
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a new virtual MFA device. Lines 2 and 3 extract the <code>Base32StringSeed</code> value that the virtual MFA software program needs to create an account (as an alternative to the QR code). After you configure the program with the value, get two sequential authentication codes from the program. Finally, use the last command to link the virtual MFA device to the IAM user <code>Bob</code> and synchronize the account with the two authentication codes.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_New-IAMVirtualMFADevice.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">-- Pause here to enter base-32 string seed code into virtual MFA program to register account. --
+
+            Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -AuthenticationCode1 123456 -AuthenticationCode2 789012</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example creates a new virtual MFA device. Lines 2 and 3 extract the <code>QRCodePNG</code> value and write it to a file. This image can be scanned by the virtual MFA software program to create an account (as an alternative to manually entering the Base32StringSeed value). After you create the account in your virtual MFA program, get two sequential authentication codes and enter them in the last commands to link the virtual MFA device to the IAM user <code>Bob</code> and synchronize the account.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_New-IAMVirtualMFADevice.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy"> -- Pause here to scan PNG with virtual MFA program to register account. -- 
+
+            Enable-IAMMFADevice -SerialNumber $Device.SerialNumber -UserName Bob -AuthenticationCode1 123456 -AuthenticationCode2 789012</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      CreateVirtualMFADevice: 

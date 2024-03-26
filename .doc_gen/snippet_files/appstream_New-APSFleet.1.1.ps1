@@ -1,0 +1,1 @@
+New-APSFleet -ComputeCapacity_DesiredInstance 1 -InstanceType stream.standard.medium -Name TestFleet -DisplayName TestFleet -FleetType ON_DEMAND -EnableDefaultInternetAccess $True -VpcConfig_SubnetIds "subnet-123ce32","subnet-a1234cfd" -VpcConfig_SecurityGroupIds sg-4d012a34 -ImageName SessionScriptTest -Region us-west-2

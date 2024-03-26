@@ -1,0 +1,18 @@
+---
+iam_DeleteSigningCertificate:
+  title: Use Remove-IAMSigningCertificate
+  title_abbrev: Remove-IAMSigningCertificate
+  synopsis: use Remove-IAMSigningCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the signing certificate with the ID <code>Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU</code> from the IAM user named <code>Bob</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMSigningCertificate.1.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteSigningCertificate: 

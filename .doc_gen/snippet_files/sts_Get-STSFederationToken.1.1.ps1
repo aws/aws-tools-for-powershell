@@ -1,0 +1,1 @@
+Get-STSFederationToken -Name "Bob" -Policy "...JSON policy..." -DurationInSeconds 3600

@@ -1,0 +1,1 @@
+Get-S3ObjectRetention -BucketName 's3buckettesting' -Key 'testfile.txt'

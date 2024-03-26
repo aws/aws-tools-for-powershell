@@ -1,0 +1,1 @@
+Update-ASAutoScalingGroup -AutoScalingGroupName my-asg -DefaultCooldown 10

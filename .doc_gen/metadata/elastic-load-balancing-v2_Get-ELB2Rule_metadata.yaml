@@ -1,0 +1,41 @@
+---
+elastic-load-balancing-v2_DescribeRules:
+  title: Use Get-ELB2Rule
+  title_abbrev: Get-ELB2Rule
+  synopsis: use Get-ELB2Rule
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the listener rules for the specified Listener ARN.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2Rule.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+            Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+            IsDefault  : False
+            Priority   : 1
+            RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/66e10e3aaf5b6d9b/2286fff5055e0f79
+
+            Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+            Conditions : {Amazon.ElasticLoadBalancingV2.Model.RuleCondition}
+            IsDefault  : False
+            Priority   : 2
+            RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/66e10e3aaf5b6d9b/14e7b036567623ba
+
+            Actions    : {Amazon.ElasticLoadBalancingV2.Model.Action}
+            Conditions : {}
+            IsDefault  : True
+            Priority   : default
+            RuleArn    : arn:aws:elasticloadbalancing:us-east-1:123456789012:listener-rule/app/test-alb/3651b4394dd9a24f/66e10e3aaf5b6d9b/853948cf3aa9b2bf</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DescribeRules: 
+
+

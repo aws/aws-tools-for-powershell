@@ -1,0 +1,1 @@
+Add-ASACommunicationToCase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47" -CcEmailAddress @("email1@address.com", "email2@address.com") -CommunicationBody "Some text about the case"

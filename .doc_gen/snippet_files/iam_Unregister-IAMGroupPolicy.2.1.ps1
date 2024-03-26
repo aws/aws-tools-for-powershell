@@ -1,0 +1,1 @@
+Get-IAMAttachedGroupPolicies -GroupName Testers | Unregister-IAMGroupPolicy -Groupname Testers

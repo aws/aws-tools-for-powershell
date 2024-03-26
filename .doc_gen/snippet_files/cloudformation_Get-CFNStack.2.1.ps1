@@ -1,0 +1,1 @@
+Get-CFNStack -StackName "myStack"

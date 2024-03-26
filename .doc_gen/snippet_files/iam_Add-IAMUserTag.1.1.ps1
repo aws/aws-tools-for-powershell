@@ -1,0 +1,1 @@
+Add-IAMUserTag -UserName joe -Tag @{ Key = 'abac'; Value = 'testing'}

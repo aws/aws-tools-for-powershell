@@ -1,0 +1,47 @@
+---
+cloudfront_New-CFSignedCookie:
+  title: Use New-CFSignedCookie
+  title_abbrev: New-CFSignedCookie
+  synopsis: use New-CFSignedCookie
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates a signed cookie to the specified resource using a canned policy. The cookie will be valid for one year.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudfront_New-CFSignedCookie.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Expires
+            -------
+            [CloudFront-Expires, 1472227284]</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: Creates a signed cookie to the specified resources using a custom policy. The cookie will be valid in 24 hours and will expire one week afterward.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudfront_New-CFSignedCookie.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Policy
+            ------
+            [CloudFront-Policy, eyJTd...wIjo...</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: Creates a signed cookie to the specified resources using a custom policy. The cookie will be valid in 24 hours and will expire one week afterward. Access to the resources is restricted to the specified ip range.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudfront_New-CFSignedCookie.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">Policy                                                                                                                                         ------                                                                                                                                         [CloudFront-Policy, eyJTd...wIjo...</programlisting>
+          snippet_files: []
+  services:
+    cloudfront:
+      New-CFSignedCookie: 
+

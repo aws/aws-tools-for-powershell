@@ -1,0 +1,31 @@
+---
+ec2_DescribeKeyPairs:
+  title: Use Get-EC2KeyPair
+  title_abbrev: Get-EC2KeyPair
+  synopsis: use Get-EC2KeyPair
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified key pair.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2KeyPair.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">KeyFingerprint                                              KeyName
+            --------------                                              -------
+            1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f my-key-pair</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all your key pairs.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2KeyPair.2.1.ps1
+  services:
+    ec2:
+      DescribeKeyPairs: 
+

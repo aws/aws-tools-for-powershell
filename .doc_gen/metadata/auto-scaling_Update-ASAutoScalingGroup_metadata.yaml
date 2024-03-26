@@ -1,0 +1,35 @@
+---
+auto-scaling_UpdateAutoScalingGroup:
+  title: Use Update-ASAutoScalingGroup
+  title_abbrev: Update-ASAutoScalingGroup
+  synopsis: use Update-ASAutoScalingGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example updates the minimum and maximum size of the specified Auto Scaling group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Update-ASAutoScalingGroup.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example updates the default cooldown period of the specified Auto Scaling group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Update-ASAutoScalingGroup.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example updates the Availability Zones of the specified Auto Scaling group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Update-ASAutoScalingGroup.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: This example updates the specified Auto Scaling group to use Elastic Load Balancing health checks.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Update-ASAutoScalingGroup.4.1.ps1
+  services:
+    auto-scaling:
+      UpdateAutoScalingGroup: 
+
+

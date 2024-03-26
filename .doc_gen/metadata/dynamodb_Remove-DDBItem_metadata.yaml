@@ -1,0 +1,23 @@
+---
+dynamodb_DeleteItem:
+  title: Use Remove-DDBItem
+  title_abbrev: Remove-DDBItem
+  synopsis: use Remove-DDBItem
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Removes the DynamoDB item that matches the provided key.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Remove-DDBItem.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">Remove-DDBItem -TableName 'Music' -Key $key -Confirm:$false</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      DeleteItem: 
+

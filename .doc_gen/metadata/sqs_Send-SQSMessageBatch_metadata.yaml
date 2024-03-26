@@ -1,0 +1,23 @@
+---
+sqs_SendMessageBatch:
+  title: Use Send-SQSMessageBatch
+  title_abbrev: Send-SQSMessageBatch
+  synopsis: use Send-SQSMessageBatch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example sends 2 messages with the specified attributes and message bodies to the specified queue. Delivery is delayed for 15 seconds for the first message and 10 seconds for the second message.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Send-SQSMessageBatch.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Failed    Successful                                                                    \n------    ----------                                                                    \n{}        {FirstMessage, SecondMessage}</programlisting>"
+          snippet_files: []
+  services:
+    sqs:
+      SendMessageBatch: 
+

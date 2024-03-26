@@ -1,0 +1,1 @@
+Resume-CFNUpdateRollback -StackName "myStack"

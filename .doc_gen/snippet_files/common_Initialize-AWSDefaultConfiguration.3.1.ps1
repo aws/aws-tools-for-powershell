@@ -1,0 +1,1 @@
+Initialize-AWSDefaultConfiguration -ProfileName myProfile -Region us-west-2

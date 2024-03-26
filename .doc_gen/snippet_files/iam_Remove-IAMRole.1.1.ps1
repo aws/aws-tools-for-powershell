@@ -1,0 +1,1 @@
+Remove-IAMRole -RoleName MyNewRole

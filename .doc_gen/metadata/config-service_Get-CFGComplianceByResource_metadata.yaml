@@ -1,0 +1,28 @@
+---
+config-service_DescribeComplianceByResource:
+  title: Use Get-CFGComplianceByResource
+  title_abbrev: Get-CFGComplianceByResource
+  synopsis: use Get-CFGComplianceByResource
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example checks the <code>AWS::SSM::ManagedInstanceInventory</code> resource type for 'COMPLIANT' compliance type.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGComplianceByResource.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Compliance                            ResourceId          ResourceType
+            ----------                            ----------          ------------
+            Amazon.ConfigService.Model.Compliance i-0123bcf4b567890e3 AWS::SSM::ManagedInstanceInventory
+            Amazon.ConfigService.Model.Compliance i-0a1234f6f5d6b78f7 AWS::SSM::ManagedInstanceInventory</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeComplianceByResource: 
+
+

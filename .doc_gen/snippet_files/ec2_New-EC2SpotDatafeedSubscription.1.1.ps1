@@ -1,0 +1,1 @@
+New-EC2SpotDatafeedSubscription -Bucket my-s3-bucket -Prefix spotdata

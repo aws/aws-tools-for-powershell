@@ -1,0 +1,1 @@
+Get-IAMAttachedRolePolicyList -RoleName FedTesterRole | Unregister-IAMRolePolicy -Rolename FedTesterRole

@@ -1,0 +1,25 @@
+---
+iam_GetOpenIDConnectProvider:
+  title: Use Get-IAMOpenIDConnectProvider
+  title_abbrev: Get-IAMOpenIDConnectProvider
+  synopsis: use Get-IAMOpenIDConnectProvider
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns details about the OpenID Connect provider whose ARN is <code>arn:aws:iam::123456789012:oidc-provider/accounts.google.com</code>. The <code>ClientIDList</code> property is a collection that contains all the Client IDs defined for this provider.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMOpenIDConnectProvider.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ClientIDList         CreateDate                ThumbprintList                               Url
+            ------------         ----------                --------------                               ---
+            {MyOIDCApp}          2/3/2015 3:00:30 PM       {12345abcdefghijk67890lmnopqrst98765uvwxy}   oidc.example.com</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      GetOpenIDConnectProvider: 

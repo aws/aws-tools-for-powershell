@@ -1,0 +1,1 @@
+Get-S3BucketLogging -BucketName 's3testbucket'

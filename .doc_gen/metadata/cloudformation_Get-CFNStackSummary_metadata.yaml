@@ -1,0 +1,34 @@
+---
+cloudformation_ListStacks:
+  title: Use Get-CFNStackSummary
+  title_abbrev: Get-CFNStackSummary
+  synopsis: use Get-CFNStackSummary
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns summary information for all stacks.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Get-CFNStackSummary.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Returns summary information for all stacks that are currently being created.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Get-CFNStackSummary.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: Returns summary information for all stacks that are currently being created or updated.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Get-CFNStackSummary.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: Returns summary information for all stacks that are currently being created or updated using manual paging of the results. The starting token for the next page is retrieved after every call with $null indicating no more details remain to be retrieved.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Get-CFNStackSummary.4.1.ps1
+  services:
+    cloudformation:
+      ListStacks: 
+

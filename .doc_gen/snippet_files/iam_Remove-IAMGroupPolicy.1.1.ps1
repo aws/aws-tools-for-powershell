@@ -1,0 +1,1 @@
+Remove-IAMGroupPolicy -GroupName Testers -PolicyName TestPolicy

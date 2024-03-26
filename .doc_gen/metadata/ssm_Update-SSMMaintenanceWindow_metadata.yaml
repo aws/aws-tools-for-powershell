@@ -1,0 +1,62 @@
+---
+ssm_UpdateMaintenanceWindow:
+  title: Use Update-SSMMaintenanceWindow
+  title_abbrev: Update-SSMMaintenanceWindow
+  synopsis: use Update-SSMMaintenanceWindow
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example updates the name of a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Update-SSMMaintenanceWindow.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllowUnassociatedTargets : False
+            Cutoff                   : 1
+            Duration                 : 2
+            Enabled                  : True
+            Name                     : My-Renamed-MW
+            Schedule                 : cron(0 */30 * * * ? *)
+            WindowId                 : mw-03eb9db42890fb82d</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example enables a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Update-SSMMaintenanceWindow.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllowUnassociatedTargets : False
+            Cutoff                   : 1
+            Duration                 : 2
+            Enabled                  : True
+            Name                     : My-Renamed-MW
+            Schedule                 : cron(0 */30 * * * ? *)
+            WindowId                 : mw-03eb9db42890fb82d</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example disables a maintenance window.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Update-SSMMaintenanceWindow.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllowUnassociatedTargets : False
+            Cutoff                   : 1
+            Duration                 : 2
+            Enabled                  : False
+            Name                     : My-Renamed-MW
+            Schedule                 : cron(0 */30 * * * ? *)
+            WindowId                 : mw-03eb9db42890fb82d</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      UpdateMaintenanceWindow: 
+

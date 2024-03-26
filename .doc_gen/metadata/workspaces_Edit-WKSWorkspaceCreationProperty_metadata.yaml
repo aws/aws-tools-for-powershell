@@ -1,0 +1,19 @@
+---
+workspaces_ModifyWorkspaceCreationProperties:
+  title: Use Edit-WKSWorkspaceCreationProperty
+  title_abbrev: Edit-WKSWorkspaceCreationProperty
+  synopsis: use Edit-WKSWorkspaceCreationProperty
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample enables Internet Access and Maintenance Mode to true as default values while creating a Workspace</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Edit-WKSWorkspaceCreationProperty.1.1.ps1
+  services:
+    workspaces:
+      ModifyWorkspaceCreationProperties: 
+

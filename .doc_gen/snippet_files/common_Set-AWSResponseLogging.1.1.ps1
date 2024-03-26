@@ -1,0 +1,1 @@
+Set-AWSResponseLogging -Level Always

@@ -1,0 +1,25 @@
+---
+auto-scaling_ExecutePolicy:
+  title: Use Start-ASPolicy
+  title_abbrev: Start-ASPolicy
+  synopsis: use Start-ASPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example executes the specified policy for the specified Auto Scaling group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Start-ASPolicy.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example executes the specified policy for the specified Auto Scaling group, after waiting for the cooldown period to complete.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Start-ASPolicy.2.1.ps1
+  services:
+    auto-scaling:
+      ExecutePolicy: 
+
+

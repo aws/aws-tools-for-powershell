@@ -1,0 +1,1 @@
+New-APSStack -Name TestStack -DisplayName TestStack -ApplicationSettings_Enabled $True -ApplicationSettings_SettingsGroup TestStack -Region us-west-2

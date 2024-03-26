@@ -1,0 +1,1 @@
+Disable-DSSso -DirectoryId d-123456ijkl

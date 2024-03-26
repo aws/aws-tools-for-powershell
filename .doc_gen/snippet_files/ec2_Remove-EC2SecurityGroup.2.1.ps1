@@ -1,0 +1,1 @@
+Remove-EC2SecurityGroup -GroupName my-security-group -Force

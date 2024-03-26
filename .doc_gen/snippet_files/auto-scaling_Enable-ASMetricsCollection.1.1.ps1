@@ -1,0 +1,1 @@
+Enable-ASMetricsCollection  -Metric @("GroupMinSize", "GroupMaxSize") -AutoScalingGroupName my-asg -Granularity 1Minute

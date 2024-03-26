@@ -1,0 +1,39 @@
+---
+s3_CopyObject:
+  title: Use Copy-S3Object
+  title_abbrev: Copy-S3Object
+  synopsis: use Copy-S3Object
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command copies the object "sample.txt" from bucket "test-files" to the same bucket but with a new key of "sample-copy.txt".</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This command copies the object "sample.txt" from bucket "test-files" to the bucket "backup-files" with a key of "sample-copy.txt".</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This command downloads the object "sample.txt" from bucket "test-files" to a local file with name "local-sample.txt".</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.3.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 4: Downloads the single object to the specified file. The downloaded file will be found at c:\downloads\data\archive.zip</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.4.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 5: Downloads all objects that match the specified key prefix to the local folder. The relative key hierarchy will be preserved as subfolders in the overall download location.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Copy-S3Object.5.1.ps1
+          description: 
+  services:
+    s3:
+      CopyObject: 
+

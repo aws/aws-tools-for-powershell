@@ -1,0 +1,32 @@
+---
+acm_RequestCertificate:
+  title: Use New-ACMCertificate
+  title_abbrev: New-ACMCertificate
+  synopsis: use New-ACMCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Creates a new certificate. The service returns the ARN of the new certificate.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_New-ACMCertificate.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: <programlisting language="none" role="nocopy">arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Creates a new certificate. The service returns the ARN of the new certificate.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/acm_New-ACMCertificate.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: <programlisting language="none" role="nocopy">arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012</programlisting>
+  services:
+    acm:
+      RequestCertificate: 
+

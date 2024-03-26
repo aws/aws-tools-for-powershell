@@ -1,0 +1,1 @@
+Set-AWSProxy -Hostname localhost -Port 8888

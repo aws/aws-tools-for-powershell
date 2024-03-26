@@ -1,0 +1,23 @@
+---
+common_Initialize-AWSSSOConfiguration:
+  title: Use Initialize-AWSSSOConfiguration
+  title_abbrev: Initialize-AWSSSOConfiguration
+  synopsis: use Initialize-AWSSSOConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Interactively prompts for the configuration values required to create a profile.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Initialize-AWSSSOConfiguration.1.1.ps1
+        - description: "<emphasis role=\"bold\">Example 2: Creates a profile 'sso-test-profile' with the configuration values and then initiates SSO login flow.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Initialize-AWSSSOConfiguration.2.1.ps1
+  services:
+    common:
+      Initialize-AWSSSOConfiguration: 

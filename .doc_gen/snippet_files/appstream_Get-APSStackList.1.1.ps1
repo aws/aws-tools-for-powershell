@@ -1,0 +1,1 @@
+Get-APSStackList | Select DisplayName, Arn, CreatedTime

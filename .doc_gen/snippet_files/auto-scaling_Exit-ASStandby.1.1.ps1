@@ -1,0 +1,1 @@
+Exit-ASStandby -InstanceId i-93633f9b -AutoScalingGroupName my-asg

@@ -1,0 +1,32 @@
+---
+eks_CreateFargateProfile:
+  title: Use New-EKSFargateProfile
+  title_abbrev: New-EKSFargateProfile
+  synopsis: use New-EKSFargateProfile
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet creates an &AWS; Fargate profile for your Amazon EKS cluster. You must have at least one Fargate profile in a cluster to be able to schedule pods on Fargate infrastructure. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/eks_New-EKSFargateProfile.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ClusterName         : TEST
+            CreatedAt           : 12/26/2019 12:38:21 PM
+            FargateProfileArn   : arn:aws:eks:us-east-2:012345678912:fargateprofile/TEST/EKSFargateProfile/20b7a11b-8292-41c1-bc56-ffa5e60f6224
+            FargateProfileName  : EKSFargateProfile
+            PodExecutionRoleArn : arn:aws:iam::012345678912:role/AmazonEKSFargatePodExecutionRole
+            Selectors           : {Amazon.EKS.Model.FargateProfileSelector}
+            Status              : CREATING
+            Subnets             : {subnet-0cd976f08d5fbfaae, subnet-02f6ff500ff2067a0}
+            Tags                : {}</programlisting>
+          snippet_files: []
+  services:
+    eks:
+      CreateFargateProfile: 
+

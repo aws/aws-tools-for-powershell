@@ -1,0 +1,24 @@
+---
+cloudtrail_CreateTrail:
+  title: Use New-CTTrail
+  title_abbrev: New-CTTrail
+  synopsis: use New-CTTrail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Creates a trail that will use the bucket 'mycloudtrailbucket' for log file storage.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudtrail_New-CTTrail.1.1.ps1
+        - description: "<emphasis role=\"bold\">Example 2: Creates a trail that will use the bucket 'mycloudtrailbucket' for log file storage. The S3 objects representing the logs will have a common key prefix of 'mylogs'. When new logs are delivered to the bucket a notification will be sent to the SNS topic 'mlog-deliverytopic'. This example using splatting to supply the parameter values to the cmdlet.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudtrail_New-CTTrail.2.1.ps1
+  services:
+    cloudtrail:
+      CreateTrail: 
+

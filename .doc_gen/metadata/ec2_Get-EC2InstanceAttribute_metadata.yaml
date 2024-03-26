@@ -1,0 +1,72 @@
+---
+ec2_DescribeInstanceAttribute:
+  title: Use Get-EC2InstanceAttribute
+  title_abbrev: Get-EC2InstanceAttribute
+  synopsis: use Get-EC2InstanceAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the instance type of the specified instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">InstanceType                      : t2.micro</programlisting>'
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes whether enhanced networking is enabled for the specified instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceAttribute.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">SriovNetSupport                   : simple</programlisting>'
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example describes the security groups for the specified instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceAttribute.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">GroupId
+            -------
+            sg-12345678
+            sg-45678901</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 4: This example describes whether EBS optimization is enabled for the specified instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceAttribute.4.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">EbsOptimized                      : False</programlisting>'
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 5: This example describes the 'disableApiTermination' attribute of the specified instance.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceAttribute.5.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">DisableApiTermination             : False</programlisting>'
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 6: This example describes the 'instanceInitiatedShutdownBehavior' attribute of the specified instance.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceAttribute.6.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: '<programlisting language="none" role="nocopy">InstanceInitiatedShutdownBehavior : stop</programlisting>'
+          snippet_files: []
+  services:
+    ec2:
+      DescribeInstanceAttribute: 
+

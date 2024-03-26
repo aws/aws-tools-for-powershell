@@ -1,0 +1,27 @@
+---
+config-service_GetAggregateConfigRuleComplianceSummary:
+  title: Use Get-CFGAggregateConfigRuleComplianceSummary
+  title_abbrev: Get-CFGAggregateConfigRuleComplianceSummary
+  synopsis: use Get-CFGAggregateConfigRuleComplianceSummary
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns the number of noncompliant rules for the given aggregator.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateConfigRuleComplianceSummary.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CapExceeded CappedCount
+            ----------- -----------
+            False       5</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      GetAggregateConfigRuleComplianceSummary: 
+
+

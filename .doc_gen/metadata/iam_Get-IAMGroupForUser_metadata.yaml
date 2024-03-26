@@ -1,0 +1,22 @@
+---
+iam_ListGroupsForUser:
+  title: Use Get-IAMGroupForUser
+  title_abbrev: Get-IAMGroupForUser
+  synopsis: use Get-IAMGroupForUser
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns the list of IAM groups that the IAM user <code>David</code> belongs to.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMGroupForUser.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Arn        : arn:aws:iam::123456789012:group/Administrators\nCreateDate : 10/20/2014 10:06:24 AM\nGroupId    : 6WCH4TRY3KIHIEXAMPLE1\nGroupName  : Administrators\nPath       : /\n      \nArn        : arn:aws:iam::123456789012:group/Testers\nCreateDate : 12/10/2014 3:39:11 PM\nGroupId    : RHNZZGQJ7QHMAEXAMPLE2\nGroupName  : Testers\nPath       : /\n      \nArn        : arn:aws:iam::123456789012:group/Developers\nCreateDate : 12/10/2014 3:38:55 PM\nGroupId    : ZU2EOWMK6WBZOEXAMPLE3\nGroupName  : Developers\nPath       : /</programlisting>"
+          snippet_files: []
+  services:
+    iam:
+      ListGroupsForUser: 

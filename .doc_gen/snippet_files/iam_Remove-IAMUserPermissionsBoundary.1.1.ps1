@@ -1,0 +1,1 @@
+Remove-IAMUserPermissionsBoundary -UserName joe

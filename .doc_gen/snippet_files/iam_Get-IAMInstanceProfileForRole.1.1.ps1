@@ -1,0 +1,1 @@
+Get-IAMInstanceProfileForRole -RoleName ec2instancerole

@@ -1,0 +1,20 @@
+---
+directory-service_DisableRadius:
+  title: Use Disable-DSRadius
+  title_abbrev: Disable-DSRadius
+  synopsis: use Disable-DSRadius
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example disables RADIUS server configured for an AD Connector or Microsoft AD directory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Disable-DSRadius.1.1.ps1
+  services:
+    directory-service:
+      DisableRadius: 
+
+

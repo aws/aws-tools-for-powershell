@@ -1,0 +1,19 @@
+---
+workspaces_DescribeClientProperties:
+  title: Use Get-WKSClientProperty
+  title_abbrev: Get-WKSClientProperty
+  synopsis: use Get-WKSClientProperty
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample gets the Client Properties of the Workspace Client for the specified Directory</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Get-WKSClientProperty.1.1.ps1
+  services:
+    workspaces:
+      DescribeClientProperties: 
+

@@ -1,0 +1,25 @@
+---
+iam_DeactivateMFADevice:
+  title: Use Disable-IAMMFADevice
+  title_abbrev: Disable-IAMMFADevice
+  synopsis: use Disable-IAMMFADevice
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command disables the hardware MFA device associated with the user <code>Bob</code> that has the serial number <code>123456789012</code>.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Disable-IAMMFADevice.1.1.ps1
+        - description: |-
+            <emphasis role="bold">Example 2: This command disables the virtual MFA device associated with the user <code>David</code> that has the ARN <code>arn:aws:iam::210987654321:mfa/David</code>.
+            Note that virtual MFA device is not deleted from the account. The virtual device is still present and appears in the output of the <code>Get-IAMVirtualMFADevice</code> command. Before you can create a new virtual MFA device for the same user, you must delete the old one by using the <code>Remove-IAMVirtualMFADevice</code> command.</emphasis>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Disable-IAMMFADevice.2.1.ps1
+  services:
+    iam:
+      DeactivateMFADevice: 

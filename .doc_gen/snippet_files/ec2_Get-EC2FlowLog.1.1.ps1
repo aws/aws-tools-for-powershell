@@ -1,0 +1,1 @@
+Get-EC2FlowLog -Filter @{Name="log-destination-type";Values="s3"}

@@ -1,0 +1,19 @@
+---
+lambda_UpdateFunctionConfiguration:
+  title: Use Update-LMFunctionConfiguration
+  title_abbrev: Update-LMFunctionConfiguration
+  synopsis: use Update-LMFunctionConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example updates the existing Lambda Function Configuration</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Update-LMFunctionConfiguration.1.1.ps1
+          description: 
+  services:
+    lambda:
+      UpdateFunctionConfiguration: 
+

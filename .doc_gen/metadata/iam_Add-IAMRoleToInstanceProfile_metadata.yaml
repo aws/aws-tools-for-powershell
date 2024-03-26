@@ -1,0 +1,20 @@
+---
+iam_AddRoleToInstanceProfile:
+  title: Use Add-IAMRoleToInstanceProfile
+  title_abbrev: Add-IAMRoleToInstanceProfile
+  synopsis: use Add-IAMRoleToInstanceProfile
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: |-
+            <emphasis role="bold">Example 1: This command adds the role named <code>S3Access</code> to an existing instance profile named <code>webserver</code>.
+            To create the instance profile, use the <code>New-IAMInstanceProfile</code> command. After you create the instance profile and associate it with a role using this command, you can attach it to an EC2 instance. To do that, use the <code>New-EC2Instance</code> cmdlet with either the <code>InstanceProfile_Arn</code> or the <code>InstanceProfile-Name</code> parameter to launch the new instance.</emphasis>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Add-IAMRoleToInstanceProfile.1.1.ps1
+  services:
+    iam:
+      AddRoleToInstanceProfile: 

@@ -1,0 +1,1 @@
+Set-AWSCredential -SourceProfile sourceAccountProfile -RoleArn arn:aws:iam::123456789012:role/my_role -MfaSerial 124345 -StoreAs myRoleProfile

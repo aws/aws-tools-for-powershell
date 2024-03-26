@@ -1,0 +1,23 @@
+---
+cloud9_CreateEnvironmentEC2:
+  title: Use New-C9EnvironmentEC2
+  title_abbrev: New-C9EnvironmentEC2
+  synopsis: use New-C9EnvironmentEC2
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates an &AWS; Cloud9 development environment with the specified settings, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_New-C9EnvironmentEC2.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">ffd88420d4824eeeaeaa8a04bfde8cEX</programlisting>
+          snippet_files: []
+  services:
+    cloud9:
+      CreateEnvironmentEC2: 
+

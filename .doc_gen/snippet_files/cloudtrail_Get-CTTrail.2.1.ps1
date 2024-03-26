@@ -1,0 +1,1 @@
+Get-CTTrail -TrailNameList trail1,trail2

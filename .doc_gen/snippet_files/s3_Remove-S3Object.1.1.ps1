@@ -1,0 +1,1 @@
+Remove-S3Object -BucketName test-files -Key sample.txt

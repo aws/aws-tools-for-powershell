@@ -1,0 +1,55 @@
+---
+config-service_ListAggregateDiscoveredResources:
+  title: Use Get-CFGAggregateDiscoveredResourceList
+  title_abbrev: Get-CFGAggregateDiscoveredResourceList
+  synopsis: use Get-CFGAggregateDiscoveredResourceList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example returns the resource identifiers for the given resource type aggregated in 'Ireland' aggregator. For the list of resource types, please check https://docs.aws.amazon.com/sdkfornet/v3/apidocs/index.html?page=ConfigService/TConfigServiceResourceType.html&amp;tocid=Amazon_ConfigService_ResourceType.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateDiscoveredResourceList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ResourceId      : arn:aws:autoscaling:eu-west-1:123456789012:autoScalingGroup:12e3b4fc-1234-1234-a123-1d2ba3c45678:autoScalingGroupName/asg-1
+            ResourceName    : asg-1
+            ResourceType    : AWS::AutoScaling::AutoScalingGroup
+            SourceAccountId : 123456789012
+            SourceRegion    : eu-west-1</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example returns the resource type <code>AwsEC2SecurityGroup</code> named 'default' for the given aggregator filtered with region us-east-1.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGAggregateDiscoveredResourceList.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ResourceId      : sg-01234bd5dbfa67c89
+            ResourceName    : default
+            ResourceType    : AWS::EC2::SecurityGroup
+            SourceAccountId : 123456789102
+            SourceRegion    : us-east-1
+
+            ResourceId      : sg-0123a4ebbf56789be
+            ResourceName    : default
+            ResourceType    : AWS::EC2::SecurityGroup
+            SourceAccountId : 123456789102
+            SourceRegion    : us-east-1
+
+            ResourceId      : sg-4fc1d234
+            ResourceName    : default
+            ResourceType    : AWS::EC2::SecurityGroup
+            SourceAccountId : 123456789102
+            SourceRegion    : us-east-1</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      ListAggregateDiscoveredResources: 
+
+

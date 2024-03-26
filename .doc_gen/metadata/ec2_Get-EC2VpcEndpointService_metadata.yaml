@@ -1,0 +1,42 @@
+---
+ec2_DescribeVpcEndpointServices:
+  title: Use Get-EC2VpcEndpointService
+  title_abbrev: Get-EC2VpcEndpointService
+  synopsis: use Get-EC2VpcEndpointService
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes EC2 VPC endpoint service with the given filter, in this case com.amazonaws.eu-west-1.ecs. Further, it also expands the ServiceDetails property and displays the details</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpcEndpointService.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AcceptanceRequired         : False
+            AvailabilityZones          : {eu-west-1a, eu-west-1b, eu-west-1c}
+            BaseEndpointDnsNames       : {ecs.eu-west-1.vpce.amazonaws.com}
+            Owner                      : amazon
+            PrivateDnsName             : ecs.eu-west-1.amazonaws.com
+            ServiceName                : com.amazonaws.eu-west-1.ecs
+            ServiceType                : {Amazon.EC2.Model.ServiceTypeDetail}
+            VpcEndpointPolicySupported : False</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example retrieves all the EC2 VPC Endpoint services and returns the ServiceNames matching "ssm"</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpcEndpointService.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">com.amazonaws.eu-west-1.ssm
+            com.amazonaws.eu-west-1.ssmmessages</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeVpcEndpointServices: 
+

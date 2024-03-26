@@ -1,0 +1,1 @@
+Write-IAMRolePolicy -RoleName FedTesterRole -PolicyName FedTesterRolePolicy -PolicyDocument (Get-Content -Raw FedTesterPolicy.json)

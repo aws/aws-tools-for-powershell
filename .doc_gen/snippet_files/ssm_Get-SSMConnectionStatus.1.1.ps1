@@ -1,0 +1,1 @@
+Get-SSMConnectionStatus -Target i-0a1caf234f12d3dc4

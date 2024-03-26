@@ -1,0 +1,24 @@
+---
+Common_Set-AWSSamlEndpoint:
+  title: Use Set-AWSSamlEndpoint
+  title_abbrev: Set-AWSSamlEndpoint
+  synopsis: use Set-AWSSamlEndpoint
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates or updates a profile name MyADFSEndpoint for use with Set-AWSSamlRoleProfile. Kerberos will be used as the authentication protocol when authenticating users against the endoint.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSSamlEndpoint.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Creates or updates a profile name MyADFSEndpoint for use with Set-AWSSamlRoleProfile. The endpoint is configured to use the NTLM protocol during authentication (other options are Digest, Basic, Kerberos and Negotiate).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Set-AWSSamlEndpoint.2.1.ps1
+  services:
+    Common:
+      Set-AWSSamlEndpoint: 
+

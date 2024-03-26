@@ -1,0 +1,32 @@
+---
+ec2_DescribeSpotFleetRequests:
+  title: Use Get-EC2SpotFleetRequest
+  title_abbrev: Get-EC2SpotFleetRequest
+  synopsis: use Get-EC2SpotFleetRequest
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified Spot fleet request.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotFleetRequest.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ConfigData            : Amazon.EC2.Model.SpotFleetRequestConfigData
+            CreateTime            : 12/26/2015 8:23:33 AM
+            SpotFleetRequestId    : sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE
+            SpotFleetRequestState : active</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all your Spot fleet requests.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotFleetRequest.2.1.ps1
+  services:
+    ec2:
+      DescribeSpotFleetRequests: 
+

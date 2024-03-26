@@ -1,0 +1,1 @@
+Remove-S3BucketInventoryConfiguration -BucketName 's3testbucket' -InventoryId 'testInventoryName'

@@ -1,0 +1,1 @@
+New-EC2Address -Domain Vpc

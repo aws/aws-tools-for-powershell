@@ -1,0 +1,1 @@
+Remove-EC2Address -AllocationId eipalloc-12345678 -Force

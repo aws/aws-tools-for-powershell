@@ -1,0 +1,24 @@
+---
+ecs_CreateService:
+  title: Use New-ECSService
+  title_abbrev: New-ECSService
+  synopsis: use New-ECSService
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example command creates a service in your default cluster called `ecs-simple-service`. The service uses the `ecs-demo` task definition and it maintains 10 instantiations of that task.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ecs_New-ECSService.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example command creates a service behind a load balancer in your default cluster called `ecs-simple-service`. The service uses the `ecs-demo` task definition and it maintains 10 instantiations of that task.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ecs_New-ECSService.2.1.ps1
+  services:
+    ecs:
+      CreateService: 
+

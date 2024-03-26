@@ -1,0 +1,1 @@
+Publish-LMVersion -FunctionName "MylambdaFunction123" -Description "Publishing Existing Snapshot of function code as a  new version through Powershell"

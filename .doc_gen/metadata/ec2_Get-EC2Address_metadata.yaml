@@ -1,0 +1,115 @@
+---
+ec2_DescribeAddresses:
+  title: Use Get-EC2Address
+  title_abbrev: Get-EC2Address
+  synopsis: use Get-EC2Address
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified Elastic IP address for instances in EC2-Classic.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllocationId            : eipalloc-12345678
+            AssociationId           : eipassoc-12345678
+            Domain                  : vpc
+            InstanceId              : i-87654321
+            NetworkInterfaceId      : eni-12345678
+            NetworkInterfaceOwnerId : 12345678
+            PrivateIpAddress        : 10.0.2.172
+            PublicIp                : 198.51.100.2</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes your Elastic IP addresses for instances in a VPC. This syntax requires PowerShell version 3 or later.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example describes the specified Elastic IP address for instances in EC2-Classic.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllocationId            :
+            AssociationId           :
+            Domain                  : standard
+            InstanceId              : i-12345678
+            NetworkInterfaceId      :
+            NetworkInterfaceOwnerId :
+            PrivateIpAddress        :
+            PublicIp                : 203.0.113.17</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 4: This example describes your Elastic IP addresses for instances in EC2-Classic. This syntax requires PowerShell version 3 or later.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.4.1.ps1
+        - description: '<emphasis role="bold">Example 5: This example describes all your Elastic IP addresses.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.5.1.ps1
+        - description: '<emphasis role="bold">Example 6: This example returns the public and private IP for the instance id provided in filter</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.6.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">PrivateIpAddress PublicIp
+            ---------------- --------
+            10.0.0.99        63.36.5.227</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 7: This example retrieves all the Elastic IPs with its allocation id, association id and instance ids</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.7.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InstanceId          AssociationId              AllocationId               PublicIp
+            ----------          -------------              ------------               --------
+                                                           eipalloc-012e3b456789e1fad 17.212.120.178
+            i-0c123dfd3415bac67 eipassoc-0e123456bb7890bdb eipalloc-01cd23ebf45f7890c 17.212.124.77
+                                                           eipalloc-012345678eeabcfad 17.212.225.7
+            i-0123d405c67e89a0c eipassoc-0c123b456783966ba eipalloc-0123cdd456a8f7892 37.216.52.173
+            i-0f1bf2f34c5678d09 eipassoc-0e12934568a952d96 eipalloc-0e1c23e4d5e6789e4 37.218.222.278
+            i-012e3cb4df567e8aa eipassoc-0d1b2fa4d67d03810 eipalloc-0123f456f78a01b58 37.210.82.27
+            i-0123bcf4b567890e1 eipassoc-01d2345f678903fb1 eipalloc-0e1db23cfef5c45c7 37.215.222.270</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 8: This example fetches list of EC2 IP addresses matching tag key 'Category' with value 'Prod'</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Address.8.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllocationId            : eipalloc-0123f456f81a01b58
+            AssociationId           : eipassoc-0d1b23a456d103810
+            CustomerOwnedIp         :
+            CustomerOwnedIpv4Pool   :
+            Domain                  : vpc
+            InstanceId              : i-012e3cb4df567e1aa
+            NetworkBorderGroup      : eu-west-1
+            NetworkInterfaceId      : eni-0123f41d5a60d5f40
+            NetworkInterfaceOwnerId : 123456789012
+            PrivateIpAddress        : 192.168.1.84
+            PublicIp                : 34.250.81.29
+            PublicIpv4Pool          : amazon
+            Tags                    : {Category, Name}</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeAddresses: 
+

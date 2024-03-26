@@ -1,0 +1,1 @@
+Get-WKSIpGroup -Region us-east-1 -GroupId wsipg-8m1234v45

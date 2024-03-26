@@ -1,0 +1,1 @@
+Remove-S3LifecycleConfiguration -BucketName 's3testbucket'

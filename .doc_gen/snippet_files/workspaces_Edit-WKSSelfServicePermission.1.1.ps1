@@ -1,0 +1,1 @@
+Edit-WKSSelfservicePermission -Region us-west-2 -ResourceId d-123454a369 -SelfservicePermissions_ChangeComputeType ENABLED -SelfservicePermissions_IncreaseVolumeSize ENABLED

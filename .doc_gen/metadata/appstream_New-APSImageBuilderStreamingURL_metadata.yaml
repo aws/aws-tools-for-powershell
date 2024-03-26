@@ -1,0 +1,26 @@
+---
+appstream_CreateImageBuilderStreamingURL:
+  title: Use New-APSImageBuilderStreamingURL
+  title_abbrev: New-APSImageBuilderStreamingURL
+  synopsis: use New-APSImageBuilderStreamingURL
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample creates an ImageBuilder streaming URL with validity of 2 hours</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_New-APSImageBuilderStreamingURL.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Expires               StreamingURL
+            -------               ------------
+            12/27/2019 1:49:13 PM https://appstream2.us-west-2.aws.amazon.com/authenticate?parameters=eyJ0eXBlIjoiQURNSU4iLCJleHBpcmVzIjoiMTU3NzQ1NDU1MyIsImF3c0FjY291bnRJZCI6IjM5MzQwMzgxMTQwNyIsInVzZXJJZCI6ImFkbWluIiwiY2F</programlisting>
+  services:
+    appstream:
+      CreateImageBuilderStreamingURL: 
+

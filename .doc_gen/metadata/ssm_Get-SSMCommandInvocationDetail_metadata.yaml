@@ -1,0 +1,38 @@
+---
+ssm_GetCommandInvocation:
+  title: Use Get-SSMCommandInvocationDetail
+  title_abbrev: Get-SSMCommandInvocationDetail
+  synopsis: use Get-SSMCommandInvocationDetail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example displays the details of a command executed on an instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMCommandInvocationDetail.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CommandId              : b8eac879-0541-439d-94ec-47a80d554f44
+            Comment                : IP config
+            DocumentName           : AWS-RunShellScript
+            ExecutionElapsedTime   : PT0.004S
+            ExecutionEndDateTime   : 2017-02-22T20:13:16.651Z
+            ExecutionStartDateTime : 2017-02-22T20:13:16.651Z
+            InstanceId             : i-0cb2b964d3e14fd9f
+            PluginName             : aws:runShellScript
+            ResponseCode           : 0
+            StandardErrorContent   :
+            StandardErrorUrl       :
+            StandardOutputContent  :
+            StandardOutputUrl      :
+            Status                 : Success
+            StatusDetails          : Success</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetCommandInvocation: 
+

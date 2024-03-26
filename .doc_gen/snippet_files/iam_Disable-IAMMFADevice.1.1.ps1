@@ -1,0 +1,1 @@
+Disable-IAMMFADevice -UserName "Bob" -SerialNumber "123456789012"

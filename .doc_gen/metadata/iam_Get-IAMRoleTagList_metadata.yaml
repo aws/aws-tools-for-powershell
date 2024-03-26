@@ -1,0 +1,19 @@
+---
+iam_ListRoleTags:
+  title: Use Get-IAMRoleTagList
+  title_abbrev: Get-IAMRoleTagList
+  synopsis: use Get-IAMRoleTagList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example fetches the tag associated with the role..</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMRoleTagList.1.1.ps1
+  services:
+    iam:
+      ListRoleTags: 
+

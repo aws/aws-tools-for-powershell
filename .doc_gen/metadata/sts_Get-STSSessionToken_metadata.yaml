@@ -1,0 +1,50 @@
+---
+sts_GetSessionToken:
+  title: Use Get-STSSessionToken
+  title_abbrev: Get-STSSessionToken
+  synopsis: use Get-STSSessionToken
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns an <code>Amazon.RuntimeAWSCredentials</code> instance containing temporary credentials valid for a set period of time. The credentials used to request temporary credentials are inferred from the current shell defaults. To specify other credentials, use the -ProfileName or -AccessKey/-SecretKey parameters.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sts_Get-STSSessionToken.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
+            -----------                             ----------                              ---------------                        ------------
+            EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: Returns an <code>Amazon.RuntimeAWSCredentials</code> instance containing temporary credentials valid for one hour. The credentials used to make the request are obtained from the specified profile.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sts_Get-STSSessionToken.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
+            -----------                             ----------                              ---------------                        ------------
+            EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 3: Returns an <code>Amazon.RuntimeAWSCredentials</code> instance containing temporary credentials valid for one hour using the identification number of the MFA device associated with the account whose credentials are specified in the profile 'myprofilename' and the value provided by the device.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sts_Get-STSSessionToken.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccessKeyId                             Expiration                              SecretAccessKey                        SessionToken
+            -----------                             ----------                              ---------------                        ------------
+            EXAMPLEACCESSKEYID                      2/16/2015 9:12:28 PM                    examplesecretaccesskey...              SamPleTokeN.....</programlisting>
+          snippet_files: []
+  services:
+    sts:
+      GetSessionToken: 
+

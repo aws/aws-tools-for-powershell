@@ -1,0 +1,19 @@
+---
+s3_DeleteBucketReplication:
+  title: Use Remove-S3BucketReplication
+  title_abbrev: Remove-S3BucketReplication
+  synopsis: use Remove-S3BucketReplication
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Deletes the replication configuration associated with the bucket named 'mybucket'. Note that this operation requires permission for the s3:DeleteReplicationConfiguration action. You will be prompted for confirmation before the operation proceeds - to suppress confirmation, use the -Force switch.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Remove-S3BucketReplication.1.1.ps1
+  services:
+    s3:
+      DeleteBucketReplication: 
+

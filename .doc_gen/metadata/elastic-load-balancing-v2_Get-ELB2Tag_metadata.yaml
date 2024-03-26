@@ -1,0 +1,27 @@
+---
+elastic-load-balancing-v2_DescribeTags:
+  title: Use Get-ELB2Tag
+  title_abbrev: Get-ELB2Tag
+  synopsis: use Get-ELB2Tag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists the Tags for the specified resource.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2Tag.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ResourceArn                                                                                    Tags
+            -----------                                                                                    ----
+            arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/test-alb/3651b4394dd9a24f {stage, internalName, version}</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DescribeTags: 
+
+

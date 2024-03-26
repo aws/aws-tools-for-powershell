@@ -1,0 +1,19 @@
+---
+ec2_ReplaceRoute:
+  title: Use Set-EC2Route
+  title_abbrev: Set-EC2Route
+  synopsis: use Set-EC2Route
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example replaces the specified route for the specified route table. The new route sends the specified traffic to the specified virtual private gateway.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Set-EC2Route.1.1.ps1
+  services:
+    ec2:
+      ReplaceRoute: 
+

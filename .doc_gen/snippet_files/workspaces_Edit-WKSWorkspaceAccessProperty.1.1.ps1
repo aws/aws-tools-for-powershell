@@ -1,0 +1,1 @@
+Edit-WKSWorkspaceAccessProperty -Region us-west-2 -ResourceId d-123454a369 -WorkspaceAccessProperties_DeviceTypeAndroid ALLOW -WorkspaceAccessProperties_DeviceTypeChromeOs ALLOW

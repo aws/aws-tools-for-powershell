@@ -1,0 +1,27 @@
+---
+directory-service_ListLogSubscriptions:
+  title: Use Get-DSLogSubscriptionList
+  title_abbrev: Get-DSLogSubscriptionList
+  synopsis: use Get-DSLogSubscriptionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command gets the log subscriptions information of specified directory-id </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Get-DSLogSubscriptionList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DirectoryId  LogGroupName                                        SubscriptionCreatedDateTime
+            -----------  ------------                                        ---------------------------
+            d-123456ijkl /aws/directoryservice/d-123456ijkl-lan2.example.com 12/14/2019 9:05:23 AM</programlisting>
+          snippet_files: []
+  services:
+    directory-service:
+      ListLogSubscriptions: 
+
+

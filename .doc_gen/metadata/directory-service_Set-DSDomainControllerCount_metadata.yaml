@@ -1,0 +1,20 @@
+---
+directory-service_UpdateNumberOfDomainControllers:
+  title: Use Set-DSDomainControllerCount
+  title_abbrev: Set-DSDomainControllerCount
+  synopsis: use Set-DSDomainControllerCount
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example sets the number of domain controller to 3 for specified directory-id.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Set-DSDomainControllerCount.1.1.ps1
+  services:
+    directory-service:
+      UpdateNumberOfDomainControllers: 
+
+

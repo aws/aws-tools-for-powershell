@@ -1,0 +1,19 @@
+---
+codedeploy_UpdateApplication:
+  title: Use Update-CDApplication
+  title_abbrev: Update-CDApplication
+  synopsis: use Update-CDApplication
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example changes the name of the specified application.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Update-CDApplication.1.1.ps1
+  services:
+    codedeploy:
+      UpdateApplication: 
+

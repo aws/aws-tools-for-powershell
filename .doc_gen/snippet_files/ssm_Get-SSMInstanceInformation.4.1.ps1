@@ -1,0 +1,1 @@
+Get-SSMInstanceInformation | Select-Object InstanceId, PingStatus, LastPingDateTime, PlatformName | Export-Csv Instance-details.csv -NoTypeInformation

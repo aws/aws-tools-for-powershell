@@ -1,0 +1,19 @@
+---
+budgets_CreateBudget:
+  title: Use New-BGTBudget
+  title_abbrev: New-BGTBudget
+  synopsis: use New-BGTBudget
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates a new budget with the specified budgetary and time constraints with email notifications.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/budgets_New-BGTBudget.1.1.ps1
+  services:
+    budgets:
+      CreateBudget: 
+

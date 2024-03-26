@@ -1,0 +1,19 @@
+---
+appstream_StartFleet:
+  title: Use Start-APSFleet
+  title_abbrev: Start-APSFleet
+  synopsis: use Start-APSFleet
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample starts a fleet</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Start-APSFleet.1.1.ps1
+          description: 
+  services:
+    appstream:
+      StartFleet: 
+

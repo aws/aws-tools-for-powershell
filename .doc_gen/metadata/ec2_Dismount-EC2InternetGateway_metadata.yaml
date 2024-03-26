@@ -1,0 +1,19 @@
+---
+ec2_DetachInternetGateway:
+  title: Use Dismount-EC2InternetGateway
+  title_abbrev: Dismount-EC2InternetGateway
+  synopsis: use Dismount-EC2InternetGateway
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example detaches the specified Internet gateway from the specified VPC.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Dismount-EC2InternetGateway.1.1.ps1
+  services:
+    ec2:
+      DetachInternetGateway: 
+

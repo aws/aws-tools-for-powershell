@@ -1,0 +1,39 @@
+---
+iam_ListGroups:
+  title: Use Get-IAMGroupList
+  title_abbrev: Get-IAMGroupList
+  synopsis: use Get-IAMGroupList
+  languages:
+    PowerShell:
+      versions:
+        - sdk_version: 4
+          excerpts:
+            - description: '<emphasis role="bold">Example 1: This example returns a collection of all the IAM groups defined in the current &AWS-account;.</emphasis>'
+              snippet_files: []
+            - description:
+              snippet_files:
+                - .doc_gen/snippet_files/iam_Get-IAMGroupList.1.1.ps1
+            - description: <emphasis role="bold">Output:</emphasis>
+              snippet_files: []
+            - description: |-
+                <programlisting language="none" role="nocopy">Arn        : arn:aws:iam::123456789012:group/Administrators
+                CreateDate : 10/20/2014 10:06:24 AM
+                GroupId    : 6WCH4TRY3KIHIEXAMPLE1
+                GroupName  : Administrators
+                Path       : /
+
+                Arn        : arn:aws:iam::123456789012:group/Developers
+                CreateDate : 12/10/2014 3:38:55 PM
+                GroupId    : ZU2EOWMK6WBZOEXAMPLE2
+                GroupName  : Developers
+                Path       : /
+
+                Arn        : arn:aws:iam::123456789012:group/Testers
+                CreateDate : 12/10/2014 3:39:11 PM
+                GroupId    : RHNZZGQJ7QHMAEXAMPLE3
+                GroupName  : Testers
+                Path       : /</programlisting>
+              snippet_files: []
+  services:
+    iam:
+      ListGroups:

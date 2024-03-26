@@ -1,0 +1,1 @@
+Add-ASLoadBalancer -LoadBalancerName my-lb -AutoScalingGroupName my-asg

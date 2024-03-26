@@ -1,0 +1,1 @@
+Get-ASNotificationConfiguration -AutoScalingGroupName my-asg | format-list

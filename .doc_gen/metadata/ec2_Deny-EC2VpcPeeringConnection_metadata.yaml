@@ -1,0 +1,19 @@
+---
+ec2_RejectVpcPeeringConnection:
+  title: Use Deny-EC2VpcPeeringConnection
+  title_abbrev: Deny-EC2VpcPeeringConnection
+  synopsis: use Deny-EC2VpcPeeringConnection
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: The above example denies the request for VpcPeering request id pcx-01a2b3ce45fe67eb8</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Deny-EC2VpcPeeringConnection.1.1.ps1
+  services:
+    ec2:
+      RejectVpcPeeringConnection: 
+

@@ -1,0 +1,23 @@
+---
+iam_DeleteUserPolicy:
+  title: Use Remove-IAMUserPolicy
+  title_abbrev: Remove-IAMUserPolicy
+  synopsis: use Remove-IAMUserPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the inline policy named <code>AccessToEC2Policy</code> that is embedded in the IAM user named <code>Bob</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMUserPolicy.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example finds all of the inline polices that are embedded in the IAM user named <code>Theresa</code> and then deletes them.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMUserPolicy.2.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteUserPolicy: 

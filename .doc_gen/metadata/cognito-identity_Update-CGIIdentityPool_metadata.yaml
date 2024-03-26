@@ -1,0 +1,33 @@
+---
+cognito-identity_UpdateIdentityPool:
+  title: Use Update-CGIIdentityPool
+  title_abbrev: Update-CGIIdentityPool
+  synopsis: use Update-CGIIdentityPool
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Updates some of the Identity Pool properties, in this case the name of the Identity Pool.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cognito-identity_Update-CGIIdentityPool.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">LoggedAt                       : 8/12/2015 4:53:33 PM
+            AllowUnauthenticatedIdentities : False
+            DeveloperProviderName          :
+            IdentityPoolId                 : us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1
+            IdentityPoolName               : NewPoolName
+            OpenIdConnectProviderARNs      : {}
+            SupportedLoginProviders        : {}
+            ResponseMetadata               : Amazon.Runtime.ResponseMetadata
+            ContentLength                  : 135
+            HttpStatusCode                 : OK</programlisting>
+          snippet_files: []
+  services:
+    cognito-identity:
+      UpdateIdentityPool: 
+

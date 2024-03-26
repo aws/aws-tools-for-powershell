@@ -1,0 +1,1 @@
+Register-DSEventTopic -DirectoryId d-123456ijkl -TopicName snstopicname

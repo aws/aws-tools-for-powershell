@@ -1,0 +1,1 @@
+Update-LMFunctionCode -FunctionName MyFunction -ZipFilename .\UpdatedCode.zip

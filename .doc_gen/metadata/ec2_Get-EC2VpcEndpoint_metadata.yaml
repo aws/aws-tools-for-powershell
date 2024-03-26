@@ -1,0 +1,47 @@
+---
+ec2_DescribeVpcEndpoints:
+  title: Use Get-EC2VpcEndpoint
+  title_abbrev: Get-EC2VpcEndpoint
+  synopsis: use Get-EC2VpcEndpoint
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes one or more of your VPC endpoints for the region eu-west-1. It then pipes the output to the next command, which select the VpcEndpointId property and returns array VPC ID as string array</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpcEndpoint.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">vpce-01a2ab3f4f5cc6f7d
+            vpce-01d2b345a6787890b
+            vpce-0012e34d567890e12
+            vpce-0c123db4567890123</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all the vpc endpoints for the region eu-west-1 and selects VpcEndpointId, VpcId, ServiceName and PrivateDnsEnabled properties to present it in a tabular format</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpcEndpoint.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">VpcEndpointId          VpcId                 ServiceName                         PrivateDnsEnabled
+            -------------          -----                 -----------                         -----------------
+            vpce-02a2ab2f2f2cc2f2d vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ssm                      True
+            vpce-01d1b111a1114561b vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ec2                      True
+            vpce-0011e23d45167e838 vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ec2messages              True
+            vpce-0c123db4567890123 vpc-0fc6ff46f65b039eb com.amazonaws.eu-west-1.ssmmessages              True</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example exports the policy document for the VPC Endpoint vpce-01a2ab3f4f5cc6f7d into a json file</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpcEndpoint.3.1.ps1
+  services:
+    ec2:
+      DescribeVpcEndpoints: 
+

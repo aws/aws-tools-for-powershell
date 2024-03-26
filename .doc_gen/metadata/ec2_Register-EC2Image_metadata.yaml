@@ -1,0 +1,19 @@
+---
+ec2_RegisterImage:
+  title: Use Register-EC2Image
+  title_abbrev: Register-EC2Image
+  synopsis: use Register-EC2Image
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example registers an AMI using the specified manifest file in Amazon S3.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Register-EC2Image.1.1.ps1
+  services:
+    ec2:
+      RegisterImage: 
+

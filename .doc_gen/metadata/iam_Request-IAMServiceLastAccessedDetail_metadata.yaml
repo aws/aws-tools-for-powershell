@@ -1,0 +1,19 @@
+---
+iam_GenerateServiceLastAccessedDetails:
+  title: Use Request-IAMServiceLastAccessedDetail
+  title_abbrev: Request-IAMServiceLastAccessedDetail
+  synopsis: use Request-IAMServiceLastAccessedDetail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example is equivalent cmdlet of GenerateServiceLastAccessedDetails API. This provides with a job id which can be used in Get-IAMServiceLastAccessedDetail and Get-IAMServiceLastAccessedDetailWithEntity</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Request-IAMServiceLastAccessedDetail.1.1.ps1
+          description: 
+  services:
+    iam:
+      GenerateServiceLastAccessedDetails: 
+

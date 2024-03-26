@@ -1,0 +1,20 @@
+---
+config-service_GetComplianceSummaryByResourceType:
+  title: Use Get-CFGComplianceSummaryByResourceType
+  title_abbrev: Get-CFGComplianceSummaryByResourceType
+  synopsis: use Get-CFGComplianceSummaryByResourceType
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample returns the number of resources that are compliant or noncompliant and converts the output to json.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGComplianceSummaryByResourceType.1.1.ps1
+  services:
+    config-service:
+      GetComplianceSummaryByResourceType: 
+
+

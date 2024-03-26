@@ -1,0 +1,1 @@
+Use-STSWebIdentityRole -DurationInSeconds 3600 -ProviderId "www.amazon.com" -RoleSessionName "app1" -RoleArn "arn:aws:iam::123456789012:role/FederatedWebIdentityRole" -WebIdentityToken "Atza...DVI0r1"

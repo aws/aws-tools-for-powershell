@@ -1,0 +1,1 @@
+Remove-CDApplication -ApplicationName MyNewApplication

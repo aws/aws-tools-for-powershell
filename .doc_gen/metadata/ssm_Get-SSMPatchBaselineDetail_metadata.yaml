@@ -1,0 +1,33 @@
+---
+ssm_GetPatchBaseline:
+  title: Use Get-SSMPatchBaselineDetail
+  title_abbrev: Get-SSMPatchBaselineDetail
+  synopsis: use Get-SSMPatchBaselineDetail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example displays the details for a patch baseline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMPatchBaselineDetail.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ApprovalRules   : Amazon.SimpleSystemsManagement.Model.PatchRuleGroup
+            ApprovedPatches : {}
+            BaselineId      : pb-03da896ca3b68b639
+            CreatedDate     : 3/3/2017 5:02:19 PM
+            Description     : Baseline containing all updates approved for production systems
+            GlobalFilters   : Amazon.SimpleSystemsManagement.Model.PatchFilterGroup
+            ModifiedDate    : 3/3/2017 5:02:19 PM
+            Name            : Production-Baseline
+            PatchGroups     : {}
+            RejectedPatches : {}</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetPatchBaseline: 
+

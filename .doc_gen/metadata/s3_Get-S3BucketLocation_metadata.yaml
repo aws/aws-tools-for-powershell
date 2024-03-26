@@ -1,0 +1,26 @@
+---
+s3_GetBucketLocation:
+  title: Use Get-S3BucketLocation
+  title_abbrev: Get-S3BucketLocation
+  synopsis: use Get-S3BucketLocation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: This command returns the location constraint for the bucket 's3testbucket', if a constraint exists.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3BucketLocation.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Value
+            -----
+            ap-south-1</programlisting>
+  services:
+    s3:
+      GetBucketLocation: 
+

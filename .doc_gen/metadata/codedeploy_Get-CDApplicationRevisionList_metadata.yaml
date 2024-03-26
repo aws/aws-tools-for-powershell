@@ -1,0 +1,25 @@
+---
+codedeploy_ListApplicationRevisions:
+  title: Use Get-CDApplicationRevisionList
+  title_abbrev: Get-CDApplicationRevisionList
+  synopsis: use Get-CDApplicationRevisionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about available revisions for the specified application.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDApplicationRevisionList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Type = S3, Bucket = MyBucket, BundleType = zip, ETag = 4565c1ac97187f190c1a90265EXAMPLE, Key = 5xd27EX.zip
+            Type = GitHub, CommitId = f48933c3...76405362, Repository = MyGitHubUser/CodeDeployDemoRepo</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      ListApplicationRevisions: 
+

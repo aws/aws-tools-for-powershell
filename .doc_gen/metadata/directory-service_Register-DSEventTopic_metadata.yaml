@@ -1,0 +1,20 @@
+---
+directory-service_RegisterEventTopic:
+  title: Use Register-DSEventTopic
+  title_abbrev: Register-DSEventTopic
+  synopsis: use Register-DSEventTopic
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example associate a directory as a publisher with an SNS topic.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Register-DSEventTopic.1.1.ps1
+  services:
+    directory-service:
+      RegisterEventTopic: 
+
+

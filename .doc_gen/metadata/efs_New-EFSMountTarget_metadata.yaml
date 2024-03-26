@@ -1,0 +1,41 @@
+---
+efs_CreateMountTarget:
+  title: Use New-EFSMountTarget
+  title_abbrev: New-EFSMountTarget
+  synopsis: use New-EFSMountTarget
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Creates a new mount target for a file system. The specified subnet will be used determine the Virtual Private Cloud (VPC) that the mount target will be created in and the IP address that will be auto-assigned (from the address range of the subnet). The assigned IP address can be used to then mount this file system on an Amazon EC2 instance. As no security groups were specified the network interface created for the target is associated with the default security group for the subnet's VPC.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/efs_New-EFSMountTarget.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">FileSystemId       : fs-1a2b3c4d
+            IpAddress          : 10.0.0.131
+            LifeCycleState     : creating
+            MountTargetId      : fsmt-1a2b3c4d
+            NetworkInterfaceId : eni-1a2b3c4d
+            OwnerId            : 123456789012
+            SubnetId           : subnet-1a2b3c4d</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: Creates a new mount target for the specified file system with auto-assigned IP address. The network interface created for the mount target is associated with the specified security groups (up to 5, in the format "sg-xxxxxxxx", may be specified).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/efs_New-EFSMountTarget.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: Creates a new mount target for the specified file system with the specified IP address.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/efs_New-EFSMountTarget.3.1.ps1
+  services:
+    efs:
+      CreateMountTarget: 
+
+

@@ -1,0 +1,37 @@
+---
+ssm_GetMaintenanceWindowExecutionTask:
+  title: Use Get-SSMMaintenanceWindowExecutionTask
+  title_abbrev: Get-SSMMaintenanceWindowExecutionTask
+  synopsis: use Get-SSMMaintenanceWindowExecutionTask
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists information about a task that was part of a maintenance window execution.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowExecutionTask.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EndTime           : 2/21/2017 4:00:35 PM
+            MaxConcurrency    : 1
+            MaxErrors         : 1
+            Priority          : 10
+            ServiceRole       : arn:aws:iam::123456789012:role/MaintenanceWindowsRole
+            StartTime         : 2/21/2017 4:00:34 PM
+            Status            : FAILED
+            StatusDetails     : The maximum error count was exceeded.
+            TaskArn           : AWS-RunShellScript
+            TaskExecutionId   : ac0c6ae1-daa3-4a89-832e-d384503b6586
+            TaskParameters    : {Amazon.Runtime.Internal.Util.AlwaysSendDictionary`2[System.String,Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskPara
+                                meterValueExpression]}
+            Type              : RUN_COMMAND
+            WindowExecutionId : 518d5565-5969-4cca-8f0e-da3b2a638355</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetMaintenanceWindowExecutionTask: 
+

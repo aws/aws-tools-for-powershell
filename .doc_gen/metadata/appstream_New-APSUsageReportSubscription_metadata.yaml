@@ -1,0 +1,26 @@
+---
+appstream_CreateUsageReportSubscription:
+  title: Use New-APSUsageReportSubscription
+  title_abbrev: New-APSUsageReportSubscription
+  synopsis: use New-APSUsageReportSubscription
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample enables AppStream Usage Reports</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_New-APSUsageReportSubscription.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">S3BucketName                                   Schedule
+            ------------                                   --------
+            appstream-logs-us-east-1-123456789012-sik2hnxe DAILY</programlisting>
+  services:
+    appstream:
+      CreateUsageReportSubscription: 
+

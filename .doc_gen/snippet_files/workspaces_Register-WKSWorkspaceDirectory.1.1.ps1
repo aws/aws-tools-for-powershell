@@ -1,0 +1,1 @@
+Register-WKSWorkspaceDirectory -DirectoryId d-123412a123 -EnableWorkDoc $false

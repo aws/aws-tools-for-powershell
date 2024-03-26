@@ -1,0 +1,29 @@
+---
+dynamodb_BatchWriteItem:
+  title: Use Set-DDBBatchItem
+  title_abbrev: Set-DDBBatchItem
+  synopsis: use Set-DDBBatchItem
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates a new item, or replaces an existing item with a new item in the DynamoDB tables Music and Songs.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Set-DDBBatchItem.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">$requestItem = @{
+                'Music' = [Amazon.DynamoDBv2.Model.WriteRequest]($writeRequest)
+                'Songs' = [Amazon.DynamoDBv2.Model.WriteRequest]($writeRequest)
+            }
+
+            Set-DDBBatchItem -RequestItem $requestItem</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      BatchWriteItem: 
+

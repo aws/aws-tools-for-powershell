@@ -1,0 +1,1 @@
+Update-CFNStack -StackName "myStack" -TemplateBody "{Template Content Here}" -Parameters @{ ParameterKey="PK1"; ParameterValue="PV1" }

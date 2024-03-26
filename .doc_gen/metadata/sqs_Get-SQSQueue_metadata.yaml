@@ -1,0 +1,40 @@
+---
+sqs_ListQueues:
+  title: Use Get-SQSQueue
+  title_abbrev: Get-SQSQueue
+  synopsis: use Get-SQSQueue
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all queues.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Get-SQSQueue.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+            https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/AnotherQueue
+            https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/DeadLetterQueue
+            https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue
+            https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example lists any queues that start with the specified name.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Get-SQSQueue.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+            https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue
+            https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue</programlisting>
+          snippet_files: []
+  services:
+    sqs:
+      ListQueues: 
+

@@ -1,0 +1,1 @@
+Get-CFGAggregateDiscoveredResourceList -ConfigurationAggregatorName Ireland -ResourceType ([Amazon.ConfigService.ResourceType]::AWSAutoScalingAutoScalingGroup)

@@ -1,0 +1,1 @@
+Get-CFNStackResourceList -StackName "myStack" -LogicalResourceId "Ec2Instance"

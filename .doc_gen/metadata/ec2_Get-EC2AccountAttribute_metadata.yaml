@@ -1,0 +1,51 @@
+---
+ec2_DescribeAccountAttributes:
+  title: Use Get-EC2AccountAttribute
+  title_abbrev: Get-EC2AccountAttribute
+  synopsis: use Get-EC2AccountAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2AccountAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeValue
+            --------------
+            EC2
+            VPC</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2AccountAttribute.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeValue
+            --------------
+            vpc-12345678</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example describes the maximum number of On-Demand instances that you can run.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2AccountAttribute.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AttributeValue
+            --------------
+            20</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeAccountAttributes: 
+

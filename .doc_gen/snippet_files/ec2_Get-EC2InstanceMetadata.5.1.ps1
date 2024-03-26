@@ -1,0 +1,1 @@
+Get-EC2InstanceMetadata -Path "/iam/info"

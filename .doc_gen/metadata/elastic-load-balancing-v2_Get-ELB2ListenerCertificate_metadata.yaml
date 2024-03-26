@@ -1,0 +1,27 @@
+---
+elastic-load-balancing-v2_DescribeListenerCertificates:
+  title: Use Get-ELB2ListenerCertificate
+  title_abbrev: Get-ELB2ListenerCertificate
+  synopsis: use Get-ELB2ListenerCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This examples describes the certificate for the specified listener.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2ListenerCertificate.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CertificateArn                                                                      IsDefault
+            --------------                                                                      ---------
+            arn:aws:acm:us-east-1:123456789012:certificate/5fc7c092-68bf-4862-969c-22fd48b6e17c True</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DescribeListenerCertificates: 
+
+

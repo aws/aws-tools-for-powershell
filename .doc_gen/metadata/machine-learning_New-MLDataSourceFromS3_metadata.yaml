@@ -1,0 +1,20 @@
+---
+machine-learning_CreateDataSourceFromS3:
+  title: Use New-MLDataSourceFromS3
+  title_abbrev: New-MLDataSourceFromS3
+  synopsis: use New-MLDataSourceFromS3
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Create a data source with data for an S3 location, with a name of NAME and a schema of SCHEMA.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_New-MLDataSourceFromS3.1.1.ps1
+          description: 
+  services:
+    machine-learning:
+      CreateDataSourceFromS3: 
+
+

@@ -1,0 +1,19 @@
+---
+lambda_UpdateAlias:
+  title: Use Update-LMAlias
+  title_abbrev: Update-LMAlias
+  synopsis: use Update-LMAlias
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example updates the Configuration of an existing Lambda function Alias. It updates the RoutingConfiguration value to shift 60% (0.6) of traffic to version 1</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Update-LMAlias.1.1.ps1
+          description: 
+  services:
+    lambda:
+      UpdateAlias: 
+

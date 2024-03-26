@@ -1,0 +1,1 @@
+Edit-EC2IdFormat -Resource instance -UseLongId $false

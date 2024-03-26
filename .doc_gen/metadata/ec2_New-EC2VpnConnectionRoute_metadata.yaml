@@ -1,0 +1,19 @@
+---
+ec2_CreateVpnConnectionRoute:
+  title: Use New-EC2VpnConnectionRoute
+  title_abbrev: New-EC2VpnConnectionRoute
+  synopsis: use New-EC2VpnConnectionRoute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates the specified static route for the specified VPN connection.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2VpnConnectionRoute.1.1.ps1
+  services:
+    ec2:
+      CreateVpnConnectionRoute: 
+

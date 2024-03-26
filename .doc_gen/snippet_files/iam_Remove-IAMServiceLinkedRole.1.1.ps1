@@ -1,0 +1,1 @@
+Remove-IAMServiceLinkedRole -RoleName AWSServiceRoleForAutoScaling_RoleNameEndsWithThis

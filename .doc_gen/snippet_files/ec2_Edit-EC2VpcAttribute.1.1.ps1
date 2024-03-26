@@ -1,0 +1,1 @@
+Edit-EC2VpcAttribute -VpcId vpc-12345678 -EnableDnsHostnames $true

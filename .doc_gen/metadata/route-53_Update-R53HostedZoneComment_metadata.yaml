@@ -1,0 +1,30 @@
+---
+route-53_UpdateHostedZoneComment:
+  title: Use Update-R53HostedZoneComment
+  title_abbrev: Update-R53HostedZoneComment
+  synopsis: use Update-R53HostedZoneComment
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command updates the comment for the specified hosted zone.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Update-R53HostedZoneComment.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Id                     : /hostedzone/Z385PDS6AAAAAR
+            Name                   : example.com.
+            CallerReference        : C5B55555-7147-EF04-8341-69131E805C89
+            Config                 : Amazon.Route53.Model.HostedZoneConfig
+            ResourceRecordSetCount : 9
+            LinkedService          :</programlisting>
+  services:
+    route-53:
+      UpdateHostedZoneComment: 
+
+

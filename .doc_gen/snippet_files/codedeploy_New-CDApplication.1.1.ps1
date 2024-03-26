@@ -1,0 +1,1 @@
+New-CDApplication -ApplicationName MyNewApplication

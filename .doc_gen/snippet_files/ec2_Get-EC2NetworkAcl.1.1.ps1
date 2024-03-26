@@ -1,0 +1,1 @@
+Get-EC2NetworkAcl -NetworkAclId acl-12345678

@@ -1,0 +1,1 @@
+Remove-FSXResourceTag -ResourceARN $FSX.ResourceARN -TagKey Users

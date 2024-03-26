@@ -1,0 +1,1 @@
+Disable-DSDirectoryShare -DirectoryId d-123456ijkl -UnshareTarget_Id 123456784321 -UnshareTarget_Type ACCOUNT

@@ -1,0 +1,34 @@
+---
+application-autoscaling_DescribeScalingActivities:
+  title: Use Get-AASScalingActivity
+  title_abbrev: Get-AASScalingActivity
+  synopsis: use Get-AASScalingActivity
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/application-autoscaling_Get-AASScalingActivity.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">ActivityId        : 2827409f-b639-4cdb-a957-8055d5d07434
+            Cause             : monitor alarm Appstream2-MyFleet-default-scale-in-Alarm in state ALARM triggered policy default-scale-in
+            Description       : Setting desired capacity to 2.
+            Details           :
+            EndTime           : 12/14/2019 11:32:49 AM
+            ResourceId        : fleet/MyFleet
+            ScalableDimension : appstream:fleet:DesiredCapacity
+            ServiceNamespace  : appstream
+            StartTime         : 12/14/2019 11:32:14 AM
+            StatusCode        : Successful
+            StatusMessage     : Successfully set desired capacity to 2. Change successfully fulfilled by appstream.</programlisting>
+  services:
+    application-autoscaling:
+      DescribeScalingActivities: 
+

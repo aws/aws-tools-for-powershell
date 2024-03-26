@@ -1,0 +1,45 @@
+---
+kinesis_GetRecords:
+  title: Use Get-KINRecord
+  title_abbrev: Get-KINRecord
+  synopsis: use Get-KINRecord
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: |-
+            <emphasis role="bold">Example 1: This example shows how to return and extract data from a series of one or more records. The iterator supplierd to Get-KINRecord determines the starting position of the records to return which in this example are captured into a variable, $records. Each individual record can then be accessed by indexing the $records collection.
+
+            Assuming the data in the record is UTF-8 encoded text, the final command shows how you can extract the data from the MemoryStream in the object and return it as text to the console.</emphasis>
+        - snippet_files:
+          - .doc_gen/snippet_files/kinesis_Get-KINRecord.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">MillisBehindLatest NextShardIterator            Records
+            ------------------ -----------------            -------
+            0                  AAAAAAAAAAERNIq...uDn11HuUs  {Key1, Key2}</programlisting>
+        - snippet_files:
+          - .doc_gen/snippet_files/kinesis_Get-KINRecord.1.2.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">ApproximateArrivalTimestamp Data                   PartitionKey SequenceNumber
+            --------------------------- ----                   ------------ --------------
+            3/7/2016 5:14:33 PM         System.IO.MemoryStream Key1         4955986459776...931586</programlisting>
+        - snippet_files:
+          - .doc_gen/snippet_files/kinesis_Get-KINRecord.1.3.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: <programlisting language="none" role="nocopy">test data from string</programlisting>
+  services:
+    kinesis:
+      GetRecords: 

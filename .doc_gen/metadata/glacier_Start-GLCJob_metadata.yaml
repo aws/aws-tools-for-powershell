@@ -1,0 +1,26 @@
+---
+glacier_InitiateJob:
+  title: Use Start-GLCJob
+  title_abbrev: Start-GLCJob
+  synopsis: use Start-GLCJob
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Starts a job to retrieve an archive from the specified vault owned by the user. The status of the job can be checked using the Get-GLCJob cmdlet. When the job completes successfully the Read-GCJobOutput cmdlet can be used to retrieve the contents of the archive to the local file system.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/glacier_Start-GLCJob.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">JobId            JobOutputPath Location
+            -----            ------------- --------
+            op1x...JSbthM                  /012345678912/vaults/test/jobs/op1xe...I4HqCHkSJSbthM</programlisting>
+          snippet_files: []
+  services:
+    glacier:
+      InitiateJob: 
+

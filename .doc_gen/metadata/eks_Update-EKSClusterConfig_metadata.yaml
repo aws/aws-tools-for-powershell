@@ -1,0 +1,29 @@
+---
+eks_UpdateClusterConfig:
+  title: Use Update-EKSClusterConfig
+  title_abbrev: Update-EKSClusterConfig
+  synopsis: use Update-EKSClusterConfig
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Updates an Amazon EKS cluster configuration. Your cluster continues to function during the update.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/eks_Update-EKSClusterConfig.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CreatedAt : 12/25/2019 5:03:07 PM
+            Errors    : {}
+            Id        : ee708232-7d2e-4ed7-9270-d0b5176f0726
+            Params    : {Amazon.EKS.Model.UpdateParam}
+            Status    : InProgress
+            Type      : LoggingUpdate</programlisting>
+          snippet_files: []
+  services:
+    eks:
+      UpdateClusterConfig: 
+

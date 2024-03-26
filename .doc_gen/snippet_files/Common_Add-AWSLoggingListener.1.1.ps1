@@ -1,0 +1,1 @@
+Add-AWSLoggingListener -Name MyAWSLogs -LogFilePath c:\logs\aws.txt

@@ -1,0 +1,85 @@
+---
+ec2_Get-EC2InstanceMetadata:
+  title: Use Get-EC2InstanceMetadata
+  title_abbrev: Get-EC2InstanceMetadata
+  synopsis: use Get-EC2InstanceMetadata
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Lists the available categories of instance metadata that can be queried.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceMetadata.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AmiId
+            LaunchIndex
+            ManifestPath
+            AncestorAmiId
+            BlockDeviceMapping
+            InstanceId
+            InstanceType
+            LocalHostname
+            LocalIpv4
+            KernelId
+            AvailabilityZone
+            ProductCode
+            PublicHostname
+            PublicIpv4
+            PublicKey
+            RamdiskId
+            Region
+            ReservationId
+            SecurityGroup
+            UserData
+            InstanceMonitoring
+            IdentityDocument
+            IdentitySignature
+            IdentityPkcs7</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: Returns the id of the Amazon Machine Image (AMI) that was used to launch the instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceMetadata.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">ami-b2e756ca</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example queries the JSON-formatted identity document for the instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceMetadata.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: This example uses a path query to obtain the network interface macs for the instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceMetadata.4.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">02:80:7f:ef:4c:e0/</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 5: If there is an IAM role associated with the instance, returns information about the last time the instance profile was updated, including the instance's LastUpdated date, InstanceProfileArn, and InstanceProfileId.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2InstanceMetadata.5.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">{
+              "Code" : "Success",
+              "LastUpdated" : "2018-03-08T03:38:40Z",
+              "InstanceProfileArn" : "arn:aws:iam::111122223333:instance-profile/MyLaunchRole_Profile",
+              "InstanceProfileId" : "AIPAI4...WVK2RW"
+            }</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      Get-EC2InstanceMetadata: 
+

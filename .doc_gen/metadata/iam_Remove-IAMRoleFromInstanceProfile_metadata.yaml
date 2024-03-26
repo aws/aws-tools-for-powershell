@@ -1,0 +1,18 @@
+---
+iam_RemoveRoleFromInstanceProfile:
+  title: Use Remove-IAMRoleFromInstanceProfile
+  title_abbrev: Remove-IAMRoleFromInstanceProfile
+  synopsis: use Remove-IAMRoleFromInstanceProfile
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes the role named <code>MyNewRole</code> from the EC2 instance profile named <code>MyNewRole</code>. An instance profile that is created in the IAM console always has the same name as the role, as in this example. If you create them in the API or CLI, then they can have different names.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMRoleFromInstanceProfile.1.1.ps1
+          description: 
+  services:
+    iam:
+      RemoveRoleFromInstanceProfile: 

@@ -1,0 +1,1 @@
+Get-EC2Address -Filter @{Name="tag:Category";Values="Prod"}

@@ -1,0 +1,1 @@
+Get-IAMGroupForUser -UserName Bob | Remove-IAMUserFromGroup -UserName Bob -GroupName Testers -Force

@@ -1,0 +1,19 @@
+---
+workspaces_AuthorizeIpRules:
+  title: Use Approve-WKSIpRule
+  title_abbrev: Approve-WKSIpRule
+  synopsis: use Approve-WKSIpRule
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample adds rules to an existing IP Group</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Approve-WKSIpRule.1.1.ps1
+  services:
+    workspaces:
+      AuthorizeIpRules: 
+

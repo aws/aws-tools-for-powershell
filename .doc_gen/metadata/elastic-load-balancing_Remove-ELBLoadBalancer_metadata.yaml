@@ -1,0 +1,28 @@
+---
+elastic-load-balancing_DeleteLoadBalancer:
+  title: Use Remove-ELBLoadBalancer
+  title_abbrev: Remove-ELBLoadBalancer
+  synopsis: use Remove-ELBLoadBalancer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the specified load balancer. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Remove-ELBLoadBalancer.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing operation "Remove-ELBLoadBalancer (DeleteLoadBalancer)" on Target "my-load-balancer".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing:
+      DeleteLoadBalancer: 
+
+

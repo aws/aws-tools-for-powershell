@@ -1,0 +1,19 @@
+---
+codepipeline_StartPipelineExecution:
+  title: Use Start-CPPipelineExecution
+  title_abbrev: Start-CPPipelineExecution
+  synopsis: use Start-CPPipelineExecution
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example starts running the specified pipeline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Start-CPPipelineExecution.1.1.ps1
+  services:
+    codepipeline:
+      StartPipelineExecution: 
+

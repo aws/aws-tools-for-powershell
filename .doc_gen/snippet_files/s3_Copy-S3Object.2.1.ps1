@@ -1,0 +1,1 @@
+Copy-S3Object -BucketName test-files -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket backup-files

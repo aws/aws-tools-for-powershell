@@ -1,0 +1,20 @@
+---
+ses_GetSendStatistics:
+  title: Use Get-SESSendStatistic
+  title_abbrev: Get-SESSendStatistic
+  synopsis: use Get-SESSendStatistic
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This command returns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. Each data point in the list contains statistics for a 15-minute interval.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ses_Get-SESSendStatistic.1.1.ps1
+  services:
+    ses:
+      GetSendStatistics: 
+
+

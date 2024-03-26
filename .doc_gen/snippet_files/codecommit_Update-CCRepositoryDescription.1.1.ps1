@@ -1,0 +1,1 @@
+Update-CCRepositoryDescription -RepositoryName MyDemoRepo -RepositoryDescription "This is an updated description."

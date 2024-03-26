@@ -1,0 +1,1 @@
+Remove-DSConditionalForwarder -DirectoryId d-123456ijkl -RemoteDomainName contoso.com

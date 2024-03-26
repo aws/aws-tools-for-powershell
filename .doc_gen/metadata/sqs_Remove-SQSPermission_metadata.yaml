@@ -1,0 +1,19 @@
+---
+sqs_RemovePermission:
+  title: Use Remove-SQSPermission
+  title_abbrev: Remove-SQSPermission
+  synopsis: use Remove-SQSPermission
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example removes the permission settings with the specified label from the specified queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Remove-SQSPermission.1.1.ps1
+  services:
+    sqs:
+      RemovePermission: 
+

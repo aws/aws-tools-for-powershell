@@ -1,0 +1,1 @@
+Remove-ASScheduledAction -AutoScalingGroupName my-asg -ScheduledAction "myScheduledAction" -Force

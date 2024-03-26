@@ -1,0 +1,44 @@
+---
+auto-scaling_DescribeScheduledActions:
+  title: Use Get-ASScheduledAction
+  title_abbrev: Get-ASScheduledAction
+  synopsis: use Get-ASScheduledAction
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example describes the scheduled scaling actions for the specified Auto Scaling group.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">AutoScalingGroupName : my-asg\nDesiredCapacity      : 10\nEndTime              : \nMaxSize              : \nMinSize              : \nRecurrence           :\nScheduledActionARN   : arn:aws:autoscaling:us-west-2:123456789012:scheduledUpdateGroupAction:8a4c5f24-6ec6-4306-a2dd-f7\n                       2c3af3a4d6:autoScalingGroupName/my-asg:scheduledActionName/myScheduledAction\nScheduledActionName  : myScheduledAction\nStartTime            : 11/30/2015 8:00:00 AM\nTime                 : 11/30/2015 8:00:00 AM</programlisting>"
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example describes the specified scheduled scaling actions.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.2.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 3: This example describes the scheduled scaling actions that start by the specified time.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.3.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 4: This example describes the scheduled scaling actions that end by the specified time.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.4.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 5: This example describes the scheduled scaling actions for all your Auto Scaling groups.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.5.1.ps1
+          description: 
+  services:
+    auto-scaling:
+      DescribeScheduledActions: 
+
+

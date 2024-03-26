@@ -1,0 +1,1 @@
+Get-LMPolicy -FunctionName test -Select Policy

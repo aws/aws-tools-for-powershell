@@ -1,0 +1,1 @@
+Update-IAMGroup -GroupName Testers -NewGroupName AppTesters

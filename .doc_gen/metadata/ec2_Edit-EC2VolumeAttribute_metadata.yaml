@@ -1,0 +1,19 @@
+---
+ec2_ModifyVolumeAttribute:
+  title: Use Edit-EC2VolumeAttribute
+  title_abbrev: Edit-EC2VolumeAttribute
+  synopsis: use Edit-EC2VolumeAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example modifies the specified attribute of the specified volume. I/O operations for the volume are automatically resumed after being suspended due to potentially inconsistent data.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2VolumeAttribute.1.1.ps1
+  services:
+    ec2:
+      ModifyVolumeAttribute: 
+

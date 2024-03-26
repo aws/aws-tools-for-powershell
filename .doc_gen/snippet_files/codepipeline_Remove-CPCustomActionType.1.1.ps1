@@ -1,0 +1,1 @@
+Remove-CPCustomActionType -Category Build -Provider MyBuildProviderName -Version 1

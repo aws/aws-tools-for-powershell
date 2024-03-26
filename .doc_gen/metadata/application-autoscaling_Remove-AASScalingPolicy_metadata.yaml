@@ -1,0 +1,19 @@
+---
+application-autoscaling_DeleteScalingPolicy:
+  title: Use Remove-AASScalingPolicy
+  title_abbrev: Remove-AASScalingPolicy
+  synopsis: use Remove-AASScalingPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This cmdlet deletes the specified scaling policy for an Application Auto Scaling scalable target.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/application-autoscaling_Remove-AASScalingPolicy.1.1.ps1
+          description: 
+  services:
+    application-autoscaling:
+      DeleteScalingPolicy: 
+

@@ -1,0 +1,28 @@
+---
+cognito-identity_ListIdentityPools:
+  title: Use Get-CGIIdentityPoolList
+  title_abbrev: Get-CGIIdentityPoolList
+  synopsis: use Get-CGIIdentityPoolList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Retrieves a list of existing Identity Pools.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cognito-identity_Get-CGIIdentityPoolList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">IdentityPoolId                                                     IdentityPoolName
+            --------------                                                     ----------------
+            us-east-1:0de2af35-2988-4d0b-b22d-EXAMPLEGUID1                     CommonTests1
+            us-east-1:118d242d-204e-4b88-b803-EXAMPLEGUID2                     Tests2
+            us-east-1:15d49393-ab16-431a-b26e-EXAMPLEGUID3                     CommonTests13</programlisting>
+          snippet_files: []
+  services:
+    cognito-identity:
+      ListIdentityPools: 
+

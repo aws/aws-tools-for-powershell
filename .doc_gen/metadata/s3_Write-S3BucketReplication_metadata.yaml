@@ -1,0 +1,29 @@
+---
+s3_PutBucketReplication:
+  title: Use Write-S3BucketReplication
+  title_abbrev: Write-S3BucketReplication
+  synopsis: use Write-S3BucketReplication
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example sets a replication configuration with a single rule enabling replication to the 'exampletargetbucket' bucket any new objects created with the key name prefix \"TaxDocs\" in the bucket 'examplebucket'.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Write-S3BucketReplication.1.1.ps1
+        - description: "<emphasis role=\"bold\">Example 2: This example sets a replication configuration with multiple rules enabling replication to the 'exampletargetbucket' bucket any new objects created with either the key name prefix \"TaxDocs\" or \"OtherDocs\". The key prefixes must not overlap.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Write-S3BucketReplication.2.1.ps1
+        - description: "<emphasis role=\"bold\">Example 3: This example updates the replication configuration on the specified bucket to disable the rule controlling replication of objects with the key name prefix \"TaxDocs\" to the bucket 'exampletargetbucket'.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Write-S3BucketReplication.3.1.ps1
+  services:
+    s3:
+      PutBucketReplication: 
+

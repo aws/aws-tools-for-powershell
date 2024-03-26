@@ -1,0 +1,1 @@
+New-EC2SecurityGroup -GroupName my-security-group -Description "my security group"

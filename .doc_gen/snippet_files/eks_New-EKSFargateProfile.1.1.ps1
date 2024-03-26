@@ -1,0 +1,1 @@
+New-EKSFargateProfile -FargateProfileName EKSFargateProfile -ClusterName TEST -Subnet "subnet-02f6ff500ff2067a0", "subnet-0cd976f08d5fbfaae" -PodExecutionRoleArn arn:aws:iam::012345678912:role/AmazonEKSFargatePodExecutionRole -Selector @{Namespace="default"}

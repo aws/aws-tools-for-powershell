@@ -1,0 +1,19 @@
+---
+lambda_ListProvisionedConcurrencyConfigs:
+  title: Use Get-LMProvisionedConcurrencyConfigList
+  title_abbrev: Get-LMProvisionedConcurrencyConfigList
+  synopsis: use Get-LMProvisionedConcurrencyConfigList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example retrieves the list of provisioned concurrency configurations for a Lambda function.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Get-LMProvisionedConcurrencyConfigList.1.1.ps1
+          description: 
+  services:
+    lambda:
+      ListProvisionedConcurrencyConfigs: 
+

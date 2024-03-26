@@ -1,0 +1,25 @@
+---
+elastic-load-balancing_CreateLBCookieStickinessPolicy:
+  title: Use New-ELBLBCookieStickinessPolicy
+  title_abbrev: New-ELBLBCookieStickinessPolicy
+  synopsis: use New-ELBLBCookieStickinessPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a stickiness policy with sticky session lifetimes controlled by the specified expiration period (in seconds).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_New-ELBLBCookieStickinessPolicy.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example creates a stickiness policy with sticky session lifetimes controlled by the by the lifetime of the browser (user-agent).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_New-ELBLBCookieStickinessPolicy.2.1.ps1
+  services:
+    elastic-load-balancing:
+      CreateLBCookieStickinessPolicy: 
+
+

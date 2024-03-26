@@ -1,0 +1,19 @@
+---
+iam_DeleteServiceLinkedRole:
+  title: Use Remove-IAMServiceLinkedRole
+  title_abbrev: Remove-IAMServiceLinkedRole
+  synopsis: use Remove-IAMServiceLinkedRole
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deleted the service linked role. Please note that if the service is still using this role, then this command results in a failure.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMServiceLinkedRole.1.1.ps1
+          description: 
+  services:
+    iam:
+      DeleteServiceLinkedRole: 
+

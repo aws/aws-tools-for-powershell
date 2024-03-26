@@ -1,0 +1,19 @@
+---
+application-autoscaling_RegisterScalableTarget:
+  title: Use Add-AASScalableTarget
+  title_abbrev: Add-AASScalableTarget
+  synopsis: use Add-AASScalableTarget
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This cmdlet registers or updates a scalable target. A scalable target is a resource that Application Auto Scaling can scale out and scale in.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/application-autoscaling_Add-AASScalableTarget.1.1.ps1
+          description: 
+  services:
+    application-autoscaling:
+      RegisterScalableTarget: 
+

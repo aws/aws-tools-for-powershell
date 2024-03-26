@@ -1,0 +1,1 @@
+Remove-EKSFargateProfile -FargateProfileName "EKSFargate" -ClusterName "TEST"

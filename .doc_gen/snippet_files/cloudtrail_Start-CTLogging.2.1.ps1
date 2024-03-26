@@ -1,0 +1,1 @@
+Start-CTLogging -Name myExampleTrail -Region eu-central-1

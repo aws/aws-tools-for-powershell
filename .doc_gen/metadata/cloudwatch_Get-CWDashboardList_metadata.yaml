@@ -1,0 +1,32 @@
+---
+cloudwatch_ListDashboards:
+  title: Use Get-CWDashboardList
+  title_abbrev: Get-CWDashboardList
+  synopsis: use Get-CWDashboardList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the collection of dashboards for your account.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudwatch_Get-CWDashboardList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DashboardArn DashboardName LastModified        Size
+            ------------ ------------- ------------        ----
+            arn:...      Dashboard1    7/6/2017 8:14:15 PM 252</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: Returns the collection of dashboards for your account whose names start with the prefix 'dev'.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudwatch_Get-CWDashboardList.2.1.ps1
+  services:
+    cloudwatch:
+      ListDashboards: 
+
+

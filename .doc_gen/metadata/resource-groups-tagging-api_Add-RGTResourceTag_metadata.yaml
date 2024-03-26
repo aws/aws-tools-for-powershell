@@ -1,0 +1,25 @@
+---
+resource-groups-tagging-api_TagResources:
+  title: Use Add-RGTResourceTag
+  title_abbrev: Add-RGTResourceTag
+  synopsis: use Add-RGTResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example adds the tag keys "stage" and "version" with values "beta" and "preprod_test" to an Amazon S3 bucket and an Amazon DynamoDB table. A single call is made to the service to apply the tags.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/resource-groups-tagging-api_Add-RGTResourceTag.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example adds the specified tags and values to an Amazon S3 bucket and an Amazon DynamoDB table. Two calls are made to the service, one for each resource ARN piped into the cmdlet.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/resource-groups-tagging-api_Add-RGTResourceTag.2.1.ps1
+          description: 
+  services:
+    resource-groups-tagging-api:
+      TagResources: 
+
+

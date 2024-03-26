@@ -1,0 +1,1 @@
+Get-DSIpRouteList -DirectoryId d-123456ijkl

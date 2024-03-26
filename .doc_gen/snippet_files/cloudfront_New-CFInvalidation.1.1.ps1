@@ -1,0 +1,2 @@
+$Paths = "/images/*.gif", "/images/image1.jpg", "/videos/*.mp4"
+New-CFInvalidation -DistributionId "EXAMPLENSTXAXE" -InvalidationBatch_CallerReference 20190515090000 -Paths_Item $Paths -Paths_Quantity 3

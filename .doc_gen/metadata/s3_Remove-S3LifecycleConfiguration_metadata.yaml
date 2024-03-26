@@ -1,0 +1,19 @@
+---
+s3_DeleteLifecycleConfiguration:
+  title: Use Remove-S3LifecycleConfiguration
+  title_abbrev: Remove-S3LifecycleConfiguration
+  synopsis: use Remove-S3LifecycleConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: The command removes all the lifecycle rules for the given S3 bucket.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Remove-S3LifecycleConfiguration.1.1.ps1
+  services:
+    s3:
+      DeleteLifecycleConfiguration: 
+

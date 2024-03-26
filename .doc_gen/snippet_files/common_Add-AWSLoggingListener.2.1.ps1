@@ -1,0 +1,1 @@
+Add-AWSLoggingListener -Name MyS3Logs -LogFilePath c:\logs\s3.txt -Source Amazon.S3

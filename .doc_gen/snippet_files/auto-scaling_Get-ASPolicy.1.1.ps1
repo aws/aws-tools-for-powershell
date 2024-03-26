@@ -1,0 +1,1 @@
+Get-ASPolicy -AutoScalingGroupName my-asg

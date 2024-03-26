@@ -1,0 +1,28 @@
+---
+ec2_DescribeSpotDatafeedSubscription:
+  title: Use Get-EC2SpotDatafeedSubscription
+  title_abbrev: Get-EC2SpotDatafeedSubscription
+  synopsis: use Get-EC2SpotDatafeedSubscription
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes your Spot instance data feed.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotDatafeedSubscription.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Bucket  : my-s3-bucket
+            Fault   :
+            OwnerId : 123456789012
+            Prefix  : spotdata
+            State   : Active</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeSpotDatafeedSubscription: 
+

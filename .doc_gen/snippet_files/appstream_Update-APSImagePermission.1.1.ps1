@@ -1,0 +1,1 @@
+Update-APSImagePermission -Name Powershell -SharedAccountId 123456789012 -ImagePermissions_AllowFleet $True -ImagePermissions_AllowImageBuilder $True

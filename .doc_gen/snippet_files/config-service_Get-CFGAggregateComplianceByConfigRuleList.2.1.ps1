@@ -1,0 +1,1 @@
+Get-CFGAggregateComplianceByConfigRuleList -ConfigurationAggregatorName kaju -Filters_AccountId 123456789012 | Select-Object ConfigRuleName, @{N="Compliance";E={$_.Compliance.ComplianceType}}

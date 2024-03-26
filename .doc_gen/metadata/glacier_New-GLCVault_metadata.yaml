@@ -1,0 +1,23 @@
+---
+glacier_CreateVault:
+  title: Use New-GLCVault
+  title_abbrev: New-GLCVault
+  synopsis: use New-GLCVault
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Creates a new vault for the user's account. As no value was supplied to the -AccountId parameter the cmdlets uses a default of \"-\" indicating the current account.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/glacier_New-GLCVault.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">/01234567812/vaults/myvault</programlisting>
+          snippet_files: []
+  services:
+    glacier:
+      CreateVault: 
+

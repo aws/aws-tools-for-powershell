@@ -1,0 +1,1 @@
+Get-CFNStackSummary -StackStatusFilter "CREATE_IN_PROGRESS"

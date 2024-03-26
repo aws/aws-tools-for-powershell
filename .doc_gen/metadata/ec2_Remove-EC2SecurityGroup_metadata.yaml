@@ -1,0 +1,32 @@
+---
+ec2_DeleteSecurityGroup:
+  title: Use Remove-EC2SecurityGroup
+  title_abbrev: Remove-EC2SecurityGroup
+  synopsis: use Remove-EC2SecurityGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the specified security group for EC2-VPC. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Remove-EC2SecurityGroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing operation "Remove-EC2SecurityGroup (DeleteSecurityGroup)" on Target "sg-12345678".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example deletes the specified security group for EC2-Classic.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Remove-EC2SecurityGroup.2.1.ps1
+  services:
+    ec2:
+      DeleteSecurityGroup: 
+

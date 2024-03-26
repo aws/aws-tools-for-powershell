@@ -1,0 +1,1 @@
+Get-DSLDAPSSetting -DirectoryId d-123456ijkl

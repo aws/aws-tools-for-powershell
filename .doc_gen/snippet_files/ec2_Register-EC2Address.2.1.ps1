@@ -1,0 +1,1 @@
+C:\> Register-EC2Address -InstanceId i-12345678 -PublicIp 203.0.113.17

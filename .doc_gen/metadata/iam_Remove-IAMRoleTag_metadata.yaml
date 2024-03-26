@@ -1,0 +1,19 @@
+---
+iam_UntagRole:
+  title: Use Remove-IAMRoleTag
+  title_abbrev: Remove-IAMRoleTag
+  synopsis: use Remove-IAMRoleTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example removes the tag from the role named "MyRoleName" with tag key as "abac". To remove multiple tags, provide a comma separted tag keys list.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMRoleTag.1.1.ps1
+          description: 
+  services:
+    iam:
+      UntagRole: 
+

@@ -1,0 +1,1 @@
+Update-CCRepositoryName -NewName MyDemoRepo2 -OldName MyDemoRepo

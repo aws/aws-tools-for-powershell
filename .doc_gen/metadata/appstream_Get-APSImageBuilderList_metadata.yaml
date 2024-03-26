@@ -1,0 +1,41 @@
+---
+appstream_DescribeImageBuilders:
+  title: Use Get-APSImageBuilderList
+  title_abbrev: Get-APSImageBuilderList
+  synopsis: use Get-APSImageBuilderList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This Sample displays details of an ImageBuilder</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Get-APSImageBuilderList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AccessEndpoints             : {}
+            AppstreamAgentVersion       : 06-19-2019
+            Arn                         : arn:aws:appstream:us-east-1:1234567890:image-builder/TestImage
+            CreatedTime                 : 1/14/2019 4:33:05 AM
+            Description                 :
+            DisplayName                 : TestImage
+            DomainJoinInfo              :
+            EnableDefaultInternetAccess : False
+            IamRoleArn                  :
+            ImageArn                    : arn:aws:appstream:us-east-1::image/Base-Image-Builder-05-02-2018
+            ImageBuilderErrors          : {}
+            InstanceType                : stream.standard.large
+            Name                        : TestImage
+            NetworkAccessConfiguration  : Amazon.AppStream.Model.NetworkAccessConfiguration
+            Platform                    : WINDOWS
+            State                       : STOPPED
+            StateChangeReason           :
+            VpcConfig                   : Amazon.AppStream.Model.VpcConfig</programlisting>
+  services:
+    appstream:
+      DescribeImageBuilders: 
+

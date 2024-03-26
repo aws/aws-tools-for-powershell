@@ -1,0 +1,1 @@
+Remove-ECSCluster -Cluster "LAB-ECS"

@@ -1,0 +1,25 @@
+---
+codedeploy_ListApplications:
+  title: Use Get-CDApplicationList
+  title_abbrev: Get-CDApplicationList
+  synopsis: use Get-CDApplicationList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets a list of available applications.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codedeploy_Get-CDApplicationList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CodeDeployDemoApplication
+            CodePipelineDemoApplication</programlisting>
+          snippet_files: []
+  services:
+    codedeploy:
+      ListApplications: 
+

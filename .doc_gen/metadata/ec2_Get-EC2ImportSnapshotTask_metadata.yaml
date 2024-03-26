@@ -1,0 +1,32 @@
+---
+ec2_DescribeImportSnapshotTasks:
+  title: Use Get-EC2ImportSnapshotTask
+  title_abbrev: Get-EC2ImportSnapshotTask
+  synopsis: use Get-EC2ImportSnapshotTask
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified snapshot import task.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ImportSnapshotTask.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Description             ImportTaskId               SnapshotTaskDetail                                                          \n-----------------       --------------------       ------------------                                                          \nDisk Image Import 1     import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTaskDetail</programlisting>"
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all your snapshot import tasks.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ImportSnapshotTask.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Description             ImportTaskId               SnapshotTaskDetail                                                          \n-----------------       --------------------       ------------------                                                          \nDisk Image Import 1     import-snap-abcdefgh       Amazon.EC2.Model.SnapshotTaskDetail \nDisk Image Import 2     import-snap-hgfedcba       Amazon.EC2.Model.SnapshotTaskDetail</programlisting>"
+          snippet_files: []
+  services:
+    ec2:
+      DescribeImportSnapshotTasks: 
+

@@ -1,0 +1,23 @@
+---
+s3_GetCORSConfiguration:
+  title: Use Get-S3CORSConfiguration
+  title_abbrev: Get-S3CORSConfiguration
+  synopsis: use Get-S3CORSConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This command returns an object that contains all the CORS configuration rules corresponding to the given S3 Bucket.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3CORSConfiguration.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: "<programlisting language=\"none\" role=\"nocopy\">AllowedMethods : {PUT, POST, DELETE}\nAllowedOrigins : {http://www.example1.com}\nId             : \nExposeHeaders  : {}\nMaxAgeSeconds  : 0\nAllowedHeaders : {*}\n\nAllowedMethods : {PUT, POST, DELETE}\nAllowedOrigins : {http://www.example2.com}\nId             : \nExposeHeaders  : {}\nMaxAgeSeconds  : 0\nAllowedHeaders : {*}\n\nAllowedMethods : {GET}\nAllowedOrigins : {*}\nId             : \nExposeHeaders  : {}\nMaxAgeSeconds  : 0\nAllowedHeaders : {}</programlisting>"
+  services:
+    s3:
+      GetCORSConfiguration: 
+

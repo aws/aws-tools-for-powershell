@@ -1,0 +1,24 @@
+---
+elastic-load-balancing-v2_DeregisterTargets:
+  title: Use Unregister-ELB2Target
+  title_abbrev: Unregister-ELB2Target
+  synopsis: use Unregister-ELB2Target
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example deregisters instance 'i-0672a4c4cdeae3111' from the specified Target group.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Unregister-ELB2Target.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">Unregister-ELB2Target -Target $targetDescription -TargetGroupArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/test-tg/a4e04b3688be1970'</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DeregisterTargets: 
+
+

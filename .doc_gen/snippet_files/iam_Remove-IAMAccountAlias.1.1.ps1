@@ -1,0 +1,1 @@
+Remove-IAMAccountAlias -AccountAlias mycompanyaws

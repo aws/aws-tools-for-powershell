@@ -1,0 +1,1 @@
+Enable-ASMetricsCollection -AutoScalingGroupName my-asg -Granularity 1Minute

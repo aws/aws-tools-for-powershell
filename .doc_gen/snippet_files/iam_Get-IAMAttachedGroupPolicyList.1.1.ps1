@@ -1,0 +1,1 @@
+Get-IAMAttachedGroupPolicyList -GroupName "Admins"

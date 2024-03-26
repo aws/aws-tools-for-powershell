@@ -1,0 +1,1 @@
+$stack = Wait-CFNStack -StackName MyStack

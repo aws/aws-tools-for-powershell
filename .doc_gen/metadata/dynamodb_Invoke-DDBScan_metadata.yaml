@@ -1,0 +1,54 @@
+---
+dynamodb_Scan:
+  title: Use Invoke-DDBScan
+  title_abbrev: Invoke-DDBScan
+  synopsis: use Invoke-DDBScan
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns all items in the Music table.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Invoke-DDBScan.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                           Value
+            ----                           -----
+            Genre                          Country
+            Artist                         No One You Know
+            Price                          1.94
+            CriticRating                   9
+            SongTitle                      Somewhere Down The Road
+            AlbumTitle                     Somewhat Famous
+            Genre                          Country
+            Artist                         No One You Know
+            Price                          1.98
+            CriticRating                   8.4
+            SongTitle                      My Dog Spot
+            AlbumTitle                     Hey Now</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: Returns items in the Music table with a CriticRating greater than or equal to nine.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Invoke-DDBScan.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                           Value
+            ----                           -----
+            Genre                          Country
+            Artist                         No One You Know
+            Price                          1.94
+            CriticRating                   9
+            SongTitle                      Somewhere Down The Road
+            AlbumTitle                     Somewhat Famous</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      Scan: 
+

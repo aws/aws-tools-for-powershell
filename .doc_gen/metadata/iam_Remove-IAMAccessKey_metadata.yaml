@@ -1,0 +1,18 @@
+---
+iam_DeleteAccessKey:
+  title: Use Remove-IAMAccessKey
+  title_abbrev: Remove-IAMAccessKey
+  synopsis: use Remove-IAMAccessKey
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the &AWS; access key pair with the key ID <code>AKIAIOSFODNN7EXAMPLE</code> from the user named <code>Bob</code>.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Remove-IAMAccessKey.1.1.ps1
+  services:
+    iam:
+      DeleteAccessKey: 

@@ -1,0 +1,1 @@
+Get-S3CORSConfiguration -BucketName 's3testbucket' -Select Configuration.Rules

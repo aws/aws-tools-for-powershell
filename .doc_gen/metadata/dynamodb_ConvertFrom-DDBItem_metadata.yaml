@@ -1,0 +1,31 @@
+---
+dynamodb_ConvertFrom-DDBItem:
+  title: Use ConvertFrom-DDBItem
+  title_abbrev: ConvertFrom-DDBItem
+  synopsis: use ConvertFrom-DDBItem
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: ConvertFrom-DDBItem is used to convert the result of Get-DDBItem from a hashtable of DynamoDB AttributeValues to a hashtable of common types like string and double.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_ConvertFrom-DDBItem.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                           Value
+            ----                           -----
+            Genre                          Country
+            Artist                         No One You Know
+            Price                          1.94
+            CriticRating                   9
+            SongTitle                      Somewhere Down The Road
+            AlbumTitle                     Somewhat Famous</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      ConvertFrom-DDBItem: 
+

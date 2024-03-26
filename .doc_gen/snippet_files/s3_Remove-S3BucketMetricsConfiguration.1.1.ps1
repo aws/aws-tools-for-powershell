@@ -1,0 +1,1 @@
+Remove-S3BucketMetricsConfiguration -BucketName 's3testbucket' -MetricsId 'testmetrics'

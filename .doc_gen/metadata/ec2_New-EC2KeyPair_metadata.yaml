@@ -1,0 +1,19 @@
+---
+ec2_CreateKeyPair:
+  title: Use New-EC2KeyPair
+  title_abbrev: New-EC2KeyPair
+  synopsis: use New-EC2KeyPair
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates a key pair and captures the PEM-encoded RSA private key in a file with the specified name. When you are using PowerShell, the encoding must be set to ascii to generate a valid key. For more information, see Create, Display, and Delete Amazon EC2 Key Pairs (https://docs.aws.amazon.com/cli/latest/userguide/cli-services-ec2-keypairs.html) in the &AWS; Command Line Interface User Guide.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_New-EC2KeyPair.1.1.ps1
+  services:
+    ec2:
+      CreateKeyPair: 
+

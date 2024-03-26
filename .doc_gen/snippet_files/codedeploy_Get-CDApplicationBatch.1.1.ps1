@@ -1,0 +1,1 @@
+Get-CDApplicationBatch -ApplicationName CodeDeployDemoApplication, CodePipelineDemoApplication

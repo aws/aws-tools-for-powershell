@@ -1,0 +1,43 @@
+---
+glacier_UploadArchive:
+  title: Use Write-GLCArchive
+  title_abbrev: Write-GLCArchive
+  synopsis: use Write-GLCArchive
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Uploads a single file to the specified vault, returning the archive ID and computed checksum.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/glacier_Write-GLCArchive.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">FilePath                    ArchiveId              Checksum
+            --------                    ---------              --------
+            C:\temp\blue.bin            o9O9jUUs...TTX-TpIhQJw 79f3e...f4395b</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: Uploads the contents of a folder hierarchy to the specified vault in the user's account. For each file uploaded the cmdlet emits the filename, corresponding archive ID and the computed checksum of the archive.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/glacier_Write-GLCArchive.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">FilePath                    ArchiveId              Checksum
+            --------                    ---------              --------
+            C:\temp\blue.bin            o9O9jUUs...TTX-TpIhQJw 79f3e...f4395b
+            C:\temp\green.bin           qXAfOdSG...czo729UHXrw d50a1...9184b9
+            C:\temp\lum.bin             39aNifP3...q9nb8nZkFIg 28886...5c3e27
+            C:\temp\red.bin             vp7E6rU_...Ejk_HhjAxKA e05f7...4e34f5
+            C:\temp\Folder1\file1.txt   _eRINlip...5Sxy7dD2BaA d0d2a...c8a3ba
+            C:\temp\Folder2\file2.iso   -Ix3jlmu...iXiDh-XfOPA 7469e...3e86f1</programlisting>
+          snippet_files: []
+  services:
+    glacier:
+      UploadArchive;InitiateMultipartUpload;UploadMultipartPart;CompleteMultipartUpload: 
+

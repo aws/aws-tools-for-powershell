@@ -1,0 +1,28 @@
+---
+iam_UploadServerCertificate:
+  title: Use Publish-IAMServerCertificate
+  title_abbrev: Publish-IAMServerCertificate
+  synopsis: use Publish-IAMServerCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example uploads a new server certificate to the IAM account. The files containing the certificate body, the private key, and (optionally) the certificate chain must all be PEM encoded. Note that the parameters require the actual content of the files rather than the file names. You must use the <code>-Raw</code> switch parameter to successfully process the file contents. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Publish-IAMServerCertificate.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn                   : arn:aws:iam::123456789012:server-certificate/MyTestCert
+            Expiration            : 1/14/2018 9:52:36 AM
+            Path                  : /
+            ServerCertificateId   : ASCAJIEXAMPLE7J7HQZYW
+            ServerCertificateName : MyTestCert
+            UploadDate            : 4/21/2015 11:14:16 AM</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      UploadServerCertificate: 

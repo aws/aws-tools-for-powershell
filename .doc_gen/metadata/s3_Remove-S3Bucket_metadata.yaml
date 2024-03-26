@@ -1,0 +1,19 @@
+---
+s3_DeleteBucket:
+  title: Use Remove-S3Bucket
+  title_abbrev: Remove-S3Bucket
+  synopsis: use Remove-S3Bucket
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This command removes all objects and object versions from the bucket 'test-files' and then deletes the bucket. The command will prompt for confirmation before proceeding. Add the -Force switch to suppress confirmation. Note that buckets that are not empty cannot be deleted.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/s3_Remove-S3Bucket.1.1.ps1
+  services:
+    s3:
+      DeleteBucket: 
+

@@ -1,0 +1,36 @@
+---
+appstream_CreateStack:
+  title: Use New-APSStack
+  title_abbrev: New-APSStack
+  synopsis: use New-APSStack
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample creates a new AppStream Stack</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_New-APSStack.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">AccessEndpoints     : {}
+            ApplicationSettings : Amazon.AppStream.Model.ApplicationSettingsResponse
+            Arn                 : arn:aws:appstream:us-west-2:123456789012:stack/TestStack
+            CreatedTime         : 12/27/2019 12:34:19 PM
+            Description         :
+            DisplayName         : TestStack
+            EmbedHostDomains    : {}
+            FeedbackURL         :
+            Name                : TestStack
+            RedirectURL         :
+            StackErrors         : {}
+            StorageConnectors   : {}
+            UserSettings        : {Amazon.AppStream.Model.UserSetting, Amazon.AppStream.Model.UserSetting, Amazon.AppStream.Model.UserSetting, Amazon.AppStream.Model.UserSetting}</programlisting>
+  services:
+    appstream:
+      CreateStack: 
+

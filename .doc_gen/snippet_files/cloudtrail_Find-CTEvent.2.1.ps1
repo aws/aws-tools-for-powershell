@@ -1,0 +1,1 @@
+Find-CTEvent -Region eu-central-1

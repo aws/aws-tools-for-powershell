@@ -1,0 +1,1 @@
+Get-EC2Tag | Group-Object resourcetype

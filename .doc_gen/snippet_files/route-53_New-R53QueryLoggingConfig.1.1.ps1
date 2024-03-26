@@ -1,0 +1,1 @@
+New-R53QueryLoggingConfig -HostedZoneId Z3MEQ8T7HAAAAF -CloudWatchLogsLogGroupArn arn:aws:logs:us-east-1:111111111111:log-group:/aws/route53/example.com:*

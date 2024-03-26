@@ -1,0 +1,1 @@
+Remove-APSUser -UserName TestUser@lab.com -AuthenticationType USERPOOL

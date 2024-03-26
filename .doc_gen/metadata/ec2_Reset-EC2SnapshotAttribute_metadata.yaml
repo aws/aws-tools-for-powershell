@@ -1,0 +1,19 @@
+---
+ec2_ResetSnapshotAttribute:
+  title: Use Reset-EC2SnapshotAttribute
+  title_abbrev: Reset-EC2SnapshotAttribute
+  synopsis: use Reset-EC2SnapshotAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example resets the specified attribute of the specified snapshot.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Reset-EC2SnapshotAttribute.1.1.ps1
+  services:
+    ec2:
+      ResetSnapshotAttribute: 
+

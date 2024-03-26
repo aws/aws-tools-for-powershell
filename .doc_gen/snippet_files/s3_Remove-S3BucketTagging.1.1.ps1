@@ -1,0 +1,1 @@
+Remove-S3BucketTagging -BucketName 's3testbucket'

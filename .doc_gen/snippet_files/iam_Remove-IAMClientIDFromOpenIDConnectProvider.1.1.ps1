@@ -1,0 +1,1 @@
+Remove-IAMClientIDFromOpenIDConnectProvider -ClientID My-TestApp-3 -OpenIDConnectProviderArn arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com

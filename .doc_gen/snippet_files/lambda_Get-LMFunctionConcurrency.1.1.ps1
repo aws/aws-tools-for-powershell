@@ -1,0 +1,1 @@
+Get-LMFunctionConcurrency -FunctionName "MylambdaFunction123" -Select *

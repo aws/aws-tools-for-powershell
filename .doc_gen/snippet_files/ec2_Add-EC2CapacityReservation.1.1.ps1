@@ -1,0 +1,1 @@
+Add-EC2CapacityReservation -InstanceType m4.xlarge -InstanceCount 2 -AvailabilityZone eu-west-1b -EbsOptimized True -InstancePlatform Windows

@@ -1,0 +1,1 @@
+Get-EC2Tag -Filter @{Name="resource-type";Values="image"}

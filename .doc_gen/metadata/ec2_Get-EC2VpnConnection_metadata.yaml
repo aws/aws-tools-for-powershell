@@ -1,0 +1,43 @@
+---
+ec2_DescribeVpnConnections:
+  title: Use Get-EC2VpnConnection
+  title_abbrev: Get-EC2VpnConnection
+  synopsis: use Get-EC2VpnConnection
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified VPN connection.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpnConnection.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CustomerGatewayConfiguration : [XML document]
+            CustomerGatewayId            : cgw-1a2b3c4d
+            Options                      : Amazon.EC2.Model.VpnConnectionOptions
+            Routes                       : {Amazon.EC2.Model.VpnStaticRoute}
+            State                        : available
+            Tags                         : {}
+            Type                         : ipsec.1
+            VgwTelemetry                 : {Amazon.EC2.Model.VgwTelemetry, Amazon.EC2.Model.VgwTelemetry}
+            VpnConnectionId              : vpn-12345678
+            VpnGatewayId                 : vgw-1a2b3c4d</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes any VPN connection whose state is either pending or available.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpnConnection.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example describes all your VPN connections.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2VpnConnection.3.1.ps1
+  services:
+    ec2:
+      DescribeVpnConnections: 
+

@@ -1,0 +1,78 @@
+---
+ssm_CreateAssociation:
+  title: Use New-SSMAssociation
+  title_abbrev: New-SSMAssociation
+  synopsis: use New-SSMAssociation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example associates a configuration document with an instance, using instance IDs.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMAssociation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                  : AWS-UpdateSSMAgent
+            InstanceId            : i-0000293ffd8c57862
+            Date                  : 2/23/2017 6:55:22 PM
+            Status.Name           : Associated
+            Status.Date           : 2/20/2015 8:31:11 AM
+            Status.Message        : Associated with AWS-UpdateSSMAgent
+            Status.AdditionalInfo :</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example associates a configuration document with an instance, using targets.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMAssociation.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                  : AWS-UpdateSSMAgent
+            InstanceId            :
+            Date                  : 3/1/2017 6:22:21 PM
+            Status.Name           :
+            Status.Date           :
+            Status.Message        :
+            Status.AdditionalInfo :</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example associates a configuration document with an instance, using targets and parameters.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMAssociation.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                  : Configure-CloudWatch
+            InstanceId            :
+            Date                  : 5/17/2018 3:17:44 PM
+            Status.Name           :
+            Status.Date           :
+            Status.Message        :
+            Status.AdditionalInfo :</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 4: This example creates an association with all instances in the region, with <code>AWS-GatherSoftwareInventory</code>. It also provides custom files and registry locations in the parameters to collect</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_New-SSMAssociation.4.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                  : AWS-GatherSoftwareInventory
+            InstanceId            :
+            Date                  : 6/9/2019 8:57:56 AM
+            Status.Name           :
+            Status.Date           :
+            Status.Message        :
+            Status.AdditionalInfo :</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      CreateAssociation: 
+

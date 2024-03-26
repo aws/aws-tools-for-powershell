@@ -1,0 +1,1 @@
+New-DSConditionalForwarder -DirectoryId d-123456ijkl -DnsIpAddr 172.31.36.96,172.31.10.56 -RemoteDomainName contoso.com

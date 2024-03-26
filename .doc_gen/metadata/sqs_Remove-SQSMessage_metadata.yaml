@@ -1,0 +1,19 @@
+---
+sqs_DeleteMessage:
+  title: Use Remove-SQSMessage
+  title_abbrev: Remove-SQSMessage
+  synopsis: use Remove-SQSMessage
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the message with the specified receipt handle from the specified queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Remove-SQSMessage.1.1.ps1
+  services:
+    sqs:
+      DeleteMessage: 
+

@@ -1,0 +1,1 @@
+Get-ASAutoScalingInstance -InstanceId @("i-12345678", "i-87654321")

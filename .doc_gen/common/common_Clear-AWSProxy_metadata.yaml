@@ -1,0 +1,19 @@
+---
+Common_Clear-AWSProxy:
+  title: Use Clear-AWSProxy
+  title_abbrev: Clear-AWSProxy
+  synopsis: use Clear-AWSProxy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command removes proxy configuration from the current shell. Subsequent cmdlets invocations will not use a proxy.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Clear-AWSProxy.1.1.ps1
+  services:
+    Common:
+      Clear-AWSProxy: 
+

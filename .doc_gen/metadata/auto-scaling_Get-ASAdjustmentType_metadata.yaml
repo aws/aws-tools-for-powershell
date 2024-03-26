@@ -1,0 +1,29 @@
+---
+auto-scaling_DescribeAdjustmentTypes:
+  title: Use Get-ASAdjustmentType
+  title_abbrev: Get-ASAdjustmentType
+  synopsis: use Get-ASAdjustmentType
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example describes the adjustment types that are supported by Auto Scaling.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Get-ASAdjustmentType.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Type
+            ----
+            ChangeInCapacity
+            ExactCapacity
+            PercentChangeInCapacity</programlisting>
+  services:
+    auto-scaling:
+      DescribeAdjustmentTypes: 
+
+

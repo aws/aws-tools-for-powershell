@@ -1,0 +1,19 @@
+---
+workspaces_AssociateIpGroups:
+  title: Use Register-WKSIpGroup
+  title_abbrev: Register-WKSIpGroup
+  synopsis: use Register-WKSIpGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample registers the specified IP Group with the specified Directory</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Register-WKSIpGroup.1.1.ps1
+  services:
+    workspaces:
+      AssociateIpGroups: 
+

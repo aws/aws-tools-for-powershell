@@ -1,0 +1,23 @@
+---
+iam_UpdateServerCertificate:
+  title: Use Update-IAMServerCertificate
+  title_abbrev: Update-IAMServerCertificate
+  synopsis: use Update-IAMServerCertificate
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example renames the certificate named <code>MyServerCertificate</code> to <code>MyRenamedServerCertificate</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMServerCertificate.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example moves the certificate named <code>MyServerCertificate</code> to the path /Org1/Org2/. This changes the ARN for the resource to <code>arn:aws:iam::123456789012:server-certificate/Org1/Org2/MyServerCertificate</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMServerCertificate.2.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateServerCertificate: 

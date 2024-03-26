@@ -1,0 +1,1 @@
+Remove-APSImageBuilder -Name TestIB -Region us-west-2

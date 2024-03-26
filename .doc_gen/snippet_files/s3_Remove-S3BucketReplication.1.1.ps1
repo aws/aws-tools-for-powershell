@@ -1,0 +1,1 @@
+Remove-S3BucketReplication -BucketName mybucket

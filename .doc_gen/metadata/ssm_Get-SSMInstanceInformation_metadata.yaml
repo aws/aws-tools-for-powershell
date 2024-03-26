@@ -1,0 +1,142 @@
+---
+ssm_DescribeInstanceInformation:
+  title: Use Get-SSMInstanceInformation
+  title_abbrev: Get-SSMInstanceInformation
+  synopsis: use Get-SSMInstanceInformation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example shows details of each of your instances.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInstanceInformation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ActivationId                           :
+            AgentVersion                           : 2.0.672.0
+            AssociationOverview                    : Amazon.SimpleSystemsManagement.Model.InstanceAggregatedAssociationOverview
+            AssociationStatus                      : Success
+            ComputerName                           : ip-172-31-44-222.us-west-2.compute.internal
+            IamRole                                :
+            InstanceId                             : i-0cb2b964d3e14fd9f
+            IPAddress                              : 172.31.44.222
+            IsLatestVersion                        : True
+            LastAssociationExecutionDate           : 2/24/2017 3:18:09 AM
+            LastPingDateTime                       : 2/24/2017 3:35:03 AM
+            LastSuccessfulAssociationExecutionDate : 2/24/2017 3:18:09 AM
+            Name                                   :
+            PingStatus                             : ConnectionLost
+            PlatformName                           : Amazon Linux AMI
+            PlatformType                           : Linux
+            PlatformVersion                        : 2016.09
+            RegistrationDate                       : 1/1/0001 12:00:00 AM
+            ResourceType                           : EC2Instance</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example shows how to use the -Filter parameter to filter results to only those &AWS; Systems Manager instances in region <code>us-east-1</code> with an <code>AgentVersion</code> of <code>2.2.800.0</code>. You can find a list of valid -Filter key values in the InstanceInformation API reference topic (https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformation.html#systemsmanager-Type-InstanceInformation-ActivationId).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInstanceInformation.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ActivationId                           : 
+            AgentVersion                           : 2.2.800.0
+            AssociationOverview                    : Amazon.SimpleSystemsManagement.Model.InstanceAggregatedAssociationOverview
+            AssociationStatus                      : Success
+            ComputerName                           : EXAMPLE-EXAMPLE.WORKGROUP
+            IamRole                                : 
+            InstanceId                             : i-EXAMPLEb0792d98ce
+            IPAddress                              : 10.0.0.01
+            IsLatestVersion                        : False
+            LastAssociationExecutionDate           : 8/16/2018 12:02:50 AM
+            LastPingDateTime                       : 8/16/2018 7:40:27 PM
+            LastSuccessfulAssociationExecutionDate : 8/16/2018 12:02:50 AM
+            Name                                   : 
+            PingStatus                             : Online
+            PlatformName                           : Microsoft Windows Server 2016 Datacenter
+            PlatformType                           : Windows
+            PlatformVersion                        : 10.0.14393
+            RegistrationDate                       : 1/1/0001 12:00:00 AM
+            ResourceType                           : EC2Instance
+
+            ActivationId                           : 
+            AgentVersion                           : 2.2.800.0
+            AssociationOverview                    : Amazon.SimpleSystemsManagement.Model.InstanceAggregatedAssociationOverview
+            AssociationStatus                      : Success
+            ComputerName                           : EXAMPLE-EXAMPLE.WORKGROUP
+            IamRole                                : 
+            InstanceId                             : i-EXAMPLEac7501d023
+            IPAddress                              : 10.0.0.02
+            IsLatestVersion                        : False
+            LastAssociationExecutionDate           : 8/16/2018 12:00:20 AM
+            LastPingDateTime                       : 8/16/2018 7:40:35 PM
+            LastSuccessfulAssociationExecutionDate : 8/16/2018 12:00:20 AM
+            Name                                   : 
+            PingStatus                             : Online
+            PlatformName                           : Microsoft Windows Server 2016 Datacenter
+            PlatformType                           : Windows
+            PlatformVersion                        : 10.0.14393
+            RegistrationDate                       : 1/1/0001 12:00:00 AM
+            ResourceType                           : EC2Instance</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example shows how to use the -InstanceInformationFilterList parameter to filter results to only those &AWS; Systems Manager instances in region <code>us-east-1</code> with <code>PlatformTypes</code> of <code>Windows</code> or <code>Linux</code>. You can find a list of valid -InstanceInformationFilterList key values in the InstanceInformationFilter API reference topic (https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationFilter.html).</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInstanceInformation.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ActivationId                           : 
+            AgentVersion                           : 2.2.800.0
+            AssociationOverview                    : Amazon.SimpleSystemsManagement.Model.InstanceAggregatedAssociationOverview
+            AssociationStatus                      : Success
+            ComputerName                           : EXAMPLE-EXAMPLE.WORKGROUP
+            IamRole                                : 
+            InstanceId                             : i-EXAMPLEb0792d98ce
+            IPAddress                              : 10.0.0.27
+            IsLatestVersion                        : False
+            LastAssociationExecutionDate           : 8/16/2018 12:02:50 AM
+            LastPingDateTime                       : 8/16/2018 7:40:27 PM
+            LastSuccessfulAssociationExecutionDate : 8/16/2018 12:02:50 AM
+            Name                                   : 
+            PingStatus                             : Online
+            PlatformName                           : Ubuntu Server 18.04 LTS
+            PlatformType                           : Linux
+            PlatformVersion                        : 18.04
+            RegistrationDate                       : 1/1/0001 12:00:00 AM
+            ResourceType                           : EC2Instance
+
+            ActivationId                           : 
+            AgentVersion                           : 2.2.800.0
+            AssociationOverview                    : Amazon.SimpleSystemsManagement.Model.InstanceAggregatedAssociationOverview
+            AssociationStatus                      : Success
+            ComputerName                           : EXAMPLE-EXAMPLE.WORKGROUP
+            IamRole                                : 
+            InstanceId                             : i-EXAMPLEac7501d023
+            IPAddress                              : 10.0.0.100
+            IsLatestVersion                        : False
+            LastAssociationExecutionDate           : 8/16/2018 12:00:20 AM
+            LastPingDateTime                       : 8/16/2018 7:40:35 PM
+            LastSuccessfulAssociationExecutionDate : 8/16/2018 12:00:20 AM
+            Name                                   : 
+            PingStatus                             : Online
+            PlatformName                           : Microsoft Windows Server 2016 Datacenter
+            PlatformType                           : Windows
+            PlatformVersion                        : 10.0.14393
+            RegistrationDate                       : 1/1/0001 12:00:00 AM
+            ResourceType                           : EC2Instance</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 4: This example lists ssm managed instances and exports InstanceId, PingStatus, LastPingDateTime and PlatformName to a csv file.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInstanceInformation.4.1.ps1
+  services:
+    ssm:
+      DescribeInstanceInformation: 

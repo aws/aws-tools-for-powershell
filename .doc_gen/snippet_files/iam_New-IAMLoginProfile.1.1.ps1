@@ -1,0 +1,1 @@
+New-IAMLoginProfile -UserName Bob -Password P@ssw0rd -PasswordResetRequired $true

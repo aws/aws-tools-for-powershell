@@ -1,0 +1,1 @@
+Remove-EC2Vpc -VpcId vpc-12345678

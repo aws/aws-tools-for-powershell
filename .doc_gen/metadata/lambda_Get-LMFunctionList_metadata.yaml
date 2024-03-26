@@ -1,0 +1,28 @@
+---
+lambda_ListFunctions:
+  title: Use Get-LMFunctionList
+  title_abbrev: Get-LMFunctionList
+  synopsis: use Get-LMFunctionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample displays all the Lambda functions with sorted code size</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Get-LMFunctionList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">FunctionName                                                 Runtime   Timeout CodeSize
+            ------------                                                 -------   ------- --------
+            test                                                         python2.7       3      243
+            MylambdaFunction123                                          python3.8     600      659
+            myfuncpython1                                                python3.8     303      675</programlisting>
+  services:
+    lambda:
+      ListFunctions: 
+

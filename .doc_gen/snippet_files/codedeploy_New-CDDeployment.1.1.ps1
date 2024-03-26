@@ -1,0 +1,1 @@
+New-CDDeployment -ApplicationName MyNewApplication -S3Location_Bucket MyBucket -S3Location_BundleType zip -DeploymentConfigName CodeDeployDefault.OneAtATime -DeploymentGroupName MyNewDeploymentGroup -IgnoreApplicationStopFailures $True -S3Location_Key aws-codedeploy_linux-master.zip -RevisionType S3

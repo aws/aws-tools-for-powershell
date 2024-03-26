@@ -1,0 +1,1 @@
+Remove-APSStack -Name TestStack -Region us-west-2

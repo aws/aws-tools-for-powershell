@@ -1,0 +1,29 @@
+---
+workspaces_RebootWorkspaces:
+  title: Use Restart-WKSWorkspace
+  title_abbrev: Restart-WKSWorkspace
+  synopsis: use Restart-WKSWorkspace
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Reboots the specified WorkSpace.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Restart-WKSWorkspace.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Reboots multiple WorkSpaces.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Restart-WKSWorkspace.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: Retrieves the collection of all your WorkSpaces and pipes the IDs to the -WorkSpaceId parameter of Restart-WKSWorkspace, causing the WorkSpaces to be restarted.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Restart-WKSWorkspace.3.1.ps1
+  services:
+    workspaces:
+      RebootWorkspaces: 
+

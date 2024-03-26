@@ -1,0 +1,1 @@
+Stop-CTLogging -Name myExampleTrail

@@ -1,0 +1,66 @@
+---
+ec2_DescribeImportImageTasks:
+  title: Use Get-EC2ImportImageTask
+  title_abbrev: Get-EC2ImportImageTask
+  synopsis: use Get-EC2ImportImageTask
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified image import task.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ImportImageTask.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Architecture    : x86_64
+            Description     : Windows Image 2
+            Hypervisor      :
+            ImageId         : ami-1a2b3c4d
+            ImportTaskId    : import-ami-hgfedcba
+            LicenseType     : AWS
+            Platform        : Windows
+            Progress        :
+            SnapshotDetails : {/dev/sda1}
+            Status          : completed
+            StatusMessage   :</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all your image import tasks.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2ImportImageTask.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Architecture    :
+            Description     : Windows Image 1
+            Hypervisor      :
+            ImageId         :
+            ImportTaskId    : import-ami-abcdefgh
+            LicenseType     : AWS
+            Platform        : Windows
+            Progress        :
+            SnapshotDetails : {}
+            Status          : deleted
+            StatusMessage   : User initiated task cancelation
+
+            Architecture    : x86_64
+            Description     : Windows Image 2
+            Hypervisor      :
+            ImageId         : ami-1a2b3c4d
+            ImportTaskId    : import-ami-hgfedcba
+            LicenseType     : AWS
+            Platform        : Windows
+            Progress        :
+            SnapshotDetails : {/dev/sda1}
+            Status          : completed
+            StatusMessage   :</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeImportImageTasks: 
+

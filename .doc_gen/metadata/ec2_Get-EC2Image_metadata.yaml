@@ -1,0 +1,61 @@
+---
+ec2_DescribeImages:
+  title: Use Get-EC2Image
+  title_abbrev: Get-EC2Image
+  synopsis: use Get-EC2Image
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified AMI.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Image.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Architecture        : x86_64
+            BlockDeviceMappings : {/dev/xvda}
+            CreationDate        : 2014-10-20T00:56:28.000Z
+            Description         : My image
+            Hypervisor          : xen
+            ImageId             : ami-12345678
+            ImageLocation       : 123456789012/my-image
+            ImageOwnerAlias     :
+            ImageType           : machine
+            KernelId            :
+            Name                : my-image
+            OwnerId             : 123456789012
+            Platform            :
+            ProductCodes        : {}
+            Public              : False
+            RamdiskId           :
+            RootDeviceName      : /dev/xvda
+            RootDeviceType      : ebs
+            SriovNetSupport     : simple
+            State               : available
+            StateReason         :
+            Tags                : {Name}
+            VirtualizationType  : hvm</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes the AMIs that you own.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Image.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example describes the public AMIs that run Microsoft Windows Server.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Image.3.1.ps1
+        - description: "<emphasis role=\"bold\">Example 4: This example describes all public AMIs in the 'us-west-2' region.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Image.4.1.ps1
+  services:
+    ec2:
+      DescribeImages: 
+

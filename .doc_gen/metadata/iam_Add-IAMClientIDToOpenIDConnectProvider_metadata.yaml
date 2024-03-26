@@ -1,0 +1,18 @@
+---
+iam_AddClientIDToOpenIDConnectProvider:
+  title: Use Add-IAMClientIDToOpenIDConnectProvider
+  title_abbrev: Add-IAMClientIDToOpenIDConnectProvider
+  synopsis: use Add-IAMClientIDToOpenIDConnectProvider
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command adds the client ID (or audience) <code>my-application-ID</code> to the existing OIDC provider named <code>server.example.com</code>.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Add-IAMClientIDToOpenIDConnectProvider.1.1.ps1
+  services:
+    iam:
+      AddClientIDToOpenIDConnectProvider: 

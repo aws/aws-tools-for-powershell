@@ -1,0 +1,33 @@
+---
+ssm_ListInventoryEntries:
+  title: Use Get-SSMInventoryEntryList
+  title_abbrev: Get-SSMInventoryEntryList
+  synopsis: use Get-SSMInventoryEntryList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example retrieves <code>AWS:Network</code> type inventory entries for the instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInventoryEntryList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Key        Value
+            ---        -----
+            DHCPServer 172.31.11.2
+            DNSServer  172.31.0.1
+            Gateway    172.31.11.2
+            IPV4       172.31.11.222
+            IPV6       fe12::3456:7da8:901a:12a3
+            MacAddress 1A:23:4E:5B:FB:67
+            Name       Amazon Elastic Network Adapter
+            SubnetMask 255.255.240.0</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      ListInventoryEntries: 
+

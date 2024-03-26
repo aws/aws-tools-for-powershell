@@ -1,0 +1,1 @@
+Get-PLSService -Region us-east-1

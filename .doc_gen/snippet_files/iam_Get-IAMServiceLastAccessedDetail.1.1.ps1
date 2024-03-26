@@ -1,0 +1,1 @@
+Request-IAMServiceLastAccessedDetail -Arn arn:aws:iam::123456789012:user/TestUser

@@ -1,0 +1,19 @@
+---
+support_DescribeTrustedAdvisorCheckRefreshStatuses:
+  title: Use Get-ASATrustedAdvisorCheckRefreshStatus
+  title_abbrev: Get-ASATrustedAdvisorCheckRefreshStatus
+  synopsis: use Get-ASATrustedAdvisorCheckRefreshStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the current status of refresh requests for the specified checks. Request-ASATrustedAdvisorCheckRefresh can be used to request that the status information of the checks be refreshed.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/support_Get-ASATrustedAdvisorCheckRefreshStatus.1.1.ps1
+  services:
+    support:
+      DescribeTrustedAdvisorCheckRefreshStatuses: 
+

@@ -1,0 +1,19 @@
+---
+workspaces_ModifyWorkspaceProperties:
+  title: Use Edit-WKSWorkspaceProperty
+  title_abbrev: Edit-WKSWorkspaceProperty
+  synopsis: use Edit-WKSWorkspaceProperty
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This Sample changes the Workspace Running Mode Property to Auto Stop for the specified Workspace</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Edit-WKSWorkspaceProperty.1.1.ps1
+  services:
+    workspaces:
+      ModifyWorkspaceProperties: 
+

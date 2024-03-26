@@ -1,0 +1,38 @@
+---
+auto-scaling_DeleteAutoScalingGroup:
+  title: Use Remove-ASAutoScalingGroup
+  title_abbrev: Remove-ASAutoScalingGroup
+  synopsis: use Remove-ASAutoScalingGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the specified Auto Scaling group if it has no running instances. You are prompted for confirmation before the operation proceeds.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Remove-ASAutoScalingGroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing operation "Remove-ASAutoScalingGroup (DeleteAutoScalingGroup)" on Target "my-asg".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: If you specify the Force parameter, you are not prompted for confirmation before the operation proceeds.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Remove-ASAutoScalingGroup.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example deletes the specified Auto Scaling group and terminates any running instances that it contains.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/auto-scaling_Remove-ASAutoScalingGroup.3.1.ps1
+  services:
+    auto-scaling:
+      DeleteAutoScalingGroup: 
+
+

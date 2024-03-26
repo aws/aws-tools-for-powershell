@@ -1,0 +1,1 @@
+Get-CFGAggregateComplianceByConfigRuleList -ConfigurationAggregatorName kaju -Filters_ConfigRuleName ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK | Select-Object -ExpandProperty Compliance

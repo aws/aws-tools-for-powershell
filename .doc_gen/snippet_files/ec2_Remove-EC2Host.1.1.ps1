@@ -1,0 +1,1 @@
+Remove-EC2Host -HostId h-0badafd1dcb2f3456

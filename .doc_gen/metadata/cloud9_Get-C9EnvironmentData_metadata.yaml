@@ -1,0 +1,50 @@
+---
+cloud9_DescribeEnvironments:
+  title: Use Get-C9EnvironmentData
+  title_abbrev: Get-C9EnvironmentData
+  synopsis: use Get-C9EnvironmentData
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets information about the specified &AWS; Cloud9 development environments.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Get-C9EnvironmentData.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn         : arn:aws:cloud9:us-east-1:123456789012:environment:685f892f431b45c2b28cb69eadcdb0EX
+            Description : Created from CodeStar.
+            Id          : 685f892f431b45c2b28cb69eadcdb0EX
+            Lifecycle   : Amazon.Cloud9.Model.EnvironmentLifecycle
+            Name        : my-demo-ec2-env
+            OwnerArn    : arn:aws:iam::123456789012:user/MyDemoUser
+            Type        : ec2
+
+            Arn         : arn:aws:cloud9:us-east-1:123456789012:environment:1980b80e5f584920801c09086667f0EX
+            Description :
+            Id          : 1980b80e5f584920801c09086667f0EX
+            Lifecycle   : Amazon.Cloud9.Model.EnvironmentLifecycle
+            Name        : my-demo-ssh-env
+            OwnerArn    : arn:aws:iam::123456789012:user/MyDemoUser
+            Type        : ssh</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example gets information about the lifecycle status of the specified &AWS; Cloud9 development environment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Get-C9EnvironmentData.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">FailureResource Reason Status
+            --------------- ------ ------
+                                   CREATED</programlisting>
+          snippet_files: []
+  services:
+    cloud9:
+      DescribeEnvironments: 
+

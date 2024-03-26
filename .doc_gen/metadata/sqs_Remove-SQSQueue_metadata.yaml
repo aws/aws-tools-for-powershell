@@ -1,0 +1,19 @@
+---
+sqs_DeleteQueue:
+  title: Use Remove-SQSQueue
+  title_abbrev: Remove-SQSQueue
+  synopsis: use Remove-SQSQueue
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes the specified queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Remove-SQSQueue.1.1.ps1
+  services:
+    sqs:
+      DeleteQueue: 
+

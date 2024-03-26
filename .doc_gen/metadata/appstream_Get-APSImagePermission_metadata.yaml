@@ -1,0 +1,26 @@
+---
+appstream_DescribeImagePermissions:
+  title: Use Get-APSImagePermission
+  title_abbrev: Get-APSImagePermission
+  synopsis: use Get-APSImagePermission
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample displays Image permissions on a shared AppStream Image</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Get-APSImagePermission.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">SharedAccountId AllowFleet AllowImageBuilder
+            --------------- ---------- -----------------
+            123456789012          True              True</programlisting>
+  services:
+    appstream:
+      DescribeImagePermissions: 
+

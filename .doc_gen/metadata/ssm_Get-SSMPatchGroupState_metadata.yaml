@@ -1,0 +1,29 @@
+---
+ssm_DescribePatchGroupState:
+  title: Use Get-SSMPatchGroupState
+  title_abbrev: Get-SSMPatchGroupState
+  synopsis: use Get-SSMPatchGroupState
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets the high-level patch compliance summary for a patch group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMPatchGroupState.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Instances                          : 4
+            InstancesWithFailedPatches         : 1
+            InstancesWithInstalledOtherPatches : 4
+            InstancesWithInstalledPatches      : 3
+            InstancesWithMissingPatches        : 0
+            InstancesWithNotApplicablePatches  : 0</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribePatchGroupState: 
+

@@ -1,0 +1,20 @@
+---
+directory-service_UpdateRadius:
+  title: Use Update-DSRadius
+  title_abbrev: Update-DSRadius
+  synopsis: use Update-DSRadius
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example updates RADIUS server information for an AD Connector or Microsoft AD directory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Update-DSRadius.1.1.ps1
+  services:
+    directory-service:
+      UpdateRadius: 
+
+

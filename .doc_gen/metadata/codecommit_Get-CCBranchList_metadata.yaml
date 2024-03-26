@@ -1,0 +1,25 @@
+---
+codecommit_ListBranches:
+  title: Use Get-CCBranchList
+  title_abbrev: Get-CCBranchList
+  synopsis: use Get-CCBranchList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets a list of branch names for the specified repository.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codecommit_Get-CCBranchList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">master
+            MyNewBranch</programlisting>
+          snippet_files: []
+  services:
+    codecommit:
+      ListBranches: 
+

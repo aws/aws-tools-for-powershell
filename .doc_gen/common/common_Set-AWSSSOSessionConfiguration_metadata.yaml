@@ -1,0 +1,18 @@
+---
+common_Set-AWSSSOSessionConfiguration:
+  title: Use Set-AWSSSOSessionConfiguration
+  title_abbrev: Set-AWSSSOSessionConfiguration
+  synopsis: use Set-AWSSSOSessionConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Creates or updates an sso-session section in the configuration file.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/common_Set-AWSSSOSessionConfiguration.1.1.ps1
+  services:
+    common:
+      Set-AWSSSOSessionConfiguration: 

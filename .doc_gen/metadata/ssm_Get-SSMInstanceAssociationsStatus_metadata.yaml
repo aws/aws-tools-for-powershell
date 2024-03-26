@@ -1,0 +1,50 @@
+---
+ssm_DescribeInstanceAssociationsStatus:
+  title: Use Get-SSMInstanceAssociationsStatus
+  title_abbrev: Get-SSMInstanceAssociationsStatus
+  synopsis: use Get-SSMInstanceAssociationsStatus
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example shows details of the associations for an instance.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInstanceAssociationsStatus.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AssociationId    : d8617c07-2079-4c18-9847-1655fc2698b0
+            DetailedStatus   : Pending
+            DocumentVersion  : 1
+            ErrorCode        :
+            ExecutionDate    : 2/20/2015 8:31:11 AM
+            ExecutionSummary : temp_status_change
+            InstanceId       : i-0000293ffd8c57862
+            Name             : AWS-UpdateSSMAgent
+            OutputUrl        :
+            Status           : Pending</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example checks the instance association status for the given instance id and further, displays the execution status of those associations</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMInstanceAssociationsStatus.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AssociationId         : 512a34a5-c678-1234-1234-12345678db9e
+            AssociationVersion    : 2
+            CreatedTime           : 3/2/2019 8:53:29 AM
+            DetailedStatus        :
+            ExecutionId           : 512a34a5-c678-1234-1234-12345678db9e
+            LastExecutionDate     : 1/1/0001 12:00:00 AM
+            ResourceCountByStatus : {Success=9}
+            Status                : Success</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeInstanceAssociationsStatus: 
+

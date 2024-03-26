@@ -1,0 +1,1 @@
+Reset-DSUserPassword -UserName ADuser -DirectoryId d-123456ijkl -NewPassword $Password

@@ -1,0 +1,1 @@
+Get-EC2HostReservationOffering -Filter @{Name="instance-family";Values="m4"} | Where-Object PaymentOption -eq NoUpfront

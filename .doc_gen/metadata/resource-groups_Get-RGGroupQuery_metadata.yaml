@@ -1,0 +1,26 @@
+---
+resource-groups_GetGroupQuery:
+  title: Use Get-RGGroupQuery
+  title_abbrev: Get-RGGroupQuery
+  synopsis: use Get-RGGroupQuery
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example fetches the resource query for the given resource group</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/resource-groups_Get-RGGroupQuery.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Query                                                                                        Type
+            -----                                                                                        ----
+            {"ResourceTypeFilters":["AWS::EC2::Instance"],"TagFilters":[{"Key":"auto","Values":["no"]}]} TAG_FILTERS_1_0</programlisting>
+  services:
+    resource-groups:
+      GetGroupQuery: 
+

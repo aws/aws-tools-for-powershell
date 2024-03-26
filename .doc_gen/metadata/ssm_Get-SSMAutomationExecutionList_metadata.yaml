@@ -1,0 +1,46 @@
+---
+ssm_DescribeAutomationExecutions:
+  title: Use Get-SSMAutomationExecutionList
+  title_abbrev: Get-SSMAutomationExecutionList
+  synopsis: use Get-SSMAutomationExecutionList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes all active and terminated Automation Executions associated with your account.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAutomationExecutionList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AutomationExecutionId     : 4105a4fc-f944-11e6-9d32-8fb2db27a909
+            AutomationExecutionStatus : Failed
+            DocumentName              : AWS-UpdateLinuxAmi
+            DocumentVersion           : 1
+            ExecutedBy                : admin
+            ExecutionEndTime          : 2/22/2017 9:17:08 PM
+            ExecutionStartTime        : 2/22/2017 9:17:02 PM
+            LogFile                   :
+            Outputs                   : {[createImage.ImageId, Amazon.Runtime.Internal.Util.AlwaysSendList`1[System.String]]}</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example displays ExecutionID, document, execution start/end timestamp for executions with AutomationExecutionStatus other than 'Success'</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMAutomationExecutionList.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AutomationExecutionId                DocumentName                            AutomationExecutionStatus ExecutionStartTime   ExecutionEndTime
+            ---------------------                ------------                            ------------------------- ------------------   ----------------
+            e1d2bad3-4567-8901-ae23-456c7c8901be AWS-UpdateWindowsAmi                    Cancelled                 4/16/2019 5:37:04 AM 4/16/2019 5:47:29 AM
+            61234567-a7f8-90e1-2b34-567b8bf9012c Fixed-UpdateAmi                         Cancelled                 4/16/2019 5:33:04 AM 4/16/2019 5:40:15 AM
+            91234d56-7e89-0ac1-2aee-34ea5d6a7c89 AWS-UpdateWindowsAmi                    Failed                    4/16/2019 5:22:46 AM 4/16/2019 5:27:29 AM</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeAutomationExecutions: 
+

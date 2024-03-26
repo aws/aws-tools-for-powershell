@@ -1,0 +1,35 @@
+---
+ssm_GetDeployablePatchSnapshotForInstance:
+  title: Use Get-SSMDeployablePatchSnapshotForInstance
+  title_abbrev: Get-SSMDeployablePatchSnapshotForInstance
+  synopsis: use Get-SSMDeployablePatchSnapshotForInstance
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example displays the current snapshot for the patch baseline used by an Instance. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example passes an <code>Amazon.Runtime.InstanceProfileAWSCredentials</code> object to the Credentials parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMDeployablePatchSnapshotForInstance.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InstanceId          SnapshotDownloadUrl
+            ----------          -------------------
+            i-0cb2b964d3e14fd9f https://patch-baseline-snapshot-us-west-2.s3-us-west-2.amazonaws.com/853d0d3db0f0cafe...1692/4681775b-098f-4435...</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example shows how to get the full SnapshotDownloadUrl. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example configures the PowerShell session to use an <code>Amazon.Runtime.InstanceProfileAWSCredentials</code> object.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMDeployablePatchSnapshotForInstance.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">https://patch-baseline-snapshot-us-west-2.s3-us-west-2.amazonaws.com/853d0d3db0f0cafe...</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      GetDeployablePatchSnapshotForInstance: 
+

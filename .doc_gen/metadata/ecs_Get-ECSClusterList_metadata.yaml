@@ -1,0 +1,25 @@
+---
+ecs_ListClusters:
+  title: Use Get-ECSClusterList
+  title_abbrev: Get-ECSClusterList
+  synopsis: use Get-ECSClusterList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet returns a list of existing ECS clusters.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ecs_Get-ECSClusterList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">arn:aws:ecs:us-west-2:012345678912:cluster/LAB-ECS-CL
+            arn:aws:ecs:us-west-2:012345678912:cluster/LAB-ECS</programlisting>
+          snippet_files: []
+  services:
+    ecs:
+      ListClusters: 
+

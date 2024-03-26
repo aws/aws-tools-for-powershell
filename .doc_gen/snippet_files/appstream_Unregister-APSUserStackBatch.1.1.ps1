@@ -1,0 +1,1 @@
+Unregister-APSUserStackBatch -UserStackAssociation @{AuthenticationType="USERPOOL";SendEmailNotification=$False;StackName="PowershellStack";UserName="TestUser1@lab.com"}

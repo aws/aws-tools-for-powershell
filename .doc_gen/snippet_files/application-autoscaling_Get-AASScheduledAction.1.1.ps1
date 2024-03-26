@@ -1,0 +1,1 @@
+Get-AASScheduledAction -ServiceNamespace AppStream

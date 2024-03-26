@@ -1,0 +1,27 @@
+---
+ec2_DescribeSpotFleetInstances:
+  title: Use Get-EC2SpotFleetInstance
+  title_abbrev: Get-EC2SpotFleetInstance
+  synopsis: use Get-EC2SpotFleetInstance
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the instances associated with the specified Spot fleet request.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotFleetInstance.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">InstanceId    InstanceType    SpotInstanceRequestId
+            ----------    ------------    ---------------------
+            i-f089262a    c3.large        sir-12345678
+            i-7e8b24a4    c3.large        sir-87654321</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeSpotFleetInstances: 
+

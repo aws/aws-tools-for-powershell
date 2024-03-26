@@ -1,0 +1,1 @@
+Get-S3BucketTagging -BucketName 's3casetestbucket'

@@ -1,0 +1,27 @@
+---
+appstream_UntagResource:
+  title: Use Remove-APSResourceTag
+  title_abbrev: Remove-APSResourceTag
+  synopsis: use Remove-APSResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample removes a resource tag from AppStream resource</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Remove-APSResourceTag.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-APSResourceTag (UntagResource)" on target "arn:aws:appstream:us-east-1:123456789012:stack/SessionScriptTest".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A</programlisting>
+  services:
+    appstream:
+      UntagResource: 
+

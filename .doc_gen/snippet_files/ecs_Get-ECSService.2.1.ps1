@@ -1,0 +1,1 @@
+Get-ECSService -Cluster myCluster -Service my-hhtp-service

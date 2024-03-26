@@ -1,0 +1,20 @@
+---
+device-farm_CreateUpload:
+  title: Use New-DFUpload
+  title_abbrev: New-DFUpload
+  synopsis: use New-DFUpload
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates an &AWS; Device Farm upload for an Android app. You can get the project ARN from the output of New-DFProject or Get-DFProjectList. Use the signed URL in the New-DFUpload output to upload a file to Device Farm.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/device-farm_New-DFUpload.1.1.ps1
+  services:
+    device-farm:
+      CreateUpload: 
+
+

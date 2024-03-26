@@ -1,0 +1,20 @@
+---
+route-53_CreateHostedZone:
+  title: Use New-R53HostedZone
+  title_abbrev: New-R53HostedZone
+  synopsis: use New-R53HostedZone
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: Creates a new hosted zone named 'example.com', associated with a reusable delegation set. Note that you must supply a value for the CallerReference parameter so that requests that need to be retried if necessary without the risk of executing the operation twice. Because the hosted zone is being created in a VPC it is automatically private and you should not set the -HostedZoneConfig_PrivateZone parameter.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_New-R53HostedZone.1.1.ps1
+          description: 
+  services:
+    route-53:
+      CreateHostedZone: 
+
+

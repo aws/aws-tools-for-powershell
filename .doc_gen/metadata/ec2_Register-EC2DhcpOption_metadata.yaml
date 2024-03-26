@@ -1,0 +1,24 @@
+---
+ec2_AssociateDhcpOptions:
+  title: Use Register-EC2DhcpOption
+  title_abbrev: Register-EC2DhcpOption
+  synopsis: use Register-EC2DhcpOption
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example associates the specified DHCP options set with the specified VPC.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Register-EC2DhcpOption.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example associates the default DHCP options set with the specified VPC.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Register-EC2DhcpOption.2.1.ps1
+  services:
+    ec2:
+      AssociateDhcpOptions: 
+

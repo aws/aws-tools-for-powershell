@@ -1,0 +1,32 @@
+---
+elastic-load-balancing-v2_DescribeTargetGroupAttributes:
+  title: Use Get-ELB2TargetGroupAttribute
+  title_abbrev: Get-ELB2TargetGroupAttribute
+  synopsis: use Get-ELB2TargetGroupAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the attributes of the specified Target Group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2TargetGroupAttribute.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Key                                   Value
+            ---                                   -----
+            stickiness.enabled                    false
+            deregistration_delay.timeout_seconds  300
+            stickiness.type                       lb_cookie
+            stickiness.lb_cookie.duration_seconds 86400
+            slow_start.duration_seconds           0
+            load_balancing.algorithm.type         round_robin</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DescribeTargetGroupAttributes: 
+
+

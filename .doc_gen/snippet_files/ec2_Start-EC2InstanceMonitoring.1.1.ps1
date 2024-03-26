@@ -1,0 +1,1 @@
+Start-EC2InstanceMonitoring -InstanceId i-12345678

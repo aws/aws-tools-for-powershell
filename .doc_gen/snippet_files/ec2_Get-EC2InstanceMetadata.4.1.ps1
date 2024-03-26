@@ -1,0 +1,1 @@
+Get-EC2InstanceMetadata -Path "/network/interfaces/macs"

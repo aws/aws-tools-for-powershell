@@ -1,0 +1,1 @@
+Get-CFGAggregateComplianceDetailsByConfigRule -AccountId 123456789012 -AwsRegion eu-west-1 -ComplianceType COMPLIANT -ConfigRuleName desired-instance-type -ConfigurationAggregatorName raju | Select-Object -ExpandProperty EvaluationResultIdentifier | Select-Object -ExpandProperty EvaluationResultQualifier

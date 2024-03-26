@@ -1,0 +1,18 @@
+---
+iam_UpdateOpenIDConnectProviderThumbprint:
+  title: Use Update-IAMOpenIDConnectProviderThumbprint
+  title_abbrev: Update-IAMOpenIDConnectProviderThumbprint
+  synopsis: use Update-IAMOpenIDConnectProviderThumbprint
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example updates the certificate thumbprint list for the OIDC provider whose ARN is <code>arn:aws:iam::123456789012:oidc-provider/example.oidcprovider.com</code> to use a new thumbprint. The OIDC provider shares the new value when the certificate that is associated with the provider changes.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMOpenIDConnectProviderThumbprint.1.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateOpenIDConnectProviderThumbprint: 

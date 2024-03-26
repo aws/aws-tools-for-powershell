@@ -1,0 +1,19 @@
+---
+cloudformation_CancelUpdateStack:
+  title: Use Stop-CFNUpdateStack
+  title_abbrev: Stop-CFNUpdateStack
+  synopsis: use Stop-CFNUpdateStack
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Cancels an update on the specified stack.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudformation_Stop-CFNUpdateStack.1.1.ps1
+  services:
+    cloudformation:
+      CancelUpdateStack: 
+

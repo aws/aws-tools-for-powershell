@@ -1,0 +1,1 @@
+Get-DSTrust -DirectoryId d-123456abcd

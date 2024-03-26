@@ -1,0 +1,19 @@
+---
+Common_Disable-AWSMetricsLogging:
+  title: Use Disable-AWSMetricsLogging
+  title_abbrev: Disable-AWSMetricsLogging
+  synopsis: use Disable-AWSMetricsLogging
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Turns off logging of performance metrics for service calls.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Disable-AWSMetricsLogging.1.1.ps1
+  services:
+    Common:
+      Disable-AWSMetricsLogging: 
+

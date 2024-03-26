@@ -1,0 +1,1 @@
+Get-ASACase -MaxResult 10 -IncludeResolvedCases $true

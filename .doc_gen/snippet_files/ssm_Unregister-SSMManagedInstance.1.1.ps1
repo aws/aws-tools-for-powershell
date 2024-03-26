@@ -1,0 +1,1 @@
+Unregister-SSMManagedInstance -InstanceId "mi-08ab247cdf1046573"

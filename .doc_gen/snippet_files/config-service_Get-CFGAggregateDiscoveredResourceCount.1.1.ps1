@@ -1,0 +1,1 @@
+Get-CFGAggregateDiscoveredResourceCount -ConfigurationAggregatorName Master -Filters_Region us-east-1

@@ -1,0 +1,1 @@
+Enable-DSDirectoryShare -DirectoryId d-123456ijkl -ShareTarget_Id 123456784321 -ShareMethod HANDSHAKE -ShareTarget_Type ACCOUNT

@@ -1,0 +1,1 @@
+New-IAMInstanceProfile -InstanceProfileName ProfileForDevEC2Instance

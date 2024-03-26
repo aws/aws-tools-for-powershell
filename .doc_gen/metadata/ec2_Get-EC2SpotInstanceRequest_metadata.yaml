@@ -1,0 +1,44 @@
+---
+ec2_DescribeSpotInstanceRequests:
+  title: Use Get-EC2SpotInstanceRequest
+  title_abbrev: Get-EC2SpotInstanceRequest
+  synopsis: use Get-EC2SpotInstanceRequest
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example describes the specified Spot instance request.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotInstanceRequest.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ActualBlockHourlyPrice   :
+            AvailabilityZoneGroup    :
+            BlockDurationMinutes     : 0
+            CreateTime               : 4/8/2015 2:51:33 PM
+            Fault                    :
+            InstanceId               : i-12345678
+            LaunchedAvailabilityZone : us-west-2b
+            LaunchGroup              :
+            LaunchSpecification      : Amazon.EC2.Model.LaunchSpecification
+            ProductDescription       : Linux/UNIX
+            SpotInstanceRequestId    : sir-12345678
+            SpotPrice                : 0.020000
+            State                    : active
+            Status                   : Amazon.EC2.Model.SpotInstanceStatus
+            Tags                     : {Name}
+            Type                     : one-time</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example describes all your Spot instance requests.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2SpotInstanceRequest.2.1.ps1
+  services:
+    ec2:
+      DescribeSpotInstanceRequests: 
+

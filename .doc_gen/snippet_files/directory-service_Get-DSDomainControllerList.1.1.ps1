@@ -1,0 +1,1 @@
+Get-DSDomainControllerList -DirectoryId d-123456ijkl

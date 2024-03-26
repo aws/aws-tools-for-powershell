@@ -1,0 +1,20 @@
+---
+directory-service_ConnectDirectory:
+  title: Use Connect-DSDirectory
+  title_abbrev: Connect-DSDirectory
+  synopsis: use Connect-DSDirectory
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates an AD Connector to connect to an on-premises directory.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Connect-DSDirectory.1.1.ps1
+  services:
+    directory-service:
+      ConnectDirectory: 
+
+

@@ -1,0 +1,18 @@
+---
+iam_SetDefaultPolicyVersion:
+  title: Use Set-IAMDefaultPolicyVersion
+  title_abbrev: Set-IAMDefaultPolicyVersion
+  synopsis: use Set-IAMDefaultPolicyVersion
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example sets the <code>v2</code> version of the policy whose ARN is <code>arn:aws:iam::123456789012:policy/MyPolicy</code> as the default active version.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Set-IAMDefaultPolicyVersion.1.1.ps1
+          description: 
+  services:
+    iam:
+      SetDefaultPolicyVersion: 

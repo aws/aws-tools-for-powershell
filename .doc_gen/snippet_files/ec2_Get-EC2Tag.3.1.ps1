@@ -1,0 +1,1 @@
+Get-EC2Tag -Region eu-west-1 -Filter @{Name="tag:auto-delete";Values="no"}

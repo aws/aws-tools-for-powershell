@@ -1,0 +1,23 @@
+---
+sqs_ChangeMessageVisibilityBatch:
+  title: Use Edit-SQSMessageVisibilityBatch
+  title_abbrev: Edit-SQSMessageVisibilityBatch
+  synopsis: use Edit-SQSMessageVisibilityBatch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example changes the visibility timeout for 2 messages with the specified receipt handles in the specified queue. The first message's visibility timeout is changed to 10 hours (10 hours * 60 minutes * 60 seconds = 36000 seconds). The second message's visibility timeout is changed to 5 hours (5 hours * 60 minutes * 60 seconds = 18000 seconds).</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Edit-SQSMessageVisibilityBatch.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">Failed    Successful                                                                    \n------    ----------                                                                    \n{}        {Request2, Request1}</programlisting>"
+          snippet_files: []
+  services:
+    sqs:
+      ChangeMessageVisibilityBatch: 
+

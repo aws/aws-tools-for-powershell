@@ -1,0 +1,23 @@
+---
+fsx_TagResource:
+  title: Use Add-FSXResourceTag
+  title_abbrev: Add-FSXResourceTag
+  synopsis: use Add-FSXResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example adds tags to the given resource.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/fsx_Add-FSXResourceTag.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">arn:aws:fsx:eu-west-1:123456789012:file-system/fs-01cd23bc4bdf5678a</programlisting>
+          snippet_files: []
+  services:
+    fsx:
+      TagResource: 
+

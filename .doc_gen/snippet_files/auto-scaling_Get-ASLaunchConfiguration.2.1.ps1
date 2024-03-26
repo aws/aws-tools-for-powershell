@@ -1,0 +1,1 @@
+Get-ASLaunchConfiguration -LaunchConfigurationName my-lc-1

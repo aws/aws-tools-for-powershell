@@ -1,0 +1,22 @@
+---
+iam_ListUsers:
+  title: Use Get-IAMUserList
+  title_abbrev: Get-IAMUserList
+  synopsis: use Get-IAMUserList
+  languages:
+    PowerShell:
+      versions:
+        - sdk_version: 4
+          excerpts:
+            - description: '<emphasis role="bold">Example 1: This example retrieves a collection of users in the current &AWS-account;.</emphasis>'
+              snippet_files: []
+            - description:
+              snippet_files:
+                - .doc_gen/snippet_files/iam_Get-IAMUserList.1.1.ps1
+            - description: <emphasis role="bold">Output:</emphasis>
+              snippet_files: []
+            - description: "<programlisting language=\"none\" role=\"nocopy\">      Arn              : arn:aws:iam::123456789012:user/Administrator\n      CreateDate       : 10/16/2014 9:03:09 AM\n      PasswordLastUsed : 3/4/2015 12:12:33 PM\n      Path             : /\n      UserId           : 7K3GJEANSKZF2EXAMPLE1\n      UserName         : Administrator\n      \n      Arn              : arn:aws:iam::123456789012:user/Bob\n      CreateDate       : 4/6/2015 12:54:42 PM\n      PasswordLastUsed : 1/1/0001 12:00:00 AM\n      Path             : /\n      UserId           : L3EWNONDOM3YUEXAMPLE2\n      UserName         : bab\n      \n      Arn              : arn:aws:iam::123456789012:user/David\n      CreateDate       : 12/10/2014 3:39:27 PM\n      PasswordLastUsed : 3/19/2015 8:44:04 AM\n      Path             : /\n      UserId           : Y4FKWQCXTA52QEXAMPLE3\n      UserName         : David</programlisting>"
+              snippet_files: []
+  services:
+    iam:
+      ListUsers:

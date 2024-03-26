@@ -1,0 +1,1 @@
+Remove-DSDirectory -DirectoryId d-123456ijkl

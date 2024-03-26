@@ -1,0 +1,43 @@
+---
+lambda_CreateFunction:
+  title: Use Publish-LMFunction
+  title_abbrev: Publish-LMFunction
+  synopsis: use Publish-LMFunction
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: This example creates a new C# (dotnetcore1.0 runtime) function named MyFunction in &AWS; Lambda, providing the compiled binaries for the function from a zip file on the local file system (relative or absolute paths may be used). C# Lambda functions specify the handler for the function using the designation AssemblyName::Namespace.ClassName::MethodName. You should replace the assembly name (without .dll suffix), namespace, class name and method name parts of the handler spec appropriately. The new function will have environment variables 'envvar1' and 'envvar2' set up from the provided values.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Publish-LMFunction.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">CodeSha256       : /NgBMd...gq71I=
+            CodeSize         : 214784
+            DeadLetterConfig :
+            Description      : My C# Lambda Function
+            Environment      : Amazon.Lambda.Model.EnvironmentResponse
+            FunctionArn      : arn:aws:lambda:us-west-2:123456789012:function:ToUpper
+            FunctionName     : MyFunction
+            Handler          : AssemblyName::Namespace.ClassName::MethodName
+            KMSKeyArn        :
+            LastModified     : 2016-12-29T23:50:14.207+0000
+            MemorySize       : 128
+            Role             : arn:aws:iam::123456789012:role/LambdaFullExecRole
+            Runtime          : dotnetcore1.0
+            Timeout          : 3
+            Version          : $LATEST
+            VpcConfig        :</programlisting>
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example is similar to the previous one except the function binaries are first uploaded to an Amazon S3 bucket (which must be in the same region as the intended Lambda function) and the resulting S3 object is then referenced when creating the function.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Publish-LMFunction.2.1.ps1
+          description: 
+  services:
+    lambda:
+      CreateFunction: 

@@ -1,0 +1,19 @@
+---
+ssm_RemoveTagsFromResource:
+  title: Use Remove-SSMResourceTag
+  title_abbrev: Remove-SSMResourceTag
+  synopsis: use Remove-SSMResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example removes a tag from a maintenance window. There is no output if the command succeeds.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Remove-SSMResourceTag.1.1.ps1
+  services:
+    ssm:
+      RemoveTagsFromResource: 
+

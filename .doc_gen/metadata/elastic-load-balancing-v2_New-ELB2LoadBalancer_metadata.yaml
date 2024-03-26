@@ -1,0 +1,36 @@
+---
+elastic-load-balancing-v2_CreateLoadBalancer:
+  title: Use New-ELB2LoadBalancer
+  title_abbrev: New-ELB2LoadBalancer
+  synopsis: use New-ELB2LoadBalancer
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example creates new internet facing Application load balancer with two subnets.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_New-ELB2LoadBalancer.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AvailabilityZones     : {us-east-1b, us-east-1a}
+            CanonicalHostedZoneId : Z35SXDOTRQ7X7K
+            CreatedTime           : 12/28/19 2:58:03 PM
+            DNSName               : New-Test-ALB-1391502222.us-east-1.elb.amazonaws.com
+            IpAddressType         : ipv4
+            LoadBalancerArn       : arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/New-Test-ALB/dab2e4d90eb51493
+            LoadBalancerName      : New-Test-ALB
+            Scheme                : internet-facing
+            SecurityGroups        : {sg-07c3414abb8811cbd}
+            State                 : Amazon.ElasticLoadBalancingV2.Model.LoadBalancerState
+            Type                  : application
+            VpcId                 : vpc-2cfd7000</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      CreateLoadBalancer: 
+
+

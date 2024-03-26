@@ -1,0 +1,1 @@
+Remove-EC2NetworkInterface -NetworkInterfaceId eni-12345678

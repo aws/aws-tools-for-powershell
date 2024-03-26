@@ -1,0 +1,19 @@
+---
+cloud9_UpdateEnvironment:
+  title: Use Update-C9Environment
+  title_abbrev: Update-C9Environment
+  synopsis: use Update-C9Environment
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example changes the specified settings of the specified existing &AWS; Cloud9 development environment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_Update-C9Environment.1.1.ps1
+  services:
+    cloud9:
+      UpdateEnvironment: 
+

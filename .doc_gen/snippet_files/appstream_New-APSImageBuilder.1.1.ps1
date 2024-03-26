@@ -1,0 +1,1 @@
+New-APSImageBuilder -InstanceType stream.standard.medium -Name TestIB -DisplayName TestIB -ImageName AppStream-WinServer2012R2-12-12-2019 -EnableDefaultInternetAccess $True -VpcConfig_SubnetId subnet-a1234cfd -VpcConfig_SecurityGroupIds sg-2d012a34 -Region us-west-2

@@ -1,0 +1,1 @@
+Find-CTEvent -MaxResult 10 -NextToken $AWSHistory.LastServiceResponse.NextToken

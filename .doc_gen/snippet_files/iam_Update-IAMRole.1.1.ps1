@@ -1,0 +1,1 @@
+Update-IAMRole -RoleName MyRoleName -Description "My testing role" -MaxSessionDuration 43200

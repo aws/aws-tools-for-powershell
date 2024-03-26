@@ -1,0 +1,1 @@
+Remove-SSMPatchBaseline -BaselineId "pb-045f10b4f382baeda"

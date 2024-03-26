@@ -1,0 +1,1 @@
+Update-CTTrail -Name "awscloudtrail-example" -S3BucketName "otherlogs"

@@ -1,0 +1,19 @@
+---
+iam_GetContextKeysForPrincipalPolicy:
+  title: Use Get-IAMContextKeysForPrincipalPolicy
+  title_abbrev: Get-IAMContextKeysForPrincipalPolicy
+  synopsis: use Get-IAMContextKeysForPrincipalPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example fetches all the context keys present in the provided policy json and the policies attached to IAM entity(user/role etc.). For -PolicyInputList you can provide multiple values list as comma separated values. </emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMContextKeysForPrincipalPolicy.1.1.ps1
+  services:
+    iam:
+      GetContextKeysForPrincipalPolicy: 
+

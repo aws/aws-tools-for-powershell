@@ -1,0 +1,29 @@
+---
+cloudfront_ListCloudFrontOriginAccessIdentities:
+  title: Use Get-CFCloudFrontOriginAccessIdentityList
+  title_abbrev: Get-CFCloudFrontOriginAccessIdentityList
+  synopsis: use Get-CFCloudFrontOriginAccessIdentityList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudfront_Get-CFCloudFrontOriginAccessIdentityList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">IsTruncated : True
+            Items       : {E326XXXXXXXXXT, E1YWXXXXXXX9B}
+            Marker      :
+            MaxItems    : 2
+            NextMarker  : E1YXXXXXXXXX9B
+            Quantity    : 2</programlisting>
+          snippet_files: []
+  services:
+    cloudfront:
+      ListCloudFrontOriginAccessIdentities: 
+

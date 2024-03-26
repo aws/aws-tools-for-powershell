@@ -1,0 +1,1 @@
+Update-IAMServerCertificate -ServerCertificateName MyServerCertificate -NewPath /Org1/Org2/

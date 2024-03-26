@@ -1,0 +1,26 @@
+---
+resource-groups_GetTags:
+  title: Use Get-RGResourceTag
+  title_abbrev: Get-RGResourceTag
+  synopsis: use Get-RGResourceTag
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example lists tags for the given resource group arn</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/resource-groups_Get-RGResourceTag.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Key       Value
+            ---       -----
+            Instances workboxes</programlisting>
+  services:
+    resource-groups:
+      GetTags: 
+

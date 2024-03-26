@@ -1,0 +1,1 @@
+New-DSSnapshot -DirectoryId d-123456ijkl

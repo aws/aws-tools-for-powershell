@@ -1,0 +1,19 @@
+---
+ssm_UpdateManagedInstanceRole:
+  title: Use Update-SSMManagedInstanceRole
+  title_abbrev: Update-SSMManagedInstanceRole
+  synopsis: use Update-SSMManagedInstanceRole
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example updates the role of a managed instance. There is no output if the command succeeds.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Update-SSMManagedInstanceRole.1.1.ps1
+  services:
+    ssm:
+      UpdateManagedInstanceRole: 
+

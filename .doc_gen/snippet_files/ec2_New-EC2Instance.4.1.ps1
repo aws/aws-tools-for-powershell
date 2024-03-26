@@ -1,0 +1,3 @@
+$ami = Get-EC2ImageByName WINDOWS_2016_BASE
+
+New-EC2Instance -ImageId $ami.ImageId ...

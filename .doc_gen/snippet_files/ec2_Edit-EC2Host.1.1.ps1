@@ -1,0 +1,1 @@
+Edit-EC2Host -HostId h-03e09f8cd681609f3 -AutoPlacement off

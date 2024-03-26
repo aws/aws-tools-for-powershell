@@ -1,0 +1,27 @@
+---
+fsx_ListTagsForResource:
+  title: Use Get-FSXResourceTagList
+  title_abbrev: Get-FSXResourceTagList
+  synopsis: use Get-FSXResourceTagList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists tags for provided resource arn.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/fsx_Get-FSXResourceTagList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Key         Value
+            ---         -----
+            FSx-Service Windows
+            Users       Dev</programlisting>
+          snippet_files: []
+  services:
+    fsx:
+      ListTagsForResource: 
+

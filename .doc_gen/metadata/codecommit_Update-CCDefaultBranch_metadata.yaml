@@ -1,0 +1,19 @@
+---
+codecommit_UpdateDefaultBranch:
+  title: Use Update-CCDefaultBranch
+  title_abbrev: Update-CCDefaultBranch
+  synopsis: use Update-CCDefaultBranch
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example changes the default branch for the specified repository to the specified branch.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codecommit_Update-CCDefaultBranch.1.1.ps1
+  services:
+    codecommit:
+      UpdateDefaultBranch: 
+

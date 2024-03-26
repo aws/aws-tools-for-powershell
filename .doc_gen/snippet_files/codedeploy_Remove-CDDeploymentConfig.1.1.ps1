@@ -1,0 +1,1 @@
+Remove-CDDeploymentConfig -DeploymentConfigName AtLeastTwoHealthyHosts

@@ -1,0 +1,18 @@
+---
+iam_UpdateAssumeRolePolicy:
+  title: Use Update-IAMAssumeRolePolicy
+  title_abbrev: Update-IAMAssumeRolePolicy
+  synopsis: use Update-IAMAssumeRolePolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example updates the IAM role named <code>ClientRole</code> with a new trust policy, the contents of which come from the file <code>ClientRolePolicy.json</code>. Note that you must use the <code>-Raw</code> switch parameter to successfully process the contents of the JSON file.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Update-IAMAssumeRolePolicy.1.1.ps1
+          description: 
+  services:
+    iam:
+      UpdateAssumeRolePolicy: 

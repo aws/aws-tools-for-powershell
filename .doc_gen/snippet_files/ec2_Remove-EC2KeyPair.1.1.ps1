@@ -1,0 +1,1 @@
+Remove-EC2KeyPair -KeyName my-key-pair

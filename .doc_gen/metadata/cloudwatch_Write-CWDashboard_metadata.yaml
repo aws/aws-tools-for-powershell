@@ -1,0 +1,25 @@
+---
+cloudwatch_PutDashboard:
+  title: Use Write-CWDashboard
+  title_abbrev: Write-CWDashboard
+  synopsis: use Write-CWDashboard
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: Creates or updates the dashboard named 'Dashboard1' to include two metric widgets side by side.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudwatch_Write-CWDashboard.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Creates or updates the dashboard, piping the content describing the dashboard into the cmdlet.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloudwatch_Write-CWDashboard.2.1.ps1
+  services:
+    cloudwatch:
+      PutDashboard: 
+
+

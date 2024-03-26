@@ -1,0 +1,1 @@
+Get-DSResourceTag -ResourceId d-123456ijkl

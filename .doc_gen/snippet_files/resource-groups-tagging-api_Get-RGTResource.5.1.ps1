@@ -1,0 +1,1 @@
+Get-RGTResource -TagFilter @{ Key="stage" } -ResourceType "dynamodb"

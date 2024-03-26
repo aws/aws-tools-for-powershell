@@ -1,0 +1,1 @@
+Remove-APSImage -Name TestImage -Region us-west-2

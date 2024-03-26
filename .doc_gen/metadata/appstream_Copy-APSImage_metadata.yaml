@@ -1,0 +1,23 @@
+---
+appstream_CopyImage:
+  title: Use Copy-APSImage
+  title_abbrev: Copy-APSImage
+  synopsis: use Copy-APSImage
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This sample copies an image to other region</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/appstream_Copy-APSImage.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: <programlisting language="none" role="nocopy">TestImageCopy</programlisting>
+  services:
+    appstream:
+      CopyImage: 
+

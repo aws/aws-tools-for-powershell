@@ -1,0 +1,1 @@
+Remove-IAMUserPolicy -PolicyName AccessToEC2Policy -UserName Bob

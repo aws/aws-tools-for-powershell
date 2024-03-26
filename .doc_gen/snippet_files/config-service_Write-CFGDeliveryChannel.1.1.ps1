@@ -1,0 +1,1 @@
+Write-CFGDeliveryChannel -ConfigSnapshotDeliveryProperties_DeliveryFrequency TwentyFour_Hours -DeliveryChannelName default -DeliveryChannel_S3BucketName config-bucket-NA -DeliveryChannel_S3KeyPrefix my

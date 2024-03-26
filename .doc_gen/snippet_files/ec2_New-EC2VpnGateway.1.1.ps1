@@ -1,0 +1,1 @@
+New-EC2VpnGateway -Type ipsec.1

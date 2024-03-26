@@ -1,0 +1,1 @@
+Add-CFGResourceTag -ResourceArn arn:aws:config:eu-west-1:123456789012:config-rule/config-rule-16iyn0 -Tag @{Key="Release";Value="Beta"}

@@ -1,0 +1,1 @@
+Get-S3Bucket -BucketName cloudtrail-test-2018 | Write-S3BucketTagging -TagSet @( @{ Key="Stage"; Value="Production" }, @{ Key="Department"; Value="Finance" } )

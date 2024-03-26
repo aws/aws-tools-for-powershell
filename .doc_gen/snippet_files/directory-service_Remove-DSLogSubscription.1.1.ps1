@@ -1,0 +1,1 @@
+Remove-DSLogSubscription -DirectoryId d-123456ijkl

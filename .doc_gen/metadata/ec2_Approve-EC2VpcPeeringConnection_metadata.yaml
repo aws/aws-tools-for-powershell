@@ -1,0 +1,29 @@
+---
+ec2_AcceptVpcPeeringConnection:
+  title: Use Approve-EC2VpcPeeringConnection
+  title_abbrev: Approve-EC2VpcPeeringConnection
+  synopsis: use Approve-EC2VpcPeeringConnection
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example approves the requested VpcPeeringConnectionId pcx-1dfad234b56ff78be</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Approve-EC2VpcPeeringConnection.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccepterVpcInfo        : Amazon.EC2.Model.VpcPeeringConnectionVpcInfo
+            ExpirationTime         : 1/1/0001 12:00:00 AM
+            RequesterVpcInfo       : Amazon.EC2.Model.VpcPeeringConnectionVpcInfo
+            Status                 : Amazon.EC2.Model.VpcPeeringConnectionStateReason
+            Tags                   : {}
+            VpcPeeringConnectionId : pcx-1dfad234b56ff78be</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      AcceptVpcPeeringConnection: 
+

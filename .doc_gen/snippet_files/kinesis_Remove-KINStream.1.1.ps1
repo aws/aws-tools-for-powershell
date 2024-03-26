@@ -1,0 +1,1 @@
+Remove-KINStream -StreamName "mystream"

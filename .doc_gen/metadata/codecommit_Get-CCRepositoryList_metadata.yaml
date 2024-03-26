@@ -1,0 +1,27 @@
+---
+codecommit_ListRepositories:
+  title: Use Get-CCRepositoryList
+  title_abbrev: Get-CCRepositoryList
+  synopsis: use Get-CCRepositoryList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all repositories in ascending order by repository name.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codecommit_Get-CCRepositoryList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">RepositoryId                            RepositoryName
+            ------------                            --------------
+            c7d0d2b0-ce40-4303-b4c3-38529EXAMPLE    MyDemoRepo
+            05f30c66-e3e3-4f91-a0cd-1c84aEXAMPLE    MyNewRepo</programlisting>
+          snippet_files: []
+  services:
+    codecommit:
+      ListRepositories: 
+

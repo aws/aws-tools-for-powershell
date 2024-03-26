@@ -1,0 +1,1 @@
+Remove-ECSService -Service my-http-service

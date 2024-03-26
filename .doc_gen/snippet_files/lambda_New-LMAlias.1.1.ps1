@@ -1,0 +1,1 @@
+New-LMAlias -FunctionName "MylambdaFunction123" -RoutingConfig_AdditionalVersionWeight @{Name="1";Value="0.6} -Description "Alias for version 4" -FunctionVersion 4 -Name "PowershellAlias"

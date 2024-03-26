@@ -1,0 +1,1 @@
+(Get-ELBLoadBalancerPolicyType -PolicyTypeName).Description

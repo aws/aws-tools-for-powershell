@@ -1,0 +1,31 @@
+---
+ec2_ReleaseHosts:
+  title: Use Remove-EC2Host
+  title_abbrev: Remove-EC2Host
+  synopsis: use Remove-EC2Host
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example releases the given host ID h-0badafd1dcb2f3456</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Remove-EC2Host.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-EC2Host (ReleaseHosts)" on target "h-0badafd1dcb2f3456".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y
+
+            Successful            Unsuccessful
+            ----------            ------------
+            {h-0badafd1dcb2f3456} {}</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      ReleaseHosts: 
+

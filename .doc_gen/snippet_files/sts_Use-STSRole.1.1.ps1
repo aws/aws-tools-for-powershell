@@ -1,0 +1,1 @@
+Use-STSRole -RoleSessionName "Bob" -RoleArn "arn:aws:iam::123456789012:role/demo" -Policy "...JSON policy..." -DurationInSeconds 3600

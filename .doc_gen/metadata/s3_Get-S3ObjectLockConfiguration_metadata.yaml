@@ -1,0 +1,26 @@
+---
+s3_GetObjectLockConfiguration:
+  title: Use Get-S3ObjectLockConfiguration
+  title_abbrev: Get-S3ObjectLockConfiguration
+  synopsis: use Get-S3ObjectLockConfiguration
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: "<emphasis role=\"bold\">Example 1: This command returns the value 'Enabled' if Object lock configuration is enabled for the given S3 bucket.</emphasis>"
+        - snippet_files:
+          - .doc_gen/snippet_files/s3_Get-S3ObjectLockConfiguration.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">Value
+            -----
+            Enabled</programlisting>
+  services:
+    s3:
+      GetObjectLockConfiguration: 
+

@@ -1,0 +1,75 @@
+---
+Common_Get-AWSPublicIpAddressRange:
+  title: Use Get-AWSPublicIpAddressRange
+  title_abbrev: Get-AWSPublicIpAddressRange
+  synopsis: use Get-AWSPublicIpAddressRange
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Outputs all of the current IP address range objects to the pipeline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">IpPrefix                Region                Service
+            --------                ------                -------
+            50.19.0.0/16            us-east-1             AMAZON
+            54.239.98.0/24          us-east-1             AMAZON
+            ...
+            50.19.0.0/16            us-east-1             EC2
+            75.101.128.0/17         us-east-1             EC2
+            ...
+            205.251.192.0/21        GLOBAL                ROUTE53
+            54.232.40.64/26         sa-east-1             ROUTE53_HEALTHCHECKS
+            ...
+            54.239.192.0/19         GLOBAL                CLOUDFRONT
+            204.246.176.0/20        GLOBAL                CLOUDFRONT
+            ...</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: Outputs the currently used set of 'Service' keys to the pipeline.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AMAZON
+            EC2
+            ROUTE53
+            ROUTE53_HEALTHCHECKS
+            CLOUDFRONT</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: Outputs the publication date of the IP address range information.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">Monday, December 15, 2014 4:41:01 PM</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 4: Filters the IP address ranges to output only those with a 'Service' value of 'EC2' to the pipeline.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.4.1.ps1
+        - description: '<emphasis role="bold">Example 5: Filters the IP address ranges to output only those used in the US West (Oregon) region to the pipeline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.5.1.ps1
+        - description: '<emphasis role="bold">Example 6: Filters the IP address ranges to output only those belonging to EC2 and CloudFront and  in the US West (Oregon) region to the pipeline. Multiple values can also be specified for the -Region parameter.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.6.1.ps1
+  services:
+    Common:
+      Get-AWSPublicIpAddressRange: 
+

@@ -1,0 +1,38 @@
+---
+ssm_DescribeDocument:
+  title: Use Get-SSMDocumentDescription
+  title_abbrev: Get-SSMDocumentDescription
+  synopsis: use Get-SSMDocumentDescription
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns information about a document.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMDocumentDescription.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">CreatedDate     : 2/24/2017 5:25:13 AM
+            DefaultVersion  : 1
+            Description     : Run an updated script
+            DocumentType    : Command
+            DocumentVersion : 1
+            Hash            : f775e5df4904c6fa46686c4722fae9de1950dace25cd9608ff8d622046b68d9b
+            HashType        : Sha256
+            LatestVersion   : 1
+            Name            : RunShellScript
+            Owner           : 123456789012
+            Parameters      : {commands}
+            PlatformTypes   : {Linux}
+            SchemaVersion   : 2.0
+            Sha1            :
+            Status          : Active</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribeDocument: 
+

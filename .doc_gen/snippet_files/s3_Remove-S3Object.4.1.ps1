@@ -1,0 +1,1 @@
+Remove-S3Object -bucketname "test-files" -KeyCollection (Get-S3Object "test-files" -KeyPrefix "prefix/subprefix" | select -ExpandProperty Key)

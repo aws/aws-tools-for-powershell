@@ -1,0 +1,22 @@
+---
+iam_CreateSAMLProvider:
+  title: Use New-IAMSAMLProvider
+  title_abbrev: New-IAMSAMLProvider
+  synopsis: use New-IAMSAMLProvider
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example creates a new SAML provider entity in IAM. It is named <code>MySAMLProvider</code> and is described by the SAML metadata document found in the file <code>SAMLMetaData.xml</code>, which was separately downloaded from the SAML service provider's web site.</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_New-IAMSAMLProvider.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">arn:aws:iam::123456789012:saml-provider/MySAMLProvider</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      CreateSAMLProvider: 

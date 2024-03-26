@@ -1,0 +1,1 @@
+New-ECSCluster -ClusterName "LAB-ECS-CL" -Setting @{Name="containerInsights"; Value="enabled"}

@@ -1,0 +1,30 @@
+---
+ssm_UpdateAssociation:
+  title: Use Update-SSMAssociation
+  title_abbrev: Update-SSMAssociation
+  synopsis: use Update-SSMAssociation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example updates an association with a new document version.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Update-SSMAssociation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                  : AWS-UpdateSSMAgent
+            InstanceId            :
+            Date                  : 3/1/2017 6:22:21 PM
+            Status.Name           :
+            Status.Date           :
+            Status.Message        :
+            Status.AdditionalInfo :</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      UpdateAssociation: 
+

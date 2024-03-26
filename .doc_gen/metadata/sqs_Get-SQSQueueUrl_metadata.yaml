@@ -1,0 +1,23 @@
+---
+sqs_GetQueueUrl:
+  title: Use Get-SQSQueueUrl
+  title_abbrev: Get-SQSQueueUrl
+  synopsis: use Get-SQSQueueUrl
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists the URL of the queue with the specified name.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Get-SQSQueueUrl.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue</programlisting>
+          snippet_files: []
+  services:
+    sqs:
+      GetQueueUrl: 
+

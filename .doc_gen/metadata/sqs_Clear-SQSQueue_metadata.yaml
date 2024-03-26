@@ -1,0 +1,19 @@
+---
+sqs_PurgeQueue:
+  title: Use Clear-SQSQueue
+  title_abbrev: Clear-SQSQueue
+  synopsis: use Clear-SQSQueue
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deletes all messages from the specified queue.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/sqs_Clear-SQSQueue.1.1.ps1
+  services:
+    sqs:
+      PurgeQueue: 
+

@@ -1,0 +1,1 @@
+Get-CFGConfigurationAggregatorSourcesStatus -ConfigurationAggregatorName raju | select SourceType, LastUpdateStatus, LastUpdateTime, SourceId

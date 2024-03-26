@@ -1,0 +1,30 @@
+---
+elastic-load-balancing_ModifyLoadBalancerAttributes:
+  title: Use Edit-ELBLoadBalancerAttribute
+  title_abbrev: Edit-ELBLoadBalancerAttribute
+  synopsis: use Edit-ELBLoadBalancerAttribute
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example enables cross-zone load balancing for the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Edit-ELBLoadBalancerAttribute.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example disables connection draining for the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Edit-ELBLoadBalancerAttribute.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example enables access logging for the specified load balancer.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing_Edit-ELBLoadBalancerAttribute.3.1.ps1
+  services:
+    elastic-load-balancing:
+      ModifyLoadBalancerAttributes: 
+
+

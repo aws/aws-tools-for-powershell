@@ -1,0 +1,28 @@
+---
+elastic-load-balancing-v2_DeleteTargetGroup:
+  title: Use Remove-ELB2TargetGroup
+  title_abbrev: Remove-ELB2TargetGroup
+  synopsis: use Remove-ELB2TargetGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example removes the specified Target Group.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/elastic-load-balancing-v2_Remove-ELB2TargetGroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Confirm
+            Are you sure you want to perform this action?
+            Performing the operation "Remove-ELB2TargetGroup (DeleteTargetGroup)" on target "arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/testsssss/4e0b6076bc6483a7".
+            [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): y</programlisting>
+          snippet_files: []
+  services:
+    elastic-load-balancing-v2:
+      DeleteTargetGroup: 
+
+

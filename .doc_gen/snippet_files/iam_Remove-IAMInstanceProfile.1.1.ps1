@@ -1,0 +1,2 @@
+(Get-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile).Roles | Remove-IAMRoleFromInstanceProfile -InstanceProfileName MyAppInstanceProfile
+Remove-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile

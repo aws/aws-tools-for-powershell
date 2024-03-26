@@ -1,0 +1,1 @@
+Get-ASAutoScalingGroup | format-table -property AutoScalingGroupName

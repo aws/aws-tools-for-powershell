@@ -1,0 +1,19 @@
+---
+lambda_DeleteFunction:
+  title: Use Remove-LMFunction
+  title_abbrev: Remove-LMFunction
+  synopsis: use Remove-LMFunction
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example deletes a specific version of a Lambda function</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Remove-LMFunction.1.1.ps1
+          description: 
+  services:
+    lambda:
+      DeleteFunction: 
+

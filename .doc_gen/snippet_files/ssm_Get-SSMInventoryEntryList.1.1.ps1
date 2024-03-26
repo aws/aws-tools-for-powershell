@@ -1,0 +1,1 @@
+Get-SSMInventoryEntryList -InstanceId mi-088dcb0ecea37b076 -TypeName AWS:Network | Select-Object -ExpandProperty Entries

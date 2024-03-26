@@ -1,0 +1,1 @@
+Get-DSCertificateList -DirectoryId d-123456ijkl

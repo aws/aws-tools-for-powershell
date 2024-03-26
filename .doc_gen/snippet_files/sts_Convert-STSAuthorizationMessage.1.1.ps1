@@ -1,0 +1,1 @@
+Convert-STSAuthorizationMessage -EncodedMessage "...encoded message..."

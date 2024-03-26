@@ -1,0 +1,29 @@
+---
+kinesis_DescribeStream:
+  title: Use Get-KINStream
+  title_abbrev: Get-KINStream
+  synopsis: use Get-KINStream
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns details of the specified stream.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/kinesis_Get-KINStream.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">HasMoreShards        : False
+            RetentionPeriodHours : 24
+            Shards               : {}
+            StreamARN            : arn:aws:kinesis:us-west-2:123456789012:stream/mystream
+            StreamName           : mystream
+            StreamStatus         : ACTIVE</programlisting>
+  services:
+    kinesis:
+      DescribeStream: 
+

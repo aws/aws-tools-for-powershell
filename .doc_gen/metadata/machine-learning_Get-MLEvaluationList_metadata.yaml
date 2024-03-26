@@ -1,0 +1,25 @@
+---
+machine-learning_DescribeEvaluations:
+  title: Use Get-MLEvaluationList
+  title_abbrev: Get-MLEvaluationList
+  synopsis: use Get-MLEvaluationList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns a list of all Evaluation resources</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_Get-MLEvaluationList.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: Returns a list of all Evaulations with a status of COMPLETED.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/machine-learning_Get-MLEvaluationList.2.1.ps1
+          description: 
+  services:
+    machine-learning:
+      DescribeEvaluations: 
+
+

@@ -1,0 +1,19 @@
+---
+ec2_DisableVgwRoutePropagation:
+  title: Use Disable-EC2VgwRoutePropagation
+  title_abbrev: Disable-EC2VgwRoutePropagation
+  synopsis: use Disable-EC2VgwRoutePropagation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example disables the VGW from automatically propagating routes to the specified routing table.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Disable-EC2VgwRoutePropagation.1.1.ps1
+  services:
+    ec2:
+      DisableVgwRoutePropagation: 
+

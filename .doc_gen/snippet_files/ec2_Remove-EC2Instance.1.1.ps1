@@ -1,0 +1,1 @@
+Remove-EC2Instance -InstanceId i-12345678

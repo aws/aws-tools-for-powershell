@@ -1,0 +1,1 @@
+Write-S3BucketRequestPayment -BucketName mybucket -RequestPaymentConfiguration_Payer Requester

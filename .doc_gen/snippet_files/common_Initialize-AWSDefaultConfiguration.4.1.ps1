@@ -1,0 +1,1 @@
+Initialize-AWSDefaultConfiguration -Region us-west-2

@@ -1,0 +1,32 @@
+---
+ssm_ListComplianceItems:
+  title: Use Get-SSMComplianceItemList
+  title_abbrev: Get-SSMComplianceItemList
+  synopsis: use Get-SSMComplianceItemList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example lists compliance items list for the given resource id and type, filtering compliance-type being 'Association'</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMComplianceItemList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ComplianceType   : Association
+            Details          : {[DocumentName, AWS-GatherSoftwareInventory], [DocumentVersion, 1]}
+            ExecutionSummary : Amazon.SimpleSystemsManagement.Model.ComplianceExecutionSummary
+            Id               : 123a45a1-c234-1234-1245-67891236db4e
+            ResourceId       : i-1a2caf345f67d0dc2
+            ResourceType     : ManagedInstance
+            Severity         : UNSPECIFIED
+            Status           : COMPLIANT
+            Title            :</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      ListComplianceItems: 
+

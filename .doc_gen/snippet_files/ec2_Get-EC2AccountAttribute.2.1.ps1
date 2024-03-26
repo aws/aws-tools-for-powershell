@@ -1,0 +1,1 @@
+(Get-EC2AccountAttribute -AttributeName default-vpc).AttributeValues

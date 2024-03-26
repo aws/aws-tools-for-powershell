@@ -1,0 +1,1 @@
+New-DSComputer -DirectoryId d-123456ijkl -ComputerName ADMemberServer -Password $Password

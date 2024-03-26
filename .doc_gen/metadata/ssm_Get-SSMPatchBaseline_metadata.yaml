@@ -1,0 +1,59 @@
+---
+ssm_DescribePatchBaselines:
+  title: Use Get-SSMPatchBaseline
+  title_abbrev: Get-SSMPatchBaseline
+  synopsis: use Get-SSMPatchBaseline
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example lists all patch baselines.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BaselineDescription                                             BaselineId                                                            BaselineName
+            -------------------                                             ----------                                                            ------------
+            Default Patch Baseline Provided by AWS.                         arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-04fb4ae6142167966 AWS-DefaultP...
+            Baseline containing all updates approved for production systems pb-045f10b4f382baeda                                                  Production-B...
+            Baseline containing all updates approved for production systems pb-0a2f1059b670ebd31                                                  Production-B...</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example lists all patch baselines provided by &AWS;. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">Get-SSMPatchBaseline -Filter $filter1</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 3: This example lists all patch baselines with you as the owner. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.3.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">Get-SSMPatchBaseline -Filter $filter1</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 4: With PowerShell version 2, you must use New-Object to create each tag.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.4.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BaselineDescription                     BaselineId                                                            BaselineName             DefaultBaselin
+                                                                                                                                                   e
+            -------------------                     ----------                                                            ------------             --------------
+            Default Patch Baseline Provided by AWS. arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-04fb4ae6142167966 AWS-DefaultPatchBaseline True</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DescribePatchBaselines: 
+

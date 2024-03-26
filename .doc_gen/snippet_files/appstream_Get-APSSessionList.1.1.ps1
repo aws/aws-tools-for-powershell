@@ -1,0 +1,1 @@
+Get-APSSessionList -FleetName PowershellFleet -StackName PowershellStack

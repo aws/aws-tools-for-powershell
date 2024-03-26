@@ -1,0 +1,1 @@
+Remove-APSFleet -Name TestFleet -Region us-west-2

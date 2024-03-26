@@ -1,0 +1,1 @@
+(Get-EC2InstanceAttribute -InstanceId i-12345678 -Attribute groupSet).Groups

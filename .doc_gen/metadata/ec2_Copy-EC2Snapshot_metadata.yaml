@@ -1,0 +1,24 @@
+---
+ec2_CopySnapshot:
+  title: Use Copy-EC2Snapshot
+  title_abbrev: Copy-EC2Snapshot
+  synopsis: use Copy-EC2Snapshot
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example copies the specified snapshot from the EU (Ireland) region to the US West (Oregon) region.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Copy-EC2Snapshot.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: If you set a default region and omit the Region parameter, the default destination region is the default region.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Copy-EC2Snapshot.2.1.ps1
+  services:
+    ec2:
+      CopySnapshot: 
+

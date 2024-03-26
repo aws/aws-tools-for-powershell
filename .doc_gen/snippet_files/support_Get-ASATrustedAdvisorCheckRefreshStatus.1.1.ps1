@@ -1,0 +1,1 @@
+Get-ASATrustedAdvisorCheckRefreshStatus -CheckId @("checkid1", "checkid2")

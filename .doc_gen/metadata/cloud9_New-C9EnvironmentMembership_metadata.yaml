@@ -1,0 +1,28 @@
+---
+cloud9_CreateEnvironmentMembership:
+  title: Use New-C9EnvironmentMembership
+  title_abbrev: New-C9EnvironmentMembership
+  synopsis: use New-C9EnvironmentMembership
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example adds the specified environment member to the specified &AWS; Cloud9 development environment.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cloud9_New-C9EnvironmentMembership.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EnvironmentId : ffd88420d4824eeeaeaa8a04bfde8cEX
+            LastAccess    : 1/1/0001 12:00:00 AM
+            Permissions   : read-write
+            UserArn       : arn:aws:iam::123456789012:user/AnotherDemoUser
+            UserId        : AIDAJ3BA6O2FMJWCWXHEX</programlisting>
+          snippet_files: []
+  services:
+    cloud9:
+      CreateEnvironmentMembership: 
+

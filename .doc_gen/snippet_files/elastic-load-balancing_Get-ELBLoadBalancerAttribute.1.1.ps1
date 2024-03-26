@@ -1,0 +1,1 @@
+Get-ELBLoadBalancerAttribute -LoadBalancerName my-load-balancer

@@ -1,0 +1,1 @@
+PS Get-SSMLatestEC2Image -Path ami-windows-latest

@@ -1,0 +1,1 @@
+Set-AWSProxy -Port 8888 -Hostname 127.0.0.1 -BypassList "127.0.0.1","ip-ranges.amazonaws.com"

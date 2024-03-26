@@ -1,0 +1,37 @@
+---
+eks_DescribeCluster:
+  title: Use Get-EKSCluster
+  title_abbrev: Get-EKSCluster
+  synopsis: use Get-EKSCluster
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet returns descriptive information about an Amazon EKS cluster.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/eks_Get-EKSCluster.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn                  : arn:aws:eks:us-west-2:012345678912:cluster/PROD
+            CertificateAuthority : Amazon.EKS.Model.Certificate
+            ClientRequestToken   :
+            CreatedAt            : 12/25/2019 6:46:17 AM
+            Endpoint             : https://669608765450FBBE54D1D78A3D71B72C.gr8.us-west-2.eks.amazonaws.com
+            Identity             : Amazon.EKS.Model.Identity
+            Logging              : Amazon.EKS.Model.Logging
+            Name                 : PROD
+            PlatformVersion      : eks.7
+            ResourcesVpcConfig   : Amazon.EKS.Model.VpcConfigResponse
+            RoleArn              : arn:aws:iam::012345678912:role/eks-iam-role
+            Status               : ACTIVE
+            Tags                 : {}
+            Version              : 1.14</programlisting>
+          snippet_files: []
+  services:
+    eks:
+      DescribeCluster: 
+

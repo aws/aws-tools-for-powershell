@@ -1,0 +1,19 @@
+---
+lambda_PublishVersion:
+  title: Use Publish-LMVersion
+  title_abbrev: Publish-LMVersion
+  synopsis: use Publish-LMVersion
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example creates a version for the existing snapshot of Lambda Function Code</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/lambda_Publish-LMVersion.1.1.ps1
+          description: 
+  services:
+    lambda:
+      PublishVersion: 
+

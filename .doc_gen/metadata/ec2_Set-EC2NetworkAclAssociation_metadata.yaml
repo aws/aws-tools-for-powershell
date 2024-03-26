@@ -1,0 +1,23 @@
+---
+ec2_ReplaceNetworkAclAssociation:
+  title: Use Set-EC2NetworkAclAssociation
+  title_abbrev: Set-EC2NetworkAclAssociation
+  synopsis: use Set-EC2NetworkAclAssociation
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example associates the specified network ACL with the subnet for the specified network ACL association.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Set-EC2NetworkAclAssociation.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">aclassoc-87654321</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      ReplaceNetworkAclAssociation: 
+

@@ -1,0 +1,55 @@
+---
+codepipeline_GetJobDetails:
+  title: Use Get-CPJobDetail
+  title_abbrev: Get-CPJobDetail
+  synopsis: use Get-CPJobDetail
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example gets general information about the specified job.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Get-CPJobDetail.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccountId       Data                                 Id
+            ---------       ----                                 --
+            80398EXAMPLE    Amazon.CodePipeline.Model.JobData    f570dc12-5ef3-44bc-945a-6e133EXAMPLE</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example gets detailed information about the specified job.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/codepipeline_Get-CPJobDetail.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">For Job f570dc12-5ef3-44bc-945a-6e133EXAMPLE:
+              AccountId = 80398EXAMPLE
+              Configuration:
+              ActionTypeId:
+                Category = Build
+                Owner = Custom
+                Provider = MyCustomProviderName
+                Version = 1
+              ArtifactCredentials:
+                AccessKeyId = ASIAIEI3...IXI6YREX
+                SecretAccessKey = cqAFDhEi...RdQyfa2u
+                SessionToken = AQoDYXdz...5u+lsAU=
+              InputArtifacts:
+                MyApp
+              OutputArtifacts:
+                MyAppBuild
+              PipelineContext:
+                Name = Build
+                PipelineName = CodePipelineDemo
+                Stage = Build</programlisting>
+          snippet_files: []
+  services:
+    codepipeline:
+      GetJobDetails: 
+

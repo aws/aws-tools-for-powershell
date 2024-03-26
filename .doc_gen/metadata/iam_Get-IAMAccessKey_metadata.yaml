@@ -1,0 +1,26 @@
+---
+iam_ListAccessKeys:
+  title: Use Get-IAMAccessKey
+  title_abbrev: Get-IAMAccessKey
+  synopsis: use Get-IAMAccessKey
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This command lists the access keys for the IAM user named <code>Bob</code>. Note that you cannot list the secret access keys for IAM users. If the secret access keys are lost, you must create new access keys with the <code>New-IAMAccessKey</code> cmdlet.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMAccessKey.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AccessKeyId                CreateDate                   Status              UserName
+            -----------                ----------                   ------              --------
+            AKIAIOSFODNN7EXAMPLE       12/3/2014 10:53:41 AM        Active              Bob
+            AKIAI44QH8DHBEXAMPLE       6/6/2013 8:42:26 PM          Inactive            Bob</programlisting>
+          snippet_files: []
+  services:
+    iam:
+      ListAccessKeys: 

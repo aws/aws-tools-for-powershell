@@ -1,0 +1,1 @@
+Add-IAMUserToGroup -UserName "Bob" -GroupName "Admins"

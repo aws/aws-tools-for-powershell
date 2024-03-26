@@ -1,0 +1,54 @@
+---
+route53_GetCheckerIpRanges:
+  title: Use Get-R53CheckerIpRanges
+  title_abbrev: Get-R53CheckerIpRanges
+  synopsis: use Get-R53CheckerIpRanges
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example returns the CIDRs for the Route53 health checkers</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route53_Get-R53CheckerIpRanges.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">15.177.2.0/23
+            15.177.6.0/23
+            15.177.10.0/23
+            15.177.14.0/23
+            15.177.18.0/23
+            15.177.22.0/23
+            15.177.26.0/23
+            15.177.30.0/23
+            15.177.34.0/23
+            15.177.38.0/23
+            15.177.42.0/23
+            15.177.46.0/23
+            15.177.50.0/23
+            15.177.54.0/23
+            15.177.58.0/23
+            15.177.62.0/23
+            54.183.255.128/26
+            54.228.16.0/26
+            54.232.40.64/26
+            54.241.32.64/26
+            54.243.31.192/26
+            54.244.52.192/26
+            54.245.168.0/26
+            54.248.220.0/26
+            54.250.253.192/26
+            54.251.31.128/26
+            54.252.79.128/26
+            54.252.254.192/26
+            54.255.254.192/26
+            107.23.255.0/26
+            176.34.159.192/26
+            177.71.207.128/26</programlisting>
+  services:
+    route53:
+      GetCheckerIpRanges: 

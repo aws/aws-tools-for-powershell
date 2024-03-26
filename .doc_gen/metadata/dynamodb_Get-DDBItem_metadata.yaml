@@ -1,0 +1,31 @@
+---
+dynamodb_GetItem:
+  title: Use Get-DDBItem
+  title_abbrev: Get-DDBItem
+  synopsis: use Get-DDBItem
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the DynamoDB item with the partition key SongTitle and the sort key Artist.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/dynamodb_Get-DDBItem.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Name                           Value
+            ----                           -----
+            Genre                          Country
+            SongTitle                      Somewhere Down The Road
+            Price                          1.94
+            Artist                         No One You Know
+            CriticRating                   9
+            AlbumTitle                     Somewhat Famous</programlisting>
+          snippet_files: []
+  services:
+    dynamodb:
+      GetItem: 
+

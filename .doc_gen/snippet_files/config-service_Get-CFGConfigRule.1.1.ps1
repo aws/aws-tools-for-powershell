@@ -1,0 +1,1 @@
+Get-CFGConfigRule | Select-Object ConfigRuleName, ConfigRuleId, ConfigRuleArn, ConfigRuleState

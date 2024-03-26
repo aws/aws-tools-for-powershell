@@ -1,0 +1,26 @@
+---
+ssm_DeregisterPatchBaselineForPatchGroup:
+  title: Use Unregister-SSMPatchBaselineForPatchGroup
+  title_abbrev: Unregister-SSMPatchBaselineForPatchGroup
+  synopsis: use Unregister-SSMPatchBaselineForPatchGroup
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example deregisters a patch group from a patch baseline.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Unregister-SSMPatchBaselineForPatchGroup.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">BaselineId           PatchGroup
+            ----------           ----------
+            pb-045f10b4f382baeda Production</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      DeregisterPatchBaselineForPatchGroup: 
+

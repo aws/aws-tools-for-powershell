@@ -1,0 +1,1 @@
+Update-RGGroup -GroupName auto-yes -Description "Instances auto-remove"

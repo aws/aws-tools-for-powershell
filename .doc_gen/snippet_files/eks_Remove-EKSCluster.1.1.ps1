@@ -1,0 +1,1 @@
+Remove-EKSCluster -Name "DEV-KUBE-CL"

@@ -1,0 +1,24 @@
+---
+support_DescribeTrustedAdvisorCheckSummaries:
+  title: Use Get-ASATrustedAdvisorCheckSummary
+  title_abbrev: Get-ASATrustedAdvisorCheckSummary
+  synopsis: use Get-ASATrustedAdvisorCheckSummary
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Returns the latest summary for the specified Trusted Advisor check.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/support_Get-ASATrustedAdvisorCheckSummary.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: Returns the latest summaries for the specified Trusted Advisor checks.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/support_Get-ASATrustedAdvisorCheckSummary.2.1.ps1
+  services:
+    support:
+      DescribeTrustedAdvisorCheckSummaries: 
+

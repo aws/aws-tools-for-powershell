@@ -1,0 +1,31 @@
+---
+application-autoscaling_DescribeScalableTargets:
+  title: Use Get-AASScalableTarget
+  title_abbrev: Get-AASScalableTarget
+  synopsis: use Get-AASScalableTarget
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example will provide information about the Application Autoscaling Scalable targets in the specified namespace.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/application-autoscaling_Get-AASScalableTarget.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: <emphasis role="bold">Output:</emphasis>
+        - snippet_files: []
+          description: |-
+            <programlisting language="none" role="nocopy">CreationTime      : 11/7/2019 2:30:03 AM
+            MaxCapacity       : 5
+            MinCapacity       : 1
+            ResourceId        : fleet/Test
+            RoleARN           : arn:aws:iam::012345678912:role/aws-service-role/appstream.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_AppStreamFleet
+            ScalableDimension : appstream:fleet:DesiredCapacity
+            ServiceNamespace  : appstream
+            SuspendedState    : Amazon.ApplicationAutoScaling.Model.SuspendedState</programlisting>
+  services:
+    application-autoscaling:
+      DescribeScalableTargets: 
+

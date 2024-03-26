@@ -1,0 +1,19 @@
+---
+cognito-identity_SetIdentityPoolRoles:
+  title: Use Set-CGIIdentityPoolRole
+  title_abbrev: Set-CGIIdentityPoolRole
+  synopsis: use Set-CGIIdentityPoolRole
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Configures the specific Identity Pool to have an unauthenticated IAM role.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/cognito-identity_Set-CGIIdentityPoolRole.1.1.ps1
+  services:
+    cognito-identity:
+      SetIdentityPoolRoles: 
+

@@ -1,0 +1,23 @@
+---
+ssm_StartAutomationExecution:
+  title: Use Start-SSMAutomationExecution
+  title_abbrev: Start-SSMAutomationExecution
+  synopsis: use Start-SSMAutomationExecution
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example runs a document specifying an Automation role, an AMI source ID, and an Amazon EC2 instance role.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Start-SSMAutomationExecution.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: <programlisting language="none" role="nocopy">3a532a4f-0382-11e7-9df7-6f11185f6dd1</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      StartAutomationExecution: 
+

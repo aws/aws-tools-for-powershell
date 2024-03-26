@@ -1,0 +1,20 @@
+---
+directory-service_EnableLDAPS:
+  title: Use Enable-DSLDAPS
+  title_abbrev: Enable-DSLDAPS
+  synopsis: use Enable-DSLDAPS
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example activates the switch for the specific directory to always use LDAP secure calls.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/directory-service_Enable-DSLDAPS.1.1.ps1
+  services:
+    directory-service:
+      EnableLDAPS: 
+
+

@@ -1,0 +1,29 @@
+---
+config-service_DescribeConfigRules:
+  title: Use Get-CFGConfigRule
+  title_abbrev: Get-CFGConfigRule
+  synopsis: use Get-CFGConfigRule
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample lists config rules for the account, with selected properties.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/config-service_Get-CFGConfigRule.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">ConfigRuleName                                    ConfigRuleId       ConfigRuleArn                                                        ConfigRuleState
+            --------------                                    ------------       -------------                                                        ---------------
+            ALB_REDIRECTION_CHECK                             config-rule-12iyn3 arn:aws:config-service:eu-west-1:123456789012:config-rule/config-rule-12iyn3 ACTIVE
+            access-keys-rotated                               config-rule-aospfr arn:aws:config-service:eu-west-1:123456789012:config-rule/config-rule-aospfr ACTIVE
+            autoscaling-group-elb-healthcheck-required        config-rule-cn1f2x arn:aws:config-service:eu-west-1:123456789012:config-rule/config-rule-cn1f2x ACTIVE</programlisting>
+          snippet_files: []
+  services:
+    config-service:
+      DescribeConfigRules: 
+
+

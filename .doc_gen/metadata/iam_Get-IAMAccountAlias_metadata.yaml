@@ -1,0 +1,22 @@
+---
+iam_ListAccountAliases:
+  title: Use Get-IAMAccountAlias
+  title_abbrev: Get-IAMAccountAlias
+  synopsis: use Get-IAMAccountAlias
+  languages:
+    PowerShell:
+      versions:
+        - sdk_version: 4
+          excerpts:
+            - description: '<emphasis role="bold">Example 1: This command returns the account alias for the &AWS-account;.</emphasis>'
+              snippet_files: []
+            - description:
+              snippet_files:
+                - .doc_gen/snippet_files/iam_Get-IAMAccountAlias.1.1.ps1
+            - description: <emphasis role="bold">Output:</emphasis>
+              snippet_files: []
+            - description: <programlisting language="none" role="nocopy">ExampleCo</programlisting>
+              snippet_files: []
+  services:
+    iam:
+      ListAccountAliases:

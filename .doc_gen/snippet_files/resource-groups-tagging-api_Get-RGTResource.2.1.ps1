@@ -1,0 +1,1 @@
+Get-RGTResource -ResourceType "s3"

@@ -1,0 +1,23 @@
+---
+iam_DetachUserPolicy:
+  title: Use Unregister-IAMUserPolicy
+  title_abbrev: Unregister-IAMUserPolicy
+  synopsis: use Unregister-IAMUserPolicy
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example detaches the managed policy whose ARN is <code>arn:aws:iam::123456789012:policy/TesterPolicy</code> from the IAM user named <code>Bob</code>.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Unregister-IAMUserPolicy.1.1.ps1
+          description: 
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 2: This example finds all the managed policies that are attached to the IAM user named <code>Theresa</code> and detaches those policies from the user.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/iam_Unregister-IAMUserPolicy.2.1.ps1
+          description: 
+  services:
+    iam:
+      DetachUserPolicy: 

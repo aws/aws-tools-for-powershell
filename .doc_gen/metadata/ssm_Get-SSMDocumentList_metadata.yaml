@@ -1,0 +1,63 @@
+---
+ssm_ListDocuments:
+  title: Use Get-SSMDocumentList
+  title_abbrev: Get-SSMDocumentList
+  synopsis: use Get-SSMDocumentList
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: Lists all the configuration documents in your account.</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMDocumentList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DocumentType    : Command
+            DocumentVersion : 1
+            Name            : AWS-ApplyPatchBaseline
+            Owner           : Amazon
+            PlatformTypes   : {Windows}
+            SchemaVersion   : 1.2
+
+            DocumentType    : Command
+            DocumentVersion : 1
+            Name            : AWS-ConfigureAWSPackage
+            Owner           : Amazon
+            PlatformTypes   : {Windows, Linux}
+            SchemaVersion   : 2.0
+
+            DocumentType    : Command
+            DocumentVersion : 1
+            Name            : AWS-ConfigureCloudWatch
+            Owner           : Amazon
+            PlatformTypes   : {Windows}
+            SchemaVersion   : 1.2
+            ...</programlisting>
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This example retrieves all automation documents with name matchingi 'Platform'</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ssm_Get-SSMDocumentList.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">DocumentFormat  : JSON
+            DocumentType    : Automation
+            DocumentVersion : 7
+            Name            : KT-Get-Platform
+            Owner           : 987654123456
+            PlatformTypes   : {Windows, Linux}
+            SchemaVersion   : 0.3
+            Tags            : {}
+            TargetType      :
+            VersionName     :</programlisting>
+          snippet_files: []
+  services:
+    ssm:
+      ListDocuments: 
+

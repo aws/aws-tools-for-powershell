@@ -1,0 +1,26 @@
+---
+iam_ListOpenIDConnectProviders:
+  title: Use Get-IAMOpenIDConnectProviderList
+  title_abbrev: Get-IAMOpenIDConnectProviderList
+  synopsis: use Get-IAMOpenIDConnectProviderList
+  languages:
+    PowerShell:
+      versions:
+        - sdk_version: 4
+          excerpts:
+            - description: '<emphasis role="bold">Example 1: This example returns a list of ARNS of all the OpenID Connect providers that are defined in the current &AWS-account;.</emphasis>'
+              snippet_files: []
+            - description:
+              snippet_files:
+                - .doc_gen/snippet_files/iam_Get-IAMOpenIDConnectProviderList.1.1.ps1
+            - description: <emphasis role="bold">Output:</emphasis>
+              snippet_files: []
+            - description: |-
+                <programlisting language="none" role="nocopy">Arn
+                ---
+                arn:aws:iam::123456789012:oidc-provider/server.example.com
+                arn:aws:iam::123456789012:oidc-provider/another.provider.com</programlisting>
+              snippet_files: []
+  services:
+    iam:
+      ListOpenIDConnectProviders:

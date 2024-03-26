@@ -1,0 +1,47 @@
+---
+ec2_DescribeHosts:
+  title: Use Get-EC2Host
+  title_abbrev: Get-EC2Host
+  synopsis: use Get-EC2Host
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns the EC2 host details</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Host.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AllocationTime    : 3/23/2019 4:55:22 PM
+            AutoPlacement     : off
+            AvailabilityZone  : eu-west-1b
+            AvailableCapacity : Amazon.EC2.Model.AvailableCapacity
+            ClientToken       :
+            HostId            : h-01e23f4cd567890f1
+            HostProperties    : Amazon.EC2.Model.HostProperties
+            HostReservationId :
+            Instances         : {}
+            ReleaseTime       : 1/1/0001 12:00:00 AM
+            State             : available
+            Tags              : {}</programlisting>
+          snippet_files: []
+        - description: '<emphasis role="bold">Example 2: This example queries the AvailableInstanceCapacity for the host h-01e23f4cd567899f1</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Get-EC2Host.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">AvailableCapacity InstanceType TotalCapacity
+            ----------------- ------------ -------------
+            11                m4.xlarge    11</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      DescribeHosts: 
+

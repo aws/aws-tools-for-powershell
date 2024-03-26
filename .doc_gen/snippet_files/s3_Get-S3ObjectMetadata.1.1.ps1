@@ -1,0 +1,1 @@
+Get-S3ObjectMetadata -BucketName 's3testbucket' -Key 'ListTrusts.txt'

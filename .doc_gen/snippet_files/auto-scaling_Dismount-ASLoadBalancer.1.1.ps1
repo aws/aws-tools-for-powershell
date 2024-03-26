@@ -1,0 +1,1 @@
+Dismount-ASLoadBalancer -LoadBalancerName my-lb -AutoScalingGroupName my-asg

@@ -1,0 +1,1 @@
+Disable-ASMetricsCollection -AutoScalingGroupName my-asg

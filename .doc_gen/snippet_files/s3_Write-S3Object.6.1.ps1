@@ -1,0 +1,1 @@
+Write-S3Object -BucketName test-files -Key "sample.txt" -Content "object contents"

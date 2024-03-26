@@ -1,0 +1,35 @@
+---
+ec2_ImportImage:
+  title: Use Import-EC2Image
+  title_abbrev: Import-EC2Image
+  synopsis: use Import-EC2Image
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: |-
+            <emphasis role="bold">Example 1: This example imports a single-disk virtual machine image from the specified Amazon S3 bucket to Amazon EC2 with an idempotency token.
+            The example requires that a VM Import Service Role with the default name 'vmimport' exists, with a policy allowing Amazon EC2 access to the specified bucket, as explained in the VM Import Prequisites topic. To use a custom role, specify the role name using the <code>-RoleName</code> parameter.</emphasis>
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Import-EC2Image.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Architecture    : 
+            Description     : Windows 2008 Standard Image
+            Hypervisor      : 
+            ImageId         : 
+            ImportTaskId    : import-ami-abcdefgh
+            LicenseType     : AWS
+            Platform        : Windows
+            Progress        : 2
+            SnapshotDetails : {}
+            Status          : active
+            StatusMessage   : pending</programlisting>
+          snippet_files: []
+  services:
+    ec2:
+      ImportImage: 

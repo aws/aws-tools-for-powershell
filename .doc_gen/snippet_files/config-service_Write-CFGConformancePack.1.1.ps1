@@ -1,0 +1,1 @@
+Write-CFGConformancePack -ConformancePackName dono -DeliveryS3Bucket kt-ps-examples -TemplateBody (Get-Content C:\windows\temp\template.yaml -Raw)

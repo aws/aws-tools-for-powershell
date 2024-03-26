@@ -1,0 +1,1 @@
+(Get-ECRLoginCommand).Password | docker login --username AWS --password-stdin 012345678910.dkr.ecr.us-east-1.amazonaws.com

@@ -1,0 +1,19 @@
+---
+workspaces_ModifySelfservicePermissions:
+  title: Use Edit-WKSSelfServicePermission
+  title_abbrev: Edit-WKSSelfServicePermission
+  synopsis: use Edit-WKSSelfServicePermission
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This sample enables self service permissions to Change compute type and Increase Volume Size for the specified Directory</emphasis>'
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - .doc_gen/snippet_files/workspaces_Edit-WKSSelfServicePermission.1.1.ps1
+  services:
+    workspaces:
+      ModifySelfservicePermissions: 
+
