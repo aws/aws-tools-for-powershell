@@ -396,6 +396,10 @@
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMServerCertificate.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Get-IAMSigningCertificate.xml" />
             <PrivateKeyException Include="generator\AWSPSGeneratorLib\HelpMaterials\Examples\IAM\Publish-IAMSigningCertificate.xml" />
+            <PrivateKeyException Include=".doc_gen\metadata\ec2_New-EC2KeyPair_metadata.yaml" />
+            <PrivateKeyException Include=".doc_gen\metadata\iam_Get-IAMServerCertificate_metadata.yaml" />
+            <PrivateKeyException Include=".doc_gen\metadata\iam_Get-IAMSigningCertificate_metadata.yaml" />
+            <PrivateKeyException Include=".doc_gen\metadata\iam_Publish-IAMSigningCertificate_metadata.yaml" />
             <PrivateKeyException Include="Deployment\AWSPowerShell\AWSPowerShell.dll-Help.xml" />
             <PrivateKeyException Include="Deployment\AWSPowerShell.NetCore\AWSPowerShell.NetCore.dll-Help.xml" />
             <PrivateKeyException Include="Deployment\AWS.Tools\AWS.Tools.EC2\AWS.Tools.EC2.dll-Help.xml" />
