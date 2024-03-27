@@ -28,7 +28,28 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Creates an Amazon Bedrock Agent
+    /// Creates an agent that orchestrates interactions between foundation models, data sources,
+    /// software applications, user conversations, and APIs to carry out tasks to help customers.
+    /// 
+    ///  <ul><li><para>
+    /// Specify the following fields for security purposes.
+    /// </para><ul><li><para><c>agentResourceRoleArn</c> – The ARN of the role with permissions to create an agent.
+    /// </para></li><li><para>
+    /// (Optional) <c>customerEncryptionKeyArn</c> – The ARN of a KMS key to encrypt the creation
+    /// of the agent.
+    /// </para></li><li><para>
+    /// (Optional) <c>idleSessionTTLinSeconds</c> – Specify the number of seconds for which
+    /// the agent should maintain session information. After this time expires, the subsequent
+    /// <c>InvokeAgent</c> request begins a new session.
+    /// </para></li></ul></li><li><para>
+    /// To override the default prompt behavior for agent orchestration and to use advanced
+    /// prompts, include a <c>promptOverrideConfiguration</c> object. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
+    /// prompts</a>.
+    /// </para></li><li><para>
+    /// If you agent fails to be created, the response returns a list of <c>failureReasons</c>
+    /// alongside a list of <c>recommendedActions</c> for you to troubleshoot.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "AABAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.Agent")]
@@ -49,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A name for the agent that you create.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentResourceRoleArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the IAM role with permissions to create the agent. The ARN must begin with
+        /// <c>AmazonBedrockExecutionRoleForAgents_</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter CustomerEncryptionKeyArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the KMS key with which to encrypt the agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of the agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FoundationModel
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The foundation model to be used for orchestration by the agent you create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter IdleSessionTTLInSecond
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The number of seconds for which Amazon Bedrock keeps information about a user's conversation
+        /// with the agent.</para><para>A user interaction remains active for the amount of time specified. If no conversation
+        /// occurs during this time, the session expires and Amazon Bedrock deletes any data provided
+        /// before the timeout.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Instruction
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Instructions that tell the agent what it should do and how it should interact with
+        /// users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PromptOverrideConfiguration_OverrideLambda
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the Lambda function to use when parsing the raw foundation model output
+        /// in parts of the agent sequence. If you specify this field, at least one of the <c>promptConfigurations</c>
+        /// must contain a <c>parserMode</c> value that is set to <c>OVERRIDDEN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PromptOverrideConfiguration_PromptConfiguration
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Contains configurations to override a prompt template in one part of an agent sequence.
+        /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
+        /// prompts</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Any tags that you want to attach to the agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -166,7 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
+        /// request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

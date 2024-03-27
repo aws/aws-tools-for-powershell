@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Delete an existing data source
+    /// Deletes a data source from a knowledge base.
     /// </summary>
     [Cmdlet("Remove", "AABDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgent.Model.DeleteDataSourceResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the data source to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base from which to delete the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Prepares an existing Amazon Bedrock Agent to receive runtime requests
+    /// Creates a <c>DRAFT</c> version of the agent that can be used for internal testing.
     /// </summary>
     [Cmdlet("Initialize", "AABAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.PrepareAgentResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent for which to create a <c>DRAFT</c> version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

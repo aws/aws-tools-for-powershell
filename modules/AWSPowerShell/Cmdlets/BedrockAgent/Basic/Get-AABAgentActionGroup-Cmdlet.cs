@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Gets an Action Group for existing Amazon Bedrock Agent Version
+    /// Gets information about an action group for an agent.
     /// </summary>
     [Cmdlet("Get", "AABAgentActionGroup")]
     [OutputType("Amazon.BedrockAgent.Model.AgentActionGroup")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ActionGroupId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent Action Group is created</para>
+        /// <para>The unique identifier of the action group for which to get information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent that the action group belongs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>Version number generated when a version is created</para>
+        /// <para>The version of the agent that the action group belongs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

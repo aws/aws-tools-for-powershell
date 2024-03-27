@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Get an existing data source
+    /// Gets information about a data source.
     /// </summary>
     [Cmdlet("Get", "AABDataSource")]
     [OutputType("Amazon.BedrockAgent.Model.DataSource")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base that the data source was added to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

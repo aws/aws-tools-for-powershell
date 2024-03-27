@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Describes an Alias for a Amazon Bedrock Agent
+    /// Gets information about an alias of an agent.
     /// </summary>
     [Cmdlet("Get", "AABAgentAlias")]
     [OutputType("Amazon.BedrockAgent.Model.AgentAlias")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentAliasId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent Alias is created</para>
+        /// <para>The unique identifier of the alias for which to get information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent to which the alias to get information belongs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

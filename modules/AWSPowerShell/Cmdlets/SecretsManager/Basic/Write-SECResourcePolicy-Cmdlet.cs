@@ -60,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>Specifies whether to block resource-based policies that allow broad access to the
         /// secret, for example those that use a wildcard for the principal. By default, public
-        /// policies aren't blocked.</para>
+        /// policies aren't blocked.</para><important><para>Resource policy validation and the BlockPublicPolicy parameter help protect your resources
+        /// by preventing public access from being granted through the resource policies that
+        /// are directly attached to your secrets. In addition to using these features, carefully
+        /// inspect the following policies to confirm that they do not grant public access:</para><ul><li><para>Identity-based policies attached to associated Amazon Web Services principals (for
+        /// example, IAM roles)</para></li><li><para>Resource-based policies attached to associated Amazon Web Services resources (for
+        /// example, Key Management Service (KMS) keys)</para></li></ul><para>To review permissions to your secrets, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/determine-acccess_examine-iam-policies.html">Determine
+        /// who has permissions to your secrets</a>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

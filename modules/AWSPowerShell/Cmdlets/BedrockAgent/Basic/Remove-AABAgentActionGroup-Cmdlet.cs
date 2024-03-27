@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Deletes an Action Group for existing Amazon Bedrock Agent.
+    /// Deletes an action group in an agent.
     /// </summary>
     [Cmdlet("Remove", "AABAgentActionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ActionGroupId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent ActionGroup is created</para>
+        /// <para>The unique identifier of the action group to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent that the action group belongs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>Draft Version of the Agent.</para>
+        /// <para>The version of the agent that the action group belongs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter SkipResourceInUseCheck
         /// <summary>
         /// <para>
-        /// <para>Skips checking if resource is in use when set to true. Defaults to false</para>
+        /// <para>By default, this value is <c>false</c> and deletion is stopped if the resource is
+        /// in use. If you set it to <c>true</c>, the resource will be deleted even if the resource
+        /// is in use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

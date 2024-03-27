@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Gets a knowledge base associated to an existing Amazon Bedrock Agent Version
+    /// Gets information about a knowledge base associated with an agent.
     /// </summary>
     [Cmdlet("Get", "AABAgentKnowledgeBase")]
     [OutputType("Amazon.BedrockAgent.Model.AgentKnowledgeBase")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent with which the knowledge base is associated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>Version number generated when a version is created</para>
+        /// <para>The version of the agent with which the knowledge base is associated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when a Knowledge Base is associated</para>
+        /// <para>The unique identifier of the knowledge base associated with the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

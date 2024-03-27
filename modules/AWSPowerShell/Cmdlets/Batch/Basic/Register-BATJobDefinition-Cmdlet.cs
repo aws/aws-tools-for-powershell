@@ -236,6 +236,19 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ContainerProperties_Image { get; set; }
         #endregion
         
+        #region Parameter PodProperties_ImagePullSecret
+        /// <summary>
+        /// <para>
+        /// <para>References a Kubernetes secret resource. This object must start and end with an alphanumeric
+        /// character, is required to be lowercase, can include periods (.) and hyphens (-), and
+        /// can't contain more than 253 characters.</para><para><c>ImagePullSecret$name</c> is required when this object is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EksProperties_PodProperties_ImagePullSecrets")]
+        public Amazon.Batch.Model.ImagePullSecret[] PodProperties_ImagePullSecret { get; set; }
+        #endregion
+        
         #region Parameter PodProperties_InitContainer
         /// <summary>
         /// <para>
@@ -988,6 +1001,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.PodProperties_DnsPolicy = this.PodProperties_DnsPolicy;
             context.PodProperties_HostNetwork = this.PodProperties_HostNetwork;
+            if (this.PodProperties_ImagePullSecret != null)
+            {
+                context.PodProperties_ImagePullSecret = new List<Amazon.Batch.Model.ImagePullSecret>(this.PodProperties_ImagePullSecret);
+            }
             if (this.PodProperties_InitContainer != null)
             {
                 context.PodProperties_InitContainer = new List<Amazon.Batch.Model.EksContainer>(this.PodProperties_InitContainer);
@@ -1556,6 +1573,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 requestEksProperties_eksProperties_PodProperties.HostNetwork = requestEksProperties_eksProperties_PodProperties_podProperties_HostNetwork.Value;
                 requestEksProperties_eksProperties_PodPropertiesIsNull = false;
             }
+            List<Amazon.Batch.Model.ImagePullSecret> requestEksProperties_eksProperties_PodProperties_podProperties_ImagePullSecret = null;
+            if (cmdletContext.PodProperties_ImagePullSecret != null)
+            {
+                requestEksProperties_eksProperties_PodProperties_podProperties_ImagePullSecret = cmdletContext.PodProperties_ImagePullSecret;
+            }
+            if (requestEksProperties_eksProperties_PodProperties_podProperties_ImagePullSecret != null)
+            {
+                requestEksProperties_eksProperties_PodProperties.ImagePullSecrets = requestEksProperties_eksProperties_PodProperties_podProperties_ImagePullSecret;
+                requestEksProperties_eksProperties_PodPropertiesIsNull = false;
+            }
             List<Amazon.Batch.Model.EksContainer> requestEksProperties_eksProperties_PodProperties_podProperties_InitContainer = null;
             if (cmdletContext.PodProperties_InitContainer != null)
             {
@@ -1834,6 +1861,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.EksContainer> PodProperties_Container { get; set; }
             public System.String PodProperties_DnsPolicy { get; set; }
             public System.Boolean? PodProperties_HostNetwork { get; set; }
+            public List<Amazon.Batch.Model.ImagePullSecret> PodProperties_ImagePullSecret { get; set; }
             public List<Amazon.Batch.Model.EksContainer> PodProperties_InitContainer { get; set; }
             public Dictionary<System.String, System.String> Metadata_Label { get; set; }
             public System.String PodProperties_ServiceAccountName { get; set; }

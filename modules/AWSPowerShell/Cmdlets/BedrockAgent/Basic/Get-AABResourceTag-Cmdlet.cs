@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// List tags for a resource
+    /// List all the tags for the resource you specify.
     /// </summary>
     [Cmdlet("Get", "AABResourceTag")]
     [OutputType("System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the resource for which to list tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

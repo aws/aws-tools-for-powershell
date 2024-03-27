@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Gets an Agent for existing Amazon Bedrock Agent
+    /// Gets information about an agent.
     /// </summary>
     [Cmdlet("Get", "AABAgent")]
     [OutputType("Amazon.BedrockAgent.Model.Agent")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

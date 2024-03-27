@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Disassociate an existing Knowledge Base from an Amazon Bedrock Agent
+    /// Disassociates a knowledge base from an agent.
     /// </summary>
     [Cmdlet("Unregister", "AABAgentKnowledgeBase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent from which to disassociate the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>Draft Version of the Agent.</para>
+        /// <para>The version of the agent from which to disassociate the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when a Knowledge Base is associated to an Agent</para>
+        /// <para>The unique identifier of the knowledge base to disassociate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,7 +28,11 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Create a new data source
+    /// Sets up a data source to be added to a knowledge base.
+    /// 
+    ///  <important><para>
+    /// You can't change the <c>chunkingConfiguration</c> after you create the data source.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "AABDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.DataSource")]
@@ -45,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter S3Configuration_BucketArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the bucket that contains the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +60,13 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ChunkingConfiguration_ChunkingStrategy
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Knowledge base can split your source data into chunks. A <i>chunk</i> refers to an
+        /// excerpt from a data source that is returned when the knowledge base that it belongs
+        /// to is queried. You have the following options for chunking your data. If you opt for
+        /// <c>NONE</c>, then you may want to pre-process your files by splitting them up such
+        /// that each file corresponds to a chunk.</para><ul><li><para><c>FIXED_SIZE</c> – Amazon Bedrock splits your source data into chunks of the approximate
+        /// size that you set in the <c>fixedSizeChunkingConfiguration</c>.</para></li><li><para><c>NONE</c> – Amazon Bedrock treats each file as one chunk. If you choose this option,
+        /// you may want to pre-process your documents by splitting them into separate files.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter S3Configuration_InclusionPrefix
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of S3 prefixes that define the object containing the data sources. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing
+        /// objects using prefixes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the KMS key used to encrypt the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base to which to add the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -116,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FixedSizeChunkingConfiguration_MaxToken
         /// <summary>
         /// <para>
-        /// <para>The maximum number of tokens per chunk.</para>
+        /// <para>The maximum number of tokens to include in a chunk.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -144,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FixedSizeChunkingConfiguration_OverlapPercentage
         /// <summary>
         /// <para>
-        /// <para>The overlap percentage between adjacent chunks.</para>
+        /// <para>The percentage of overlap between adjacent chunks of a data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataSourceConfiguration_Type
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of storage for the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -172,7 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
+        /// request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

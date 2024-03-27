@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// List ingestion jobs
+    /// Lists the ingestion jobs for a data source and information about each of them.
     /// </summary>
     [Cmdlet("Get", "AABIngestionJobList")]
     [OutputType("Amazon.BedrockAgent.Model.IngestionJobSummary")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter SortBy_Attribute
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The attribute by which to sort the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the data source for which to return ingestion jobs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Contains a definition of a filter for which to filter the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base for which to return ingestion jobs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter SortBy_Order
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The order by which to sort the results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return in the response. If the total number of results
+        /// is greater than this value, use the token returned in the response in the <c>nextToken</c>
+        /// field when making another request to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +125,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If the total number of results is greater than the <c>maxResults</c> value provided
+        /// in the request, enter the token returned in the <c>nextToken</c> field in the response
+        /// in this field to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

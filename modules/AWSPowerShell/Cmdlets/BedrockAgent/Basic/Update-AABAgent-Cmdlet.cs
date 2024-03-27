@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Updates an existing Amazon Bedrock Agent
+    /// Updates the configuration of an agent.
     /// </summary>
     [Cmdlet("Update", "AABAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.Agent")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies a new name for the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentResourceRoleArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the IAM role with permissions to update the agent. The ARN must begin with
+        /// <c>AmazonBedrockExecutionRoleForAgents_</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter CustomerEncryptionKeyArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the KMS key with which to encrypt the agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies a new description of the agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,17 +121,27 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FoundationModel
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies a new foundation model to be used for orchestration by the agent.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String FoundationModel { get; set; }
         #endregion
         
         #region Parameter IdleSessionTTLInSecond
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The number of seconds for which Amazon Bedrock keeps information about a user's conversation
+        /// with the agent.</para><para>A user interaction remains active for the amount of time specified. If no conversation
+        /// occurs during this time, the session expires and Amazon Bedrock deletes any data provided
+        /// before the timeout.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -141,7 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Instruction
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies new instructions that tell the agent what it should do and how it should
+        /// interact with users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -151,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PromptOverrideConfiguration_OverrideLambda
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the Lambda function to use when parsing the raw foundation model output
+        /// in parts of the agent sequence. If you specify this field, at least one of the <c>promptConfigurations</c>
+        /// must contain a <c>parserMode</c> value that is set to <c>OVERRIDDEN</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +175,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PromptOverrideConfiguration_PromptConfiguration
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Contains configurations to override a prompt template in one part of an agent sequence.
+        /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
+        /// prompts</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,6 +271,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.Description = this.Description;
             context.FoundationModel = this.FoundationModel;
+            #if MODULAR
+            if (this.FoundationModel == null && ParameterWasBound(nameof(this.FoundationModel)))
+            {
+                WriteWarning("You are passing $null as a value for parameter FoundationModel which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.IdleSessionTTLInSecond = this.IdleSessionTTLInSecond;
             context.Instruction = this.Instruction;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;

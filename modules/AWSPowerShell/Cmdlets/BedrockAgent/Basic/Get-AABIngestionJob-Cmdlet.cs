@@ -28,7 +28,8 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Get an ingestion job
+    /// Gets information about a ingestion job, in which a data source is added to a knowledge
+    /// base.
     /// </summary>
     [Cmdlet("Get", "AABIngestionJob")]
     [OutputType("Amazon.BedrockAgent.Model.IngestionJob")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the data source in the ingestion job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter IngestionJobId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the ingestion job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base for which the ingestion job applies.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

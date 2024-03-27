@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// List of Knowledge Bases associated to an existing Amazon Bedrock Agent Version
+    /// Lists knowledge bases associated with an agent and information about each one.
     /// </summary>
     [Cmdlet("Get", "AABAgentKnowledgeBasisList")]
     [OutputType("Amazon.BedrockAgent.Model.AgentKnowledgeBaseSummary")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent for which to return information about knowledge
+        /// bases associated with it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>Version number generated when a version is created</para>
+        /// <para>The version of the agent for which to return information about knowledge bases associated
+        /// with it.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return in the response. If the total number of results
+        /// is greater than this value, use the token returned in the response in the <c>nextToken</c>
+        /// field when making another request to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If the total number of results is greater than the <c>maxResults</c> value provided
+        /// in the request, enter the token returned in the <c>nextToken</c> field in the response
+        /// in this field to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

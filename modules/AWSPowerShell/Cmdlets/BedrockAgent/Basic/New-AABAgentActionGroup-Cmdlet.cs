@@ -28,7 +28,21 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Creates an Action Group for existing Amazon Bedrock Agent
+    /// Creates an action group for an agent. An action group represents the actions that
+    /// an agent can carry out for the customer by defining the APIs that an agent can call
+    /// and the logic for calling them.
+    /// 
+    ///  
+    /// <para>
+    /// To allow your agent to request the user for additional information when trying to
+    /// complete a task, add an action group with the <c>parentActionGroupSignature</c> field
+    /// set to <c>AMAZON.UserInput</c>. You must leave the <c>description</c>, <c>apiSchema</c>,
+    /// and <c>actionGroupExecutor</c> fields blank for this action group. During orchestration,
+    /// if your agent determines that it needs to invoke an API in an action group, but doesn't
+    /// have enough information to complete the API request, it will invoke this action group
+    /// instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a>
+    /// reprompting the user for more information.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "AABAgentActionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.AgentActionGroup")]
@@ -49,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ActionGroupName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name to give the action group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ActionGroupState
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether the action group is available for the agent to invoke or not when
+        /// sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent for which to create the action group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>Draft Version of the Agent.</para>
+        /// <para>The version of the agent for which to create the action group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -111,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of the action group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ActionGroupExecutor_Lambda
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the Lambda function containing the business logic that is carried out upon
+        /// invoking the action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,7 +148,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ParentActionGroupSignature
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>To allow your agent to request the user for additional information when trying to
+        /// complete a task, set this field to <c>AMAZON.UserInput</c>. You must leave the <c>description</c>,
+        /// <c>apiSchema</c>, and <c>actionGroupExecutor</c> fields blank for this action group.</para><para>During orchestration, if your agent determines that it needs to invoke an API in an
+        /// action group, but doesn't have enough information to complete the API request, it
+        /// will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a>
+        /// reprompting the user for more information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ApiSchema_Payload
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+        /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action
+        /// group OpenAPI schemas</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter S3_S3BucketName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter S3_S3ObjectKey
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The S3 object key containing the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
+        /// request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

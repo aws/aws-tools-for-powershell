@@ -28,7 +28,43 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Create a new knowledge base
+    /// Creates a knowledge base that contains data sources from which information can be
+    /// queried and used by LLMs. To create a knowledge base, you must first set up your data
+    /// sources and configure a supported vector store. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html">Set
+    /// up your data for ingestion</a>.
+    /// 
+    ///  <note><para>
+    /// If you prefer to let Amazon Bedrock create and manage a vector store for you in Amazon
+    /// OpenSearch Service, use the console. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create">Create
+    /// a knowledge base</a>.
+    /// </para></note><ul><li><para>
+    /// Provide the <c>name</c> and an optional <c>description</c>.
+    /// </para></li><li><para>
+    /// Provide the ARN with permissions to create a knowledge base in the <c>roleArn</c>
+    /// field.
+    /// </para></li><li><para>
+    /// Provide the embedding model to use in the <c>embeddingModelArn</c> field in the <c>knowledgeBaseConfiguration</c>
+    /// object.
+    /// </para></li><li><para>
+    /// Provide the configuration for your vector store in the <c>storageConfiguration</c>
+    /// object.
+    /// </para><ul><li><para>
+    /// For an Amazon OpenSearch Service database, use the <c>opensearchServerlessConfiguration</c>
+    /// object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html">Create
+    /// a vector store in Amazon OpenSearch Service</a>.
+    /// </para></li><li><para>
+    /// For an Amazon Aurora database, use the <c>RdsConfiguration</c> object. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create
+    /// a vector store in Amazon Aurora</a>.
+    /// </para></li><li><para>
+    /// For a Pinecone database, use the <c>pineconeConfiguration</c> object. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html">Create
+    /// a vector store in Pinecone</a>.
+    /// </para></li><li><para>
+    /// For a Redis Enterprise Cloud database, use the <c>redisEnterpriseCloudConfiguration</c>
+    /// object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-redis.html">Create
+    /// a vector store in Redis Enterprise Cloud</a>.
+    /// </para></li></ul></li></ul>
     /// </summary>
     [Cmdlet("New", "AABKnowledgeBase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.KnowledgeBase")]
@@ -45,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter OpensearchServerlessConfiguration_CollectionArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the OpenSearch Service vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PineconeConfiguration_ConnectionString
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The endpoint URL for your index management page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PineconeConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the secret that you created in Secrets Manager that is linked to your Pinecone
+        /// API key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RdsConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the secret that you created in Secrets Manager that is linked to your Amazon
+        /// RDS database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RedisEnterpriseCloudConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the secret that you created in Secrets Manager that is linked to your Redis
+        /// Enterprise Cloud database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -100,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RdsConfiguration_DatabaseName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of your Amazon RDS database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of the knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter VectorKnowledgeBaseConfiguration_EmbeddingModelArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the model used to create vector embeddings for the knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -132,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RedisEnterpriseCloudConfiguration_Endpoint
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The endpoint URL of the Redis Enterprise Cloud database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -143,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_PineconeConfiguration_FieldMapping_MetadataField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FieldMapping_MetadataField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A name for the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -201,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PineconeConfiguration_Namespace
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The namespace to be used to write new data to your database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FieldMapping_PrimaryKeyField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the ID for each entry.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RdsConfiguration_ResourceArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -234,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ARN of the IAM role with permissions to create the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -251,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RdsConfiguration_TableName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the table in the database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -262,7 +301,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specify the key-value pairs for the tags that you want to attach to your knowledge
+        /// base in this object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -273,7 +313,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
+        /// The text is split according to the chunking strategy you choose.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -283,7 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_PineconeConfiguration_FieldMapping_TextField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
+        /// The text is split according to the chunking strategy you choose.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -293,7 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FieldMapping_TextField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
+        /// The text is split according to the chunking strategy you choose.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -304,7 +347,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
+        /// The text is split according to the chunking strategy you choose.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -314,7 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseConfiguration_Type
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of data that the data source is converted into for the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -331,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_Type
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The vector store service in which the knowledge base is stored.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -348,7 +392,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the vector embeddings for your
+        /// data sources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -358,7 +403,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter FieldMapping_VectorField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the vector embeddings for your
+        /// data sources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -369,7 +415,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the field in which Amazon Bedrock stores the vector embeddings for your
+        /// data sources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -379,7 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter OpensearchServerlessConfiguration_VectorIndexName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -390,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RedisEnterpriseCloudConfiguration_VectorIndexName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the vector index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -401,7 +448,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
+        /// request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

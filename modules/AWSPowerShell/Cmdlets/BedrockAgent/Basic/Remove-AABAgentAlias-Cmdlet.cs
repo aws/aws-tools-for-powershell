@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Deletes an Alias for a Amazon Bedrock Agent
+    /// Deletes an alias of an agent.
     /// </summary>
     [Cmdlet("Remove", "AABAgentAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgent.Model.DeleteAgentAliasResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentAliasId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent Alias is created</para>
+        /// <para>The unique identifier of the alias to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent that the alias belongs to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

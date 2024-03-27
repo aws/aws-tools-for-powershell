@@ -28,7 +28,9 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Delete an existing knowledge base
+    /// Deletes a knowledge base. Before deleting a knowledge base, you should disassociate
+    /// the knowledge base from any agents that it is associated with by making a <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_DisassociateAgentKnowledgeBase.html">DisassociateAgentKnowledgeBase</a>
+    /// request.
     /// </summary>
     [Cmdlet("Remove", "AABKnowledgeBase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.BedrockAgent.Model.DeleteKnowledgeBaseResponse")]
@@ -44,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

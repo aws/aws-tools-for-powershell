@@ -1,4 +1,15 @@
-﻿### 4.1.545 (2024-03-26 22:18Z)
+﻿### 4.1.546 (2024-03-27 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.777.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameter PodProperties_ImagePullSecret.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARRetrieve: added parameters Equals_Key, Equals_Value, Filter_AndAll, Filter_OrAll, GreaterThan_Key, GreaterThan_Value, GreaterThanOrEquals_Key, GreaterThanOrEquals_Value, In_Key, In_Value, LessThan_Key, LessThan_Value, LessThanOrEquals_Key, LessThanOrEquals_Value, NotEquals_Key, NotEquals_Value, NotIn_Key, NotIn_Value, StartsWith_Key and StartsWith_Value.
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters Equals_Key, Equals_Value, Filter_AndAll, Filter_OrAll, GreaterThan_Key, GreaterThan_Value, GreaterThanOrEquals_Key, GreaterThanOrEquals_Value, In_Key, In_Value, LessThan_Key, LessThan_Value, LessThanOrEquals_Key, LessThanOrEquals_Value, NotEquals_Key, NotEquals_Value, NotIn_Key, NotIn_Value, StartsWith_Key and StartsWith_Value.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECServerlessCache: added parameters DataStorage_Minimum and ECPUPerSecond_Minimum.
+    * Modified cmdlet New-ECServerlessCache: added parameters DataStorage_Minimum and ECPUPerSecond_Minimum.
+
+### 4.1.545 (2024-03-26 22:18Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.776.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Runtime
     * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameter PromptTemplate_TextPromptTemplate.

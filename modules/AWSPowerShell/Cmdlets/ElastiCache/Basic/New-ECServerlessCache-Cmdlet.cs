@@ -126,6 +126,29 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.Int32? ECPUPerSecond_Maximum { get; set; }
         #endregion
         
+        #region Parameter DataStorage_Minimum
+        /// <summary>
+        /// <para>
+        /// <para>The lower limit for data storage the cache is set to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CacheUsageLimits_DataStorage_Minimum")]
+        public System.Int32? DataStorage_Minimum { get; set; }
+        #endregion
+        
+        #region Parameter ECPUPerSecond_Minimum
+        /// <summary>
+        /// <para>
+        /// <para>The configuration for the minimum number of ECPUs the cache should be able consume
+        /// per second.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CacheUsageLimits_ECPUPerSecond_Minimum")]
+        public System.Int32? ECPUPerSecond_Minimum { get; set; }
+        #endregion
+        
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
@@ -291,8 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DataStorage_Maximum = this.DataStorage_Maximum;
+            context.DataStorage_Minimum = this.DataStorage_Minimum;
             context.DataStorage_Unit = this.DataStorage_Unit;
             context.ECPUPerSecond_Maximum = this.ECPUPerSecond_Maximum;
+            context.ECPUPerSecond_Minimum = this.ECPUPerSecond_Minimum;
             context.DailySnapshotTime = this.DailySnapshotTime;
             context.Description = this.Description;
             context.Engine = this.Engine;
@@ -364,6 +389,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond.Maximum = requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond_eCPUPerSecond_Maximum.Value;
                 requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecondIsNull = false;
             }
+            System.Int32? requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond_eCPUPerSecond_Minimum = null;
+            if (cmdletContext.ECPUPerSecond_Minimum != null)
+            {
+                requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond_eCPUPerSecond_Minimum = cmdletContext.ECPUPerSecond_Minimum.Value;
+            }
+            if (requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond_eCPUPerSecond_Minimum != null)
+            {
+                requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond.Minimum = requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond_eCPUPerSecond_Minimum.Value;
+                requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecondIsNull = false;
+            }
              // determine if requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecond should be set to null
             if (requestCacheUsageLimits_cacheUsageLimits_ECPUPerSecondIsNull)
             {
@@ -387,6 +422,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (requestCacheUsageLimits_cacheUsageLimits_DataStorage_dataStorage_Maximum != null)
             {
                 requestCacheUsageLimits_cacheUsageLimits_DataStorage.Maximum = requestCacheUsageLimits_cacheUsageLimits_DataStorage_dataStorage_Maximum.Value;
+                requestCacheUsageLimits_cacheUsageLimits_DataStorageIsNull = false;
+            }
+            System.Int32? requestCacheUsageLimits_cacheUsageLimits_DataStorage_dataStorage_Minimum = null;
+            if (cmdletContext.DataStorage_Minimum != null)
+            {
+                requestCacheUsageLimits_cacheUsageLimits_DataStorage_dataStorage_Minimum = cmdletContext.DataStorage_Minimum.Value;
+            }
+            if (requestCacheUsageLimits_cacheUsageLimits_DataStorage_dataStorage_Minimum != null)
+            {
+                requestCacheUsageLimits_cacheUsageLimits_DataStorage.Minimum = requestCacheUsageLimits_cacheUsageLimits_DataStorage_dataStorage_Minimum.Value;
                 requestCacheUsageLimits_cacheUsageLimits_DataStorageIsNull = false;
             }
             Amazon.ElastiCache.DataStorageUnit requestCacheUsageLimits_cacheUsageLimits_DataStorage_dataStorage_Unit = null;
@@ -524,8 +569,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DataStorage_Maximum { get; set; }
+            public System.Int32? DataStorage_Minimum { get; set; }
             public Amazon.ElastiCache.DataStorageUnit DataStorage_Unit { get; set; }
             public System.Int32? ECPUPerSecond_Maximum { get; set; }
+            public System.Int32? ECPUPerSecond_Minimum { get; set; }
             public System.String DailySnapshotTime { get; set; }
             public System.String Description { get; set; }
             public System.String Engine { get; set; }

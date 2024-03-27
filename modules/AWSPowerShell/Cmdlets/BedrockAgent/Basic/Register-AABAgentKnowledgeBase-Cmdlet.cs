@@ -28,7 +28,9 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Associate a Knowledge Base to an existing Amazon Bedrock Agent
+    /// Associates a knowledge base with an agent. If a knowledge base is associated and its
+    /// <c>indexState</c> is set to <c>Enabled</c>, the agent queries the knowledge base for
+    /// information to augment its response to the user.
     /// </summary>
     [Cmdlet("Register", "AABAgentKnowledgeBase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.AgentKnowledgeBase")]
@@ -45,7 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent with which you want to associate the knowledge
+        /// base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>Draft Version of the Agent.</para>
+        /// <para>The version of the agent with which you want to associate the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A description of what the agent should use the knowledge base for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base to associate with the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseState
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a>
+        /// request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Gets an Agent version for existing Amazon Bedrock Agent
+    /// Gets details about a version of an agent.
     /// </summary>
     [Cmdlet("Get", "AABAgentVersion")]
     [OutputType("Amazon.BedrockAgent.Model.AgentVersion")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentId
         /// <summary>
         /// <para>
-        /// <para>Id generated at the server side when an Agent is created</para>
+        /// <para>The unique identifier of the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The version of the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

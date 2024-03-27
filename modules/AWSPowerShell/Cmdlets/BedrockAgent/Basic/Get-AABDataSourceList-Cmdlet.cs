@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// List data sources
+    /// Lists the data sources in a knowledge base and information about each one.
     /// </summary>
     [Cmdlet("Get", "AABDataSourceList")]
     [OutputType("Amazon.BedrockAgent.Model.DataSourceSummary")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base for which to return a list of information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return in the response. If the total number of results
+        /// is greater than this value, use the token returned in the response in the <c>nextToken</c>
+        /// field when making another request to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>If the total number of results is greater than the <c>maxResults</c> value provided
+        /// in the request, enter the token returned in the <c>nextToken</c> field in the response
+        /// in this field to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

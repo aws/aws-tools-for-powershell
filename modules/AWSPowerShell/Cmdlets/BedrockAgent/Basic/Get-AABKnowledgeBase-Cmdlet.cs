@@ -28,7 +28,7 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Get an existing knowledge base
+    /// Gets information about a knoweldge base.
     /// </summary>
     [Cmdlet("Get", "AABKnowledgeBase")]
     [OutputType("Amazon.BedrockAgent.Model.KnowledgeBase")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The unique identifier of the knowledge base for which to get information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
