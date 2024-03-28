@@ -29,8 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
 {
     /// <summary>
     /// Create a private graph endpoint to allow private access from to the graph from within
-    /// a VPC. You can attach security groups to the private graph endpoint. VPC endpoint
-    /// charges apply.
+    /// a VPC. You can attach security groups to the private graph endpoint.
+    /// 
+    ///  <note><para>
+    /// VPC endpoint charges apply.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "NEPTGPrivateGraphEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NeptuneGraph.Model.CreatePrivateGraphEndpointResponse")]

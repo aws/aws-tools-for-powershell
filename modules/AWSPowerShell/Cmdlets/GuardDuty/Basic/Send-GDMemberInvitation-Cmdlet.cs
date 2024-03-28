@@ -52,6 +52,18 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// again. To remove the details associated with a member account, you must also invoke
     /// <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>.
     /// 
+    /// </para><para>
+    /// If you disassociate a member account that was added by invitation, the member account
+    /// details obtained from this API, including the associated email addresses, will be
+    /// retained. This is done so that the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
+    /// API without the need to invoke the CreateMembers API again. To remove the details
+    /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
+    /// API. 
+    /// </para><para>
+    /// When the member accounts added through Organizations are later disassociated, you
+    /// (administrator) can't invite them by calling the InviteMembers API. You can create
+    /// an association with these member accounts again only by calling the CreateMembers
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("Send", "GDMemberInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

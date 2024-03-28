@@ -169,9 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter UtilizationPreference
         /// <summary>
         /// <para>
-        /// <para> The preference to control the resource’s CPU utilization thresholds - threshold and
-        /// headroom. When this preference isn't specified, we use the following default values:
-        /// </para><ul><li><para><c>P99_5</c> for threshold</para></li><li><para><c>PERCENT_17</c> for headroom</para></li></ul><note><para>You can only set this preference for the Amazon EC2 instance resource type.</para></note>
+        /// <para> The preference to control the resource’s CPU utilization threshold, CPU utilization
+        /// headroom, and memory utilization headroom. When this preference isn't specified, we
+        /// use the following default values. </para><para>CPU utilization:</para><ul><li><para><c>P99_5</c> for threshold</para></li><li><para><c>PERCENT_20</c> for headroom</para></li></ul><para>Memory utilization:</para><ul><li><para><c>PERCENT_20</c> for headroom</para></li></ul><note><ul><li><para>You can only set CPU and memory utilization preferences for the Amazon EC2 instance
+        /// resource type.</para></li><li><para>The threshold setting isn’t available for memory utilization.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

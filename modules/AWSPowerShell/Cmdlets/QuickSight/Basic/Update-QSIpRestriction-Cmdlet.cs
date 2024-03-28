@@ -28,9 +28,11 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Updates the content and status of IP rules. To use this operation, you must provide
-    /// the entire map of rules. You can use the <c>DescribeIpRestriction</c> operation to
-    /// get the current rule map.
+    /// Updates the content and status of IP rules. Traffic from a source is allowed when
+    /// the source satisfies either the <c>IpRestrictionRule</c>, <c>VpcIdRestrictionRule</c>,
+    /// or <c>VpcEndpointIdRestrictionRule</c>. To use this operation, you must provide the
+    /// entire map of rules. You can use the <c>DescribeIpRestriction</c> operation to get
+    /// the current rule map.
     /// </summary>
     [Cmdlet("Update", "QSIpRestriction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -79,6 +81,27 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Collections.Hashtable IpRestrictionRuleMap { get; set; }
+        #endregion
+        
+        #region Parameter VpcEndpointIdRestrictionRuleMap
+        /// <summary>
+        /// <para>
+        /// <para>A map of allowed VPC endpoint IDs and their corresponding rule descriptions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable VpcEndpointIdRestrictionRuleMap { get; set; }
+        #endregion
+        
+        #region Parameter VpcIdRestrictionRuleMap
+        /// <summary>
+        /// <para>
+        /// <para>A map of VPC IDs and their corresponding rules. When you configure this parameter,
+        /// traffic from all VPC endpoints that are present in the specified VPC is allowed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable VpcIdRestrictionRuleMap { get; set; }
         #endregion
         
         #region Parameter Select
@@ -159,6 +182,22 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     context.IpRestrictionRuleMap.Add((String)hashKey, (System.String)(this.IpRestrictionRuleMap[hashKey]));
                 }
             }
+            if (this.VpcEndpointIdRestrictionRuleMap != null)
+            {
+                context.VpcEndpointIdRestrictionRuleMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.VpcEndpointIdRestrictionRuleMap.Keys)
+                {
+                    context.VpcEndpointIdRestrictionRuleMap.Add((String)hashKey, (System.String)(this.VpcEndpointIdRestrictionRuleMap[hashKey]));
+                }
+            }
+            if (this.VpcIdRestrictionRuleMap != null)
+            {
+                context.VpcIdRestrictionRuleMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.VpcIdRestrictionRuleMap.Keys)
+                {
+                    context.VpcIdRestrictionRuleMap.Add((String)hashKey, (System.String)(this.VpcIdRestrictionRuleMap[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -186,6 +225,14 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.IpRestrictionRuleMap != null)
             {
                 request.IpRestrictionRuleMap = cmdletContext.IpRestrictionRuleMap;
+            }
+            if (cmdletContext.VpcEndpointIdRestrictionRuleMap != null)
+            {
+                request.VpcEndpointIdRestrictionRuleMap = cmdletContext.VpcEndpointIdRestrictionRuleMap;
+            }
+            if (cmdletContext.VpcIdRestrictionRuleMap != null)
+            {
+                request.VpcIdRestrictionRuleMap = cmdletContext.VpcIdRestrictionRuleMap;
             }
             
             CmdletOutput output;
@@ -251,6 +298,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AwsAccountId { get; set; }
             public System.Boolean? Enabled { get; set; }
             public Dictionary<System.String, System.String> IpRestrictionRuleMap { get; set; }
+            public Dictionary<System.String, System.String> VpcEndpointIdRestrictionRuleMap { get; set; }
+            public Dictionary<System.String, System.String> VpcIdRestrictionRuleMap { get; set; }
             public System.Func<Amazon.QuickSight.Model.UpdateIpRestrictionResponse, UpdateQSIpRestrictionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AwsAccountId;
         }

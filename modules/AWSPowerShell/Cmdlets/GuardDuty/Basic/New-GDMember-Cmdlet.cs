@@ -44,16 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.GD
     /// irrespective of the accounts being new or existing members. For more information about
     /// the existing auto-enable settings for your organization, see <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DescribeOrganizationConfiguration.html">DescribeOrganizationConfiguration</a>.
     /// </para><para>
-    /// If you are adding accounts by invitation, before using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>,
-    /// use <c>CreateMembers</c> after GuardDuty has been enabled in potential member accounts.
-    /// </para><para>
-    /// If you disassociate a member from a GuardDuty delegated administrator, the member
-    /// account details obtained from this API, including the associated email addresses,
-    /// will be retained. This is done so that the delegated administrator can invoke the
-    /// <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
+    /// If you disassociate a member account that was added by invitation, the member account
+    /// details obtained from this API, including the associated email addresses, will be
+    /// retained. This is done so that the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a>
     /// API without the need to invoke the CreateMembers API again. To remove the details
     /// associated with a member account, the delegated administrator must invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a>
     /// API. 
+    /// </para><para>
+    /// When the member accounts added through Organizations are later disassociated, you
+    /// (administrator) can't invite them by calling the InviteMembers API. You can create
+    /// an association with these member accounts again only by calling the CreateMembers
+    /// API.
     /// </para>
     /// </summary>
     [Cmdlet("New", "GDMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

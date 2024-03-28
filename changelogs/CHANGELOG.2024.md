@@ -1,4 +1,9 @@
-﻿### 4.1.546 (2024-03-27 21:13Z)
+﻿### 4.1.547 (2024-03-28 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.778.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QuickSight
+    * Modified cmdlet Update-QSIpRestriction: added parameters VpcEndpointIdRestrictionRuleMap and VpcIdRestrictionRuleMap.
+
+### 4.1.546 (2024-03-27 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.777.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet Register-BATJobDefinition: added parameter PodProperties_ImagePullSecret.

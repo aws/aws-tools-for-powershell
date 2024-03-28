@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAT
         #region Parameter VpcConnectionName
         /// <summary>
         /// <para>
-        /// <para>The name of the connection to use connect to a Amazon VPC.</para>
+        /// <para>The name of the connection that will be used to connect to Amazon VPC, if any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
