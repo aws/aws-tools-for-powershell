@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-NEPTGResourceTag', 
         'Reset-NEPTGGraph', 
         'Restore-NEPTGGraphFromSnapshot', 
+        'Start-NEPTGImportTask', 
         'Stop-NEPTGImportTask', 
         'Stop-NEPTGQuery', 
         'Update-NEPTGGraph')

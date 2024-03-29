@@ -133,6 +133,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CodeBuild.dll',
         'AWSSDK.CodeCatalyst.dll',
         'AWSSDK.CodeCommit.dll',
+        'AWSSDK.CodeConnections.dll',
         'AWSSDK.CodeDeploy.dll',
         'AWSSDK.CodeGuruProfiler.dll',
         'AWSSDK.CodeGuruReviewer.dll',

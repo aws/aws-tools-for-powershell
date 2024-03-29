@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter IncludeLinkedAccount
+        /// <summary>
+        /// <para>
+        /// <para>TBD </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeLinkedAccounts")]
+        public System.Boolean? IncludeLinkedAccount { get; set; }
+        #endregion
+        
         #region Parameter MonitorStatus
         /// <summary>
         /// <para>
@@ -136,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
                 context.Select = (response, cmdlet) => this.MonitorStatus;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
             context.MaxResult = this.MaxResult;
             context.MonitorStatus = this.MonitorStatus;
             context.NextToken = this.NextToken;
@@ -159,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             // create request and set iteration invariants
             var request = new Amazon.InternetMonitor.Model.ListMonitorsRequest();
             
+            if (cmdletContext.IncludeLinkedAccount != null)
+            {
+                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -252,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? IncludeLinkedAccount { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String MonitorStatus { get; set; }
             public System.String NextToken { get; set; }

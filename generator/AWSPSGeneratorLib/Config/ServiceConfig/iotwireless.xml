@@ -212,6 +212,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricConfiguration" OutputProperty="SummaryMetric" Verb="Get" Noun="MetricConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetrics" OutputProperty="SummaryMetricQueryResults" Verb="Get" Noun="Metric" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMulticastGroup" OutputProperty="*" Verb="Get" Noun="MulticastGroup" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -440,6 +448,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLogLevelsByResourceTypes" Verb="Update" Noun="LogLevelsByResourceType" ShouldProcessTarget="DefaultLogLevel" PipelineParameter="DefaultLogLevel" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMetricConfiguration" Verb="Update" Noun="MetricConfiguration" ShouldProcessTarget="SummaryMetric_Status" PipelineParameter="SummaryMetric_Status" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

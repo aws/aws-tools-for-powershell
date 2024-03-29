@@ -88,7 +88,10 @@ $NEPTG_Completers = {
         }
 
         # Amazon.NeptuneGraph.Format
-        "New-NEPTGGraphUsingImportTask/Format"
+        {
+            ($_ -eq "New-NEPTGGraphUsingImportTask/Format") -Or
+            ($_ -eq "Start-NEPTGImportTask/Format")
+        }
         {
             $v = "CSV","OPEN_CYPHER"
             break
@@ -132,7 +135,7 @@ $NEPTG_Completers = {
 
 $NEPTG_map = @{
     "ExplainMode"=@("Invoke-NEPTGQuery")
-    "Format"=@("New-NEPTGGraphUsingImportTask")
+    "Format"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
     "Language"=@("Invoke-NEPTGQuery")
     "Mode"=@("Get-NEPTGGraphSummary")
     "PlanCache"=@("Invoke-NEPTGQuery")
@@ -213,6 +216,7 @@ $NEPTG_SelectMap = @{
                "Get-NEPTGResourceTag",
                "Reset-NEPTGGraph",
                "Restore-NEPTGGraphFromSnapshot",
+               "Start-NEPTGImportTask",
                "Add-NEPTGResourceTag",
                "Remove-NEPTGResourceTag",
                "Update-NEPTGGraph")

@@ -5423,7 +5423,7 @@ $B2BI_Completers = {
             ($_ -eq "Update-B2BITransformer/X12Details_TransactionSet")
         }
         {
-            $v = "X12_110","X12_180","X12_204","X12_210","X12_214","X12_215","X12_310","X12_315","X12_322","X12_404","X12_410","X12_820","X12_824","X12_830","X12_846","X12_850","X12_852","X12_855","X12_856","X12_860","X12_861","X12_864","X12_940","X12_990","X12_997"
+            $v = "X12_110","X12_180","X12_204","X12_210","X12_211","X12_214","X12_215","X12_259","X12_260","X12_266","X12_269","X12_270","X12_271","X12_274","X12_275","X12_276","X12_277","X12_278","X12_310","X12_315","X12_322","X12_404","X12_410","X12_417","X12_421","X12_426","X12_810","X12_820","X12_824","X12_830","X12_832","X12_834","X12_835","X12_837","X12_844","X12_846","X12_849","X12_850","X12_852","X12_855","X12_856","X12_860","X12_861","X12_864","X12_865","X12_869","X12_870","X12_940","X12_945","X12_990","X12_997","X12_999"
             break
         }
 
@@ -12984,6 +12984,159 @@ $CC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CC_SelectCompleters $CC_SelectMap
+# Argument completions for service AWS CodeConnections
+
+
+$CCON_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CodeConnections.ProviderType
+        {
+            ($_ -eq "New-CCONConnection/ProviderType") -Or
+            ($_ -eq "New-CCONHost/ProviderType") -Or
+            ($_ -eq "Get-CCONConnectionList/ProviderTypeFilter")
+        }
+        {
+            $v = "Bitbucket","GitHub","GitHubEnterpriseServer","GitLab","GitLabSelfManaged"
+            break
+        }
+
+        # Amazon.CodeConnections.PublishDeploymentStatus
+        {
+            ($_ -eq "New-CCONSyncConfiguration/PublishDeploymentStatus") -Or
+            ($_ -eq "Update-CCONSyncConfiguration/PublishDeploymentStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.CodeConnections.SyncConfigurationType
+        {
+            ($_ -eq "Get-CCONRepositorySyncDefinitionList/SyncType") -Or
+            ($_ -eq "Get-CCONRepositorySyncStatus/SyncType") -Or
+            ($_ -eq "Get-CCONResourceSyncStatus/SyncType") -Or
+            ($_ -eq "Get-CCONSyncBlockerSummary/SyncType") -Or
+            ($_ -eq "Get-CCONSyncConfiguration/SyncType") -Or
+            ($_ -eq "Get-CCONSyncConfigurationList/SyncType") -Or
+            ($_ -eq "New-CCONSyncConfiguration/SyncType") -Or
+            ($_ -eq "Remove-CCONSyncConfiguration/SyncType") -Or
+            ($_ -eq "Update-CCONSyncBlocker/SyncType") -Or
+            ($_ -eq "Update-CCONSyncConfiguration/SyncType")
+        }
+        {
+            $v = "CFN_STACK_SYNC"
+            break
+        }
+
+        # Amazon.CodeConnections.TriggerResourceUpdateOn
+        {
+            ($_ -eq "New-CCONSyncConfiguration/TriggerResourceUpdateOn") -Or
+            ($_ -eq "Update-CCONSyncConfiguration/TriggerResourceUpdateOn")
+        }
+        {
+            $v = "ANY_CHANGE","FILE_CHANGE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCON_map = @{
+    "ProviderType"=@("New-CCONConnection","New-CCONHost")
+    "ProviderTypeFilter"=@("Get-CCONConnectionList")
+    "PublishDeploymentStatus"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
+    "SyncType"=@("Get-CCONRepositorySyncDefinitionList","Get-CCONRepositorySyncStatus","Get-CCONResourceSyncStatus","Get-CCONSyncBlockerSummary","Get-CCONSyncConfiguration","Get-CCONSyncConfigurationList","New-CCONSyncConfiguration","Remove-CCONSyncConfiguration","Update-CCONSyncBlocker","Update-CCONSyncConfiguration")
+    "TriggerResourceUpdateOn"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
+}
+
+_awsArgumentCompleterRegistration $CCON_Completers $CCON_map
+
+$CCON_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CCON.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CCON_SelectMap = @{
+    "Select"=@("New-CCONConnection",
+               "New-CCONHost",
+               "New-CCONRepositoryLink",
+               "New-CCONSyncConfiguration",
+               "Remove-CCONConnection",
+               "Remove-CCONHost",
+               "Remove-CCONRepositoryLink",
+               "Remove-CCONSyncConfiguration",
+               "Get-CCONConnection",
+               "Get-CCONHost",
+               "Get-CCONRepositoryLink",
+               "Get-CCONRepositorySyncStatus",
+               "Get-CCONResourceSyncStatus",
+               "Get-CCONSyncBlockerSummary",
+               "Get-CCONSyncConfiguration",
+               "Get-CCONConnectionList",
+               "Get-CCONHostList",
+               "Get-CCONRepositoryLinkList",
+               "Get-CCONRepositorySyncDefinitionList",
+               "Get-CCONSyncConfigurationList",
+               "Get-CCONResourceTag",
+               "Add-CCONResourceTag",
+               "Remove-CCONResourceTag",
+               "Update-CCONHost",
+               "Update-CCONRepositoryLink",
+               "Update-CCONSyncBlocker",
+               "Update-CCONSyncConfiguration")
+}
+
+_awsArgumentCompleterRegistration $CCON_SelectCompleters $CCON_SelectMap
 # Argument completions for service AWS CodeDeploy
 
 
@@ -35426,6 +35579,13 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.SummaryMetricConfigurationStatus
+        "Update-IOTWMetricConfiguration/SummaryMetric_Status"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.IoTWireless.SupportedRfRegion
         {
             ($_ -eq "New-IOTWFuotaTask/LoRaWAN_RfRegion") -Or
@@ -35529,6 +35689,7 @@ $IOTW_map = @{
     "Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
     "Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Status"=@("Get-IOTWDevicesForWirelessDeviceImportTaskList")
+    "SummaryMetric_Status"=@("Update-IOTWMetricConfiguration")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "TraceContent_LogLevel"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "TraceContent_MulticastFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
@@ -35630,6 +35791,8 @@ $IOTW_SelectMap = @{
                "Get-IOTWEventConfigurationByResourceType",
                "Get-IOTWFuotaTask",
                "Get-IOTWLogLevelsByResourceType",
+               "Get-IOTWMetricConfiguration",
+               "Get-IOTWMetric",
                "Get-IOTWMulticastGroup",
                "Get-IOTWMulticastGroupSession",
                "Get-IOTWNetworkAnalyzerConfiguration",
@@ -35687,6 +35850,7 @@ $IOTW_SelectMap = @{
                "Update-IOTWEventConfigurationByResourceType",
                "Update-IOTWFuotaTask",
                "Update-IOTWLogLevelsByResourceType",
+               "Update-IOTWMetricConfiguration",
                "Update-IOTWMulticastGroup",
                "Update-IOTWNetworkAnalyzerConfiguration",
                "Update-IOTWPartnerAccount",
@@ -41649,7 +41813,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/OfferSort_SortBy"
         {
-            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","State","Targeting"
+            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","ResaleAuthorizationId","State","Targeting"
             break
         }
 
@@ -46303,7 +46467,10 @@ $NEPTG_Completers = {
         }
 
         # Amazon.NeptuneGraph.Format
-        "New-NEPTGGraphUsingImportTask/Format"
+        {
+            ($_ -eq "New-NEPTGGraphUsingImportTask/Format") -Or
+            ($_ -eq "Start-NEPTGImportTask/Format")
+        }
         {
             $v = "CSV","OPEN_CYPHER"
             break
@@ -46347,7 +46514,7 @@ $NEPTG_Completers = {
 
 $NEPTG_map = @{
     "ExplainMode"=@("Invoke-NEPTGQuery")
-    "Format"=@("New-NEPTGGraphUsingImportTask")
+    "Format"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
     "Language"=@("Invoke-NEPTGQuery")
     "Mode"=@("Get-NEPTGGraphSummary")
     "PlanCache"=@("Invoke-NEPTGQuery")
@@ -46428,6 +46595,7 @@ $NEPTG_SelectMap = @{
                "Get-NEPTGResourceTag",
                "Reset-NEPTGGraph",
                "Restore-NEPTGGraphFromSnapshot",
+               "Start-NEPTGImportTask",
                "Add-NEPTGResourceTag",
                "Remove-NEPTGResourceTag",
                "Update-NEPTGGraph")

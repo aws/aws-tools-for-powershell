@@ -250,6 +250,13 @@ $IOTW_Completers = {
             break
         }
 
+        # Amazon.IoTWireless.SummaryMetricConfigurationStatus
+        "Update-IOTWMetricConfiguration/SummaryMetric_Status"
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.IoTWireless.SupportedRfRegion
         {
             ($_ -eq "New-IOTWFuotaTask/LoRaWAN_RfRegion") -Or
@@ -353,6 +360,7 @@ $IOTW_map = @{
     "Sidewalk_MessageType"=@("Send-IOTWDataToWirelessDevice")
     "Sidewalk_WirelessDeviceEventTopic"=@("Update-IOTWEventConfigurationByResourceType")
     "Status"=@("Get-IOTWDevicesForWirelessDeviceImportTaskList")
+    "SummaryMetric_Status"=@("Update-IOTWMetricConfiguration")
     "TaskDefinitionType"=@("Get-IOTWWirelessGatewayTaskDefinitionList")
     "TraceContent_LogLevel"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
     "TraceContent_MulticastFrameInfo"=@("New-IOTWNetworkAnalyzerConfiguration","Update-IOTWNetworkAnalyzerConfiguration")
@@ -454,6 +462,8 @@ $IOTW_SelectMap = @{
                "Get-IOTWEventConfigurationByResourceType",
                "Get-IOTWFuotaTask",
                "Get-IOTWLogLevelsByResourceType",
+               "Get-IOTWMetricConfiguration",
+               "Get-IOTWMetric",
                "Get-IOTWMulticastGroup",
                "Get-IOTWMulticastGroupSession",
                "Get-IOTWNetworkAnalyzerConfiguration",
@@ -511,6 +521,7 @@ $IOTW_SelectMap = @{
                "Update-IOTWEventConfigurationByResourceType",
                "Update-IOTWFuotaTask",
                "Update-IOTWLogLevelsByResourceType",
+               "Update-IOTWMetricConfiguration",
                "Update-IOTWMulticastGroup",
                "Update-IOTWNetworkAnalyzerConfiguration",
                "Update-IOTWPartnerAccount",

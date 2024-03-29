@@ -52,6 +52,12 @@
                 <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" />
                 <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" />
                 <Param Name="JupyterLabAppImageConfig_FileSystemConfig_MountPath" NewName="JupyterLabAppImageConfig_FileSystemConfig_MountPath" />
+                <Param Name="CodeEditorAppImageConfig_ContainerConfig_ContainerArguments" NewName="CodeEditorAppImageConfig_ContainerConfig_ContainerArguments" />
+                <Param Name="CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint" NewName="CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint" />
+                <Param Name="CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables" NewName="CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables" />
+                <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" />
+                <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" />
+                <Param Name="CodeEditorAppImageConfig_FileSystemConfig_MountPath" NewName="CodeEditorAppImageConfig_FileSystemConfig_MountPath" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1250,6 +1256,12 @@
                 <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultGid" />
                 <Param Name="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" NewName="JupyterLabAppImageConfig_FileSystemConfig_DefaultUid" />
                 <Param Name="JupyterLabAppImageConfig_FileSystemConfig_MountPath" NewName="JupyterLabAppImageConfig_FileSystemConfig_MountPath" />
+                <Param Name="CodeEditorAppImageConfig_ContainerConfig_ContainerArguments" NewName="CodeEditorAppImageConfig_ContainerConfig_ContainerArguments" />
+                <Param Name="CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint" NewName="CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint" />
+                <Param Name="CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables" NewName="CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables" />
+                <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultGid" />
+                <Param Name="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" NewName="CodeEditorAppImageConfig_FileSystemConfig_DefaultUid" />
+                <Param Name="CodeEditorAppImageConfig_FileSystemConfig_MountPath" NewName="CodeEditorAppImageConfig_FileSystemConfig_MountPath" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

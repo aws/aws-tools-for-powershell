@@ -70,6 +70,16 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         public Amazon.InternetMonitor.HealthEventStatus EventStatus { get; set; }
         #endregion
         
+        #region Parameter LinkedAccountId
+        /// <summary>
+        /// <para>
+        /// <para>TBD </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LinkedAccountId { get; set; }
+        #endregion
+        
         #region Parameter MonitorName
         /// <summary>
         /// <para>
@@ -180,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.EndTime = this.EndTime;
             context.EventStatus = this.EventStatus;
+            context.LinkedAccountId = this.LinkedAccountId;
             context.MaxResult = this.MaxResult;
             context.MonitorName = this.MonitorName;
             #if MODULAR
@@ -217,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             if (cmdletContext.EventStatus != null)
             {
                 request.EventStatus = cmdletContext.EventStatus;
+            }
+            if (cmdletContext.LinkedAccountId != null)
+            {
+                request.LinkedAccountId = cmdletContext.LinkedAccountId;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -317,6 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         {
             public System.DateTime? EndTime { get; set; }
             public Amazon.InternetMonitor.HealthEventStatus EventStatus { get; set; }
+            public System.String LinkedAccountId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String MonitorName { get; set; }
             public System.String NextToken { get; set; }

@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter LinkedAccountId
+        /// <summary>
+        /// <para>
+        /// <para>TBD </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LinkedAccountId { get; set; }
+        #endregion
+        
         #region Parameter MonitorName
         /// <summary>
         /// <para>
@@ -106,6 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
                 context.Select = (response, cmdlet) => this.MonitorName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LinkedAccountId = this.LinkedAccountId;
             context.MonitorName = this.MonitorName;
             #if MODULAR
             if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
@@ -129,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             // create request
             var request = new Amazon.InternetMonitor.Model.GetMonitorRequest();
             
+            if (cmdletContext.LinkedAccountId != null)
+            {
+                request.LinkedAccountId = cmdletContext.LinkedAccountId;
+            }
             if (cmdletContext.MonitorName != null)
             {
                 request.MonitorName = cmdletContext.MonitorName;
@@ -194,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String LinkedAccountId { get; set; }
             public System.String MonitorName { get; set; }
             public System.Func<Amazon.InternetMonitor.Model.GetMonitorResponse, GetCWIMMonitorCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

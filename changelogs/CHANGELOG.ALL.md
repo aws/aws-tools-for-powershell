@@ -1,4 +1,25 @@
-﻿### 4.1.547 (2024-03-28 21:02Z)
+﻿### 4.1.548 (2024-03-29 20:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.779.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Internet Monitor
+    * Modified cmdlet Get-CWIMHealthEvent: added parameter LinkedAccountId.
+    * Modified cmdlet Get-CWIMHealthEventList: added parameter LinkedAccountId.
+    * Modified cmdlet Get-CWIMMonitor: added parameter LinkedAccountId.
+    * Modified cmdlet Get-CWIMMonitorList: added parameter IncludeLinkedAccount.
+    * Modified cmdlet Start-CWIMQuery: added parameter LinkedAccountId.
+  * Amazon CodeConnections. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CCON and can be listed using the command 'Get-AWSCmdletName -Service CCON'.
+  * Amazon IoT Wireless
+    * Added cmdlet Get-IOTWMetric leveraging the GetMetrics service API.
+    * Added cmdlet Get-IOTWMetricConfiguration leveraging the GetMetricConfiguration service API.
+    * Added cmdlet Update-IOTWMetricConfiguration leveraging the UpdateMetricConfiguration service API.
+  * Amazon Marketplace Catalog Service
+    * Modified cmdlet Get-MCATEntityList: added parameter ResaleAuthorizationId_ValueList.
+  * Amazon Neptune Graph
+    * Added cmdlet Start-NEPTGImportTask leveraging the StartImportTask service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAppImageConfig: added parameters CodeEditorAppImageConfig_ContainerConfig_ContainerArguments, CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint, CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables, CodeEditorAppImageConfig_FileSystemConfig_DefaultGid, CodeEditorAppImageConfig_FileSystemConfig_DefaultUid and CodeEditorAppImageConfig_FileSystemConfig_MountPath.
+    * Modified cmdlet Update-SMAppImageConfig: added parameters CodeEditorAppImageConfig_ContainerConfig_ContainerArguments, CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint, CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables, CodeEditorAppImageConfig_FileSystemConfig_DefaultGid, CodeEditorAppImageConfig_FileSystemConfig_DefaultUid and CodeEditorAppImageConfig_FileSystemConfig_MountPath.
+
+### 4.1.547 (2024-03-28 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.778.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Modified cmdlet Update-QSIpRestriction: added parameters VpcEndpointIdRestrictionRuleMap and VpcIdRestrictionRuleMap.

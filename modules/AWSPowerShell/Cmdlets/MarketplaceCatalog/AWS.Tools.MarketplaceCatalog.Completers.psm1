@@ -111,7 +111,7 @@ $MCAT_Completers = {
         # Amazon.MarketplaceCatalog.OfferSortBy
         "Get-MCATEntityList/OfferSort_SortBy"
         {
-            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","State","Targeting"
+            $v = "AvailabilityEndDate","BuyerAccounts","EntityId","LastModifiedDate","Name","ProductId","ReleaseDate","ResaleAuthorizationId","State","Targeting"
             break
         }
 

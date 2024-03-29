@@ -85,6 +85,16 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         public Amazon.InternetMonitor.Model.FilterParameter[] FilterParameter { get; set; }
         #endregion
         
+        #region Parameter LinkedAccountId
+        /// <summary>
+        /// <para>
+        /// <para>TBD </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LinkedAccountId { get; set; }
+        #endregion
+        
         #region Parameter MonitorName
         /// <summary>
         /// <para>
@@ -217,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             {
                 context.FilterParameter = new List<Amazon.InternetMonitor.Model.FilterParameter>(this.FilterParameter);
             }
+            context.LinkedAccountId = this.LinkedAccountId;
             context.MonitorName = this.MonitorName;
             #if MODULAR
             if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
@@ -261,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             if (cmdletContext.FilterParameter != null)
             {
                 request.FilterParameters = cmdletContext.FilterParameter;
+            }
+            if (cmdletContext.LinkedAccountId != null)
+            {
+                request.LinkedAccountId = cmdletContext.LinkedAccountId;
             }
             if (cmdletContext.MonitorName != null)
             {
@@ -337,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         {
             public System.DateTime? EndTime { get; set; }
             public List<Amazon.InternetMonitor.Model.FilterParameter> FilterParameter { get; set; }
+            public System.String LinkedAccountId { get; set; }
             public System.String MonitorName { get; set; }
             public Amazon.InternetMonitor.QueryType QueryType { get; set; }
             public System.DateTime? StartTime { get; set; }

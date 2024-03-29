@@ -174,8 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter X12Details_Version
         /// <summary>
         /// <para>
-        /// <para>Returns the version to use for the specified X12 transaction set. Supported versions
-        /// are <c>4010</c>, <c>4030</c>, and <c>5010</c>.</para>
+        /// Amazon.B2bi.Model.X12Details.Version
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

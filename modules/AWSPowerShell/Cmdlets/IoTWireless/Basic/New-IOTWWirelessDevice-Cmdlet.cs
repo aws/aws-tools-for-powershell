@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter LoRaWAN_OtaaV1_0_x_AppEui
         /// <summary>
         /// <para>
-        /// <para>The AppEUI value.</para>
+        /// <para>The AppEUI value. You specify this value when using LoRaWAN versions v1.0.2 or v1.0.3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter x_JoinEui
         /// <summary>
         /// <para>
-        /// <para>The JoinEUI value.</para>
+        /// <para>The JoinEUI value. You specify this value instead of the AppEUI when using LoRaWAN
+        /// version v1.0.4.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

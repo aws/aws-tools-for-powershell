@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String AppImageConfigName { get; set; }
         #endregion
         
+        #region Parameter CodeEditorAppImageConfig_ContainerConfig_ContainerArguments
+        /// <summary>
+        /// <para>
+        /// <para>The arguments for the container when you're running the application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] CodeEditorAppImageConfig_ContainerConfig_ContainerArguments { get; set; }
+        #endregion
+        
         #region Parameter ContainerConfig_ContainerArgument
         /// <summary>
         /// <para>
@@ -70,6 +80,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JupyterLabAppImageConfig_ContainerConfig_ContainerArguments")]
         public System.String[] ContainerConfig_ContainerArgument { get; set; }
+        #endregion
+        
+        #region Parameter CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint
+        /// <summary>
+        /// <para>
+        /// <para>The entrypoint used to run the application in the container.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint { get; set; }
         #endregion
         
         #region Parameter ContainerConfig_ContainerEntrypoint
@@ -83,6 +103,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] ContainerConfig_ContainerEntrypoint { get; set; }
         #endregion
         
+        #region Parameter CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables
+        /// <summary>
+        /// <para>
+        /// <para>The environment variables to set in the container</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables { get; set; }
+        #endregion
+        
         #region Parameter ContainerConfig_ContainerEnvironmentVariable
         /// <summary>
         /// <para>
@@ -92,6 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("JupyterLabAppImageConfig_ContainerConfig_ContainerEnvironmentVariables")]
         public System.Collections.Hashtable ContainerConfig_ContainerEnvironmentVariable { get; set; }
+        #endregion
+        
+        #region Parameter CodeEditorAppImageConfig_FileSystemConfig_DefaultGid
+        /// <summary>
+        /// <para>
+        /// <para>The default POSIX group ID (GID). If not specified, defaults to <c>100</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? CodeEditorAppImageConfig_FileSystemConfig_DefaultGid { get; set; }
         #endregion
         
         #region Parameter JupyterLabAppImageConfig_FileSystemConfig_DefaultGid
@@ -113,6 +153,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KernelGatewayImageConfig_FileSystemConfig_DefaultGid")]
         public System.Int32? FileSystemConfig_DefaultGid { get; set; }
+        #endregion
+        
+        #region Parameter CodeEditorAppImageConfig_FileSystemConfig_DefaultUid
+        /// <summary>
+        /// <para>
+        /// <para>The default POSIX user ID (UID). If not specified, defaults to <c>1000</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? CodeEditorAppImageConfig_FileSystemConfig_DefaultUid { get; set; }
         #endregion
         
         #region Parameter JupyterLabAppImageConfig_FileSystemConfig_DefaultUid
@@ -145,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("KernelGatewayImageConfig_KernelSpecs")]
         public Amazon.SageMaker.Model.KernelSpec[] KernelGatewayImageConfig_KernelSpec { get; set; }
+        #endregion
+        
+        #region Parameter CodeEditorAppImageConfig_FileSystemConfig_MountPath
+        /// <summary>
+        /// <para>
+        /// <para>The path within the image to mount the user's EFS home directory. The directory should
+        /// be empty. If not specified, defaults to <i>/home/sagemaker-user</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CodeEditorAppImageConfig_FileSystemConfig_MountPath { get; set; }
         #endregion
         
         #region Parameter JupyterLabAppImageConfig_FileSystemConfig_MountPath
@@ -250,6 +311,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter AppImageConfigName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.CodeEditorAppImageConfig_ContainerConfig_ContainerArguments != null)
+            {
+                context.CodeEditorAppImageConfig_ContainerConfig_ContainerArguments = new List<System.String>(this.CodeEditorAppImageConfig_ContainerConfig_ContainerArguments);
+            }
+            if (this.CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint != null)
+            {
+                context.CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint = new List<System.String>(this.CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint);
+            }
+            if (this.CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables != null)
+            {
+                context.CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables.Keys)
+                {
+                    context.CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables.Add((String)hashKey, (System.String)(this.CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables[hashKey]));
+                }
+            }
+            context.CodeEditorAppImageConfig_FileSystemConfig_DefaultGid = this.CodeEditorAppImageConfig_FileSystemConfig_DefaultGid;
+            context.CodeEditorAppImageConfig_FileSystemConfig_DefaultUid = this.CodeEditorAppImageConfig_FileSystemConfig_DefaultUid;
+            context.CodeEditorAppImageConfig_FileSystemConfig_MountPath = this.CodeEditorAppImageConfig_FileSystemConfig_MountPath;
             if (this.ContainerConfig_ContainerArgument != null)
             {
                 context.ContainerConfig_ContainerArgument = new List<System.String>(this.ContainerConfig_ContainerArgument);
@@ -299,6 +379,105 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.AppImageConfigName != null)
             {
                 request.AppImageConfigName = cmdletContext.AppImageConfigName;
+            }
+            
+             // populate CodeEditorAppImageConfig
+            var requestCodeEditorAppImageConfigIsNull = true;
+            request.CodeEditorAppImageConfig = new Amazon.SageMaker.Model.CodeEditorAppImageConfig();
+            Amazon.SageMaker.Model.ContainerConfig requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig = null;
+            
+             // populate ContainerConfig
+            var requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfigIsNull = true;
+            requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig = new Amazon.SageMaker.Model.ContainerConfig();
+            List<System.String> requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerArguments = null;
+            if (cmdletContext.CodeEditorAppImageConfig_ContainerConfig_ContainerArguments != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerArguments = cmdletContext.CodeEditorAppImageConfig_ContainerConfig_ContainerArguments;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerArguments != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig.ContainerArguments = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerArguments;
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfigIsNull = false;
+            }
+            List<System.String> requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint = null;
+            if (cmdletContext.CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint = cmdletContext.CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig.ContainerEntrypoint = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint;
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfigIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables = null;
+            if (cmdletContext.CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables = cmdletContext.CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig.ContainerEnvironmentVariables = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig_codeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables;
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfigIsNull = false;
+            }
+             // determine if requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig should be set to null
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfigIsNull)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig = null;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig != null)
+            {
+                request.CodeEditorAppImageConfig.ContainerConfig = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_ContainerConfig;
+                requestCodeEditorAppImageConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.FileSystemConfig requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig = null;
+            
+             // populate FileSystemConfig
+            var requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfigIsNull = true;
+            requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig = new Amazon.SageMaker.Model.FileSystemConfig();
+            System.Int32? requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultGid = null;
+            if (cmdletContext.CodeEditorAppImageConfig_FileSystemConfig_DefaultGid != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultGid = cmdletContext.CodeEditorAppImageConfig_FileSystemConfig_DefaultGid.Value;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultGid != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig.DefaultGid = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultGid.Value;
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfigIsNull = false;
+            }
+            System.Int32? requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultUid = null;
+            if (cmdletContext.CodeEditorAppImageConfig_FileSystemConfig_DefaultUid != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultUid = cmdletContext.CodeEditorAppImageConfig_FileSystemConfig_DefaultUid.Value;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultUid != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig.DefaultUid = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_DefaultUid.Value;
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfigIsNull = false;
+            }
+            System.String requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_MountPath = null;
+            if (cmdletContext.CodeEditorAppImageConfig_FileSystemConfig_MountPath != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_MountPath = cmdletContext.CodeEditorAppImageConfig_FileSystemConfig_MountPath;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_MountPath != null)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig.MountPath = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig_codeEditorAppImageConfig_FileSystemConfig_MountPath;
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfigIsNull = false;
+            }
+             // determine if requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig should be set to null
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfigIsNull)
+            {
+                requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig = null;
+            }
+            if (requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig != null)
+            {
+                request.CodeEditorAppImageConfig.FileSystemConfig = requestCodeEditorAppImageConfig_codeEditorAppImageConfig_FileSystemConfig;
+                requestCodeEditorAppImageConfigIsNull = false;
+            }
+             // determine if request.CodeEditorAppImageConfig should be set to null
+            if (requestCodeEditorAppImageConfigIsNull)
+            {
+                request.CodeEditorAppImageConfig = null;
             }
             
              // populate JupyterLabAppImageConfig
@@ -529,6 +708,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppImageConfigName { get; set; }
+            public List<System.String> CodeEditorAppImageConfig_ContainerConfig_ContainerArguments { get; set; }
+            public List<System.String> CodeEditorAppImageConfig_ContainerConfig_ContainerEntrypoint { get; set; }
+            public Dictionary<System.String, System.String> CodeEditorAppImageConfig_ContainerConfig_ContainerEnvironmentVariables { get; set; }
+            public System.Int32? CodeEditorAppImageConfig_FileSystemConfig_DefaultGid { get; set; }
+            public System.Int32? CodeEditorAppImageConfig_FileSystemConfig_DefaultUid { get; set; }
+            public System.String CodeEditorAppImageConfig_FileSystemConfig_MountPath { get; set; }
             public List<System.String> ContainerConfig_ContainerArgument { get; set; }
             public List<System.String> ContainerConfig_ContainerEntrypoint { get; set; }
             public Dictionary<System.String, System.String> ContainerConfig_ContainerEnvironmentVariable { get; set; }

@@ -596,6 +596,17 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
         public System.String[] EntityTypeFilters_OfferFilters_ProductId_ValueList { get; set; }
         #endregion
         
+        #region Parameter ResaleAuthorizationId_ValueList
+        /// <summary>
+        /// <para>
+        /// <para>Allows filtering on the <c>ResaleAuthorizationId</c> of an offer with list input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EntityTypeFilters_OfferFilters_ResaleAuthorizationId_ValueList")]
+        public System.String[] ResaleAuthorizationId_ValueList { get; set; }
+        #endregion
+        
         #region Parameter State_ValueList
         /// <summary>
         /// <para>
@@ -1090,6 +1101,10 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             }
             context.EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_AfterValue = this.EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_AfterValue;
             context.EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue = this.EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue;
+            if (this.ResaleAuthorizationId_ValueList != null)
+            {
+                context.ResaleAuthorizationId_ValueList = new List<System.String>(this.ResaleAuthorizationId_ValueList);
+            }
             if (this.State_ValueList != null)
             {
                 context.State_ValueList = new List<System.String>(this.State_ValueList);
@@ -2055,6 +2070,31 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ReleaseDate != null)
             {
                 requestEntityTypeFilters_entityTypeFilters_OfferFilters.ReleaseDate = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ReleaseDate;
+                requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
+            }
+            Amazon.MarketplaceCatalog.Model.OfferResaleAuthorizationIdFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId = null;
+            
+             // populate ResaleAuthorizationId
+            var requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationIdIsNull = true;
+            requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId = new Amazon.MarketplaceCatalog.Model.OfferResaleAuthorizationIdFilter();
+            List<System.String> requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId_resaleAuthorizationId_ValueList = null;
+            if (cmdletContext.ResaleAuthorizationId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId_resaleAuthorizationId_ValueList = cmdletContext.ResaleAuthorizationId_ValueList;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId_resaleAuthorizationId_ValueList != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId.ValueList = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId_resaleAuthorizationId_ValueList;
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationIdIsNull = false;
+            }
+             // determine if requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId should be set to null
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationIdIsNull)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId = null;
+            }
+            if (requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId != null)
+            {
+                requestEntityTypeFilters_entityTypeFilters_OfferFilters.ResaleAuthorizationId = requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_ResaleAuthorizationId;
                 requestEntityTypeFilters_entityTypeFilters_OfferFiltersIsNull = false;
             }
             Amazon.MarketplaceCatalog.Model.OfferStateFilter requestEntityTypeFilters_entityTypeFilters_OfferFilters_entityTypeFilters_OfferFilters_State = null;
@@ -3038,6 +3078,7 @@ namespace Amazon.PowerShell.Cmdlets.MCAT
             public List<System.String> EntityTypeFilters_OfferFilters_ProductId_ValueList { get; set; }
             public System.String EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_AfterValue { get; set; }
             public System.String EntityTypeFilters_OfferFilters_ReleaseDate_DateRange_BeforeValue { get; set; }
+            public List<System.String> ResaleAuthorizationId_ValueList { get; set; }
             public List<System.String> State_ValueList { get; set; }
             public List<System.String> Targeting_ValueList { get; set; }
             public System.String EntityTypeFilters_ResaleAuthorizationFilters_AvailabilityEndDate_DateRange_AfterValue { get; set; }

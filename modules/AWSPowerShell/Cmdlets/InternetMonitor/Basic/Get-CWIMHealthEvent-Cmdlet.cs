@@ -71,6 +71,16 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         public System.String EventId { get; set; }
         #endregion
         
+        #region Parameter LinkedAccountId
+        /// <summary>
+        /// <para>
+        /// <para>TBD </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String LinkedAccountId { get; set; }
+        #endregion
+        
         #region Parameter MonitorName
         /// <summary>
         /// <para>
@@ -141,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
                 WriteWarning("You are passing $null as a value for parameter EventId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LinkedAccountId = this.LinkedAccountId;
             context.MonitorName = this.MonitorName;
             #if MODULAR
             if (this.MonitorName == null && ParameterWasBound(nameof(this.MonitorName)))
@@ -167,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             if (cmdletContext.EventId != null)
             {
                 request.EventId = cmdletContext.EventId;
+            }
+            if (cmdletContext.LinkedAccountId != null)
+            {
+                request.LinkedAccountId = cmdletContext.LinkedAccountId;
             }
             if (cmdletContext.MonitorName != null)
             {
@@ -234,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String EventId { get; set; }
+            public System.String LinkedAccountId { get; set; }
             public System.String MonitorName { get; set; }
             public System.Func<Amazon.InternetMonitor.Model.GetHealthEventResponse, GetCWIMHealthEventCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

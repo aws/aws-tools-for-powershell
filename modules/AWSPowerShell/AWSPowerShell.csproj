@@ -295,6 +295,9 @@
     <Reference Include="AWSSDK.CodeCommit">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeCommit.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CodeConnections">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeConnections.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
@@ -1412,6 +1415,9 @@
     </Reference>
     <Reference Include="AWSSDK.CodeCommit">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeCommit.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodeConnections">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeConnections.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeDeploy.dll</HintPath>
