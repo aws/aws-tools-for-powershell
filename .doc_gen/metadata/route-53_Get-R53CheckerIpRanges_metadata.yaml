@@ -1,5 +1,5 @@
 ---
-route53_GetCheckerIpRanges:
+route-53_GetCheckerIpRanges:
   title: Use Get-R53CheckerIpRanges
   title_abbrev: Get-R53CheckerIpRanges
   synopsis: use Get-R53CheckerIpRanges
@@ -11,7 +11,7 @@ route53_GetCheckerIpRanges:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example returns the CIDRs for the Route53 health checkers</emphasis>'
         - snippet_files:
-          - .doc_gen/snippet_files/route53_Get-R53CheckerIpRanges.1.1.ps1
+          - .doc_gen/snippet_files/route-53_Get-R53CheckerIpRanges.1.1.ps1
           description: 
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
@@ -50,5 +50,5 @@ route53_GetCheckerIpRanges:
             176.34.159.192/26
             177.71.207.128/26</programlisting>
   services:
-    route53:
+    route-53:
       GetCheckerIpRanges: 
