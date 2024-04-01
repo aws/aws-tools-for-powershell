@@ -28,7 +28,8 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    
+    /// Publishes a listing (a record of an asset at a given time) or removes a listing from
+    /// the catalog.
     /// </summary>
     [Cmdlet("New", "DZListingChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataZone.Model.CreateListingChangeSetResponse")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether to publish or unpublish a listing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the Amazon DataZone domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter EntityIdentifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the asset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter EntityRevision
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The revision of an asset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -105,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter EntityType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The type of an entity.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -122,7 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A unique, case-sensitive identifier that is provided to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

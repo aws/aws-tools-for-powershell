@@ -106,6 +106,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String CacheBehaviorSettings_CachedHTTPMethod { get; set; }
         #endregion
         
+        #region Parameter CertificateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the SSL/TLS certificate that you want to attach to the distribution.</para><para>Only certificates with a status of <c>ISSUED</c> can be attached to a distribution.</para><para>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetCertificates.html">GetCertificates</a>
+        /// action to get a list of certificate names that you can specify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CertificateName { get; set; }
+        #endregion
+        
         #region Parameter ForwardedCookies_CookiesAllowList
         /// <summary>
         /// <para>
@@ -280,6 +291,42 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public Amazon.Lightsail.RegionName Origin_RegionName { get; set; }
         #endregion
         
+        #region Parameter Origin_ResponseTimeout
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in seconds, that the distribution waits for a response after forwarding
+        /// a request to the origin. The minimum timeout is 1 second, the maximum is 60 seconds,
+        /// and the default (if you don't specify otherwise) is 30 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Origin_ResponseTimeout { get; set; }
+        #endregion
+        
+        #region Parameter UseDefaultCertificate
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the default SSL/TLS certificate is attached to the distribution.
+        /// The default value is <c>true</c>. When <c>true</c>, the distribution uses the default
+        /// domain name such as <c>d111111abcdef8.cloudfront.net</c>.</para><para> Set this value to <c>false</c> to attach a new certificate to the distribution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? UseDefaultCertificate { get; set; }
+        #endregion
+        
+        #region Parameter ViewerMinimumTlsProtocolVersion
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to update the minimum TLS protocol version for the SSL/TLS certificate
+        /// that's attached to the distribution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Lightsail.ViewerMinimumTlsProtocolVersionEnum")]
+        public Amazon.Lightsail.ViewerMinimumTlsProtocolVersionEnum ViewerMinimumTlsProtocolVersion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Operation'.
@@ -366,6 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             }
             context.CacheBehaviorSettings_MaximumTTL = this.CacheBehaviorSettings_MaximumTTL;
             context.CacheBehaviorSettings_MinimumTTL = this.CacheBehaviorSettings_MinimumTTL;
+            context.CertificateName = this.CertificateName;
             context.DefaultCacheBehavior_Behavior = this.DefaultCacheBehavior_Behavior;
             context.DistributionName = this.DistributionName;
             #if MODULAR
@@ -378,6 +426,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.Origin_Name = this.Origin_Name;
             context.Origin_ProtocolPolicy = this.Origin_ProtocolPolicy;
             context.Origin_RegionName = this.Origin_RegionName;
+            context.Origin_ResponseTimeout = this.Origin_ResponseTimeout;
+            context.UseDefaultCertificate = this.UseDefaultCertificate;
+            context.ViewerMinimumTlsProtocolVersion = this.ViewerMinimumTlsProtocolVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -562,6 +613,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             {
                 request.CacheBehaviorSettings = null;
             }
+            if (cmdletContext.CertificateName != null)
+            {
+                request.CertificateName = cmdletContext.CertificateName;
+            }
             
              // populate DefaultCacheBehavior
             var requestDefaultCacheBehaviorIsNull = true;
@@ -623,10 +678,28 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 request.Origin.RegionName = requestOrigin_origin_RegionName;
                 requestOriginIsNull = false;
             }
+            System.Int32? requestOrigin_origin_ResponseTimeout = null;
+            if (cmdletContext.Origin_ResponseTimeout != null)
+            {
+                requestOrigin_origin_ResponseTimeout = cmdletContext.Origin_ResponseTimeout.Value;
+            }
+            if (requestOrigin_origin_ResponseTimeout != null)
+            {
+                request.Origin.ResponseTimeout = requestOrigin_origin_ResponseTimeout.Value;
+                requestOriginIsNull = false;
+            }
              // determine if request.Origin should be set to null
             if (requestOriginIsNull)
             {
                 request.Origin = null;
+            }
+            if (cmdletContext.UseDefaultCertificate != null)
+            {
+                request.UseDefaultCertificate = cmdletContext.UseDefaultCertificate.Value;
+            }
+            if (cmdletContext.ViewerMinimumTlsProtocolVersion != null)
+            {
+                request.ViewerMinimumTlsProtocolVersion = cmdletContext.ViewerMinimumTlsProtocolVersion;
             }
             
             CmdletOutput output;
@@ -701,12 +774,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public List<System.String> ForwardedQueryStrings_QueryStringsAllowList { get; set; }
             public System.Int64? CacheBehaviorSettings_MaximumTTL { get; set; }
             public System.Int64? CacheBehaviorSettings_MinimumTTL { get; set; }
+            public System.String CertificateName { get; set; }
             public Amazon.Lightsail.BehaviorEnum DefaultCacheBehavior_Behavior { get; set; }
             public System.String DistributionName { get; set; }
             public System.Boolean? IsEnabled { get; set; }
             public System.String Origin_Name { get; set; }
             public Amazon.Lightsail.OriginProtocolPolicyEnum Origin_ProtocolPolicy { get; set; }
             public Amazon.Lightsail.RegionName Origin_RegionName { get; set; }
+            public System.Int32? Origin_ResponseTimeout { get; set; }
+            public System.Boolean? UseDefaultCertificate { get; set; }
+            public Amazon.Lightsail.ViewerMinimumTlsProtocolVersionEnum ViewerMinimumTlsProtocolVersion { get; set; }
             public System.Func<Amazon.Lightsail.Model.UpdateDistributionResponse, UpdateLSDistributionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Operation;
         }

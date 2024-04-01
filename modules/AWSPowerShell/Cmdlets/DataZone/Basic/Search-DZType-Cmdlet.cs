@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Managed
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies whether the search is managed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter SearchIn
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The details of the search.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

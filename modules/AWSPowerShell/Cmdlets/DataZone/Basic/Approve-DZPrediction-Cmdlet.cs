@@ -40,12 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
     public partial class ApproveDZPredictionCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AcceptChoice
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Specifies the prediction (aka, the automatically generated piece of metadata) and
+        /// the target (for example, a column name) that can be accepted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the asset.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Revision
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The revision that is to be made to the asset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

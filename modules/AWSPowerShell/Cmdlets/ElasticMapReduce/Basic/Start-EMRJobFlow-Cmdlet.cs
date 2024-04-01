@@ -416,7 +416,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>Specifies whether the cluster should remain available after completing all steps.
-        /// Defaults to <c>true</c>. For more information about configuring cluster termination,
+        /// Defaults to <c>false</c>. For more information about configuring cluster termination,
         /// see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-termination.html">Control
         /// Cluster Termination</a> in the <i>EMR Management Guide</i>.</para>
         /// </para>

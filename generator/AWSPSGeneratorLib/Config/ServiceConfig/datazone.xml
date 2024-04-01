@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CancelMetadataGenerationRun" Verb="Stop" Noun="MetadataGenerationRun" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelSubscription" OutputProperty="*" Verb="Stop" Noun="Subscription" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -227,6 +231,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMetadataGenerationRun" OutputProperty="*" Verb="Get" Noun="MetadataGenerationRun" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProject" OutputProperty="*" Verb="Get" Noun="Project" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -289,6 +297,10 @@
             <Params>
                 <Param Name="Region" NewName="AwsRegion" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMetadataGenerationRuns" OutputProperty="Items" Verb="Get" Noun="MetadataGenerationRunList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNotifications" OutputProperty="Notifications" Verb="Get" Noun="NotificationList" PipelineParameter="Type" NoPipelineParameter="false">
@@ -360,6 +372,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartDataSourceRun" OutputProperty="*" Verb="Start" Noun="DataSourceRun" ShouldProcessTarget="DataSourceIdentifier" PipelineParameter="DataSourceIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartMetadataGenerationRun" OutputProperty="*" Verb="Start" Noun="MetadataGenerationRun" ShouldProcessTarget="OwningProjectIdentifier" PipelineParameter="OwningProjectIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

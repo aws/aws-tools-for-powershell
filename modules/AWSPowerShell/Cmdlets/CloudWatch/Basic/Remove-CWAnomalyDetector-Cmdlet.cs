@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter SingleMetricAnomalyDetector_AccountId
+        /// <summary>
+        /// <para>
+        /// <para>If the CloudWatch metric that provides the time series that the anomaly detector uses
+        /// as input is in another account, specify that account ID here. If you omit this parameter,
+        /// the current account is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SingleMetricAnomalyDetector_AccountId { get; set; }
+        #endregion
+        
         #region Parameter SingleMetricAnomalyDetector_Dimension
         /// <summary>
         /// <para>
@@ -228,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Namespace = this.Namespace;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SingleMetricAnomalyDetector_AccountId = this.SingleMetricAnomalyDetector_AccountId;
             if (this.SingleMetricAnomalyDetector_Dimension != null)
             {
                 context.SingleMetricAnomalyDetector_Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.SingleMetricAnomalyDetector_Dimension);
@@ -295,6 +308,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
              // populate SingleMetricAnomalyDetector
             var requestSingleMetricAnomalyDetectorIsNull = true;
             request.SingleMetricAnomalyDetector = new Amazon.CloudWatch.Model.SingleMetricAnomalyDetector();
+            System.String requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_AccountId = null;
+            if (cmdletContext.SingleMetricAnomalyDetector_AccountId != null)
+            {
+                requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_AccountId = cmdletContext.SingleMetricAnomalyDetector_AccountId;
+            }
+            if (requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_AccountId != null)
+            {
+                request.SingleMetricAnomalyDetector.AccountId = requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_AccountId;
+                requestSingleMetricAnomalyDetectorIsNull = false;
+            }
             List<Amazon.CloudWatch.Model.Dimension> requestSingleMetricAnomalyDetector_singleMetricAnomalyDetector_Dimension = null;
             if (cmdletContext.SingleMetricAnomalyDetector_Dimension != null)
             {
@@ -414,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String MetricName { get; set; }
             [System.ObsoleteAttribute]
             public System.String Namespace { get; set; }
+            public System.String SingleMetricAnomalyDetector_AccountId { get; set; }
             public List<Amazon.CloudWatch.Model.Dimension> SingleMetricAnomalyDetector_Dimension { get; set; }
             public System.String SingleMetricAnomalyDetector_MetricName { get; set; }
             public System.String SingleMetricAnomalyDetector_Namespace { get; set; }

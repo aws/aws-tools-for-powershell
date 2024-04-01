@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter SkipDeletionCheck
         /// <summary>
         /// <para>
-        /// <para>Optional flag to delete all child entities within the domain</para>
+        /// <para>Specifies the optional flag to delete all child entities within the domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

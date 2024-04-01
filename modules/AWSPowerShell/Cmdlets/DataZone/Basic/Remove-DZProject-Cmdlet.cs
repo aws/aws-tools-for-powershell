@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter SkipDeletionCheck
         /// <summary>
         /// <para>
-        /// <para>Optional flag to asynchronously delete child entities within the project</para>
+        /// <para>Specifies the optional flag to delete all child entities within the project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

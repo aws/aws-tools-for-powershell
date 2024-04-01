@@ -28,7 +28,7 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    
+    /// Gets a listing (a record of an asset at a given time).
     /// </summary>
     [Cmdlet("Get", "DZListing")]
     [OutputType("Amazon.DataZone.Model.GetListingResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the Amazon DataZone domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the listing.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter ListingRevision
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The revision of the listing.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

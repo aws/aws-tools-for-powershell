@@ -346,6 +346,16 @@ $LS_Completers = {
             break
         }
 
+        # Amazon.Lightsail.ViewerMinimumTlsProtocolVersionEnum
+        {
+            ($_ -eq "New-LSDistribution/ViewerMinimumTlsProtocolVersion") -Or
+            ($_ -eq "Update-LSDistribution/ViewerMinimumTlsProtocolVersion")
+        }
+        {
+            $v = "TLSv1.1_2016","TLSv1.2_2018","TLSv1.2_2019","TLSv1.2_2021"
+            break
+        }
+
 
     }
 
@@ -382,6 +392,7 @@ $LS_map = @{
     "State"=@("Test-LSAlarm")
     "TreatMissingData"=@("Add-LSAlarm")
     "Unit"=@("Get-LSBucketMetricData","Get-LSDistributionMetricData","Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData","Get-LSRelationalDatabaseMetricData")
+    "ViewerMinimumTlsProtocolVersion"=@("New-LSDistribution","Update-LSDistribution")
 }
 
 _awsArgumentCompleterRegistration $LS_Completers $LS_map

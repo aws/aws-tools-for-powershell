@@ -1,4 +1,19 @@
-﻿### 4.1.548 (2024-03-29 20:51Z)
+﻿### 4.1.549 (2024-04-01 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.780.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ADC and can be listed using the command 'Get-AWSCmdletName -Service ADC'.
+  * Amazon CloudWatch
+    * Modified cmdlet Remove-CWAnomalyDetector: added parameter SingleMetricAnomalyDetector_AccountId.
+    * Modified cmdlet Write-CWAnomalyDetector: added parameter SingleMetricAnomalyDetector_AccountId.
+  * Amazon DataZone
+    * Added cmdlet Get-DZMetadataGenerationRun leveraging the GetMetadataGenerationRun service API.
+    * Added cmdlet Get-DZMetadataGenerationRunList leveraging the ListMetadataGenerationRuns service API.
+    * Added cmdlet Start-DZMetadataGenerationRun leveraging the StartMetadataGenerationRun service API.
+    * Added cmdlet Stop-DZMetadataGenerationRun leveraging the CancelMetadataGenerationRun service API.
+  * Amazon Lightsail
+    * Modified cmdlet New-LSDistribution: added parameters CertificateName, Origin_ResponseTimeout and ViewerMinimumTlsProtocolVersion.
+    * Modified cmdlet Update-LSDistribution: added parameters CertificateName, Origin_ResponseTimeout, UseDefaultCertificate and ViewerMinimumTlsProtocolVersion.
+
+### 4.1.548 (2024-03-29 20:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.779.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Internet Monitor
     * Modified cmdlet Get-CWIMHealthEvent: added parameter LinkedAccountId.

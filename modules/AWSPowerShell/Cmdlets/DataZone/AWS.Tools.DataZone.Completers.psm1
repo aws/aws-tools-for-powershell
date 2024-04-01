@@ -204,6 +204,30 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.MetadataGenerationRunStatus
+        "Get-DZMetadataGenerationRunList/Status"
+        {
+            $v = "CANCELED","FAILED","IN_PROGRESS","SUBMITTED","SUCCEEDED"
+            break
+        }
+
+        # Amazon.DataZone.MetadataGenerationRunType
+        {
+            ($_ -eq "Get-DZMetadataGenerationRunList/Type") -Or
+            ($_ -eq "Start-DZMetadataGenerationRun/Type")
+        }
+        {
+            $v = "BUSINESS_DESCRIPTIONS"
+            break
+        }
+
+        # Amazon.DataZone.MetadataGenerationTargetType
+        "Start-DZMetadataGenerationRun/Target_Type"
+        {
+            $v = "ASSET"
+            break
+        }
+
         # Amazon.DataZone.NotificationType
         "Get-DZNotificationList/Type"
         {
@@ -369,9 +393,10 @@ $DZ_map = @{
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "SortBy"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "SortOrder"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "Status"=@("Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "Status"=@("Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TaskStatus"=@("Get-DZNotificationList")
-    "Type"=@("Get-DZNotificationList","Get-DZUserProfile","Update-DZUserProfile")
+    "Type"=@("Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
     "UserType"=@("New-DZUserProfile","Search-DZUserProfile")
 }
 
@@ -427,6 +452,7 @@ $DZ_SelectCompleters = {
 $DZ_SelectMap = @{
     "Select"=@("Approve-DZPrediction",
                "Approve-DZSubscriptionRequest",
+               "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
                "New-DZAsset",
                "New-DZAssetRevision",
@@ -477,6 +503,7 @@ $DZ_SelectMap = @{
                "Get-DZGroupProfile",
                "Get-DZIamPortalLoginUrl",
                "Get-DZListing",
+               "Get-DZMetadataGenerationRun",
                "Get-DZProject",
                "Get-DZSubscription",
                "Get-DZSubscriptionGrant",
@@ -492,6 +519,7 @@ $DZ_SelectMap = @{
                "Get-DZEnvironmentBlueprintList",
                "Get-DZEnvironmentProfileList",
                "Get-DZEnvironmentList",
+               "Get-DZMetadataGenerationRunList",
                "Get-DZNotificationList",
                "Get-DZProjectMembershipList",
                "Get-DZProjectList",
@@ -510,6 +538,7 @@ $DZ_SelectMap = @{
                "Search-DZType",
                "Search-DZUserProfile",
                "Start-DZDataSourceRun",
+               "Start-DZMetadataGenerationRun",
                "Add-DZResourceTag",
                "Remove-DZResourceTag",
                "Update-DZDataSource",

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// on the cluster to stop scheduling tasks with these nodes, moves the data, and then
     /// terminates the nodes.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_UnhealthyNodeReplacement.html">graceful
+    /// For more information, see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-node-replacement.html">graceful
     /// node replacement</a> in the <i>Amazon EMR Management Guide</i>.
     /// </para>
     /// </summary>

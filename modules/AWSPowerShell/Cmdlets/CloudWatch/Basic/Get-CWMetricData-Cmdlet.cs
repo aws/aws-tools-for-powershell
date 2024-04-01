@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>The order in which data points should be returned. <c>TimestampDescending</c> returns
         /// the newest data first and paginates when the <c>MaxDatapoints</c> limit is reached.
         /// <c>TimestampAscending</c> returns the oldest data first and paginates when the <c>MaxDatapoints</c>
-        /// limit is reached.</para>
+        /// limit is reached.</para><para>If you omit this parameter, the default of <c>TimestampDescending</c> is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

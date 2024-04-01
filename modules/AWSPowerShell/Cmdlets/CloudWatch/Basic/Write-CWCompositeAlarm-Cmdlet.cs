@@ -45,9 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// For example, you could create a composite alarm that goes into ALARM state only when
     /// more than one of the underlying metric alarms are in ALARM state.
     /// </para><para>
-    /// Currently, the only alarm actions that can be taken by composite alarms are notifying
-    /// SNS topics.
-    /// </para><note><para>
+    /// Composite alarms can take the following actions:
+    /// </para><ul><li><para>
+    /// Notify Amazon SNS topics.
+    /// </para></li><li><para>
+    /// Invoke Lambda functions.
+    /// </para></li><li><para>
+    /// Create OpsItems in Systems Manager Ops Center.
+    /// </para></li><li><para>
+    /// Create incidents in Systems Manager Incident Manager.
+    /// </para></li></ul><note><para>
     /// It is possible to create a loop or cycle of composite alarms, where composite alarm
     /// A depends on composite alarm B, and composite alarm B also depends on composite alarm
     /// A. In this scenario, you can't delete any composite alarm that is part of the cycle
@@ -142,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <c>ALARM</c> state from
-        /// any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c> | <c>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i></c></para>
+        /// any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: ]</para><para><b>Amazon SNS actions:</b></para><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c></para><para><b>Lambda actions:</b></para><ul><li><para>Invoke the latest version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i></c></para></li><li><para>Invoke a specific version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i></c></para></li><li><para>Invoke a function by using an alias Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i></c></para></li></ul><para><b>Systems Manager actions:</b></para><para><c>arn:aws:ssm:<i>region</i>:<i>account-id</i>:opsitem:<i>severity</i></c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -220,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <c>INSUFFICIENT_DATA</c>
-        /// state from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c></para>
+        /// state from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: ]</para><para><b>Amazon SNS actions:</b></para><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c></para><para><b>Lambda actions:</b></para><ul><li><para>Invoke the latest version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i></c></para></li><li><para>Invoke a specific version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i></c></para></li><li><para>Invoke a function by using an alias Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i></c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The actions to execute when this alarm transitions to an <c>OK</c> state from any
-        /// other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c></para>
+        /// other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: ]</para><para><b>Amazon SNS actions:</b></para><para><c>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></c></para><para><b>Lambda actions:</b></para><ul><li><para>Invoke the latest version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i></c></para></li><li><para>Invoke a specific version of a Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>version-number</i></c></para></li><li><para>Invoke a function by using an alias Lambda function: <c>arn:aws:lambda:<i>region</i>:<i>account-id</i>:function:<i>function-name</i>:<i>alias-name</i></c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -243,10 +250,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs to associate with the composite alarm. You can associate
-        /// as many as 50 tags with an alarm.</para><para>Tags can help you organize and categorize your resources. You can also use them to
-        /// scope user permissions, by granting a user permission to access or change only resources
-        /// with certain tag values.</para>
+        /// <para>A list of key-value pairs to associate with the alarm. You can associate as many as
+        /// 50 tags with an alarm. To be able to associate tags with the alarm when you create
+        /// the alarm, you must have the <c>cloudwatch:TagResource</c> permission.</para><para>Tags can help you organize and categorize your resources. You can also use them to
+        /// scope user permissions by granting a user permission to access or change only resources
+        /// with certain tag values.</para><para>If you are using this operation to update an existing alarm, any tags you specify
+        /// in this parameter are ignored. To change the tags of an existing alarm, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UntagResource.html">UntagResource</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
