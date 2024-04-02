@@ -1,0 +1,23 @@
+aurora_DescribeOrderableDBInstanceOptions:
+  title: Describe options for &AURlong; DB instances using an &AWS; SDK
+  title_abbrev: Describe options for &AUR; DB instances
+  synopsis: describe options for &AUR; DB instances.
+  category:
+  languages:
+    PowerShell:
+      versions:
+        - sdk_version: 4
+          excerpts:
+            - description: '<emphasis role="bold">Example 1: This example lists the DB engine versions that support a specific DB instance class in an &AWS-Region;.</emphasis>'
+              snippet_files: []
+            - description: 
+              snippet_files:
+                - .doc_gen/snippet_files/aurora_Get-RDSOrderableDBInstanceOption.1.1.ps1
+            - description: '<emphasis role="bold">Example 2: This example lists the DB instance classes that are supported for a specific DB engine version in an &AWS-Region;.</emphasis>'
+              snippet_files: []
+            - description: 
+              snippet_files:
+                - .doc_gen/snippet_files/aurora_Get-RDSOrderableDBInstanceOption.2.1.ps1
+  services:
+    aurora: 
+      DescribeOrderableDBInstanceOptions:
