@@ -385,15 +385,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The <c>family</c> and <c>revision</c> (<c>family:revision</c>) or full ARN of the
         /// task definition to run. If a <c>revision</c> isn't specified, the latest <c>ACTIVE</c>
-        /// revision is used.</para><para>When you create a policy for run-task, you can set the resource to be the latest task
-        /// definition revision, or a specific revision.</para><para>The full ARN value must match the value that you specified as the <c>Resource</c>
-        /// of the principal's permissions policy.</para><para>When you specify the policy resource as the latest task definition version (by setting
-        /// the <c>Resource</c> in the policy to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</c>),
-        /// then set this value to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName</c>.</para><para>When you specify the policy resource as a specific task definition version (by setting
-        /// the <c>Resource</c> in the policy to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</c>
-        /// or <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*</c>), then
-        /// set this value to <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:1</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-resources">Policy
-        /// Resources for Amazon ECS</a> in the Amazon Elastic Container Service developer Guide.</para>
+        /// revision is used.</para><para>The full ARN value must match the value that you specified as the <c>Resource</c>
+        /// of the principal's permissions policy.</para><para>When you specify a task definition, you must either specify a specific revision, or
+        /// all revisions in the ARN.</para><para>To specify a specific revision, include the revision number in the ARN. For example,
+        /// to specify revision 2, use <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:2</c>.</para><para>To specify all revisions, use the wildcard (*) in the ARN. For example, to specify
+        /// all revisions, use <c>arn:aws:ecs:us-east-1:111122223333:task-definition/TaskFamilyName:*</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-resources">Policy
+        /// Resources for Amazon ECS</a> in the Amazon Elastic Container Service Developer Guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

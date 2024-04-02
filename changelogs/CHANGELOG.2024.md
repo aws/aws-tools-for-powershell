@@ -1,4 +1,7 @@
-﻿### 4.1.549 (2024-04-01 21:28Z)
+﻿### 4.1.550 (2024-04-02 20:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.781.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.549 (2024-04-01 21:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.780.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud. Added cmdlets to support the service. Cmdlets for the service have the noun prefix ADC and can be listed using the command 'Get-AWSCmdletName -Service ADC'.
   * Amazon CloudWatch
