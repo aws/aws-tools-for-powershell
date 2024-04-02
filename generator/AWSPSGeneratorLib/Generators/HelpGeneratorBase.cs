@@ -4,19 +4,12 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using System.Management.Automation.Language;
 using System.Reflection;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Xml;
 using AWSPowerShellGenerator.Analysis;
 using AWSPowerShellGenerator.Utils;
 using AWSPowerShellGenerator.Writers.Help;
-using YamlDotNet.Core;
-using YamlDotNet.Core.Events;
-using YamlDotNet.Serialization;
-using YamlDotNet.Serialization.NamingConventions;
-using Parser = YamlDotNet.Core.Parser;
 
 namespace AWSPowerShellGenerator.Generators
 {
@@ -38,49 +31,6 @@ namespace AWSPowerShellGenerator.Generators
         protected Dictionary<string, XmlDocument> ExamplesCache;
 
         protected Dictionary<string, XmlDocument> LinksCache;
-
-        protected string ExamplesSearchPattern = "*.yaml";
-
-        protected string[] ExampleMetadataRelativePaths = {".doc_gen/metadata", @".doc_gen/common"};
-
-        protected List<string> ExampleMetadataFiles = new List<string>();
-
-        protected class ExampleMetadata
-        {
-            public string title { get; set; }
-            public string title_abbrev { get; set; }
-            public string synopsis { get; set; }
-            public MetadataLanguage languages { get; set; }
-            public Dictionary<object, object> services { get; set; }
-        }
-
-        protected class MetadataLanguage
-        {
-            public MetadataPowerShell PowerShell { get; set; }
-        }
-
-        protected class MetadataPowerShell
-        {
-            public MetadataVersion[] versions { get; set; }
-        }
-
-        protected class MetadataVersion
-        {
-            public Excerpt[] excerpts { get; set; }
-            public string sdk_version { get; set; }
-        }
-
-        protected class Excerpt
-        {
-            public string description { get; set; }
-            public string[] snippet_files { get; set; }
-        }
-
-        protected class XmlExample
-        {
-            public string Description { get; set; }
-            public List<string> CodeAndOutput { get; set; } = new List<string>();
-        }
 
         protected class CmdletInfo
         {
@@ -132,7 +82,6 @@ namespace AWSPowerShellGenerator.Generators
                 .Where(t => psCmdletType.IsAssignableFrom(t) && t.IsPublic && !t.IsAbstract)
                 .ToList();
 
-            LoadExampleMetadataFiles();
             LoadExamplesCache();
             LoadLinksCache();
         }
@@ -156,229 +105,30 @@ namespace AWSPowerShellGenerator.Generators
             return new CmdletInfo(cmdletAttributes, awsCmdletAttribute, awsCmdletOutputAttributes);
         }
 
-        protected void LoadExampleMetadataFiles()
+        private void LoadExamplesCache()
         {
-            foreach (var metadataRelativePath in ExampleMetadataRelativePaths)
-            {
-                var metadataDirectories = Path.Combine(Options.RootPath, metadataRelativePath);
+            var examplesPath = Path.Combine(Options.RootPath, "generator", "AWSPSGeneratorLib", "HelpMaterials", "Examples");
+            Console.WriteLine("Loading example files from {0}", Path.GetFullPath(examplesPath));
 
-                Console.WriteLine("Loading example metadata files from {0}", Path.GetFullPath(metadataDirectories));
-
-                ExampleMetadataFiles.AddRange(Directory.GetFiles(metadataDirectories, ExamplesSearchPattern));
-            }
-        }
-
-        protected void LoadExamplesCache()
-        {
             ExamplesCache = new Dictionary<string, XmlDocument>();
-
-            foreach (var metadataPath in ExampleMetadataFiles)
+            var serviceSubFolders = Directory.GetDirectories(examplesPath, "*.*", SearchOption.TopDirectoryOnly);
+            foreach (var serviceFolder in serviceSubFolders)
             {
-                try
+                var exampleFiles = Directory.GetFiles(serviceFolder, "*.xml");
+                foreach (var exampleFile in exampleFiles)
                 {
-                    var cmdletName = GetCmdletNameFromMetadataPath(metadataPath);
-                    var document = GetExampleXmlFromMetadata(metadataPath, Options.RootPath);
+                    var document = new XmlDocument {PreserveWhitespace = true};
+                    document.Load(exampleFile);
+                    var cmdletName = Path.GetFileNameWithoutExtension(exampleFile);
                     ExamplesCache[cmdletName] = document;
                     Console.WriteLine("...loaded examples for {0}", cmdletName);
                 }
-                catch (Exception ex)
-                {
-                    Logger.LogError($"Error processing {metadataPath}. {ex}");
-                }
             }
+
             Console.WriteLine();
         }
 
-        private string GetCmdletNameFromMetadataPath(string metadataPath)
-        {
-            var filenameParts = Path.GetFileNameWithoutExtension(metadataPath).Split('_');
-            if (filenameParts.Length != 3)
-            {
-                throw new InvalidDataException($"The following metadata file name is invalid. expected format is servicename_cmdletname_metadata.yaml. {metadataPath}");
-            }
-
-            if (!filenameParts[1].Contains("-"))
-            {
-                throw new InvalidDataException($"The following metadata file name is invalid. expected format is servicename_cmdletname_metadata.yaml. The cmdletname should be of Verb-Noun format but got {filenameParts[1]}. {metadataPath}");
-            }
-
-            return filenameParts[1];
-        }
-
-        private XmlDocument GetExampleXmlFromMetadata(string metadataPath, string rootPath)
-        {
-            var exampleMetadata = ExtractExcerptsFromMetadataYaml(metadataPath);
-            var examples = SplitExcerpts(exampleMetadata.languages.PowerShell.versions[0].excerpts, rootPath);
-            return GetExampleXmlFromExcerpts(examples);
-        }
-
-        // extracts excerpts from example metadata yaml file
-        private ExampleMetadata ExtractExcerptsFromMetadataYaml(string metadataPath)
-        {
-            using var reader = new StreamReader(metadataPath);
-            var parser = new Parser(reader);
-            var deserializer = new DeserializerBuilder()
-                .Build();
-
-            // the yaml files have a dynamic property name of the form Servicename_OpertaionName
-            // which can't be mapped to a C# class. To overcome this, the code skips just ahead of the Servicename_OpertaionName node
-            // by consuming MappingStart and Scalar nodes. and then serializes the rest of the yaml document to ExampleMetadata
-            parser.Consume<StreamStart>();
-            parser.Consume<DocumentStart>();
-            parser.Consume<MappingStart>(); // service node
-            parser.Consume<Scalar>(); // service name mode
-
-            var exampleMetadata = deserializer.Deserialize<ExampleMetadata>(parser);
-            return exampleMetadata;
-        }
-
-        // Entities represent localized keywords in the Example YAML format.
-        // These keywords will be replaced by the SOS to the localized values. e.g &AWS is replaced by Amazon in China
-        // The PowerShell XML Help isn't aware of entities so these are substituted.
-        private string ReplaceEntities(string excerptContent)
-        {
-            var replacedString = excerptContent;
-            var entities = new Dictionary<string, string>()
-            {
-                {"&AWS;","AWS"},
-                {"&AWS-account;","AWS account"},
-                {"&AWS-accounts;","AWS accounts"},
-                {"&AWS-Region;","AWS Region"},
-                {"&AWS-Regions;","AWS Regions"},
-                {"&AWS-service;","AWS service"},
-                {"&AWS-services;","AWS services"},
-                {"&AWS-Cloud;","AWS Cloud"}
-
-            };
-
-            foreach (var entity in entities)
-            {
-                replacedString = replacedString.Replace(entity.Key, entity.Value);
-            }
-            return replacedString;
-        }
-
-        // Split Excerpts into List of examples
-        private List<XmlExample> SplitExcerpts(Excerpt[] excerpts, string rootPath)
-        {
-            const string exampleDescriptionBeginPattern = @"Example \d+:";
-            var exampleBeginPattern = $@"<emphasis role=""bold"">{exampleDescriptionBeginPattern}";
-            var examples = new List<XmlExample>();
-            var example = new XmlExample();
-            bool firstExample = true;
-
-            for (int i = 0; i < excerpts.Length; i++)
-            {
-                var currentExcerpt = excerpts[i].description;
-                var match = Regex.Match(currentExcerpt ?? "", exampleBeginPattern);
-                // Process Example Excerpt
-                if (match.Success)
-                {
-
-                    if (example.CodeAndOutput.Count > 0)
-                    {
-                        examples.Add(example);
-                    }
-                    else if (!firstExample)
-                    {
-                        // There should always be either code and/or output for an example except when it's the first example.
-                        throw new InvalidDataException($"Invalid example. There must be at least one snippet and optional output for an example: {currentExcerpt}");
-                    }
-
-                    example = new XmlExample();
-                    var outputXml = new XmlDocument() { PreserveWhitespace = true };
-                    outputXml.LoadXml(ReplaceEntities(currentExcerpt));
-
-                    // Yaml examples description begin with Example followed by a number. e.g Example 11. Replace this with empty string.
-                    var exampleDescription = Regex.Replace(outputXml.DocumentElement.InnerXml, exampleDescriptionBeginPattern, "").Trim();
-
-                    example.Description = exampleDescription;
-                    firstExample = false;
-
-                }
-                else if (i == 0)
-                {
-                    // First excerpt must be an example
-                    throw new InvalidDataException($"Invalid excerpt. First excerpt must be an example: {excerpts[0].description}");
-                }
-                // Process Snippet excerpt
-                else if (excerpts[i].snippet_files.Length > 0)
-                {
-                    var snippetFilePath = Path.Combine(rootPath, excerpts[i].snippet_files[0]);
-                    var snippetContent = File.ReadAllText(snippetFilePath);
-                    example.CodeAndOutput.Add(snippetContent);
-                }
-                // Process Output excerpt
-                else if (currentExcerpt.Contains("<emphasis role=\"bold\">Output:"))
-                {
-                    var outputXml = new XmlDocument() { PreserveWhitespace = true };
-                    
-                    // the next excerpt should have the actual output. Check that current excerpt is not the last and the next excerpt has <programlisting> xml.
-                    if (i == excerpts.Length - 1)
-                    {
-                        throw new InvalidDataException(
-                            $"Invalid Output excerpt. Output excerpt with actual output data is missing: {currentExcerpt}");
-                    }
-
-                    currentExcerpt = excerpts[++i].description;
-
-                    if (!currentExcerpt.Contains("<programlisting language=\"none\" role=\"nocopy\">"))
-                    {
-                        throw new InvalidDataException($"Invalid Output excerpt. Expected Output excerpt to have `<programlisting language=\"none\" role=\"nocopy\">`: {currentExcerpt}");
-                    }
-
-                    outputXml.LoadXml(ReplaceEntities(currentExcerpt));
-                    example.CodeAndOutput.Add(outputXml.InnerText);
-                }
-                else
-                {
-                    throw new InvalidDataException($"Invalid excerpt. Expected excerpt description to contain Example followed by a number or have '<emphasis role=\"bold\">Output:' or snippet_files : {currentExcerpt}");
-                }
-            }
-            if (example.CodeAndOutput.Count > 0)
-            {
-                examples.Add(example);
-            }
-
-            //Validate that all examples have at least one CodeAndOutput
-            if (examples.Any(e => e.CodeAndOutput.Count == 0))
-            {
-                throw new InvalidDataException($"The yaml metadata file is malformed. The examples should have at least one code snippet.");
-            }
-
-            return examples;
-        }
-
-        private XmlDocument GetExampleXmlFromExcerpts(List<XmlExample> examples)
-        {
-
-            var examplesXml = new XmlDocument() { PreserveWhitespace = true };
-            var newLine = Environment.NewLine;
-            var settings = new XmlWriterSettings() { Indent = true, IndentChars = "  ", Encoding = Encoding.UTF8 };
-            var sw = new StringWriter();
-            using var writer = XmlWriter.Create(sw, settings);
-
-            writer.WriteStartElement("examples");
-
-            foreach (var example in examples)
-            {
-                writer.WriteStartElement("example");
-                writer.WriteStartElement("code");
-                writer.WriteString(string.Join($"{newLine}{newLine}", example.CodeAndOutput));
-                writer.WriteEndElement();
-                writer.WriteStartElement("description");
-                writer.WriteRaw(example.Description);
-                writer.WriteEndElement();
-                writer.WriteEndElement();
-            }
-            writer.WriteEndElement();
-            writer.Flush();
-
-            examplesXml.LoadXml(sw.ToString());
-            return examplesXml;
-        }
-
-        protected void LoadLinksCache()
+        private void LoadLinksCache()
         {
             var linkLibrariesPath = Path.Combine(Options.RootPath, "generator", "AWSPSGeneratorLib", "HelpMaterials", "LinkLibraries");
             Console.WriteLine("Loading link files from {0}", Path.GetFullPath(linkLibrariesPath));
@@ -588,7 +338,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             if (type.IsArray)
                 return GetValidTypeName(type.GetElementType()) + "[]";
-
+            
             if (type.IsGenericType)
             {
                 var genericArguments = type.GetGenericArguments();
@@ -596,13 +346,13 @@ namespace AWSPowerShellGenerator.Generators
 
                 if (genericType.IsAssignableFrom(typeof(List<>)))
                     return string.Format("List<{0}>", GetValidTypeName(genericArguments[0]));
-
+                
                 if (genericType.IsAssignableFrom(typeof(IEnumerable<>)))
                     return string.Format("IEnumerable<{0}>", GetValidTypeName(genericArguments[0]));
-
+                
                 if (genericType.IsAssignableFrom(typeof(Dictionary<,>)))
                     return string.Format("Dictionary<{0}, {1}>", GetValidTypeName(genericArguments[0]), GetValidTypeName(genericArguments[1]));
-
+                
                 if (string.Equals(genericType.FullName, "Amazon.S3.Model.Tuple`2", StringComparison.Ordinal))
                     return string.Format("Tuple<{0}, {1}>", GetValidTypeName(genericArguments[0]), GetValidTypeName(genericArguments[1]));
 
