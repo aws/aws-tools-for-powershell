@@ -7,10 +7,11 @@ ec2_DescribeScheduledInstanceAvailability:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2ScheduledInstanceAvailability
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes a schedule that occurs every week on Sunday, starting on the specified date.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2ScheduledInstanceAvailability.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -34,10 +35,10 @@ ec2_DescribeScheduledInstanceAvailability:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: To narrow the results, you can add filters for criteria such as operating system, network, and instance type.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2ScheduledInstanceAvailability.2.1.ps1
   services:
     ec2:
-      DescribeScheduledInstanceAvailability: 
+      DescribeScheduledInstanceAvailability:
 

@@ -7,10 +7,11 @@ ec2_DescribeNetworkAcls:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2NetworkAcl
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the specified network ACL.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2NetworkAcl.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -25,7 +26,7 @@ ec2_DescribeNetworkAcls:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example describes the rules for the specified network ACL.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2NetworkAcl.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -49,10 +50,10 @@ ec2_DescribeNetworkAcls:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example describes all your network ACLs.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2NetworkAcl.3.1.ps1
   services:
     ec2:
-      DescribeNetworkAcls: 
+      DescribeNetworkAcls:
 

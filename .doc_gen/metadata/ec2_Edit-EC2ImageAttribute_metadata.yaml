@@ -6,33 +6,34 @@ ec2_ModifyImageAttribute:
   languages:
     PowerShell:
       versions:
-        - sdk_version: 4
-          excerpts:
-            - description: '<emphasis role="bold">Example 1: This example updates the description for the specified AMI.</emphasis>'
-              snippet_files: []
-            - description:
-              snippet_files:
-                - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.1.1.ps1
-            - description: '<emphasis role="bold">Example 2: This example makes the AMI public (for example, so any &AWS-account; can use it).</emphasis>'
-              snippet_files: []
-            - description:
-              snippet_files:
-                - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.2.1.ps1
-            - description: '<emphasis role="bold">Example 3: This example makes the AMI private (for example, so that only you as the owner can use it).</emphasis>'
-              snippet_files: []
-            - description:
-              snippet_files:
-                - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.3.1.ps1
-            - description: '<emphasis role="bold">Example 4: This example grants launch permission to the specified &AWS-account;.</emphasis>'
-              snippet_files: []
-            - description:
-              snippet_files:
-                - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.4.1.ps1
-            - description: '<emphasis role="bold">Example 5: This example removes launch permission from the specified &AWS-account;.</emphasis>'
-              snippet_files: []
-            - description:
-              snippet_files:
-                - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.5.1.ps1
+      - sdk_version: 4
+        sdk_action: Edit-EC2ImageAttribute
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example updates the description for the specified AMI.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.1.1.ps1
+        - description: '<emphasis role="bold">Example 2: This example makes the AMI public (for example, so any &AWS-account; can use it).</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.2.1.ps1
+        - description: '<emphasis role="bold">Example 3: This example makes the AMI private (for example, so that only you as the owner can use it).</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.3.1.ps1
+        - description: '<emphasis role="bold">Example 4: This example grants launch permission to the specified &AWS-account;.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.4.1.ps1
+        - description: '<emphasis role="bold">Example 5: This example removes launch permission from the specified &AWS-account;.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/ec2_Edit-EC2ImageAttribute.5.1.ps1
   services:
     ec2:
       ModifyImageAttribute:

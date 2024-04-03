@@ -7,10 +7,11 @@ ec2_DescribeAccountAttributes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2AccountAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2AccountAttribute.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -23,7 +24,7 @@ ec2_DescribeAccountAttributes:
           snippet_files: []
         - description: "<emphasis role=\"bold\">Example 2: This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2AccountAttribute.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,7 +36,7 @@ ec2_DescribeAccountAttributes:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example describes the maximum number of On-Demand instances that you can run.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2AccountAttribute.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -47,5 +48,5 @@ ec2_DescribeAccountAttributes:
           snippet_files: []
   services:
     ec2:
-      DescribeAccountAttributes: 
+      DescribeAccountAttributes:
 

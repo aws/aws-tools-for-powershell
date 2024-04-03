@@ -7,13 +7,14 @@ codepipeline_DeleteCustomActionType:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-CPCustomActionType
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes the specified custom action. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the custom action without a prompt.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codepipeline_Remove-CPCustomActionType.1.1.ps1
   services:
     codepipeline:
-      DeleteCustomActionType: 
+      DeleteCustomActionType:
 

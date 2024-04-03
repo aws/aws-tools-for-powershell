@@ -7,12 +7,13 @@ pricing_GetProducts:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-PLSProduct
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Returns details of all products for Amazon EC2.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/pricing_Get-PLSProduct.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -21,12 +22,12 @@ pricing_GetProducts:
           description: "<emphasis role=\"bold\">Example 2: Returns data for Amazon EC2 in the us-east-1 region filtered by volume types of 'General Purpose' that are SSD-backed.</emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/pricing_Get-PLSProduct.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
           description: <programlisting language="none" role="nocopy">{"product":{"productFamily":"Storage","attributes":{"storageMedia":"SSD-backed","maxThroughputvolume":"160 MB/sec","volumeType":"General Purpose","maxIopsvolume":"10000",...</programlisting>
   services:
     pricing:
-      GetProducts: 
+      GetProducts:
 

@@ -7,10 +7,11 @@ elastic-load-balancing-v2_ModifyListener:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Edit-ELB2Listener
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example modifes the specified listeners default action to fixed-response.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing-v2_Edit-ELB2Listener.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -26,6 +27,6 @@ elastic-load-balancing-v2_ModifyListener:
           snippet_files: []
   services:
     elastic-load-balancing-v2:
-      ModifyListener: 
+      ModifyListener:
 
 

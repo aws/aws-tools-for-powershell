@@ -7,13 +7,14 @@ cloudformation_ContinueUpdateRollback:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Resume-CFNUpdateRollback
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Continues rollback of the named stack, which should be in the state 'UPDATE_ROLLBACK_FAILED'. If the continued rollback is successful, the stack will enter state 'UPDATE_ROLLBACK_COMPLETE'.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Resume-CFNUpdateRollback.1.1.ps1
   services:
     cloudformation:
-      ContinueUpdateRollback: 
+      ContinueUpdateRollback:
 

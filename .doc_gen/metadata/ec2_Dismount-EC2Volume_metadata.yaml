@@ -7,10 +7,11 @@ ec2_DetachVolume:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Dismount-EC2Volume
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example detaches the specified volume.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Dismount-EC2Volume.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -25,10 +26,10 @@ ec2_DetachVolume:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: You can also specify the instance ID and device name to ensure that you are detaching the correct volume.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Dismount-EC2Volume.2.1.ps1
   services:
     ec2:
-      DetachVolume: 
+      DetachVolume:
 

@@ -7,18 +7,19 @@ codedeploy_UpdateDeploymentGroup:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-CDDeploymentGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example changes the name of the specified deployment group for the specified application.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codedeploy_Update-CDDeploymentGroup.1.1.ps1
         - description: '<emphasis role="bold">Example 2: This example shows how to specify groups of EC2 instance tags that an instance must be identified by in order for it to be included in the replacement environment for a blue/green deployment.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codedeploy_Update-CDDeploymentGroup.2.1.ps1
   services:
     codedeploy:
-      UpdateDeploymentGroup: 
+      UpdateDeploymentGroup:
 

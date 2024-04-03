@@ -7,10 +7,11 @@ directory-service_DescribeEventTopics:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-DSEventTopic
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command shows information of configured SNS Topic for notification while directory status changes.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_Get-DSEventTopic.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,6 +25,6 @@ directory-service_DescribeEventTopics:
           snippet_files: []
   services:
     directory-service:
-      DescribeEventTopics: 
+      DescribeEventTopics:
 
 

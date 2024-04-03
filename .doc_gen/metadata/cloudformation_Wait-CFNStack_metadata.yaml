@@ -7,15 +7,16 @@ cloudformation_DescribeStacks:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Wait-CFNStack
         excerpts:
         - description: '<emphasis role="bold">Example 1: Tests if the stack has reached one of the states UPDATE_ROLLBACK_COMPLETE, CREATE_COMPLETE, ROLLBACK_COMPLETE or UPDATE_COMPLETE. If the stack is not at one of the states the command sleeps for two seconds before testing status again. This is repeated until the stack reaches one of the requested states or the default timeout period of 60 seconds elapses. If the timeout period is exceeded an exception is thrown. If the stack reaches one of the requested states within the timeout period it is returned to the pipeline.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Wait-CFNStack.1.1.ps1
         - description: '<emphasis role="bold">Example 2: This example waits for a total of 5 minutes (300 seconds) for the stack to reach either of the specified states. In this example the state is reached before the timeout and therefore the stack object is returned to the pipeline.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Wait-CFNStack.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -41,7 +42,7 @@ cloudformation_DescribeStacks:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example shows the error output when a stack does not reach one of the requested states within the timeout period (in this case the default period of 60 seconds).</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Wait-CFNStack.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -56,5 +57,5 @@ cloudformation_DescribeStacks:
           snippet_files: []
   services:
     cloudformation:
-      DescribeStacks: 
+      DescribeStacks:
 

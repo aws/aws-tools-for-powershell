@@ -7,12 +7,13 @@ auto-scaling_DescribeLaunchConfigurations:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASLaunchConfiguration
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example lists the names of your launch configurations.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -28,7 +29,7 @@ auto-scaling_DescribeLaunchConfigurations:
           description: '<emphasis role="bold">Example 2: This example describes the specified launch configuration.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -37,19 +38,19 @@ auto-scaling_DescribeLaunchConfigurations:
           description: '<emphasis role="bold">Example 3: This example describes the specified two launch configurations.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.3.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 4: This example describes all your launch configurations.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.4.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 5: This example describes all your launch configurations, in batches of 10.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASLaunchConfiguration.5.1.ps1
-          description: 
+          description:
   services:
     auto-scaling:
-      DescribeLaunchConfigurations: 
+      DescribeLaunchConfigurations:
 
 

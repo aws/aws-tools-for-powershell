@@ -7,23 +7,24 @@ ec2_CreateImage:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-EC2Image
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates an AMI with the specified name and description, from the specified instance. Amazon EC2 attempts to cleanly shut down the instance before creating the image, and restarts the instance on completion.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2Image.1.1.ps1
         - description: "<emphasis role=\"bold\">Example 2: This example creates an AMI with the specified name and description, from the specified instance. Amazon EC2 creates the image without shutting down and restarting the instance; therefore, file system integrity on the created image can't be guaranteed.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2Image.2.1.ps1
         - description: '<emphasis role="bold">Example 3: This example creates an AMI with three volumes. The first volume is based on an Amazon EBS snapshot. The second volume is an empty 100 GiB Amazon EBS volume. The third volume is an instance store volume. The syntax used by this example requires PowerShell version 3 or higher.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2Image.3.1.ps1
   services:
     ec2:
-      CreateImage: 
+      CreateImage:
 

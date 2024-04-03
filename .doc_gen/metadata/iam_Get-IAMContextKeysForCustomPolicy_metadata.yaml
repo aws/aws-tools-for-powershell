@@ -7,13 +7,14 @@ iam_GetContextKeysForCustomPolicy:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-IAMContextKeysForCustomPolicy
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example fetches all the context keys present in the provided policy json.In order to provide multiple policies you can provide as comma separated list of values.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMContextKeysForCustomPolicy.1.1.ps1
   services:
     iam:
-      GetContextKeysForCustomPolicy: 
+      GetContextKeysForCustomPolicy:
 

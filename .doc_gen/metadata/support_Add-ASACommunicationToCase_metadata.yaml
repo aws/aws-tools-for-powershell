@@ -7,18 +7,19 @@ support_AddCommunicationToCase:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Add-ASACommunicationToCase
         excerpts:
         - description: '<emphasis role="bold">Example 1: Adds the body of an email communication to the specified case.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Add-ASACommunicationToCase.1.1.ps1
         - description: '<emphasis role="bold">Example 2: Adds the body of an email communication to the specified case plus one or more email addresses contained in the CC line of the email.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Add-ASACommunicationToCase.2.1.ps1
   services:
     support:
-      AddCommunicationToCase: 
+      AddCommunicationToCase:
 

@@ -7,18 +7,19 @@ ec2_AssignPrivateIpAddresses:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Register-EC2PrivateIpAddress
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example assigns the specified secondary private IP address to the specified network interface.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Register-EC2PrivateIpAddress.1.1.ps1
         - description: '<emphasis role="bold">Example 2: This example creates two secondary private IP addresses and assigns them to the specified network interface.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Register-EC2PrivateIpAddress.2.1.ps1
   services:
     ec2:
-      AssignPrivateIpAddresses: 
+      AssignPrivateIpAddresses:
 

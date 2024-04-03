@@ -7,10 +7,11 @@ codepipeline_ListActionTypes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CPActionType
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets information about all available actions for the specified owner.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codepipeline_Get-CPActionType.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,5 +20,5 @@ codepipeline_ListActionTypes:
           snippet_files: []
   services:
     codepipeline:
-      ListActionTypes: 
+      ListActionTypes:
 

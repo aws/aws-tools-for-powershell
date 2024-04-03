@@ -7,13 +7,14 @@ kinesis_CreateStream:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-KINStream
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Creates a new stream. By default this cmdlet returns no output so the -PassThru switch is added to return the value supplied to the -StreamName parameter for subsequent use.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_New-KINStream.1.1.ps1
-          description: 
+          description:
   services:
     kinesis:
-      CreateStream: 
+      CreateStream:
 

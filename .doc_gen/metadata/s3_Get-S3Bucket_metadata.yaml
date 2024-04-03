@@ -7,18 +7,19 @@ s3_ListBuckets:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-S3Bucket
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This command returns all S3 buckets.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3Bucket.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 2: This command returns bucket named "test-files"</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3Bucket.2.1.ps1
-          description: 
+          description:
   services:
     s3:
-      ListBuckets: 
+      ListBuckets:
 

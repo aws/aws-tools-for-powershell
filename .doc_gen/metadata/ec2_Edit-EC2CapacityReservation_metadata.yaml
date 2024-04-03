@@ -7,10 +7,11 @@ ec2_ModifyCapacityReservation:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Edit-EC2CapacityReservation
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example modifies the CapacityReservationId cr-0c1f2345db6f7cdba by changing the instane count to 1</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2CapacityReservation.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,5 +20,5 @@ ec2_ModifyCapacityReservation:
           snippet_files: []
   services:
     ec2:
-      ModifyCapacityReservation: 
+      ModifyCapacityReservation:
 

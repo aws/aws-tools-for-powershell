@@ -7,10 +7,11 @@ elastic-load-balancing_DescribeInstanceHealth:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ELBInstanceHealth
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the state of the instances registered with the specified load balancer.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBInstanceHealth.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -23,12 +24,12 @@ elastic-load-balancing_DescribeInstanceHealth:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example describes the state of the specified instance registered with the specified load balancer.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBInstanceHealth.2.1.ps1
         - description: '<emphasis role="bold">Example 3: This example displays the complete description of the state of the specified instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBInstanceHealth.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -37,6 +38,6 @@ elastic-load-balancing_DescribeInstanceHealth:
           snippet_files: []
   services:
     elastic-load-balancing:
-      DescribeInstanceHealth: 
+      DescribeInstanceHealth:
 
 

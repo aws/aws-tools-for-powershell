@@ -7,12 +7,13 @@ appstream_DeleteUsageReportSubscription:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-APSUsageReportSubscription
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample disables AppStream Usage Report subscription</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/appstream_Remove-APSUsageReportSubscription.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -23,5 +24,5 @@ appstream_DeleteUsageReportSubscription:
             [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A</programlisting>
   services:
     appstream:
-      DeleteUsageReportSubscription: 
+      DeleteUsageReportSubscription:
 

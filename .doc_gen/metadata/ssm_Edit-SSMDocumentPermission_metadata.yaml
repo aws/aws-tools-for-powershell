@@ -7,18 +7,19 @@ ssm_ModifyDocumentPermission:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Edit-SSMDocumentPermission
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example adds "share" permissions to all accounts for a document. There is no output if the command succeeds.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Edit-SSMDocumentPermission.1.1.ps1
         - description: '<emphasis role="bold">Example 2: This example adds "share" permissions to a specific account for a document. There is no output if the command succeeds.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Edit-SSMDocumentPermission.2.1.ps1
   services:
     ssm:
-      ModifyDocumentPermission: 
+      ModifyDocumentPermission:
 

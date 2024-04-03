@@ -7,13 +7,14 @@ cloudfront_CreateDistribution:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-CFDistribution
         excerpts:
         - description: '<emphasis role="bold">Example 1: Creates a basic CloudFront distribution, configured with logging and caching.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudfront_New-CFDistribution.1.1.ps1
   services:
     cloudfront:
-      CreateDistribution: 
+      CreateDistribution:
 

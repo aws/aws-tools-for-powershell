@@ -7,12 +7,13 @@ lambda_ListTags:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-LMResourceTag
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Retrieves the tags and their values currently set on the specified function.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/lambda_Get-LMResourceTag.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -24,5 +25,5 @@ lambda_ListTags:
             Washington Olympia</programlisting>
   services:
     lambda:
-      ListTags: 
+      ListTags:
 

@@ -7,12 +7,13 @@ auto-scaling_DescribeAutoScalingGroups:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASAutoScalingGroup
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example lists the names of your Auto Scaling groups.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -29,7 +30,7 @@ auto-scaling_DescribeAutoScalingGroups:
           description: '<emphasis role="bold">Example 2: This example describes the specified Auto Scaling group.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -59,27 +60,27 @@ auto-scaling_DescribeAutoScalingGroups:
           description: '<emphasis role="bold">Example 3: This example describes the specified two Auto Scaling groups.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.3.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 4: This example describes the Auto Scaling instances for the specified Auto Scaling group.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.4.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 5: This example describes all your Auto Scaling groups.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.5.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 6: This example describes all your Auto Scaling groups, in batches of 10.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.6.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 7: This example describes LaunchTemplate for the specified Auto Scaling group. This example assumes that the "Instance purchase options" is set to "Adhere to launch template". In case this option is set to "Combine purchase options and instance types", LaunchTemplate could be accessed using "MixedInstancesPolicy.LaunchTemplate" property.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAutoScalingGroup.7.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -89,6 +90,6 @@ auto-scaling_DescribeAutoScalingGroups:
             lt-06095fd619cb40371 test-launch-template $Default</programlisting>
   services:
     auto-scaling:
-      DescribeAutoScalingGroups: 
+      DescribeAutoScalingGroups:
 
 

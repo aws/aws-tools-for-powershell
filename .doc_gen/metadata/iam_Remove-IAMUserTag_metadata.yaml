@@ -7,13 +7,14 @@ iam_UntagUser:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-IAMUserTag
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example removes the tag from the user named "joe" with tag key as "abac" and "xyzw". To remove multiple tags, provide a comma separted tag keys list.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/iam_Remove-IAMUserTag.1.1.ps1
-          description: 
+          description:
   services:
     iam:
-      UntagUser: 
+      UntagUser:
 

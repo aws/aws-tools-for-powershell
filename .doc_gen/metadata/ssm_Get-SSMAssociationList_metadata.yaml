@@ -7,10 +7,11 @@ ssm_ListAssociations:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMAssociationList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all the associations for an instance. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAssociationList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -27,7 +28,7 @@ ssm_ListAssociations:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example lists all associations for a configuration document. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAssociationList.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -44,7 +45,7 @@ ssm_ListAssociations:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: With PowerShell version 2, you must use New-Object to create each filter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAssociationList.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -61,5 +62,5 @@ ssm_ListAssociations:
           snippet_files: []
   services:
     ssm:
-      ListAssociations: 
+      ListAssociations:
 

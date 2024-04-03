@@ -7,14 +7,15 @@ machine-learning_Predict:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-MLPrediction
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Send a record to the realtime prediction endpoint URL for Model with id ID.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/machine-learning_Get-MLPrediction.1.1.ps1
-          description: 
+          description:
   services:
     machine-learning:
-      Predict: 
+      Predict:
 
 

@@ -7,10 +7,11 @@ wafv2_CreateWebACL:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-WAF2WebACL
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This command creates a new web ACL named \"waf-test\". Kindly note that as per service API documentation, 'DefaultAction' is a required property. Hence, value for either '-DefaultAction_Allow' and/or '-DefaultAction_Block' should be specified. Since '-DefaultAction_Allow' and '-DefaultAction_Block' are not the required properties, value '@{}' could be used as placeholder as shown in above example.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/wafv2_New-WAF2WebACL.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,5 +25,5 @@ wafv2_CreateWebACL:
           snippet_files: []
   services:
     wafv2:
-      CreateWebACL: 
+      CreateWebACL:
 

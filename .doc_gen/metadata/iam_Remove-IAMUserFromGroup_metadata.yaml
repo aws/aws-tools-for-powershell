@@ -7,22 +7,23 @@ iam_RemoveUserFromGroup:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-IAMUserFromGroup
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example removes the IAM user <code>Bob</code> from the group <code>Testers</code>. </emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/iam_Remove-IAMUserFromGroup.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 2: This example finds any groups of which IAM user <code>Theresa</code> is a member, and then removes <code>Theresa</code> from those groups.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/iam_Remove-IAMUserFromGroup.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 3: This example shows an alternate way of removing the IAM user <code>Bob</code> from the <code>Testers</code> group.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/iam_Remove-IAMUserFromGroup.3.1.ps1
-          description: 
+          description:
   services:
     iam:
-      RemoveUserFromGroup: 
+      RemoveUserFromGroup:

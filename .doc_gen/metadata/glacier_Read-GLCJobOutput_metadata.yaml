@@ -7,15 +7,16 @@ glacier_GetJobOutput:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Read-GLCJobOutput
         excerpts:
         - description: |-
             <emphasis role="bold">Example 1: Downloads the archive content that was scheduled for retrieval in the specified job and stores the contents into a file on disk. The download validates the checksum for you, if one is available.
 
             If required the checksum can be obtained from the service response history like so (assuming this cmdlet was the last run): <code>$AWSHistory.LastServiceResponse</code>. If the cmdlet was not the most recently run, inspect the <code>$AWSHistory.Commands</code> collection to obtain the relevant service response.</emphasis>
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/glacier_Read-GLCJobOutput.1.1.ps1
   services:
     glacier:
-      GetJobOutput: 
+      GetJobOutput:

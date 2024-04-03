@@ -7,13 +7,14 @@ appstream_DisassociateFleet:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Unregister-APSFleet
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample unregisters a fleet from stack</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/appstream_Unregister-APSFleet.1.1.ps1
-          description: 
+          description:
   services:
     appstream:
-      DisassociateFleet: 
+      DisassociateFleet:
 

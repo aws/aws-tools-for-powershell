@@ -7,10 +7,11 @@ config-service_DescribeConformancePacks:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CFGConformancePack
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample lists all conformance packs.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/config-service_Get-CFGConformancePack.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -27,6 +28,6 @@ config-service_DescribeConformancePacks:
           snippet_files: []
   services:
     config-service:
-      DescribeConformancePacks: 
+      DescribeConformancePacks:
 
 

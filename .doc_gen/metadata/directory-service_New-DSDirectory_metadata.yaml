@@ -7,14 +7,15 @@ directory-service_CreateDirectory:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-DSDirectory
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example create a new Simple AD directory.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_New-DSDirectory.1.1.ps1
   services:
     directory-service:
-      CreateDirectory: 
+      CreateDirectory:
 
 

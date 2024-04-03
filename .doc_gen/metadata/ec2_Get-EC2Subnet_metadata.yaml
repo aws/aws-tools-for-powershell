@@ -7,10 +7,11 @@ ec2_DescribeSubnets:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2Subnet
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the specified subnet.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Subnet.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -28,10 +29,10 @@ ec2_DescribeSubnets:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example describes all your subnets.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Subnet.2.1.ps1
   services:
     ec2:
-      DescribeSubnets: 
+      DescribeSubnets:
 

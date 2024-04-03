@@ -7,12 +7,13 @@ pricing_GetAttributeValues:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-PLSAttributeValue
         excerpts:
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 1: Returns the values for the attribute 'volumeType' for Amazon EC2 in the us-east-1 region.</emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/pricing_Get-PLSAttributeValue.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -26,5 +27,5 @@ pricing_GetAttributeValues:
             Throughput Optimized HDD</programlisting>
   services:
     pricing:
-      GetAttributeValues: 
+      GetAttributeValues:
 

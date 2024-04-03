@@ -7,12 +7,13 @@ efs_DeleteMountTarget:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-EFSMountTarget
         excerpts:
         - description: '<emphasis role="bold">Example 1: Deletes the specified mount target. You are prompted for confirmation before the operation proceeds. To suppress the prompt use the <code>-Force</code> switch. Note that this operation forcibly breaks any mounts of the file system via the target - you may want to consider unmounting the file system before running this command, if feasible.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/efs_Remove-EFSMountTarget.1.1.ps1
   services:
     efs:
-      DeleteMountTarget: 
+      DeleteMountTarget:

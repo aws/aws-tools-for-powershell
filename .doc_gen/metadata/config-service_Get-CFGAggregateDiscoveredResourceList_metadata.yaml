@@ -7,10 +7,11 @@ config-service_ListAggregateDiscoveredResources:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CFGAggregateDiscoveredResourceList
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example returns the resource identifiers for the given resource type aggregated in 'Ireland' aggregator. For the list of resource types, please check https://docs.aws.amazon.com/sdkfornet/v3/apidocs/index.html?page=ConfigService/TConfigServiceResourceType.html&amp;tocid=Amazon_ConfigService_ResourceType.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/config-service_Get-CFGAggregateDiscoveredResourceList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,7 +25,7 @@ config-service_ListAggregateDiscoveredResources:
           snippet_files: []
         - description: "<emphasis role=\"bold\">Example 2: This example returns the resource type <code>AwsEC2SecurityGroup</code> named 'default' for the given aggregator filtered with region us-east-1.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/config-service_Get-CFGAggregateDiscoveredResourceList.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -50,6 +51,6 @@ config-service_ListAggregateDiscoveredResources:
           snippet_files: []
   services:
     config-service:
-      ListAggregateDiscoveredResources: 
+      ListAggregateDiscoveredResources:
 
 

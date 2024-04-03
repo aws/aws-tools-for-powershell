@@ -7,19 +7,20 @@ auto-scaling_SuspendProcesses:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Suspend-ASProcess
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example suspends the specified Auto Scaling process for the specified Auto Scaling group.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Suspend-ASProcess.1.1.ps1
         - description: '<emphasis role="bold">Example 2: This example suspends all Auto Scaling processes for the specified Auto Scaling group.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Suspend-ASProcess.2.1.ps1
   services:
     auto-scaling:
-      SuspendProcesses: 
+      SuspendProcesses:
 
 

@@ -7,12 +7,13 @@ auto-scaling_EnterStandby:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Enter-ASStandby
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example puts the specified instance into standby mode and decreases the desired capacity so that Auto Scaling does not launch a replacement instance.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Enter-ASStandby.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -21,13 +22,13 @@ auto-scaling_EnterStandby:
           description: '<emphasis role="bold">Example 2: This example puts the specified instance into standby mode without decreasing the desired capacity. Auto Scaling launches a replacement instance.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Enter-ASStandby.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
           description: "<programlisting language=\"none\" role=\"nocopy\">ActivityId           : e36a5a54-ced6-4df8-bd19-708e2a59a649\nAutoScalingGroupName : my-asg\nCause                : At 2015-11-22T15:48:06Z instance i-95b8484f was moved to standby in response to a user request.\nDescription          : Moving EC2 instance to Standby: i-95b8484f\nDetails              : {\"Availability Zone\":\"us-west-2b\",\"Subnet ID\":\"subnet-5264e837\"}\nEndTime              : \nProgress             : 50\nStartTime            : 11/22/2015 7:48:06 AM\nStatusCode           : InProgress\nStatusMessage        :</programlisting>"
   services:
     auto-scaling:
-      EnterStandby: 
+      EnterStandby:
 
 

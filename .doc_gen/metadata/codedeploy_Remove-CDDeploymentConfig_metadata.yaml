@@ -7,13 +7,14 @@ codedeploy_DeleteDeploymentConfig:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-CDDeploymentConfig
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes the deployment configuration with the specified name. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the deployment configuration without a prompt.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codedeploy_Remove-CDDeploymentConfig.1.1.ps1
   services:
     codedeploy:
-      DeleteDeploymentConfig: 
+      DeleteDeploymentConfig:
 

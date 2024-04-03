@@ -7,43 +7,44 @@ ec2_ModifyInstanceAttribute:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Edit-EC2InstanceAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example modifies the instance type of the specified instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2InstanceAttribute.1.1.ps1
         - description: '<emphasis role="bold">Example 2: This example enables enhanced networking for the specified instance, by specifying "simple" as the value of the single root I/O virtualization (SR-IOV) network support parameter, -SriovNetSupport..</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2InstanceAttribute.2.1.ps1
         - description: '<emphasis role="bold">Example 3: This example modifies the security groups for the specified instance. The instance must be in a VPC. You must specify the ID of each security group, not the name.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2InstanceAttribute.3.1.ps1
         - description: "<emphasis role=\"bold\">Example 4: This example enables EBS I/O optimization for the specified instance. This feature isn't available with all instance types. Additional usage charges apply when using an EBS-optimized instance.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2InstanceAttribute.4.1.ps1
         - description: "<emphasis role=\"bold\">Example 5: This example enables source/destination checking for the specified instance. For a NAT instance to perform NAT, the value must be 'false'.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2InstanceAttribute.5.1.ps1
         - description: '<emphasis role="bold">Example 6: This example disables termination for the specified instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2InstanceAttribute.6.1.ps1
         - description: '<emphasis role="bold">Example 7: This example changes the specified instance so that it terminates when shutdown is initiated from the instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Edit-EC2InstanceAttribute.7.1.ps1
   services:
     ec2:
-      ModifyInstanceAttribute: 
+      ModifyInstanceAttribute:
 

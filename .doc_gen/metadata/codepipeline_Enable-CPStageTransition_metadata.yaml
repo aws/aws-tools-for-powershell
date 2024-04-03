@@ -7,13 +7,14 @@ codepipeline_EnableStageTransition:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Enable-CPStageTransition
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example enables the inbound transition for the specified stage in the specified pipeline.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codepipeline_Enable-CPStageTransition.1.1.ps1
   services:
     codepipeline:
-      EnableStageTransition: 
+      EnableStageTransition:
 

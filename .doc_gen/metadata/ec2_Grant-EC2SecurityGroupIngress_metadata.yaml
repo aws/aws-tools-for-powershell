@@ -7,38 +7,39 @@ ec2_AuthorizeSecurityGroupIngress:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Grant-EC2SecurityGroupIngress
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example defines ingress rules for a security group for EC2-VPC. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). Note that you must identify security groups for EC2-VPC using the security group ID not the security group name. The syntax used by this example requires PowerShell version 3 or higher.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Grant-EC2SecurityGroupIngress.1.1.ps1
         - description: '<emphasis role="bold">Example 2: With PowerShell version 2, you must use New-Object to create the IpPermission objects.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Grant-EC2SecurityGroupIngress.2.1.ps1
         - description: '<emphasis role="bold">Example 3: This example defines ingress rules for a security group for EC2-Classic. These rules grant access to a specific IP address for SSH (port 22) and RDC (port 3389). The syntax used by this example requires PowerShell version 3 or higher.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Grant-EC2SecurityGroupIngress.3.1.ps1
         - description: '<emphasis role="bold">Example 4: With PowerShell version 2, you must use New-Object to create the IpPermission objects.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Grant-EC2SecurityGroupIngress.4.1.ps1
         - description: '<emphasis role="bold">Example 5: This example grants TCP port 8081 access from the specified source security group (sg-1a2b3c4d) to the specified security group (sg-12345678).</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Grant-EC2SecurityGroupIngress.5.1.ps1
         - description: '<emphasis role="bold">Example 6: This example adds the CIDR 5.5.5.5/32 to the Ingress rules of security Group sg-1234abcd for TCP port 22 traffic with a description.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Grant-EC2SecurityGroupIngress.6.1.ps1
   services:
     ec2:
-      AuthorizeSecurityGroupIngress: 
+      AuthorizeSecurityGroupIngress:
 

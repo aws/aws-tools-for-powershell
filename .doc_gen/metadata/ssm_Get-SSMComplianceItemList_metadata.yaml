@@ -7,10 +7,11 @@ ssm_ListComplianceItems:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMComplianceItemList
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example lists compliance items list for the given resource id and type, filtering compliance-type being 'Association'</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMComplianceItemList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -28,5 +29,5 @@ ssm_ListComplianceItems:
           snippet_files: []
   services:
     ssm:
-      ListComplianceItems: 
+      ListComplianceItems:
 

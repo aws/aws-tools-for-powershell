@@ -7,13 +7,14 @@ ec2_ReportInstanceStatus:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Send-EC2InstanceStatus
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example reports status feedback for the specified instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Send-EC2InstanceStatus.1.1.ps1
   services:
     ec2:
-      ReportInstanceStatus: 
+      ReportInstanceStatus:
 

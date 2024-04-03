@@ -7,13 +7,14 @@ appstream_UpdateImagePermissions:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-APSImagePermission
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample shares an AppStream Image with other account</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/appstream_Update-APSImagePermission.1.1.ps1
-          description: 
+          description:
   services:
     appstream:
-      UpdateImagePermissions: 
+      UpdateImagePermissions:
 

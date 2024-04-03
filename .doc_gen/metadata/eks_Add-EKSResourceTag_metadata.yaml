@@ -7,13 +7,14 @@ eks_TagResource:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Add-EKSResourceTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet associates the specified tags to a resource with the specified resourceArn.  </emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/eks_Add-EKSResourceTag.1.1.ps1
   services:
     eks:
-      TagResource: 
+      TagResource:
 

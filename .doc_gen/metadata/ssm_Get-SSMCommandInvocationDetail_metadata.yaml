@@ -7,10 +7,11 @@ ssm_GetCommandInvocation:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMCommandInvocationDetail
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example displays the details of a command executed on an instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMCommandInvocationDetail.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -34,5 +35,5 @@ ssm_GetCommandInvocation:
           snippet_files: []
   services:
     ssm:
-      GetCommandInvocation: 
+      GetCommandInvocation:
 

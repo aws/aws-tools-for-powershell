@@ -7,10 +7,11 @@ workspaces_DescribeWorkspaceBundles:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-WKSWorkspaceBundle
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample fetches details of all the Workspace bundles in the current region</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/workspaces_Get-WKSWorkspaceBundle.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -28,5 +29,5 @@ workspaces_DescribeWorkspaceBundles:
           snippet_files: []
   services:
     workspaces:
-      DescribeWorkspaceBundles: 
+      DescribeWorkspaceBundles:
 

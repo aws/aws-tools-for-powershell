@@ -7,13 +7,14 @@ kinesis_DeleteStream:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-KINStream
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Deletes the specified stream. You are prompted for confirmation before the command executes. To suppress confirmation prompting use the -Force switch.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_Remove-KINStream.1.1.ps1
-          description: 
+          description:
   services:
     kinesis:
-      DeleteStream: 
+      DeleteStream:
 

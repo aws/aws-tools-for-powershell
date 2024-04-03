@@ -7,10 +7,11 @@ ssm_GetDocument:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMDocument
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the content of a document.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMDocument.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,10 +23,10 @@ ssm_GetDocument:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example displays the complete contents of a document.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMDocument.2.1.ps1
   services:
     ssm:
-      GetDocument: 
+      GetDocument:
 

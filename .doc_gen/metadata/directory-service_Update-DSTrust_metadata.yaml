@@ -7,10 +7,11 @@ directory-service_UpdateTrust:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-DSTrust
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example updates the SelectiveAuth parameter of specified trust-id from Disabled to Enabled.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_Update-DSTrust.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,6 +23,6 @@ directory-service_UpdateTrust:
           snippet_files: []
   services:
     directory-service:
-      UpdateTrust: 
+      UpdateTrust:
 
 

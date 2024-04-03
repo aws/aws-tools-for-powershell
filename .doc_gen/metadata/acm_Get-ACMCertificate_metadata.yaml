@@ -7,13 +7,14 @@ acm_GetCertificate:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ACMCertificate
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example shows how to return a certificate and its chain using the ARN of the certificate.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/acm_Get-ACMCertificate.1.1.ps1
-          description: 
+          description:
   services:
     acm:
-      GetCertificate: 
+      GetCertificate:
 

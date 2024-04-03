@@ -7,10 +7,11 @@ ecs_UpdateClusterSettings:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-ECSClusterSetting
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet modifies the settings to use for an ECS cluster.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ecs_Update-ECSClusterSetting.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -33,5 +34,5 @@ ecs_UpdateClusterSettings:
           snippet_files: []
   services:
     ecs:
-      UpdateClusterSettings: 
+      UpdateClusterSettings:
 

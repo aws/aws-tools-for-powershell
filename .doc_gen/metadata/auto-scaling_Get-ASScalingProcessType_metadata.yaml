@@ -7,12 +7,13 @@ auto-scaling_DescribeScalingProcessTypes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASScalingProcessType
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example lists the process types that are supported by Auto Scaling.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScalingProcessType.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -29,6 +30,6 @@ auto-scaling_DescribeScalingProcessTypes:
             Terminate</programlisting>
   services:
     auto-scaling:
-      DescribeScalingProcessTypes: 
+      DescribeScalingProcessTypes:
 
 

@@ -7,10 +7,11 @@ ssm_GetMaintenanceWindowExecutionTask:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMMaintenanceWindowExecutionTask
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists information about a task that was part of a maintenance window execution.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowExecutionTask.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -33,5 +34,5 @@ ssm_GetMaintenanceWindowExecutionTask:
           snippet_files: []
   services:
     ssm:
-      GetMaintenanceWindowExecutionTask: 
+      GetMaintenanceWindowExecutionTask:
 

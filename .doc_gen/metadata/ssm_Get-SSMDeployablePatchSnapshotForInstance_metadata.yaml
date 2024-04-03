@@ -7,10 +7,11 @@ ssm_GetDeployablePatchSnapshotForInstance:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMDeployablePatchSnapshotForInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example displays the current snapshot for the patch baseline used by an Instance. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example passes an <code>Amazon.Runtime.InstanceProfileAWSCredentials</code> object to the Credentials parameter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMDeployablePatchSnapshotForInstance.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,7 +23,7 @@ ssm_GetDeployablePatchSnapshotForInstance:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example shows how to get the full SnapshotDownloadUrl. This command must be run from the instance using the instance credentials. To ensure it uses the instance credentials, the example configures the PowerShell session to use an <code>Amazon.Runtime.InstanceProfileAWSCredentials</code> object.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMDeployablePatchSnapshotForInstance.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -31,5 +32,5 @@ ssm_GetDeployablePatchSnapshotForInstance:
           snippet_files: []
   services:
     ssm:
-      GetDeployablePatchSnapshotForInstance: 
+      GetDeployablePatchSnapshotForInstance:
 

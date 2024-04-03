@@ -7,10 +7,11 @@ elastic-load-balancing_DescribeLoadBalancers:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ELBLoadBalancer
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists the names of your load balancers.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,7 +25,7 @@ elastic-load-balancing_DescribeLoadBalancers:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example describes the specified load balancer.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -49,16 +50,16 @@ elastic-load-balancing_DescribeLoadBalancers:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example describes all your load balancers in the current &AWS; region.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.3.1.ps1
         - description: '<emphasis role="bold">Example 4: This example describes all your load balancers across all available &AWS-Regions;.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancer.4.1.ps1
   services:
     elastic-load-balancing:
-      DescribeLoadBalancers: 
+      DescribeLoadBalancers:
 
 

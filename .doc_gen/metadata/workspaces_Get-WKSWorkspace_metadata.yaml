@@ -7,10 +7,11 @@ workspaces_DescribeWorkspaces:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-WKSWorkspace
         excerpts:
         - description: '<emphasis role="bold">Example 1: Retrieves details of all your WorkSpaces to the pipeline.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/workspaces_Get-WKSWorkspace.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -33,7 +34,7 @@ workspaces_DescribeWorkspaces:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This command shows the values of child properties of <code>WorkSpaceProperties</code> for a workspace in the <code>us-west-2</code> region. For more information about the child properties of <code>WorkSpaceProperties</code>, see https://docs.aws.amazon.com/workspaces/latest/api/API_WorkspaceProperties.html.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/workspaces_Get-WKSWorkspace.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -47,7 +48,7 @@ workspaces_DescribeWorkspaces:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This command shows the value of the child property <code>RootVolumeSizeGib</code> of <code>WorkSpaceProperties</code> for a workspace in the <code>us-west-2</code> region. The root volume size, in GiB, is 80.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/workspaces_Get-WKSWorkspace.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -56,4 +57,4 @@ workspaces_DescribeWorkspaces:
           snippet_files: []
   services:
     workspaces:
-      DescribeWorkspaces: 
+      DescribeWorkspaces:

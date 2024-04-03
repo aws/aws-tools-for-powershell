@@ -7,10 +7,11 @@ ec2_StartInstances:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Start-EC2Instance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example starts the specified instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Start-EC2Instance.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,20 +23,20 @@ ec2_StartInstances:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example starts the specified instances.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Start-EC2Instance.2.1.ps1
         - description: '<emphasis role="bold">Example 3: This example starts the set of instances that are currently stopped. The Instance objects returned by Get-EC2Instance are piped to Start-EC2Instance. The syntax used by this example requires PowerShell version 3 or higher.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Start-EC2Instance.3.1.ps1
         - description: '<emphasis role="bold">Example 4: With PowerShell version 2, you must use New-Object to create the filter for the Filter parameter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Start-EC2Instance.4.1.ps1
   services:
     ec2:
-      StartInstances: 
+      StartInstances:
 

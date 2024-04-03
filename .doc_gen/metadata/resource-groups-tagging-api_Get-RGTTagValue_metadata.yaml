@@ -7,18 +7,19 @@ resource-groups-tagging-api_GetTagValues:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-RGTTagValue
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Returns the value for the specified tag in a region. If the -Region parameter is not specified the cmdlet will attempt to infer the region from the default shell region or EC2 instance metadata.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/resource-groups-tagging-api_Get-RGTTagValue.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
           description: <programlisting language="none" role="nocopy">beta</programlisting>
   services:
     resource-groups-tagging-api:
-      GetTagValues: 
+      GetTagValues:
 
 

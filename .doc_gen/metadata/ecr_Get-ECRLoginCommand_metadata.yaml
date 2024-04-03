@@ -7,10 +7,11 @@ ecr_Get-ECRLoginCommand:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ECRLoginCommand
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns a PSObject containing login information that can be used to authenticate to any Amazon ECR registry that your IAM principal has access to. The credentials and region endpoint required for the call to obtain the authorization token are obtained from the shell defaults (set up by the <code>Set-AWSCredential/Set-DefaultAWSRegion</code> or <code>Initialize-AWSDefaultConfiguration</code> cmdlets). You can use the Command property with Invoke-Expression to log in to the specified registry or use the returned credentials in other tools requiring login.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ecr_Get-ECRLoginCommand.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -25,10 +26,10 @@ ecr_Get-ECRLoginCommand:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: Retrieves a PSObject containing login information that you use as an input to a docker login command. You can specify any Amazon ECR registry URI to authenticate to as long as your IAM principal has access to that registry.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ecr_Get-ECRLoginCommand.2.1.ps1
   services:
     ecr:
-      Get-ECRLoginCommand: 
+      Get-ECRLoginCommand:
 

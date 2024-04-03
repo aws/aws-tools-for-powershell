@@ -7,10 +7,11 @@ directory-service_ListSchemaExtensions:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-DSSchemaExtension
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all schema extensions applied to a Microsoft AD Directory.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_Get-DSSchemaExtension.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -26,6 +27,6 @@ directory-service_ListSchemaExtensions:
           snippet_files: []
   services:
     directory-service:
-      ListSchemaExtensions: 
+      ListSchemaExtensions:
 
 

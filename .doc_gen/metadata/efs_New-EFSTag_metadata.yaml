@@ -7,19 +7,20 @@ efs_CreateTags:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-EFSTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: Applies the collection of tags to the specified file system. If a tag with key specified already exists on the file system the value of the tag is updated.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/efs_New-EFSTag.1.1.ps1
         - description: '<emphasis role="bold">Example 2: Sets the name tag for the specified file system. This value is returned along with other file system details when the Get-EFSFileSystem cmdlet is used.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/efs_New-EFSTag.2.1.ps1
   services:
     efs:
-      CreateTags: 
+      CreateTags:
 
 

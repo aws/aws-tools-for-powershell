@@ -7,10 +7,11 @@ ssm_DescribeAvailablePatches:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMAvailablePatch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAvailablePatch.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,12 +36,12 @@ ssm_DescribeAvailablePatches:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: With PowerShell version 2, you must use New-Object to create each filter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAvailablePatch.2.1.ps1
         - description: '<emphasis role="bold">Example 3: This example fetches all the updates which are released in last 20 days and applicable to products matching WindowsServer2019</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAvailablePatch.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -54,5 +55,5 @@ ssm_DescribeAvailablePatches:
           snippet_files: []
   services:
     ssm:
-      DescribeAvailablePatches: 
+      DescribeAvailablePatches:
 

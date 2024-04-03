@@ -7,17 +7,18 @@ opsworks_CreateDeployment:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-OPSDeployment
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This command creates a new app deployment on all of the Linux-based instances in a layer in &AWS; OpsWorks Stacks. Even if you specify a layer ID, you must specify a stack ID, too. The command lets the deployment restart the instances if required.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/opsworks_New-OPSDeployment.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 2: This command deploys the <code>appsetup</code> recipe from the <code>phpapp</code> cookbook, and the <code>secbaseline</code> recipe from the <code>testcookbook</code> cookbook. The deployment target is one instance, but the stack ID and layer ID are also required. The Command_Arg parameter <code>allow_reboot</code> attribute is set to <code>true</code>, which lets the deployment restart the instances if required.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/opsworks_New-OPSDeployment.2.1.ps1
-          description: 
+          description:
   services:
     opsworks:
-      CreateDeployment: 
+      CreateDeployment:

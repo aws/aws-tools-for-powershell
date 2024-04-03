@@ -7,12 +7,13 @@ efs_DeleteFileSystem:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-EFSFileSystem
         excerpts:
         - description: '<emphasis role="bold">Example 1: Deletes the specified file system that is no longer in use (if the file system has mount targets they must be removed first). You are prompted for confirmation before the cmdlet proceeds - to suppress confirmation, use the <code>-Force</code> switch.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/efs_Remove-EFSFileSystem.1.1.ps1
   services:
     efs:
-      DeleteFileSystem: 
+      DeleteFileSystem:

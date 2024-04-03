@@ -7,12 +7,13 @@ appstream_DescribeFleets:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-APSFleetList
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This Sample displays details of a fleet</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/appstream_Get-APSFleetList.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -38,5 +39,5 @@ appstream_DescribeFleets:
             VpcConfig                      : Amazon.AppStream.Model.VpcConfig</programlisting>
   services:
     appstream:
-      DescribeFleets: 
+      DescribeFleets:
 

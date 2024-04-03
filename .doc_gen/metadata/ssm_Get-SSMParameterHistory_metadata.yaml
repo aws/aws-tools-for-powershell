@@ -7,10 +7,11 @@ ssm_GetParameterHistory:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMParameterHistory
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists the value history for a parameter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMParameterHistory.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -26,5 +27,5 @@ ssm_GetParameterHistory:
           snippet_files: []
   services:
     ssm:
-      GetParameterHistory: 
+      GetParameterHistory:
 

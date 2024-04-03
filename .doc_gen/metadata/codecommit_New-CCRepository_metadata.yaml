@@ -7,10 +7,11 @@ codecommit_CreateRepository:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-CCRepository
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a new repository with the specified name and the specified description.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codecommit_New-CCRepository.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -29,5 +30,5 @@ codecommit_CreateRepository:
           snippet_files: []
   services:
     codecommit:
-      CreateRepository: 
+      CreateRepository:
 

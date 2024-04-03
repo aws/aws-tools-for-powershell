@@ -7,10 +7,11 @@ ssm_DescribeActivations:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMActivation
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example provides details about the activations on your account.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMActivation.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -28,5 +29,5 @@ ssm_DescribeActivations:
           snippet_files: []
   services:
     ssm:
-      DescribeActivations: 
+      DescribeActivations:
 

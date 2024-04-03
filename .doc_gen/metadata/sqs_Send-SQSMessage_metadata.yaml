@@ -7,10 +7,11 @@ sqs_SendMessage:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Send-SQSMessage
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example sends a message with the specified attributes and message body to the specified queue with message delivery delayed for 10 seconds.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/sqs_Send-SQSMessage.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,5 +20,5 @@ sqs_SendMessage:
           snippet_files: []
   services:
     sqs:
-      SendMessage: 
+      SendMessage:
 

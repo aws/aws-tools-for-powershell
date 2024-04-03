@@ -7,10 +7,11 @@ cognito-identity_CreateIdentityPool:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-CGIIdentityPool
         excerpts:
         - description: '<emphasis role="bold">Example 1: Creates a new Identity Pool which allows unauthenticated identities.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cognito-identity_New-CGIIdentityPool.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -29,5 +30,5 @@ cognito-identity_CreateIdentityPool:
           snippet_files: []
   services:
     cognito-identity:
-      CreateIdentityPool: 
+      CreateIdentityPool:
 

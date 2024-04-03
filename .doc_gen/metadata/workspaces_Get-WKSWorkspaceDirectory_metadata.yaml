@@ -7,10 +7,11 @@ workspaces_DescribeWorkspaceDirectories:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-WKSWorkspaceDirectory
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample lists the directory details for registered directories</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/workspaces_Get-WKSWorkspaceDirectory.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,5 +36,5 @@ workspaces_DescribeWorkspaceDirectories:
           snippet_files: []
   services:
     workspaces:
-      DescribeWorkspaceDirectories: 
+      DescribeWorkspaceDirectories:
 

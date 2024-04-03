@@ -7,10 +7,11 @@ iam_CreateGroup:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-IAMGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a new IAM group named <code>Developers</code>.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_New-IAMGroup.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,4 +25,4 @@ iam_CreateGroup:
           snippet_files: []
   services:
     iam:
-      CreateGroup: 
+      CreateGroup:

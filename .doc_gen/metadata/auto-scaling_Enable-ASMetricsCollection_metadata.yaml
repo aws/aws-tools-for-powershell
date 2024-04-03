@@ -7,19 +7,20 @@ auto-scaling_EnableMetricsCollection:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Enable-ASMetricsCollection
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example enables monitoring of the specified metrics for the specified Auto Scaling group.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Enable-ASMetricsCollection.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 2: This example enables monitoring of all metrics for the specified Auto Scaling group.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Enable-ASMetricsCollection.2.1.ps1
-          description: 
+          description:
   services:
     auto-scaling:
-      EnableMetricsCollection: 
+      EnableMetricsCollection:
 
 

@@ -7,10 +7,11 @@ fsx_DescribeBackups:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-FSXBackup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example fetches backups created since yesterday for the given file system id.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/fsx_Get-FSXBackup.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -29,5 +30,5 @@ fsx_DescribeBackups:
           snippet_files: []
   services:
     fsx:
-      DescribeBackups: 
+      DescribeBackups:
 

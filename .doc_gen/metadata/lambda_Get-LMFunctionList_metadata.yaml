@@ -7,12 +7,13 @@ lambda_ListFunctions:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-LMFunctionList
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample displays all the Lambda functions with sorted code size</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/lambda_Get-LMFunctionList.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -24,5 +25,5 @@ lambda_ListFunctions:
             myfuncpython1                                                python3.8     303      675</programlisting>
   services:
     lambda:
-      ListFunctions: 
+      ListFunctions:
 

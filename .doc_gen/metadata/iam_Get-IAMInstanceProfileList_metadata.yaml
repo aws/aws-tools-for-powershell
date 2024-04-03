@@ -6,23 +6,24 @@ iam_ListInstanceProfiles:
   languages:
     PowerShell:
       versions:
-        - sdk_version: 4
-          excerpts:
-            - description: '<emphasis role="bold">Example 1: This example returns a collection of the instance profiles defined in the current &AWS-account;.</emphasis>'
-              snippet_files: []
-            - description:
-              snippet_files:
-                - .doc_gen/snippet_files/iam_Get-IAMInstanceProfileList.1.1.ps1
-            - description: <emphasis role="bold">Output:</emphasis>
-              snippet_files: []
-            - description: |-
-                <programlisting language="none" role="nocopy">Arn                 : arn:aws:iam::123456789012:instance-profile/ec2instancerole
-                CreateDate          : 2/17/2015 2:49:04 PM
-                InstanceProfileId   : HH36PTZQJUR32EXAMPLE1
-                InstanceProfileName : ec2instancerole
-                Path                : /
-                Roles               : {ec2instancerole}</programlisting>
-              snippet_files: []
+      - sdk_version: 4
+        sdk_action: Get-IAMInstanceProfileList
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This example returns a collection of the instance profiles defined in the current &AWS-account;.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/iam_Get-IAMInstanceProfileList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">Arn                 : arn:aws:iam::123456789012:instance-profile/ec2instancerole
+            CreateDate          : 2/17/2015 2:49:04 PM
+            InstanceProfileId   : HH36PTZQJUR32EXAMPLE1
+            InstanceProfileName : ec2instancerole
+            Path                : /
+            Roles               : {ec2instancerole}</programlisting>
+          snippet_files: []
   services:
     iam:
       ListInstanceProfiles:

@@ -7,10 +7,11 @@ ec2_GetConsoleOutput:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2ConsoleOutput
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets the console output for the specified Linux instance. The console output is encoded.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2ConsoleOutput.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,10 +23,10 @@ ec2_GetConsoleOutput:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example stores the encoded console output in a variable and then decodes it.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2ConsoleOutput.2.1.ps1
   services:
     ec2:
-      GetConsoleOutput: 
+      GetConsoleOutput:
 

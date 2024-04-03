@@ -7,10 +7,11 @@ cognito-identity_ListIdentityPools:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CGIIdentityPoolList
         excerpts:
         - description: '<emphasis role="bold">Example 1: Retrieves a list of existing Identity Pools.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cognito-identity_Get-CGIIdentityPoolList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,5 +25,5 @@ cognito-identity_ListIdentityPools:
           snippet_files: []
   services:
     cognito-identity:
-      ListIdentityPools: 
+      ListIdentityPools:
 

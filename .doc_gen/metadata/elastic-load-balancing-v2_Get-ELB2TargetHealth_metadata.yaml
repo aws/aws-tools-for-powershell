@@ -7,10 +7,11 @@ elastic-load-balancing-v2_DescribeTargetHealth:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ELB2TargetHealth
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the health status of the Targets present in the specified Target Group.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2TargetHealth.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,6 +23,6 @@ elastic-load-balancing-v2_DescribeTargetHealth:
           snippet_files: []
   services:
     elastic-load-balancing-v2:
-      DescribeTargetHealth: 
+      DescribeTargetHealth:
 
 

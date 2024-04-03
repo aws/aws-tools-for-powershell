@@ -7,10 +7,11 @@ directory-service_RegisterCertificate:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Register-DSCertificate
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example registers a certificate for secured LDAP connection.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_Register-DSCertificate.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,6 +20,6 @@ directory-service_RegisterCertificate:
           snippet_files: []
   services:
     directory-service:
-      RegisterCertificate: 
+      RegisterCertificate:
 
 

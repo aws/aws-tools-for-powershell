@@ -7,12 +7,13 @@ appstream_UpdateDirectoryConfig:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-APSDirectoryConfig
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample updates the Directory configuration created in AppStream</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/appstream_Update-APSDirectoryConfig.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -22,5 +23,5 @@ appstream_UpdateDirectoryConfig:
             12/27/2019 3:50:02 PM contoso.com   {OU=AppStreamNew,OU=Contoso,DC=Contoso,DC=com} Amazon.AppStream.Model.ServiceAccountCredentials</programlisting>
   services:
     appstream:
-      UpdateDirectoryConfig: 
+      UpdateDirectoryConfig:
 

@@ -7,23 +7,24 @@ cloudformation_DescribeStacks:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CFNStack
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Returns a collection of Stack instances describing all of the user's stacks.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Get-CFNStack.1.1.ps1
         - description: '<emphasis role="bold">Example 2: Returns a Stack instance describing the specified stack</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Get-CFNStack.2.1.ps1
         - description: "<emphasis role=\"bold\">Example 3: Returns a collection of Stack instances describing all of the user's stacks using manual paging. The starting token for the next page is retrieved after every call with $null indicating no more details remain to be retrieved.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Get-CFNStack.3.1.ps1
   services:
     cloudformation:
-      DescribeStacks: 
+      DescribeStacks:
 

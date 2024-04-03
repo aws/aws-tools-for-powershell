@@ -7,13 +7,14 @@ support_RefreshTrustedAdvisorCheck:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Request-ASATrustedAdvisorCheckRefresh
         excerpts:
         - description: '<emphasis role="bold">Example 1: Requests a refresh for the specified Trusted Advisor check.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Request-ASATrustedAdvisorCheckRefresh.1.1.ps1
   services:
     support:
-      RefreshTrustedAdvisorCheck: 
+      RefreshTrustedAdvisorCheck:
 

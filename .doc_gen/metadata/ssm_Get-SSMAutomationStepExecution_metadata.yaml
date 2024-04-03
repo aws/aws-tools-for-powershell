@@ -7,10 +7,11 @@ ssm_DescribeAutomationStepExecutions:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMAutomationStepExecution
         excerpts:
         - description: '<emphasis role="bold">Example 1: This exmaple displays information about all active and terminated step executions in an Automation workflow.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAutomationStepExecution.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,5 +36,5 @@ ssm_DescribeAutomationStepExecutions:
           snippet_files: []
   services:
     ssm:
-      DescribeAutomationStepExecutions: 
+      DescribeAutomationStepExecutions:
 

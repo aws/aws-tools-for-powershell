@@ -7,10 +7,11 @@ ssm_DescribePatchBaselines:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMPatchBaseline
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all patch baselines.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,7 +25,7 @@ ssm_DescribePatchBaselines:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example lists all patch baselines provided by &AWS;. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -33,7 +34,7 @@ ssm_DescribePatchBaselines:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example lists all patch baselines with you as the owner. The syntax used by this example requires PowerShell version 3 or later.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -42,7 +43,7 @@ ssm_DescribePatchBaselines:
           snippet_files: []
         - description: '<emphasis role="bold">Example 4: With PowerShell version 2, you must use New-Object to create each tag.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMPatchBaseline.4.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -55,5 +56,5 @@ ssm_DescribePatchBaselines:
           snippet_files: []
   services:
     ssm:
-      DescribePatchBaselines: 
+      DescribePatchBaselines:
 

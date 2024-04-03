@@ -7,14 +7,15 @@ elastic-load-balancing_CreateLoadBalancerListeners:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-ELBLoadBalancerListener
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example adds an HTTPS listener to the specified load balancer.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_New-ELBLoadBalancerListener.1.1.ps1
   services:
     elastic-load-balancing:
-      CreateLoadBalancerListeners: 
+      CreateLoadBalancerListeners:
 
 

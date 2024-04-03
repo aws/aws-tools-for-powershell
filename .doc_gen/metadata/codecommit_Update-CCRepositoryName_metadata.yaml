@@ -7,13 +7,14 @@ codecommit_UpdateRepositoryName:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-CCRepositoryName
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example changes the name of the specified repository.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codecommit_Update-CCRepositoryName.1.1.ps1
   services:
     codecommit:
-      UpdateRepositoryName: 
+      UpdateRepositoryName:
 
