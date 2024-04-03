@@ -305,6 +305,18 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.TimeSeriesEntityType
+        {
+            ($_ -eq "Get-DZTimeSeriesDataPoint/EntityType") -Or
+            ($_ -eq "Get-DZTimeSeriesDataPointList/EntityType") -Or
+            ($_ -eq "New-DZTimeSeriesDataPoint/EntityType") -Or
+            ($_ -eq "Remove-DZTimeSeriesDataPoint/EntityType")
+        }
+        {
+            $v = "ASSET","LISTING"
+            break
+        }
+
         # Amazon.DataZone.Timezone
         {
             ($_ -eq "New-DZDataSource/Schedule_Timezone") -Or
@@ -383,7 +395,7 @@ $DZ_map = @{
     "Action"=@("New-DZListingChangeSet")
     "Designation"=@("New-DZProjectMembership")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
-    "EntityType"=@("New-DZListingChangeSet")
+    "EntityType"=@("Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZTimeSeriesDataPoint")
     "GroupType"=@("Search-DZGroupProfile")
     "RejectRule_Rule"=@("Deny-DZPrediction")
     "Schedule_Timezone"=@("New-DZDataSource","Update-DZDataSource")
@@ -488,6 +500,7 @@ $DZ_SelectMap = @{
                "Remove-DZSubscriptionGrant",
                "Remove-DZSubscriptionRequest",
                "Remove-DZSubscriptionTarget",
+               "Remove-DZTimeSeriesDataPoint",
                "Get-DZAsset",
                "Get-DZAssetType",
                "Get-DZDataSource",
@@ -509,6 +522,7 @@ $DZ_SelectMap = @{
                "Get-DZSubscriptionGrant",
                "Get-DZSubscriptionRequestDetail",
                "Get-DZSubscriptionTarget",
+               "Get-DZTimeSeriesDataPoint",
                "Get-DZUserProfile",
                "Get-DZAssetRevisionList",
                "Get-DZDataSourceRunActivityList",
@@ -528,6 +542,8 @@ $DZ_SelectMap = @{
                "Get-DZSubscriptionList",
                "Get-DZSubscriptionTargetList",
                "Get-DZResourceTag",
+               "Get-DZTimeSeriesDataPointList",
+               "New-DZTimeSeriesDataPoint",
                "Write-DZEnvironmentBlueprintConfiguration",
                "Deny-DZPrediction",
                "Deny-DZSubscriptionRequest",

@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ContactPostPassDurationSecond
         /// <summary>
         /// <para>
-        /// <para>Amount of time after a contact ends that you’d like to receive a CloudWatch event
-        /// indicating the pass has finished.</para>
+        /// <para>Amount of time after a contact ends that you’d like to receive a Ground Station Contact
+        /// State Change event indicating the pass has finished.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GS
         #region Parameter ContactPrePassDurationSecond
         /// <summary>
         /// <para>
-        /// <para>Amount of time after a contact ends that you’d like to receive a CloudWatch event
-        /// indicating the pass has finished.</para>
+        /// <para>Amount of time after a contact ends that you’d like to receive a Ground Station Contact
+        /// State Change event indicating the pass has finished.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

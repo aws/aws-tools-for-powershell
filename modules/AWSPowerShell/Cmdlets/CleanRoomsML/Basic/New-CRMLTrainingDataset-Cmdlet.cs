@@ -28,9 +28,9 @@ using Amazon.CleanRoomsML.Model;
 namespace Amazon.PowerShell.Cmdlets.CRML
 {
     /// <summary>
-    /// Defines the information necessary to create a training dataset, or seed audience.
-    /// In Clean Rooms ML, the <c>TrainingDataset</c> is metadata that points to a Glue table,
-    /// which is read only during <c>AudienceModel</c> creation.
+    /// Defines the information necessary to create a training dataset. In Clean Rooms ML,
+    /// the <c>TrainingDataset</c> is metadata that points to a Glue table, which is read
+    /// only during <c>AudienceModel</c> creation.
     /// </summary>
     [Cmdlet("New", "CRMLTrainingDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

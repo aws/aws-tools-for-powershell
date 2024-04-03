@@ -7204,6 +7204,9 @@ Set-Alias -Name Delete-DZSubscriptionRequest -Value Remove-DZSubscriptionRequest
 Set-Alias -Name DZ-DeleteSubscriptionRequest -Value Remove-DZSubscriptionRequest
 Set-Alias -Name Delete-DZSubscriptionTarget -Value Remove-DZSubscriptionTarget
 Set-Alias -Name DZ-DeleteSubscriptionTarget -Value Remove-DZSubscriptionTarget
+Set-Alias -Name Delete-DZTimeSeriesDataPoints -Value Remove-DZTimeSeriesDataPoint
+Set-Alias -Name Delete-DZTimeSeriesDataPoint -Value Remove-DZTimeSeriesDataPoint
+Set-Alias -Name DZ-DeleteTimeSeriesDataPoints -Value Remove-DZTimeSeriesDataPoint
 Set-Alias -Name DZ-GetAsset -Value Get-DZAsset
 Set-Alias -Name DZ-GetAssetType -Value Get-DZAssetType
 Set-Alias -Name DZ-GetDataSource -Value Get-DZDataSource
@@ -7226,6 +7229,7 @@ Set-Alias -Name DZ-GetSubscriptionGrant -Value Get-DZSubscriptionGrant
 Set-Alias -Name Get-DZSubscriptionRequestDetails -Value Get-DZSubscriptionRequestDetail
 Set-Alias -Name DZ-GetSubscriptionRequestDetails -Value Get-DZSubscriptionRequestDetail
 Set-Alias -Name DZ-GetSubscriptionTarget -Value Get-DZSubscriptionTarget
+Set-Alias -Name DZ-GetTimeSeriesDataPoint -Value Get-DZTimeSeriesDataPoint
 Set-Alias -Name DZ-GetUserProfile -Value Get-DZUserProfile
 Set-Alias -Name List-DZAssetRevisions -Value Get-DZAssetRevisionList
 Set-Alias -Name List-DZAssetRevisionList -Value Get-DZAssetRevisionList
@@ -7279,6 +7283,12 @@ Set-Alias -Name List-DZSubscriptionTargets -Value Get-DZSubscriptionTargetList
 Set-Alias -Name List-DZSubscriptionTargetList -Value Get-DZSubscriptionTargetList
 Set-Alias -Name DZ-ListSubscriptionTargets -Value Get-DZSubscriptionTargetList
 Set-Alias -Name DZ-ListTagsForResource -Value Get-DZResourceTag
+Set-Alias -Name List-DZTimeSeriesDataPoints -Value Get-DZTimeSeriesDataPointList
+Set-Alias -Name List-DZTimeSeriesDataPointList -Value Get-DZTimeSeriesDataPointList
+Set-Alias -Name DZ-ListTimeSeriesDataPoints -Value Get-DZTimeSeriesDataPointList
+Set-Alias -Name Post-DZTimeSeriesDataPoints -Value New-DZTimeSeriesDataPoint
+Set-Alias -Name Post-DZTimeSeriesDataPoint -Value New-DZTimeSeriesDataPoint
+Set-Alias -Name DZ-PostTimeSeriesDataPoints -Value New-DZTimeSeriesDataPoint
 Set-Alias -Name Put-DZEnvironmentBlueprintConfiguration -Value Write-DZEnvironmentBlueprintConfiguration
 Set-Alias -Name DZ-PutEnvironmentBlueprintConfiguration -Value Write-DZEnvironmentBlueprintConfiguration
 Set-Alias -Name Reject-DZPredictions -Value Deny-DZPrediction
@@ -8375,6 +8385,9 @@ Set-Alias -Name DOC-RestoreDBClusterFromSnapshot -Value Restore-DOCDBClusterFrom
 Set-Alias -Name DOC-RestoreDBClusterToPointInTime -Value Restore-DOCDBClusterToPointInTime
 Set-Alias -Name DOC-StartDBCluster -Value Start-DOCDBCluster
 Set-Alias -Name DOC-StopDBCluster -Value Stop-DOCDBCluster
+Set-Alias -Name Switchover-DOCGlobalCluster -Value Request-DOCSwitchoverGlobalCluster
+Set-Alias -Name Switchover-DOCSwitchoverGlobalCluster -Value Request-DOCSwitchoverGlobalCluster
+Set-Alias -Name DOC-SwitchoverGlobalCluster -Value Request-DOCSwitchoverGlobalCluster
 Set-Alias -Name DOCE-CopyClusterSnapshot -Value Copy-DOCEClusterSnapshot
 Set-Alias -Name Create-DOCECluster -Value New-DOCECluster
 Set-Alias -Name DOCE-CreateCluster -Value New-DOCECluster

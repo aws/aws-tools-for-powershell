@@ -308,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SecurityPolicyName
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the security policy that is attached to the server.</para>
+        /// <para>Specifies the name of the security policy for the server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

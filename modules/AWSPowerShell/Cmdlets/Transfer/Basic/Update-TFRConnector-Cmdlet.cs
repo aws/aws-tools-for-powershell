@@ -200,6 +200,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String As2Config_PartnerProfileId { get; set; }
         #endregion
         
+        #region Parameter SecurityPolicyName
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the name of the security policy for the connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityPolicyName { get; set; }
+        #endregion
+        
         #region Parameter As2Config_SigningAlgorithm
         /// <summary>
         /// <para>
@@ -333,6 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             }
             #endif
             context.LoggingRole = this.LoggingRole;
+            context.SecurityPolicyName = this.SecurityPolicyName;
             if (this.SftpConfig_TrustedHostKey != null)
             {
                 context.SftpConfig_TrustedHostKey = new List<System.String>(this.SftpConfig_TrustedHostKey);
@@ -466,6 +477,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             {
                 request.LoggingRole = cmdletContext.LoggingRole;
             }
+            if (cmdletContext.SecurityPolicyName != null)
+            {
+                request.SecurityPolicyName = cmdletContext.SecurityPolicyName;
+            }
             
              // populate SftpConfig
             var requestSftpConfigIsNull = true;
@@ -572,6 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             public Amazon.Transfer.SigningAlg As2Config_SigningAlgorithm { get; set; }
             public System.String ConnectorId { get; set; }
             public System.String LoggingRole { get; set; }
+            public System.String SecurityPolicyName { get; set; }
             public List<System.String> SftpConfig_TrustedHostKey { get; set; }
             public System.String SftpConfig_UserSecretId { get; set; }
             public System.String Url { get; set; }

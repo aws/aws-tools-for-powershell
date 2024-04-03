@@ -22,30 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CleanRoomsML;
-using Amazon.CleanRoomsML.Model;
+using Amazon.DocDB;
+using Amazon.DocDB.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CRML
+namespace Amazon.PowerShell.Cmdlets.DOC
 {
     /// <summary>
-    /// Adds metadata tags to a specified resource.
+    /// Switches over the specified secondary Amazon DocumentDB cluster to be the new primary
+    /// Amazon DocumentDB cluster in the global database cluster.
     /// </summary>
-    [Cmdlet("Add", "CRMLResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the CleanRoomsML TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.CleanRoomsML.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.CleanRoomsML.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.CleanRoomsML.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Request", "DOCSwitchoverGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DocDB.Model.GlobalCluster")]
+    [AWSCmdlet("Calls the Amazon DocumentDB (with MongoDB compatibility) SwitchoverGlobalCluster API operation.", Operation = new[] {"SwitchoverGlobalCluster"}, SelectReturnType = typeof(Amazon.DocDB.Model.SwitchoverGlobalClusterResponse))]
+    [AWSCmdletOutput("Amazon.DocDB.Model.GlobalCluster or Amazon.DocDB.Model.SwitchoverGlobalClusterResponse",
+        "This cmdlet returns an Amazon.DocDB.Model.GlobalCluster object.",
+        "The service call response (type Amazon.DocDB.Model.SwitchoverGlobalClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddCRMLResourceTagCmdlet : AmazonCleanRoomsMLClientCmdlet, IExecutor
+    public partial class RequestDOCSwitchoverGlobalClusterCmdlet : AmazonDocDBClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter GlobalClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource that you want to assign tags.</para>
+        /// <para>The identifier of the Amazon DocumentDB global database cluster to switch over. The
+        /// identifier is the unique key assigned by the user when the cluster is created. In
+        /// other words, it's the name of the global cluster. This parameter isn’t case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing global cluster (Amazon DocumentDB global
+        /// database).</para></li><li><para>Minimum length of 1. Maximum length of 255.</para></li></ul><para>Pattern: <c>[A-Za-z][0-9A-Za-z-:._]*</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,53 +60,45 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String GlobalClusterIdentifier { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter TargetDbClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The optional metadata that you apply to the resource to help you categorize and organize
-        /// them. Each tag consists of a key and an optional value, both of which you define.</para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per resource - 50.</para></li><li><para>For each resource, each tag key must be unique, and each tag key can have only one
-        /// value.</para></li><li><para>Maximum key length - 128 Unicode characters in UTF-8.</para></li><li><para>Maximum value length - 256 Unicode characters in UTF-8.</para></li><li><para>If your tagging schema is used across multiple services and resources, remember that
-        /// other services may have restrictions on allowed characters. Generally allowed characters
-        /// are: letters, numbers, and spaces representable in UTF-8, and the following characters:
-        /// + - = . _ : / @.</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use aws:, AWS:, or any upper or lowercase combination of such as a prefix for
-        /// keys as it is reserved for AWS use. You cannot edit or delete tag keys with this prefix.
-        /// Values can have this prefix. If a tag value has aws as its prefix but the key does
-        /// not, then Clean Rooms considers it to be a user tag and will count against the limit
-        /// of 50 tags. Tags with only the key prefix of aws do not count against your tags per
-        /// resource limit.</para></li></ul>
+        /// <para>The identifier of the secondary Amazon DocumentDB cluster to promote to the new primary
+        /// for the global database cluster. Use the Amazon Resource Name (ARN) for the identifier
+        /// so that Amazon DocumentDB can locate the cluster in its Amazon Web Services region.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing secondary cluster.</para></li><li><para>Minimum length of 1. Maximum length of 255.</para></li></ul><para>Pattern: <c>[A-Za-z][0-9A-Za-z-:._]*</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String TargetDbClusterIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRoomsML.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'GlobalCluster'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DocDB.Model.SwitchoverGlobalClusterResponse).
+        /// Specifying the name of a property of type Amazon.DocDB.Model.SwitchoverGlobalClusterResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "GlobalCluster";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GlobalClusterIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GlobalClusterIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GlobalClusterIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CRMLResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GlobalClusterIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Request-DOCSwitchoverGlobalCluster (SwitchoverGlobalCluster)"))
             {
                 return;
             }
@@ -136,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRoomsML.Model.TagResourceResponse, AddCRMLResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DocDB.Model.SwitchoverGlobalClusterResponse, RequestDOCSwitchoverGlobalClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,28 +141,21 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.GlobalClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.GlobalClusterIdentifier == null && ParameterWasBound(nameof(this.GlobalClusterIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GlobalClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
+            context.TargetDbClusterIdentifier = this.TargetDbClusterIdentifier;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.TargetDbClusterIdentifier == null && ParameterWasBound(nameof(this.TargetDbClusterIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TargetDbClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -183,15 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRoomsML.Model.TagResourceRequest();
+            var request = new Amazon.DocDB.Model.SwitchoverGlobalClusterRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.GlobalClusterIdentifier != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.TargetDbClusterIdentifier != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.TargetDbClusterIdentifier = cmdletContext.TargetDbClusterIdentifier;
             }
             
             CmdletOutput output;
@@ -226,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRoomsML.Model.TagResourceResponse CallAWSServiceOperation(IAmazonCleanRoomsML client, Amazon.CleanRoomsML.Model.TagResourceRequest request)
+        private Amazon.DocDB.Model.SwitchoverGlobalClusterResponse CallAWSServiceOperation(IAmazonDocDB client, Amazon.DocDB.Model.SwitchoverGlobalClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "CleanRoomsML", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DocumentDB (with MongoDB compatibility)", "SwitchoverGlobalCluster");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.SwitchoverGlobalCluster(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.SwitchoverGlobalClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,10 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.CleanRoomsML.Model.TagResourceResponse, AddCRMLResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String GlobalClusterIdentifier { get; set; }
+            public System.String TargetDbClusterIdentifier { get; set; }
+            public System.Func<Amazon.DocDB.Model.SwitchoverGlobalClusterResponse, RequestDOCSwitchoverGlobalClusterCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.GlobalCluster;
         }
         
     }

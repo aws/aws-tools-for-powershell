@@ -81,6 +81,30 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         public Amazon.MedicalImaging.Model.SearchFilter[] SearchCriteria_Filter { get; set; }
         #endregion
         
+        #region Parameter Sort_SortField
+        /// <summary>
+        /// <para>
+        /// <para>The sort field for search criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_Sort_SortField")]
+        [AWSConstantClassSource("Amazon.MedicalImaging.SortField")]
+        public Amazon.MedicalImaging.SortField Sort_SortField { get; set; }
+        #endregion
+        
+        #region Parameter Sort_SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sort order for search criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_Sort_SortOrder")]
+        [AWSConstantClassSource("Amazon.MedicalImaging.SortOrder")]
+        public Amazon.MedicalImaging.SortOrder Sort_SortOrder { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -178,6 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             {
                 context.SearchCriteria_Filter = new List<Amazon.MedicalImaging.Model.SearchFilter>(this.SearchCriteria_Filter);
             }
+            context.Sort_SortField = this.Sort_SortField;
+            context.Sort_SortOrder = this.Sort_SortOrder;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -218,6 +244,41 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             if (requestSearchCriteria_searchCriteria_Filter != null)
             {
                 request.SearchCriteria.Filters = requestSearchCriteria_searchCriteria_Filter;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.MedicalImaging.Model.Sort requestSearchCriteria_searchCriteria_Sort = null;
+            
+             // populate Sort
+            var requestSearchCriteria_searchCriteria_SortIsNull = true;
+            requestSearchCriteria_searchCriteria_Sort = new Amazon.MedicalImaging.Model.Sort();
+            Amazon.MedicalImaging.SortField requestSearchCriteria_searchCriteria_Sort_sort_SortField = null;
+            if (cmdletContext.Sort_SortField != null)
+            {
+                requestSearchCriteria_searchCriteria_Sort_sort_SortField = cmdletContext.Sort_SortField;
+            }
+            if (requestSearchCriteria_searchCriteria_Sort_sort_SortField != null)
+            {
+                requestSearchCriteria_searchCriteria_Sort.SortField = requestSearchCriteria_searchCriteria_Sort_sort_SortField;
+                requestSearchCriteria_searchCriteria_SortIsNull = false;
+            }
+            Amazon.MedicalImaging.SortOrder requestSearchCriteria_searchCriteria_Sort_sort_SortOrder = null;
+            if (cmdletContext.Sort_SortOrder != null)
+            {
+                requestSearchCriteria_searchCriteria_Sort_sort_SortOrder = cmdletContext.Sort_SortOrder;
+            }
+            if (requestSearchCriteria_searchCriteria_Sort_sort_SortOrder != null)
+            {
+                requestSearchCriteria_searchCriteria_Sort.SortOrder = requestSearchCriteria_searchCriteria_Sort_sort_SortOrder;
+                requestSearchCriteria_searchCriteria_SortIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_Sort should be set to null
+            if (requestSearchCriteria_searchCriteria_SortIsNull)
+            {
+                requestSearchCriteria_searchCriteria_Sort = null;
+            }
+            if (requestSearchCriteria_searchCriteria_Sort != null)
+            {
+                request.SearchCriteria.Sort = requestSearchCriteria_searchCriteria_Sort;
                 requestSearchCriteriaIsNull = false;
             }
              // determine if request.SearchCriteria should be set to null
@@ -290,6 +351,8 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<Amazon.MedicalImaging.Model.SearchFilter> SearchCriteria_Filter { get; set; }
+            public Amazon.MedicalImaging.SortField Sort_SortField { get; set; }
+            public Amazon.MedicalImaging.SortOrder Sort_SortOrder { get; set; }
             public System.Func<Amazon.MedicalImaging.Model.SearchImageSetsResponse, SearchMISImageSetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ImageSetsMetadataSummaries;
         }

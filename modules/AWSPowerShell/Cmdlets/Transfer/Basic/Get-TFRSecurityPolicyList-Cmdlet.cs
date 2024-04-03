@@ -28,8 +28,10 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Lists the security policies that are attached to your file transfer protocol-enabled
-    /// servers.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the security policies that are attached to your servers and SFTP connectors.
+    /// For more information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working
+    /// with security policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working
+    /// with security policies for SFTP connectors</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "TFRSecurityPolicyList")]
     [OutputType("System.String")]

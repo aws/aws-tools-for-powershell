@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// use <a>DescribeTypeRegistration</a> to monitor the progress of the registration request.
     /// </para><para>
     /// Once you have registered a private extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a>
-    /// to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
+    /// to specify configuration properties for the extension. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
     /// </para>
     /// </summary>

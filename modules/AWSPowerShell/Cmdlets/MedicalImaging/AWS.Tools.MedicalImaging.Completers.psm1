@@ -94,6 +94,20 @@ $MIS_Completers = {
             break
         }
 
+        # Amazon.MedicalImaging.SortField
+        "Search-MISImageSet/Sort_SortField"
+        {
+            $v = "createdAt","DICOMStudyDateAndTime","updatedAt"
+            break
+        }
+
+        # Amazon.MedicalImaging.SortOrder
+        "Search-MISImageSet/Sort_SortOrder"
+        {
+            $v = "ASC","DESC"
+            break
+        }
+
 
     }
 
@@ -105,6 +119,8 @@ $MIS_Completers = {
 $MIS_map = @{
     "DatastoreStatus"=@("Get-MISDatastoreList")
     "JobStatus"=@("Get-MISDICOMImportJobList")
+    "Sort_SortField"=@("Search-MISImageSet")
+    "Sort_SortOrder"=@("Search-MISImageSet")
 }
 
 _awsArgumentCompleterRegistration $MIS_Completers $MIS_map

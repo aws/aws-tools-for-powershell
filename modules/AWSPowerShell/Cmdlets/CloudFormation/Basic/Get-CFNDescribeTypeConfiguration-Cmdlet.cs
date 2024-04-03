@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
     /// </para>
     /// </summary>

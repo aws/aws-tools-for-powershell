@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.MIS
 {
     /// <summary>
     /// Get the import job properties to learn more about the job or job progress.
+    /// 
+    ///  <note><para>
+    /// The <c>jobStatus</c> refers to the execution of the import job. Therefore, an import
+    /// job can return a <c>jobStatus</c> as <c>COMPLETED</c> even if validation issues are
+    /// discovered during the import process. If a <c>jobStatus</c> returns as <c>COMPLETED</c>,
+    /// we still recommend you review the output manifests written to S3, as they provide
+    /// details on the success or failure of individual P10 object imports.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "MISDICOMImportJob")]
     [OutputType("Amazon.MedicalImaging.Model.DICOMImportJobProperties")]

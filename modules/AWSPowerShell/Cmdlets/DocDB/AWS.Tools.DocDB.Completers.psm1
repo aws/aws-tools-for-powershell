@@ -201,7 +201,8 @@ $DOC_SelectMap = @{
                "Restore-DOCDBClusterFromSnapshot",
                "Restore-DOCDBClusterToPointInTime",
                "Start-DOCDBCluster",
-               "Stop-DOCDBCluster")
+               "Stop-DOCDBCluster",
+               "Request-DOCSwitchoverGlobalCluster")
 }
 
 _awsArgumentCompleterRegistration $DOC_SelectCompleters $DOC_SelectMap

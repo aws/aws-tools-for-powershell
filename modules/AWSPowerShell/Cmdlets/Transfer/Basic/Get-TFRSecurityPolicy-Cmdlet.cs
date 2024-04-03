@@ -28,10 +28,11 @@ using Amazon.Transfer.Model;
 namespace Amazon.PowerShell.Cmdlets.TFR
 {
     /// <summary>
-    /// Describes the security policy that is attached to your file transfer protocol-enabled
-    /// server. The response contains a description of the security policy's properties. For
-    /// more information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working
-    /// with security policies</a>.
+    /// Describes the security policy that is attached to your server or SFTP connector. The
+    /// response contains a description of the security policy's properties. For more information
+    /// about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working
+    /// with security policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working
+    /// with security policies for SFTP connectors</a>.
     /// </summary>
     [Cmdlet("Get", "TFRSecurityPolicy")]
     [OutputType("Amazon.Transfer.Model.DescribedSecurityPolicy")]
@@ -48,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SecurityPolicyName
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the security policy that is attached to the server.</para>
+        /// <para>Specify the text name of the security policy for which you want the details.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

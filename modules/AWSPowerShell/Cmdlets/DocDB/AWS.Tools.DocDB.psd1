@@ -132,6 +132,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-DOCGlobalCluster', 
         'Remove-DOCResourceTag', 
         'Remove-DOCSourceIdentifierFromSubscription', 
+        'Request-DOCSwitchoverGlobalCluster', 
         'Reset-DOCDBClusterParameterGroup', 
         'Restart-DOCDBInstance', 
         'Restore-DOCDBClusterFromSnapshot', 

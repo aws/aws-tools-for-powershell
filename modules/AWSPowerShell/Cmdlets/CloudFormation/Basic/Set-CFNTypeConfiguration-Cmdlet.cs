@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <para>
     /// To view the current configuration data for an extension, refer to the <c>ConfigurationSchema</c>
     /// element of <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-register.html#registry-set-configuration">Configuring
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring
     /// extensions at the account level</a> in the <i>CloudFormation User Guide</i>.
     /// </para><important><para>
     /// It's strongly recommended that you use dynamic references to restrict sensitive configuration

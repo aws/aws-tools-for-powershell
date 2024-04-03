@@ -1,4 +1,21 @@
-﻿### 4.1.550 (2024-04-02 20:55Z)
+﻿### 4.1.551 (2024-04-03 20:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.782.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Added cmdlet Get-DZTimeSeriesDataPoint leveraging the GetTimeSeriesDataPoint service API.
+    * Added cmdlet Get-DZTimeSeriesDataPointList leveraging the ListTimeSeriesDataPoints service API.
+    * Added cmdlet New-DZTimeSeriesDataPoint leveraging the PostTimeSeriesDataPoints service API.
+    * Added cmdlet Remove-DZTimeSeriesDataPoint leveraging the DeleteTimeSeriesDataPoints service API.
+    * Modified cmdlet New-DZDataSource: added parameter GlueRunConfiguration_AutoImportDataQualityResult.
+    * Modified cmdlet Update-DZDataSource: added parameter GlueRunConfiguration_AutoImportDataQualityResult.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Added cmdlet Request-DOCSwitchoverGlobalCluster leveraging the SwitchoverGlobalCluster service API.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet Search-MISImageSet: added parameters Sort_SortField and Sort_SortOrder.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRConnector: added parameter SecurityPolicyName.
+    * Modified cmdlet Update-TFRConnector: added parameter SecurityPolicyName.
+
+### 4.1.550 (2024-04-02 20:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.781.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.549 (2024-04-01 21:28Z)

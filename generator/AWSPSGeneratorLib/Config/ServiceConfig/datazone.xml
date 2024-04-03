@@ -171,6 +171,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTimeSeriesDataPoints" Verb="Remove" Noun="TimeSeriesDataPoint" ShouldProcessTarget="EntityIdentifier" PipelineParameter="EntityIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -255,6 +259,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTimeSeriesDataPoint" OutputProperty="*" Verb="Get" Noun="TimeSeriesDataPoint" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUserProfile" OutputProperty="*" Verb="Get" Noun="UserProfile" PipelineParameter="UserIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -332,6 +340,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTimeSeriesDataPoints" OutputProperty="*" Verb="Get" Noun="TimeSeriesDataPointList" PipelineParameter="EntityIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostTimeSeriesDataPoints" OutputProperty="*" Verb="New" Noun="TimeSeriesDataPoint" ShouldProcessTarget="EntityIdentifier" PipelineParameter="EntityIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

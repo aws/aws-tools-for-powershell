@@ -231,6 +231,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SwitchoverGlobalCluster" OutputProperty="GlobalCluster" Verb="Request" Noun="SwitchoverGlobalCluster" ShouldProcessTarget="GlobalClusterIdentifier" PipelineParameter="GlobalClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

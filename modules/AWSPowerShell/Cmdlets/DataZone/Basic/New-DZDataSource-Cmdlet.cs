@@ -56,6 +56,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.Model.FormInput[] AssetFormsInput { get; set; }
         #endregion
         
+        #region Parameter GlueRunConfiguration_AutoImportDataQualityResult
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to automatically import data quality metrics as part of the data
+        /// source run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_GlueRunConfiguration_AutoImportDataQualityResult")]
+        public System.Boolean? GlueRunConfiguration_AutoImportDataQualityResult { get; set; }
+        #endregion
+        
         #region Parameter RedshiftClusterSource_ClusterName
         /// <summary>
         /// <para>
@@ -365,6 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.AssetFormsInput = new List<Amazon.DataZone.Model.FormInput>(this.AssetFormsInput);
             }
             context.ClientToken = this.ClientToken;
+            context.GlueRunConfiguration_AutoImportDataQualityResult = this.GlueRunConfiguration_AutoImportDataQualityResult;
             context.GlueRunConfiguration_DataAccessRole = this.GlueRunConfiguration_DataAccessRole;
             if (this.GlueRunConfiguration_RelationalFilterConfiguration != null)
             {
@@ -452,6 +465,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
              // populate GlueRunConfiguration
             var requestConfiguration_configuration_GlueRunConfigurationIsNull = true;
             requestConfiguration_configuration_GlueRunConfiguration = new Amazon.DataZone.Model.GlueRunConfigurationInput();
+            System.Boolean? requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_AutoImportDataQualityResult = null;
+            if (cmdletContext.GlueRunConfiguration_AutoImportDataQualityResult != null)
+            {
+                requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_AutoImportDataQualityResult = cmdletContext.GlueRunConfiguration_AutoImportDataQualityResult.Value;
+            }
+            if (requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_AutoImportDataQualityResult != null)
+            {
+                requestConfiguration_configuration_GlueRunConfiguration.AutoImportDataQualityResult = requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_AutoImportDataQualityResult.Value;
+                requestConfiguration_configuration_GlueRunConfigurationIsNull = false;
+            }
             System.String requestConfiguration_configuration_GlueRunConfiguration_glueRunConfiguration_DataAccessRole = null;
             if (cmdletContext.GlueRunConfiguration_DataAccessRole != null)
             {
@@ -755,6 +778,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public List<Amazon.DataZone.Model.FormInput> AssetFormsInput { get; set; }
             public System.String ClientToken { get; set; }
+            public System.Boolean? GlueRunConfiguration_AutoImportDataQualityResult { get; set; }
             public System.String GlueRunConfiguration_DataAccessRole { get; set; }
             public List<Amazon.DataZone.Model.RelationalFilterConfiguration> GlueRunConfiguration_RelationalFilterConfiguration { get; set; }
             public System.String RedshiftRunConfiguration_DataAccessRole { get; set; }
