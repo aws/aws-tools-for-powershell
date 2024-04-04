@@ -1,4 +1,14 @@
-﻿### 4.1.551 (2024-04-03 20:50Z)
+﻿### 4.1.552 (2024-04-04 20:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.783.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSBatchGetSchemaAnalysisRule leveraging the BatchGetSchemaAnalysisRule service API.
+  * Amazon EMR Containers
+    * Modified cmdlet Get-EMRCVirtualClusterList: added parameter EksAccessEntryIntegrated.
+  * Amazon Verified Permissions
+    * Modified cmdlet New-AVPIdentitySource: added parameter GroupConfiguration_GroupEntityType.
+    * Modified cmdlet Update-AVPIdentitySource: added parameter GroupConfiguration_GroupEntityType.
+
+### 4.1.551 (2024-04-03 20:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.782.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Added cmdlet Get-DZTimeSeriesDataPoint leveraging the GetTimeSeriesDataPoint service API.

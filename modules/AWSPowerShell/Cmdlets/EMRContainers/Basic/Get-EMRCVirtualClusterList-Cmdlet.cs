@@ -88,6 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.DateTime? CreatedBefore { get; set; }
         #endregion
         
+        #region Parameter EksAccessEntryIntegrated
+        /// <summary>
+        /// <para>
+        /// <para>Optional Boolean that specifies whether the operation should return the virtual clusters
+        /// that have the access entry integration enabled or disabled. If not specified, the
+        /// operation returns all applicable virtual clusters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EksAccessEntryIntegrated { get; set; }
+        #endregion
+        
         #region Parameter State
         /// <summary>
         /// <para>
@@ -150,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             context.ContainerProviderType = this.ContainerProviderType;
             context.CreatedAfter = this.CreatedAfter;
             context.CreatedBefore = this.CreatedBefore;
+            context.EksAccessEntryIntegrated = this.EksAccessEntryIntegrated;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.State != null)
@@ -187,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             if (cmdletContext.CreatedBefore != null)
             {
                 request.CreatedBefore = cmdletContext.CreatedBefore.Value;
+            }
+            if (cmdletContext.EksAccessEntryIntegrated != null)
+            {
+                request.EksAccessEntryIntegrated = cmdletContext.EksAccessEntryIntegrated.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -265,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public Amazon.EMRContainers.ContainerProviderType ContainerProviderType { get; set; }
             public System.DateTime? CreatedAfter { get; set; }
             public System.DateTime? CreatedBefore { get; set; }
+            public System.Boolean? EksAccessEntryIntegrated { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> State { get; set; }

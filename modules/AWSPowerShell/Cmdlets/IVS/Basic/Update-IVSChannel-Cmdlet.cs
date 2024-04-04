@@ -42,6 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.IVS
     public partial class UpdateIVSChannelCmdlet : AmazonIVSClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Arn
@@ -74,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter InsecureIngest
         /// <summary>
         /// <para>
-        /// <para>Whether the channel allows insecure RTMP ingest. Default: <c>false</c>.</para>
+        /// <para>Whether the channel allows insecure RTMP and SRT ingest. Default: <c>false</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

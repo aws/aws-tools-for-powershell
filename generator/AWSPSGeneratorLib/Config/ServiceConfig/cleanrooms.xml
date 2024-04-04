@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetSchemaAnalysisRule" OutputProperty="*" Verb="Get" Noun="BatchGetSchemaAnalysisRule" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAnalysisTemplate" OutputProperty="AnalysisTemplate" Verb="New" Noun="AnalysisTemplate" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

@@ -63,6 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public System.String[] CognitoUserPoolConfiguration_ClientId { get; set; }
         #endregion
         
+        #region Parameter GroupConfiguration_GroupEntityType
+        /// <summary>
+        /// <para>
+        /// <para>The name of the schema entity type that's mapped to the user pool group. Defaults
+        /// to <c>AWS::CognitoGroup</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UpdateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration_GroupEntityType")]
+        public System.String GroupConfiguration_GroupEntityType { get; set; }
+        #endregion
+        
         #region Parameter IdentitySourceId
         /// <summary>
         /// <para>
@@ -183,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             {
                 context.CognitoUserPoolConfiguration_ClientId = new List<System.String>(this.CognitoUserPoolConfiguration_ClientId);
             }
+            context.GroupConfiguration_GroupEntityType = this.GroupConfiguration_GroupEntityType;
             context.CognitoUserPoolConfiguration_UserPoolArn = this.CognitoUserPoolConfiguration_UserPoolArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -239,6 +252,31 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             if (requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_cognitoUserPoolConfiguration_UserPoolArn != null)
             {
                 requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration.UserPoolArn = requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_cognitoUserPoolConfiguration_UserPoolArn;
+                requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfigurationIsNull = false;
+            }
+            Amazon.VerifiedPermissions.Model.UpdateCognitoGroupConfiguration requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration = null;
+            
+             // populate GroupConfiguration
+            var requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfigurationIsNull = true;
+            requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration = new Amazon.VerifiedPermissions.Model.UpdateCognitoGroupConfiguration();
+            System.String requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration_groupConfiguration_GroupEntityType = null;
+            if (cmdletContext.GroupConfiguration_GroupEntityType != null)
+            {
+                requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration_groupConfiguration_GroupEntityType = cmdletContext.GroupConfiguration_GroupEntityType;
+            }
+            if (requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration_groupConfiguration_GroupEntityType != null)
+            {
+                requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration.GroupEntityType = requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration_groupConfiguration_GroupEntityType;
+                requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfigurationIsNull = false;
+            }
+             // determine if requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration should be set to null
+            if (requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfigurationIsNull)
+            {
+                requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration = null;
+            }
+            if (requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration != null)
+            {
+                requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration.GroupConfiguration = requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration_updateConfiguration_CognitoUserPoolConfiguration_GroupConfiguration;
                 requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfigurationIsNull = false;
             }
              // determine if requestUpdateConfiguration_updateConfiguration_CognitoUserPoolConfiguration should be set to null
@@ -321,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             public System.String PolicyStoreId { get; set; }
             public System.String PrincipalEntityType { get; set; }
             public List<System.String> CognitoUserPoolConfiguration_ClientId { get; set; }
+            public System.String GroupConfiguration_GroupEntityType { get; set; }
             public System.String CognitoUserPoolConfiguration_UserPoolArn { get; set; }
             public System.Func<Amazon.VerifiedPermissions.Model.UpdateIdentitySourceResponse, UpdateAVPIdentitySourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

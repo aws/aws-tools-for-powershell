@@ -3555,6 +3555,9 @@ Set-Alias -Name CHMVO-ValidateE911Address -Value Confirm-CHMVOE911Address
 Set-Alias -Name Batch-CRSGetCollaborationAnalysisTemplate -Value Get-CRSBatchCollaborationAnalysisTemplate
 Set-Alias -Name Batch-CRSBatchCollaborationAnalysisTemplate -Value Get-CRSBatchCollaborationAnalysisTemplate
 Set-Alias -Name CRS-BatchGetCollaborationAnalysisTemplate -Value Get-CRSBatchCollaborationAnalysisTemplate
+Set-Alias -Name Batch-CRSGetSchemaAnalysisRule -Value Get-CRSBatchGetSchemaAnalysisRule
+Set-Alias -Name Batch-CRSBatchGetSchemaAnalysisRule -Value Get-CRSBatchGetSchemaAnalysisRule
+Set-Alias -Name CRS-BatchGetSchemaAnalysisRule -Value Get-CRSBatchGetSchemaAnalysisRule
 Set-Alias -Name Batch-CRSGetSchema -Value Get-CRSBatchSchema
 Set-Alias -Name Batch-CRSBatchSchema -Value Get-CRSBatchSchema
 Set-Alias -Name CRS-BatchGetSchema -Value Get-CRSBatchSchema

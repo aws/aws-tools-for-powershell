@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Custom_AllowedAnalysis
         /// <summary>
         /// <para>
-        /// <para>The analysis templates that are allowed by the custom analysis rule.</para>
+        /// <para>The ARN of the analysis templates that are allowed by the custom analysis rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter Custom_AllowedAnalysisProvider
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services accounts that are allowed to query by the custom analysis
-        /// rule. Required when <c>allowedAnalyses</c> is <c>ANY_QUERY</c>.</para>
+        /// <para>The IDs of the Amazon Web Services accounts that are allowed to query by the custom
+        /// analysis rule. Required when <c>allowedAnalyses</c> is <c>ANY_QUERY</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

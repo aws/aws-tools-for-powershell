@@ -288,6 +288,7 @@ $CRS_SelectCompleters = {
 $CRS_SelectMap = @{
     "Select"=@("Get-CRSBatchCollaborationAnalysisTemplate",
                "Get-CRSBatchSchema",
+               "Get-CRSBatchGetSchemaAnalysisRule",
                "New-CRSAnalysisTemplate",
                "New-CRSCollaboration",
                "New-CRSConfiguredAudienceModelAssociation",

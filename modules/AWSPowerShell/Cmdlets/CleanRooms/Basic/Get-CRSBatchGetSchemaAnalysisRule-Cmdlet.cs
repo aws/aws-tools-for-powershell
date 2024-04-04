@@ -28,15 +28,15 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Retrieves multiple schemas by their identifiers.
+    /// Retrieves multiple analysis rule schemas.
     /// </summary>
-    [Cmdlet("Get", "CRSBatchSchema")]
-    [OutputType("Amazon.CleanRooms.Model.BatchGetSchemaResponse")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service BatchGetSchema API operation.", Operation = new[] {"BatchGetSchema"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.BatchGetSchemaResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.BatchGetSchemaResponse",
-        "This cmdlet returns an Amazon.CleanRooms.Model.BatchGetSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CRSBatchGetSchemaAnalysisRule")]
+    [OutputType("Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service BatchGetSchemaAnalysisRule API operation.", Operation = new[] {"BatchGetSchemaAnalysisRule"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse))]
+    [AWSCmdletOutput("Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse",
+        "This cmdlet returns an Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCRSBatchSchemaCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class GetCRSBatchGetSchemaAnalysisRuleCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         #region Parameter CollaborationIdentifier
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the collaboration that the schemas belong to. Currently accepts
-        /// collaboration ID.</para>
+        /// <para>The unique identifier of the collaboration that contains the schema analysis rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         public System.String CollaborationIdentifier { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter SchemaAnalysisRuleRequest
         /// <summary>
         /// <para>
-        /// <para>The names for the schema objects to retrieve.</para>
+        /// <para>The information that's necessary to retrieve a schema analysis rule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,15 +72,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Names")]
-        public System.String[] Name { get; set; }
+        [Alias("SchemaAnalysisRuleRequests")]
+        public Amazon.CleanRooms.Model.SchemaAnalysisRuleRequest[] SchemaAnalysisRuleRequest { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.BatchGetSchemaResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.BatchGetSchemaResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse).
+        /// Specifying the name of a property of type Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.BatchGetSchemaResponse, GetCRSBatchSchemaCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse, GetCRSBatchGetSchemaAnalysisRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,14 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.CRS
                 WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Name != null)
+            if (this.SchemaAnalysisRuleRequest != null)
             {
-                context.Name = new List<System.String>(this.Name);
+                context.SchemaAnalysisRuleRequest = new List<Amazon.CleanRooms.Model.SchemaAnalysisRuleRequest>(this.SchemaAnalysisRuleRequest);
             }
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.SchemaAnalysisRuleRequest == null && ParameterWasBound(nameof(this.SchemaAnalysisRuleRequest)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter SchemaAnalysisRuleRequest which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -154,15 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.BatchGetSchemaRequest();
+            var request = new Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleRequest();
             
             if (cmdletContext.CollaborationIdentifier != null)
             {
                 request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.SchemaAnalysisRuleRequest != null)
             {
-                request.Names = cmdletContext.Name;
+                request.SchemaAnalysisRuleRequests = cmdletContext.SchemaAnalysisRuleRequest;
             }
             
             CmdletOutput output;
@@ -197,15 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.BatchGetSchemaResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.BatchGetSchemaRequest request)
+        private Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "BatchGetSchema");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "BatchGetSchemaAnalysisRule");
             try
             {
                 #if DESKTOP
-                return client.BatchGetSchema(request);
+                return client.BatchGetSchemaAnalysisRule(request);
                 #elif CORECLR
-                return client.BatchGetSchemaAsync(request).GetAwaiter().GetResult();
+                return client.BatchGetSchemaAnalysisRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -226,8 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CollaborationIdentifier { get; set; }
-            public List<System.String> Name { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.BatchGetSchemaResponse, GetCRSBatchSchemaCmdlet, object> Select { get; set; } =
+            public List<Amazon.CleanRooms.Model.SchemaAnalysisRuleRequest> SchemaAnalysisRuleRequest { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.BatchGetSchemaAnalysisRuleResponse, GetCRSBatchGetSchemaAnalysisRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
