@@ -1,4 +1,11 @@
-﻿### 4.1.552 (2024-04-04 20:43Z)
+﻿### 4.1.553 (2024-04-05 20:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.784.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSAccountSubscription: added parameter IAMIdentityCenterInstanceArn.
+  * Amazon Verified Permissions
+    * Added cmdlet Get-AVPBatchIsAuthorizedWithToken leveraging the BatchIsAuthorizedWithToken service API.
+
+### 4.1.552 (2024-04-04 20:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.783.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Added cmdlet Get-CRSBatchGetSchemaAnalysisRule leveraging the BatchGetSchemaAnalysisRule service API.

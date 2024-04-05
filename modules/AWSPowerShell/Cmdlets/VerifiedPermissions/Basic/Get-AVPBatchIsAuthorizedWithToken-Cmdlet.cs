@@ -28,33 +28,35 @@ using Amazon.VerifiedPermissions.Model;
 namespace Amazon.PowerShell.Cmdlets.AVP
 {
     /// <summary>
-    /// Makes an authorization decision about a service request described in the parameters.
-    /// The principal in this request comes from an external identity source in the form of
-    /// an identity token formatted as a <a href="https://wikipedia.org/wiki/JSON_Web_Token">JSON
+    /// Makes a series of decisions about multiple authorization requests for one token. The
+    /// principal in this request comes from an external identity source in the form of an
+    /// identity or access token, formatted as a <a href="https://wikipedia.org/wiki/JSON_Web_Token">JSON
     /// web token (JWT)</a>. The information in the parameters can also define additional
-    /// context that Verified Permissions can include in the evaluation. The request is evaluated
-    /// against all matching policies in the specified policy store. The result of the decision
-    /// is either <c>Allow</c> or <c>Deny</c>, along with a list of the policies that resulted
-    /// in the decision.
+    /// context that Verified Permissions can include in the evaluations.
     /// 
     ///  
     /// <para>
-    /// At this time, Verified Permissions accepts tokens from only Amazon Cognito.
+    /// The request is evaluated against all policies in the specified policy store that match
+    /// the entities that you provide in the entities declaration and in the token. The result
+    /// of the decisions is a series of <c>Allow</c> or <c>Deny</c> responses, along with
+    /// the IDs of the policies that produced each decision.
     /// </para><para>
-    /// Verified Permissions validates each token that is specified in a request by checking
-    /// its expiration date and its signature.
-    /// </para><important><para>
-    /// If you delete a Amazon Cognito user pool or user, tokens from that deleted pool or
-    /// that deleted user continue to be usable until they expire.
-    /// </para></important>
+    /// The <c>entities</c> of a <c>BatchIsAuthorizedWithToken</c> API request can contain
+    /// up to 100 resources and up to 99 user groups. The <c>requests</c> of a <c>BatchIsAuthorizedWithToken</c>
+    /// API request can contain up to 30 requests.
+    /// </para><note><para>
+    /// The <c>BatchIsAuthorizedWithToken</c> operation doesn't have its own IAM permission.
+    /// To authorize this operation for Amazon Web Services principals, include the permission
+    /// <c>verifiedpermissions:IsAuthorizedWithToken</c> in their IAM policies.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Test", "AVPTokenAuthorization")]
-    [OutputType("Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse")]
-    [AWSCmdlet("Calls the Amazon Verified Permissions IsAuthorizedWithToken API operation.", Operation = new[] {"IsAuthorizedWithToken"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse))]
-    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse",
-        "This cmdlet returns an Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AVPBatchIsAuthorizedWithToken")]
+    [OutputType("Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse")]
+    [AWSCmdlet("Calls the Amazon Verified Permissions BatchIsAuthorizedWithToken API operation.", Operation = new[] {"BatchIsAuthorizedWithToken"}, SelectReturnType = typeof(Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse))]
+    [AWSCmdletOutput("Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse",
+        "This cmdlet returns an Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class TestAVPTokenAuthorizationCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
+    public partial class GetAVPBatchIsAuthorizedWithTokenCmdlet : AmazonVerifiedPermissionsClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
@@ -66,55 +68,15 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>Specifies an access token for the principal to be authorized. This token is provided
-        /// to you by the identity provider (IdP) associated with the specified identity source.
-        /// You must specify either an <c>accessToken</c>, an <c>identityToken</c>, or both.</para><para>Must be an access token. Verified Permissions returns an error if the <c>token_use</c>
+        /// <para>Specifies an access token for the principal that you want to authorize in each request.
+        /// This token is provided to you by the identity provider (IdP) associated with the specified
+        /// identity source. You must specify either an <c>accessToken</c>, an <c>identityToken</c>,
+        /// or both.</para><para>Must be an access token. Verified Permissions returns an error if the <c>token_use</c>
         /// claim in the submitted token isn't <c>access</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AccessToken { get; set; }
-        #endregion
-        
-        #region Parameter Action_ActionId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of an action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Action_ActionId { get; set; }
-        #endregion
-        
-        #region Parameter Action_ActionType
-        /// <summary>
-        /// <para>
-        /// <para>The type of an action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Action_ActionType { get; set; }
-        #endregion
-        
-        #region Parameter Context_ContextMap
-        /// <summary>
-        /// <para>
-        /// <para>An list of attributes that are needed to successfully evaluate an authorization request.
-        /// Each attribute in this array must include a map of a data type and its value.</para><para>Example: <c>"contextMap":{"&lt;KeyName1&gt;":{"boolean":true},"&lt;KeyName2&gt;":{"long":1234}}</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Collections.Hashtable Context_ContextMap { get; set; }
-        #endregion
-        
-        #region Parameter Resource_EntityId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of an entity.</para><para><c>"entityId":"<i>identifier</i>"</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Resource_EntityId { get; set; }
         #endregion
         
         #region Parameter Entities_EntityList
@@ -129,22 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public Amazon.VerifiedPermissions.Model.EntityItem[] Entities_EntityList { get; set; }
         #endregion
         
-        #region Parameter Resource_EntityType
-        /// <summary>
-        /// <para>
-        /// <para>The type of an entity.</para><para>Example: <c>"entityType":"<i>typeName</i>"</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Resource_EntityType { get; set; }
-        #endregion
-        
         #region Parameter IdentityToken
         /// <summary>
         /// <para>
-        /// <para>Specifies an identity token for the principal to be authorized. This token is provided
-        /// to you by the identity provider (IdP) associated with the specified identity source.
-        /// You must specify either an <c>accessToken</c>, an <c>identityToken</c>, or both.</para><para>Must be an ID token. Verified Permissions returns an error if the <c>token_use</c>
+        /// <para>Specifies an identity (ID) token for the principal that you want to authorize in each
+        /// request. This token is provided to you by the identity provider (IdP) associated with
+        /// the specified identity source. You must specify either an <c>accessToken</c>, an <c>identityToken</c>,
+        /// or both.</para><para>Must be an ID token. Verified Permissions returns an error if the <c>token_use</c>
         /// claim in the submitted token isn't <c>id</c>.</para>
         /// </para>
         /// </summary>
@@ -170,11 +123,29 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         public System.String PolicyStoreId { get; set; }
         #endregion
         
+        #region Parameter Request
+        /// <summary>
+        /// <para>
+        /// <para>An array of up to 30 requests that you want Verified Permissions to evaluate.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Requests")]
+        public Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenInputItem[] Request { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse).
-        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse).
+        /// Specifying the name of a property of type Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse, TestAVPTokenAuthorizationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse, GetAVPBatchIsAuthorizedWithTokenCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -217,16 +188,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccessToken = this.AccessToken;
-            context.Action_ActionId = this.Action_ActionId;
-            context.Action_ActionType = this.Action_ActionType;
-            if (this.Context_ContextMap != null)
-            {
-                context.Context_ContextMap = new Dictionary<System.String, Amazon.VerifiedPermissions.Model.AttributeValue>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Context_ContextMap.Keys)
-                {
-                    context.Context_ContextMap.Add((String)hashKey, (Amazon.VerifiedPermissions.Model.AttributeValue)(this.Context_ContextMap[hashKey]));
-                }
-            }
             if (this.Entities_EntityList != null)
             {
                 context.Entities_EntityList = new List<Amazon.VerifiedPermissions.Model.EntityItem>(this.Entities_EntityList);
@@ -239,8 +200,16 @@ namespace Amazon.PowerShell.Cmdlets.AVP
                 WriteWarning("You are passing $null as a value for parameter PolicyStoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Resource_EntityId = this.Resource_EntityId;
-            context.Resource_EntityType = this.Resource_EntityType;
+            if (this.Request != null)
+            {
+                context.Request = new List<Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenInputItem>(this.Request);
+            }
+            #if MODULAR
+            if (this.Request == null && ParameterWasBound(nameof(this.Request)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Request which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -255,59 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenRequest();
+            var request = new Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenRequest();
             
             if (cmdletContext.AccessToken != null)
             {
                 request.AccessToken = cmdletContext.AccessToken;
-            }
-            
-             // populate Action
-            var requestActionIsNull = true;
-            request.Action = new Amazon.VerifiedPermissions.Model.ActionIdentifier();
-            System.String requestAction_action_ActionId = null;
-            if (cmdletContext.Action_ActionId != null)
-            {
-                requestAction_action_ActionId = cmdletContext.Action_ActionId;
-            }
-            if (requestAction_action_ActionId != null)
-            {
-                request.Action.ActionId = requestAction_action_ActionId;
-                requestActionIsNull = false;
-            }
-            System.String requestAction_action_ActionType = null;
-            if (cmdletContext.Action_ActionType != null)
-            {
-                requestAction_action_ActionType = cmdletContext.Action_ActionType;
-            }
-            if (requestAction_action_ActionType != null)
-            {
-                request.Action.ActionType = requestAction_action_ActionType;
-                requestActionIsNull = false;
-            }
-             // determine if request.Action should be set to null
-            if (requestActionIsNull)
-            {
-                request.Action = null;
-            }
-            
-             // populate Context
-            var requestContextIsNull = true;
-            request.Context = new Amazon.VerifiedPermissions.Model.ContextDefinition();
-            Dictionary<System.String, Amazon.VerifiedPermissions.Model.AttributeValue> requestContext_context_ContextMap = null;
-            if (cmdletContext.Context_ContextMap != null)
-            {
-                requestContext_context_ContextMap = cmdletContext.Context_ContextMap;
-            }
-            if (requestContext_context_ContextMap != null)
-            {
-                request.Context.ContextMap = requestContext_context_ContextMap;
-                requestContextIsNull = false;
-            }
-             // determine if request.Context should be set to null
-            if (requestContextIsNull)
-            {
-                request.Context = null;
             }
             
              // populate Entities
@@ -336,34 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.AVP
             {
                 request.PolicyStoreId = cmdletContext.PolicyStoreId;
             }
-            
-             // populate Resource
-            var requestResourceIsNull = true;
-            request.Resource = new Amazon.VerifiedPermissions.Model.EntityIdentifier();
-            System.String requestResource_resource_EntityId = null;
-            if (cmdletContext.Resource_EntityId != null)
+            if (cmdletContext.Request != null)
             {
-                requestResource_resource_EntityId = cmdletContext.Resource_EntityId;
-            }
-            if (requestResource_resource_EntityId != null)
-            {
-                request.Resource.EntityId = requestResource_resource_EntityId;
-                requestResourceIsNull = false;
-            }
-            System.String requestResource_resource_EntityType = null;
-            if (cmdletContext.Resource_EntityType != null)
-            {
-                requestResource_resource_EntityType = cmdletContext.Resource_EntityType;
-            }
-            if (requestResource_resource_EntityType != null)
-            {
-                request.Resource.EntityType = requestResource_resource_EntityType;
-                requestResourceIsNull = false;
-            }
-             // determine if request.Resource should be set to null
-            if (requestResourceIsNull)
-            {
-                request.Resource = null;
+                request.Requests = cmdletContext.Request;
             }
             
             CmdletOutput output;
@@ -398,15 +294,15 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         
         #region AWS Service Operation Call
         
-        private Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenRequest request)
+        private Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse CallAWSServiceOperation(IAmazonVerifiedPermissions client, Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "IsAuthorizedWithToken");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Verified Permissions", "BatchIsAuthorizedWithToken");
             try
             {
                 #if DESKTOP
-                return client.IsAuthorizedWithToken(request);
+                return client.BatchIsAuthorizedWithToken(request);
                 #elif CORECLR
-                return client.IsAuthorizedWithTokenAsync(request).GetAwaiter().GetResult();
+                return client.BatchIsAuthorizedWithTokenAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -427,15 +323,11 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessToken { get; set; }
-            public System.String Action_ActionId { get; set; }
-            public System.String Action_ActionType { get; set; }
-            public Dictionary<System.String, Amazon.VerifiedPermissions.Model.AttributeValue> Context_ContextMap { get; set; }
             public List<Amazon.VerifiedPermissions.Model.EntityItem> Entities_EntityList { get; set; }
             public System.String IdentityToken { get; set; }
             public System.String PolicyStoreId { get; set; }
-            public System.String Resource_EntityId { get; set; }
-            public System.String Resource_EntityType { get; set; }
-            public System.Func<Amazon.VerifiedPermissions.Model.IsAuthorizedWithTokenResponse, TestAVPTokenAuthorizationCmdlet, object> Select { get; set; } =
+            public List<Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenInputItem> Request { get; set; }
+            public System.Func<Amazon.VerifiedPermissions.Model.BatchIsAuthorizedWithTokenResponse, GetAVPBatchIsAuthorizedWithTokenCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

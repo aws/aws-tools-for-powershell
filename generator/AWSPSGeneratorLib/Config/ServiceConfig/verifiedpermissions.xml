@@ -22,6 +22,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchIsAuthorizedWithToken" OutputProperty="*" Verb="Get" Noun="BatchIsAuthorizedWithToken" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIdentitySource" OutputProperty="*" Verb="New" Noun="IdentitySource" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -83,8 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>The name of the group, which is the identifier of the group in other operations. You
         /// can't change the name of a resource group after you create it. A resource group name
         /// can consist of letters, numbers, hyphens, periods, and underscores. The name cannot
-        /// start with <c>AWS</c> or <c>aws</c>; these are reserved. A resource group name must
-        /// be unique within each Amazon Web Services Region in your Amazon Web Services account.</para>
+        /// start with <c>AWS</c>, <c>aws</c>, or any other possible capitalization; these are
+        /// reserved. A resource group name must be unique within each Amazon Web Services Region
+        /// in your Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

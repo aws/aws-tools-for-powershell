@@ -51,9 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <summary>
         /// <para>
         /// <para>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to a <c>ListGroups</c>
-        /// operation.</para><ul><li><para><c>resource-type</c> - Filter the results to include only those of the specified
-        /// resource types. Specify up to five resource types in the format <c>AWS::<i>ServiceCode</i>::<i>ResourceType</i></c>. For example, <c>AWS::EC2::Instance</c>, or <c>AWS::S3::Bucket</c>.</para></li><li><para><c>configuration-type</c> - Filter the results to include only those groups that
-        /// have the specified configuration types attached. The current supported values are:</para><ul><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li><li><para><c>AWS::EC2::HostManagement</c></para></li></ul></li></ul>
+        /// operation.</para><ul><li><para><c>resource-type</c> - Filter the results to include only those resource groups that
+        /// have the specified resource type in their <c>ResourceTypeFilter</c>. For example,
+        /// <c>AWS::EC2::Instance</c> would return any resource group with a <c>ResourceTypeFilter</c>
+        /// that includes <c>AWS::EC2::Instance</c>.</para></li><li><para><c>configuration-type</c> - Filter the results to include only those groups that
+        /// have the specified configuration types attached. The current supported values are:</para><ul><li><para><c>AWS::AppRegistry::Application</c></para></li><li><para><c>AWS::AppRegistry::ApplicationResourceGroups</c></para></li><li><para><c>AWS::CloudFormation::Stack</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::NetworkFirewall::RuleGroup</c></para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

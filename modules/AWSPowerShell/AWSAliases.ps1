@@ -27880,6 +27880,9 @@ Set-Alias -Name TA-UpdateRecommendationLifecycle -Value Update-TARecommendationL
 Set-Alias -Name Batch-AVPIsAuthorized -Value Test-AVPBatchAuthorization
 Set-Alias -Name Batch-AVPBatchAuthorization -Value Test-AVPBatchAuthorization
 Set-Alias -Name AVP-BatchIsAuthorized -Value Test-AVPBatchAuthorization
+Set-Alias -Name Batch-AVPIsAuthorizedWithToken -Value Get-AVPBatchIsAuthorizedWithToken
+Set-Alias -Name Batch-AVPBatchIsAuthorizedWithToken -Value Get-AVPBatchIsAuthorizedWithToken
+Set-Alias -Name AVP-BatchIsAuthorizedWithToken -Value Get-AVPBatchIsAuthorizedWithToken
 Set-Alias -Name Create-AVPIdentitySource -Value New-AVPIdentitySource
 Set-Alias -Name AVP-CreateIdentitySource -Value New-AVPIdentitySource
 Set-Alias -Name Create-AVPPolicy -Value New-AVPPolicy

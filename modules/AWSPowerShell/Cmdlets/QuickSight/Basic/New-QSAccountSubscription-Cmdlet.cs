@@ -232,6 +232,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String FirstName { get; set; }
         #endregion
         
+        #region Parameter IAMIdentityCenterInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM Identity Center instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IAMIdentityCenterInstanceArn { get; set; }
+        #endregion
+        
         #region Parameter LastName
         /// <summary>
         /// <para>
@@ -392,6 +402,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             #endif
             context.EmailAddress = this.EmailAddress;
             context.FirstName = this.FirstName;
+            context.IAMIdentityCenterInstanceArn = this.IAMIdentityCenterInstanceArn;
             context.LastName = this.LastName;
             context.NotificationEmail = this.NotificationEmail;
             #if MODULAR
@@ -464,6 +475,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.FirstName != null)
             {
                 request.FirstName = cmdletContext.FirstName;
+            }
+            if (cmdletContext.IAMIdentityCenterInstanceArn != null)
+            {
+                request.IAMIdentityCenterInstanceArn = cmdletContext.IAMIdentityCenterInstanceArn;
             }
             if (cmdletContext.LastName != null)
             {
@@ -553,6 +568,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public Amazon.QuickSight.Edition Edition { get; set; }
             public System.String EmailAddress { get; set; }
             public System.String FirstName { get; set; }
+            public System.String IAMIdentityCenterInstanceArn { get; set; }
             public System.String LastName { get; set; }
             public System.String NotificationEmail { get; set; }
             public List<System.String> ReaderGroup { get; set; }
