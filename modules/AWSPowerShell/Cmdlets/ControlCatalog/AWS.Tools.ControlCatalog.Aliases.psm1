@@ -1,0 +1,3 @@
+﻿# ControlCatalog
+
+Export-ModuleMember -Alias *

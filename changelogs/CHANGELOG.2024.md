@@ -1,4 +1,8 @@
-﻿### 4.1.553 (2024-04-05 20:49Z)
+﻿### 4.1.554 (2024-04-08 21:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.785.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Catalog. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CLCAT and can be listed using the command 'Get-AWSCmdletName -Service CLCAT'.
+
+### 4.1.553 (2024-04-05 20:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.784.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QuickSight
     * Modified cmdlet New-QSAccountSubscription: added parameter IAMIdentityCenterInstanceArn.

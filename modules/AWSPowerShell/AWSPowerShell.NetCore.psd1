@@ -155,6 +155,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ConnectContactLens.dll',
         'AWSSDK.ConnectParticipant.dll',
         'AWSSDK.ConnectWisdomService.dll',
+        'AWSSDK.ControlCatalog.dll',
         'AWSSDK.ControlTower.dll',
         'AWSSDK.Core.dll',
         'AWSSDK.CostAndUsageReport.dll',

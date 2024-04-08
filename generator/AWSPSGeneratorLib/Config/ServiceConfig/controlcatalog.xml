@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>controlcatalog</C2jFilename>
+    <AssemblyName>ControlCatalog</AssemblyName>
+    <ServiceNounPrefix>CLCAT</ServiceNounPrefix>
+    <ServiceName>AWS Control Catalog</ServiceName>
+    <ServiceClientInterface>IAmazonControlCatalog</ServiceClientInterface>
+    <ServiceClient>AmazonControlCatalogClient</ServiceClient>
+    <ServiceModuleGuid>6a1005c3-31d6-442b-a636-b50bc38eaef7</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ListCommonControls" OutputProperty="CommonControls" Verb="Get" Noun="CommonControlList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" OutputProperty="Domains" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListObjectives" OutputProperty="Objectives" Verb="Get" Noun="ObjectiveList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

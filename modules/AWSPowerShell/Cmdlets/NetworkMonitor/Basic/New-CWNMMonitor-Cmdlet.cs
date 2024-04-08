@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         /// <summary>
         /// <para>
         /// <para>The name identifying the monitor. It can contain only letters, underscores (_), or
-        /// dashes (-), and can be up to 255 characters.</para>
+        /// dashes (-), and can be up to 200 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -29,6 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.MGN
 {
     /// <summary>
     /// Updates multiple LaunchConfigurations by Source Server ID.
+    /// 
+    ///  <note><para>
+    /// bootMode valid values are <c>LEGACY_BIOS | UEFI</c></para></note>
     /// </summary>
     [Cmdlet("Update", "MGNLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Mgn.Model.UpdateLaunchConfigurationResponse")]

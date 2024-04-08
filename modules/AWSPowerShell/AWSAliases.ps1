@@ -6679,6 +6679,15 @@ Set-Alias -Name CONNP-GetTranscript -Value Get-CONNPTranscript
 Set-Alias -Name CONNP-SendEvent -Value Send-CONNPEvent
 Set-Alias -Name CONNP-SendMessage -Value Send-CONNPMessage
 Set-Alias -Name CONNP-StartAttachmentUpload -Value Start-CONNPAttachmentUpload
+Set-Alias -Name List-CLCATCommonControls -Value Get-CLCATCommonControlList
+Set-Alias -Name List-CLCATCommonControlList -Value Get-CLCATCommonControlList
+Set-Alias -Name CLCAT-ListCommonControls -Value Get-CLCATCommonControlList
+Set-Alias -Name List-CLCATDomains -Value Get-CLCATDomainList
+Set-Alias -Name List-CLCATDomainList -Value Get-CLCATDomainList
+Set-Alias -Name CLCAT-ListDomains -Value Get-CLCATDomainList
+Set-Alias -Name List-CLCATObjectives -Value Get-CLCATObjectiveList
+Set-Alias -Name List-CLCATObjectiveList -Value Get-CLCATObjectiveList
+Set-Alias -Name CLCAT-ListObjectives -Value Get-CLCATObjectiveList
 Set-Alias -Name Create-ACTLandingZone -Value New-ACTLandingZone
 Set-Alias -Name ACT-CreateLandingZone -Value New-ACTLandingZone
 Set-Alias -Name Delete-ACTLandingZone -Value Remove-ACTLandingZone

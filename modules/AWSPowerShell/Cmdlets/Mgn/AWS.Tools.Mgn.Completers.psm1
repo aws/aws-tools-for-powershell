@@ -86,7 +86,7 @@ $MGN_Completers = {
             ($_ -eq "Write-MGNTemplateAction/Category")
         }
         {
-            $v = "BACKUP","CONFIGURATION","DISASTER_RECOVERY","LICENSE_AND_SUBSCRIPTION","NETWORKING","OBSERVABILITY","OPERATING_SYSTEM","OTHER","SECURITY","VALIDATION"
+            $v = "BACKUP","CONFIGURATION","DISASTER_RECOVERY","LICENSE_AND_SUBSCRIPTION","NETWORKING","OBSERVABILITY","OPERATING_SYSTEM","OTHER","REFACTORING","SECURITY","VALIDATION"
             break
         }
 
@@ -97,7 +97,7 @@ $MGN_Completers = {
             ($_ -eq "Update-MGNLaunchConfigurationTemplate/BootMode")
         }
         {
-            $v = "LEGACY_BIOS","UEFI"
+            $v = "LEGACY_BIOS","UEFI","USE_SOURCE"
             break
         }
 

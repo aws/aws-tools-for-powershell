@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter Probe_Destination
         /// <summary>
         /// <para>
-        /// <para>The destination IP address. This will be either <c>IPV4</c> or <c>IPV6</c>.</para>
+        /// <para>The destination IP address. This must be either <c>IPV4</c> or <c>IPV6</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter Probe_PacketSize
         /// <summary>
         /// <para>
-        /// <para>The size of the packets sent between the source and destination. This will be a number
+        /// <para>The size of the packets sent between the source and destination. This must be a number
         /// between <c>56</c> and <c>8500</c>.</para>
         /// </para>
         /// </summary>
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         /// <summary>
         /// <para>
         /// <para>The protocol used for the network traffic between the <c>source</c> and <c>destination</c>.
-        /// This will be either <c>TCP</c> or <c>ICMP</c>.</para>
+        /// This must be either <c>TCP</c> or <c>ICMP</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
