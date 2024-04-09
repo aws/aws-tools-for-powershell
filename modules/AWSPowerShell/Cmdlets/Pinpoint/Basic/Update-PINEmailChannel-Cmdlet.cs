@@ -119,6 +119,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String EmailChannelRequest_Identity { get; set; }
         #endregion
         
+        #region Parameter EmailChannelRequest_OrchestrationSendingRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns
+        /// or journeys through Amazon SES.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EmailChannelRequest_OrchestrationSendingRoleArn { get; set; }
+        #endregion
+        
         #region Parameter EmailChannelRequest_RoleArn
         /// <summary>
         /// <para>
@@ -215,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 WriteWarning("You are passing $null as a value for parameter EmailChannelRequest_Identity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EmailChannelRequest_OrchestrationSendingRoleArn = this.EmailChannelRequest_OrchestrationSendingRoleArn;
             context.EmailChannelRequest_RoleArn = this.EmailChannelRequest_RoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -278,6 +290,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailChannelRequest_emailChannelRequest_Identity != null)
             {
                 request.EmailChannelRequest.Identity = requestEmailChannelRequest_emailChannelRequest_Identity;
+                requestEmailChannelRequestIsNull = false;
+            }
+            System.String requestEmailChannelRequest_emailChannelRequest_OrchestrationSendingRoleArn = null;
+            if (cmdletContext.EmailChannelRequest_OrchestrationSendingRoleArn != null)
+            {
+                requestEmailChannelRequest_emailChannelRequest_OrchestrationSendingRoleArn = cmdletContext.EmailChannelRequest_OrchestrationSendingRoleArn;
+            }
+            if (requestEmailChannelRequest_emailChannelRequest_OrchestrationSendingRoleArn != null)
+            {
+                request.EmailChannelRequest.OrchestrationSendingRoleArn = requestEmailChannelRequest_emailChannelRequest_OrchestrationSendingRoleArn;
                 requestEmailChannelRequestIsNull = false;
             }
             System.String requestEmailChannelRequest_emailChannelRequest_RoleArn = null;
@@ -361,6 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Boolean? EmailChannelRequest_Enabled { get; set; }
             public System.String EmailChannelRequest_FromAddress { get; set; }
             public System.String EmailChannelRequest_Identity { get; set; }
+            public System.String EmailChannelRequest_OrchestrationSendingRoleArn { get; set; }
             public System.String EmailChannelRequest_RoleArn { get; set; }
             public System.Func<Amazon.Pinpoint.Model.UpdateEmailChannelResponse, UpdatePINEmailChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.EmailChannelResponse;

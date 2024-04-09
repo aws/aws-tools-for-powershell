@@ -1,4 +1,14 @@
-﻿### 4.1.554 (2024-04-08 21:56Z)
+﻿### 4.1.555 (2024-04-09 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.786.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Pinpoint
+    * Modified cmdlet Update-PINEmailChannel: added parameter EmailChannelRequest_OrchestrationSendingRoleArn.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBInstanceReadReplica: added parameter CACertificateIdentifier.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter CACertificateIdentifier.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter CACertificateIdentifier.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter CACertificateIdentifier.
+
+### 4.1.554 (2024-04-08 21:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.785.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Catalog. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CLCAT and can be listed using the command 'Get-AWSCmdletName -Service CLCAT'.
 

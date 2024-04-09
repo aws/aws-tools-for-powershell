@@ -380,7 +380,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineMode
         /// <summary>
         /// <para>
-        /// <para>The DB engine mode of the DB cluster, either <c>provisioned</c> or <c>serverless</c>.</para><para>The <c>serverless</c> engine mode only applies for Aurora Serverless v1 DB clusters.</para><para>For information about limitations and requirements for Serverless DB clusters, see
+        /// <para>The DB engine mode of the DB cluster, either <c>provisioned</c> or <c>serverless</c>.</para><para>The <c>serverless</c> engine mode only applies for Aurora Serverless v1 DB clusters.
+        /// Aurora Serverless v2 DB clusters use the <c>provisioned</c> engine mode.</para><para>For information about limitations and requirements for Serverless DB clusters, see
         /// the following sections in the <i>Amazon Aurora User Guide</i>:</para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html#aurora-serverless.limitations">Limitations
         /// of Aurora Serverless v1</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.requirements.html">Requirements
         /// for Aurora Serverless v2</a></para></li></ul><para>Valid for Cluster Type: Aurora DB clusters only</para>

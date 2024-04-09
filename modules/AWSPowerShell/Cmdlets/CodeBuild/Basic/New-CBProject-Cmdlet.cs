@@ -465,7 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// your Amazon Web Services account to your GitLab account. Use the CodeBuild console
         /// to start creating a build project. When you use the console to connect (or reconnect)
         /// with GitLab, on the Connections <b>Authorize application</b> page, choose <b>Authorize</b>.
-        /// Then on the CodeStar Connections <b>Create GitLab connection</b> page, choose <b>Connect
+        /// Then on the CodeConnections <b>Create GitLab connection</b> page, choose <b>Connect
         /// to GitLab</b>. (After you have connected to your GitLab account, you do not need to
         /// finish creating the build project. You can leave the CodeBuild console.) To instruct
         /// CodeBuild to override the default connection and use this connection instead, set
