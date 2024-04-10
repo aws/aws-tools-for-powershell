@@ -7,10 +7,11 @@ config-service_BatchGetAggregateResourceconfig-service:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CFGAggregateResourceConfigBatch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example fetches current configuration item for resource (identified) present in the given aggregator.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/config-service_Get-CFGAggregateResourceConfigBatch.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,6 +23,6 @@ config-service_BatchGetAggregateResourceconfig-service:
           snippet_files: []
   services:
     config-service:
-      BatchGetAggregateResourceconfig-service: 
+      BatchGetAggregateResourceconfig-service:
 
 

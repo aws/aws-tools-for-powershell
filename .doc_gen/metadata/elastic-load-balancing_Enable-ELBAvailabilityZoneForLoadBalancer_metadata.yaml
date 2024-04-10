@@ -7,10 +7,11 @@ elastic-load-balancing_EnableAvailabilityZonesForLoadBalancer:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Enable-ELBAvailabilityZoneForLoadBalancer
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example adds the specified Availability Zone to the specified load balancer. The output includes the complete list of Availability Zones.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Enable-ELBAvailabilityZoneForLoadBalancer.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -21,6 +22,6 @@ elastic-load-balancing_EnableAvailabilityZonesForLoadBalancer:
           snippet_files: []
   services:
     elastic-load-balancing:
-      EnableAvailabilityZonesForLoadBalancer: 
+      EnableAvailabilityZonesForLoadBalancer:
 
 

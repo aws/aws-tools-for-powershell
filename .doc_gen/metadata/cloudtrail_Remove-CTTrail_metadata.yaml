@@ -7,13 +7,14 @@ cloudtrail_DeleteTrail:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-CTTrail
         excerpts:
         - description: '<emphasis role="bold">Example 1: Deletes the specified trail. You will be prompted for confirmation before the command is run. To suppress confirmation, add the -Force switch parameter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Remove-CTTrail.1.1.ps1
   services:
     cloudtrail:
-      DeleteTrail: 
+      DeleteTrail:
 

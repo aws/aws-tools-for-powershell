@@ -7,12 +7,13 @@ iam_PutGroupPolicy:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Write-IAMGroupPolicy
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example creates an inline policy named <code>AppTesterPolicy</code> and embeds it in the IAM group <code>AppTesters</code>. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes the file <code>apptesterpolicy.json</code>. Note that you must use the <code>-Raw</code> parameter to successfully process the content of the JSON file.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/iam_Write-IAMGroupPolicy.1.1.ps1
-          description: 
+          description:
   services:
     iam:
-      PutGroupPolicy: 
+      PutGroupPolicy:

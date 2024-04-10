@@ -7,10 +7,11 @@ iam_GetServerCertificate:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-IAMServerCertificate
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves details about the server certificate named <code>MyServerCertificate</code>. You can find the certificate details in the <code>CertificateBody</code> and <code>ServerCertificateMetadata</code> properties.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMServerCertificate.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,7 +36,7 @@ iam_GetServerCertificate:
             CertificateChain          : 
             ServerCertificateMetadata : Amazon.IdentityManagement.Model.ServerCertificateMetadata</programlisting>
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMServerCertificate.1.2.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -50,4 +51,4 @@ iam_GetServerCertificate:
           snippet_files: []
   services:
     iam:
-      GetServerCertificate: 
+      GetServerCertificate:

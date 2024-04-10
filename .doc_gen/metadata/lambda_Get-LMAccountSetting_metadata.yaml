@@ -7,12 +7,13 @@ lambda_GetAccountSettings:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-LMAccountSetting
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample displays to compare the Account Limit and Account Usage</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/lambda_Get-LMAccountSetting.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -22,5 +23,5 @@ lambda_GetAccountSettings:
                    80530636800          15078795</programlisting>
   services:
     lambda:
-      GetAccountSettings: 
+      GetAccountSettings:
 

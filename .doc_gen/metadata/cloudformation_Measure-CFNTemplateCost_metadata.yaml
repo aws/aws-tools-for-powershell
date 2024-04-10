@@ -7,23 +7,24 @@ cloudformation_EstimateTemplateCost:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Measure-CFNTemplateCost
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Returns an &AWS; Simple Monthly Calculator URL with a query string that describes the resources required to run the template. The template is obtained from the specified Amazon S3 URL and the single customization parameter applied. The parameter can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Measure-CFNTemplateCost.1.1.ps1
         - description: "<emphasis role=\"bold\">Example 2: Returns an &AWS; Simple Monthly Calculator URL with a query string that describes the resources required to run the template. The template is parsed from the supplied content and the customization parameters applied (this example assumes the template content would have declared two parameters, 'KeyName' and 'InstanceType'). The customization parameters can also be specified using 'Key' and 'Value' instead of 'ParameterKey' and 'ParameterValue'.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Measure-CFNTemplateCost.2.1.ps1
         - description: "<emphasis role=\"bold\">Example 3: Uses New-Object to build the set of template parameters and returns an &AWS; Simple Monthly Calculator URL with a query string that describes the resources required to run the template. The template is parsed from the supplied content, with customization parameters (this example assumes the template content would have declared two parameters, 'KeyName' and 'InstanceType').</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudformation_Measure-CFNTemplateCost.3.1.ps1
   services:
     cloudformation:
-      EstimateTemplateCost: 
+      EstimateTemplateCost:
 

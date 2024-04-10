@@ -7,10 +7,11 @@ codedeploy_GetDeploymentInstance:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CDDeploymentInstance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets information about the specified instance for the specified deployment.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codedeploy_Get-CDDeploymentInstance.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,5 +25,5 @@ codedeploy_GetDeploymentInstance:
           snippet_files: []
   services:
     codedeploy:
-      GetDeploymentInstance: 
+      GetDeploymentInstance:
 

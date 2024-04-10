@@ -7,10 +7,11 @@ auto-scaling_DescribeTerminationPolicyTypes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASTerminationPolicyType
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists the termination policies that are supported by Auto Scaling.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASTerminationPolicyType.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,6 +25,6 @@ auto-scaling_DescribeTerminationPolicyTypes:
           snippet_files: []
   services:
     auto-scaling:
-      DescribeTerminationPolicyTypes: 
+      DescribeTerminationPolicyTypes:
 
 

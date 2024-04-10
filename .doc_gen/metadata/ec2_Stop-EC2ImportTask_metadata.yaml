@@ -7,12 +7,13 @@ ec2_CancelImportTask:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Stop-EC2ImportTask
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example cancels the specified import task (either snapshot or image import). If required, a reason can be providing using the <code>-CancelReason</code> parameter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Stop-EC2ImportTask.1.1.ps1
   services:
     ec2:
-      CancelImportTask: 
+      CancelImportTask:

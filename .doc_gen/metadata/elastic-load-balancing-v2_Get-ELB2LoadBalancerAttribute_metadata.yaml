@@ -7,10 +7,11 @@ elastic-load-balancing-v2_DescribeLoadBalancerAttributes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ELB2LoadBalancerAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command describes the attributes of given Load balancer.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2LoadBalancerAttribute.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,6 +20,6 @@ elastic-load-balancing-v2_DescribeLoadBalancerAttributes:
           snippet_files: []
   services:
     elastic-load-balancing-v2:
-      DescribeLoadBalancerAttributes: 
+      DescribeLoadBalancerAttributes:
 
 

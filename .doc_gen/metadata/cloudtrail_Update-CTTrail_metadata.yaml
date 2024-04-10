@@ -7,23 +7,24 @@ cloudtrail_UpdateTrail:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-CTTrail
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: Updates the specified trail so that global service events (such as those from IAM) are recorded and changes the common key prefix of the log files going forwards to be 'globallogs'.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Update-CTTrail.1.1.ps1
         - description: '<emphasis role="bold">Example 2: Updates the specified trail so notifications about new log deliveries are sent to the specified SNS topic.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Update-CTTrail.2.1.ps1
         - description: '<emphasis role="bold">Example 3: Updates the specified trail so logs are delivered to a different bucket.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Update-CTTrail.3.1.ps1
   services:
     cloudtrail:
-      UpdateTrail: 
+      UpdateTrail:
 

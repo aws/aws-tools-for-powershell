@@ -7,14 +7,15 @@ machine-learning_GetMLModel:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-MLModel
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Returns the detail metadata, status, schema, and data file information for a MLModel with id ID.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/machine-learning_Get-MLModel.1.1.ps1
-          description: 
+          description:
   services:
     machine-learning:
-      GetMLModel: 
+      GetMLModel:
 
 

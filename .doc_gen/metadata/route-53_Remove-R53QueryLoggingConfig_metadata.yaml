@@ -7,14 +7,15 @@ route-53_DeleteQueryLoggingConfig:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-R53QueryLoggingConfig
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example removes the specified configuration for DNS query logging.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/route-53_Remove-R53QueryLoggingConfig.1.1.ps1
-          description: 
+          description:
   services:
     route-53:
-      DeleteQueryLoggingConfig: 
+      DeleteQueryLoggingConfig:
 
 

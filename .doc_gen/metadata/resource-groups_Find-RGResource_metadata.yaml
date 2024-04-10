@@ -7,12 +7,13 @@ resource-groups_SearchResources:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Find-RGResource
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example creates a ResourceQuery for Instance resource types with tag filters and finds resources. </emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/resource-groups_Find-RGResource.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -22,5 +23,5 @@ resource-groups_SearchResources:
             arn:aws:ec2:eu-west-1:123456789012:instance/i-0123445b6cb7bd67b AWS::EC2::Instance</programlisting>
   services:
     resource-groups:
-      SearchResources: 
+      SearchResources:
 

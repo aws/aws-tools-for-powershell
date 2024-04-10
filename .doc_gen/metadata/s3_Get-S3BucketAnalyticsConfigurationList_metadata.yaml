@@ -7,13 +7,14 @@ s3_ListBucketAnalyticsConfigurations:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-S3BucketAnalyticsConfigurationList
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This command returns the first 100 analytics configurations of the given S3 bucket.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3BucketAnalyticsConfigurationList.1.1.ps1
-          description: 
+          description:
   services:
     s3:
-      ListBucketAnalyticsConfigurations: 
+      ListBucketAnalyticsConfigurations:
 

@@ -7,12 +7,13 @@ application-autoscaling_DescribeScheduledActions:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-AASScheduledAction
         excerpts:
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 1: This cmdlet lists the actions scheduled for your Auto Scaling group that haven't run or that have not reached their end time. </emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/application-autoscaling_Get-AASScheduledAction.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -30,5 +31,5 @@ application-autoscaling_DescribeScheduledActions:
             StartTime            : 1/1/0001 12:00:00 AM</programlisting>
   services:
     application-autoscaling:
-      DescribeScheduledActions: 
+      DescribeScheduledActions:
 

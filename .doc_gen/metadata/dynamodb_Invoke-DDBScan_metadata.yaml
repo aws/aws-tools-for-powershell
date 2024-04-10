@@ -7,10 +7,11 @@ dynamodb_Scan:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Invoke-DDBScan
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns all items in the Music table.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/dynamodb_Invoke-DDBScan.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -33,7 +34,7 @@ dynamodb_Scan:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: Returns items in the Music table with a CriticRating greater than or equal to nine.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/dynamodb_Invoke-DDBScan.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -50,5 +51,5 @@ dynamodb_Scan:
           snippet_files: []
   services:
     dynamodb:
-      Scan: 
+      Scan:
 

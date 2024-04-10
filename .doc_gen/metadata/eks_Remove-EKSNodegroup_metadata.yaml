@@ -7,10 +7,11 @@ eks_DeleteNodegroup:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-EKSNodegroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This cmdlet deletes an Amazon EKS node group for a cluster.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/eks_Remove-EKSNodegroup.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -43,5 +44,5 @@ eks_DeleteNodegroup:
           snippet_files: []
   services:
     eks:
-      DeleteNodegroup: 
+      DeleteNodegroup:
 

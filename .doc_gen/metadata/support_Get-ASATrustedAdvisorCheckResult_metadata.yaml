@@ -7,13 +7,14 @@ support_DescribeTrustedAdvisorCheckResult:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASATrustedAdvisorCheckResult
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the results of a Trusted Advisor check. The list of available Trusted Advisor checks can be obtained using Get-ASATrustedAdvisorChecks. The output is the overall status of the check, the timestamp at which the check was last run and the unique checkid for the specific check. To have the results output in Japanese, add the -Language "ja" parameter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Get-ASATrustedAdvisorCheckResult.1.1.ps1
   services:
     support:
-      DescribeTrustedAdvisorCheckResult: 
+      DescribeTrustedAdvisorCheckResult:
 

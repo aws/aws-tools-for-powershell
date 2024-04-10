@@ -7,10 +7,11 @@ ssm_UpdateDocument:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-SSMDocument
         excerpts:
         - description: '<emphasis role="bold">Example 1: This creates a new version of a document with the updated contents of the json file you specify. The document must be in JSON format. You can obtain the document version with the "Get-SSMDocumentVersionList" cmdlet.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Update-SSMDocument.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -34,5 +35,5 @@ ssm_UpdateDocument:
           snippet_files: []
   services:
     ssm:
-      UpdateDocument: 
+      UpdateDocument:
 

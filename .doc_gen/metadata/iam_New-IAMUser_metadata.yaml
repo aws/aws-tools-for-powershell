@@ -7,10 +7,11 @@ iam_CreateUser:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-IAMUser
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates an IAM user named <code>Bob</code>. If Bob needs to sign in to the &AWS; console, then you must separately run the command <code>New-IAMLoginProfile</code> to create a sign-in profile with a password. If Bob needs to run &AWS; PowerShell or cross-platform CLI commands or make &AWS; API calls, then you must separately run the <code>New-IAMAccessKey</code> command to create access keys.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_New-IAMUser.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -25,4 +26,4 @@ iam_CreateUser:
           snippet_files: []
   services:
     iam:
-      CreateUser: 
+      CreateUser:

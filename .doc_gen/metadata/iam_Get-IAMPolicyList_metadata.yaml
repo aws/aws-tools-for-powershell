@@ -7,10 +7,11 @@ iam_ListPolicies:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-IAMPolicyList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns a collection of the first three managed policies available in the current &AWS; account. Because <code>-scope</code> is not specified, it defaults to <code>all</code> and includes both &AWS; managed and customer managed policies.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMPolicyList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,7 +20,7 @@ iam_ListPolicies:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example returns a collection of the first two customer managed policies available in current &AWS; account. It uses <code>-Scope local</code> to limit the output to only customer managed policies. </emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMPolicyList.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -49,4 +50,4 @@ iam_ListPolicies:
           snippet_files: []
   services:
     iam:
-      ListPolicies: 
+      ListPolicies:

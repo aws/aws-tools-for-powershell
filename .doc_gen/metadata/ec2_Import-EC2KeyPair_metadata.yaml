@@ -7,12 +7,13 @@ ec2_ImportKeyPair:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Import-EC2KeyPair
         excerpts:
         - description: |-
             <emphasis role="bold">Example 1: This example imports a public key to EC2. The first line stores the contents of the public key file (*.pub) in the variable <code>$publickey</code>. 
             		Next, the example converts the UTF8 format of the public key file to a Base64-encoded string, and stores the converted string in the variable <code>$pkbase64</code>. In the last line, the converted public key is imported to EC2. The cmdlet returns the key fingerprint and name as results.</emphasis>
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Import-EC2KeyPair.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,4 +25,4 @@ ec2_ImportKeyPair:
           snippet_files: []
   services:
     ec2:
-      ImportKeyPair: 
+      ImportKeyPair:

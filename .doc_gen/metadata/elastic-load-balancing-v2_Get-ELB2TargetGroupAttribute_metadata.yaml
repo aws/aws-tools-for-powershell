@@ -7,10 +7,11 @@ elastic-load-balancing-v2_DescribeTargetGroupAttributes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ELB2TargetGroupAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the attributes of the specified Target Group.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing-v2_Get-ELB2TargetGroupAttribute.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -27,6 +28,6 @@ elastic-load-balancing-v2_DescribeTargetGroupAttributes:
           snippet_files: []
   services:
     elastic-load-balancing-v2:
-      DescribeTargetGroupAttributes: 
+      DescribeTargetGroupAttributes:
 
 

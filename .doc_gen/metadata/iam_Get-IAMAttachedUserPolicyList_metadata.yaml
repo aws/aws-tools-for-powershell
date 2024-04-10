@@ -7,10 +7,11 @@ iam_ListAttachedUserPolicies:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-IAMAttachedUserPolicyList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command returns the names and ARNs of the managed policies for the IAM user named <code>Bob</code> in the &AWS; account. To see the list of inline policies that are embedded in the IAM user, use the <code>Get-IAMUserPolicyList</code> command.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMAttachedUserPolicyList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,4 +23,4 @@ iam_ListAttachedUserPolicies:
           snippet_files: []
   services:
     iam:
-      ListAttachedUserPolicies: 
+      ListAttachedUserPolicies:

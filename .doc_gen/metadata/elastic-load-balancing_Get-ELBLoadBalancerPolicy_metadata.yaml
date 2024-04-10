@@ -7,10 +7,11 @@ elastic-load-balancing_DescribeLoadBalancerPolicies:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ELBLoadBalancerPolicy
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the policies associated with the specified load balancer.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicy.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -23,7 +24,7 @@ elastic-load-balancing_DescribeLoadBalancerPolicies:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example describes the attributes of the specified policy.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicy.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,7 +36,7 @@ elastic-load-balancing_DescribeLoadBalancerPolicies:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example describes the predefined policies, including the sample policies. The names of the sample policies have the ELBSample- prefix.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Get-ELBLoadBalancerPolicy.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -54,6 +55,6 @@ elastic-load-balancing_DescribeLoadBalancerPolicies:
           snippet_files: []
   services:
     elastic-load-balancing:
-      DescribeLoadBalancerPolicies: 
+      DescribeLoadBalancerPolicies:
 
 

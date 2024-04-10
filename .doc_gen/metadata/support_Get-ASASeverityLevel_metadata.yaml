@@ -7,18 +7,19 @@ support_DescribeSeverityLevels:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASASeverityLevel
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the list of severity levels that can be assigned to an &AWS; Support case.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Get-ASASeverityLevel.1.1.ps1
         - description: '<emphasis role="bold">Example 2: Returns the list of severity levels that can be assigned to an &AWS; Support case. The names of the levels are returned in Japanese.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/support_Get-ASASeverityLevel.2.1.ps1
   services:
     support:
-      DescribeSeverityLevels: 
+      DescribeSeverityLevels:
 

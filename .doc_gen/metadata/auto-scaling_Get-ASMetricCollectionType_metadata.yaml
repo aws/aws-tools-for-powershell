@@ -7,12 +7,13 @@ auto-scaling_DescribeMetricCollectionTypes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASMetricCollectionType
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example lists the metric collection types that are supported by Auto Scaling.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASMetricCollectionType.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -31,7 +32,7 @@ auto-scaling_DescribeMetricCollectionTypes:
           description: '<emphasis role="bold">Example 2: This example lists the corresponding granularities.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASMetricCollectionType.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -41,6 +42,6 @@ auto-scaling_DescribeMetricCollectionTypes:
             1Minute</programlisting>
   services:
     auto-scaling:
-      DescribeMetricCollectionTypes: 
+      DescribeMetricCollectionTypes:
 
 

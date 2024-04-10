@@ -7,10 +7,11 @@ elastic-load-balancing_ApplySecurityGroupsToLoadBalancer:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Join-ELBSecurityGroupToLoadBalancer
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example replaces the current security group for the specified load balancer with the specified security group.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Join-ELBSecurityGroupToLoadBalancer.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,7 +20,7 @@ elastic-load-balancing_ApplySecurityGroupsToLoadBalancer:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: To keep the current security group and specify an additional security group, specify both the existing and new security groups.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing_Join-ELBSecurityGroupToLoadBalancer.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -30,6 +31,6 @@ elastic-load-balancing_ApplySecurityGroupsToLoadBalancer:
           snippet_files: []
   services:
     elastic-load-balancing:
-      ApplySecurityGroupsToLoadBalancer: 
+      ApplySecurityGroupsToLoadBalancer:
 
 

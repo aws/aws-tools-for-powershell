@@ -7,10 +7,11 @@ s3_DeleteCORSConfiguration:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-S3CORSConfiguration
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command removes the CORS configuration for the given S3 bucket.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Remove-S3CORSConfiguration.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -23,5 +24,5 @@ s3_DeleteCORSConfiguration:
           snippet_files: []
   services:
     s3:
-      DeleteCORSConfiguration: 
+      DeleteCORSConfiguration:
 

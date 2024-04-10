@@ -7,10 +7,11 @@ iam_ListMFADevices:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-IAMMFADevice
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example returns details about the MFA device assigned to the IAM user <code>David</code>. In this example you can tell that it is a virtual device because the <code>SerialNumber</code> is an ARN instead of a physical device's actual serial number.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMMFADevice.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,4 +23,4 @@ iam_ListMFADevices:
           snippet_files: []
   services:
     iam:
-      ListMFADevices: 
+      ListMFADevices:

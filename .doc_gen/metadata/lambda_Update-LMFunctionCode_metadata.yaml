@@ -7,18 +7,19 @@ lambda_UpdateFunctionCode:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-LMFunctionCode
         excerpts:
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 1: Updates the function named 'MyFunction' with new content contained in the specified zip file. For a C# .NET Core Lambda function the zip file should contain the compiled assembly.</emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/lambda_Update-LMFunctionCode.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 2: This example is similar to the previous one but uses an Amazon S3 object containing the updated code to update the function.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/lambda_Update-LMFunctionCode.2.1.ps1
-          description: 
+          description:
   services:
     lambda:
-      UpdateFunctionCode: 
+      UpdateFunctionCode:
 

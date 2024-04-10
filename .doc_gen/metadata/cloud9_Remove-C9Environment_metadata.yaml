@@ -7,13 +7,14 @@ cloud9_DeleteEnvironment:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-C9Environment
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes the specified &AWS; Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloud9_Remove-C9Environment.1.1.ps1
   services:
     cloud9:
-      DeleteEnvironment: 
+      DeleteEnvironment:
 

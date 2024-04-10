@@ -7,10 +7,11 @@ ssm_DescribeMaintenanceWindows:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMMaintenanceWindowList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all maintenance windows on your account.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMMaintenanceWindowList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,5 +25,5 @@ ssm_DescribeMaintenanceWindows:
           snippet_files: []
   services:
     ssm:
-      DescribeMaintenanceWindows: 
+      DescribeMaintenanceWindows:
 

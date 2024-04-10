@@ -7,13 +7,14 @@ s3_GetBucketTagging:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-S3BucketTagging
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This command returns all the tags associated with the given bucket.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3BucketTagging.1.1.ps1
-          description: 
+          description:
   services:
     s3:
-      GetBucketTagging: 
+      GetBucketTagging:
 

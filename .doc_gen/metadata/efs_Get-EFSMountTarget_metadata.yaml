@@ -7,10 +7,11 @@ efs_DescribeMountTargets:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EFSMountTarget
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the collection of mount targets associated with the specified file system.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/efs_Get-EFSMountTarget.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -26,6 +27,6 @@ efs_DescribeMountTargets:
           snippet_files: []
   services:
     efs:
-      DescribeMountTargets: 
+      DescribeMountTargets:
 
 

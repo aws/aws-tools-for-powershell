@@ -7,14 +7,15 @@ ses_ListIdentities:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SESIdentity
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command returns a list containing all of the identities (email addresses and domains) for a specific &AWS; Account, regardless of verification status.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ses_Get-SESIdentity.1.1.ps1
   services:
     ses:
-      ListIdentities: 
+      ListIdentities:
 
 

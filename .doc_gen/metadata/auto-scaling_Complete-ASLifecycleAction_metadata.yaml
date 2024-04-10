@@ -7,14 +7,15 @@ auto-scaling_CompleteLifecycleAction:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Complete-ASLifecycleAction
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example completes the specified lifecycle action.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Complete-ASLifecycleAction.1.1.ps1
-          description: 
+          description:
   services:
     auto-scaling:
-      CompleteLifecycleAction: 
+      CompleteLifecycleAction:
 
 

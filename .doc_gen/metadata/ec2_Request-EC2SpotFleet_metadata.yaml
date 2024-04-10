@@ -7,13 +7,14 @@ ec2_RequestSpotFleet:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Request-EC2SpotFleet
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a Spot fleet request in the Availability Zone with the lowest price for the specified instance type. If your account supports EC2-VPC only, the Spot fleet launches the instances in the lowest-priced Availability Zone that has a default subnet. If your account supports EC2-Classic, the Spot fleet launches the instances in EC2-Classic in the lowest-priced Availability Zone. Note that the price you pay will not exceed the specified Spot price for the request.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Request-EC2SpotFleet.1.1.ps1
   services:
     ec2:
-      RequestSpotFleet: 
+      RequestSpotFleet:
 

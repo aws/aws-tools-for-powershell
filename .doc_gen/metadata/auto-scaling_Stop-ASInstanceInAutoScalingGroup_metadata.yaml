@@ -7,10 +7,11 @@ auto-scaling_TerminateInstanceInAutoScalingGroup:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Stop-ASInstanceInAutoScalingGroup
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example terminates the specified instance and decreases the desired capacity of its Auto Scaling group so that Auto Scaling does not launch a replacement instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Stop-ASInstanceInAutoScalingGroup.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,7 +20,7 @@ auto-scaling_TerminateInstanceInAutoScalingGroup:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example terminates the specified instance without decreasing the desired capacity of its Auto Scaling group. Auto Scaling launches a replacement instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Stop-ASInstanceInAutoScalingGroup.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -28,6 +29,6 @@ auto-scaling_TerminateInstanceInAutoScalingGroup:
           snippet_files: []
   services:
     auto-scaling:
-      TerminateInstanceInAutoScalingGroup: 
+      TerminateInstanceInAutoScalingGroup:
 
 

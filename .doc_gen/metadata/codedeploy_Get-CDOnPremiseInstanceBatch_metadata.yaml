@@ -7,10 +7,11 @@ codedeploy_BatchGetOnPremisesInstances:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CDOnPremiseInstanceBatch
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets information about the specified on-premises instances.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codedeploy_Get-CDOnPremiseInstanceBatch.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -32,5 +33,5 @@ codedeploy_BatchGetOnPremisesInstances:
           snippet_files: []
   services:
     codedeploy:
-      BatchGetOnPremisesInstances: 
+      BatchGetOnPremisesInstances:
 

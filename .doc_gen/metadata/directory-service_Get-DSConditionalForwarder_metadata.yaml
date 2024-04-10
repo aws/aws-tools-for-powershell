@@ -7,10 +7,11 @@ directory-service_DescribeConditionalForwarders:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-DSConditionalForwarder
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command gets all configured Conditional Forwarders of given Directory-id. </emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_Get-DSConditionalForwarder.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,6 +23,6 @@ directory-service_DescribeConditionalForwarders:
           snippet_files: []
   services:
     directory-service:
-      DescribeConditionalForwarders: 
+      DescribeConditionalForwarders:
 
 

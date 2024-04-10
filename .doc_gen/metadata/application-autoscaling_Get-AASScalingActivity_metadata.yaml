@@ -7,12 +7,13 @@ application-autoscaling_DescribeScalingActivities:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-AASScalingActivity
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/application-autoscaling_Get-AASScalingActivity.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -30,5 +31,5 @@ application-autoscaling_DescribeScalingActivities:
             StatusMessage     : Successfully set desired capacity to 2. Change successfully fulfilled by appstream.</programlisting>
   services:
     application-autoscaling:
-      DescribeScalingActivities: 
+      DescribeScalingActivities:
 

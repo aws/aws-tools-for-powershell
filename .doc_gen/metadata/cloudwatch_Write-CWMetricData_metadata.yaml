@@ -7,14 +7,15 @@ cloudwatch_PutMetricData:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Write-CWMetricData
         excerpts:
         - description: '<emphasis role="bold">Example 1: Creates a new MetricDatum object, and writes it to Amazon Web Services CloudWatch Metrics.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudwatch_Write-CWMetricData.1.1.ps1
   services:
     cloudwatch:
-      PutMetricData: 
+      PutMetricData:
 
 

@@ -7,10 +7,11 @@ ssm_RegisterTaskWithMaintenanceWindow:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Register-SSMTaskWithMaintenanceWindow
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example registers a task with a maintenance window using an instance ID. The output is the Task ID.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Register-SSMTaskWithMaintenanceWindow.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,7 +20,7 @@ ssm_RegisterTaskWithMaintenanceWindow:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example registers a task with a maintenance window using a target ID. The output is the Task ID.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Register-SSMTaskWithMaintenanceWindow.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -28,7 +29,7 @@ ssm_RegisterTaskWithMaintenanceWindow:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example creates a parameter object for the run command document <code>AWS-RunPowerShellScript</code> and creates a task with given maintenance window using target ID. The return output is the task ID.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Register-SSMTaskWithMaintenanceWindow.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -37,9 +38,9 @@ ssm_RegisterTaskWithMaintenanceWindow:
           snippet_files: []
         - description: '<emphasis role="bold">Example 4: This example registers an &AWS; Systems Manager Automation task by using a document named <code>Create-Snapshots</code>.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Register-SSMTaskWithMaintenanceWindow.4.1.ps1
   services:
     ssm:
-      RegisterTaskWithMaintenanceWindow: 
+      RegisterTaskWithMaintenanceWindow:

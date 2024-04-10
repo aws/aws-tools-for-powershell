@@ -7,12 +7,13 @@ auto-scaling_DescribeScheduledActions:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASScheduledAction
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example describes the scheduled scaling actions for the specified Auto Scaling group.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -21,24 +22,24 @@ auto-scaling_DescribeScheduledActions:
           description: '<emphasis role="bold">Example 2: This example describes the specified scheduled scaling actions.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 3: This example describes the scheduled scaling actions that start by the specified time.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.3.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 4: This example describes the scheduled scaling actions that end by the specified time.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.4.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 5: This example describes the scheduled scaling actions for all your Auto Scaling groups.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScheduledAction.5.1.ps1
-          description: 
+          description:
   services:
     auto-scaling:
-      DescribeScheduledActions: 
+      DescribeScheduledActions:
 
 

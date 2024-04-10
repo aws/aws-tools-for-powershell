@@ -7,10 +7,11 @@ ssm_ListCommands:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMCommand
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all commands requested.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMCommand.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -39,12 +40,12 @@ ssm_ListCommands:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example gets the status of a specific command.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMCommand.2.1.ps1
         - description: '<emphasis role="bold">Example 3: This example retrieves all SSM commands invoked after 2019-04-01T00:00:00Z </emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMCommand.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -61,5 +62,5 @@ ssm_ListCommands:
           snippet_files: []
   services:
     ssm:
-      ListCommands: 
+      ListCommands:
 

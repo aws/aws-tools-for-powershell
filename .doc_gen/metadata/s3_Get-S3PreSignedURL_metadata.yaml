@@ -7,18 +7,19 @@ s3_GetPreSignedURL:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-S3PreSignedURL
         excerpts:
         - description: '<emphasis role="bold">Example 1: The command returns pre-signed URL for a specified key and an expiration date.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3PreSignedURL.1.1.ps1
         - description: '<emphasis role="bold">Example 2: The command returns pre-signed URL for a Directory Bucket with specified key and an expiration date.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3PreSignedURL.2.1.ps1
   services:
     s3:
-      GetPreSignedURL: 
+      GetPreSignedURL:
 

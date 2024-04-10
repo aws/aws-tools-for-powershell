@@ -7,10 +7,11 @@ ec2_DescribeVpcs:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2Vpc
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the specified VPC.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Vpc.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -26,7 +27,7 @@ ec2_DescribeVpcs:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example describes the default VPC (there can be only one per region). If your account supports EC2-Classic in this region, there is no default VPC.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Vpc.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -42,15 +43,15 @@ ec2_DescribeVpcs:
           snippet_files: []
         - description: "<emphasis role=\"bold\">Example 3: This example describes the VPCs that match the specified filter (that is, have a CIDR that matches the value '10.0.0.0/16' and are in the state 'available').</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Vpc.3.1.ps1
         - description: '<emphasis role="bold">Example 4: This example describes all your VPCs.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Vpc.4.1.ps1
   services:
     ec2:
-      DescribeVpcs: 
+      DescribeVpcs:
 

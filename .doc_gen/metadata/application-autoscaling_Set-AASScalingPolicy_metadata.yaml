@@ -7,12 +7,13 @@ application-autoscaling_PutScalingPolicy:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Set-AASScalingPolicy
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This cmdlet creates or updates a policy for an Application Auto Scaling scalable target. Each scalable target is identified by a service namespace, resource ID, and scalable dimension.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/application-autoscaling_Set-AASScalingPolicy.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -22,5 +23,5 @@ application-autoscaling_PutScalingPolicy:
             {}        arn:aws:autoscaling:us-west-2:012345678912:scalingPolicy:4897ca24-3caa-4bf1-8484-851a089b243c:resource/appstream/fleet/MyFleet:policyName/ASFleetScaleInPolicy</programlisting>
   services:
     application-autoscaling:
-      PutScalingPolicy: 
+      PutScalingPolicy:
 

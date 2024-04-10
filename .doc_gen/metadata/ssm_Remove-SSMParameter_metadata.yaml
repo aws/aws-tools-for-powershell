@@ -7,13 +7,14 @@ ssm_DeleteParameter:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-SSMParameter
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example deletes a parameter. There is no output if the command succeeds.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Remove-SSMParameter.1.1.ps1
   services:
     ssm:
-      DeleteParameter: 
+      DeleteParameter:
 

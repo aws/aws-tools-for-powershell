@@ -7,12 +7,13 @@ auto-scaling_DescribeAccountLimits:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASAccountLimit
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example describes the Auto Scaling resource limits for your &AWS; account.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAccountLimit.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -21,6 +22,6 @@ auto-scaling_DescribeAccountLimits:
             MaxNumberOfLaunchConfigurations : 100</programlisting>
   services:
     auto-scaling:
-      DescribeAccountLimits: 
+      DescribeAccountLimits:
 
 

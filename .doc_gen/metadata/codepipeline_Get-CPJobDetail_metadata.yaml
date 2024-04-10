@@ -7,10 +7,11 @@ codepipeline_GetJobDetails:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CPJobDetail
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example gets general information about the specified job.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codepipeline_Get-CPJobDetail.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,7 +23,7 @@ codepipeline_GetJobDetails:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example gets detailed information about the specified job.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codepipeline_Get-CPJobDetail.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -51,5 +52,5 @@ codepipeline_GetJobDetails:
           snippet_files: []
   services:
     codepipeline:
-      GetJobDetails: 
+      GetJobDetails:
 

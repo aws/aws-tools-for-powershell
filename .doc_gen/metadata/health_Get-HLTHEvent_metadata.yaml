@@ -7,10 +7,11 @@ health_DescribeEvents:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-HLTHEvent
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command returns events from &AWS; Personal Health Dashboard. The user adds the -Region parameter to see events available to the service in the US East (N. Virginia) Region, but the -Filter_Region parameter filters for events that are logged in the EU (London) and US West (Oregon) Regions (eu-west-2 and us-west-2). The -Filter_StartTime parameter filters for a range of times that events can start, while the -Filter_EndTime parameter filters for a range of times that events can end. The result is a scheduled maintenance event for RDS that starts within the specified -Filter_StartTime range, and ends within the scheduled -Filter_EndTime range.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/health_Get-HLTHEvent.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,5 +20,5 @@ health_DescribeEvents:
           snippet_files: []
   services:
     health:
-      DescribeEvents: 
+      DescribeEvents:
 

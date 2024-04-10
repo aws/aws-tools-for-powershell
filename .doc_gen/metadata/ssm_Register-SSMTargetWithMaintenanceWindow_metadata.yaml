@@ -7,10 +7,11 @@ ssm_RegisterTargetWithMaintenanceWindow:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Register-SSMTargetWithMaintenanceWindow
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example registers an instance with a maintenance window.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Register-SSMTargetWithMaintenanceWindow.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,7 +20,7 @@ ssm_RegisterTargetWithMaintenanceWindow:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example registers multiple instances with a maintenance window.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Register-SSMTargetWithMaintenanceWindow.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -28,7 +29,7 @@ ssm_RegisterTargetWithMaintenanceWindow:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example registers an instance with a maintenance window using EC2 tags.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Register-SSMTargetWithMaintenanceWindow.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -37,5 +38,5 @@ ssm_RegisterTargetWithMaintenanceWindow:
           snippet_files: []
   services:
     ssm:
-      RegisterTargetWithMaintenanceWindow: 
+      RegisterTargetWithMaintenanceWindow:
 

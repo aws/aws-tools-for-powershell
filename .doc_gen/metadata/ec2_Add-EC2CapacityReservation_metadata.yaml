@@ -7,10 +7,11 @@ ec2_CreateCapacityReservation:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Add-EC2CapacityReservation
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates a new Capacity Reservation with the specified attributes</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Add-EC2CapacityReservation.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -34,5 +35,5 @@ ec2_CreateCapacityReservation:
           snippet_files: []
   services:
     ec2:
-      CreateCapacityReservation: 
+      CreateCapacityReservation:
 

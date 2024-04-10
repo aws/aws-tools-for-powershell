@@ -7,13 +7,14 @@ sts_GetFederationToken:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-STSFederationToken
         excerpts:
         - description: '<emphasis role="bold">Example 1: Requests a federated token valid for one hour  using "Bob" as the name of the federated user. This name can be used to reference the federated user name in a resource-based policy (such as an Amazon S3 bucket policy). The supplied IAM policy, in JSON format, is used to scope down the permissions that are available to the IAM user. The supplied policy cannot grant more permissions than those granted to the requesting user, with the final permissions for the federated user being the most restrictive set based on the intersection of the passed policy and the IAM user policy.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/sts_Get-STSFederationToken.1.1.ps1
   services:
     sts:
-      GetFederationToken: 
+      GetFederationToken:
 

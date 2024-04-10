@@ -7,10 +7,11 @@ iam_ListRolePolicies:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-IAMRolePolicyList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the list of names of inline policies that are embedded in the IAM role <code>lamda_exec_role</code>. To see the details of an inline policy, use the command <code>Get-IAMRolePolicy</code>.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMRolePolicyList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,4 +20,4 @@ iam_ListRolePolicies:
           snippet_files: []
   services:
     iam:
-      ListRolePolicies: 
+      ListRolePolicies:

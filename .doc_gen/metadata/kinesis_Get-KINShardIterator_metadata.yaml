@@ -7,17 +7,18 @@ kinesis_GetShardIterator:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-KINShardIterator
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Returns a shard iterator for the specified shard and starting position. Details of the shard identifiers and sequence numbers can be obtained from the output of the Get-KINStream cmdlet, by referencing the Shards collection of the returned stream object. The returned iterator can be used with the Get-KINRecord cmdlet to pull data records in the shard.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_Get-KINShardIterator.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
           description: <programlisting language="none" role="nocopy">AAAAAAAAAAGIc....9VnbiRNaP</programlisting>
   services:
     kinesis:
-      GetShardIterator: 
+      GetShardIterator:
 

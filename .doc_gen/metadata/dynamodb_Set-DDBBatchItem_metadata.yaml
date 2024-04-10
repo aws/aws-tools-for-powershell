@@ -7,10 +7,11 @@ dynamodb_BatchWriteItem:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Set-DDBBatchItem
         excerpts:
         - description: '<emphasis role="bold">Example 1: Creates a new item, or replaces an existing item with a new item in the DynamoDB tables Music and Songs.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/dynamodb_Set-DDBBatchItem.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -25,5 +26,5 @@ dynamodb_BatchWriteItem:
           snippet_files: []
   services:
     dynamodb:
-      BatchWriteItem: 
+      BatchWriteItem:
 

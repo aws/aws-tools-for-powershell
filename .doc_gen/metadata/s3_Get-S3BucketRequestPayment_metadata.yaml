@@ -7,13 +7,14 @@ s3_GetBucketRequestPayment:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-S3BucketRequestPayment
         excerpts:
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 1: Returns the request payment configuration for the bucket named 'mybucket'. By default, the bucket owner pays for downloads from the bucket.</emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3BucketRequestPayment.1.1.ps1
-          description: 
+          description:
   services:
     s3:
-      GetBucketRequestPayment: 
+      GetBucketRequestPayment:
 

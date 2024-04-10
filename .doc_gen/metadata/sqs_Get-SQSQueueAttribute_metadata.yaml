@@ -7,10 +7,11 @@ sqs_GetQueueAttributes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SQSQueueAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all attributes for the specified queue.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/sqs_Get-SQSQueueAttribute.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,7 +20,7 @@ sqs_GetQueueAttributes:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example lists separately only the specified attributes for the specified queue.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/sqs_Get-SQSQueueAttribute.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -44,5 +45,5 @@ sqs_GetQueueAttributes:
           snippet_files: []
   services:
     sqs:
-      GetQueueAttributes: 
+      GetQueueAttributes:
 

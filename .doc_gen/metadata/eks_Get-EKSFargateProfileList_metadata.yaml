@@ -6,19 +6,20 @@ eks_ListFargateProfiles:
   languages:
     PowerShell:
       versions:
-        - sdk_version: 4
-          excerpts:
-            - description: '<emphasis role="bold">Example 1: This cmdlet lists the &AWS; Fargate profiles associated with the specified cluster in your &AWS-account; in the specified Region.</emphasis>'
-              snippet_files: []
-            - description:
-              snippet_files:
-                - .doc_gen/snippet_files/eks_Get-EKSFargateProfileList.1.1.ps1
-            - description: <emphasis role="bold">Output:</emphasis>
-              snippet_files: []
-            - description: |-
-                <programlisting language="none" role="nocopy">EKSFargate
-                EKSFargateProfile</programlisting>
-              snippet_files: []
+      - sdk_version: 4
+        sdk_action: Get-EKSFargateProfileList
+        excerpts:
+        - description: '<emphasis role="bold">Example 1: This cmdlet lists the &AWS; Fargate profiles associated with the specified cluster in your &AWS-account; in the specified Region.</emphasis>'
+          snippet_files: []
+        - description:
+          snippet_files:
+          - .doc_gen/snippet_files/eks_Get-EKSFargateProfileList.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: |-
+            <programlisting language="none" role="nocopy">EKSFargate
+            EKSFargateProfile</programlisting>
+          snippet_files: []
   services:
     eks:
       ListFargateProfiles:

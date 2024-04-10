@@ -7,13 +7,14 @@ ec2_RebootInstances:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Restart-EC2Instance
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example reboots the specified instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Restart-EC2Instance.1.1.ps1
   services:
     ec2:
-      RebootInstances: 
+      RebootInstances:
 

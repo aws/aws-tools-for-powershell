@@ -7,10 +7,11 @@ ec2_Get-EC2ImageByName:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2ImageByName
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the complete set of filter names that are currently supported.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2ImageByName.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -58,7 +59,7 @@ ec2_Get-EC2ImageByName:
           snippet_files: []
         - description: "<emphasis role=\"bold\">Example 2: This example describes the specified AMI. Using this command to locate an AMI is helpful because &AWS; releases new Windows AMIs with the latest updates each month. You can specify the 'ImageId' to New-EC2Instance to launch an instance using the current AMI for the specified filter.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2ImageByName.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -90,5 +91,5 @@ ec2_Get-EC2ImageByName:
           snippet_files: []
   services:
     ec2:
-      Get-EC2ImageByName: 
+      Get-EC2ImageByName:
 

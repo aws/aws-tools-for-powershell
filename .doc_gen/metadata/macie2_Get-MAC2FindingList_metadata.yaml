@@ -7,13 +7,14 @@ macie2_ListFindings:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-MAC2FindingList
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Returns list of FindingIds for Findings containing a sensitive data detection with type "CREDIT_CARD_NUMBER" or "US_SOCIAL_SECURITY_NUMBER"</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/macie2_Get-MAC2FindingList.1.1.ps1
-          description: 
+          description:
   services:
     macie2:
-      ListFindings: 
+      ListFindings:
 

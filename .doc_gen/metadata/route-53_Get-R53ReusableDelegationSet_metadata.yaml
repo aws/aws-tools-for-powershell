@@ -7,12 +7,13 @@ route-53_GetReusableDelegationSet:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-R53ReusableDelegationSet
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example retrieves information about the specified delegation set including the four name servers that are assigned to the delegation set.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/route-53_Get-R53ReusableDelegationSet.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -22,6 +23,6 @@ route-53_GetReusableDelegationSet:
             /delegationset/N23DS9X4AYEAAA testcaller      {ns-545.awsdns-04.net, ns-1264.awsdns-30.org, ns-2004.awsdns-58.co.uk, ns-240.awsdns-30.com}</programlisting>
   services:
     route-53:
-      GetReusableDelegationSet: 
+      GetReusableDelegationSet:
 
 

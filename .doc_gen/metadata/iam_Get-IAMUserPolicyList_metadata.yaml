@@ -7,10 +7,11 @@ iam_ListUserPolicies:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-IAMUserPolicyList
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example retrieves the list of names of the inline policies that are embedded in the IAM user named <code>David</code>.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Get-IAMUserPolicyList.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,4 +20,4 @@ iam_ListUserPolicies:
           snippet_files: []
   services:
     iam:
-      ListUserPolicies: 
+      ListUserPolicies:

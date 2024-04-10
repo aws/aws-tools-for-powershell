@@ -7,10 +7,11 @@ efs_DescribeTags:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EFSTag
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns the collection of tags currently associated with the specified file system.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/efs_Get-EFSTag.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,6 +25,6 @@ efs_DescribeTags:
           snippet_files: []
   services:
     efs:
-      DescribeTags: 
+      DescribeTags:
 
 

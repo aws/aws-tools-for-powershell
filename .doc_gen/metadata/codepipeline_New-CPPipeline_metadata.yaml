@@ -7,10 +7,11 @@ codepipeline_CreatePipeline:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-CPPipeline
         excerpts:
         - description: '<emphasis role="bold">Example 1: This examples creates a new pipeline with the specified settings.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/codepipeline_New-CPPipeline.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,5 +25,5 @@ codepipeline_CreatePipeline:
           snippet_files: []
   services:
     codepipeline:
-      CreatePipeline: 
+      CreatePipeline:
 

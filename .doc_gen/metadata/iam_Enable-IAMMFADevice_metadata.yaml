@@ -7,19 +7,20 @@ iam_EnableMFADevice:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Enable-IAMMFADevice
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command enables the hardware MFA device with the serial number <code>987654321098</code> and associates the device with the user <code>Bob</code>. It includes the first two codes in sequence from the device.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Enable-IAMMFADevice.1.1.ps1
         - description: |-
             <emphasis role="bold">Example 2: This example creates and enables a virtual MFA device.  The first command creates the virtual device and returns the device's object representation in the variable <code>$MFADevice</code>. You can use the <code>.Base32StringSeed</code> or <code>QRCodePng</code> properties to configure the user's software application.
             The final command assigns the device to the user <code>David</code>, identifying the device by its serial number. The command also synchronizes the device with &AWS; by including the first two codes in sequence from the virtual MFA device.</emphasis>
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/iam_Enable-IAMMFADevice.2.1.ps1
   services:
     iam:
-      EnableMFADevice: 
+      EnableMFADevice:

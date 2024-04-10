@@ -6,13 +6,14 @@ route-53_GetHostedZoneCount:
   languages:
     PowerShell:
       versions:
-        - sdk_version: 4
-          excerpts:
-            - snippet_files: []
-              description: '<emphasis role="bold">Example 1: Returns the total number of public and private hosted zones for the current &AWS-account;.</emphasis>'
-            - snippet_files:
-                - .doc_gen/snippet_files/route-53_Get-R53HostedZoneCount.1.1.ps1
-              description:
+      - sdk_version: 4
+        sdk_action: Get-R53HostedZoneCount
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: Returns the total number of public and private hosted zones for the current &AWS-account;.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/route-53_Get-R53HostedZoneCount.1.1.ps1
+          description:
   services:
     route-53:
       GetHostedZoneCount:

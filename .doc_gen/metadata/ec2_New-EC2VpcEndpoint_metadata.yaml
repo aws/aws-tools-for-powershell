@@ -7,10 +7,11 @@ ec2_CreateVpcEndpoint:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-EC2VpcEndpoint
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example create a new VPC Endpoint for the service com.amazonaws.eu-west-1.s3 in the VPC vpc-0fc1ff23f45b678eb</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2VpcEndpoint.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,5 +23,5 @@ ec2_CreateVpcEndpoint:
           snippet_files: []
   services:
     ec2:
-      CreateVpcEndpoint: 
+      CreateVpcEndpoint:
 

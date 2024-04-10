@@ -7,10 +7,11 @@ ssm_Get-SSMLatestEC2Image:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMLatestEC2Image
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example lists all the lastest Windows AMIs.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMLatestEC2Image.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -26,7 +27,7 @@ ssm_Get-SSMLatestEC2Image:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example retrieves the AMI id of a specific Amazon Linux image for the us-west-2 region.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMLatestEC2Image.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,7 +36,7 @@ ssm_Get-SSMLatestEC2Image:
           snippet_files: []
         - description: '<emphasis role="bold">Example 3: This example lists all the lastest Windows AMIs matching the specified wildcard expression.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMLatestEC2Image.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -51,5 +52,5 @@ ssm_Get-SSMLatestEC2Image:
           snippet_files: []
   services:
     ssm:
-      Get-SSMLatestEC2Image: 
+      Get-SSMLatestEC2Image:
 

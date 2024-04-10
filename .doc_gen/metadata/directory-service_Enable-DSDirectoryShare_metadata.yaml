@@ -7,10 +7,11 @@ directory-service_ShareDirectory:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Enable-DSDirectoryShare
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example shares a specified directory in your &AWS; account with another &AWS; Account using Handshake method. </emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_Enable-DSDirectoryShare.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,6 +20,6 @@ directory-service_ShareDirectory:
           snippet_files: []
   services:
     directory-service:
-      ShareDirectory: 
+      ShareDirectory:
 
 

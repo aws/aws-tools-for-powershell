@@ -7,10 +7,11 @@ ec2_DescribeVolumeAttribute:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2VolumeAttribute
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example describes the specified attribute of the specified volume.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2VolumeAttribute.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,5 +23,5 @@ ec2_DescribeVolumeAttribute:
           snippet_files: []
   services:
     ec2:
-      DescribeVolumeAttribute: 
+      DescribeVolumeAttribute:
 

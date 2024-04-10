@@ -7,10 +7,11 @@ workspaces_DescribeWorkspaceImages:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-WKSWorkspaceImage
         excerpts:
         - description: '<emphasis role="bold">Example 1: This sample fetches all the details of all images in the region</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/workspaces_Get-WKSWorkspaceImage.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -27,5 +28,5 @@ workspaces_DescribeWorkspaceImages:
           snippet_files: []
   services:
     workspaces:
-      DescribeWorkspaceImages: 
+      DescribeWorkspaceImages:
 

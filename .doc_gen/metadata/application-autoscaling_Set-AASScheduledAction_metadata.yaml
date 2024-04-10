@@ -7,13 +7,14 @@ application-autoscaling_PutScheduledAction:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Set-AASScheduledAction
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This cmdlet creates or updates a scheduled action for an Application Auto Scaling scalable target. Each scalable target is identified by a service namespace, resource ID, and scalable dimension.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/application-autoscaling_Set-AASScheduledAction.1.1.ps1
-          description: 
+          description:
   services:
     application-autoscaling:
-      PutScheduledAction: 
+      PutScheduledAction:
 

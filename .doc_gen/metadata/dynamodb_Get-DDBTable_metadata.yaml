@@ -7,13 +7,14 @@ dynamodb_DescribeTable:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-DDBTable
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns details of the specified table.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/dynamodb_Get-DDBTable.1.1.ps1
   services:
     dynamodb:
-      DescribeTable: 
+      DescribeTable:
 

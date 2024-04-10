@@ -7,17 +7,18 @@ s3_GetObjectMetadata:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-S3ObjectMetadata
         excerpts:
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 1: This command returns the metadata of the object with key 'ListTrusts.txt' in the given S3 bucket.</emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/s3_Get-S3ObjectMetadata.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
           description: "<programlisting language=\"none\" role=\"nocopy\">Headers                                       : Amazon.S3.Model.HeadersCollection\nMetadata                                      : Amazon.S3.Model.MetadataCollection\nDeleteMarker                                  : \nAcceptRanges                                  : bytes\nContentRange                                  : \nExpiration                                    : \nRestoreExpiration                             : \nRestoreInProgress                             : False\nLastModified                                  : 01/01/2020 08:02:05\nETag                                          : \"d000011112a222e333e3bb4ee5d43d21\"\nMissingMeta                                   : 0\nVersionId                                     : null\nExpires                                       : 01/01/0001 00:00:00\nWebsiteRedirectLocation                       : \nServerSideEncryptionMethod                    : AES256\nServerSideEncryptionCustomerMethod            : \nServerSideEncryptionKeyManagementServiceKeyId : \nReplicationStatus                             : \nPartsCount                                    : \nObjectLockLegalHoldStatus                     : \nObjectLockMode                                : \nObjectLockRetainUntilDate                     : 01/01/0001 00:00:00\nStorageClass                                  : \nRequestCharged                                :</programlisting>"
   services:
     s3:
-      GetObjectMetadata: 
+      GetObjectMetadata:
 

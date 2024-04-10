@@ -7,10 +7,11 @@ ssm_SendCommand:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Send-SSMCommand
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example runs an echo command on a target instance.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Send-SSMCommand.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -19,10 +20,10 @@ ssm_SendCommand:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example shows how to run a command that accepts nested parameters.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Send-SSMCommand.2.1.ps1
   services:
     ssm:
-      SendCommand: 
+      SendCommand:
 

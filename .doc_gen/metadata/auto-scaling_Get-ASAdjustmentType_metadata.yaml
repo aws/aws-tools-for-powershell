@@ -7,12 +7,13 @@ auto-scaling_DescribeAdjustmentTypes:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASAdjustmentType
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example describes the adjustment types that are supported by Auto Scaling.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASAdjustmentType.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -24,6 +25,6 @@ auto-scaling_DescribeAdjustmentTypes:
             PercentChangeInCapacity</programlisting>
   services:
     auto-scaling:
-      DescribeAdjustmentTypes: 
+      DescribeAdjustmentTypes:
 
 

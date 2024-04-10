@@ -7,13 +7,14 @@ iam_UpdateRole:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-IAMRole
         excerpts:
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 1: This example updates the role description and the maximum session duration value(in seconds) for which a role's session can be requested.</emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/iam_Update-IAMRole.1.1.ps1
-          description: 
+          description:
   services:
     iam:
-      UpdateRole: 
+      UpdateRole:
 

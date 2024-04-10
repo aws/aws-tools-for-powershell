@@ -7,13 +7,14 @@ ec2_CreateNetworkAclEntry:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-EC2NetworkAclEntry
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example creates an entry for the specified network ACL. The rule allows inbound traffic from anywhere (0.0.0.0/0) on UDP port 53 (DNS) into any associated subnet.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2NetworkAclEntry.1.1.ps1
   services:
     ec2:
-      CreateNetworkAclEntry: 
+      CreateNetworkAclEntry:
 

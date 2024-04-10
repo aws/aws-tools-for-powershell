@@ -7,19 +7,20 @@ machine-learning_DescribeMLModels:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-MLModelList
         excerpts:
         - snippet_files: []
           description: "<emphasis role=\"bold\">Example 1: \n          Returns a list of all Models and their associated data records.\n        </emphasis>"
         - snippet_files:
           - .doc_gen/snippet_files/machine-learning_Get-MLModelList.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 2: Returns a list of all Models with a status of COMPLETED.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/machine-learning_Get-MLModelList.2.1.ps1
-          description: 
+          description:
   services:
     machine-learning:
-      DescribeMLModels: 
+      DescribeMLModels:
 
 

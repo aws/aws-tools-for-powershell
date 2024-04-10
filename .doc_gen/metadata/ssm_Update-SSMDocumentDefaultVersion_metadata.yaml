@@ -7,10 +7,11 @@ ssm_UpdateDocumentDefaultVersion:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Update-SSMDocumentDefaultVersion
         excerpts:
         - description: '<emphasis role="bold">Example 1: This updates the default version of a document. You can obtain the available document versions with the "Get-SSMDocumentVersionList" cmdlet.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Update-SSMDocumentDefaultVersion.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -22,5 +23,5 @@ ssm_UpdateDocumentDefaultVersion:
           snippet_files: []
   services:
     ssm:
-      UpdateDocumentDefaultVersion: 
+      UpdateDocumentDefaultVersion:
 

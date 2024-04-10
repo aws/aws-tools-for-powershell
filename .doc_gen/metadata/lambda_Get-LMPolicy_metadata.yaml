@@ -7,17 +7,18 @@ lambda_GetPolicy:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-LMPolicy
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample displays the Function policy of the Lambda function</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/lambda_Get-LMPolicy.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
           description: <programlisting language="none" role="nocopy">{"Version":"2012-10-17","Id":"default","Statement":[{"Sid":"xxxx","Effect":"Allow","Principal":{"Service":"sns.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-1:123456789102:function:test"}]}</programlisting>
   services:
     lambda:
-      GetPolicy: 
+      GetPolicy:
 

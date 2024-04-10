@@ -7,23 +7,24 @@ ec2_CreateTags:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: New-EC2Tag
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example adds a single tag to the specified resource. The tag key is 'myTag' and the tag value is 'myTagValue'. The syntax used by this example requires PowerShell version 3 or higher.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2Tag.1.1.ps1
         - description: '<emphasis role="bold">Example 2: This example updates or adds the specified tags to the specified resource. The syntax used by this example requires PowerShell version 3 or higher.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2Tag.2.1.ps1
         - description: '<emphasis role="bold">Example 3: With PowerShell version 2, you must use New-Object to create the tag for the Tag parameter.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_New-EC2Tag.3.1.ps1
   services:
     ec2:
-      CreateTags: 
+      CreateTags:
 

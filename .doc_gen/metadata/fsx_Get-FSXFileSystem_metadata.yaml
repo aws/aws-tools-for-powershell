@@ -7,10 +7,11 @@ fsx_DescribeFileSystems:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-FSXFileSystem
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example returns the description of given filesystemId.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/fsx_Get-FSXFileSystem.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -35,5 +36,5 @@ fsx_DescribeFileSystems:
           snippet_files: []
   services:
     fsx:
-      DescribeFileSystems: 
+      DescribeFileSystems:
 

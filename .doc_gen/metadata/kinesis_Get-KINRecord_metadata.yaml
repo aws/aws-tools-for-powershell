@@ -7,6 +7,7 @@ kinesis_GetRecords:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-KINRecord
         excerpts:
         - snippet_files: []
           description: |-
@@ -15,7 +16,7 @@ kinesis_GetRecords:
             Assuming the data in the record is UTF-8 encoded text, the final command shows how you can extract the data from the MemoryStream in the object and return it as text to the console.</emphasis>
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_Get-KINRecord.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -25,7 +26,7 @@ kinesis_GetRecords:
             0                  AAAAAAAAAAERNIq...uDn11HuUs  {Key1, Key2}</programlisting>
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_Get-KINRecord.1.2.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -35,11 +36,11 @@ kinesis_GetRecords:
             3/7/2016 5:14:33 PM         System.IO.MemoryStream Key1         4955986459776...931586</programlisting>
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_Get-KINRecord.1.3.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
           description: <programlisting language="none" role="nocopy">test data from string</programlisting>
   services:
     kinesis:
-      GetRecords: 
+      GetRecords:

@@ -7,19 +7,20 @@ ecs_DeleteService:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Remove-ECSService
         excerpts:
         - description: |-
             <emphasis role="bold">Example 1: Deletes the service named 'my-http-service' in the default cluster. The service must have a desired count and running count of 0 before you can delete it.
             You are prompted for confirmation before the command proceeds. To bypass the confirmation prompt add the -Force switch.</emphasis>
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ecs_Remove-ECSService.1.1.ps1
         - description: "<emphasis role=\"bold\">Example 2: Deletes the service named 'my-http-service' in the named cluster.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ecs_Remove-ECSService.2.1.ps1
   services:
     ecs:
-      DeleteService: 
+      DeleteService:

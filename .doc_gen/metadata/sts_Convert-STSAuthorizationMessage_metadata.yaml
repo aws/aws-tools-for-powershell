@@ -7,13 +7,14 @@ sts_DecodeAuthorizationMessage:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Convert-STSAuthorizationMessage
         excerpts:
         - description: '<emphasis role="bold">Example 1: Decodes the additional information contained in the supplied encoded message content that was returned in response to a request. The additional information is encoded because details of the authorization status can constitute privileged information that the user who requested the action should not see.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/sts_Convert-STSAuthorizationMessage.1.1.ps1
   services:
     sts:
-      DecodeAuthorizationMessage: 
+      DecodeAuthorizationMessage:
 

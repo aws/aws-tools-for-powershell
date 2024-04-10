@@ -7,12 +7,13 @@ lambda_GetAlias:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-LMAlias
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example retrieves the Routing Config weights for a specific Lambda Function Alias.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/lambda_Get-LMAlias.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -22,5 +23,5 @@ lambda_GetAlias:
             {[1, 0.6]}</programlisting>
   services:
     lambda:
-      GetAlias: 
+      GetAlias:
 

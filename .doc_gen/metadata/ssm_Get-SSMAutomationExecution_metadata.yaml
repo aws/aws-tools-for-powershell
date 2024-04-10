@@ -7,10 +7,11 @@ ssm_GetAutomationExecution:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-SSMAutomationExecution
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example displays the details of an Automation Execution.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAutomationExecution.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -37,7 +38,7 @@ ssm_GetAutomationExecution:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example lists step details for the given automation execution id</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ssm_Get-SSMAutomationExecution.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -62,5 +63,5 @@ ssm_GetAutomationExecution:
           snippet_files: []
   services:
     ssm:
-      GetAutomationExecution: 
+      GetAutomationExecution:
 

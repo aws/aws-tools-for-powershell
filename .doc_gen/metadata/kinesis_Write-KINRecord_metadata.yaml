@@ -7,18 +7,19 @@ kinesis_PutRecord:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Write-KINRecord
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: Writes a record containing the string supplied to the -Text parameter.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_Write-KINRecord.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 2: Writes a record containing the data contained in the specified file. The file is treated as a sequence of bytes so if it contains text, it should be written with any necessary encoding before using it with this cmdlet.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/kinesis_Write-KINRecord.2.1.ps1
-          description: 
+          description:
   services:
     kinesis:
-      PutRecord: 
+      PutRecord:
 

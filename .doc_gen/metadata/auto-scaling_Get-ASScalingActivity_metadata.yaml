@@ -7,12 +7,13 @@ auto-scaling_DescribeScalingActivities:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-ASScalingActivity
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example describes the scaling activities for the last six weeks for the specified Auto Scaling group.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScalingActivity.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -46,14 +47,14 @@ auto-scaling_DescribeScalingActivities:
           description: '<emphasis role="bold">Example 2: This example describes the specified scaling activity.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScalingActivity.2.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: '<emphasis role="bold">Example 3: This example describes the scaling activities for the last six weeks for all your Auto Scaling groups.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/auto-scaling_Get-ASScalingActivity.3.1.ps1
-          description: 
+          description:
   services:
     auto-scaling:
-      DescribeScalingActivities: 
+      DescribeScalingActivities:
 
 

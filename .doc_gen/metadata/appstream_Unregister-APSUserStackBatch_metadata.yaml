@@ -7,13 +7,14 @@ appstream_BatchDisassociateUserStack:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Unregister-APSUserStackBatch
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This sample removes an user from an assigned Stack</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/appstream_Unregister-APSUserStackBatch.1.1.ps1
-          description: 
+          description:
   services:
     appstream:
-      BatchDisassociateUserStack: 
+      BatchDisassociateUserStack:
 

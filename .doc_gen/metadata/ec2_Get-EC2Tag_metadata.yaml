@@ -7,10 +7,11 @@ ec2_DescribeTags:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-EC2Tag
         excerpts:
         - description: "<emphasis role=\"bold\">Example 1: This example fetches the tags for resource-type 'image'</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Tag.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -23,7 +24,7 @@ ec2_DescribeTags:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example fetches all the tags for all the resources and groups them by resource type</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Tag.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -45,7 +46,7 @@ ec2_DescribeTags:
           snippet_files: []
         - description: "<emphasis role=\"bold\">Example 3: This example displays all the resources with tag 'auto-delete' with value 'no' for the given region</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Tag.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -60,12 +61,12 @@ ec2_DescribeTags:
           snippet_files: []
         - description: "<emphasis role=\"bold\">Example 4: This example obtains all the resources with tag 'auto-delete' with 'no' value and further filters in the next pipe to parse only 'instance' resource types and eventually creates 'ThisInstance' tag for each instance resources with value being the instance id itself </emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Tag.4.1.ps1
         - description: "<emphasis role=\"bold\">Example 5: This example fetches tags for all the instance resources as well as 'Name' keys and displays them in a table format</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Get-EC2Tag.5.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -78,5 +79,5 @@ ec2_DescribeTags:
           snippet_files: []
   services:
     ec2:
-      DescribeTags: 
+      DescribeTags:
 

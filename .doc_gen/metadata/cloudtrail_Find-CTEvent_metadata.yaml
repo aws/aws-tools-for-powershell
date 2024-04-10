@@ -7,38 +7,39 @@ cloudtrail_LookupEvents:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Find-CTEvent
         excerpts:
         - description: '<emphasis role="bold">Example 1: Returns all events that have occurred over the last seven days. The cmdlet by default automatically makes multiple calls to deliver all events, exiting when the service indicates no further data is available.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.1.1.ps1
         - description: '<emphasis role="bold">Example 2: Returns all events that have occurred over the last seven days specifying a region that is not the current shell default.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.2.1.ps1
         - description: '<emphasis role="bold">Example 3: Returns all events that are associated with the RunInstances API call.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.3.1.ps1
         - description: "<emphasis role=\"bold\">Example 4: Returns the first 5 available events. The token to use to retrieve further events is attached as a note property named 'NextToken' to the <code>$AWSHistory.LastServiceResponse</code> member.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.4.1.ps1
         - description: "<emphasis role=\"bold\">Example 5: Returns the next 10 events using the 'next page' token from a previous call to indicate where to start returning events from in the sequence.</emphasis>"
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.5.1.ps1
         - description: '<emphasis role="bold">Example 6: This example shows how to loop through the available events using manual paging, fetching a maximum of 5 events per call.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/cloudtrail_Find-CTEvent.6.1.ps1
   services:
     cloudtrail:
-      LookupEvents: 
+      LookupEvents:
 

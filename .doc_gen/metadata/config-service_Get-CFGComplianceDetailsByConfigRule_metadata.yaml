@@ -7,10 +7,11 @@ config-service_GetComplianceDetailsByConfigRule:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-CFGComplianceDetailsByConfigRule
         excerpts:
         - description: '<emphasis role="bold">Example 1: This example obtains the evaluation results for the rule access-keys-rotated and returns the output grouped by compliance-type</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/config-service_Get-CFGComplianceDetailsByConfigRule.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -23,7 +24,7 @@ config-service_GetComplianceDetailsByConfigRule:
           snippet_files: []
         - description: '<emphasis role="bold">Example 2: This example queries compliance details for the rule access-keys-rotated for COMPLIANT resources.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/config-service_Get-CFGComplianceDetailsByConfigRule.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -36,6 +37,6 @@ config-service_GetComplianceDetailsByConfigRule:
           snippet_files: []
   services:
     config-service:
-      GetComplianceDetailsByConfigRule: 
+      GetComplianceDetailsByConfigRule:
 
 

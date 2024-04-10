@@ -7,12 +7,13 @@ route-53_AssociateVPCWithHostedZone:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Register-R53VPCWithHostedZone
         excerpts:
         - snippet_files: []
           description: '<emphasis role="bold">Example 1: This example associates the specified VPC with the private hosted zone.</emphasis>'
         - snippet_files:
           - .doc_gen/snippet_files/route-53_Register-R53VPCWithHostedZone.1.1.ps1
-          description: 
+          description:
         - snippet_files: []
           description: <emphasis role="bold">Output:</emphasis>
         - snippet_files: []
@@ -22,6 +23,6 @@ route-53_AssociateVPCWithHostedZone:
             /change/C3SCAAA633Z6DX PENDING 01/28/2020 19:32:02</programlisting>
   services:
     route-53:
-      AssociateVPCWithHostedZone: 
+      AssociateVPCWithHostedZone:
 
 

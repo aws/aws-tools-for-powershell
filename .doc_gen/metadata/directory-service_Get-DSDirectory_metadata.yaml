@@ -7,10 +7,11 @@ directory-service_DescribeDirectories:
     PowerShell:
       versions:
       - sdk_version: 4
+        sdk_action: Get-DSDirectory
         excerpts:
         - description: '<emphasis role="bold">Example 1: This command Obtains information about the directories that belong to this account.</emphasis>'
           snippet_files: []
-        - description: 
+        - description:
           snippet_files:
           - .doc_gen/snippet_files/directory-service_Get-DSDirectory.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
@@ -24,6 +25,6 @@ directory-service_DescribeDirectories:
           snippet_files: []
   services:
     directory-service:
-      DescribeDirectories: 
+      DescribeDirectories:
 
 
