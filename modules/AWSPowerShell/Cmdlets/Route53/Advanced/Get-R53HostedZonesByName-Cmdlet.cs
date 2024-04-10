@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// If the domain name includes escape characters or Punycode, <code>ListHostedZonesByName</code>
     /// alphabetizes the domain name using the escaped or Punycoded value, which is the format
     /// that Amazon Route 53 saves in its database. For example, to create a hosted zone for
-    /// exämple.com, you specify ex\344mple.com for the domain name. <code>ListHostedZonesByName</code>
+    /// exï¿½mple.com, you specify ex\344mple.com for the domain name. <code>ListHostedZonesByName</code>
     /// alphabetizes it as:
     /// </para><para><code>com.ex\344mple.</code></para><para>
     /// The labels are reversed and alphabetized using the escaped value. For more information

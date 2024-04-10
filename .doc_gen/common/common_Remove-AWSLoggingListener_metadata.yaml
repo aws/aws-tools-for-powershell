@@ -12,7 +12,7 @@ Common_Remove-AWSLoggingListener:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Remove-AWSLoggingListener.1.1.ps1
+          - .doc_gen/snippet_files/common_Remove-AWSLoggingListener.1.1.ps1
   services:
     Common:
       Remove-AWSLoggingListener: 

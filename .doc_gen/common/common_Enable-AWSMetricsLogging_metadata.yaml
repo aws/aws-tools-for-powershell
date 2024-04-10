@@ -12,7 +12,7 @@ Common_Enable-AWSMetricsLogging:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Enable-AWSMetricsLogging.1.1.ps1
+          - .doc_gen/snippet_files/common_Enable-AWSMetricsLogging.1.1.ps1
   services:
     Common:
       Enable-AWSMetricsLogging: 

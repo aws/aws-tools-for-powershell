@@ -12,12 +12,12 @@ Common_Add-AWSLoggingListener:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Add-AWSLoggingListener.1.1.ps1
+          - .doc_gen/snippet_files/common_Add-AWSLoggingListener.1.1.ps1
         - description: "<emphasis role=\"bold\">Example 2: Attaches a listener for the source 'Amazon.S3'. Responses matching only this namespace will be logged to the specified file (the folder path must exist). Multiple listeners for different namespaces can be active at a time. By default only error responses are logged.</emphasis>"
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Add-AWSLoggingListener.2.1.ps1
+          - .doc_gen/snippet_files/common_Add-AWSLoggingListener.2.1.ps1
   services:
     Common:
       Add-AWSLoggingListener: 

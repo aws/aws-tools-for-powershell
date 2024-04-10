@@ -15,7 +15,7 @@ Common_Set-AWSSamlRoleProfile:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Set-AWSSamlRoleProfile.1.1.ps1
+          - .doc_gen/snippet_files/common_Set-AWSSamlRoleProfile.1.1.ps1
         - description: |-
             <emphasis role="bold">Example 2: Authenticates the specified user account against the specified endpoint (configured previously using Set-AWSSamlEndpoint). Following successful  authentication, if the user is authorized to assume only a single role the role details are stored in a profile named 'Role1'. If the user is authorized for more than one role a menu is presented for the desired  role to be associated with the profile to be selected.
 
@@ -23,7 +23,7 @@ Common_Set-AWSSamlRoleProfile:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Set-AWSSamlRoleProfile.2.1.ps1
+          - .doc_gen/snippet_files/common_Set-AWSSamlRoleProfile.2.1.ps1
         - description: |-
             <emphasis role="bold">Example 3: This example shows how to create or update a role profile when the Amazon Resource Names (ARNs) for the role are known in advance. Following authentication for the currently logged in user the cmdlet will verify that the role is present in the set the user is authorized to assume and set up the role profile. If the role is not found the user is prompted to select the correct role.
 
@@ -31,7 +31,7 @@ Common_Set-AWSSamlRoleProfile:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Set-AWSSamlRoleProfile.3.1.ps1
+          - .doc_gen/snippet_files/common_Set-AWSSamlRoleProfile.3.1.ps1
         - description: |-
             <emphasis role="bold">Example 4: Authenticates the current user account against the configured endpoint and if successful creates one role profile for each role the user is authorized to assume. The 'friendly name' of the role is used as the name for each profile.
 
@@ -39,7 +39,7 @@ Common_Set-AWSSamlRoleProfile:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Set-AWSSamlRoleProfile.4.1.ps1
+          - .doc_gen/snippet_files/common_Set-AWSSamlRoleProfile.4.1.ps1
   services:
     Common:
       Set-AWSSamlRoleProfile: 

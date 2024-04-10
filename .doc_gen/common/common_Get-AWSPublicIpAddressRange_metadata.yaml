@@ -12,7 +12,7 @@ Common_Get-AWSPublicIpAddressRange:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.1.1.ps1
+          - .doc_gen/snippet_files/common_Get-AWSPublicIpAddressRange.1.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
           snippet_files: []
         - description: |-
@@ -35,7 +35,7 @@ Common_Get-AWSPublicIpAddressRange:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.2.1.ps1
+          - .doc_gen/snippet_files/common_Get-AWSPublicIpAddressRange.2.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
           snippet_files: []
         - description: |-
@@ -49,7 +49,7 @@ Common_Get-AWSPublicIpAddressRange:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.3.1.ps1
+          - .doc_gen/snippet_files/common_Get-AWSPublicIpAddressRange.3.1.ps1
         - description: <emphasis role="bold">Output:</emphasis>
           snippet_files: []
         - description: <programlisting language="none" role="nocopy">Monday, December 15, 2014 4:41:01 PM</programlisting>
@@ -58,17 +58,17 @@ Common_Get-AWSPublicIpAddressRange:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.4.1.ps1
+          - .doc_gen/snippet_files/common_Get-AWSPublicIpAddressRange.4.1.ps1
         - description: '<emphasis role="bold">Example 5: Filters the IP address ranges to output only those used in the US West (Oregon) region to the pipeline.</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.5.1.ps1
+          - .doc_gen/snippet_files/common_Get-AWSPublicIpAddressRange.5.1.ps1
         - description: '<emphasis role="bold">Example 6: Filters the IP address ranges to output only those belonging to EC2 and CloudFront and  in the US West (Oregon) region to the pipeline. Multiple values can also be specified for the -Region parameter.</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Get-AWSPublicIpAddressRange.6.1.ps1
+          - .doc_gen/snippet_files/common_Get-AWSPublicIpAddressRange.6.1.ps1
   services:
     Common:
       Get-AWSPublicIpAddressRange: 

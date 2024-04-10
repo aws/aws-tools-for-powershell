@@ -12,12 +12,12 @@ Common_Set-AWSSamlEndpoint:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Set-AWSSamlEndpoint.1.1.ps1
+          - .doc_gen/snippet_files/common_Set-AWSSamlEndpoint.1.1.ps1
         - description: '<emphasis role="bold">Example 2: Creates or updates a profile name MyADFSEndpoint for use with Set-AWSSamlRoleProfile. The endpoint is configured to use the NTLM protocol during authentication (other options are Digest, Basic, Kerberos and Negotiate).</emphasis>'
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Set-AWSSamlEndpoint.2.1.ps1
+          - .doc_gen/snippet_files/common_Set-AWSSamlEndpoint.2.1.ps1
   services:
     Common:
       Set-AWSSamlEndpoint: 

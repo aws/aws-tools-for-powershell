@@ -15,22 +15,22 @@ Common_Initialize-AWSDefaultConfiguration:
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Initialize-AWSDefaultConfiguration.1.1.ps1
+          - .doc_gen/snippet_files/common_Initialize-AWSDefaultConfiguration.1.1.ps1
         - description: "<emphasis role=\"bold\">Example 2: Saves the specified credential keys and default region selection to a profile named 'default'. On exit the credentials and region are set as active in the current shell.</emphasis>"
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Initialize-AWSDefaultConfiguration.2.1.ps1
+          - .doc_gen/snippet_files/common_Initialize-AWSDefaultConfiguration.2.1.ps1
         - description: "<emphasis role=\"bold\">Example 3: Loads the credential data from the profile named 'myProfile' and saves it to a profile named 'default' (effectively copying credential data from one profile to another). The default profile is also updated to assume a default region of 'us-west-2'. When the cmdlet exists the specified credentials and region are set active in the current shell.</emphasis>"
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Initialize-AWSDefaultConfiguration.3.1.ps1
+          - .doc_gen/snippet_files/common_Initialize-AWSDefaultConfiguration.3.1.ps1
         - description: "<emphasis role=\"bold\">Example 4: If a profile named 'default' exists it is updated to assume a default region of 'us-west-2'. If the profile does not exist and the cmdlet is running on the local workstation the user is prompted to enter the AWS access and secret keys for an account. If run on an Amazon EC2 instance the instance metadata is inspected to determine if the instance was launched with a role and if so credentials are obtained from the role. A profile named 'default' is then created containing the discovered or entered credentials and region, and the current shell updated to set them active.</emphasis>"
           snippet_files: []
         - description: 
           snippet_files:
-          - .doc_gen/snippet_files/Common_Initialize-AWSDefaultConfiguration.4.1.ps1
+          - .doc_gen/snippet_files/common_Initialize-AWSDefaultConfiguration.4.1.ps1
   services:
     Common:
       Initialize-AWSDefaultConfiguration: 
