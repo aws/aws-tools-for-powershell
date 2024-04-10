@@ -28,8 +28,16 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
+    /// <important><para>
+    /// This API will be discontinued starting June 1, 2024. To receive generative responses
+    /// after March 1, 2024, you will need to create a new Assistant in the Amazon Connect
+    /// console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs)
+    /// into your applications.
+    /// </para></important><para>
     /// Performs a manual search against the specified assistant. To retrieve recommendations
-    /// for an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.<br/><br/>This operation is deprecated.
+    /// for an assistant, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
+    /// 
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Search", "QCAssistant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.ResultData")]
@@ -51,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter AssistantId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot
-        /// contain the ARN.</para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q session. Can be either the ID or the ARN. URLs cannot
-        /// contain the ARN.</para>
+        /// <para>The identifier of the Amazon Q in Connect session. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

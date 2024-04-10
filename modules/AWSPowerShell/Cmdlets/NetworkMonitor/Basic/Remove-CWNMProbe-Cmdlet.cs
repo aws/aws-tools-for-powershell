@@ -28,8 +28,16 @@ using Amazon.NetworkMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Deletes the specified monitor. Once a probe is deleted you'll no longer incur any
-    /// billing fees for that probe.
+    /// Deletes the specified probe. Once a probe is deleted you'll no longer incur any billing
+    /// fees for that probe.
+    /// 
+    ///  
+    /// <para>
+    /// This action requires both the <c>monitorName</c> and <c>probeId</c> parameters. Run
+    /// <c>ListMonitors</c> to get a list of monitor names. Run <c>GetMonitor</c> to get a
+    /// list of probes and probe IDs. You can only delete a single probe at a time using this
+    /// action. 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWNMProbe", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitor to delete. For a list of the available monitors, use the <c>ListMonitors</c>
-        /// action.</para>
+        /// <para>The name of the monitor to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter ProbeId
         /// <summary>
         /// <para>
-        /// <para>The ID of the probe to delete. Run <c>GetMonitor</c> to get a lst of all probes and
-        /// probe IDs associated with the monitor.</para>
+        /// <para>The ID of the probe to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

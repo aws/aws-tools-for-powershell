@@ -32,6 +32,21 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
     /// you'll create one or more probes that monitor network traffic between your source
     /// Amazon Web Services VPC subnets and your destination IP addresses. Each probe then
     /// aggregates and sends metrics to Amazon CloudWatch.
+    /// 
+    ///  
+    /// <para>
+    /// You can also create a monitor with probes using this command. For each probe, you
+    /// define the following:
+    /// </para><ul><li><para><c>source</c>—The subnet IDs where the probes will be created.
+    /// </para></li><li><para><c>destination</c>— The target destination IP address for the probe.
+    /// </para></li><li><para><c>destinationPort</c>—Required only if the protocol is <c>TCP</c>.
+    /// </para></li><li><para><c>protocol</c>—The communication protocol between the source and destination. This
+    /// will be either <c>TCP</c> or <c>ICMP</c>.
+    /// </para></li><li><para><c>packetSize</c>—The size of the packets. This must be a number between <c>56</c>
+    /// and <c>8500</c>.
+    /// </para></li><li><para>
+    /// (Optional) <c>tags</c> —Key-value pairs created and assigned to the probe.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "CWNMMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkMonitor.Model.CreateMonitorResponse")]
@@ -48,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         /// <summary>
         /// <para>
         /// <para>The time, in seconds, that metrics are aggregated and sent to Amazon CloudWatch. Valid
-        /// values are either <c>30</c> or <c>60</c>. </para>
+        /// values are either <c>30</c> or <c>60</c>. <c>60</c> is the default if no period is
+        /// chosen.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter AssistantId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot
-        /// contain the ARN.</para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-        /// base if you're storing Amazon Q Content resource to it.</para>
+        /// base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

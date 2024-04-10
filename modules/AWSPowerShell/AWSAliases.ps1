@@ -21969,6 +21969,7 @@ Set-Alias -Name QC-UntagResource -Value Remove-QCResourceTag
 Set-Alias -Name QC-UpdateContent -Value Update-QCContent
 Set-Alias -Name QC-UpdateKnowledgeBaseTemplateUri -Value Update-QCKnowledgeBaseTemplateUri
 Set-Alias -Name QC-UpdateQuickResponse -Value Update-QCQuickResponse
+Set-Alias -Name QC-UpdateSession -Value Update-QCSession
 Set-Alias -Name Cancel-QLDBJournalKinesisStream -Value Stop-QLDBJournalKinesisStream
 Set-Alias -Name QLDB-CancelJournalKinesisStream -Value Stop-QLDBJournalKinesisStream
 Set-Alias -Name Create-QLDBLedger -Value New-QLDBLedger
@@ -27310,6 +27311,7 @@ Set-Alias -Name Assume-STSWebIdentityRole -Value Use-STSWebIdentityRole
 Set-Alias -Name Create-SUPCHBillOfMaterialsImportJob -Value New-SUPCHBillOfMaterialsImportJob
 Set-Alias -Name SUPCH-CreateBillOfMaterialsImportJob -Value New-SUPCHBillOfMaterialsImportJob
 Set-Alias -Name SUPCH-GetBillOfMaterialsImportJob -Value Get-SUPCHBillOfMaterialsImportJob
+Set-Alias -Name SUPCH-SendDataIntegrationEvent -Value Send-SUPCHDataIntegrationEvent
 Set-Alias -Name ASA-AddAttachmentsToSet -Value Add-ASAAttachmentsToSet
 Set-Alias -Name ASA-AddCommunicationToCase -Value Add-ASACommunicationToCase
 Set-Alias -Name Create-ASACase -Value New-ASACase

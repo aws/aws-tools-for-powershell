@@ -30,8 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
     /// <summary>
     /// Updates the template URI of a knowledge base. This is only supported for knowledge
     /// bases of type EXTERNAL. Include a single variable in <c>${variable}</c> format; this
-    /// interpolated by Amazon Q using ingested content. For example, if you ingest a Salesforce
-    /// article, it has an <c>Id</c> value, and you can set the template URI to <c>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view</c>.
+    /// interpolated by Amazon Q in Connect using ingested content. For example, if you ingest
+    /// a Salesforce article, it has an <c>Id</c> value, and you can set the template URI
+    /// to <c>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view</c>.
     /// </summary>
     [Cmdlet("Update", "QCKnowledgeBaseTemplateUri", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.KnowledgeBaseData")]
@@ -49,8 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-        /// base if you're storing Amazon Q Content resource to it. Can be either the ID or the
-        /// ARN. URLs cannot contain the ARN.</para>
+        /// base. Can be either the ID or the ARN. URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

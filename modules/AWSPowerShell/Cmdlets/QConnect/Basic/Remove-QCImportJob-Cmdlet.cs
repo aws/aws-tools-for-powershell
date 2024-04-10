@@ -62,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-        /// base if you're storing Amazon Q Content resource to it.</para>
+        /// <para>The identifier of the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

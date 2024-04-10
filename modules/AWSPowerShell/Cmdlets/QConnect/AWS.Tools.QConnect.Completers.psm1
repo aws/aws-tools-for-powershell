@@ -246,7 +246,8 @@ $QC_SelectMap = @{
                "Remove-QCResourceTag",
                "Update-QCContent",
                "Update-QCKnowledgeBaseTemplateUri",
-               "Update-QCQuickResponse")
+               "Update-QCQuickResponse",
+               "Update-QCSession")
 }
 
 _awsArgumentCompleterRegistration $QC_SelectCompleters $QC_SelectMap

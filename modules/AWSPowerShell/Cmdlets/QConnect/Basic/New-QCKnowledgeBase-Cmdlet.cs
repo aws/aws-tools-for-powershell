@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The customer managed key used for encryption. For more information about setting up
-        /// a customer managed key for Amazon Q, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable
+        /// a customer managed key for Amazon Q in Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html">Enable
         /// Amazon Q in Connect for your instance</a>. For information about valid ID values,
         /// see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id">Key
         /// identifiers (KeyId)</a>.</para>
@@ -153,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter AppIntegrations_ObjectField
         /// <summary>
         /// <para>
-        /// <para>The fields from the source that are made available to your agents in Amazon Q. Optional
-        /// if ObjectConfiguration is included in the provided DataIntegration. </para><ul><li><para> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm">
+        /// <para>The fields from the source that are made available to your agents in Amazon Q in Connect.
+        /// Optional if ObjectConfiguration is included in the provided DataIntegration. </para><ul><li><para> For <a href="https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm">
         /// Salesforce</a>, you must include at least <c>Id</c>, <c>ArticleNumber</c>, <c>VersionNumber</c>,
         /// <c>Title</c>, <c>PublishStatus</c>, and <c>IsDeleted</c>. </para></li><li><para>For <a href="https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api">
         /// ServiceNow</a>, you must include at least <c>number</c>, <c>short_description</c>,

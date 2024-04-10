@@ -28,7 +28,7 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Creates Amazon Q content. Before to calling this API, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>
+    /// Creates Amazon Q in Connect content. Before to calling this API, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>
     /// to upload an asset.
     /// </summary>
     [Cmdlet("New", "QCContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -49,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-        /// base if you're storing Amazon Q Content resource to it. Can be either the ID or the
-        /// ARN. URLs cannot contain the ARN.</para>
+        /// base. Can be either the ID or the ARN. URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,8 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <summary>
         /// <para>
         /// <para>A key/value map to store attributes without affecting tagging or recommendations.
-        /// For example, when synchronizing data between an external system and Amazon Q, you
-        /// can store an external version identifier as metadata to utilize for determining drift.</para>
+        /// For example, when synchronizing data between an external system and Amazon Q in Connect,
+        /// you can store an external version identifier as metadata to utilize for determining
+        /// drift.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,9 @@ using Amazon.NetworkMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Returns the details about a probe. You'll need both the <c>monitorName</c> and <c>probeId</c>.
+    /// Returns the details about a probe. This action requires both the <c>monitorName</c>
+    /// and <c>probeId</c> parameters. Run <c>ListMonitors</c> to get a list of monitor names.
+    /// Run <c>GetMonitor</c> to get a list of probes and probe IDs.
     /// </summary>
     [Cmdlet("Get", "CWNMProbe")]
     [OutputType("Amazon.NetworkMonitor.Model.GetProbeResponse")]

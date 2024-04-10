@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendDataIntegrationEvent" OutputProperty="EventId" Verb="Send" Noun="DataIntegrationEvent" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

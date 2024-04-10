@@ -186,6 +186,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSession" OutputProperty="Session" Verb="Update" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

@@ -1,4 +1,12 @@
-﻿### 4.1.555 (2024-04-09 21:06Z)
+﻿### 4.1.556 (2024-04-10 20:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.787.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Q Connect
+    * Added cmdlet Update-QCSession leveraging the UpdateSession service API.
+    * Modified cmdlet New-QCSession: added parameters TagCondition_Key, TagCondition_Value, TagFilter_AndCondition and TagFilter_OrCondition.
+  * Amazon Supply Chain
+    * Added cmdlet Send-SUPCHDataIntegrationEvent leveraging the SendDataIntegrationEvent service API.
+
+### 4.1.555 (2024-04-09 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.786.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Pinpoint
     * Modified cmdlet Update-PINEmailChannel: added parameter EmailChannelRequest_OrchestrationSendingRoleArn.

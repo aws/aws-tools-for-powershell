@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter AssistantId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q assistant. Can be either the ID or the ARN. URLs cannot
-        /// contain the ARN.</para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

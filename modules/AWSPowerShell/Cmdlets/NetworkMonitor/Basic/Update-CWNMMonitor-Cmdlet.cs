@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
     /// Updates the <c>aggregationPeriod</c> for a monitor. Monitors support an <c>aggregationPeriod</c>
-    /// of either <c>30</c> or <c>60</c> seconds.
+    /// of either <c>30</c> or <c>60</c> seconds. This action requires the <c>monitorName</c>
+    /// and <c>probeId</c> parameter. Run <c>ListMonitors</c> to get a list of monitor names.
     /// </summary>
     [Cmdlet("Update", "CWNMMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.NetworkMonitor.Model.UpdateMonitorResponse")]
@@ -62,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitor to update. Run <c>ListMonitors</c> to get a list of monitor
-        /// names.</para>
+        /// <para>The name of the monitor to update. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

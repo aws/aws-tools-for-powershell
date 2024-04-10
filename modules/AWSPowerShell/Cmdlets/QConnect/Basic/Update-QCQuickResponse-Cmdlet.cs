@@ -28,7 +28,7 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Updates an existing Amazon Q quick response.
+    /// Updates an existing Amazon Q in Connect quick response.
     /// </summary>
     [Cmdlet("Update", "QCQuickResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QConnect.Model.QuickResponseData")]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter GroupingConfiguration_Criterion
         /// <summary>
         /// <para>
-        /// <para>The criteria used for grouping Amazon Q users.</para><para>The following is the list of supported criteria values.</para><ul><li><para><c>RoutingProfileArn</c>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
+        /// <para>The criteria used for grouping Amazon Q in Connect users.</para><para>The following is the list of supported criteria values.</para><ul><li><para><c>RoutingProfileArn</c>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
         /// Connect routing profile ARN</a>. User should have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfile</a>
         /// and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a>
         /// permissions when setting criteria to this value.</para></li></ul>
@@ -117,9 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-        /// base if you're storing Amazon Q Content resource to it. Can be either the ID or the
-        /// ARN. URLs cannot contain the ARN.</para>
+        /// <para>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot
+        /// contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -217,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         #region Parameter GroupingConfiguration_Value
         /// <summary>
         /// <para>
-        /// <para>The list of values that define different groups of Amazon Q users.</para><ul><li><para>When setting <c>criteria</c> to <c>RoutingProfileArn</c>, you need to provide a list
+        /// <para>The list of values that define different groups of Amazon Q in Connect users.</para><ul><li><para>When setting <c>criteria</c> to <c>RoutingProfileArn</c>, you need to provide a list
         /// of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
         /// Connect routing profiles</a> as values of this parameter.</para></li></ul>
         /// </para>

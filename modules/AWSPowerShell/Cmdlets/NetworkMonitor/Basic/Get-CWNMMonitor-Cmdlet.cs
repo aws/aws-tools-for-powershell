@@ -28,7 +28,13 @@ using Amazon.NetworkMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
-    /// Returns details about a specific monitor.
+    /// Returns details about a specific monitor. 
+    /// 
+    ///  
+    /// <para>
+    /// This action requires the <c>monitorName</c> parameter. Run <c>ListMonitors</c> to
+    /// get a list of monitor names. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWNMMonitor")]
     [OutputType("Amazon.NetworkMonitor.Model.GetMonitorResponse")]

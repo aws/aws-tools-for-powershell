@@ -52966,7 +52966,8 @@ $QC_SelectMap = @{
                "Remove-QCResourceTag",
                "Update-QCContent",
                "Update-QCKnowledgeBaseTemplateUri",
-               "Update-QCQuickResponse")
+               "Update-QCQuickResponse",
+               "Update-QCSession")
 }
 
 _awsArgumentCompleterRegistration $QC_SelectCompleters $QC_SelectMap
@@ -65227,6 +65228,32 @@ _awsArgumentCompleterRegistration $STS_SelectCompleters $STS_SelectMap
 # Argument completions for service AWS Supply Chain
 
 
+$SUPCH_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SupplyChain.DataIntegrationEventType
+        "Send-SUPCHDataIntegrationEvent/EventType"
+        {
+            $v = "scn.data.forecast","scn.data.inboundorder","scn.data.inboundorderline","scn.data.inboundorderlineschedule","scn.data.inventorylevel","scn.data.outboundorderline","scn.data.outboundshipment","scn.data.processheader","scn.data.processoperation","scn.data.processproduct","scn.data.reservation","scn.data.shipment","scn.data.shipmentstop","scn.data.shipmentstoporder","scn.data.supplyplan"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SUPCH_map = @{
+    "EventType"=@("Send-SUPCHDataIntegrationEvent")
+}
+
+_awsArgumentCompleterRegistration $SUPCH_Completers $SUPCH_map
+
 $SUPCH_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -65276,7 +65303,8 @@ $SUPCH_SelectCompleters = {
 
 $SUPCH_SelectMap = @{
     "Select"=@("New-SUPCHBillOfMaterialsImportJob",
-               "Get-SUPCHBillOfMaterialsImportJob")
+               "Get-SUPCHBillOfMaterialsImportJob",
+               "Send-SUPCHDataIntegrationEvent")
 }
 
 _awsArgumentCompleterRegistration $SUPCH_SelectCompleters $SUPCH_SelectMap

@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
 {
     /// <summary>
     /// Deletes a specified monitor.
+    /// 
+    ///  
+    /// <para>
+    /// This action requires the <c>monitorName</c> parameter. Run <c>ListMonitors</c> to
+    /// get a list of monitor names. 
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWNMMonitor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CWNM
         #region Parameter MonitorName
         /// <summary>
         /// <para>
-        /// <para>The name of the monitor to delete. Use the <c>ListMonitors</c> action to get a list
-        /// of your current monitors. </para>
+        /// <para>The name of the monitor to delete. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
