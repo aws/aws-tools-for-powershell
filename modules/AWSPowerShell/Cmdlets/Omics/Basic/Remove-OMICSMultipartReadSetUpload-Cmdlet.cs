@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SequenceStoreId
         /// <summary>
         /// <para>
-        /// <para> The sequence store ID for the store involved in the multipart upload. </para>
+        /// <para>The sequence store ID for the store involved in the multipart upload.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter UploadId
         /// <summary>
         /// <para>
-        /// <para> The ID for the multipart upload. </para>
+        /// <para>The ID for the multipart upload.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

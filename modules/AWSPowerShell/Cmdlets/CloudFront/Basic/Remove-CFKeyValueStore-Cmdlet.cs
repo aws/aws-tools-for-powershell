@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Specifies the Key Value Store to delete.
+    /// Specifies the key value store to delete.
     /// </summary>
     [Cmdlet("Remove", "CFKeyValueStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The Key Value Store to delete, if a match occurs.</para>
+        /// <para>The key value store to delete, if a match occurs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Key Value Store.</para>
+        /// <para>The name of the key value store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

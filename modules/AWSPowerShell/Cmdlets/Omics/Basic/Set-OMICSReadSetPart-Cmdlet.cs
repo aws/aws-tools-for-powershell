@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter PartNumber
         /// <summary>
         /// <para>
-        /// <para> The number of the part being uploaded. </para>
+        /// <para>The number of the part being uploaded.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter PartSource
         /// <summary>
         /// <para>
-        /// <para> The source file for an upload part. </para>
+        /// <para>The source file for an upload part.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Payload
         /// <summary>
         /// <para>
-        /// <para> The read set data to upload for a part. </para>
+        /// <para>The read set data to upload for a part.</para>
         /// </para>
         /// <para>The cmdlet accepts a parameter of type string, string[], System.IO.FileInfo or System.IO.Stream.</para>
         /// </summary>
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SequenceStoreId
         /// <summary>
         /// <para>
-        /// <para> The Sequence Store ID used for the multipart upload. </para>
+        /// <para>The Sequence Store ID used for the multipart upload.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter UploadId
         /// <summary>
         /// <para>
-        /// <para> The ID for the initiated multipart upload. </para>
+        /// <para>The ID for the initiated multipart upload.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

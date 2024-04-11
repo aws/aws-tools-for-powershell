@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para> The description of the read set. </para>
+        /// <para>The description of the read set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter GeneratedFrom
         /// <summary>
         /// <para>
-        /// <para> Where the source originated. </para>
+        /// <para>Where the source originated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para> The name of the read set. </para>
+        /// <para>The name of the read set.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ReferenceArn
         /// <summary>
         /// <para>
-        /// <para> The ARN of the reference. </para>
+        /// <para>The ARN of the reference.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SampleId
         /// <summary>
         /// <para>
-        /// <para> The source's sample ID. </para>
+        /// <para>The source's sample ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -108,8 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SequenceStoreId
         /// <summary>
         /// <para>
-        /// <para> The sequence store ID for the store that is the destination of the multipart uploads.
-        /// </para>
+        /// <para>The sequence store ID for the store that is the destination of the multipart uploads.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -126,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SourceFileType
         /// <summary>
         /// <para>
-        /// <para> The type of file being uploaded. </para>
+        /// <para>The type of file being uploaded.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SubjectId
         /// <summary>
         /// <para>
-        /// <para> The source's subject ID. </para>
+        /// <para>The source's subject ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -160,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> Any tags to add to the read set. </para>
+        /// <para>Any tags to add to the read set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,8 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para> An idempotency token that can be used to avoid triggering multiple multipart uploads.
-        /// </para>
+        /// <para>An idempotency token that can be used to avoid triggering multiple multipart uploads.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

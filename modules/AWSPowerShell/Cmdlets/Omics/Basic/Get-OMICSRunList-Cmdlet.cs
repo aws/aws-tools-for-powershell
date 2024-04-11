@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para> The status of a run. </para>
+        /// <para>The status of a run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

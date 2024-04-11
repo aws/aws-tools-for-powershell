@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The new amount of storage in gibibytes (GiB) to allocate for the DB instance.</para><para>For RDS for Db2, MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL, the
         /// value supplied must be at least 10% greater than the current value. Values that are
         /// not at least 10% greater than the existing value are rounded up so that they are 10%
-        /// greater than the current value.</para><para>For the valid values for allocated storage for each engine, see <c>CreateDBInstance</c>.</para>
+        /// greater than the current value.</para><para>For the valid values for allocated storage for each engine, see <c>CreateDBInstance</c>.</para><para>Constraints:</para><ul><li><para>When you increase the allocated storage for a DB instance that uses Provisioned IOPS
+        /// (<c>gp3</c>, <c>io1</c>, or <c>io2</c> storage type), you must also specify the <c>Iops</c>
+        /// parameter. You can use the current value for <c>Iops</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -503,7 +505,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// read replica for the instance, and creating a DB snapshot of the instance.</para><para>Constraints:</para><ul><li><para>For RDS for MariaDB, RDS for MySQL, RDS for Oracle, and RDS for PostgreSQL - The value
         /// supplied must be at least 10% greater than the current value. Values that are not
         /// at least 10% greater than the existing value are rounded up so that they are 10% greater
-        /// than the current value.</para></li></ul><para>Default: Uses existing setting</para>
+        /// than the current value.</para></li><li><para>When you increase the Provisioned IOPS, you must also specify the <c>AllocatedStorage</c>
+        /// parameter. You can use the current value for <c>AllocatedStorage</c>.</para></li></ul><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

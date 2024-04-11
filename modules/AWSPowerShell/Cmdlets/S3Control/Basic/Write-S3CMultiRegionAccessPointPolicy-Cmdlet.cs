@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Access Point.
     /// </para><para>
     /// This action will always be routed to the US West (Oregon) Region. For more information
-    /// about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-    /// Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.
+    /// about the restrictions around working with Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRestrictions.html">Multi-Region
+    /// Access Point restrictions and limitations</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// The following actions are related to <c>PutMultiRegionAccessPointPolicy</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicy.html">GetMultiRegionAccessPointPolicy</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetMultiRegionAccessPointPolicyStatus.html">GetMultiRegionAccessPointPolicyStatus</a></para></li></ul>

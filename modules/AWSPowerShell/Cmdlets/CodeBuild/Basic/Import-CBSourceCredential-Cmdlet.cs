@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,
-        /// this is the app password. </para>
+        /// this is either the access token or the app password. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

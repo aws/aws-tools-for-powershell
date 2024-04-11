@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// one hour by default. This applies when you use the <c>AssumeRole*</c> API operations
         /// or the <c>assume-role*</c> CLI operations but does not apply when you use those operations
         /// to create a console URL. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html">Using
-        /// IAM roles</a> in the <i>IAM User Guide</i>.</para>
+        /// IAM roles</a> in the <i>IAM User Guide</i>.</para><note><para>IAM role credentials provided by Amazon EC2 instances assigned to the role are not
+        /// subject to the specified maximum session duration.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,8 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Create a new invalidation.
+    /// Create a new invalidation. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html">Invalidating
+    /// files</a> in the <i>Amazon CloudFront Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "CFInvalidation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreateInvalidationResponse")]

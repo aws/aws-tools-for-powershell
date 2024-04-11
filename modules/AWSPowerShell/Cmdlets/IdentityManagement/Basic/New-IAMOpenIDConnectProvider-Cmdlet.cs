@@ -118,23 +118,18 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>A list of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's
         /// server certificates. Typically this list includes only one entry. However, IAM lets
         /// you have up to five thumbprints for an OIDC provider. This lets you maintain multiple
-        /// thumbprints if the identity provider is rotating certificates.</para><para>The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509
+        /// thumbprints if the identity provider is rotating certificates.</para><para>This parameter is optional. If it is not included, IAM will retrieve and use the top
+        /// intermediate certificate authority (CA) thumbprint of the OpenID Connect identity
+        /// provider server certificate.</para><para>The server certificate thumbprint is the hex-encoded SHA-1 hash value of the X.509
         /// certificate used by the domain where the OpenID Connect provider makes its keys available.
-        /// It is always a 40-character string.</para><para>You must provide at least one thumbprint when creating an IAM OIDC provider. For example,
-        /// assume that the OIDC provider is <c>server.example.com</c> and the provider stores
-        /// its keys at https://keys.server.example.com/openid-connect. In that case, the thumbprint
-        /// string would be the hex-encoded SHA-1 hash value of the certificate used by <c>https://keys.server.example.com.</c></para><para>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
+        /// It is always a 40-character string.</para><para>For example, assume that the OIDC provider is <c>server.example.com</c> and the provider
+        /// stores its keys at https://keys.server.example.com/openid-connect. In that case, the
+        /// thumbprint string would be the hex-encoded SHA-1 hash value of the certificate used
+        /// by <c>https://keys.server.example.com.</c></para><para>For more information about obtaining the OIDC provider thumbprint, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html">Obtaining
         /// the thumbprint for an OpenID Connect provider</a> in the <i>IAM user Guide</i>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String[] ThumbprintList { get; set; }
         #endregion
         
@@ -235,12 +230,6 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             {
                 context.ThumbprintList = new List<System.String>(this.ThumbprintList);
             }
-            #if MODULAR
-            if (this.ThumbprintList == null && ParameterWasBound(nameof(this.ThumbprintList)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ThumbprintList which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Url = this.Url;
             #if MODULAR
             if (this.Url == null && ParameterWasBound(nameof(this.Url)))

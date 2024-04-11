@@ -28,8 +28,8 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Specifies the Key Value Store resource to add to your account. In your account, the
-    /// Key Value Store names must be unique. You can also import Key Value Store data in
+    /// Specifies the key value store resource to add to your account. In your account, the
+    /// key value store names must be unique. You can also import key value store data in
     /// JSON format from an S3 bucket by providing a valid <c>ImportSource</c> that you own.
     /// </summary>
     [Cmdlet("New", "CFKeyValueStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>The comment of the Key Value Store.</para>
+        /// <para>The comment of the key value store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Key Value Store. The maximum length of the name is 32 characters.</para>
+        /// <para>The name of the key value store. The minimum length is 1 character and the maximum
+        /// length is 64 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ImportSource_SourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the import source for the Key Value Store.</para>
+        /// <para>The Amazon Resource Name (ARN) of the import source for the key value store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter ImportSource_SourceType
         /// <summary>
         /// <para>
-        /// <para>The source type of the import source for the Key Value Store.</para>
+        /// <para>The source type of the import source for the key value store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

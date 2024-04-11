@@ -239,9 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter PodProperties_ImagePullSecret
         /// <summary>
         /// <para>
-        /// <para>References a Kubernetes secret resource. This object must start and end with an alphanumeric
-        /// character, is required to be lowercase, can include periods (.) and hyphens (-), and
-        /// can't contain more than 253 characters.</para><para><c>ImagePullSecret$name</c> is required when this object is used.</para>
+        /// <para>References a Kubernetes secret resource. It holds a list of secrets. These secrets
+        /// help to gain access to pull an images from a private registry.</para><para><c>ImagePullSecret$name</c> is required when this object is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

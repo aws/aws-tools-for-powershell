@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter KeyValueStoreAssociations_Item
         /// <summary>
         /// <para>
-        /// <para>The items of the Key Value Store association.</para>
+        /// <para>The items of the key value store association.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter KeyValueStoreAssociations_Quantity
         /// <summary>
         /// <para>
-        /// <para>The quantity of Key Value Store associations.</para>
+        /// <para>The quantity of key value store associations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

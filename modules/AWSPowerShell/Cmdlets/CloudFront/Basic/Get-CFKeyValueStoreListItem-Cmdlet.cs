@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Specifies the Key Value Stores to list.
+    /// Specifies the key value stores to list.
     /// </summary>
     [Cmdlet("Get", "CFKeyValueStoreListItem")]
     [OutputType("Amazon.CloudFront.Model.KeyValueStoreList")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the request for the Key Value Stores list.</para>
+        /// <para>The status of the request for the key value stores list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The marker associated with the Key Value Stores list.</para>
+        /// <para>The marker associated with the key value stores list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items in the Key Value Stores list.</para>
+        /// <para>The maximum number of items in the key value stores list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The maximum amount of time to consider requests from the viewer as being part of the
-        /// same session. Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be less than or equal to <c>IdleTTL</c>.</para>
+        /// same session. Allowed values are 300–3600 seconds (5–60 minutes).</para><para>The value must be greater than or equal to <c>IdleTTL</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,7 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The percentage of traffic to send to a staging distribution, expressed as a decimal
-        /// number between 0 and .15.</para>
+        /// number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent
+        /// to the staging distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

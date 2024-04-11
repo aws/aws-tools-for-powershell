@@ -51,6 +51,22 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudWatchAlarmTemplate" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventBridgeRuleTemplate" OutputProperty="*" Verb="New" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="New" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInput" OutputProperty="Input" Verb="New" Noun="Input" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -71,11 +87,31 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSignalMap" OutputProperty="*" Verb="New" Noun="SignalMap" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteChannel" OutputProperty="*" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplate" Verb="Remove" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplateGroup" Verb="Remove" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventBridgeRuleTemplate" Verb="Remove" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventBridgeRuleTemplateGroup" Verb="Remove" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -100,6 +136,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteSchedule" Verb="Remove" Noun="Schedule" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSignalMap" Verb="Remove" Noun="SignalMap" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,7 +195,43 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudWatchAlarmTemplate" OutputProperty="*" Verb="Get" Noun="CloudWatchAlarmTemplate" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="Get" Noun="CloudWatchAlarmTemplateGroup" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventBridgeRuleTemplate" OutputProperty="*" Verb="Get" Noun="EventBridgeRuleTemplate" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="Get" Noun="EventBridgeRuleTemplateGroup" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSignalMap" OutputProperty="*" Verb="Get" Noun="SignalMap" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudWatchAlarmTemplateGroups" OutputProperty="CloudWatchAlarmTemplateGroups" Verb="Get" Noun="CloudWatchAlarmTemplateGroupList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCloudWatchAlarmTemplates" OutputProperty="CloudWatchAlarmTemplates" Verb="Get" Noun="CloudWatchAlarmTemplateList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventBridgeRuleTemplateGroups" OutputProperty="EventBridgeRuleTemplateGroups" Verb="Get" Noun="EventBridgeRuleTemplateGroupList" PipelineParameter="SignalMapIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventBridgeRuleTemplates" OutputProperty="EventBridgeRuleTemplates" Verb="Get" Noun="EventBridgeRuleTemplateList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -191,6 +267,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListSignalMaps" OutputProperty="SignalMaps" Verb="Get" Noun="SignalMapList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -217,6 +297,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDeleteMonitorDeployment" OutputProperty="*" Verb="Start" Noun="DeleteMonitorDeployment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartInputDevice" Verb="Start" Noun="InputDevice" ShouldProcessTarget="InputDeviceId" PipelineParameter="InputDeviceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -225,7 +309,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMonitorDeployment" OutputProperty="*" Verb="Start" Noun="MonitorDeployment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMultiplex" OutputProperty="*" Verb="Start" Noun="Multiplex" ShouldProcessTarget="MultiplexId" PipelineParameter="MultiplexId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartUpdateSignalMap" OutputProperty="*" Verb="Start" Noun="UpdateSignalMap" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -254,6 +346,22 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChannelClass" OutputProperty="Channel" Verb="Update" Noun="ChannelClass" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplate" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventBridgeRuleTemplate" OutputProperty="*" Verb="Update" Noun="EventBridgeRuleTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEventBridgeRuleTemplateGroup" OutputProperty="*" Verb="Update" Noun="EventBridgeRuleTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

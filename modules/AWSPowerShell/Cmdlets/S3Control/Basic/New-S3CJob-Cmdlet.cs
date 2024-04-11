@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// you specify. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops.html">S3
     /// Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><dl><dt>Permissions</dt><dd><para>
-    /// For information about permissions required to use the Batch Operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Granting
+    /// For information about permissions required to use the Batch Operations, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/batch-ops-iam-role-policies.html">Granting
     /// permissions for S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></dd></dl><para>
     /// Related actions include:
@@ -510,9 +510,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>Specifies the schema version for the payload that Batch Operations sends when invoking
         /// an Lambda function. Version <c>1.0</c> is the default. Version <c>2.0</c> is required
         /// when you use Batch Operations to invoke Lambda functions that act on directory buckets,
-        /// or if you need to specify <c>UserArguments</c>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
-        /// Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon
-        /// Web Services Storage Blog</i>.</para><important><para>Ensure that your Lambda function code expects <c>InvocationSchemaVersion</c><b>2.0</b>
+        /// or if you need to specify <c>UserArguments</c>. For more information, see <a href="https://aws.amazon.com/blogs/storage/automate-object-processing-in-amazon-s3-directory-buckets-with-s3-batch-operations-and-aws-lambda/">Automate
+        /// object processing in Amazon S3 directory buckets with S3 Batch Operations and Lambda</a>
+        /// in the <i>Amazon Web Services Storage Blog</i>.</para><important><para>Ensure that your Lambda function code expects <c>InvocationSchemaVersion</c><b>2.0</b>
         /// and uses bucket name rather than bucket ARN. If the <c>InvocationSchemaVersion</c>
         /// does not match what your Lambda function expects, your function might not work as
         /// expected.</para></important><note><para><b>Directory buckets</b> - To initiate Amazon Web Services Lambda function to perform
@@ -997,8 +997,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>
         /// <para>Specifies the destination bucket Amazon Resource Name (ARN) for the batch copy operation.</para><ul><li><para><b>General purpose buckets</b> - For example, to copy objects to a general purpose
         /// bucket named <c>destinationBucket</c>, set the <c>TargetResource</c> property to <c>arn:aws:s3:::destinationBucket</c>.</para></li><li><para><b>Directory buckets</b> - For example, to copy objects to a directory bucket named
-        /// <c>destinationBucket</c> in the Availability Zone; identified by the AZ ID <c>usw2-az2</c>,
-        /// set the <c>TargetResource</c> property to <c>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az2</i>--x-s3</c>.</para></li></ul>
+        /// <c>destinationBucket</c> in the Availability Zone; identified by the AZ ID <c>usw2-az1</c>,
+        /// set the <c>TargetResource</c> property to <c>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az1</i>--x-s3</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1023,9 +1023,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>Key-value pairs that are passed in the payload that Batch Operations sends when invoking
         /// an Lambda function. You must specify <c>InvocationSchemaVersion</c><b>2.0</b> for
         /// <c>LambdaInvoke</c> operations that include <c>UserArguments</c>. For more information,
-        /// see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using
-        /// Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon
-        /// Web Services Storage Blog</i>.</para>
+        /// see <a href="https://aws.amazon.com/blogs/storage/automate-object-processing-in-amazon-s3-directory-buckets-with-s3-batch-operations-and-aws-lambda/">Automate
+        /// object processing in Amazon S3 directory buckets with S3 Batch Operations and Lambda</a>
+        /// in the <i>Amazon Web Services Storage Blog</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -227,7 +227,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginAccessControl/OriginAccessControlConfig_OriginAccessControlOriginType")
         }
         {
-            $v = "mediastore","s3"
+            $v = "lambda","mediapackagev2","mediastore","s3"
             break
         }
 

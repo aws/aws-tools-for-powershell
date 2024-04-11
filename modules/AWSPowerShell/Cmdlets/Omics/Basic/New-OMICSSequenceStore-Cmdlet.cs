@@ -51,10 +51,21 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter ETagAlgorithmFamily
+        /// <summary>
+        /// <para>
+        /// <para>The ETag algorithm family to use for ingested read sets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.ETagAlgorithmFamily")]
+        public Amazon.Omics.ETagAlgorithmFamily ETagAlgorithmFamily { get; set; }
+        #endregion
+        
         #region Parameter FallbackLocation
         /// <summary>
         /// <para>
-        /// <para> An S3 location that is used to store files that have failed a direct upload. </para>
+        /// <para>An S3 location that is used to store files that have failed a direct upload.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.ETagAlgorithmFamily = this.ETagAlgorithmFamily;
             context.FallbackLocation = this.FallbackLocation;
             context.Name = this.Name;
             #if MODULAR
@@ -226,6 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.ETagAlgorithmFamily != null)
+            {
+                request.ETagAlgorithmFamily = cmdletContext.ETagAlgorithmFamily;
             }
             if (cmdletContext.FallbackLocation != null)
             {
@@ -331,6 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.Omics.ETagAlgorithmFamily ETagAlgorithmFamily { get; set; }
             public System.String FallbackLocation { get; set; }
             public System.String Name { get; set; }
             public System.String SseConfig_KeyArn { get; set; }

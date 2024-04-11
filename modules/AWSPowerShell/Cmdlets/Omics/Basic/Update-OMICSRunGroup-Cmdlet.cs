@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxGpus
         /// <summary>
         /// <para>
-        /// <para> The maximum GPUs that can be used by a run group. </para>
+        /// <para>The maximum GPUs that can be used by a run group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

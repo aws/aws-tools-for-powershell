@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Specifies the Key Value Store to update.
+    /// Specifies the key value store to update.
     /// </summary>
     [Cmdlet("Update", "CFKeyValueStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.KeyValueStore")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Comment
         /// <summary>
         /// <para>
-        /// <para>The comment of the Key Value Store to update.</para>
+        /// <para>The comment of the key value store to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter IfMatch
         /// <summary>
         /// <para>
-        /// <para>The Key Value Store to update, if a match occurs.</para>
+        /// <para>The key value store to update, if a match occurs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Key Value Store to update.</para>
+        /// <para>The name of the key value store to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

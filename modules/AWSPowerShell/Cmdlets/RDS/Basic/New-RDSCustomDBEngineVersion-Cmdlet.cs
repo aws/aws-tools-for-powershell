@@ -77,8 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for your custom engine version (CEV). The only supported
-        /// value is <c>custom-oracle-ee</c>.</para>
+        /// <para>The database engine. RDS Custom for Oracle supports the following values:</para><ul><li><para><c>custom-oracle-ee</c></para></li><li><para><c>custom-oracle-ee-cdb</c></para></li><li><para><c>custom-oracle-se2</c></para></li><li><para><c>custom-oracle-se2-cdb</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

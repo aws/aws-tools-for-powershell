@@ -116,6 +116,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.ETagAlgorithmFamily
+        "New-OMICSSequenceStore/ETagAlgorithmFamily"
+        {
+            $v = "MD5up","SHA256up","SHA512up"
+            break
+        }
+
         # Amazon.Omics.FileType
         "New-OMICSMultipartReadSetUpload/SourceFileType"
         {
@@ -280,6 +287,7 @@ $OMICS_Completers = {
 $OMICS_map = @{
     "Accelerator"=@("New-OMICSWorkflow")
     "Engine"=@("New-OMICSWorkflow")
+    "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
     "Filter_CreationType"=@("Get-OMICSReadSetList")
     "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")

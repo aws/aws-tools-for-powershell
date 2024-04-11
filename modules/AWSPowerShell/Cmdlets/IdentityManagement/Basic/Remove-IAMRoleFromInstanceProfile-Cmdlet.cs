@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Removes the specified IAM role from the specified EC2 instance profile.
+    /// Removes the specified IAM role from the specified Amazon EC2 instance profile.
     /// 
     ///  <important><para>
     /// Make sure that you do not have any Amazon EC2 instances running with the role you

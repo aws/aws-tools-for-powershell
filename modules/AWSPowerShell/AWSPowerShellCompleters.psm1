@@ -10820,7 +10820,7 @@ $CF_Completers = {
             ($_ -eq "Update-CFOriginAccessControl/OriginAccessControlConfig_OriginAccessControlOriginType")
         }
         {
-            $v = "mediastore","s3"
+            $v = "lambda","mediapackagev2","mediastore","s3"
             break
         }
 
@@ -43150,6 +43150,56 @@ $EML_Completers = {
             break
         }
 
+        # Amazon.MediaLive.CloudWatchAlarmTemplateComparisonOperator
+        {
+            ($_ -eq "New-EMLCloudWatchAlarmTemplate/ComparisonOperator") -Or
+            ($_ -eq "Update-EMLCloudWatchAlarmTemplate/ComparisonOperator")
+        }
+        {
+            $v = "GreaterThanOrEqualToThreshold","GreaterThanThreshold","LessThanOrEqualToThreshold","LessThanThreshold"
+            break
+        }
+
+        # Amazon.MediaLive.CloudWatchAlarmTemplateStatistic
+        {
+            ($_ -eq "New-EMLCloudWatchAlarmTemplate/Statistic") -Or
+            ($_ -eq "Update-EMLCloudWatchAlarmTemplate/Statistic")
+        }
+        {
+            $v = "Average","Maximum","Minimum","SampleCount","Sum"
+            break
+        }
+
+        # Amazon.MediaLive.CloudWatchAlarmTemplateTargetResourceType
+        {
+            ($_ -eq "New-EMLCloudWatchAlarmTemplate/TargetResourceType") -Or
+            ($_ -eq "Update-EMLCloudWatchAlarmTemplate/TargetResourceType")
+        }
+        {
+            $v = "CLOUDFRONT_DISTRIBUTION","MEDIACONNECT_FLOW","MEDIALIVE_CHANNEL","MEDIALIVE_INPUT_DEVICE","MEDIALIVE_MULTIPLEX","MEDIAPACKAGE_CHANNEL","MEDIAPACKAGE_ORIGIN_ENDPOINT","S3_BUCKET"
+            break
+        }
+
+        # Amazon.MediaLive.CloudWatchAlarmTemplateTreatMissingData
+        {
+            ($_ -eq "New-EMLCloudWatchAlarmTemplate/TreatMissingData") -Or
+            ($_ -eq "Update-EMLCloudWatchAlarmTemplate/TreatMissingData")
+        }
+        {
+            $v = "breaching","ignore","missing","notBreaching"
+            break
+        }
+
+        # Amazon.MediaLive.EventBridgeRuleTemplateEventType
+        {
+            ($_ -eq "New-EMLEventBridgeRuleTemplate/EventType") -Or
+            ($_ -eq "Update-EMLEventBridgeRuleTemplate/EventType")
+        }
+        {
+            $v = "MEDIACONNECT_ALERT","MEDIACONNECT_FLOW_STATUS_CHANGE","MEDIACONNECT_OUTPUT_HEALTH","MEDIACONNECT_SOURCE_HEALTH","MEDIALIVE_CHANNEL_ALERT","MEDIALIVE_CHANNEL_INPUT_CHANGE","MEDIALIVE_CHANNEL_STATE_CHANGE","MEDIALIVE_MULTIPLEX_ALERT","MEDIALIVE_MULTIPLEX_STATE_CHANGE","MEDIAPACKAGE_HARVEST_JOB_NOTIFICATION","MEDIAPACKAGE_INPUT_NOTIFICATION","MEDIAPACKAGE_KEY_PROVIDER_NOTIFICATION","SIGNAL_MAP_ACTIVE_ALARM"
+            break
+        }
+
         # Amazon.MediaLive.InputCodec
         {
             ($_ -eq "New-EMLChannel/InputSpecification_Codec") -Or
@@ -43266,6 +43316,8 @@ $EML_map = @{
     "Accept"=@("Get-EMLInputDeviceThumbnail")
     "CdiInputSpecification_Resolution"=@("New-EMLChannel","Update-EMLChannel")
     "ChannelClass"=@("New-EMLChannel","Update-EMLChannelClass")
+    "ComparisonOperator"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
+    "EventType"=@("New-EMLEventBridgeRuleTemplate","Update-EMLEventBridgeRuleTemplate")
     "HdDeviceSettings_Codec"=@("Update-EMLInputDevice")
     "HdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
     "IgnoreStreaming"=@("Restart-EMLInputDevice")
@@ -43276,6 +43328,9 @@ $EML_map = @{
     "Maintenance_MaintenanceDay"=@("New-EMLChannel","Update-EMLChannel")
     "MultiplexProgramSettings_PreferredChannelPipeline"=@("New-EMLMultiplexProgram","Update-EMLMultiplexProgram")
     "RenewalSettings_AutomaticRenewal"=@("New-EMLOfferingPurchase","Update-EMLReservation")
+    "Statistic"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
+    "TargetResourceType"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
+    "TreatMissingData"=@("New-EMLCloudWatchAlarmTemplate","Update-EMLCloudWatchAlarmTemplate")
     "Type"=@("New-EMLInput")
     "UhdDeviceSettings_Codec"=@("Update-EMLInputDevice")
     "UhdDeviceSettings_ConfiguredInput"=@("Update-EMLInputDevice")
@@ -43339,19 +43394,29 @@ $EML_SelectMap = @{
                "Stop-EMLInputDeviceTransfer",
                "Request-EMLDevice",
                "New-EMLChannel",
+               "New-EMLCloudWatchAlarmTemplate",
+               "New-EMLCloudWatchAlarmTemplateGroup",
+               "New-EMLEventBridgeRuleTemplate",
+               "New-EMLEventBridgeRuleTemplateGroup",
                "New-EMLInput",
                "New-EMLInputSecurityGroup",
                "New-EMLMultiplex",
                "New-EMLMultiplexProgram",
                "New-EMLPartnerInput",
+               "New-EMLSignalMap",
                "Add-EMLResourceTag",
                "Remove-EMLChannel",
+               "Remove-EMLCloudWatchAlarmTemplate",
+               "Remove-EMLCloudWatchAlarmTemplateGroup",
+               "Remove-EMLEventBridgeRuleTemplate",
+               "Remove-EMLEventBridgeRuleTemplateGroup",
                "Remove-EMLInput",
                "Remove-EMLInputSecurityGroup",
                "Remove-EMLMultiplex",
                "Remove-EMLMultiplexProgram",
                "Remove-EMLReservation",
                "Remove-EMLSchedule",
+               "Remove-EMLSignalMap",
                "Remove-EMLResourceTag",
                "Get-EMLAccountConfiguration",
                "Get-EMLChannel",
@@ -43365,7 +43430,16 @@ $EML_SelectMap = @{
                "Get-EMLReservation",
                "Get-EMLSchedule",
                "Get-EMLThumbnail",
+               "Get-EMLCloudWatchAlarmTemplate",
+               "Get-EMLCloudWatchAlarmTemplateGroup",
+               "Get-EMLEventBridgeRuleTemplate",
+               "Get-EMLEventBridgeRuleTemplateGroup",
+               "Get-EMLSignalMap",
                "Get-EMLChannelList",
+               "Get-EMLCloudWatchAlarmTemplateGroupList",
+               "Get-EMLCloudWatchAlarmTemplateList",
+               "Get-EMLEventBridgeRuleTemplateGroupList",
+               "Get-EMLEventBridgeRuleTemplateList",
                "Get-EMLInputDeviceList",
                "Get-EMLInputDeviceTransferList",
                "Get-EMLInputList",
@@ -43374,15 +43448,19 @@ $EML_SelectMap = @{
                "Get-EMLMultiplexProgramList",
                "Get-EMLOfferingList",
                "Get-EMLReservationList",
+               "Get-EMLSignalMapList",
                "Get-EMLResourceTag",
                "New-EMLOfferingPurchase",
                "Restart-EMLInputDevice",
                "Deny-EMLInputDeviceTransfer",
                "Restart-EMLChannelPipeline",
                "Start-EMLChannel",
+               "Start-EMLDeleteMonitorDeployment",
                "Start-EMLInputDevice",
                "Start-EMLInputDeviceMaintenanceWindow",
+               "Start-EMLMonitorDeployment",
                "Start-EMLMultiplex",
+               "Start-EMLUpdateSignalMap",
                "Stop-EMLChannel",
                "Stop-EMLInputDevice",
                "Stop-EMLMultiplex",
@@ -43390,6 +43468,10 @@ $EML_SelectMap = @{
                "Update-EMLAccountConfiguration",
                "Update-EMLChannel",
                "Update-EMLChannelClass",
+               "Update-EMLCloudWatchAlarmTemplate",
+               "Update-EMLCloudWatchAlarmTemplateGroup",
+               "Update-EMLEventBridgeRuleTemplate",
+               "Update-EMLEventBridgeRuleTemplateGroup",
                "Update-EMLInput",
                "Update-EMLInputDevice",
                "Update-EMLInputSecurityGroup",
@@ -47988,6 +48070,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.ETagAlgorithmFamily
+        "New-OMICSSequenceStore/ETagAlgorithmFamily"
+        {
+            $v = "MD5up","SHA256up","SHA512up"
+            break
+        }
+
         # Amazon.Omics.FileType
         "New-OMICSMultipartReadSetUpload/SourceFileType"
         {
@@ -48152,6 +48241,7 @@ $OMICS_Completers = {
 $OMICS_map = @{
     "Accelerator"=@("New-OMICSWorkflow")
     "Engine"=@("New-OMICSWorkflow")
+    "ETagAlgorithmFamily"=@("New-OMICSSequenceStore")
     "File"=@("Get-OMICSReadSet","Get-OMICSReference")
     "Filter_CreationType"=@("Get-OMICSReadSetList")
     "Filter_Status"=@("Get-OMICSAnnotationImportJobList","Get-OMICSAnnotationStoreList","Get-OMICSAnnotationStoreVersionList","Get-OMICSReadSetActivationJobList","Get-OMICSReadSetExportJobList","Get-OMICSReadSetImportJobList","Get-OMICSReadSetList","Get-OMICSReferenceImportJobList","Get-OMICSVariantImportJobList","Get-OMICSVariantStoreList")

@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter PartSource
         /// <summary>
         /// <para>
-        /// <para> The source file for the upload part. </para>
+        /// <para>The source file for the upload part.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SequenceStoreId
         /// <summary>
         /// <para>
-        /// <para> The Sequence Store ID used for the multipart uploads. </para>
+        /// <para>The Sequence Store ID used for the multipart uploads.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter UploadId
         /// <summary>
         /// <para>
-        /// <para> The ID for the initiated multipart upload. </para>
+        /// <para>The ID for the initiated multipart upload.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of read set upload parts returned in a page. </para>
+        /// <para>The maximum number of read set upload parts returned in a page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Next token returned in the response of a previous ListReadSetUploadPartsRequest call.
-        /// Used to get the next page of results. </para>
+        /// <para>Next token returned in the response of a previous ListReadSetUploadPartsRequest call.
+        /// Used to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

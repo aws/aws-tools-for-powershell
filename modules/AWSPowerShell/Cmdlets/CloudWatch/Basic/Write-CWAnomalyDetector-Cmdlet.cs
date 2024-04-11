@@ -141,6 +141,20 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String SingleMetricAnomalyDetector_Namespace { get; set; }
         #endregion
         
+        #region Parameter MetricCharacteristics_PeriodicSpike
+        /// <summary>
+        /// <para>
+        /// <para>Set this parameter to <c>true</c> if values for this metric consistently include spikes
+        /// that should not be considered to be anomalies. With this set to <c>true</c>, CloudWatch
+        /// will expect to see spikes that occurred consistently during the model training period,
+        /// and won't flag future similar spikes as anomalies.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MetricCharacteristics_PeriodicSpikes")]
+        public System.Boolean? MetricCharacteristics_PeriodicSpike { get; set; }
+        #endregion
+        
         #region Parameter SingleMetricAnomalyDetector_Stat
         /// <summary>
         /// <para>
@@ -272,6 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.Dimension = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.MetricCharacteristics_PeriodicSpike = this.MetricCharacteristics_PeriodicSpike;
             if (this.MetricMathAnomalyDetector_MetricDataQuery != null)
             {
                 context.MetricMathAnomalyDetector_MetricDataQuery = new List<Amazon.CloudWatch.Model.MetricDataQuery>(this.MetricMathAnomalyDetector_MetricDataQuery);
@@ -344,6 +359,25 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 request.Dimensions = cmdletContext.Dimension;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+             // populate MetricCharacteristics
+            var requestMetricCharacteristicsIsNull = true;
+            request.MetricCharacteristics = new Amazon.CloudWatch.Model.MetricCharacteristics();
+            System.Boolean? requestMetricCharacteristics_metricCharacteristics_PeriodicSpike = null;
+            if (cmdletContext.MetricCharacteristics_PeriodicSpike != null)
+            {
+                requestMetricCharacteristics_metricCharacteristics_PeriodicSpike = cmdletContext.MetricCharacteristics_PeriodicSpike.Value;
+            }
+            if (requestMetricCharacteristics_metricCharacteristics_PeriodicSpike != null)
+            {
+                request.MetricCharacteristics.PeriodicSpikes = requestMetricCharacteristics_metricCharacteristics_PeriodicSpike.Value;
+                requestMetricCharacteristicsIsNull = false;
+            }
+             // determine if request.MetricCharacteristics should be set to null
+            if (requestMetricCharacteristicsIsNull)
+            {
+                request.MetricCharacteristics = null;
+            }
             
              // populate MetricMathAnomalyDetector
             var requestMetricMathAnomalyDetectorIsNull = true;
@@ -505,6 +539,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String Configuration_MetricTimezone { get; set; }
             [System.ObsoleteAttribute]
             public List<Amazon.CloudWatch.Model.Dimension> Dimension { get; set; }
+            public System.Boolean? MetricCharacteristics_PeriodicSpike { get; set; }
             public List<Amazon.CloudWatch.Model.MetricDataQuery> MetricMathAnomalyDetector_MetricDataQuery { get; set; }
             [System.ObsoleteAttribute]
             public System.String MetricName { get; set; }

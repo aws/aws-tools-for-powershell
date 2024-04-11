@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>A storage capacity for the run in gigabytes.</para>
+        /// <para>A storage capacity for the run in gibibytes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

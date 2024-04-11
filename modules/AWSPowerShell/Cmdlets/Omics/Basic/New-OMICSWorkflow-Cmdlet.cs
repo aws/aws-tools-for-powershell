@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Accelerator
         /// <summary>
         /// <para>
-        /// <para> The computational accelerator specified to run the workflow. </para>
+        /// <para>The computational accelerator specified to run the workflow.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

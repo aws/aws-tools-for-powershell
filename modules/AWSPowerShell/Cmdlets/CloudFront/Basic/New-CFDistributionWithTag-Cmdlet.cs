@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter DistributionConfig_HttpVersion
         /// <summary>
         /// <para>
-        /// <para>(Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate
+        /// <para>(Optional) Specify the HTTP version(s) that you want viewers to use to communicate
         /// with CloudFront. The default value for new web distributions is <c>http2</c>. Viewers
         /// that don't support HTTP/2 automatically use an earlier HTTP version.</para><para>For viewers and CloudFront to use HTTP/2, viewers must support TLSv1.2 or later, and
         /// must support Server Name Indication (SNI).</para><para>For viewers and CloudFront to use HTTP/3, viewers must support TLSv1.3 and Server
@@ -453,7 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>The CloudFront functions that are associated with a cache behavior in a CloudFront
-        /// distribution. CloudFront functions must be published to the <c>LIVE</c> stage to associate
+        /// distribution. Your functions must be published to the <c>LIVE</c> stage to associate
         /// them with a cache behavior.</para>
         /// </para>
         /// </summary>
@@ -974,8 +974,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A unique identifier that specifies the WAF web ACL, if any, to associate with this
         /// distribution. To specify a web ACL created using the latest version of WAF, use the
-        /// ACL ARN, for example <c>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</c>.
-        /// To specify a web ACL created using WAF Classic, use the ACL ID, for example <c>473e64fd-f30b-4765-81a0-62ad96dd167a</c>.</para><para>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
+        /// ACL ARN, for example <c>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.
+        /// To specify a web ACL created using WAF Classic, use the ACL ID, for example <c>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.</para><para>WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests
         /// that are forwarded to CloudFront, and lets you control access to your content. Based
         /// on conditions that you specify, such as the IP addresses that requests originate from
         /// or the values of query strings, CloudFront responds to requests either with the requested

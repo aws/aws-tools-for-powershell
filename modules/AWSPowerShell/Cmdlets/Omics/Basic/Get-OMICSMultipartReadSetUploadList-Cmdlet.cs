@@ -28,9 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Lists multipart read set uploads and for in progress uploads. Once the upload is
-    /// completed, a read set is created and the upload will no longer be returned in the
-    /// respone.
+    /// Lists multipart read set uploads and for in progress uploads. Once the upload is completed,
+    /// a read set is created and the upload will no longer be returned in the response.
     /// </summary>
     [Cmdlet("Get", "OMICSMultipartReadSetUploadList")]
     [OutputType("Amazon.Omics.Model.MultipartReadSetUploadListItem")]
@@ -47,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter SequenceStoreId
         /// <summary>
         /// <para>
-        /// <para> The Sequence Store ID used for the multipart uploads. </para>
+        /// <para>The Sequence Store ID used for the multipart uploads.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of multipart uploads returned in a page. </para>
+        /// <para>The maximum number of multipart uploads returned in a page.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Next token returned in the response of a previous ListMultipartReadSetUploads call.
-        /// Used to get the next page of results. </para>
+        /// <para>Next token returned in the response of a previous ListMultipartReadSetUploads call.
+        /// Used to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

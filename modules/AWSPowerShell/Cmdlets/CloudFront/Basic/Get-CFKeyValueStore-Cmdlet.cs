@@ -28,7 +28,7 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Specifies the Key Value Store and its configuration.
+    /// Specifies the key value store and its configuration.
     /// </summary>
     [Cmdlet("Get", "CFKeyValueStore")]
     [OutputType("Amazon.CloudFront.Model.KeyValueStore")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Key Value Store.</para>
+        /// <para>The name of the key value store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -1,4 +1,39 @@
-﻿### 4.1.556 (2024-04-10 20:55Z)
+﻿### 4.1.557 (2024-04-11 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.788.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch
+    * Modified cmdlet Write-CWAnomalyDetector: added parameter MetricCharacteristics_PeriodicSpike.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Get-EMLCloudWatchAlarmTemplate leveraging the GetCloudWatchAlarmTemplate service API.
+    * Added cmdlet Get-EMLCloudWatchAlarmTemplateGroup leveraging the GetCloudWatchAlarmTemplateGroup service API.
+    * Added cmdlet Get-EMLCloudWatchAlarmTemplateGroupList leveraging the ListCloudWatchAlarmTemplateGroups service API.
+    * Added cmdlet Get-EMLCloudWatchAlarmTemplateList leveraging the ListCloudWatchAlarmTemplates service API.
+    * Added cmdlet Get-EMLEventBridgeRuleTemplate leveraging the GetEventBridgeRuleTemplate service API.
+    * Added cmdlet Get-EMLEventBridgeRuleTemplateGroup leveraging the GetEventBridgeRuleTemplateGroup service API.
+    * Added cmdlet Get-EMLEventBridgeRuleTemplateGroupList leveraging the ListEventBridgeRuleTemplateGroups service API.
+    * Added cmdlet Get-EMLEventBridgeRuleTemplateList leveraging the ListEventBridgeRuleTemplates service API.
+    * Added cmdlet Get-EMLSignalMap leveraging the GetSignalMap service API.
+    * Added cmdlet Get-EMLSignalMapList leveraging the ListSignalMaps service API.
+    * Added cmdlet New-EMLCloudWatchAlarmTemplate leveraging the CreateCloudWatchAlarmTemplate service API.
+    * Added cmdlet New-EMLCloudWatchAlarmTemplateGroup leveraging the CreateCloudWatchAlarmTemplateGroup service API.
+    * Added cmdlet New-EMLEventBridgeRuleTemplate leveraging the CreateEventBridgeRuleTemplate service API.
+    * Added cmdlet New-EMLEventBridgeRuleTemplateGroup leveraging the CreateEventBridgeRuleTemplateGroup service API.
+    * Added cmdlet New-EMLSignalMap leveraging the CreateSignalMap service API.
+    * Added cmdlet Remove-EMLCloudWatchAlarmTemplate leveraging the DeleteCloudWatchAlarmTemplate service API.
+    * Added cmdlet Remove-EMLCloudWatchAlarmTemplateGroup leveraging the DeleteCloudWatchAlarmTemplateGroup service API.
+    * Added cmdlet Remove-EMLEventBridgeRuleTemplate leveraging the DeleteEventBridgeRuleTemplate service API.
+    * Added cmdlet Remove-EMLEventBridgeRuleTemplateGroup leveraging the DeleteEventBridgeRuleTemplateGroup service API.
+    * Added cmdlet Remove-EMLSignalMap leveraging the DeleteSignalMap service API.
+    * Added cmdlet Start-EMLDeleteMonitorDeployment leveraging the StartDeleteMonitorDeployment service API.
+    * Added cmdlet Start-EMLMonitorDeployment leveraging the StartMonitorDeployment service API.
+    * Added cmdlet Start-EMLUpdateSignalMap leveraging the StartUpdateSignalMap service API.
+    * Added cmdlet Update-EMLCloudWatchAlarmTemplate leveraging the UpdateCloudWatchAlarmTemplate service API.
+    * Added cmdlet Update-EMLCloudWatchAlarmTemplateGroup leveraging the UpdateCloudWatchAlarmTemplateGroup service API.
+    * Added cmdlet Update-EMLEventBridgeRuleTemplate leveraging the UpdateEventBridgeRuleTemplate service API.
+    * Added cmdlet Update-EMLEventBridgeRuleTemplateGroup leveraging the UpdateEventBridgeRuleTemplateGroup service API.
+  * Amazon Omics
+    * Modified cmdlet New-OMICSSequenceStore: added parameter ETagAlgorithmFamily.
+
+### 4.1.556 (2024-04-10 20:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.787.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Q Connect
     * Added cmdlet Update-QCSession leveraging the UpdateSession service API.

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter OriginAccessControlConfig_Name
         /// <summary>
         /// <para>
-        /// <para>A name to identify the origin access control.</para>
+        /// <para>A name to identify the origin access control. You can specify up to 64 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     /// Returns configuration information about the specified Multi-Region Access Point.
     /// </para><para>
     /// This action will always be routed to the US West (Oregon) Region. For more information
-    /// about the restrictions around managing Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ManagingMultiRegionAccessPoints.html">Managing
-    /// Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.
+    /// about the restrictions around working with Multi-Region Access Points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRestrictions.html">Multi-Region
+    /// Access Point restrictions and limitations</a> in the <i>Amazon S3 User Guide</i>.
     /// </para><para>
     /// The following actions are related to <c>GetMultiRegionAccessPoint</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_CreateMultiRegionAccessPoint.html">CreateMultiRegionAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DeleteMultiRegionAccessPoint.html">DeleteMultiRegionAccessPoint</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_ListMultiRegionAccessPoints.html">ListMultiRegionAccessPoints</a></para></li></ul>
@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <para>The name of the Multi-Region Access Point whose configuration information you want
         /// to receive. The name of the Multi-Region Access Point is different from the alias.
         /// For more information about the distinction between the name and the alias of an Multi-Region
-        /// Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Managing
-        /// Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</para>
+        /// Access Point, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CreatingMultiRegionAccessPoints.html#multi-region-access-point-naming">Rules
+        /// for naming Amazon S3 Multi-Region Access Points</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
