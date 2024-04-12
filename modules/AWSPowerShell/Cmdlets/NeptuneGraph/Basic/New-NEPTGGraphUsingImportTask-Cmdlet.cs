@@ -193,7 +193,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <summary>
         /// <para>
         /// <para>The number of replicas in other AZs to provision on the new graph after import. Default
-        /// = 0, Min = 0, Max = 2.</para>
+        /// = 0, Min = 0, Max = 2.</para><important><para> Additional charges equivalent to the m-NCUs selected for the graph apply for each
+        /// replica. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

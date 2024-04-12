@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Usage
         /// <summary>
         /// <para>
-        /// <para>Specifies whether this certificate is used for signing or encryption.</para>
+        /// <para>Specifies how this certificate is used. It can be used in the following ways:</para><ul><li><para><c>SIGNING</c>: For signing AS2 messages</para></li><li><para><c>ENCRYPTION</c>: For encrypting AS2 messages</para></li><li><para><c>TLS</c>: For securing AS2 communications sent over HTTPS</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

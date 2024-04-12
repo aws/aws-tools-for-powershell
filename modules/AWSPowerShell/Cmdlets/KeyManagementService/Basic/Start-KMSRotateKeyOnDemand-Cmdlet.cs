@@ -28,49 +28,64 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Disables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
-    /// rotation of the key material</a> of the specified symmetric encryption KMS key.
+    /// Immediately initiates rotation of the key material of the specified symmetric encryption
+    /// KMS key.
     /// 
     ///  
     /// <para>
-    /// Automatic key rotation is supported only on symmetric encryption KMS keys. You cannot
-    /// enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric
+    /// You can perform <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-on-demand">on-demand
+    /// rotation</a> of the key material in customer managed KMS keys, regardless of whether
+    /// or not <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable">automatic
+    /// key rotation</a> is enabled. On-demand rotations do not change existing automatic
+    /// rotation schedules. For example, consider a KMS key that has automatic key rotation
+    /// enabled with a rotation period of 730 days. If the key is scheduled to automatically
+    /// rotate on April 14, 2024, and you perform an on-demand rotation on April 10, 2024,
+    /// the key will automatically rotate, as scheduled, on April 14, 2024 and every 730 days
+    /// thereafter.
+    /// </para><note><para>
+    /// You can perform on-demand key rotation a <b>maximum of 10 times</b> per KMS key. You
+    /// can use the KMS console to view the number of remaining on-demand rotations available
+    /// for a KMS key.
+    /// </para></note><para>
+    /// You can use <a>GetKeyRotationStatus</a> to identify any in progress on-demand rotations.
+    /// You can use <a>ListKeyRotations</a> to identify the date that completed on-demand
+    /// rotations were performed. You can monitor rotation of the key material for your KMS
+    /// keys in CloudTrail and Amazon CloudWatch.
+    /// </para><para>
+    /// On-demand key rotation is supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks">symmetric
+    /// encryption KMS keys</a>. You cannot perform on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric
     /// KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
     /// KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported
     /// key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-    /// key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region
-    /// keys</a>, set the property on the primary key.
+    /// key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region
+    /// keys</a>, invoke the on-demand rotation on the primary key.
     /// </para><para>
-    /// You can enable (<a>EnableKeyRotation</a>) and disable automatic rotation of the key
-    /// material in <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
-    /// managed KMS keys</a>. Key material rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
-    /// Web Services managed KMS keys</a> is not configurable. KMS always rotates the key
-    /// material for every year. Rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
-    /// Web Services owned KMS keys</a> varies.
-    /// </para><note><para>
-    /// In May 2022, KMS changed the rotation schedule for Amazon Web Services managed keys
-    /// from every three years to every year. For details, see <a>EnableKeyRotation</a>.
-    /// </para></note><para>
+    /// You cannot initiate on-demand rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// Web Services managed KMS keys</a>. KMS always rotates the key material of Amazon Web
+    /// Services managed keys every year. Rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
+    /// Web Services owned KMS keys</a> is managed by the Amazon Web Services service that
+    /// owns the key.
+    /// </para><para>
     /// The KMS key that you use for this operation must be in a compatible key state. For
     /// details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key
     /// states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para><b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a
     /// different Amazon Web Services account.
-    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:DisableKeyRotation</a>
+    /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:RotateKeyOnDemand</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>EnableKeyRotation</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ListKeyRotations</a></para></li><li><para><a>RotateKeyOnDemand</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>EnableKeyRotation</a></para></li><li><para><a>DisableKeyRotation</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ListKeyRotations</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
     /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
     /// eventual consistency</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Disable", "KMSKeyRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Key Management Service DisableKeyRotation API operation.", Operation = new[] {"DisableKeyRotation"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.DisableKeyRotationResponse))]
-    [AWSCmdletOutput("None or Amazon.KeyManagementService.Model.DisableKeyRotationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KeyManagementService.Model.DisableKeyRotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "KMSRotateKeyOnDemand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Key Management Service RotateKeyOnDemand API operation.", Operation = new[] {"RotateKeyOnDemand"}, SelectReturnType = typeof(Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse))]
+    [AWSCmdletOutput("System.String or Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableKMSKeyRotationCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
+    public partial class StartKMSRotateKeyOnDemandCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -78,12 +93,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>Identifies a symmetric encryption KMS key. You cannot enable or disable automatic
-        /// rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks">asymmetric
+        /// <para>Identifies a symmetric encryption KMS key. You cannot perform on-demand rotation of
+        /// <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric
         /// KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC
         /// KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported
         /// key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom
-        /// key store</a>.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
+        /// key store</a>. To perform on-demand rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region
+        /// keys</a>, invoke the on-demand rotation on the primary key.</para><para>Specify the key ID or key ARN of the KMS key.</para><para>For example:</para><ul><li><para>Key ID: <c>1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li><li><para>Key ARN: <c>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</c></para></li></ul><para>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,12 +115,13 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KeyManagementService.Model.DisableKeyRotationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'KeyId'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse).
+        /// Specifying the name of a property of type Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "KeyId";
         #endregion
         
         #region Parameter PassThru
@@ -133,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KeyId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-KMSKeyRotation (DisableKeyRotation)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-KMSRotateKeyOnDemand (RotateKeyOnDemand)"))
             {
                 return;
             }
@@ -146,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.DisableKeyRotationResponse, DisableKMSKeyRotationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse, StartKMSRotateKeyOnDemandCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -179,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KeyManagementService.Model.DisableKeyRotationRequest();
+            var request = new Amazon.KeyManagementService.Model.RotateKeyOnDemandRequest();
             
             if (cmdletContext.KeyId != null)
             {
@@ -218,15 +235,15 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #region AWS Service Operation Call
         
-        private Amazon.KeyManagementService.Model.DisableKeyRotationResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.DisableKeyRotationRequest request)
+        private Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.RotateKeyOnDemandRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "DisableKeyRotation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "RotateKeyOnDemand");
             try
             {
                 #if DESKTOP
-                return client.DisableKeyRotation(request);
+                return client.RotateKeyOnDemand(request);
                 #elif CORECLR
-                return client.DisableKeyRotationAsync(request).GetAwaiter().GetResult();
+                return client.RotateKeyOnDemandAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -247,8 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KeyId { get; set; }
-            public System.Func<Amazon.KeyManagementService.Model.DisableKeyRotationResponse, DisableKMSKeyRotationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.KeyManagementService.Model.RotateKeyOnDemandResponse, StartKMSRotateKeyOnDemandCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.KeyId;
         }
         
     }

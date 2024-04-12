@@ -28,11 +28,17 @@ using Amazon.IoTFleetHub.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTFH
 {
     /// <summary>
-    /// Creates a Fleet Hub for AWS IoT Device Management web application.
+    /// Creates a Fleet Hub for IoT Device Management web application.
     /// 
-    ///  <note><para>
-    /// Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.
-    /// </para></note>
+    ///  
+    /// <para>
+    /// When creating a Fleet Hub application, you must create an organization instance of
+    /// IAM Identity Center if you don't already have one. The Fleet Hub application you create
+    /// must also be in the same Amazon Web Services Region of the organization instance of
+    /// IAM Identity Center. For more information see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html">Enabling
+    /// IAM Identity Center</a> and <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/organization-instances-identity-center.html">Organization
+    /// instances of IAM Identity Center</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "IOTFHApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoTFleetHub.Model.CreateApplicationResponse")]
@@ -75,8 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the role that the web application assumes when it interacts with AWS IoT
-        /// Core.</para><note><para>The name of the role must be in the form <c>AWSIotFleetHub_<i>random_string</i></c>.</para></note>
+        /// <para>The ARN of the role that the web application assumes when it interacts with Amazon
+        /// Web Services IoT Core.</para><note><para>The name of the role must be in the form <c>AWSIotFleetHub_<i>random_string</i></c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR

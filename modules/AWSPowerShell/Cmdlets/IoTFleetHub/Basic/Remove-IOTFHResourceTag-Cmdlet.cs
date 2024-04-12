@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
 {
     /// <summary>
     /// Removes the specified tags (metadata) from the resource.
-    /// 
-    ///  <note><para>
-    /// Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IOTFHResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

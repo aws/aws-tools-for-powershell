@@ -60,6 +60,17 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ChangeSetName { get; set; }
         #endregion
         
+        #region Parameter IncludePropertyValue
+        /// <summary>
+        /// <para>
+        /// <para>If <c>true</c>, the returned changes include detailed changes in the property values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludePropertyValues")]
+        public System.Boolean? IncludePropertyValue { get; set; }
+        #endregion
+        
         #region Parameter StackName
         /// <summary>
         /// <para>
@@ -151,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 WriteWarning("You are passing $null as a value for parameter ChangeSetName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludePropertyValue = this.IncludePropertyValue;
             context.NextToken = this.NextToken;
             context.StackName = this.StackName;
             
@@ -177,6 +189,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ChangeSetName != null)
             {
                 request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
+            if (cmdletContext.IncludePropertyValue != null)
+            {
+                request.IncludePropertyValues = cmdletContext.IncludePropertyValue.Value;
             }
             if (cmdletContext.StackName != null)
             {
@@ -239,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ChangeSetName != null)
             {
                 request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
+            if (cmdletContext.IncludePropertyValue != null)
+            {
+                request.IncludePropertyValues = cmdletContext.IncludePropertyValue.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -311,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChangeSetName { get; set; }
+            public System.Boolean? IncludePropertyValue { get; set; }
             public System.String NextToken { get; set; }
             public System.String StackName { get; set; }
             public System.Func<Amazon.CloudFormation.Model.DescribeChangeSetResponse, GetCFNChangeSetCmdlet, object> Select { get; set; } =

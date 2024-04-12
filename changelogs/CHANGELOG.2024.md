@@ -1,4 +1,17 @@
-﻿### 4.1.557 (2024-04-11 21:01Z)
+﻿### 4.1.558 (2024-04-12 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.789.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudFormation
+    * Modified cmdlet Get-CFNChangeSet: added parameter IncludePropertyValue.
+  * Amazon Elemental MediaTailor
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameter InsertionMode.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEUnfilteredTableMetadata: added parameters ParentResourceArn and RootResourceArn.
+  * Amazon Key Management Service
+    * Added cmdlet Get-KMSKeyRotation leveraging the ListKeyRotations service API.
+    * Added cmdlet Start-KMSRotateKeyOnDemand leveraging the RotateKeyOnDemand service API.
+    * Modified cmdlet Enable-KMSKeyRotation: added parameter RotationPeriodInDay.
+
+### 4.1.557 (2024-04-11 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.788.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch
     * Modified cmdlet Write-CWAnomalyDetector: added parameter MetricCharacteristics_PeriodicSpike.

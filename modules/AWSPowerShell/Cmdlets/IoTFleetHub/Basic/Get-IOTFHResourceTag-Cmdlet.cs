@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
 {
     /// <summary>
     /// Lists the tags for the specified resource.
-    /// 
-    ///  <note><para>
-    /// Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "IOTFHResourceTag")]
     [OutputType("System.String")]

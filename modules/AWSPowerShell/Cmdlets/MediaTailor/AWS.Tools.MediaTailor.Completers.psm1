@@ -97,6 +97,13 @@ $EMT_Completers = {
             break
         }
 
+        # Amazon.MediaTailor.InsertionMode
+        "Set-EMTPlaybackConfiguration/InsertionMode"
+        {
+            $v = "PLAYER_SELECT","STITCHED_ONLY"
+            break
+        }
+
         # Amazon.MediaTailor.Mode
         "Set-EMTPlaybackConfiguration/AvailSuppression_Mode"
         {
@@ -137,6 +144,7 @@ $EMT_map = @{
     "AccessConfiguration_AccessType"=@("New-EMTSourceLocation","Update-EMTSourceLocation")
     "AvailSuppression_FillPolicy"=@("Set-EMTPlaybackConfiguration")
     "AvailSuppression_Mode"=@("Set-EMTPlaybackConfiguration")
+    "InsertionMode"=@("Set-EMTPlaybackConfiguration")
     "PlaybackMode"=@("New-EMTChannel")
     "Tier"=@("New-EMTChannel")
     "Transition_RelativePosition"=@("New-EMTProgram")

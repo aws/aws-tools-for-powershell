@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Filters_EvaluationMode
         /// <summary>
         /// <para>
-        /// <para>Filters all resource evaluations results based on an evaluation mode. the valid value
-        /// for this API is <c>Proactive</c>.</para>
+        /// <para>Filters all resource evaluations results based on an evaluation mode.</para><important><para>Currently, <c>DECTECTIVE</c> is not supported as a valid value. Ignore other documentation
+        /// stating otherwise.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

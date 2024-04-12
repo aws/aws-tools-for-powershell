@@ -93,7 +93,7 @@ $TFR_Completers = {
         # Amazon.Transfer.CertificateUsageType
         "Import-TFRCertificate/Usage"
         {
-            $v = "ENCRYPTION","SIGNING"
+            $v = "ENCRYPTION","SIGNING","TLS"
             break
         }
 

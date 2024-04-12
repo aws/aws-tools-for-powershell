@@ -28,7 +28,8 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves table metadata from the Data Catalog that contains unfiltered metadata.
+    /// Allows a third-party analytical engine to retrieve unfiltered table metadata from
+    /// the Data Catalog.
     /// 
     ///  
     /// <para>
@@ -158,6 +159,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ParentResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The resource ARN of the view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ParentResourceArn { get; set; }
+        #endregion
+        
         #region Parameter Permission
         /// <summary>
         /// <para>
@@ -221,10 +232,36 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String[] AuditContext_RequestedColumn { get; set; }
         #endregion
         
+        #region Parameter RootResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The resource ARN of the root view in a chain of nested views.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RootResourceArn { get; set; }
+        #endregion
+        
         #region Parameter SupportedPermissionType
         /// <summary>
         /// <para>
-        /// <para>(Required) A list of supported permission types. </para>
+        /// <para>Indicates the level of filtering a third-party analytical engine is capable of enforcing
+        /// when calling the <c>GetUnfilteredTableMetadata</c> API operation. Accepted values
+        /// are:</para><ul><li><para><c>COLUMN_PERMISSION</c> - Column permissions ensure that users can access only specific
+        /// columns in the table. If there are particular columns contain sensitive data, data
+        /// lake administrators can define column filters that exclude access to specific columns.</para></li><li><para><c>CELL_FILTER_PERMISSION</c> - Cell-level filtering combines column filtering (include
+        /// or exclude columns) and row filter expressions to restrict access to individual elements
+        /// in the table.</para></li><li><para><c>NESTED_PERMISSION</c> - Nested permissions combines cell-level filtering and nested
+        /// column filtering to restrict access to columns and/or nested columns in specific rows
+        /// based on row filter expressions.</para></li><li><para><c>NESTED_CELL_PERMISSION</c> - Nested cell permissions combines nested permission
+        /// with nested cell-level filtering. This allows different subsets of nested columns
+        /// to be restricted based on an array of row filter expressions. </para></li></ul><para>Note: Each of these permission types follows a hierarchical order where each subsequent
+        /// permission type includes all permission of the previous type.</para><para>Important: If you provide a supported permission type that doesn't match the user's
+        /// level of permissions on the table, then Lake Formation raises an exception. For example,
+        /// if the third-party engine calling the <c>GetUnfilteredTableMetadata</c> operation
+        /// can enforce only column-level filtering, and the user has nested cell filtering applied
+        /// on the table, Lake Formation throws an exception, and will not return unfiltered table
+        /// metadata and data access credentials.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -312,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ParentResourceArn = this.ParentResourceArn;
             if (this.Permission != null)
             {
                 context.Permission = new List<System.String>(this.Permission);
@@ -329,6 +367,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.QuerySessionContext_QueryId = this.QuerySessionContext_QueryId;
             context.QuerySessionContext_QueryStartTime = this.QuerySessionContext_QueryStartTime;
             context.ResourceRegion = this.ResourceRegion;
+            context.RootResourceArn = this.RootResourceArn;
             context.SupportedDialect_Dialect = this.SupportedDialect_Dialect;
             context.SupportedDialect_DialectVersion = this.SupportedDialect_DialectVersion;
             if (this.SupportedPermissionType != null)
@@ -408,6 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.ParentResourceArn != null)
+            {
+                request.ParentResourceArn = cmdletContext.ParentResourceArn;
+            }
             if (cmdletContext.Permission != null)
             {
                 request.Permissions = cmdletContext.Permission;
@@ -474,6 +517,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.ResourceRegion != null)
             {
                 request.Region = cmdletContext.ResourceRegion;
+            }
+            if (cmdletContext.RootResourceArn != null)
+            {
+                request.RootResourceArn = cmdletContext.RootResourceArn;
             }
             
              // populate SupportedDialect
@@ -575,6 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Name { get; set; }
+            public System.String ParentResourceArn { get; set; }
             public List<System.String> Permission { get; set; }
             public Dictionary<System.String, System.String> QuerySessionContext_AdditionalContext { get; set; }
             public System.String QuerySessionContext_ClusterId { get; set; }
@@ -582,6 +630,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String QuerySessionContext_QueryId { get; set; }
             public System.DateTime? QuerySessionContext_QueryStartTime { get; set; }
             public System.String ResourceRegion { get; set; }
+            public System.String RootResourceArn { get; set; }
             public Amazon.Glue.ViewDialect SupportedDialect_Dialect { get; set; }
             public System.String SupportedDialect_DialectVersion { get; set; }
             public List<System.String> SupportedPermissionType { get; set; }

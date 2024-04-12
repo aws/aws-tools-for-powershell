@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.788.0",
+    "ProductVersion"    : "3.7.789.0",
     "CoreVersion"       : "3.7.303.14",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -31,7 +31,7 @@
             "InPreview"               : false
         },
         "CloudFormation" : {
-            "Version" : "3.7.306.6",
+            "Version" : "3.7.307.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -71,7 +71,7 @@
             "InPreview"               : false
         },
         "ConfigService"     : {
-            "Version" : "3.7.302.45",
+            "Version" : "3.7.302.46",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -251,7 +251,7 @@
             "InPreview"               : false
         },
         "KeyManagementService" : {
-            "Version" : "3.7.301.15",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -291,7 +291,7 @@
             "InPreview"               : false
         },
         "Redshift"             : {
-            "Version" : "3.7.304.28",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -827,7 +827,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.308.7",
+            "Version" : "3.7.309.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -1131,7 +1131,7 @@
             "InPreview"               : false
         },
         "MediaTailor"                     : {
-            "Version" : "3.7.304.15",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -1251,7 +1251,7 @@
             "InPreview"               : false
         },
         "Transfer"                        : {
-            "Version" : "3.7.304.6",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -1707,7 +1707,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.301.34",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -1979,7 +1979,7 @@
             "InPreview"               : false
         },
         "HealthLake"                      : {
-            "Version" : "3.7.301.23",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -2019,7 +2019,7 @@
             "InPreview"               : false
         },
         "IoTFleetHub"                     : {
-            "Version" : "3.7.300.74",
+            "Version" : "3.7.300.75",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"
@@ -2995,7 +2995,7 @@
             "InPreview"               : false
         },
         "NeptuneGraph"                        : {
-            "Version" : "3.7.305.9",
+            "Version" : "3.7.305.10",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.14"

@@ -16404,6 +16404,9 @@ Set-Alias -Name KMS-ListGrants -Value Get-KMSGrantList
 Set-Alias -Name List-KMSKeyPolicies -Value Get-KMSKeyPolicyList
 Set-Alias -Name List-KMSKeyPolicyList -Value Get-KMSKeyPolicyList
 Set-Alias -Name KMS-ListKeyPolicies -Value Get-KMSKeyPolicyList
+Set-Alias -Name List-KMSKeyRotations -Value Get-KMSKeyRotation
+Set-Alias -Name List-KMSKeyRotation -Value Get-KMSKeyRotation
+Set-Alias -Name KMS-ListKeyRotations -Value Get-KMSKeyRotation
 Set-Alias -Name List-KMSKeys -Value Get-KMSKeyList
 Set-Alias -Name List-KMSKeyList -Value Get-KMSKeyList
 Set-Alias -Name KMS-ListKeys -Value Get-KMSKeyList
@@ -16424,6 +16427,9 @@ Set-Alias -Name KMS-ReplicateKey -Value New-KMSReplicaKey
 Set-Alias -Name Retire-KMSGrant -Value Disable-KMSGrant
 Set-Alias -Name KMS-RetireGrant -Value Disable-KMSGrant
 Set-Alias -Name KMS-RevokeGrant -Value Revoke-KMSGrant
+Set-Alias -Name Rotate-KMSKeyOnDemand -Value Start-KMSRotateKeyOnDemand
+Set-Alias -Name Rotate-KMSRotateKeyOnDemand -Value Start-KMSRotateKeyOnDemand
+Set-Alias -Name KMS-RotateKeyOnDemand -Value Start-KMSRotateKeyOnDemand
 Set-Alias -Name Schedule-KMSKeyDeletion -Value Request-KMSKeyDeletion
 Set-Alias -Name KMS-ScheduleKeyDeletion -Value Request-KMSKeyDeletion
 Set-Alias -Name Sign-KMS -Value Invoke-KMSSigning

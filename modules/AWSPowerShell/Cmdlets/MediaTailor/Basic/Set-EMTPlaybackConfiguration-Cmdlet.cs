@@ -138,6 +138,21 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         public Amazon.MediaTailor.FillPolicy AvailSuppression_FillPolicy { get; set; }
         #endregion
         
+        #region Parameter InsertionMode
+        /// <summary>
+        /// <para>
+        /// <para>The setting that controls whether players can use stitched or guided ad insertion.
+        /// The default, <c>STITCHED_ONLY</c>, forces all player sessions to use stitched (server-side)
+        /// ad insertion. Choosing <c>PLAYER_SELECT</c> allows players to select either stitched
+        /// or guided ad insertion at session-initialization time. The default for players that
+        /// do not specify an insertion mode is stitched.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaTailor.InsertionMode")]
+        public Amazon.MediaTailor.InsertionMode InsertionMode { get; set; }
+        #endregion
+        
         #region Parameter LivePreRollConfiguration_MaxDurationSecond
         /// <summary>
         /// <para>
@@ -357,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 }
             }
             context.DashConfiguration = this.DashConfiguration;
+            context.InsertionMode = this.InsertionMode;
             context.LivePreRollConfiguration_AdDecisionServerUrl = this.LivePreRollConfiguration_AdDecisionServerUrl;
             context.LivePreRollConfiguration_MaxDurationSecond = this.LivePreRollConfiguration_MaxDurationSecond;
             context.AdMarkerPassthrough_Enabled = this.AdMarkerPassthrough_Enabled;
@@ -478,6 +494,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.DashConfiguration != null)
             {
                 request.DashConfiguration = cmdletContext.DashConfiguration;
+            }
+            if (cmdletContext.InsertionMode != null)
+            {
+                request.InsertionMode = cmdletContext.InsertionMode;
             }
             
              // populate LivePreRollConfiguration
@@ -636,6 +656,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.Model.CdnConfiguration CdnConfiguration { get; set; }
             public Dictionary<System.String, Dictionary<System.String, System.String>> ConfigurationAlias { get; set; }
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
+            public Amazon.MediaTailor.InsertionMode InsertionMode { get; set; }
             public System.String LivePreRollConfiguration_AdDecisionServerUrl { get; set; }
             public System.Int32? LivePreRollConfiguration_MaxDurationSecond { get; set; }
             public System.Boolean? AdMarkerPassthrough_Enabled { get; set; }

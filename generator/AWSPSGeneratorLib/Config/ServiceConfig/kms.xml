@@ -159,6 +159,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListKeyRotations" OutputProperty="Rotations" Verb="Get" Noun="KeyRotation" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListKeys" OutputProperty="Keys" Verb="Get" Noun="KeyList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyAlias="Get-KMSKeys">
             <Params />
             <TypesNotToFlatten />
@@ -188,6 +192,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RevokeGrant" Verb="Revoke" Noun="Grant" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RotateKeyOnDemand" OutputProperty="KeyId" Verb="Start" Noun="RotateKeyOnDemand" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

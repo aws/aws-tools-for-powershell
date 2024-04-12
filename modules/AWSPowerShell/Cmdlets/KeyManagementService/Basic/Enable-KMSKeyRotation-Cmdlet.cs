@@ -28,17 +28,23 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic
+    /// Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable">automatic
     /// rotation of the key material</a> of the specified symmetric encryption KMS key. 
     /// 
     ///  
     /// <para>
-    /// When you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
+    /// By default, when you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer
     /// managed KMS key</a>, KMS rotates the key material of the KMS key one year (approximately
-    /// 365 days) from the enable date and every year thereafter. You can monitor rotation
-    /// of the key material for your KMS keys in CloudTrail and Amazon CloudWatch. To disable
-    /// rotation of the key material in a customer managed KMS key, use the <a>DisableKeyRotation</a>
-    /// operation.
+    /// 365 days) from the enable date and every year thereafter. You can use the optional
+    /// <c>RotationPeriodInDays</c> parameter to specify a custom rotation period when you
+    /// enable key rotation, or you can use <c>RotationPeriodInDays</c> to modify the rotation
+    /// period of a key that you previously enabled automatic key rotation on.
+    /// </para><para>
+    /// You can monitor rotation of the key material for your KMS keys in CloudTrail and Amazon
+    /// CloudWatch. To disable rotation of the key material in a customer managed KMS key,
+    /// use the <a>DisableKeyRotation</a> operation. You can use the <a>GetKeyRotationStatus</a>
+    /// operation to identify any in progress rotations. You can use the <a>ListKeyRotations</a>
+    /// operation to view the details of completed rotations.
     /// </para><para>
     /// Automatic key rotation is supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks">symmetric
     /// encryption KMS keys</a>. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric
@@ -48,10 +54,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region
     /// keys</a>, set the property on the primary key. 
     /// </para><para>
-    /// You cannot enable or disable automatic rotation <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
+    /// You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon
     /// Web Services managed KMS keys</a>. KMS always rotates the key material of Amazon Web
     /// Services managed keys every year. Rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon
-    /// Web Services owned KMS keys</a> varies.
+    /// Web Services owned KMS keys</a> is managed by the Amazon Web Services service that
+    /// owns the key.
     /// </para><note><para>
     /// In May 2022, KMS changed the rotation schedule for Amazon Web Services managed keys
     /// from every three years (approximately 1,095 days) to every year (approximately 365
@@ -70,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// different Amazon Web Services account.
     /// </para><para><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:EnableKeyRotation</a>
     /// (key policy)
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DisableKeyRotation</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DisableKeyRotation</a></para></li><li><para><a>GetKeyRotationStatus</a></para></li><li><para><a>ListKeyRotations</a></para></li><li><para><a>RotateKeyOnDemand</a></para><note><para>
+    /// You can perform on-demand (<a>RotateKeyOnDemand</a>) rotation of the key material
+    /// in customer managed KMS keys, regardless of whether or not automatic key rotation
+    /// is enabled.
+    /// </para></note></li></ul><para><b>Eventual consistency</b>: The KMS API follows an eventual consistency model. For
     /// more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS
     /// eventual consistency</a>.
     /// </para>
@@ -108,6 +119,21 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String KeyId { get; set; }
+        #endregion
+        
+        #region Parameter RotationPeriodInDay
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to specify a custom period of time between each rotation date.
+        /// If no value is specified, the default value is 365 days.</para><para>The rotation period defines the number of days after you enable automatic key rotation
+        /// that KMS will rotate your key material, and the number of days between each automatic
+        /// rotation thereafter.</para><para>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days"><c>kms:RotationPeriodInDays</c></a> condition key to further constrain the values
+        /// that principals can specify in the <c>RotationPeriodInDays</c> parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RotationPeriodInDays")]
+        public System.Int32? RotationPeriodInDay { get; set; }
         #endregion
         
         #region Parameter Select
@@ -178,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 WriteWarning("You are passing $null as a value for parameter KeyId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RotationPeriodInDay = this.RotationPeriodInDay;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,6 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             if (cmdletContext.KeyId != null)
             {
                 request.KeyId = cmdletContext.KeyId;
+            }
+            if (cmdletContext.RotationPeriodInDay != null)
+            {
+                request.RotationPeriodInDays = cmdletContext.RotationPeriodInDay.Value;
             }
             
             CmdletOutput output;
@@ -260,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String KeyId { get; set; }
+            public System.Int32? RotationPeriodInDay { get; set; }
             public System.Func<Amazon.KeyManagementService.Model.EnableKeyRotationResponse, EnableKMSKeyRotationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

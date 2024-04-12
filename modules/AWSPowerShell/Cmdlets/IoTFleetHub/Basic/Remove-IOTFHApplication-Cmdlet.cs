@@ -28,11 +28,7 @@ using Amazon.IoTFleetHub.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTFH
 {
     /// <summary>
-    /// Deletes a Fleet Hub for AWS IoT Device Management web application.
-    /// 
-    ///  <note><para>
-    /// Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.
-    /// </para></note>
+    /// Deletes a Fleet Hub for IoT Device Management web application.
     /// </summary>
     [Cmdlet("Remove", "IOTFHApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

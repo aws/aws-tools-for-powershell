@@ -95,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         #region Parameter ReplicaCount
         /// <summary>
         /// <para>
-        /// <para>The number of replicas in other AZs. Min =0, Max = 2, Default =1</para>
+        /// <para>The number of replicas in other AZs. Min =0, Max = 2, Default =1</para><important><para> Additional charges equivalent to the m-NCUs selected for the graph apply for each
+        /// replica. </para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

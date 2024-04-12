@@ -28,11 +28,7 @@ using Amazon.IoTFleetHub.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTFH
 {
     /// <summary>
-    /// Gets information about a Fleet Hub for AWS IoT Device Management web application.
-    /// 
-    ///  <note><para>
-    /// Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.
-    /// </para></note>
+    /// Gets information about a Fleet Hub for IoT Device Management web application.
     /// </summary>
     [Cmdlet("Get", "IOTFHApplication")]
     [OutputType("Amazon.IoTFleetHub.Model.DescribeApplicationResponse")]

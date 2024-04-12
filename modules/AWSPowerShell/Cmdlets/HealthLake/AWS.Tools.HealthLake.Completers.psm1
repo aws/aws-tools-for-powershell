@@ -97,7 +97,7 @@ $AHL_Completers = {
         # Amazon.HealthLake.DatastoreStatus
         "Get-AHLFHIRDatastoreList/Filter_DatastoreStatus"
         {
-            $v = "ACTIVE","CREATING","DELETED","DELETING"
+            $v = "ACTIVE","CREATE_FAILED","CREATING","DELETED","DELETING"
             break
         }
 

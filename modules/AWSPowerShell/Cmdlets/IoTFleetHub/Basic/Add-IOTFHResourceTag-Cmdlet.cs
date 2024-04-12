@@ -30,10 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
     /// <summary>
     /// Adds to or modifies the tags of the specified resource. Tags are metadata which can
     /// be used to manage a resource.
-    /// 
-    ///  <note><para>
-    /// Fleet Hub for AWS IoT Device Management is in public preview and is subject to change.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Add", "IOTFHResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
