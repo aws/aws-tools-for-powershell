@@ -83,7 +83,7 @@ $AMM_Completers = {
         # Amazon.MainframeModernization.BatchJobExecutionStatus
         "Get-AMMBatchJobExecutionList/Status"
         {
-            $v = "Cancelled","Cancelling","Dispatching","Failed","Holding","Running","Submitting","Succeeded","Succeeded With Warning"
+            $v = "Cancelled","Cancelling","Dispatching","Failed","Holding","Purged","Running","Submitting","Succeeded","Succeeded With Warning"
             break
         }
 
@@ -182,6 +182,7 @@ $AMM_SelectMap = @{
                "Get-AMMApplicationVersionList",
                "Get-AMMBatchJobDefinitionList",
                "Get-AMMBatchJobExecutionList",
+               "Get-AMMBatchJobRestartPointList",
                "Get-AMMDataSetImportHistoryList",
                "Get-AMMDataSetList",
                "Get-AMMDeploymentList",

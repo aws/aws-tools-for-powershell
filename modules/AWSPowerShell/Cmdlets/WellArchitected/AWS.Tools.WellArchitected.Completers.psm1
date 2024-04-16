@@ -80,6 +80,13 @@ $WAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WellArchitected.AccountJiraIssueManagementStatus
+        "Update-WATGlobalSetting/JiraConfiguration_IssueManagementStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.AnswerReason
         {
             ($_ -eq "Update-WATAnswer/Reason") -Or
@@ -94,6 +101,31 @@ $WAT_Completers = {
         "Update-WATGlobalSetting/DiscoveryIntegrationStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.WellArchitected.IntegratingService
+        "Update-WATIntegration/IntegratingService"
+        {
+            $v = "JIRA"
+            break
+        }
+
+        # Amazon.WellArchitected.IntegrationStatusInput
+        "Update-WATGlobalSetting/JiraConfiguration_IntegrationStatus"
+        {
+            $v = "NOT_CONFIGURED"
+            break
+        }
+
+        # Amazon.WellArchitected.IssueManagementType
+        {
+            ($_ -eq "New-WATWorkload/JiraConfiguration_IssueManagementType") -Or
+            ($_ -eq "Update-WATGlobalSetting/JiraConfiguration_IssueManagementType") -Or
+            ($_ -eq "Update-WATWorkload/JiraConfiguration_IssueManagementType")
+        }
+        {
+            $v = "AUTO","MANUAL"
             break
         }
 
@@ -208,6 +240,16 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.WorkloadIssueManagementStatus
+        {
+            ($_ -eq "New-WATWorkload/JiraConfiguration_IssueManagementStatus") -Or
+            ($_ -eq "Update-WATWorkload/JiraConfiguration_IssueManagementStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED","INHERIT"
+            break
+        }
+
 
     }
 
@@ -222,6 +264,10 @@ $WAT_map = @{
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")
+    "IntegratingService"=@("Update-WATIntegration")
+    "JiraConfiguration_IntegrationStatus"=@("Update-WATGlobalSetting")
+    "JiraConfiguration_IssueManagementStatus"=@("New-WATWorkload","Update-WATGlobalSetting","Update-WATWorkload")
+    "JiraConfiguration_IssueManagementType"=@("New-WATWorkload","Update-WATGlobalSetting","Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
     "LensType"=@("Get-WATLensList")
     "OrganizationSharingStatus"=@("Update-WATGlobalSetting")
@@ -308,6 +354,7 @@ $WAT_SelectMap = @{
                "Export-WATLens",
                "Get-WATAnswer",
                "Get-WATConsolidatedReport",
+               "Get-WATGlobalSetting",
                "Get-WATLens",
                "Get-WATLensReview",
                "Get-WATLensReviewReport",
@@ -343,6 +390,7 @@ $WAT_SelectMap = @{
                "Remove-WATResourceTag",
                "Update-WATAnswer",
                "Update-WATGlobalSetting",
+               "Update-WATIntegration",
                "Update-WATLensReview",
                "Update-WATProfile",
                "Update-WATReviewTemplate",

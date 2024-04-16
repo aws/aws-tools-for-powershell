@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ActionGroupExecutor_Lambda
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Lambda function containing the business logic that is carried out upon
-        /// invoking the action.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Lambda function containing the business logic
+        /// that is carried out upon invoking the action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,10 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     /// 
     ///  <ul><li><para>
     /// Specify the following fields for security purposes.
-    /// </para><ul><li><para><c>agentResourceRoleArn</c> – The ARN of the role with permissions to create an agent.
+    /// </para><ul><li><para><c>agentResourceRoleArn</c> – The Amazon Resource Name (ARN) of the role with permissions
+    /// to invoke API operations on an agent.
     /// </para></li><li><para>
-    /// (Optional) <c>customerEncryptionKeyArn</c> – The ARN of a KMS key to encrypt the creation
-    /// of the agent.
+    /// (Optional) <c>customerEncryptionKeyArn</c> – The Amazon Resource Name (ARN) of a KMS
+    /// key to encrypt the creation of the agent.
     /// </para></li><li><para>
     /// (Optional) <c>idleSessionTTLinSeconds</c> – Specify the number of seconds for which
     /// the agent should maintain session information. After this time expires, the subsequent
@@ -87,25 +88,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentResourceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role with permissions to create the agent. The ARN must begin with
-        /// <c>AmazonBedrockExecutionRoleForAgents_</c>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations
+        /// on the agent.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AgentResourceRoleArn { get; set; }
         #endregion
         
         #region Parameter CustomerEncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the KMS key with which to encrypt the agent.</para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -276,12 +270,6 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             }
             #endif
             context.AgentResourceRoleArn = this.AgentResourceRoleArn;
-            #if MODULAR
-            if (this.AgentResourceRoleArn == null && ParameterWasBound(nameof(this.AgentResourceRoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AgentResourceRoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.ClientToken = this.ClientToken;
             context.CustomerEncryptionKeyArn = this.CustomerEncryptionKeyArn;
             context.Description = this.Description;

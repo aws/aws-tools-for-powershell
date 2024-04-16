@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter S3Configuration_BucketArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the bucket that contains the data source.</para>
+        /// <para>The Amazon Resource Name (ARN) of the bucket that contains the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ServerSideEncryptionConfiguration_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the KMS key used to encrypt the resource.</para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key used to encrypt the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

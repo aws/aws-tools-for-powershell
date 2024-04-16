@@ -106,14 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// and <c>KMSArn</c>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public Amazon.EntityResolution.Model.IdMappingWorkflowOutputSource[] OutputSourceConfig { get; set; }
         #endregion
         
@@ -134,14 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <para>The ARN of the provider service.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("IdMappingTechniques_ProviderProperties_ProviderServiceArn")]
         public System.String ProviderProperties_ProviderServiceArn { get; set; }
         #endregion
@@ -150,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role. Entity Resolution assumes this role
-        /// to access resources on your behalf.</para>
+        /// to access Amazon Web Services resources on your behalf.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -254,12 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             context.IntermediateSourceConfiguration_IntermediateS3Path = this.IntermediateSourceConfiguration_IntermediateS3Path;
             context.ProviderProperties_ProviderConfiguration = this.ProviderProperties_ProviderConfiguration;
             context.ProviderProperties_ProviderServiceArn = this.ProviderProperties_ProviderServiceArn;
-            #if MODULAR
-            if (this.ProviderProperties_ProviderServiceArn == null && ParameterWasBound(nameof(this.ProviderProperties_ProviderServiceArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ProviderProperties_ProviderServiceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.InputSourceConfig != null)
             {
                 context.InputSourceConfig = new List<Amazon.EntityResolution.Model.IdMappingWorkflowInputSource>(this.InputSourceConfig);
@@ -274,12 +254,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             {
                 context.OutputSourceConfig = new List<Amazon.EntityResolution.Model.IdMappingWorkflowOutputSource>(this.OutputSourceConfig);
             }
-            #if MODULAR
-            if (this.OutputSourceConfig == null && ParameterWasBound(nameof(this.OutputSourceConfig)))
-            {
-                WriteWarning("You are passing $null as a value for parameter OutputSourceConfig which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))

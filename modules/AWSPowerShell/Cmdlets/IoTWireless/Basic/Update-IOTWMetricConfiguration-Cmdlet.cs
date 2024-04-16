@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Update the metric configuration.
+    /// Update the summary metric configuration.
     /// </summary>
     [Cmdlet("Update", "IOTWMetricConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter SummaryMetric_Status
         /// <summary>
         /// <para>
-        /// <para>The configuration of summary metric.</para>
+        /// <para>The status of the configuration of summary metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

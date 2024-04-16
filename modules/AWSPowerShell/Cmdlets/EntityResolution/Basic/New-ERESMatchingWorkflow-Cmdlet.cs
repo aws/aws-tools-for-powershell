@@ -157,7 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter ResolutionTechniques_ResolutionType
         /// <summary>
         /// <para>
-        /// <para>The type of matching. There are two types of matching: <c>RULE_MATCHING</c> and <c>ML_MATCHING</c>.</para>
+        /// <para>The type of matching. There are three types of matching: <c>RULE_MATCHING</c>, <c>ML_MATCHING</c>,
+        /// and <c>PROVIDER</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

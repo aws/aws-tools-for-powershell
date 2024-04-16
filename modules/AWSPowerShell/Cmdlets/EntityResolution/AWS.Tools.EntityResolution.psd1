@@ -86,33 +86,42 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-ERESPolicyStatement', 
         'Add-ERESResourceTag', 
         'Get-ERESIdMappingJob', 
         'Get-ERESIdMappingJobList', 
         'Get-ERESIdMappingWorkflow', 
         'Get-ERESIdMappingWorkflowList', 
+        'Get-ERESIdNamespace', 
+        'Get-ERESIdNamespaceList', 
         'Get-ERESMatchId', 
         'Get-ERESMatchingJob', 
         'Get-ERESMatchingJobList', 
         'Get-ERESMatchingWorkflow', 
         'Get-ERESMatchingWorkflowList', 
+        'Get-ERESPolicy', 
         'Get-ERESProviderService', 
         'Get-ERESProviderServiceList', 
         'Get-ERESResourceTag', 
         'Get-ERESSchemaMapping', 
         'Get-ERESSchemaMappingList', 
         'New-ERESIdMappingWorkflow', 
+        'New-ERESIdNamespace', 
         'New-ERESMatchingWorkflow', 
         'New-ERESSchemaMapping', 
         'Remove-ERESIdMappingWorkflow', 
+        'Remove-ERESIdNamespace', 
         'Remove-ERESMatchingWorkflow', 
+        'Remove-ERESPolicyStatement', 
         'Remove-ERESResourceTag', 
         'Remove-ERESSchemaMapping', 
         'Start-ERESIdMappingJob', 
         'Start-ERESMatchingJob', 
         'Update-ERESIdMappingWorkflow', 
+        'Update-ERESIdNamespace', 
         'Update-ERESMatchingWorkflow', 
-        'Update-ERESSchemaMapping')
+        'Update-ERESSchemaMapping', 
+        'Write-ERESPolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

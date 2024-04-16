@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter OpensearchServerlessConfiguration_CollectionArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the OpenSearch Service vector store.</para>
+        /// <para>The Amazon Resource Name (ARN) of the OpenSearch Service vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PineconeConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the secret that you created in Secrets Manager that is linked to your Pinecone
-        /// API key.</para>
+        /// <para>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that
+        /// is linked to your Pinecone API key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RdsConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the secret that you created in Secrets Manager that is linked to your Amazon
-        /// RDS database.</para>
+        /// <para>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that
+        /// is linked to your Amazon RDS database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RedisEnterpriseCloudConfiguration_CredentialsSecretArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the secret that you created in Secrets Manager that is linked to your Redis
-        /// Enterprise Cloud database.</para>
+        /// <para>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that
+        /// is linked to your Redis Enterprise Cloud database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,7 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter VectorKnowledgeBaseConfiguration_EmbeddingModelArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the model used to create vector embeddings for the knowledge base.</para>
+        /// <para>The Amazon Resource Name (ARN) of the model used to create vector embeddings for the
+        /// knowledge base.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -255,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter RdsConfiguration_ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the vector store.</para>
+        /// <para>The Amazon Resource Name (ARN) of the vector store.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -267,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>Specifies a different Amazon Resource Name (ARN) of the IAM role with permissions
-        /// to modify the knowledge base.</para>
+        /// to invoke API operations on the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter AgentResourceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role with permissions to update the agent. The ARN must begin with
-        /// <c>AmazonBedrockExecutionRoleForAgents_</c>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations
+        /// on the agent.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter CustomerEncryptionKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the KMS key with which to encrypt the agent.</para>
+        /// <para>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the agent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

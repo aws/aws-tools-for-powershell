@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Get metrics.
+    /// Get the summary metrics for this AWS account.
     /// </summary>
     [Cmdlet("Get", "IOTWMetric")]
     [OutputType("Amazon.IoTWireless.Model.SummaryMetricQueryResult")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
         #region Parameter SummaryMetricQuery
         /// <summary>
         /// <para>
-        /// <para>The list of queries to retrieve summary metrics.</para>
+        /// <para>The list of queries to retrieve the summary metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

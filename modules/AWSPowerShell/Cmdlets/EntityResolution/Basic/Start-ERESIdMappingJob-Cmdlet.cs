@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter OutputSourceConfig
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>OutputSource</c> objects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.EntityResolution.Model.IdMappingJobOutputSource[] OutputSourceConfig { get; set; }
+        #endregion
+        
         #region Parameter WorkflowName
         /// <summary>
         /// <para>
@@ -122,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 context.Select = (response, cmdlet) => this.WorkflowName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.OutputSourceConfig != null)
+            {
+                context.OutputSourceConfig = new List<Amazon.EntityResolution.Model.IdMappingJobOutputSource>(this.OutputSourceConfig);
+            }
             context.WorkflowName = this.WorkflowName;
             #if MODULAR
             if (this.WorkflowName == null && ParameterWasBound(nameof(this.WorkflowName)))
@@ -145,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             // create request
             var request = new Amazon.EntityResolution.Model.StartIdMappingJobRequest();
             
+            if (cmdletContext.OutputSourceConfig != null)
+            {
+                request.OutputSourceConfig = cmdletContext.OutputSourceConfig;
+            }
             if (cmdletContext.WorkflowName != null)
             {
                 request.WorkflowName = cmdletContext.WorkflowName;
@@ -210,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.EntityResolution.Model.IdMappingJobOutputSource> OutputSourceConfig { get; set; }
             public System.String WorkflowName { get; set; }
             public System.Func<Amazon.EntityResolution.Model.StartIdMappingJobResponse, StartERESIdMappingJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobId;

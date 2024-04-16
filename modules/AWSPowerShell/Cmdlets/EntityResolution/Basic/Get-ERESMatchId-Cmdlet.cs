@@ -44,6 +44,19 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ApplyNormalization
+        /// <summary>
+        /// <para>
+        /// <para>Normalizes the attributes defined in the schema in the input data. For example, if
+        /// an attribute has an <c>AttributeType</c> of <c>PHONE_NUMBER</c>, and the data in the
+        /// input table is in a format of 1234567890, Entity Resolution will normalize this field
+        /// in the output to (123)-456-7890.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ApplyNormalization { get; set; }
+        #endregion
+        
         #region Parameter Record
         /// <summary>
         /// <para>
@@ -124,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 context.Select = (response, cmdlet) => this.WorkflowName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplyNormalization = this.ApplyNormalization;
             if (this.Record != null)
             {
                 context.Record = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -161,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             // create request
             var request = new Amazon.EntityResolution.Model.GetMatchIdRequest();
             
+            if (cmdletContext.ApplyNormalization != null)
+            {
+                request.ApplyNormalization = cmdletContext.ApplyNormalization.Value;
+            }
             if (cmdletContext.Record != null)
             {
                 request.Record = cmdletContext.Record;
@@ -230,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? ApplyNormalization { get; set; }
             public Dictionary<System.String, System.String> Record { get; set; }
             public System.String WorkflowName { get; set; }
             public System.Func<Amazon.EntityResolution.Model.GetMatchIdResponse, GetERESMatchIdCmdlet, object> Select { get; set; } =

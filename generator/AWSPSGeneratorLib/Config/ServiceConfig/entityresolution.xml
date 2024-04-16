@@ -18,7 +18,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddPolicyStatement" OutputProperty="*" Verb="Add" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIdMappingWorkflow" OutputProperty="*" Verb="New" Noun="IdMappingWorkflow" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIdNamespace" OutputProperty="*" Verb="New" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -34,7 +42,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdNamespace" OutputProperty="Message" Verb="Remove" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMatchingWorkflow" OutputProperty="Message" Verb="Remove" Noun="MatchingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicyStatement" OutputProperty="*" Verb="Remove" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,6 +66,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetIdNamespace" OutputProperty="*" Verb="Get" Noun="IdNamespace" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMatchId" OutputProperty="MatchId" Verb="Get" Noun="MatchId" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -59,6 +79,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMatchingWorkflow" OutputProperty="*" Verb="Get" Noun="MatchingWorkflow" PipelineParameter="WorkflowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPolicy" OutputProperty="*" Verb="Get" Noun="Policy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -75,6 +99,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIdMappingWorkflows" OutputProperty="WorkflowSummaries" Verb="Get" Noun="IdMappingWorkflowList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdNamespaces" OutputProperty="IdNamespaceSummaries" Verb="Get" Noun="IdNamespaceList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -98,6 +126,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutPolicy" OutputProperty="*" Verb="Write" Noun="Policy" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartIdMappingJob" OutputProperty="JobId" Verb="Start" Noun="IdMappingJob" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -115,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdMappingWorkflow" OutputProperty="*" Verb="Update" Noun="IdMappingWorkflow" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdNamespace" OutputProperty="*" Verb="Update" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

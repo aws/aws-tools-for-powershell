@@ -1,4 +1,41 @@
-﻿### 4.1.558 (2024-04-12 20:47Z)
+﻿### 4.1.559 (2024-04-16 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.790.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameter DashManifest.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameter DashManifest.
+  * Amazon EntityResolution
+    * Added cmdlet Add-ERESPolicyStatement leveraging the AddPolicyStatement service API.
+    * Added cmdlet Get-ERESIdNamespace leveraging the GetIdNamespace service API.
+    * Added cmdlet Get-ERESIdNamespaceList leveraging the ListIdNamespaces service API.
+    * Added cmdlet Get-ERESPolicy leveraging the GetPolicy service API.
+    * Added cmdlet New-ERESIdNamespace leveraging the CreateIdNamespace service API.
+    * Added cmdlet Remove-ERESIdNamespace leveraging the DeleteIdNamespace service API.
+    * Added cmdlet Remove-ERESPolicyStatement leveraging the DeletePolicyStatement service API.
+    * Added cmdlet Update-ERESIdNamespace leveraging the UpdateIdNamespace service API.
+    * Added cmdlet Write-ERESPolicy leveraging the PutPolicy service API.
+    * Modified cmdlet Get-ERESMatchId: added parameter ApplyNormalization.
+    * Modified cmdlet Start-ERESIdMappingJob: added parameter OutputSourceConfig.
+  * Amazon Lake Formation
+    * Modified cmdlet New-LKFLakeFormationIdentityCenterConfiguration: added parameter ShareRecipient.
+    * Modified cmdlet Update-LKFLakeFormationIdentityCenterConfiguration: added parameter ShareRecipient.
+  * Amazon M2
+    * Added cmdlet Get-AMMBatchJobRestartPointList leveraging the ListBatchJobRestartPoints service API.
+    * Modified cmdlet Start-AMMBatchJob: added parameters JobStepRestartMarker_FromProcStep, JobStepRestartMarker_FromStep, JobStepRestartMarker_ToProcStep, JobStepRestartMarker_ToStep and RestartBatchJobIdentifier_ExecutionId.
+  * Amazon Outposts
+    * Added cmdlet Get-OUTPCapacityTask leveraging the GetCapacityTask service API.
+    * Added cmdlet Get-OUTPCapacityTaskList leveraging the ListCapacityTasks service API.
+    * Added cmdlet Get-OUTPOutpostSupportedInstanceType leveraging the GetOutpostSupportedInstanceTypes service API.
+    * Added cmdlet Start-OUTPCapacityTask leveraging the StartCapacityTask service API.
+    * Added cmdlet Stop-OUTPCapacityTask leveraging the CancelCapacityTask service API.
+  * Amazon Well-Architected Tool
+    * Added cmdlet Get-WATGlobalSetting leveraging the GetGlobalSettings service API.
+    * Added cmdlet Update-WATIntegration leveraging the UpdateIntegration service API.
+    * Modified cmdlet New-WATWorkload: added parameters JiraConfiguration_IssueManagementStatus, JiraConfiguration_IssueManagementType and JiraConfiguration_JiraProjectKey.
+    * Modified cmdlet Update-WATGlobalSetting: added parameters JiraConfiguration_IntegrationStatus, JiraConfiguration_IssueManagementStatus, JiraConfiguration_IssueManagementType and JiraConfiguration_JiraProjectKey.
+    * Modified cmdlet Update-WATLensReview: added parameter JiraConfiguration_SelectedPillar.
+    * Modified cmdlet Update-WATWorkload: added parameters JiraConfiguration_IssueManagementStatus, JiraConfiguration_IssueManagementType and JiraConfiguration_JiraProjectKey.
+
+### 4.1.558 (2024-04-12 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.789.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudFormation
     * Modified cmdlet Get-CFNChangeSet: added parameter IncludePropertyValue.

@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.Collections.Hashtable PillarNote { get; set; }
         #endregion
         
+        #region Parameter JiraConfiguration_SelectedPillar
+        /// <summary>
+        /// <para>
+        /// <para>Selected pillars in the workload.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("JiraConfiguration_SelectedPillars")]
+        public Amazon.WellArchitected.Model.SelectedPillar[] JiraConfiguration_SelectedPillar { get; set; }
+        #endregion
+        
         #region Parameter WorkloadId
         /// <summary>
         /// <para>
@@ -159,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.WAT
                 context.Select = (response, cmdlet) => this.WorkloadId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.JiraConfiguration_SelectedPillar != null)
+            {
+                context.JiraConfiguration_SelectedPillar = new List<Amazon.WellArchitected.Model.SelectedPillar>(this.JiraConfiguration_SelectedPillar);
+            }
             context.LensAlias = this.LensAlias;
             #if MODULAR
             if (this.LensAlias == null && ParameterWasBound(nameof(this.LensAlias)))
@@ -198,6 +213,25 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             // create request
             var request = new Amazon.WellArchitected.Model.UpdateLensReviewRequest();
             
+            
+             // populate JiraConfiguration
+            var requestJiraConfigurationIsNull = true;
+            request.JiraConfiguration = new Amazon.WellArchitected.Model.JiraSelectedQuestionConfiguration();
+            List<Amazon.WellArchitected.Model.SelectedPillar> requestJiraConfiguration_jiraConfiguration_SelectedPillar = null;
+            if (cmdletContext.JiraConfiguration_SelectedPillar != null)
+            {
+                requestJiraConfiguration_jiraConfiguration_SelectedPillar = cmdletContext.JiraConfiguration_SelectedPillar;
+            }
+            if (requestJiraConfiguration_jiraConfiguration_SelectedPillar != null)
+            {
+                request.JiraConfiguration.SelectedPillars = requestJiraConfiguration_jiraConfiguration_SelectedPillar;
+                requestJiraConfigurationIsNull = false;
+            }
+             // determine if request.JiraConfiguration should be set to null
+            if (requestJiraConfigurationIsNull)
+            {
+                request.JiraConfiguration = null;
+            }
             if (cmdletContext.LensAlias != null)
             {
                 request.LensAlias = cmdletContext.LensAlias;
@@ -275,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.WellArchitected.Model.SelectedPillar> JiraConfiguration_SelectedPillar { get; set; }
             public System.String LensAlias { get; set; }
             public System.String LensNote { get; set; }
             public Dictionary<System.String, System.String> PillarNote { get; set; }

@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelCapacityTask" Verb="Stop" Noun="CapacityTask" ShouldProcessTarget="CapacityTaskId" PipelineParameter="CapacityTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelOrder" Verb="Stop" Noun="Order" ShouldProcessTarget="OrderId" PipelineParameter="OrderId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -43,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCapacityTask" OutputProperty="*" Verb="Get" Noun="CapacityTask" PipelineParameter="CapacityTaskId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCatalogItem" OutputProperty="CatalogItem" Verb="Get" Noun="CatalogItem" PipelineParameter="CatalogItemId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +71,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetOutpostSupportedInstanceTypes" OutputProperty="InstanceTypes" Verb="Get" Noun="OutpostSupportedInstanceType" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetSite" OutputProperty="Site" Verb="Get" Noun="Site" PipelineParameter="SiteId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssets" OutputProperty="Assets" Verb="Get" Noun="AssetList" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCapacityTasks" OutputProperty="CapacityTasks" Verb="Get" Noun="CapacityTaskList" PipelineParameter="OutpostIdentifierFilter" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +108,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartCapacityTask" OutputProperty="*" Verb="Start" Noun="CapacityTask" ShouldProcessTarget="OutpostIdentifier" PipelineParameter="OutpostIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

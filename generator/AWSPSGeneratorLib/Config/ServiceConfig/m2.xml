@@ -98,6 +98,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListBatchJobRestartPoints" OutputProperty="BatchJobSteps" Verb="Get" Noun="BatchJobRestartPointList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDataSetImportHistory" OutputProperty="DataSetImportTasks" Verb="Get" Noun="DataSetImportHistoryList" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

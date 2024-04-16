@@ -167,6 +167,38 @@ namespace Amazon.PowerShell.Cmdlets.WAT
         public System.String IndustryType { get; set; }
         #endregion
         
+        #region Parameter JiraConfiguration_IssueManagementStatus
+        /// <summary>
+        /// <para>
+        /// <para>Workload-level: Jira issue management status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WellArchitected.WorkloadIssueManagementStatus")]
+        public Amazon.WellArchitected.WorkloadIssueManagementStatus JiraConfiguration_IssueManagementStatus { get; set; }
+        #endregion
+        
+        #region Parameter JiraConfiguration_IssueManagementType
+        /// <summary>
+        /// <para>
+        /// <para>Workload-level: Jira issue management type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WellArchitected.IssueManagementType")]
+        public Amazon.WellArchitected.IssueManagementType JiraConfiguration_IssueManagementType { get; set; }
+        #endregion
+        
+        #region Parameter JiraConfiguration_JiraProjectKey
+        /// <summary>
+        /// <para>
+        /// <para>Workload-level: Jira project key to sync workloads to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JiraConfiguration_JiraProjectKey { get; set; }
+        #endregion
+        
         #region Parameter Lense
         /// <summary>
         /// <para>
@@ -376,6 +408,9 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             #endif
             context.Industry = this.Industry;
             context.IndustryType = this.IndustryType;
+            context.JiraConfiguration_IssueManagementStatus = this.JiraConfiguration_IssueManagementStatus;
+            context.JiraConfiguration_IssueManagementType = this.JiraConfiguration_IssueManagementType;
+            context.JiraConfiguration_JiraProjectKey = this.JiraConfiguration_JiraProjectKey;
             if (this.Lense != null)
             {
                 context.Lense = new List<System.String>(this.Lense);
@@ -500,6 +535,45 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             {
                 request.IndustryType = cmdletContext.IndustryType;
             }
+            
+             // populate JiraConfiguration
+            var requestJiraConfigurationIsNull = true;
+            request.JiraConfiguration = new Amazon.WellArchitected.Model.WorkloadJiraConfigurationInput();
+            Amazon.WellArchitected.WorkloadIssueManagementStatus requestJiraConfiguration_jiraConfiguration_IssueManagementStatus = null;
+            if (cmdletContext.JiraConfiguration_IssueManagementStatus != null)
+            {
+                requestJiraConfiguration_jiraConfiguration_IssueManagementStatus = cmdletContext.JiraConfiguration_IssueManagementStatus;
+            }
+            if (requestJiraConfiguration_jiraConfiguration_IssueManagementStatus != null)
+            {
+                request.JiraConfiguration.IssueManagementStatus = requestJiraConfiguration_jiraConfiguration_IssueManagementStatus;
+                requestJiraConfigurationIsNull = false;
+            }
+            Amazon.WellArchitected.IssueManagementType requestJiraConfiguration_jiraConfiguration_IssueManagementType = null;
+            if (cmdletContext.JiraConfiguration_IssueManagementType != null)
+            {
+                requestJiraConfiguration_jiraConfiguration_IssueManagementType = cmdletContext.JiraConfiguration_IssueManagementType;
+            }
+            if (requestJiraConfiguration_jiraConfiguration_IssueManagementType != null)
+            {
+                request.JiraConfiguration.IssueManagementType = requestJiraConfiguration_jiraConfiguration_IssueManagementType;
+                requestJiraConfigurationIsNull = false;
+            }
+            System.String requestJiraConfiguration_jiraConfiguration_JiraProjectKey = null;
+            if (cmdletContext.JiraConfiguration_JiraProjectKey != null)
+            {
+                requestJiraConfiguration_jiraConfiguration_JiraProjectKey = cmdletContext.JiraConfiguration_JiraProjectKey;
+            }
+            if (requestJiraConfiguration_jiraConfiguration_JiraProjectKey != null)
+            {
+                request.JiraConfiguration.JiraProjectKey = requestJiraConfiguration_jiraConfiguration_JiraProjectKey;
+                requestJiraConfigurationIsNull = false;
+            }
+             // determine if request.JiraConfiguration should be set to null
+            if (requestJiraConfigurationIsNull)
+            {
+                request.JiraConfiguration = null;
+            }
             if (cmdletContext.Lense != null)
             {
                 request.Lenses = cmdletContext.Lense;
@@ -608,6 +682,9 @@ namespace Amazon.PowerShell.Cmdlets.WAT
             public Amazon.WellArchitected.WorkloadEnvironment Environment { get; set; }
             public System.String Industry { get; set; }
             public System.String IndustryType { get; set; }
+            public Amazon.WellArchitected.WorkloadIssueManagementStatus JiraConfiguration_IssueManagementStatus { get; set; }
+            public Amazon.WellArchitected.IssueManagementType JiraConfiguration_IssueManagementType { get; set; }
+            public System.String JiraConfiguration_JiraProjectKey { get; set; }
             public List<System.String> Lense { get; set; }
             public List<System.String> NonAwsRegion { get; set; }
             public System.String Note { get; set; }

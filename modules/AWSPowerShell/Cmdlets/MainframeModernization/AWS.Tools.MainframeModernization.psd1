@@ -94,6 +94,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AMMBatchJobDefinitionList', 
         'Get-AMMBatchJobExecution', 
         'Get-AMMBatchJobExecutionList', 
+        'Get-AMMBatchJobRestartPointList', 
         'Get-AMMDataSetDetail', 
         'Get-AMMDataSetImportHistoryList', 
         'Get-AMMDataSetImportTask', 

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource for which to list tags.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which to list tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

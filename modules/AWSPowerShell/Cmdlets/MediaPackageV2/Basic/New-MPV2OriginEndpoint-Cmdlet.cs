@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public Amazon.MediaPackageV2.ContainerType ContainerType { get; set; }
         #endregion
         
+        #region Parameter DashManifest
+        /// <summary>
+        /// <para>
+        /// <para>A DASH manifest configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DashManifests")]
+        public Amazon.MediaPackageV2.Model.CreateDashManifestConfiguration[] DashManifest { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -491,6 +502,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                 WriteWarning("You are passing $null as a value for parameter ContainerType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.DashManifest != null)
+            {
+                context.DashManifest = new List<Amazon.MediaPackageV2.Model.CreateDashManifestConfiguration>(this.DashManifest);
+            }
             context.Description = this.Description;
             if (this.HlsManifest != null)
             {
@@ -569,6 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (cmdletContext.ContainerType != null)
             {
                 request.ContainerType = cmdletContext.ContainerType;
+            }
+            if (cmdletContext.DashManifest != null)
+            {
+                request.DashManifests = cmdletContext.DashManifest;
             }
             if (cmdletContext.Description != null)
             {
@@ -903,6 +922,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String ChannelName { get; set; }
             public System.String ClientToken { get; set; }
             public Amazon.MediaPackageV2.ContainerType ContainerType { get; set; }
+            public List<Amazon.MediaPackageV2.Model.CreateDashManifestConfiguration> DashManifest { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateHlsManifestConfiguration> HlsManifest { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateLowLatencyHlsManifestConfiguration> LowLatencyHlsManifest { get; set; }

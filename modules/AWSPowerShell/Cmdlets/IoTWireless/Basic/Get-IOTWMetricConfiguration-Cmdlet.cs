@@ -28,7 +28,7 @@ using Amazon.IoTWireless.Model;
 namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
-    /// Get the metric configuration status for this account.
+    /// Get the metric configuration status for this AWS account.
     /// </summary>
     [Cmdlet("Get", "IOTWMetricConfiguration")]
     [OutputType("Amazon.IoTWireless.Model.SummaryMetricConfiguration")]

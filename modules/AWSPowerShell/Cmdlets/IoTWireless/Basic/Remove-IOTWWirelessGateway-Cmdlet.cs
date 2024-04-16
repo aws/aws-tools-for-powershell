@@ -29,6 +29,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
 {
     /// <summary>
     /// Deletes a wireless gateway.
+    /// 
+    ///  <note><para>
+    /// When deleting a wireless gateway, you might run into duplication errors for the following
+    /// reasons.
+    /// </para><ul><li><para>
+    /// If you specify a <c>GatewayEui</c> value that already exists.
+    /// </para></li><li><para>
+    /// If you used a <c>ClientRequestToken</c> with the same parameters within the last 10
+    /// minutes.
+    /// </para></li></ul><para>
+    /// To avoid this error, make sure that you use unique identifiers and parameters for
+    /// each request within the specified time period.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "IOTWWirelessGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

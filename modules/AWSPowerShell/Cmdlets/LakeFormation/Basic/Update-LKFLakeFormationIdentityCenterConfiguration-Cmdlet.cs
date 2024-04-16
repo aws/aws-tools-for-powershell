@@ -76,6 +76,21 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String CatalogId { get; set; }
         #endregion
         
+        #region Parameter ShareRecipient
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Web Services account IDs or Amazon Web Services organization/organizational
+        /// unit ARNs that are allowed to access to access data managed by Lake Formation. </para><para>If the <c>ShareRecipients</c> list includes valid values, then the resource share
+        /// is updated with the principals you want to have access to the resources.</para><para>If the <c>ShareRecipients</c> value is null, both the list of share recipients and
+        /// the resource share remain unchanged.</para><para>If the <c>ShareRecipients</c> value is an empty list, then the existing share recipients
+        /// list will be cleared, and the resource share will be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ShareRecipients")]
+        public Amazon.LakeFormation.Model.DataLakePrincipal[] ShareRecipient { get; set; }
+        #endregion
+        
         #region Parameter ExternalFiltering_Status
         /// <summary>
         /// <para>
@@ -156,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
                 context.ExternalFiltering_AuthorizedTarget = new List<System.String>(this.ExternalFiltering_AuthorizedTarget);
             }
             context.ExternalFiltering_Status = this.ExternalFiltering_Status;
+            if (this.ShareRecipient != null)
+            {
+                context.ShareRecipient = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.ShareRecipient);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (requestExternalFilteringIsNull)
             {
                 request.ExternalFiltering = null;
+            }
+            if (cmdletContext.ShareRecipient != null)
+            {
+                request.ShareRecipients = cmdletContext.ShareRecipient;
             }
             
             CmdletOutput output;
@@ -274,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public System.String CatalogId { get; set; }
             public List<System.String> ExternalFiltering_AuthorizedTarget { get; set; }
             public Amazon.LakeFormation.EnableStatus ExternalFiltering_Status { get; set; }
+            public List<Amazon.LakeFormation.Model.DataLakePrincipal> ShareRecipient { get; set; }
             public System.Func<Amazon.LakeFormation.Model.UpdateLakeFormationIdentityCenterConfigurationResponse, UpdateLKFLakeFormationIdentityCenterConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

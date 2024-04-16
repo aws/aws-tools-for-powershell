@@ -78,6 +78,20 @@ namespace Amazon.PowerShell.Cmdlets.LKF
         public System.String InstanceArn { get; set; }
         #endregion
         
+        #region Parameter ShareRecipient
+        /// <summary>
+        /// <para>
+        /// <para>A list of Amazon Web Services account IDs and/or Amazon Web Services organization/organizational
+        /// unit ARNs that are allowed to access data managed by Lake Formation. </para><para>If the <c>ShareRecipients</c> list includes valid values, a resource share is created
+        /// with the principals you want to have access to the resources.</para><para>If the <c>ShareRecipients</c> value is null or the list is empty, no resource share
+        /// is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ShareRecipients")]
+        public Amazon.LakeFormation.Model.DataLakePrincipal[] ShareRecipient { get; set; }
+        #endregion
+        
         #region Parameter ExternalFiltering_Status
         /// <summary>
         /// <para>
@@ -159,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             }
             context.ExternalFiltering_Status = this.ExternalFiltering_Status;
             context.InstanceArn = this.InstanceArn;
+            if (this.ShareRecipient != null)
+            {
+                context.ShareRecipient = new List<Amazon.LakeFormation.Model.DataLakePrincipal>(this.ShareRecipient);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -211,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             if (cmdletContext.InstanceArn != null)
             {
                 request.InstanceArn = cmdletContext.InstanceArn;
+            }
+            if (cmdletContext.ShareRecipient != null)
+            {
+                request.ShareRecipients = cmdletContext.ShareRecipient;
             }
             
             CmdletOutput output;
@@ -277,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.LKF
             public List<System.String> ExternalFiltering_AuthorizedTarget { get; set; }
             public Amazon.LakeFormation.EnableStatus ExternalFiltering_Status { get; set; }
             public System.String InstanceArn { get; set; }
+            public List<Amazon.LakeFormation.Model.DataLakePrincipal> ShareRecipient { get; set; }
             public System.Func<Amazon.LakeFormation.Model.CreateLakeFormationIdentityCenterConfigurationResponse, NewLKFLakeFormationIdentityCenterConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ApplicationArn;
         }

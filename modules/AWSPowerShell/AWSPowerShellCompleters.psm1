@@ -27034,6 +27034,13 @@ $ERES_Completers = {
             break
         }
 
+        # Amazon.EntityResolution.IdNamespaceType
+        "New-ERESIdNamespace/Type"
+        {
+            $v = "SOURCE","TARGET"
+            break
+        }
+
         # Amazon.EntityResolution.IncrementalRunType
         {
             ($_ -eq "New-ERESMatchingWorkflow/IncrementalRunConfig_IncrementalRunType") -Or
@@ -27054,6 +27061,13 @@ $ERES_Completers = {
             break
         }
 
+        # Amazon.EntityResolution.StatementEffect
+        "Add-ERESPolicyStatement/Effect"
+        {
+            $v = "Allow","Deny"
+            break
+        }
+
 
     }
 
@@ -27063,10 +27077,12 @@ $ERES_Completers = {
 }
 
 $ERES_map = @{
+    "Effect"=@("Add-ERESPolicyStatement")
     "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "Type"=@("New-ERESIdNamespace")
 }
 
 _awsArgumentCompleterRegistration $ERES_Completers $ERES_map
@@ -27119,31 +27135,40 @@ $ERES_SelectCompleters = {
 }
 
 $ERES_SelectMap = @{
-    "Select"=@("New-ERESIdMappingWorkflow",
+    "Select"=@("Add-ERESPolicyStatement",
+               "New-ERESIdMappingWorkflow",
+               "New-ERESIdNamespace",
                "New-ERESMatchingWorkflow",
                "New-ERESSchemaMapping",
                "Remove-ERESIdMappingWorkflow",
+               "Remove-ERESIdNamespace",
                "Remove-ERESMatchingWorkflow",
+               "Remove-ERESPolicyStatement",
                "Remove-ERESSchemaMapping",
                "Get-ERESIdMappingJob",
                "Get-ERESIdMappingWorkflow",
+               "Get-ERESIdNamespace",
                "Get-ERESMatchId",
                "Get-ERESMatchingJob",
                "Get-ERESMatchingWorkflow",
+               "Get-ERESPolicy",
                "Get-ERESProviderService",
                "Get-ERESSchemaMapping",
                "Get-ERESIdMappingJobList",
                "Get-ERESIdMappingWorkflowList",
+               "Get-ERESIdNamespaceList",
                "Get-ERESMatchingJobList",
                "Get-ERESMatchingWorkflowList",
                "Get-ERESProviderServiceList",
                "Get-ERESSchemaMappingList",
                "Get-ERESResourceTag",
+               "Write-ERESPolicy",
                "Start-ERESIdMappingJob",
                "Start-ERESMatchingJob",
                "Add-ERESResourceTag",
                "Remove-ERESResourceTag",
                "Update-ERESIdMappingWorkflow",
+               "Update-ERESIdNamespace",
                "Update-ERESMatchingWorkflow",
                "Update-ERESSchemaMapping")
 }
@@ -41325,7 +41350,7 @@ $AMM_Completers = {
         # Amazon.MainframeModernization.BatchJobExecutionStatus
         "Get-AMMBatchJobExecutionList/Status"
         {
-            $v = "Cancelled","Cancelling","Dispatching","Failed","Holding","Running","Submitting","Succeeded","Succeeded With Warning"
+            $v = "Cancelled","Cancelling","Dispatching","Failed","Holding","Purged","Running","Submitting","Succeeded","Succeeded With Warning"
             break
         }
 
@@ -41424,6 +41449,7 @@ $AMM_SelectMap = @{
                "Get-AMMApplicationVersionList",
                "Get-AMMBatchJobDefinitionList",
                "Get-AMMBatchJobExecutionList",
+               "Get-AMMBatchJobRestartPointList",
                "Get-AMMDataSetImportHistoryList",
                "Get-AMMDataSetList",
                "Get-AMMDeploymentList",
@@ -49668,25 +49694,30 @@ $OUTP_SelectCompleters = {
 }
 
 $OUTP_SelectMap = @{
-    "Select"=@("Stop-OUTPOrder",
+    "Select"=@("Stop-OUTPCapacityTask",
+               "Stop-OUTPOrder",
                "New-OUTPOrder",
                "New-OUTPOutpost",
                "New-OUTPSite",
                "Remove-OUTPOutpost",
                "Remove-OUTPSite",
+               "Get-OUTPCapacityTask",
                "Get-OUTPCatalogItem",
                "Get-OUTPConnection",
                "Get-OUTPOrder",
                "Get-OUTPOutpost",
                "Get-OUTPOutpostInstanceType",
+               "Get-OUTPOutpostSupportedInstanceType",
                "Get-OUTPSite",
                "Get-OUTPSiteAddress",
                "Get-OUTPAssetList",
+               "Get-OUTPCapacityTaskList",
                "Get-OUTPCatalogItemList",
                "Get-OUTPOrderList",
                "Get-OUTPOutpostList",
                "Get-OUTPSiteList",
                "Get-OUTPResourceTag",
+               "Start-OUTPCapacityTask",
                "Start-OUTPConnection",
                "Add-OUTPResourceTag",
                "Remove-OUTPResourceTag",
@@ -68409,6 +68440,13 @@ $WAT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WellArchitected.AccountJiraIssueManagementStatus
+        "Update-WATGlobalSetting/JiraConfiguration_IssueManagementStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WellArchitected.AnswerReason
         {
             ($_ -eq "Update-WATAnswer/Reason") -Or
@@ -68423,6 +68461,31 @@ $WAT_Completers = {
         "Update-WATGlobalSetting/DiscoveryIntegrationStatus"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.WellArchitected.IntegratingService
+        "Update-WATIntegration/IntegratingService"
+        {
+            $v = "JIRA"
+            break
+        }
+
+        # Amazon.WellArchitected.IntegrationStatusInput
+        "Update-WATGlobalSetting/JiraConfiguration_IntegrationStatus"
+        {
+            $v = "NOT_CONFIGURED"
+            break
+        }
+
+        # Amazon.WellArchitected.IssueManagementType
+        {
+            ($_ -eq "New-WATWorkload/JiraConfiguration_IssueManagementType") -Or
+            ($_ -eq "Update-WATGlobalSetting/JiraConfiguration_IssueManagementType") -Or
+            ($_ -eq "Update-WATWorkload/JiraConfiguration_IssueManagementType")
+        }
+        {
+            $v = "AUTO","MANUAL"
             break
         }
 
@@ -68537,6 +68600,16 @@ $WAT_Completers = {
             break
         }
 
+        # Amazon.WellArchitected.WorkloadIssueManagementStatus
+        {
+            ($_ -eq "New-WATWorkload/JiraConfiguration_IssueManagementStatus") -Or
+            ($_ -eq "Update-WATWorkload/JiraConfiguration_IssueManagementStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED","INHERIT"
+            break
+        }
+
 
     }
 
@@ -68551,6 +68624,10 @@ $WAT_map = @{
     "Environment"=@("New-WATWorkload","Update-WATWorkload")
     "Format"=@("Get-WATConsolidatedReport")
     "ImprovementStatus"=@("Update-WATWorkload")
+    "IntegratingService"=@("Update-WATIntegration")
+    "JiraConfiguration_IntegrationStatus"=@("Update-WATGlobalSetting")
+    "JiraConfiguration_IssueManagementStatus"=@("New-WATWorkload","Update-WATGlobalSetting","Update-WATWorkload")
+    "JiraConfiguration_IssueManagementType"=@("New-WATWorkload","Update-WATGlobalSetting","Update-WATWorkload")
     "LensStatus"=@("Get-WATLensList","Remove-WATLens")
     "LensType"=@("Get-WATLensList")
     "OrganizationSharingStatus"=@("Update-WATGlobalSetting")
@@ -68637,6 +68714,7 @@ $WAT_SelectMap = @{
                "Export-WATLens",
                "Get-WATAnswer",
                "Get-WATConsolidatedReport",
+               "Get-WATGlobalSetting",
                "Get-WATLens",
                "Get-WATLensReview",
                "Get-WATLensReviewReport",
@@ -68672,6 +68750,7 @@ $WAT_SelectMap = @{
                "Remove-WATResourceTag",
                "Update-WATAnswer",
                "Update-WATGlobalSetting",
+               "Update-WATIntegration",
                "Update-WATLensReview",
                "Update-WATProfile",
                "Update-WATReviewTemplate",
