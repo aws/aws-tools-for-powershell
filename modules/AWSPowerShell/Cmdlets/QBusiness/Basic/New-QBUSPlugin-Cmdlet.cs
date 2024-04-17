@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Creates an Amazon Q plugin.
+    /// Creates an Amazon Q Business plugin.
     /// </summary>
     [Cmdlet("New", "QBUSPlugin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.CreatePluginResponse")]
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter BasicAuthConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role used by Amazon Q to access the basic authentication credentials
-        /// stored in a Secrets Manager secret.</para>
+        /// <para>The ARN of an IAM role used by Amazon Q Business to access the basic authentication
+        /// credentials stored in a Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter OAuth2ClientCredentialConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role used by Amazon Q to access the OAuth 2.0 authentication credentials
-        /// stored in a Secrets Manager secret.</para>
+        /// <para>The ARN of an IAM role used by Amazon Q Business to access the OAuth 2.0 authentication
+        /// credentials stored in a Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,7 +174,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token that you provide to identify the request to create your Amazon Q plugin.</para>
+        /// <para>A token that you provide to identify the request to create your Amazon Q Business
+        /// plugin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Stops an Amazon Q data source connector synchronization job already in progress.
+    /// Stops an Amazon Q Business data source connector synchronization job already in progress.
     /// </summary>
     [Cmdlet("Stop", "QBUSDataSourceSyncJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application that the data source is connected to.</para>
+        /// <para>The identifier of the Amazon Q Business application that the data source is connected
+        /// to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index used with the Amazon Q data source connector.</para>
+        /// <para>The identifier of the index used with the Amazon Q Business data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

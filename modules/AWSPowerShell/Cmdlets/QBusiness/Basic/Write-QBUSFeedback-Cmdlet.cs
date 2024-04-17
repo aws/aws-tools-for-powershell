@@ -28,7 +28,8 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Enables your end user to to provide feedback on their Amazon Q generated chat responses.
+    /// Enables your end user to provide feedback on their Amazon Q Business generated chat
+    /// responses.
     /// </summary>
     [Cmdlet("Write", "QBUSFeedback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -151,14 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>The identifier of the user giving the feedback.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserId { get; set; }
         #endregion
         
@@ -250,12 +244,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.MessageUsefulness_SubmittedAt = this.MessageUsefulness_SubmittedAt;
             context.MessageUsefulness_Usefulness = this.MessageUsefulness_Usefulness;
             context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

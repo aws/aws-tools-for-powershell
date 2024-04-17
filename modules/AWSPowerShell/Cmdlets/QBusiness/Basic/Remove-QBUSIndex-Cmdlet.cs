@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Deletes an Amazon Q index.
+    /// Deletes an Amazon Q Business index.
     /// </summary>
     [Cmdlet("Remove", "QBUSIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application the Amazon Q index is linked to.</para>
+        /// <para>The identifier of the Amazon Q Business application the Amazon Q Business index is
+        /// linked to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q index.</para>
+        /// <para>The identifier of the Amazon Q Business index.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

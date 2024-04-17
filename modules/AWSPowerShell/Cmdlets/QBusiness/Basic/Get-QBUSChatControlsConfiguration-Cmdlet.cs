@@ -28,7 +28,8 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an chat controls configured for an existing Amazon Q application.
+    /// Gets information about an chat controls configured for an existing Amazon Q Business
+    /// application.
     /// </summary>
     [Cmdlet("Get", "QBUSChatControlsConfiguration")]
     [OutputType("Amazon.QBusiness.Model.GetChatControlsConfigurationResponse")]
@@ -73,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>If the <c>maxResults</c> response was incomplete because there is more data to retrieve,
-        /// Amazon Q returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of Amazon Q chat controls configured.</para>
+        /// Amazon Q Business returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of Amazon Q Business chat controls configured.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

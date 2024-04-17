@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Lists one or more Amazon Q conversations.
+    /// Lists one or more Amazon Q Business conversations.
     /// </summary>
     [Cmdlet("Get", "QBUSConversationList")]
     [OutputType("Amazon.QBusiness.Model.Conversation")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application.</para>
+        /// <para>The identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,24 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the user involved in the Amazon Q web experience conversation. </para>
+        /// <para>The identifier of the user involved in the Amazon Q Business web experience conversation.
+        /// </para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon Q conversations to return.</para>
+        /// <para>The maximum number of Amazon Q Business conversations to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>If the <c>maxResults</c> response was incomplete because there is more data to retrieve,
-        /// Amazon Q returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of Amazon Q conversations.</para>
+        /// Amazon Q Business returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of Amazon Q Business conversations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -155,12 +149,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

@@ -28,8 +28,8 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Adds the specified tag to the specified Amazon Q application or data source resource.
-    /// If the tag already exists, the existing value is replaced with the new value.
+    /// Adds the specified tag to the specified Amazon Q Business application or data source
+    /// resource. If the tag already exists, the existing value is replaced with the new value.
     /// </summary>
     [Cmdlet("Add", "QBUSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Q application or data source to tag.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source
+        /// to tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to add to the Amazon Q application or data source. If a tag already
-        /// exists, the existing value is replaced with the new value.</para>
+        /// <para>A list of tag keys to add to the Amazon Q Business application or data source. If
+        /// a tag already exists, the existing value is replaced with the new value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

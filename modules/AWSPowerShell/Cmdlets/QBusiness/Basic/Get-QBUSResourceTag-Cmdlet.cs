@@ -28,8 +28,8 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets a list of tags associated with a specified resource. Amazon Q applications and
-    /// data sources can have tags associated with them.
+    /// Gets a list of tags associated with a specified resource. Amazon Q Business applications
+    /// and data sources can have tags associated with them.
     /// </summary>
     [Cmdlet("Get", "QBUSResourceTag")]
     [OutputType("Amazon.QBusiness.Model.Tag")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Q application or data source to get a
-        /// list of tags for.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Q Business application or data source
+        /// to get a list of tags for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

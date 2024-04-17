@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Get information about an Amazon Q data source connector synchronization.
+    /// Get information about an Amazon Q Business data source connector synchronization.
     /// </summary>
     [Cmdlet("Get", "QBUSDataSourceSyncJobList")]
     [OutputType("Amazon.QBusiness.Model.DataSourceSyncJob")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application connected to the data source.</para>
+        /// <para>The identifier of the Amazon Q Business application connected to the data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the index used with the Amazon Q data source connector.</para>
+        /// <para>The identifier of the index used with the Amazon Q Business data source connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>If the <c>maxResults</c> response was incpmplete because there is more data to retriever,
-        /// Amazon Q returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of responses.</para>
+        /// Amazon Q Business returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of responses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

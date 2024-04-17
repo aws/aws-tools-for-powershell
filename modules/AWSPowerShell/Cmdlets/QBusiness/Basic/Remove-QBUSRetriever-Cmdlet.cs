@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Deletes the retriever used by an Amazon Q application.
+    /// Deletes the retriever used by an Amazon Q Business application.
     /// </summary>
     [Cmdlet("Remove", "QBUSRetriever", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application using the retriever.</para>
+        /// <para>The identifier of the Amazon Q Business application using the retriever.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

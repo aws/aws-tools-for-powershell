@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns a list of all instance types offered. The results can be filtered by location
-    /// (Region or Availability Zone). If no location is specified, the instance types offered
-    /// in the current Region are returned.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the instance types that are offered for the specified location. If no location
+    /// is specified, the default is to list the instance types that are offered in the current
+    /// Region.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2InstanceTypeOffering")]
     [OutputType("Amazon.EC2.Model.InstanceTypeOffering")]
@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>location</c> - This depends on the location type. For example, if the location
-        /// type is <c>region</c> (default), the location is the Region code (for example, <c>us-east-2</c>.)</para></li><li><para><c>instance-type</c> - The instance type. For example, <c>c5.2xlarge</c>.</para></li></ul>
+        /// <para>One or more filters. Filter names and values are case-sensitive.</para><ul><li><para><c>instance-type</c> - The instance type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Instance.html">Instance</a>.</para></li><li><para><c>location</c> - The location. For a list of possible identifiers, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions
+        /// and Zones</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,7 +59,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LocationType
         /// <summary>
         /// <para>
-        /// <para>The location type.</para>
+        /// <para>The location type.</para><ul><li><para><c>availability-zone</c> - The Availability Zone. When you specify a location filter,
+        /// it must be an Availability Zone for the current Region.</para></li><li><para><c>availability-zone-id</c> - The AZ ID. When you specify a location filter, it must
+        /// be an AZ ID for the current Region.</para></li><li><para><c>outpost</c> - The Outpost ARN. When you specify a location filter, it must be
+        /// an Outpost ARN for the current Region.</para></li><li><para><c>region</c> - The current Region. If you specify a location filter, it must match
+        /// the current Region.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

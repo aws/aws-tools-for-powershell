@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an existing retriever used by an Amazon Q application.
+    /// Gets information about an existing retriever used by an Amazon Q Business application.
     /// </summary>
     [Cmdlet("Get", "QBUSRetriever")]
     [OutputType("Amazon.QBusiness.Model.GetRetrieverResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application using the retriever.</para>
+        /// <para>The identifier of the Amazon Q Business application using the retriever.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

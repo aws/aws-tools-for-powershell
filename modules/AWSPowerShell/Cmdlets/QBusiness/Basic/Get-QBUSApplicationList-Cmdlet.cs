@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Lists Amazon Q applications.
+    /// Lists Amazon Q Business applications.
     /// </summary>
     [Cmdlet("Get", "QBUSApplicationList")]
     [OutputType("Amazon.QBusiness.Model.Application")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon Q applications to return.</para>
+        /// <para>The maximum number of Amazon Q Business applications to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>If the <c>maxResults</c> response was incomplete because there is more data to retrieve,
-        /// Amazon Q returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of Amazon Q applications.</para>
+        /// Amazon Q Business returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of Amazon Q Business applications.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

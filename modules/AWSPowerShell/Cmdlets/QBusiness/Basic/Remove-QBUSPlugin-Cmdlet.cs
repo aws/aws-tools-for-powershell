@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Deletes an Amazon Q plugin.
+    /// Deletes an Amazon Q Business plugin.
     /// </summary>
     [Cmdlet("Remove", "QBUSPlugin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier the application attached to the Amazon Q plugin.</para>
+        /// <para>The identifier the application attached to the Amazon Q Business plugin.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

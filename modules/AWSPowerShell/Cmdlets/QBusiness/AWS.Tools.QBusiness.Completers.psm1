@@ -90,6 +90,20 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.ChatMode
+        "Set-QBUSChatSync/ChatMode"
+        {
+            $v = "CREATOR_MODE","PLUGIN_MODE","RETRIEVAL_MODE"
+            break
+        }
+
+        # Amazon.QBusiness.CreatorModeControl
+        "Update-QBUSChatControlsConfiguration/CreatorModeConfiguration_CreatorModeControl"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.DataSourceSyncJobStatus
         "Get-QBUSDataSourceSyncJobList/StatusFilter"
         {
@@ -178,6 +192,8 @@ $QBUS_Completers = {
 
 $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
+    "ChatMode"=@("Set-QBUSChatSync")
+    "CreatorModeConfiguration_CreatorModeControl"=@("Update-QBUSChatControlsConfiguration")
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")

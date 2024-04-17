@@ -1,4 +1,12 @@
-﻿### 4.1.559 (2024-04-16 21:12Z)
+﻿### 4.1.560 (2024-04-17 22:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.791.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSApplication: added parameter IdentityCenterInstanceArn.
+    * Modified cmdlet New-QBUSWebExperience: added parameter RoleArn.
+    * Modified cmdlet Set-QBUSChatSync: added parameters ChatMode and PluginConfiguration_PluginId.
+    * Modified cmdlet Update-QBUSChatControlsConfiguration: added parameter CreatorModeConfiguration_CreatorModeControl.
+
+### 4.1.559 (2024-04-16 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.790.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaPackage v2
     * Modified cmdlet New-MPV2OriginEndpoint: added parameter DashManifest.

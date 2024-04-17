@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Creates a data source connector for an Amazon Q application.
+    /// Creates a data source connector for an Amazon Q Business application.
     /// 
     ///  
     /// <para><c>CreateDataSource</c> is a synchronous operation. The operation returns 200 if
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para> The identifier of the Amazon Q application the data source will be attached to.</para>
+        /// <para> The identifier of the Amazon Q Business application the data source will be attached
+        /// to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>Configuration information to connect to your data source repository. For configuration
-        /// templates for your specific data source, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html.html">Supported
+        /// templates for your specific data source, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html">Supported
         /// connectors</a>.</para>
         /// </para>
         /// </summary>
@@ -155,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>Configuration information to alter document attributes or metadata fields and content
-        /// when ingesting documents into Amazon Q.</para>
+        /// when ingesting documents into Amazon Q Business.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -167,8 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
-        /// for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q Business currently doesn't support <c>_document_body</c> as an attribute
+        /// key used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,8 +181,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
-        /// for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q Business currently doesn't support <c>_document_body</c> as an attribute
+        /// key used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -332,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>A list of identifiers of security groups within your Amazon VPC. The security groups
-        /// should enable Amazon Q to connect to the data source.</para>
+        /// should enable Amazon Q Business to connect to the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -400,9 +401,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter SyncSchedule
         /// <summary>
         /// <para>
-        /// <para>Sets the frequency for Amazon Q to check the documents in your data source repository
-        /// and update your index. If you don't set a schedule, Amazon Q won't periodically update
-        /// the index.</para><para>Specify a <c>cron-</c> format schedule string or an empty string to indicate that
+        /// <para>Sets the frequency for Amazon Q Business to check the documents in your data source
+        /// repository and update your index. If you don't set a schedule, Amazon Q Business won't
+        /// periodically update the index.</para><para>Specify a <c>cron-</c> format schedule string or an empty string to indicate that
         /// the index is updated on demand. You can't specify the <c>Schedule</c> parameter when
         /// the <c>Type</c> parameter is set to <c>CUSTOM</c>. If you do, you receive a <c>ValidationException</c>
         /// exception. </para>

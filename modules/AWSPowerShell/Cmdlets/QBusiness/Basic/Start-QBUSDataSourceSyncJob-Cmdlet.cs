@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
     /// Starts a data source connector synchronization job. If a synchronization job is already
-    /// in progress, Amazon Q returns a <c>ConflictException</c>.
+    /// in progress, Amazon Q Business returns a <c>ConflictException</c>.
     /// </summary>
     [Cmdlet("Start", "QBUSDataSourceSyncJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of Amazon Q application the data source is connected to.</para>
+        /// <para>The identifier of Amazon Q Business application the data source is connected to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

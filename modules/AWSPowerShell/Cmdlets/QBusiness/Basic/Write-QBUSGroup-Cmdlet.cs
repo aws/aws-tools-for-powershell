@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     /// Property Teams" includes sub groups "Research" and "Engineering". These sub groups
     /// include their own list of users or people who work in these teams. Only users who
     /// work in research and engineering, and therefore belong in the intellectual property
-    /// group, can see top-secret company documents in their Amazon Q chat results.
+    /// group, can see top-secret company documents in their Amazon Q Business chat results.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "QBUSGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

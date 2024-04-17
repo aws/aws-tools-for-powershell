@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an existing Amazon Q data source connector.
+    /// Gets information about an existing Amazon Q Business data source connector.
     /// </summary>
     [Cmdlet("Get", "QBUSDataSource")]
     [OutputType("Amazon.QBusiness.Model.GetDataSourceResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application.</para>
+        /// <para>The identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

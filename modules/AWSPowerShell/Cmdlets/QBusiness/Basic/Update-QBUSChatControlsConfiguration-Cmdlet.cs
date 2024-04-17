@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Updates an set of chat controls configured for an existing Amazon Q application.
+    /// Updates an set of chat controls configured for an existing Amazon Q Business application.
     /// </summary>
     [Cmdlet("Update", "QBUSChatControlsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter BlockedPhrasesConfigurationUpdate_BlockedPhrasesToCreateOrUpdate
         /// <summary>
         /// <para>
-        /// <para>Creates or updates a blocked phrases configuration in your Amazon Q application.</para>
+        /// <para>Creates or updates a blocked phrases configuration in your Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,11 +72,23 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter BlockedPhrasesConfigurationUpdate_BlockedPhrasesToDelete
         /// <summary>
         /// <para>
-        /// <para>Deletes a blocked phrases configuration in your Amazon Q application.</para>
+        /// <para>Deletes a blocked phrases configuration in your Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] BlockedPhrasesConfigurationUpdate_BlockedPhrasesToDelete { get; set; }
+        #endregion
+        
+        #region Parameter CreatorModeConfiguration_CreatorModeControl
+        /// <summary>
+        /// <para>
+        /// <para>Status information about whether <c>CREATOR_MODE</c> has been enabled or disabled.
+        /// The default status is <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.CreatorModeControl")]
+        public Amazon.QBusiness.CreatorModeControl CreatorModeConfiguration_CreatorModeControl { get; set; }
         #endregion
         
         #region Parameter ResponseScope
@@ -127,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token that you provide to identify the request to update a Amazon Q application
+        /// <para>A token that you provide to identify the request to update a Amazon Q Business application
         /// chat configuration.</para>
         /// </para>
         /// </summary>
@@ -213,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             context.BlockedPhrasesConfigurationUpdate_SystemMessageOverride = this.BlockedPhrasesConfigurationUpdate_SystemMessageOverride;
             context.ClientToken = this.ClientToken;
+            context.CreatorModeConfiguration_CreatorModeControl = this.CreatorModeConfiguration_CreatorModeControl;
             context.ResponseScope = this.ResponseScope;
             if (this.TopicConfigurationsToCreateOrUpdate != null)
             {
@@ -284,6 +297,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate CreatorModeConfiguration
+            var requestCreatorModeConfigurationIsNull = true;
+            request.CreatorModeConfiguration = new Amazon.QBusiness.Model.CreatorModeConfiguration();
+            Amazon.QBusiness.CreatorModeControl requestCreatorModeConfiguration_creatorModeConfiguration_CreatorModeControl = null;
+            if (cmdletContext.CreatorModeConfiguration_CreatorModeControl != null)
+            {
+                requestCreatorModeConfiguration_creatorModeConfiguration_CreatorModeControl = cmdletContext.CreatorModeConfiguration_CreatorModeControl;
+            }
+            if (requestCreatorModeConfiguration_creatorModeConfiguration_CreatorModeControl != null)
+            {
+                request.CreatorModeConfiguration.CreatorModeControl = requestCreatorModeConfiguration_creatorModeConfiguration_CreatorModeControl;
+                requestCreatorModeConfigurationIsNull = false;
+            }
+             // determine if request.CreatorModeConfiguration should be set to null
+            if (requestCreatorModeConfigurationIsNull)
+            {
+                request.CreatorModeConfiguration = null;
             }
             if (cmdletContext.ResponseScope != null)
             {
@@ -363,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public List<System.String> BlockedPhrasesConfigurationUpdate_BlockedPhrasesToDelete { get; set; }
             public System.String BlockedPhrasesConfigurationUpdate_SystemMessageOverride { get; set; }
             public System.String ClientToken { get; set; }
+            public Amazon.QBusiness.CreatorModeControl CreatorModeConfiguration_CreatorModeControl { get; set; }
             public Amazon.QBusiness.ResponseScope ResponseScope { get; set; }
             public List<Amazon.QBusiness.Model.TopicConfiguration> TopicConfigurationsToCreateOrUpdate { get; set; }
             public List<Amazon.QBusiness.Model.TopicConfiguration> TopicConfigurationsToDelete { get; set; }

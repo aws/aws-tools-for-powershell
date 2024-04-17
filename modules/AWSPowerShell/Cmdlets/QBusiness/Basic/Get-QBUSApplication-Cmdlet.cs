@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an existing Amazon Q application.
+    /// Gets information about an existing Amazon Q Business application.
     /// </summary>
     [Cmdlet("Get", "QBUSApplication")]
     [OutputType("Amazon.QBusiness.Model.GetApplicationResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application.</para>
+        /// <para>The identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

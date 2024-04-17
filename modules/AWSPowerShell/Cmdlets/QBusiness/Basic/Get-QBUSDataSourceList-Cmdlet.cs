@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Lists the Amazon Q data source connectors that you have created.
+    /// Lists the Amazon Q Business data source connectors that you have created.
     /// </summary>
     [Cmdlet("Get", "QBUSDataSourceList")]
     [OutputType("Amazon.QBusiness.Model.DataSource")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application linked to the data source connectors.</para>
+        /// <para>The identifier of the Amazon Q Business application linked to the data source connectors.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>If the <c>maxResults</c> response was incomplete because there is more data to retrieve,
-        /// Amazon Q returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of Amazon Q data source connectors.</para>
+        /// Amazon Q Business returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of Amazon Q Business data source connectors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

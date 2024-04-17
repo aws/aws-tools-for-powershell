@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an existing Amazon Q web experience.
+    /// Gets information about an existing Amazon Q Business web experience.
     /// </summary>
     [Cmdlet("Get", "QBUSWebExperience")]
     [OutputType("Amazon.QBusiness.Model.GetWebExperienceResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application linked to the web experience.</para>
+        /// <para>The identifier of the Amazon Q Business application linked to the web experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter WebExperienceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q web experience. </para>
+        /// <para>The identifier of the Amazon Q Business web experience. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

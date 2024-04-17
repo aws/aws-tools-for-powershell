@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
     /// Asynchronously deletes one or more documents added using the <c>BatchPutDocument</c>
-    /// API from an Amazon Q index.
+    /// API from an Amazon Q Business index.
     /// 
     ///  
     /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application.</para>
+        /// <para>The identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>Documents deleted from the Amazon Q index.</para>
+        /// <para>Documents deleted from the Amazon Q Business index.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q index that contains the documents to delete.</para>
+        /// <para>The identifier of the Amazon Q Business index that contains the documents to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

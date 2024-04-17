@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Lists the retriever used by an Amazon Q application.
+    /// Lists the retriever used by an Amazon Q Business application.
     /// </summary>
     [Cmdlet("Get", "QBUSRetrieverList")]
     [OutputType("Amazon.QBusiness.Model.Retriever")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application using the retriever.</para>
+        /// <para>The identifier of the Amazon Q Business application using the retriever.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the number of retrievers returned exceeds <c>maxResults</c>, Amazon Q returns a
-        /// next token as a pagination token to retrieve the next set of retrievers.</para>
+        /// <para>If the number of retrievers returned exceeds <c>maxResults</c>, Amazon Q Business
+        /// returns a next token as a pagination token to retrieve the next set of retrievers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

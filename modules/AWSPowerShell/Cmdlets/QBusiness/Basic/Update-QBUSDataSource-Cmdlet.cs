@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Updates an existing Amazon Q data source connector.
+    /// Updates an existing Amazon Q Business data source connector.
     /// </summary>
     [Cmdlet("Update", "QBUSDataSource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para> The identifier of the Amazon Q application the data source is attached to.</para>
+        /// <para> The identifier of the Amazon Q Business application the data source is attached to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>Configuration information to alter document attributes or metadata fields and content
-        /// when ingesting documents into Amazon Q.</para>
+        /// when ingesting documents into Amazon Q Business.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
-        /// for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q Business currently doesn't support <c>_document_body</c> as an attribute
+        /// key used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,8 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The identifier of the document attribute used for the condition.</para><para>For example, 'Source_URI' could be an identifier for the attribute or metadata field
-        /// that contains source URIs associated with the documents.</para><para>Amazon Q currently doesn't support <c>_document_body</c> as an attribute key used
-        /// for the condition.</para>
+        /// that contains source URIs associated with the documents.</para><para>Amazon Q Business currently doesn't support <c>_document_body</c> as an attribute
+        /// key used for the condition.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>A list of identifiers of security groups within your Amazon VPC. The security groups
-        /// should enable Amazon Q to connect to the data source.</para>
+        /// should enable Amazon Q Business to connect to the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

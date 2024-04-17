@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  <note><para>
     /// To remove a parameter's account-level default setting, specify <c>no-preference</c>.
-    /// At instance launch, the value will come from the AMI, or from the launch parameter
-    /// if specified. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order
+    /// If an account-level setting is cleared with <c>no-preference</c>, then the instance
+    /// launch considers the other instance metadata settings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order
     /// of precedence for instance metadata options</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para></note>
     /// </summary>
@@ -65,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter HttpPutResponseHopLimit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of hops that the metadata token can travel.</para><para>Minimum: <c>1</c></para><para>Maximum: <c>64</c></para>
+        /// <para>The maximum number of hops that the metadata token can travel. To indicate no preference,
+        /// specify <c>-1</c>.</para><para>Possible values: Integers from <c>1</c> to <c>64</c>, and <c>-1</c> to indicate no
+        /// preference</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

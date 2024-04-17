@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an existing Amazon Q plugin.
+    /// Gets information about an existing Amazon Q Business plugin.
     /// </summary>
     [Cmdlet("Get", "QBUSPlugin")]
     [OutputType("Amazon.QBusiness.Model.GetPluginResponse")]

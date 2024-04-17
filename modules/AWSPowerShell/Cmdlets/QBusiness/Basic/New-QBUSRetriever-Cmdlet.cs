@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Adds a retriever to your Amazon Q application.
+    /// Adds a retriever to your Amazon Q Business application.
     /// </summary>
     [Cmdlet("New", "QBUSRetriever", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.CreateRetrieverResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of your Amazon Q application.</para>
+        /// <para>The identifier of your Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,8 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter NativeIndexConfiguration_BoostingOverride
         /// <summary>
         /// <para>
-        /// <para>Overrides the default boosts applied by Amazon Q to supported document attribute data
-        /// types.</para>
+        /// <para>Overrides the default boosts applied by Amazon Q Business to supported document attribute
+        /// data types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter NativeIndexConfiguration_IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the Amazon Q index.</para>
+        /// <para>The identifier for the Amazon Q Business index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role used by Amazon Q to access the basic authentication credentials
-        /// stored in a Secrets Manager secret.</para>
+        /// <para>The ARN of an IAM role used by Amazon Q Business to access the basic authentication
+        /// credentials stored in a Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token that you provide to identify the request to create your Amazon Q application
-        /// retriever.</para>
+        /// <para>A token that you provide to identify the request to create your Amazon Q Business
+        /// application retriever.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

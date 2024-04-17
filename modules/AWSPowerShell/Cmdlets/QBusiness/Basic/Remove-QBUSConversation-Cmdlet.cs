@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Deletes an Amazon Q web experience conversation.
+    /// Deletes an Amazon Q Business web experience conversation.
     /// </summary>
     [Cmdlet("Remove", "QBUSConversation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application associated with the conversation.</para>
+        /// <para>The identifier of the Amazon Q Business application associated with the conversation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ConversationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q web experience conversation being deleted.</para>
+        /// <para>The identifier of the Amazon Q Business web experience conversation being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,14 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>The identifier of the user who is deleting the conversation.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserId { get; set; }
         #endregion
         
@@ -169,12 +162,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #endif
             context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

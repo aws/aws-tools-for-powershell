@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Deletes an Amazon Q web experience.
+    /// Deletes an Amazon Q Business web experience.
     /// </summary>
     [Cmdlet("Remove", "QBUSWebExperience", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application linked to the Amazon Q web experience.</para>
+        /// <para>The identifier of the Amazon Q Business application linked to the Amazon Q Business
+        /// web experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter WebExperienceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q web experience being deleted.</para>
+        /// <para>The identifier of the Amazon Q Business web experience being deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

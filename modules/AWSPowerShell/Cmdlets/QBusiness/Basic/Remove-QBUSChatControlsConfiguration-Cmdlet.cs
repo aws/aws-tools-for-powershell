@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Deletes chat controls configured for an existing Amazon Q application.
+    /// Deletes chat controls configured for an existing Amazon Q Business application.
     /// </summary>
     [Cmdlet("Remove", "QBUSChatControlsConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

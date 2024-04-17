@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Lists the Amazon Q indices you have created.
+    /// Lists the Amazon Q Business indices you have created.
     /// </summary>
     [Cmdlet("Get", "QBUSIndexList")]
     [OutputType("Amazon.QBusiness.Model.Index")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application connected to the index.</para>
+        /// <para>The identifier of the Amazon Q Business application connected to the index.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>If the maxResults response was incomplete because there is more data to retrieve,
-        /// Amazon Q returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of Amazon Q indices.</para>
+        /// Amazon Q Business returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of Amazon Q Business indices.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

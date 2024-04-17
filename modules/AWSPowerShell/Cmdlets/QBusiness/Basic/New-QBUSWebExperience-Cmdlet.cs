@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Creates an Amazon Q web experience.
+    /// Creates an Amazon Q Business web experience.
     /// </summary>
     [Cmdlet("New", "QBUSWebExperience", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.CreateWebExperienceResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q web experience.</para>
+        /// <para>The identifier of the Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,6 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the service role attached to your web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
         #endregion
         
         #region Parameter SamplePromptsControlMode
@@ -72,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Subtitle
         /// <summary>
         /// <para>
-        /// <para>A subtitle to personalize your Amazon Q web experience.</para>
+        /// <para>A subtitle to personalize your Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs that identify or categorize your Amazon Q web experience.
+        /// <para>A list of key-value pairs that identify or categorize your Amazon Q Business web experience.
         /// You can also use tags to help control access to the web experience. Tag keys and values
         /// can consist of Unicode letters, digits, white space, and any of the following symbols:
         /// _ . : / = + - @.</para>
@@ -96,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para>The title for your Amazon Q web experience.</para>
+        /// <para>The title for your Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter WelcomeMessage
         /// <summary>
         /// <para>
-        /// <para>The customized welcome message for end users of an Amazon Q web experience.</para>
+        /// <para>The customized welcome message for end users of an Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -116,7 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token you provide to identify a request to create an Amazon Q web experience. </para>
+        /// <para>A token you provide to identify a request to create an Amazon Q Business web experience.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -193,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.RoleArn = this.RoleArn;
             context.SamplePromptsControlMode = this.SamplePromptsControlMode;
             context.Subtitle = this.Subtitle;
             if (this.Tag != null)
@@ -224,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
             }
             if (cmdletContext.SamplePromptsControlMode != null)
             {
@@ -308,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         {
             public System.String ApplicationId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String RoleArn { get; set; }
             public Amazon.QBusiness.WebExperienceSamplePromptsControlMode SamplePromptsControlMode { get; set; }
             public System.String Subtitle { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }

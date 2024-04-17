@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Removes a tag from an Amazon Q application or a data source.
+    /// Removes a tag from an Amazon Q Business application or a data source.
     /// </summary>
     [Cmdlet("Remove", "QBUSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Q application, or data source to remove
-        /// the tag from.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Q Business application, or data source
+        /// to remove the tag from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to remove from the Amazon Q application or data source. If a tag
-        /// key does not exist on the resource, it is ignored.</para>
+        /// <para>A list of tag keys to remove from the Amazon Q Business application or data source.
+        /// If a tag key does not exist on the resource, it is ignored.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

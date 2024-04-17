@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Lists one or more Amazon Q Web Experiences.
+    /// Lists one or more Amazon Q Business Web Experiences.
     /// </summary>
     [Cmdlet("Get", "QBUSWebExperienceList")]
     [OutputType("Amazon.QBusiness.Model.WebExperience")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application linked to the listed web experiences.</para>
+        /// <para>The identifier of the Amazon Q Business application linked to the listed web experiences.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Amazon Q Web Experiences to return.</para>
+        /// <para>The maximum number of Amazon Q Business Web Experiences to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>If the <c>maxResults</c> response was incomplete because there is more data to retrieve,
-        /// Amazon Q returns a pagination token in the response. You can use this pagination token
-        /// to retrieve the next set of Amazon Q conversations.</para>
+        /// Amazon Q Business returns a pagination token in the response. You can use this pagination
+        /// token to retrieve the next set of Amazon Q Business conversations.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

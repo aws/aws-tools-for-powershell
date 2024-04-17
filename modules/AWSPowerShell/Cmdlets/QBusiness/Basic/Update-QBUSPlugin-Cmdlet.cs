@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Updates an Amazon Q plugin.
+    /// Updates an Amazon Q Business plugin.
     /// </summary>
     [Cmdlet("Update", "QBUSPlugin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter BasicAuthConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role used by Amazon Q to access the basic authentication credentials
-        /// stored in a Secrets Manager secret.</para>
+        /// <para>The ARN of an IAM role used by Amazon Q Business to access the basic authentication
+        /// credentials stored in a Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,8 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter OAuth2ClientCredentialConfiguration_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role used by Amazon Q to access the OAuth 2.0 authentication credentials
-        /// stored in a Secrets Manager secret.</para>
+        /// <para>The ARN of an IAM role used by Amazon Q Business to access the OAuth 2.0 authentication
+        /// credentials stored in a Secrets Manager secret.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Creates an Amazon Q application.
+    /// Creates an Amazon Q Business application.
     /// </summary>
     [Cmdlet("New", "QBUSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.CreateApplicationResponse")]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Q application. </para>
+        /// <para>A description for the Amazon Q Business application. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>A name for the Amazon Q application. </para>
+        /// <para>A name for the Amazon Q Business application. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,10 +82,21 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either
+        /// creating for—or connecting to—your Amazon Q Business application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterInstanceArn { get; set; }
+        #endregion
+        
         #region Parameter EncryptionConfiguration_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the KMS key. Amazon Q doesn't support asymmetric keys.</para>
+        /// <para>The identifier of the KMS key. Amazon Q Business doesn't support asymmetric keys.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,9 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of key-value pairs that identify or categorize your Amazon Q application. You
-        /// can also use tags to help control access to the application. Tag keys and values can
-        /// consist of Unicode letters, digits, white space, and any of the following symbols:
+        /// <para>A list of key-value pairs that identify or categorize your Amazon Q Business application.
+        /// You can also use tags to help control access to the application. Tag keys and values
+        /// can consist of Unicode letters, digits, white space, and any of the following symbols:
         /// _ . : / = + - @.</para>
         /// </para>
         /// </summary>
@@ -127,7 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token that you provide to identify the request to create your Amazon Q application.</para>
+        /// <para>A token that you provide to identify the request to create your Amazon Q Business
+        /// application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #endif
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
+            context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -284,6 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.EncryptionConfiguration = null;
             }
+            if (cmdletContext.IdentityCenterInstanceArn != null)
+            {
+                request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+            }
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
@@ -358,6 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+            public System.String IdentityCenterInstanceArn { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.QBusiness.Model.CreateApplicationResponse, NewQBUSApplicationCmdlet, object> Select { get; set; } =

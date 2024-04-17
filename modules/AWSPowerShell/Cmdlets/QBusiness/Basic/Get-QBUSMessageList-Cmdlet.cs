@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets a list of messages associated with an Amazon Q web experience.
+    /// Gets a list of messages associated with an Amazon Q Business web experience.
     /// </summary>
     [Cmdlet("Get", "QBUSMessageList")]
     [OutputType("Amazon.QBusiness.Model.Message")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the Amazon Q application.</para>
+        /// <para>The identifier for the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ConversationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q web experience conversation.</para>
+        /// <para>The identifier of the Amazon Q Business web experience conversation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -79,17 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the user involved in the Amazon Q web experience conversation.</para>
+        /// <para>The identifier of the user involved in the Amazon Q Business web experience conversation.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String UserId { get; set; }
         #endregion
         
@@ -107,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the number of retrievers returned exceeds <c>maxResults</c>, Amazon Q returns a
-        /// next token as a pagination token to retrieve the next set of messages.</para>
+        /// <para>If the number of retrievers returned exceeds <c>maxResults</c>, Amazon Q Business
+        /// returns a next token as a pagination token to retrieve the next set of messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,12 +171,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.UserId = this.UserId;
-            #if MODULAR
-            if (this.UserId == null && ParameterWasBound(nameof(this.UserId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);

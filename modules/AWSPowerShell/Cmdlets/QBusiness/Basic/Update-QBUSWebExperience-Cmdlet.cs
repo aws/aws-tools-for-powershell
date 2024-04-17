@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Updates an Amazon Q web experience.
+    /// Updates an Amazon Q Business web experience.
     /// </summary>
     [Cmdlet("Update", "QBUSWebExperience", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application attached to the web experience.</para>
+        /// <para>The identifier of the Amazon Q Business application attached to the web experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,8 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of an IAM role assumed by users when they authenticate
-        /// into their Amazon Q web experience, containing the relevant Amazon Q permissions for
-        /// conversing with Amazon Q.</para>
+        /// into their Amazon Q Business web experience, containing the relevant Amazon Q Business
+        /// permissions for conversing with Amazon Q Business.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Subtitle
         /// <summary>
         /// <para>
-        /// <para>The subtitle of the Amazon Q web experience.</para>
+        /// <para>The subtitle of the Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para>The title of the Amazon Q web experience.</para>
+        /// <para>The title of the Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter WebExperienceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q web experience.</para>
+        /// <para>The identifier of the Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter WelcomeMessage
         /// <summary>
         /// <para>
-        /// <para>A customized welcome message for an end user in an Amazon Q web experience.</para>
+        /// <para>A customized welcome message for an end user in an Amazon Q Business web experience.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

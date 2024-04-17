@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Updates an existing Amazon Q application.
+    /// Updates an existing Amazon Q Business application.
     /// </summary>
     [Cmdlet("Update", "QBUSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application.</para>
+        /// <para>The identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Q application.</para>
+        /// <para>A description for the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>A name for the Amazon Q application.</para>
+        /// <para>A name for the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <summary>
         /// <para>
         /// <para>An Amazon Web Services Identity and Access Management (IAM) role that gives Amazon
-        /// Q permission to access Amazon CloudWatch logs and metrics.</para>
+        /// Q Business permission to access Amazon CloudWatch logs and metrics.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

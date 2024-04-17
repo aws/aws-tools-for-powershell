@@ -39,7 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// state. Otherwise, the Spot Fleet request enters the <c>cancelled_running</c> state
     /// and the instances continue to run until they are interrupted or you terminate them
     /// manually.
-    /// </para>
+    /// </para><para><b>Restrictions</b></para><ul><li><para>
+    /// You can delete up to 100 fleets in a single request. If you exceed the specified number,
+    /// no fleets are deleted.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Stop", "EC2SpotFleetRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CancelSpotFleetRequestsResponse")]
@@ -55,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Spot Fleet requests.</para>
+        /// <para>The IDs of the Spot Fleet requests.</para><para>Constraint: You can specify up to 100 IDs in a single request.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

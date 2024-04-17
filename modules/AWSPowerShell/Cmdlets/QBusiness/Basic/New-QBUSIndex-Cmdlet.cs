@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Creates an Amazon Q index.
+    /// Creates an Amazon Q Business index.
     /// 
     ///  
     /// <para>
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application using the index.</para>
+        /// <para>The identifier of the Amazon Q Business application using the index.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the Amazon Q index.</para>
+        /// <para>A description for the Amazon Q Business index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>A name for the Amazon Q index.</para>
+        /// <para>A name for the Amazon Q Business index.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter CapacityConfiguration_Unit
         /// <summary>
         /// <para>
-        /// <para>The number of storage units configured for an Amazon Q index.</para>
+        /// <para>The number of storage units configured for an Amazon Q Business index.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

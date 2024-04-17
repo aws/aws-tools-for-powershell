@@ -28,18 +28,18 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Adds one or more documents to an Amazon Q index.
+    /// Adds one or more documents to an Amazon Q Business index.
     /// 
     ///  
     /// <para>
     /// You use this API to:
     /// </para><ul><li><para>
     /// ingest your structured and unstructured documents and documents stored in an Amazon
-    /// S3 bucket into an Amazon Q index.
+    /// S3 bucket into an Amazon Q Business index.
     /// </para></li><li><para>
-    /// add custom attributes to documents in an Amazon Q index.
+    /// add custom attributes to documents in an Amazon Q Business index.
     /// </para></li><li><para>
-    /// attach an access control list to the documents added to an Amazon Q index.
+    /// attach an access control list to the documents added to an Amazon Q Business index.
     /// </para></li></ul><para>
     /// You can see the progress of the deletion, and any error messages related to the process,
     /// by using CloudWatch.
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application.</para>
+        /// <para>The identifier of the Amazon Q Business application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q index to add the documents to. </para>
+        /// <para>The identifier of the Amazon Q Business index to add the documents to. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

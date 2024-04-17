@@ -33,6 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// The returned content is Base64-encoded.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/troubleshoot-unreachable-instance.html#instance-console-console-output">Instance
+    /// console output</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2ConsoleScreenshot")]

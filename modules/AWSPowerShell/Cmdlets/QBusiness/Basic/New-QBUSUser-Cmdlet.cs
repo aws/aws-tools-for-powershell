@@ -91,7 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>A token that you provide to identify the request to create your Amazon Q user mapping.</para>
+        /// <para>A token that you provide to identify the request to create your Amazon Q Business
+        /// user mapping.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

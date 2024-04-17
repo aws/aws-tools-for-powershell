@@ -28,7 +28,7 @@ using Amazon.QBusiness.Model;
 namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
-    /// Gets information about an existing Amazon Q index.
+    /// Gets information about an existing Amazon Q Business index.
     /// </summary>
     [Cmdlet("Get", "QBUSIndex")]
     [OutputType("Amazon.QBusiness.Model.GetIndexResponse")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q application connected to the index.</para>
+        /// <para>The identifier of the Amazon Q Business application connected to the index.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter IndexId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Q index you want information on.</para>
+        /// <para>The identifier of the Amazon Q Business index you want information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
