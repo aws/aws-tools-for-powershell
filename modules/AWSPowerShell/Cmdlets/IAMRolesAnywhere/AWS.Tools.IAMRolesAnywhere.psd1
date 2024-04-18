@@ -105,6 +105,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Import-IAMRACrl', 
         'New-IAMRAProfile', 
         'New-IAMRATrustAnchor', 
+        'Remove-IAMRAAttributeMapping', 
         'Remove-IAMRACrl', 
         'Remove-IAMRAProfile', 
         'Remove-IAMRAResourceTag', 
@@ -113,6 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-IAMRACrl', 
         'Update-IAMRAProfile', 
         'Update-IAMRATrustAnchor', 
+        'Write-IAMRAAttributeMapping', 
         'Write-IAMRANotificationSetting')
 
     # Variables to export from this module

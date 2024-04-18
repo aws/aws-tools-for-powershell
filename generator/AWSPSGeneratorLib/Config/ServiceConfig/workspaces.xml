@@ -21,6 +21,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptAccountLinkInvitation" OutputProperty="AccountLink" Verb="Approve" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateConnectionAlias" OutputProperty="ConnectionIdentifier" Verb="Register" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -38,6 +42,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CopyWorkspaceImage" OutputProperty="ImageId" Verb="Copy" Noun="WorkspaceImage" ShouldProcessTarget="SourceImageId" PipelineParameter="SourceImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAccountLinkInvitation" OutputProperty="AccountLink" Verb="New" Noun="AccountLinkInvitation" ShouldProcessTarget="TargetAccountId" PipelineParameter="TargetAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -76,6 +84,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaces" OutputProperty="*" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountLinkInvitation" OutputProperty="AccountLink" Verb="Remove" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -216,11 +228,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountLink" OutputProperty="AccountLink" Verb="Get" Noun="AccountLink" PipelineParameter="LinkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportClientBranding" OutputProperty="*" Verb="Import" Noun="ClientBranding" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ImportWorkspaceImage" OutputProperty="ImageId" Verb="Import" Noun="WorkspaceImage" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAccountLinks" OutputProperty="AccountLinks" Verb="Get" Noun="AccountLinkList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -281,6 +301,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterWorkspaceDirectory" Verb="Register" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectAccountLinkInvitation" OutputProperty="AccountLink" Verb="Deny" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -252,7 +252,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
         "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
-            $v = "AWS/Bedrock/ModelEvaluation","AWS/Handshake/VerifyIdentity","AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1","AWS/Textract/AnalyzeExpense"
+            $v = "AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1"
             break
         }
 

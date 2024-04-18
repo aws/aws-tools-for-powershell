@@ -56200,6 +56200,16 @@ $IAMRA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IAMRolesAnywhere.CertificateField
+        {
+            ($_ -eq "Remove-IAMRAAttributeMapping/CertificateField") -Or
+            ($_ -eq "Write-IAMRAAttributeMapping/CertificateField")
+        }
+        {
+            $v = "x509Issuer","x509SAN","x509Subject"
+            break
+        }
+
         # Amazon.IAMRolesAnywhere.TrustAnchorType
         {
             ($_ -eq "New-IAMRATrustAnchor/Source_SourceType") -Or
@@ -56219,6 +56229,7 @@ $IAMRA_Completers = {
 }
 
 $IAMRA_map = @{
+    "CertificateField"=@("Remove-IAMRAAttributeMapping","Write-IAMRAAttributeMapping")
     "Source_SourceType"=@("New-IAMRATrustAnchor","Update-IAMRATrustAnchor")
 }
 
@@ -56274,6 +56285,7 @@ $IAMRA_SelectCompleters = {
 $IAMRA_SelectMap = @{
     "Select"=@("New-IAMRAProfile",
                "New-IAMRATrustAnchor",
+               "Remove-IAMRAAttributeMapping",
                "Remove-IAMRACrl",
                "Remove-IAMRAProfile",
                "Remove-IAMRATrustAnchor",
@@ -56293,6 +56305,7 @@ $IAMRA_SelectMap = @{
                "Get-IAMRASubjectList",
                "Get-IAMRAResourceTag",
                "Get-IAMRATrustAnchorList",
+               "Write-IAMRAAttributeMapping",
                "Write-IAMRANotificationSetting",
                "Reset-IAMRANotificationSetting",
                "Add-IAMRAResourceTag",
@@ -58687,7 +58700,7 @@ $SM_Completers = {
         # Amazon.SageMaker.AwsManagedHumanLoopRequestSource
         "New-SMFlowDefinition/HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"
         {
-            $v = "AWS/Bedrock/ModelEvaluation","AWS/Handshake/VerifyIdentity","AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1","AWS/Textract/AnalyzeExpense"
+            $v = "AWS/Rekognition/DetectModerationLabels/Image/V3","AWS/Textract/AnalyzeDocument/Forms/V1"
             break
         }
 
@@ -69809,11 +69822,13 @@ $WKS_SelectCompleters = {
 }
 
 $WKS_SelectMap = @{
-    "Select"=@("Register-WKSConnectionAlias",
+    "Select"=@("Approve-WKSAccountLinkInvitation",
+               "Register-WKSConnectionAlias",
                "Register-WKSIpGroup",
                "Register-WKSWorkspaceApplication",
                "Approve-WKSIpRule",
                "Copy-WKSWorkspaceImage",
+               "New-WKSAccountLinkInvitation",
                "New-WKSConnectClientAddIn",
                "New-WKSConnectionAlias",
                "New-WKSIpGroup",
@@ -69823,6 +69838,7 @@ $WKS_SelectMap = @{
                "New-WKSWorkspaceBundle",
                "New-WKSWorkspaceImage",
                "New-WKSWorkspace",
+               "Remove-WKSAccountLinkInvitation",
                "Remove-WKSClientBranding",
                "Remove-WKSConnectClientAddIn",
                "Remove-WKSConnectionAlias",
@@ -69856,8 +69872,10 @@ $WKS_SelectMap = @{
                "Unregister-WKSConnectionAlias",
                "Unregister-WKSIpGroup",
                "Unregister-WKSWorkspaceApplication",
+               "Get-WKSAccountLink",
                "Import-WKSClientBranding",
                "Import-WKSWorkspaceImage",
+               "Get-WKSAccountLinkList",
                "Get-WKSAvailableManagementCidrRangeList",
                "Start-WKSWorkspaceMigration",
                "Edit-WKSAccount",
@@ -69872,6 +69890,7 @@ $WKS_SelectMap = @{
                "Restart-WKSWorkspace",
                "Reset-WKSWorkspace",
                "Register-WKSWorkspaceDirectory",
+               "Deny-WKSAccountLinkInvitation",
                "Restore-WKSWorkspace",
                "Revoke-WKSIpRule",
                "Start-WKSWorkspace",

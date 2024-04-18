@@ -80,6 +80,16 @@ $IAMRA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IAMRolesAnywhere.CertificateField
+        {
+            ($_ -eq "Remove-IAMRAAttributeMapping/CertificateField") -Or
+            ($_ -eq "Write-IAMRAAttributeMapping/CertificateField")
+        }
+        {
+            $v = "x509Issuer","x509SAN","x509Subject"
+            break
+        }
+
         # Amazon.IAMRolesAnywhere.TrustAnchorType
         {
             ($_ -eq "New-IAMRATrustAnchor/Source_SourceType") -Or
@@ -99,6 +109,7 @@ $IAMRA_Completers = {
 }
 
 $IAMRA_map = @{
+    "CertificateField"=@("Remove-IAMRAAttributeMapping","Write-IAMRAAttributeMapping")
     "Source_SourceType"=@("New-IAMRATrustAnchor","Update-IAMRATrustAnchor")
 }
 
@@ -154,6 +165,7 @@ $IAMRA_SelectCompleters = {
 $IAMRA_SelectMap = @{
     "Select"=@("New-IAMRAProfile",
                "New-IAMRATrustAnchor",
+               "Remove-IAMRAAttributeMapping",
                "Remove-IAMRACrl",
                "Remove-IAMRAProfile",
                "Remove-IAMRATrustAnchor",
@@ -173,6 +185,7 @@ $IAMRA_SelectMap = @{
                "Get-IAMRASubjectList",
                "Get-IAMRAResourceTag",
                "Get-IAMRATrustAnchorList",
+               "Write-IAMRAAttributeMapping",
                "Write-IAMRANotificationSetting",
                "Reset-IAMRANotificationSetting",
                "Add-IAMRAResourceTag",

@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAttributeMapping" OutputProperty="Profile" Verb="Remove" Noun="AttributeMapping" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCrl" OutputProperty="Crl" Verb="Remove" Noun="Crl" ShouldProcessTarget="CrlId" PipelineParameter="CrlId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -99,6 +103,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTrustAnchors" OutputProperty="TrustAnchors" Verb="Get" Noun="TrustAnchorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAttributeMapping" OutputProperty="Profile" Verb="Write" Noun="AttributeMapping" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

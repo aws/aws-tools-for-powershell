@@ -86,8 +86,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Approve-WKSAccountLinkInvitation', 
         'Approve-WKSIpRule', 
         'Copy-WKSWorkspaceImage', 
+        'Deny-WKSAccountLinkInvitation', 
         'Edit-WKSAccount', 
         'Edit-WKSCertificateBasedAuthProperty', 
         'Edit-WKSClientProperty', 
@@ -98,6 +100,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-WKSWorkspaceProperty', 
         'Edit-WKSWorkspaceState', 
         'Get-WKSAccount', 
+        'Get-WKSAccountLink', 
+        'Get-WKSAccountLinkList', 
         'Get-WKSAccountModification', 
         'Get-WKSApplication', 
         'Get-WKSApplicationAssociation', 
@@ -121,6 +125,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WKSWorkspaceSnapshot', 
         'Import-WKSClientBranding', 
         'Import-WKSWorkspaceImage', 
+        'New-WKSAccountLinkInvitation', 
         'New-WKSConnectClientAddIn', 
         'New-WKSConnectionAlias', 
         'New-WKSIpGroup', 
@@ -135,6 +140,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Register-WKSIpGroup', 
         'Register-WKSWorkspaceApplication', 
         'Register-WKSWorkspaceDirectory', 
+        'Remove-WKSAccountLinkInvitation', 
         'Remove-WKSClientBranding', 
         'Remove-WKSConnectClientAddIn', 
         'Remove-WKSConnectionAlias', 

@@ -28,20 +28,72 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Starts an asynchronous job that generates a dashboard snapshot. You can request one
-    /// of the following format configurations per API call.
+    /// Starts an asynchronous job that generates a snapshot of a dashboard's output. You
+    /// can request one or several of the following format configurations in each API call.
     /// 
     ///  <ul><li><para>
-    /// 1 paginated PDF
+    /// 1 Paginated PDF
     /// </para></li><li><para>
-    /// 1 Excel workbook
+    /// 1 Excel workbook that includes up to 5 table or pivot table visuals
     /// </para></li><li><para>
-    /// 5 CSVs
+    /// 5 CSVs from table or pivot table visuals
     /// </para></li></ul><para>
-    /// Poll job descriptions with a <c>DescribeDashboardSnapshotJob</c> API call. Once the
-    /// job succeeds, use the <c>DescribeDashboardSnapshotJobResult</c> API to obtain the
-    /// download URIs that the job generates.
-    /// </para>
+    /// The status of a submitted job can be polled with the <c>DescribeDashboardSnapshotJob</c>
+    /// API. When you call the <c>DescribeDashboardSnapshotJob</c> API, check the <c>JobStatus</c>
+    /// field in the response. Once the job reaches a <c>COMPLETED</c> or <c>FAILED</c> status,
+    /// use the <c>DescribeDashboardSnapshotJobResult</c> API to obtain the URLs for the generated
+    /// files. If the job fails, the <c>DescribeDashboardSnapshotJobResult</c> API returns
+    /// detailed information about the error that occurred.
+    /// </para><para><b>StartDashboardSnapshotJob API throttling</b></para><para>
+    /// Amazon QuickSight utilizes API throttling to create a more consistent user experience
+    /// within a time span for customers when they call the <c>StartDashboardSnapshotJob</c>.
+    /// By default, 12 jobs can run simlutaneously in one Amazon Web Services account and
+    /// users can submit up 10 API requests per second before an account is throttled. If
+    /// an overwhelming number of API requests are made by the same user in a short period
+    /// of time, Amazon QuickSight throttles the API calls to maintin an optimal experience
+    /// and reliability for all Amazon QuickSight users.
+    /// </para><para><b>Common throttling scenarios</b></para><para>
+    /// The following list provides information about the most commin throttling scenarios
+    /// that can occur.
+    /// </para><ul><li><para><b>A large number of <c>SnapshotExport</c> API jobs are running simultaneously on
+    /// an Amazon Web Services account.</b> When a new <c>StartDashboardSnapshotJob</c> is
+    /// created and there are already 12 jobs with the <c>RUNNING</c> status, the new job
+    /// request fails and returns a <c>LimitExceededException</c> error. Wait for a current
+    /// job to comlpete before you resubmit the new job.
+    /// </para></li><li><para><b>A large number of API requests are submitted on an Amazon Web Services account.</b>
+    /// When a user makes more than 10 API calls to the Amazon QuickSight API in one second,
+    /// a <c>ThrottlingException</c> is returned.
+    /// </para></li></ul><para>
+    /// If your use case requires a higher throttling limit, contact your account admin or
+    /// <a href="http://aws.amazon.com/contact-us/">Amazon Web ServicesSupport</a> to explore
+    /// options to tailor a more optimal expereince for your account.
+    /// </para><para><b>Best practices to handle throttling</b></para><para>
+    /// If your use case projects high levels of API traffic, try to reduce the degree of
+    /// frequency and parallelism of API calls as much as you can to avoid throttling. You
+    /// can also perform a timing test to calculate an estimate for the total processing time
+    /// of your projected load that stays within the throttling limits of the Amazon QuickSight
+    /// APIs. For example, if your projected traffic is 100 snapshot jobs before 12:00 PM
+    /// per day, start 12 jobs in parallel and measure the amount of time it takes to proccess
+    /// all 12 jobs. Once you obtain the result, multiply the duration by 9, for example <c>(12
+    /// minutes * 9 = 108 minutes)</c>. Use the new result to determine the latest time at
+    /// which the jobs need to be started to meet your target deadline.
+    /// </para><para>
+    /// The time that it takes to process a job can be impacted by the following factors:
+    /// </para><ul><li><para>
+    /// The dataset type (Direct Query or SPICE).
+    /// </para></li><li><para>
+    /// The size of the dataset.
+    /// </para></li><li><para>
+    /// The complexity of the calculated fields that are used in the dashboard.
+    /// </para></li><li><para>
+    /// The number of visuals that are on a sheet.
+    /// </para></li><li><para>
+    /// The types of visuals that are on the sheet.
+    /// </para></li><li><para>
+    /// The number of formats and snapshots that are requested in the job configuration.
+    /// </para></li><li><para>
+    /// The size of the generated snapshots.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Start", "QSDashboardSnapshotJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.StartDashboardSnapshotJobResponse")]

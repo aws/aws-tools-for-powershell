@@ -23779,6 +23779,8 @@ Set-Alias -Name Create-IAMRAProfile -Value New-IAMRAProfile
 Set-Alias -Name IAMRA-CreateProfile -Value New-IAMRAProfile
 Set-Alias -Name Create-IAMRATrustAnchor -Value New-IAMRATrustAnchor
 Set-Alias -Name IAMRA-CreateTrustAnchor -Value New-IAMRATrustAnchor
+Set-Alias -Name Delete-IAMRAAttributeMapping -Value Remove-IAMRAAttributeMapping
+Set-Alias -Name IAMRA-DeleteAttributeMapping -Value Remove-IAMRAAttributeMapping
 Set-Alias -Name Delete-IAMRACrl -Value Remove-IAMRACrl
 Set-Alias -Name IAMRA-DeleteCrl -Value Remove-IAMRACrl
 Set-Alias -Name Delete-IAMRAProfile -Value Remove-IAMRAProfile
@@ -23809,6 +23811,8 @@ Set-Alias -Name IAMRA-ListTagsForResource -Value Get-IAMRAResourceTag
 Set-Alias -Name List-IAMRATrustAnchors -Value Get-IAMRATrustAnchorList
 Set-Alias -Name List-IAMRATrustAnchorList -Value Get-IAMRATrustAnchorList
 Set-Alias -Name IAMRA-ListTrustAnchors -Value Get-IAMRATrustAnchorList
+Set-Alias -Name Put-IAMRAAttributeMapping -Value Write-IAMRAAttributeMapping
+Set-Alias -Name IAMRA-PutAttributeMapping -Value Write-IAMRAAttributeMapping
 Set-Alias -Name Put-IAMRANotificationSettings -Value Write-IAMRANotificationSetting
 Set-Alias -Name Put-IAMRANotificationSetting -Value Write-IAMRANotificationSetting
 Set-Alias -Name IAMRA-PutNotificationSettings -Value Write-IAMRANotificationSetting
@@ -29092,6 +29096,8 @@ Set-Alias -Name WM-UpdateUser -Value Update-WMUser
 Set-Alias -Name WMMF-GetRawMessageContent -Value Get-WMMFRawMessageContent
 Set-Alias -Name Put-WMMFRawMessageContent -Value Write-WMMFRawMessageContent
 Set-Alias -Name WMMF-PutRawMessageContent -Value Write-WMMFRawMessageContent
+Set-Alias -Name Accept-WKSAccountLinkInvitation -Value Approve-WKSAccountLinkInvitation
+Set-Alias -Name WKS-AcceptAccountLinkInvitation -Value Approve-WKSAccountLinkInvitation
 Set-Alias -Name Associate-WKSConnectionAlias -Value Register-WKSConnectionAlias
 Set-Alias -Name WKS-AssociateConnectionAlias -Value Register-WKSConnectionAlias
 Set-Alias -Name Associate-WKSIpGroups -Value Register-WKSIpGroup
@@ -29103,6 +29109,8 @@ Set-Alias -Name Authorize-WKSIpRules -Value Approve-WKSIpRule
 Set-Alias -Name Authorize-WKSIpRule -Value Approve-WKSIpRule
 Set-Alias -Name WKS-AuthorizeIpRules -Value Approve-WKSIpRule
 Set-Alias -Name WKS-CopyWorkspaceImage -Value Copy-WKSWorkspaceImage
+Set-Alias -Name Create-WKSAccountLinkInvitation -Value New-WKSAccountLinkInvitation
+Set-Alias -Name WKS-CreateAccountLinkInvitation -Value New-WKSAccountLinkInvitation
 Set-Alias -Name Create-WKSConnectClientAddIn -Value New-WKSConnectClientAddIn
 Set-Alias -Name WKS-CreateConnectClientAddIn -Value New-WKSConnectClientAddIn
 Set-Alias -Name Create-WKSConnectionAlias -Value New-WKSConnectionAlias
@@ -29124,6 +29132,8 @@ Set-Alias -Name WKS-CreateWorkspaceImage -Value New-WKSWorkspaceImage
 Set-Alias -Name Create-WKSWorkspaces -Value New-WKSWorkspace
 Set-Alias -Name Create-WKSWorkspace -Value New-WKSWorkspace
 Set-Alias -Name WKS-CreateWorkspaces -Value New-WKSWorkspace
+Set-Alias -Name Delete-WKSAccountLinkInvitation -Value Remove-WKSAccountLinkInvitation
+Set-Alias -Name WKS-DeleteAccountLinkInvitation -Value Remove-WKSAccountLinkInvitation
 Set-Alias -Name Delete-WKSClientBranding -Value Remove-WKSClientBranding
 Set-Alias -Name WKS-DeleteClientBranding -Value Remove-WKSClientBranding
 Set-Alias -Name Delete-WKSConnectClientAddIn -Value Remove-WKSConnectClientAddIn
@@ -29211,8 +29221,12 @@ Set-Alias -Name Disassociate-WKSIpGroup -Value Unregister-WKSIpGroup
 Set-Alias -Name WKS-DisassociateIpGroups -Value Unregister-WKSIpGroup
 Set-Alias -Name Disassociate-WKSWorkspaceApplication -Value Unregister-WKSWorkspaceApplication
 Set-Alias -Name WKS-DisassociateWorkspaceApplication -Value Unregister-WKSWorkspaceApplication
+Set-Alias -Name WKS-GetAccountLink -Value Get-WKSAccountLink
 Set-Alias -Name WKS-ImportClientBranding -Value Import-WKSClientBranding
 Set-Alias -Name WKS-ImportWorkspaceImage -Value Import-WKSWorkspaceImage
+Set-Alias -Name List-WKSAccountLinks -Value Get-WKSAccountLinkList
+Set-Alias -Name List-WKSAccountLinkList -Value Get-WKSAccountLinkList
+Set-Alias -Name WKS-ListAccountLinks -Value Get-WKSAccountLinkList
 Set-Alias -Name List-WKSAvailableManagementCidrRanges -Value Get-WKSAvailableManagementCidrRangeList
 Set-Alias -Name List-WKSAvailableManagementCidrRangeList -Value Get-WKSAvailableManagementCidrRangeList
 Set-Alias -Name WKS-ListAvailableManagementCidrRanges -Value Get-WKSAvailableManagementCidrRangeList
@@ -29251,6 +29265,8 @@ Set-Alias -Name Rebuild-WKSWorkspaces -Value Reset-WKSWorkspace
 Set-Alias -Name Rebuild-WKSWorkspace -Value Reset-WKSWorkspace
 Set-Alias -Name WKS-RebuildWorkspaces -Value Reset-WKSWorkspace
 Set-Alias -Name WKS-RegisterWorkspaceDirectory -Value Register-WKSWorkspaceDirectory
+Set-Alias -Name Reject-WKSAccountLinkInvitation -Value Deny-WKSAccountLinkInvitation
+Set-Alias -Name WKS-RejectAccountLinkInvitation -Value Deny-WKSAccountLinkInvitation
 Set-Alias -Name WKS-RestoreWorkspace -Value Restore-WKSWorkspace
 Set-Alias -Name Revoke-WKSIpRules -Value Revoke-WKSIpRule
 Set-Alias -Name WKS-RevokeIpRules -Value Revoke-WKSIpRule

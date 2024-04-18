@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of the <c>FeatureGroup</c>. The name must be unique within an Amazon Web
-        /// Services Region in an Amazon Web Services account.</para><para>The name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only include alphanumeric characters, underscores, and hyphens. Spaces are not
+        /// Services Region in an Amazon Web Services account.</para><para>The name:</para><ul><li><para>Must start with an alphanumeric character.</para></li><li><para>Can only include alphanumeric characters, underscores, and hyphens. Spaces are not
         /// allowed.</para></li></ul>
         /// </para>
         /// </summary>
@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The name of the <c>Feature</c> whose value uniquely identifies a <c>Record</c> defined
         /// in the <c>FeatureStore</c>. Only the latest record per identifier value will be stored
         /// in the <c>OnlineStore</c>. <c>RecordIdentifierFeatureName</c> must be one of feature
-        /// definitions' names.</para><para>You use the <c>RecordIdentifierFeatureName</c> to access data in a <c>FeatureStore</c>.</para><para>This name:</para><ul><li><para>Must start and end with an alphanumeric character.</para></li><li><para>Can only contains alphanumeric characters, hyphens, underscores. Spaces are not allowed.
+        /// definitions' names.</para><para>You use the <c>RecordIdentifierFeatureName</c> to access data in a <c>FeatureStore</c>.</para><para>This name:</para><ul><li><para>Must start with an alphanumeric character.</para></li><li><para>Can only contains alphanumeric characters, hyphens, underscores. Spaces are not allowed.
         /// </para></li></ul>
         /// </para>
         /// </summary>

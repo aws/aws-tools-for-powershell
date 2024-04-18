@@ -274,6 +274,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String ReleaseLabel { get; set; }
         #endregion
         
+        #region Parameter PrometheusMonitoringConfiguration_RemoteWriteUrl
+        /// <summary>
+        /// <para>
+        /// <para>The remote write URL in the Amazon Managed Service for Prometheus workspace to send
+        /// metrics to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MonitoringConfiguration_PrometheusMonitoringConfiguration_RemoteWriteUrl")]
+        public System.String PrometheusMonitoringConfiguration_RemoteWriteUrl { get; set; }
+        #endregion
+        
         #region Parameter RuntimeConfiguration
         /// <summary>
         /// <para>
@@ -469,6 +481,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             }
             context.ManagedPersistenceMonitoringConfiguration_Enabled = this.ManagedPersistenceMonitoringConfiguration_Enabled;
             context.ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn = this.ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn;
+            context.PrometheusMonitoringConfiguration_RemoteWriteUrl = this.PrometheusMonitoringConfiguration_RemoteWriteUrl;
             context.S3MonitoringConfiguration_EncryptionKeyArn = this.S3MonitoringConfiguration_EncryptionKeyArn;
             context.S3MonitoringConfiguration_LogUri = this.S3MonitoringConfiguration_LogUri;
             context.Name = this.Name;
@@ -652,6 +665,31 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
              // populate MonitoringConfiguration
             var requestMonitoringConfigurationIsNull = true;
             request.MonitoringConfiguration = new Amazon.EMRServerless.Model.MonitoringConfiguration();
+            Amazon.EMRServerless.Model.PrometheusMonitoringConfiguration requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration = null;
+            
+             // populate PrometheusMonitoringConfiguration
+            var requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfigurationIsNull = true;
+            requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration = new Amazon.EMRServerless.Model.PrometheusMonitoringConfiguration();
+            System.String requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration_prometheusMonitoringConfiguration_RemoteWriteUrl = null;
+            if (cmdletContext.PrometheusMonitoringConfiguration_RemoteWriteUrl != null)
+            {
+                requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration_prometheusMonitoringConfiguration_RemoteWriteUrl = cmdletContext.PrometheusMonitoringConfiguration_RemoteWriteUrl;
+            }
+            if (requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration_prometheusMonitoringConfiguration_RemoteWriteUrl != null)
+            {
+                requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration.RemoteWriteUrl = requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration_prometheusMonitoringConfiguration_RemoteWriteUrl;
+                requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfigurationIsNull = false;
+            }
+             // determine if requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration should be set to null
+            if (requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfigurationIsNull)
+            {
+                requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration = null;
+            }
+            if (requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration != null)
+            {
+                request.MonitoringConfiguration.PrometheusMonitoringConfiguration = requestMonitoringConfiguration_monitoringConfiguration_PrometheusMonitoringConfiguration;
+                requestMonitoringConfigurationIsNull = false;
+            }
             Amazon.EMRServerless.Model.ManagedPersistenceMonitoringConfiguration requestMonitoringConfiguration_monitoringConfiguration_ManagedPersistenceMonitoringConfiguration = null;
             
              // populate ManagedPersistenceMonitoringConfiguration
@@ -923,6 +961,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public Dictionary<System.String, List<System.String>> CloudWatchLoggingConfiguration_LogType { get; set; }
             public System.Boolean? ManagedPersistenceMonitoringConfiguration_Enabled { get; set; }
             public System.String ManagedPersistenceMonitoringConfiguration_EncryptionKeyArn { get; set; }
+            public System.String PrometheusMonitoringConfiguration_RemoteWriteUrl { get; set; }
             public System.String S3MonitoringConfiguration_EncryptionKeyArn { get; set; }
             public System.String S3MonitoringConfiguration_LogUri { get; set; }
             public System.String Name { get; set; }

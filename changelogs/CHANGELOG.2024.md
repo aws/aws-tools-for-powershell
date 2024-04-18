@@ -1,4 +1,21 @@
-﻿### 4.1.560 (2024-04-17 22:10Z)
+﻿### 4.1.561 (2024-04-18 21:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.792.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameter PrometheusMonitoringConfiguration_RemoteWriteUrl.
+    * Modified cmdlet Start-EMRServerlessJobRun: added parameter PrometheusMonitoringConfiguration_RemoteWriteUrl.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameter PrometheusMonitoringConfiguration_RemoteWriteUrl.
+  * Amazon IAM Roles Anywhere
+    * Added cmdlet Remove-IAMRAAttributeMapping leveraging the DeleteAttributeMapping service API.
+    * Added cmdlet Write-IAMRAAttributeMapping leveraging the PutAttributeMapping service API.
+  * Amazon WorkSpaces
+    * Added cmdlet Approve-WKSAccountLinkInvitation leveraging the AcceptAccountLinkInvitation service API.
+    * Added cmdlet Deny-WKSAccountLinkInvitation leveraging the RejectAccountLinkInvitation service API.
+    * Added cmdlet Get-WKSAccountLink leveraging the GetAccountLink service API.
+    * Added cmdlet Get-WKSAccountLinkList leveraging the ListAccountLinks service API.
+    * Added cmdlet New-WKSAccountLinkInvitation leveraging the CreateAccountLinkInvitation service API.
+    * Added cmdlet Remove-WKSAccountLinkInvitation leveraging the DeleteAccountLinkInvitation service API.
+
+### 4.1.560 (2024-04-17 22:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.791.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QBusiness
     * Modified cmdlet New-QBUSApplication: added parameter IdentityCenterInstanceArn.
