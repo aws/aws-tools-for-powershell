@@ -1,4 +1,14 @@
-﻿### 4.1.561 (2024-04-18 21:03Z)
+﻿### 4.1.562 (2024-04-19 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.793.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Internet Monitor
+    * Added cmdlet Get-CWIMInternetEvent leveraging the GetInternetEvent service API.
+    * Added cmdlet Get-CWIMInternetEventList leveraging the ListInternetEvents service API.
+  * Amazon Personalize
+    * Modified cmdlet New-PERSCampaign: added parameter CampaignConfig_SyncWithLatestSolutionVersion.
+    * Modified cmdlet New-PERSSolution: added parameters AutoTrainingConfig_SchedulingExpression and PerformAutoTraining.
+    * Modified cmdlet Update-PERSCampaign: added parameter CampaignConfig_SyncWithLatestSolutionVersion.
+
+### 4.1.561 (2024-04-18 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.792.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet New-EMRServerlessApplication: added parameter PrometheusMonitoringConfiguration_RemoteWriteUrl.

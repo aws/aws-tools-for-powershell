@@ -89,6 +89,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Add-CWIMResourceTag', 
         'Get-CWIMHealthEvent', 
         'Get-CWIMHealthEventList', 
+        'Get-CWIMInternetEvent', 
+        'Get-CWIMInternetEventList', 
         'Get-CWIMMonitor', 
         'Get-CWIMMonitorList', 
         'Get-CWIMQueryResult', 

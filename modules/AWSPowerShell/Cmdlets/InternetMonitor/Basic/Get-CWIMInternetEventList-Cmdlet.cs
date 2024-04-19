@@ -28,53 +28,78 @@ using Amazon.InternetMonitor.Model;
 namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
-    /// Lists all of your monitors for Amazon CloudWatch Internet Monitor and their statuses,
-    /// along with the Amazon Resource Name (ARN) and name of each monitor.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists internet events that cause performance or availability issues for client locations.
+    /// Amazon CloudWatch Internet Monitor displays information about recent global health
+    /// events, called internet events, on a global outages map that is available to all Amazon
+    /// Web Services customers. 
+    /// 
+    ///  
+    /// <para>
+    /// You can constrain the list of internet events returned by providing a start time and
+    /// end time to define a total time frame for events you want to list. Both start time
+    /// and end time specify the time when an event started. End time is optional. If you
+    /// don't include it, the default end time is the current time.
+    /// </para><para>
+    /// You can also limit the events returned to a specific status (<c>ACTIVE</c> or <c>RESOLVED</c>)
+    /// or type (<c>PERFORMANCE</c> or <c>AVAILABILITY</c>).
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWIMMonitorList")]
-    [OutputType("Amazon.InternetMonitor.Model.Monitor")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor ListMonitors API operation.", Operation = new[] {"ListMonitors"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.ListMonitorsResponse))]
-    [AWSCmdletOutput("Amazon.InternetMonitor.Model.Monitor or Amazon.InternetMonitor.Model.ListMonitorsResponse",
-        "This cmdlet returns a collection of Amazon.InternetMonitor.Model.Monitor objects.",
-        "The service call response (type Amazon.InternetMonitor.Model.ListMonitorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWIMInternetEventList")]
+    [OutputType("Amazon.InternetMonitor.Model.InternetEventSummary")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Internet Monitor ListInternetEvents API operation.", Operation = new[] {"ListInternetEvents"}, SelectReturnType = typeof(Amazon.InternetMonitor.Model.ListInternetEventsResponse))]
+    [AWSCmdletOutput("Amazon.InternetMonitor.Model.InternetEventSummary or Amazon.InternetMonitor.Model.ListInternetEventsResponse",
+        "This cmdlet returns a collection of Amazon.InternetMonitor.Model.InternetEventSummary objects.",
+        "The service call response (type Amazon.InternetMonitor.Model.ListInternetEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWIMMonitorListCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
+    public partial class GetCWIMInternetEventListCmdlet : AmazonInternetMonitorClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter IncludeLinkedAccount
+        #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>A boolean option that you can set to <c>TRUE</c> to include monitors for linked accounts
-        /// in a list of monitors, when you've set up cross-account sharing in Amazon CloudWatch
-        /// Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch Observability
-        /// Access Manager. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet
-        /// Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor
-        /// User Guide.</para>
+        /// <para>The end time of the time window that you want to get a list of internet events for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("IncludeLinkedAccounts")]
-        public System.Boolean? IncludeLinkedAccount { get; set; }
+        public System.DateTime? EndTime { get; set; }
         #endregion
         
-        #region Parameter MonitorStatus
+        #region Parameter EventStatus
         /// <summary>
         /// <para>
-        /// <para>The status of a monitor. This includes the status of the data processing for the monitor
-        /// and the status of the monitor itself.</para><para>For information about the statuses for a monitor, see <a href="https://docs.aws.amazon.com/internet-monitor/latest/api/API_Monitor.html">
-        /// Monitor</a>.</para>
+        /// <para>The status of an internet event.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String MonitorStatus { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventStatus { get; set; }
+        #endregion
+        
+        #region Parameter EventType
+        /// <summary>
+        /// <para>
+        /// <para>The type of network impairment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EventType { get; set; }
+        #endregion
+        
+        #region Parameter StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The start time of the time window that you want to get a list of internet events for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.DateTime? StartTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The number of monitor objects that you want to return with this call.</para>
+        /// <para>The number of query results that you want to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,23 +123,13 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Monitors'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.InternetMonitor.Model.ListMonitorsResponse).
-        /// Specifying the name of a property of type Amazon.InternetMonitor.Model.ListMonitorsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'InternetEvents'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.InternetMonitor.Model.ListInternetEventsResponse).
+        /// Specifying the name of a property of type Amazon.InternetMonitor.Model.ListInternetEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Monitors";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MonitorStatus parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MonitorStatus' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MonitorStatus' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "InternetEvents";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -137,25 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.InternetMonitor.Model.ListMonitorsResponse, GetCWIMMonitorListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.InternetMonitor.Model.ListInternetEventsResponse, GetCWIMInternetEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.MonitorStatus;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IncludeLinkedAccount = this.IncludeLinkedAccount;
+            context.EndTime = this.EndTime;
+            context.EventStatus = this.EventStatus;
+            context.EventType = this.EventType;
             context.MaxResult = this.MaxResult;
-            context.MonitorStatus = this.MonitorStatus;
             context.NextToken = this.NextToken;
+            context.StartTime = this.StartTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,24 +176,30 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.InternetMonitor.Model.ListMonitorsRequest();
+            var request = new Amazon.InternetMonitor.Model.ListInternetEventsRequest();
             
-            if (cmdletContext.IncludeLinkedAccount != null)
+            if (cmdletContext.EndTime != null)
             {
-                request.IncludeLinkedAccounts = cmdletContext.IncludeLinkedAccount.Value;
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.EventStatus != null)
+            {
+                request.EventStatus = cmdletContext.EventStatus;
+            }
+            if (cmdletContext.EventType != null)
+            {
+                request.EventType = cmdletContext.EventType;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.MonitorStatus != null)
+            if (cmdletContext.StartTime != null)
             {
-                request.MonitorStatus = cmdletContext.MonitorStatus;
+                request.StartTime = cmdletContext.StartTime.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -245,15 +258,15 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         
         #region AWS Service Operation Call
         
-        private Amazon.InternetMonitor.Model.ListMonitorsResponse CallAWSServiceOperation(IAmazonInternetMonitor client, Amazon.InternetMonitor.Model.ListMonitorsRequest request)
+        private Amazon.InternetMonitor.Model.ListInternetEventsResponse CallAWSServiceOperation(IAmazonInternetMonitor client, Amazon.InternetMonitor.Model.ListInternetEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Internet Monitor", "ListMonitors");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Internet Monitor", "ListInternetEvents");
             try
             {
                 #if DESKTOP
-                return client.ListMonitors(request);
+                return client.ListInternetEvents(request);
                 #elif CORECLR
-                return client.ListMonitorsAsync(request).GetAwaiter().GetResult();
+                return client.ListInternetEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -273,12 +286,14 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? IncludeLinkedAccount { get; set; }
+            public System.DateTime? EndTime { get; set; }
+            public System.String EventStatus { get; set; }
+            public System.String EventType { get; set; }
             public System.Int32? MaxResult { get; set; }
-            public System.String MonitorStatus { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.InternetMonitor.Model.ListMonitorsResponse, GetCWIMMonitorListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Monitors;
+            public System.DateTime? StartTime { get; set; }
+            public System.Func<Amazon.InternetMonitor.Model.ListInternetEventsResponse, GetCWIMInternetEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.InternetEvents;
         }
         
     }

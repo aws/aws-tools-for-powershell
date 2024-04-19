@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInternetEvent" OutputProperty="*" Verb="Get" Noun="InternetEvent" PipelineParameter="EventId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMonitor" OutputProperty="*" Verb="Get" Noun="Monitor" PipelineParameter="MonitorName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -44,6 +48,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListHealthEvents" OutputProperty="HealthEvents" Verb="Get" Noun="HealthEventList" PipelineParameter="MonitorName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInternetEvents" OutputProperty="InternetEvents" Verb="Get" Noun="InternetEventList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

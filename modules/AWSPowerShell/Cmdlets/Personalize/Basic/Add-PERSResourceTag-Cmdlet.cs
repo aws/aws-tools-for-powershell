@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">Tagging
-        /// Amazon Personalize recources</a>.</para>
+        /// Amazon Personalize resources</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

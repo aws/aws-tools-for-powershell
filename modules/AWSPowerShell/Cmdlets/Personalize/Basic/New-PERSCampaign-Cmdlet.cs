@@ -28,12 +28,15 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
+    /// <important><para>
+    ///  You incur campaign costs while it is active. To avoid unnecessary costs, make sure
+    /// to delete the campaign when you are finished. For information about campaign costs,
+    /// see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.
+    /// </para></important><para>
     /// Creates a campaign that deploys a solution version. When a client calls the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
     /// and <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html">GetPersonalizedRanking</a>
     /// APIs, a campaign is specified in the request.
-    /// 
-    ///  
-    /// <para><b>Minimum Provisioned TPS and Auto-Scaling</b></para><important><para>
+    /// </para><para><b>Minimum Provisioned TPS and Auto-Scaling</b></para><important><para>
     ///  A high <c>minProvisionedTPS</c> will increase your cost. We recommend starting with
     /// 1 for <c>minProvisionedTPS</c> (the default). Track your usage using Amazon CloudWatch
     /// metrics, and increase the <c>minProvisionedTPS</c> as necessary.
@@ -148,7 +151,13 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter SolutionVersionArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the solution version to deploy.</para>
+        /// <para>The Amazon Resource Name (ARN) of the trained model to deploy with the campaign. To
+        /// specify the latest solution version of your solution, specify the ARN of your <i>solution</i>
+        /// in <c>SolutionArn/$LATEST</c> format. You must use this format if you set <c>syncWithLatestSolutionVersion</c>
+        /// to <c>True</c> in the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CampaignConfig.html">CampaignConfig</a>.
+        /// </para><para> To deploy a model that isn't the latest solution version of your solution, specify
+        /// the ARN of the solution version. </para><para> For more information about automatic campaign updates, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-automatic-latest-sv-update">Enabling
+        /// automatic campaign updates</a>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -160,6 +169,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SolutionVersionArn { get; set; }
+        #endregion
+        
+        #region Parameter CampaignConfig_SyncWithLatestSolutionVersion
+        /// <summary>
+        /// <para>
+        /// <para>Whether the campaign automatically updates to use the latest solution version (trained
+        /// model) of a solution. If you specify <c>True</c>, you must specify the ARN of your
+        /// <i>solution</i> for the <c>SolutionVersionArn</c> parameter. It must be in <c>SolutionArn/$LATEST</c>
+        /// format. The default is <c>False</c> and you must manually update the campaign to deploy
+        /// the latest solution version. </para><para> For more information about automatic campaign updates, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-automatic-latest-sv-update">Enabling
+        /// automatic campaign updates</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? CampaignConfig_SyncWithLatestSolutionVersion { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -245,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                     context.CampaignConfig_ItemExplorationConfig.Add((String)hashKey, (System.String)(this.CampaignConfig_ItemExplorationConfig[hashKey]));
                 }
             }
+            context.CampaignConfig_SyncWithLatestSolutionVersion = this.CampaignConfig_SyncWithLatestSolutionVersion;
             context.MinProvisionedTPS = this.MinProvisionedTPS;
             context.Name = this.Name;
             #if MODULAR
@@ -302,6 +327,16 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestCampaignConfig_campaignConfig_ItemExplorationConfig != null)
             {
                 request.CampaignConfig.ItemExplorationConfig = requestCampaignConfig_campaignConfig_ItemExplorationConfig;
+                requestCampaignConfigIsNull = false;
+            }
+            System.Boolean? requestCampaignConfig_campaignConfig_SyncWithLatestSolutionVersion = null;
+            if (cmdletContext.CampaignConfig_SyncWithLatestSolutionVersion != null)
+            {
+                requestCampaignConfig_campaignConfig_SyncWithLatestSolutionVersion = cmdletContext.CampaignConfig_SyncWithLatestSolutionVersion.Value;
+            }
+            if (requestCampaignConfig_campaignConfig_SyncWithLatestSolutionVersion != null)
+            {
+                request.CampaignConfig.SyncWithLatestSolutionVersion = requestCampaignConfig_campaignConfig_SyncWithLatestSolutionVersion.Value;
                 requestCampaignConfigIsNull = false;
             }
              // determine if request.CampaignConfig should be set to null
@@ -388,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             public System.Boolean? CampaignConfig_EnableMetadataWithRecommendation { get; set; }
             public Dictionary<System.String, System.String> CampaignConfig_ItemExplorationConfig { get; set; }
+            public System.Boolean? CampaignConfig_SyncWithLatestSolutionVersion { get; set; }
             public System.Int32? MinProvisionedTPS { get; set; }
             public System.String Name { get; set; }
             public System.String SolutionVersionArn { get; set; }

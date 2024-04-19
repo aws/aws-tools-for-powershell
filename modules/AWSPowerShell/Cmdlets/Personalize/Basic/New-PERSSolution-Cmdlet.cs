@@ -28,23 +28,41 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Creates the configuration for training a model. A trained model is known as a solution
-    /// version. After the configuration is created, you train the model (create a solution
-    /// version) by calling the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a>
-    /// operation. Every time you call <c>CreateSolutionVersion</c>, a new version of the
-    /// solution is created.
+    /// <important><para>
+    /// After you create a solution, you can’t change its configuration. By default, all new
+    /// solutions use automatic training. With automatic training, you incur training costs
+    /// while your solution is active. You can't stop automatic training for a solution. To
+    /// avoid unnecessary costs, make sure to delete the solution when you are finished. For
+    /// information about training costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon
+    /// Personalize pricing</a>.
+    /// </para></important><para>
+    /// Creates the configuration for training a model (creating a solution version). This
+    /// configuration includes the recipe to use for model training and optional training
+    /// configuration, such as columns to use in training and feature transformation parameters.
+    /// For more information about configuring a solution, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html">Creating
+    /// and configuring a solution</a>. 
+    /// </para><para>
+    ///  By default, new solutions use automatic training to create solution versions every
+    /// 7 days. You can change the training frequency. Automatic solution version creation
+    /// starts one hour after the solution is ACTIVE. If you manually create a solution version
+    /// within the hour, the solution skips the first automatic training. For more information,
+    /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring
+    /// automatic training</a>.
+    /// </para><para>
+    ///  To turn off automatic training, set <c>performAutoTraining</c> to false. If you turn
+    /// off automatic training, you must manually create a solution version by calling the
+    /// <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a>
+    /// operation.
+    /// </para><para>
+    /// After training starts, you can get the solution version's Amazon Resource Name (ARN)
+    /// with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a>
+    /// API operation. To get its status, use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
     /// 
-    ///  
-    /// <para>
-    /// After creating a solution version, you check its accuracy by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html">GetSolutionMetrics</a>.
-    /// When you are satisfied with the version, you deploy it using <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
+    /// </para><para>
+    /// After training completes you can evaluate model accuracy by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html">GetSolutionMetrics</a>.
+    /// When you are satisfied with the solution version, you deploy it using <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.
     /// The campaign provides recommendations to a client through the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a>
     /// API.
-    /// </para><para>
-    /// To train a model, Amazon Personalize requires training data and a recipe. The training
-    /// data comes from the dataset group that you provide in the request. A recipe specifies
-    /// the training algorithm and a feature transformation. You can specify one of the predefined
-    /// recipes provided by Amazon Personalize. 
     /// </para><note><para>
     /// Amazon Personalize doesn't support configuring the <c>hpoObjective</c> for solution
     /// hyperparameter optimization at this time.
@@ -56,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// DELETE PENDING &gt; DELETE IN_PROGRESS
     /// </para></li></ul><para>
     /// To get the status of the solution, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>.
-    /// Wait until the status shows as ACTIVE before calling <c>CreateSolutionVersion</c>.
+    /// If you use manual training, the status must be ACTIVE before you call <c>CreateSolutionVersion</c>.
     /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a></para></li></ul><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSSolution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -150,9 +168,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <para>
         /// <para>Specifies the columns to exclude from training. Each key is a dataset type, and each
         /// value is a list of columns. Exclude columns to control what data Amazon Personalize
-        /// uses to generate recommendations. For example, you might have a column that you want
-        /// to use only to filter recommendations. You can exclude this column from training and
-        /// Amazon Personalize considers it only when filtering. </para>
+        /// uses to generate recommendations.</para><para> For example, you might have a column that you want to use only to filter recommendations.
+        /// You can exclude this column from training and Amazon Personalize considers it only
+        /// when filtering. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -298,6 +316,26 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.Boolean? PerformAutoML { get; set; }
         #endregion
         
+        #region Parameter PerformAutoTraining
+        /// <summary>
+        /// <para>
+        /// <para>Whether the solution uses automatic training to create new solution versions (trained
+        /// models). The default is <c>True</c> and the solution automatically creates new solution
+        /// versions every 7 days. You can change the training frequency by specifying a <c>schedulingExpression</c>
+        /// in the <c>AutoTrainingConfig</c> as part of solution configuration. For more information
+        /// about automatic training, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring
+        /// automatic training</a>.</para><para> Automatic solution version creation starts one hour after the solution is ACTIVE.
+        /// If you manually create a solution version within the hour, the solution skips the
+        /// first automatic training. </para><para> After training starts, you can get the solution version's Amazon Resource Name (ARN)
+        /// with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a>
+        /// API operation. To get its status, use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? PerformAutoTraining { get; set; }
+        #endregion
+        
         #region Parameter PerformHPO
         /// <summary>
         /// <para>
@@ -332,6 +370,22 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SolutionConfig_AutoMLConfig_RecipeList")]
         public System.String[] AutoMLConfig_RecipeList { get; set; }
+        #endregion
+        
+        #region Parameter AutoTrainingConfig_SchedulingExpression
+        /// <summary>
+        /// <para>
+        /// <para>Specifies how often to automatically train new solution versions. Specify a rate expression
+        /// in rate(<i>value</i><i>unit</i>) format. For value, specify a number between 1 and
+        /// 30. For unit, specify <c>day</c> or <c>days</c>. For example, to automatically create
+        /// a new solution version every 5 days, specify <c>rate(5 days)</c>. The default is every
+        /// 7 days.</para><para>For more information about auto training, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/customizing-solution-config.html">Creating
+        /// and configuring a solution</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SolutionConfig_AutoTrainingConfig_SchedulingExpression")]
+        public System.String AutoTrainingConfig_SchedulingExpression { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -435,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             #endif
             context.PerformAutoML = this.PerformAutoML;
+            context.PerformAutoTraining = this.PerformAutoTraining;
             context.PerformHPO = this.PerformHPO;
             context.RecipeArn = this.RecipeArn;
             if (this.SolutionConfig_AlgorithmHyperParameter != null)
@@ -450,6 +505,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 context.AutoMLConfig_RecipeList = new List<System.String>(this.AutoMLConfig_RecipeList);
             }
+            context.AutoTrainingConfig_SchedulingExpression = this.AutoTrainingConfig_SchedulingExpression;
             context.SolutionConfig_EventValueThreshold = this.SolutionConfig_EventValueThreshold;
             if (this.SolutionConfig_FeatureTransformationParameter != null)
             {
@@ -534,6 +590,10 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 request.PerformAutoML = cmdletContext.PerformAutoML.Value;
             }
+            if (cmdletContext.PerformAutoTraining != null)
+            {
+                request.PerformAutoTraining = cmdletContext.PerformAutoTraining.Value;
+            }
             if (cmdletContext.PerformHPO != null)
             {
                 request.PerformHPO = cmdletContext.PerformHPO.Value;
@@ -574,6 +634,31 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             if (requestSolutionConfig_solutionConfig_FeatureTransformationParameter != null)
             {
                 request.SolutionConfig.FeatureTransformationParameters = requestSolutionConfig_solutionConfig_FeatureTransformationParameter;
+                requestSolutionConfigIsNull = false;
+            }
+            Amazon.Personalize.Model.AutoTrainingConfig requestSolutionConfig_solutionConfig_AutoTrainingConfig = null;
+            
+             // populate AutoTrainingConfig
+            var requestSolutionConfig_solutionConfig_AutoTrainingConfigIsNull = true;
+            requestSolutionConfig_solutionConfig_AutoTrainingConfig = new Amazon.Personalize.Model.AutoTrainingConfig();
+            System.String requestSolutionConfig_solutionConfig_AutoTrainingConfig_autoTrainingConfig_SchedulingExpression = null;
+            if (cmdletContext.AutoTrainingConfig_SchedulingExpression != null)
+            {
+                requestSolutionConfig_solutionConfig_AutoTrainingConfig_autoTrainingConfig_SchedulingExpression = cmdletContext.AutoTrainingConfig_SchedulingExpression;
+            }
+            if (requestSolutionConfig_solutionConfig_AutoTrainingConfig_autoTrainingConfig_SchedulingExpression != null)
+            {
+                requestSolutionConfig_solutionConfig_AutoTrainingConfig.SchedulingExpression = requestSolutionConfig_solutionConfig_AutoTrainingConfig_autoTrainingConfig_SchedulingExpression;
+                requestSolutionConfig_solutionConfig_AutoTrainingConfigIsNull = false;
+            }
+             // determine if requestSolutionConfig_solutionConfig_AutoTrainingConfig should be set to null
+            if (requestSolutionConfig_solutionConfig_AutoTrainingConfigIsNull)
+            {
+                requestSolutionConfig_solutionConfig_AutoTrainingConfig = null;
+            }
+            if (requestSolutionConfig_solutionConfig_AutoTrainingConfig != null)
+            {
+                request.SolutionConfig.AutoTrainingConfig = requestSolutionConfig_solutionConfig_AutoTrainingConfig;
                 requestSolutionConfigIsNull = false;
             }
             Amazon.Personalize.Model.TrainingDataConfig requestSolutionConfig_solutionConfig_TrainingDataConfig = null;
@@ -885,11 +970,13 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             public System.String EventType { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? PerformAutoML { get; set; }
+            public System.Boolean? PerformAutoTraining { get; set; }
             public System.Boolean? PerformHPO { get; set; }
             public System.String RecipeArn { get; set; }
             public Dictionary<System.String, System.String> SolutionConfig_AlgorithmHyperParameter { get; set; }
             public System.String AutoMLConfig_MetricName { get; set; }
             public List<System.String> AutoMLConfig_RecipeList { get; set; }
+            public System.String AutoTrainingConfig_SchedulingExpression { get; set; }
             public System.String SolutionConfig_EventValueThreshold { get; set; }
             public Dictionary<System.String, System.String> SolutionConfig_FeatureTransformationParameter { get; set; }
             public List<Amazon.Personalize.Model.CategoricalHyperParameterRange> AlgorithmHyperParameterRanges_CategoricalHyperParameterRange { get; set; }

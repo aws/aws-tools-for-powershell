@@ -129,7 +129,7 @@ $PERS_Completers = {
         # Amazon.Personalize.TrainingMode
         "New-PERSSolutionVersion/TrainingMode"
         {
-            $v = "FULL","UPDATE"
+            $v = "AUTOTRAIN","FULL","UPDATE"
             break
         }
 

@@ -33798,10 +33798,12 @@ $CWIM_SelectMap = @{
     "Select"=@("New-CWIMMonitor",
                "Remove-CWIMMonitor",
                "Get-CWIMHealthEvent",
+               "Get-CWIMInternetEvent",
                "Get-CWIMMonitor",
                "Get-CWIMQueryResult",
                "Get-CWIMQueryStatus",
                "Get-CWIMHealthEventList",
+               "Get-CWIMInternetEventList",
                "Get-CWIMMonitorList",
                "Get-CWIMResourceTag",
                "Start-CWIMQuery",
@@ -50648,7 +50650,7 @@ $PERS_Completers = {
         # Amazon.Personalize.TrainingMode
         "New-PERSSolutionVersion/TrainingMode"
         {
-            $v = "FULL","UPDATE"
+            $v = "AUTOTRAIN","FULL","UPDATE"
             break
         }
 

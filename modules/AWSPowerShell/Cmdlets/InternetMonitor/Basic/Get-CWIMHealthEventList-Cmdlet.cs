@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
 {
     /// <summary>
     /// Lists all health events for a monitor in Amazon CloudWatch Internet Monitor. Returns
-    /// information for health events including the event start and end time and the status.
+    /// information for health events including the event start and end times, and the status.
     /// 
     ///  <note><para>
     /// Health events that have start times during the time frame that is requested are not
@@ -73,7 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         #region Parameter LinkedAccountId
         /// <summary>
         /// <para>
-        /// <para>TBD </para>
+        /// <para>The account ID for an account that you've set up cross-account sharing for in Amazon
+        /// CloudWatch Internet Monitor. You configure cross-account sharing by using Amazon CloudWatch
+        /// Observability Access Manager. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cwim-cross-account.html">Internet
+        /// Monitor cross-account observability</a> in the Amazon CloudWatch Internet Monitor
+        /// User Guide.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

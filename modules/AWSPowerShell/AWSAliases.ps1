@@ -14453,6 +14453,7 @@ Set-Alias -Name CWIM-CreateMonitor -Value New-CWIMMonitor
 Set-Alias -Name Delete-CWIMMonitor -Value Remove-CWIMMonitor
 Set-Alias -Name CWIM-DeleteMonitor -Value Remove-CWIMMonitor
 Set-Alias -Name CWIM-GetHealthEvent -Value Get-CWIMHealthEvent
+Set-Alias -Name CWIM-GetInternetEvent -Value Get-CWIMInternetEvent
 Set-Alias -Name CWIM-GetMonitor -Value Get-CWIMMonitor
 Set-Alias -Name Get-CWIMQueryResults -Value Get-CWIMQueryResult
 Set-Alias -Name CWIM-GetQueryResults -Value Get-CWIMQueryResult
@@ -14460,6 +14461,9 @@ Set-Alias -Name CWIM-GetQueryStatus -Value Get-CWIMQueryStatus
 Set-Alias -Name List-CWIMHealthEvents -Value Get-CWIMHealthEventList
 Set-Alias -Name List-CWIMHealthEventList -Value Get-CWIMHealthEventList
 Set-Alias -Name CWIM-ListHealthEvents -Value Get-CWIMHealthEventList
+Set-Alias -Name List-CWIMInternetEvents -Value Get-CWIMInternetEventList
+Set-Alias -Name List-CWIMInternetEventList -Value Get-CWIMInternetEventList
+Set-Alias -Name CWIM-ListInternetEvents -Value Get-CWIMInternetEventList
 Set-Alias -Name List-CWIMMonitors -Value Get-CWIMMonitorList
 Set-Alias -Name List-CWIMMonitorList -Value Get-CWIMMonitorList
 Set-Alias -Name CWIM-ListMonitors -Value Get-CWIMMonitorList

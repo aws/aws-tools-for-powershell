@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The resource's Amazon Resource Name.</para>
+        /// <para>The resource's Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
