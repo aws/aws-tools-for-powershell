@@ -358,6 +358,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.RoboMaker.dll',
         'AWSSDK.Route53.dll',
         'AWSSDK.Route53Domains.dll',
+        'AWSSDK.Route53Profiles.dll',
         'AWSSDK.Route53RecoveryCluster.dll',
         'AWSSDK.Route53RecoveryControlConfig.dll',
         'AWSSDK.Route53RecoveryReadiness.dll',

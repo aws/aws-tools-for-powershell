@@ -6536,6 +6536,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.CustomControlMethod
+        {
+            ($_ -eq "New-AABAgentActionGroup/ActionGroupExecutor_CustomControl") -Or
+            ($_ -eq "Update-AABAgentActionGroup/ActionGroupExecutor_CustomControl")
+        }
+        {
+            $v = "RETURN_CONTROL"
+            break
+        }
+
         # Amazon.BedrockAgent.DataSourceType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_Type") -Or
@@ -6599,6 +6609,7 @@ $AAB_Completers = {
 }
 
 $AAB_map = @{
+    "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
@@ -49956,6 +49967,16 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.KeyExportability
+        {
+            ($_ -eq "Export-PAYCCKey/KeyBlockHeaders_KeyExportability") -Or
+            ($_ -eq "Export-PAYCCKey/KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability")
+        }
+        {
+            $v = "EXPORTABLE","NON_EXPORTABLE","SENSITIVE"
+            break
+        }
+
         # Amazon.PaymentCryptography.KeyMaterialType
         {
             ($_ -eq "Get-PAYCCParametersForExport/KeyMaterialType") -Or
@@ -50018,6 +50039,7 @@ $PAYCC_map = @{
     "KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyAttributes_KeyClass"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyAttributes_KeyUsage"=@("Import-PAYCCKey","New-PAYCCKey")
+    "KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyCheckValueAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyCryptogram_WrappingSpec"=@("Export-PAYCCKey","Import-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
@@ -50026,6 +50048,7 @@ $PAYCC_map = @{
     "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
     "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass"=@("Import-PAYCCKey")
     "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage"=@("Import-PAYCCKey")
+    "KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyMaterialType"=@("Get-PAYCCParametersForExport","Get-PAYCCParametersForImport")
     "KeyState"=@("Get-PAYCCKeyList")
     "SigningKeyAlgorithm"=@("Get-PAYCCParametersForExport")
@@ -56747,6 +56770,76 @@ $R53D_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $R53D_SelectCompleters $R53D_SelectMap
+# Argument completions for service Amazon Route 53 Profiles
+
+
+$R53P_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.R53P.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$R53P_SelectMap = @{
+    "Select"=@("New-R53PProfileAssociation",
+               "New-R53PProfileResourceAssociation",
+               "New-R53PProfile",
+               "Remove-R53PProfile",
+               "Remove-R53PProfileAssociation",
+               "Remove-R53PProfileResourceAssociation",
+               "Get-R53PProfile",
+               "Get-R53PProfileAssociation",
+               "Get-R53PProfileResourceAssociation",
+               "Get-R53PProfileAssociationList",
+               "Get-R53PProfileResourceAssociationList",
+               "Get-R53PProfileList",
+               "Get-R53PResourceTag",
+               "Add-R53PResourceTag",
+               "Remove-R53PResourceTag",
+               "Update-R53PProfileResourceAssociation")
+}
+
+_awsArgumentCompleterRegistration $R53P_SelectCompleters $R53P_SelectMap
 # Argument completions for service Route53 Recovery Cluster
 
 
@@ -58565,6 +58658,8 @@ $SM_Completers = {
         {
             ($_ -eq "New-SMDomain/DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "Update-SMDomain/DefaultResourceSpec_InstanceType") -Or
+            ($_ -eq "New-SMDomain/DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType") -Or
+            ($_ -eq "Update-SMDomain/DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMDomain/DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "Update-SMDomain/DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMDomain/DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType") -Or
@@ -59944,6 +60039,7 @@ $SM_map = @{
     "CrossAccountFilterOption"=@("Search-SMResource")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
+    "DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DesiredState"=@("Stop-SMInferenceExperiment")
@@ -67065,6 +67161,7 @@ $TFR_SelectMap = @{
                "Get-TFRUserList",
                "Get-TFRWorkflowList",
                "Send-TFRWorkflowStepState",
+               "Start-TFRDirectoryListing",
                "Start-TFRFileTransfer",
                "Start-TFRServer",
                "Stop-TFRServer",

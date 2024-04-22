@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A string map that contains the following information for the service that you specify
-        /// in <c>ServiceId</c>:</para><ul><li><para>The attributes that apply to the records that are defined in the service. </para></li><li><para>For each attribute, the applicable value.</para></li></ul><note><para>Do not include sensitive information in the attributes if the namespace is discoverable
-        /// by public DNS queries.</para></note><para>Supported attribute keys include the following:</para><dl><dt>AWS_ALIAS_DNS_NAME</dt><dd><para>If you want Cloud Map to create an Amazon Route 53 alias record that routes traffic
+        /// in <c>ServiceId</c>:</para><ul><li><para>The attributes that apply to the records that are defined in the service. </para></li><li><para>For each attribute, the applicable value.</para></li></ul><important><para>Do not include sensitive information in the attributes if the namespace is discoverable
+        /// by public DNS queries.</para></important><para>The following are the supported attribute keys.</para><dl><dt>AWS_ALIAS_DNS_NAME</dt><dd><para>If you want Cloud Map to create an Amazon Route 53 alias record that routes traffic
         /// to an Elastic Load Balancing load balancer, specify the DNS name that's associated
         /// with the load balancer. For information about how to get the DNS name, see "DNSName"
         /// in the topic <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// settings, Cloud Map will create the Route 53 health check, but it doesn't associate
         /// the health check with the alias record.</para></li><li><para>Cloud Map currently doesn't support creating alias records that route traffic to Amazon
         /// Web Services resources other than Elastic Load Balancing load balancers.</para></li><li><para>If you specify a value for <c>AWS_ALIAS_DNS_NAME</c>, don't specify values for any
-        /// of the <c>AWS_INSTANCE</c> attributes.</para></li></ul></dd><dt>AWS_EC2_INSTANCE_ID</dt><dd><para><i>HTTP namespaces only.</i> The Amazon EC2 instance ID for the instance. If the
+        /// of the <c>AWS_INSTANCE</c> attributes.</para></li><li><para>The <c>AWS_ALIAS_DNS_NAME</c> is not supported in the GovCloud (US) Regions.</para></li></ul></dd><dt>AWS_EC2_INSTANCE_ID</dt><dd><para><i>HTTP namespaces only.</i> The Amazon EC2 instance ID for the instance. If the
         /// <c>AWS_EC2_INSTANCE_ID</c> attribute is specified, then the only other attribute that
         /// can be specified is <c>AWS_INIT_HEALTH_STATUS</c>. When the <c>AWS_EC2_INSTANCE_ID</c>
         /// attribute is specified, then the <c>AWS_INSTANCE_IPV4</c> attribute will be filled

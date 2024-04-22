@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
     /// Lists summary information for all the services that are associated with one or more
-    /// specified namespaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// namespaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SDServiceList")]
     [OutputType("Amazon.ServiceDiscovery.Model.ServiceSummary")]

@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// 
     ///  
     /// <para>
-    /// Each key can have multiple aliases. To get the aliases of all keys, use the <a>ListAliases</a>
-    /// operation. To change the alias of a key, first use <a>DeleteAlias</a> to delete the
-    /// current alias and then use <a>CreateAlias</a> to create a new alias. To associate
-    /// an existing alias with a different key, call <a>UpdateAlias</a>.
+    /// Each key can have multiple aliases. To get the aliases of all keys, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a>
+    /// operation. To change the alias of a key, first use <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html">DeleteAlias</a>
+    /// to delete the current alias and then use <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html">CreateAlias</a>
+    /// to create a new alias. To associate an existing alias with a different key, call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a>.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>GetAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>UpdateAlias</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateAlias.html">CreateAlias</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html">GetAlias</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html">ListAliases</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "PAYCCAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

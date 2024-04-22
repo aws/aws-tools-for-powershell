@@ -1,4 +1,20 @@
-﻿### 4.1.562 (2024-04-19 20:56Z)
+﻿### 4.1.563 (2024-04-22 20:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.794.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABAgentActionGroup: added parameters ActionGroupExecutor_CustomControl and FunctionSchema_Function.
+    * Modified cmdlet Update-AABAgentActionGroup: added parameters ActionGroupExecutor_CustomControl and FunctionSchema_Function.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARAgent: added parameters SessionState_InvocationId and SessionState_ReturnControlInvocationResult.
+  * Amazon Payment Cryptography Control Plane
+    * Modified cmdlet Export-PAYCCKey: added parameters KeyBlockHeaders_KeyExportability, KeyBlockHeaders_KeyVersion, KeyBlockHeaders_OptionalBlock, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion, KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks, KeyModesOfUse_Decrypt, KeyModesOfUse_DeriveKey, KeyModesOfUse_Encrypt, KeyModesOfUse_Generate, KeyModesOfUse_NoRestriction, KeyModesOfUse_Sign, KeyModesOfUse_Unwrap, KeyModesOfUse_Verify and KeyModesOfUse_Wrap.
+  * Amazon Route 53 Profiles. Added cmdlets to support the service. Cmdlets for the service have the noun prefix R53P and can be listed using the command 'Get-AWSCmdletName -Service R53P'.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameters CustomPosixUserConfig_Gid, CustomPosixUserConfig_Uid, DefaultEbsStorageSettings_DefaultEbsVolumeSizeInGb, DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb, DefaultResourceSpec_SageMakerImageVersionAlias, DefaultSpaceSettings_CustomFileSystemConfig, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, JupyterLabAppSettings_CodeRepository, JupyterLabAppSettings_CustomImage and JupyterLabAppSettings_LifecycleConfigArn.
+    * Modified cmdlet Update-SMDomain: added parameters CustomPosixUserConfig_Gid, CustomPosixUserConfig_Uid, DefaultEbsStorageSettings_DefaultEbsVolumeSizeInGb, DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb, DefaultResourceSpec_SageMakerImageVersionAlias, DefaultSpaceSettings_CustomFileSystemConfig, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn, DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn, JupyterLabAppSettings_CodeRepository, JupyterLabAppSettings_CustomImage and JupyterLabAppSettings_LifecycleConfigArn.
+  * Amazon Transfer for SFTP
+    * Added cmdlet Start-TFRDirectoryListing leveraging the StartDirectoryListing service API.
+
+### 4.1.562 (2024-04-19 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.793.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Internet Monitor
     * Added cmdlet Get-CWIMInternetEvent leveraging the GetInternetEvent service API.

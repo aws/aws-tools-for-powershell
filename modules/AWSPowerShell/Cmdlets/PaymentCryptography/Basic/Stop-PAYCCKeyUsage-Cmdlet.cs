@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// 
     ///  
     /// <para>
-    /// You can use this operation instead of <a>DeleteKey</a> to deactivate a key. You can
-    /// enable the key in the future by calling <a>StartKeyUsage</a>.
+    /// You can use this operation instead of <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a>
+    /// to deactivate a key. You can enable the key in the future by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a>.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DeleteKey</a></para></li><li><para><a>StartKeyUsage</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a></para></li></ul>
     /// </summary>
     [Cmdlet("Stop", "PAYCCKeyUsage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PaymentCryptography.Model.Key")]

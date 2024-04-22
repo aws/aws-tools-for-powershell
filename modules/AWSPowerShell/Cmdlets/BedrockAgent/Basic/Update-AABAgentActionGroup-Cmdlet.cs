@@ -127,6 +127,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String AgentVersion { get; set; }
         #endregion
         
+        #region Parameter ActionGroupExecutor_CustomControl
+        /// <summary>
+        /// <para>
+        /// <para>To return the action group invocation results directly in the <c>InvokeAgent</c> response,
+        /// specify <c>RETURN_CONTROL</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.CustomControlMethod")]
+        public Amazon.BedrockAgent.CustomControlMethod ActionGroupExecutor_CustomControl { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -135,6 +147,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter FunctionSchema_Function
+        /// <summary>
+        /// <para>
+        /// <para>A list of functions that each define an action in the action group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("FunctionSchema_Functions")]
+        public Amazon.BedrockAgent.Model.Function[] FunctionSchema_Function { get; set; }
         #endregion
         
         #region Parameter ActionGroupExecutor_Lambda
@@ -260,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 context.Select = (response, cmdlet) => this.AgentId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ActionGroupExecutor_CustomControl = this.ActionGroupExecutor_CustomControl;
             context.ActionGroupExecutor_Lambda = this.ActionGroupExecutor_Lambda;
             context.ActionGroupId = this.ActionGroupId;
             #if MODULAR
@@ -294,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.S3_S3BucketName = this.S3_S3BucketName;
             context.S3_S3ObjectKey = this.S3_S3ObjectKey;
             context.Description = this.Description;
+            if (this.FunctionSchema_Function != null)
+            {
+                context.FunctionSchema_Function = new List<Amazon.BedrockAgent.Model.Function>(this.FunctionSchema_Function);
+            }
             context.ParentActionGroupSignature = this.ParentActionGroupSignature;
             
             // allow further manipulation of loaded context prior to processing
@@ -315,6 +343,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
              // populate ActionGroupExecutor
             var requestActionGroupExecutorIsNull = true;
             request.ActionGroupExecutor = new Amazon.BedrockAgent.Model.ActionGroupExecutor();
+            Amazon.BedrockAgent.CustomControlMethod requestActionGroupExecutor_actionGroupExecutor_CustomControl = null;
+            if (cmdletContext.ActionGroupExecutor_CustomControl != null)
+            {
+                requestActionGroupExecutor_actionGroupExecutor_CustomControl = cmdletContext.ActionGroupExecutor_CustomControl;
+            }
+            if (requestActionGroupExecutor_actionGroupExecutor_CustomControl != null)
+            {
+                request.ActionGroupExecutor.CustomControl = requestActionGroupExecutor_actionGroupExecutor_CustomControl;
+                requestActionGroupExecutorIsNull = false;
+            }
             System.String requestActionGroupExecutor_actionGroupExecutor_Lambda = null;
             if (cmdletContext.ActionGroupExecutor_Lambda != null)
             {
@@ -408,6 +446,25 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 request.Description = cmdletContext.Description;
             }
+            
+             // populate FunctionSchema
+            var requestFunctionSchemaIsNull = true;
+            request.FunctionSchema = new Amazon.BedrockAgent.Model.FunctionSchema();
+            List<Amazon.BedrockAgent.Model.Function> requestFunctionSchema_functionSchema_Function = null;
+            if (cmdletContext.FunctionSchema_Function != null)
+            {
+                requestFunctionSchema_functionSchema_Function = cmdletContext.FunctionSchema_Function;
+            }
+            if (requestFunctionSchema_functionSchema_Function != null)
+            {
+                request.FunctionSchema.Functions = requestFunctionSchema_functionSchema_Function;
+                requestFunctionSchemaIsNull = false;
+            }
+             // determine if request.FunctionSchema should be set to null
+            if (requestFunctionSchemaIsNull)
+            {
+                request.FunctionSchema = null;
+            }
             if (cmdletContext.ParentActionGroupSignature != null)
             {
                 request.ParentActionGroupSignature = cmdletContext.ParentActionGroupSignature;
@@ -473,6 +530,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.BedrockAgent.CustomControlMethod ActionGroupExecutor_CustomControl { get; set; }
             public System.String ActionGroupExecutor_Lambda { get; set; }
             public System.String ActionGroupId { get; set; }
             public System.String ActionGroupName { get; set; }
@@ -483,6 +541,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String S3_S3BucketName { get; set; }
             public System.String S3_S3ObjectKey { get; set; }
             public System.String Description { get; set; }
+            public List<Amazon.BedrockAgent.Model.Function> FunctionSchema_Function { get; set; }
             public Amazon.BedrockAgent.ActionGroupSignature ParentActionGroupSignature { get; set; }
             public System.Func<Amazon.BedrockAgent.Model.UpdateAgentActionGroupResponse, UpdateAABAgentActionGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AgentActionGroup;

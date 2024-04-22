@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EbsStorageSettings_EbsVolumeSizeInGb
         /// <summary>
         /// <para>
-        /// <para>The size of an EBS storage volume for a private space.</para>
+        /// <para>The size of an EBS storage volume for a space.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

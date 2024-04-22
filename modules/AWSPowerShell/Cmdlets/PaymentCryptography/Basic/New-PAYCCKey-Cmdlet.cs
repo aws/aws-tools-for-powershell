@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// key contents wrapped and never stores or transmits them in the clear. 
     /// </para><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DeleteKey</a></para></li><li><para><a>GetKey</a></para></li><li><para><a>ListKeys</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetKey.html">GetKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html">ListKeys</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PAYCCKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PaymentCryptography.Model.Key")]
@@ -243,7 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <para>
         /// <para>Assigns one or more tags to the Amazon Web Services Payment Cryptography key. Use
         /// this parameter to tag a key when it is created. To tag an existing Amazon Web Services
-        /// Payment Cryptography key, use the <a>TagResource</a> operation.</para><para>Each tag consists of a tag key and a tag value. Both the tag key and the tag value
+        /// Payment Cryptography key, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// operation.</para><para>Each tag consists of a tag key and a tag value. Both the tag key and the tag value
         /// are required, but the tag value can be an empty (null) string. You can't have more
         /// than one tag on an Amazon Web Services Payment Cryptography key with the same tag
         /// key. </para><important><para>Don't include personal, confidential or sensitive information in this field. This

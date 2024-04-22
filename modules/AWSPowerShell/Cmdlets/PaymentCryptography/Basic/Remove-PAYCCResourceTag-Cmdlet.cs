@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// deny permission to the key.
     /// </para></note><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>ListTagsForResource</a></para></li><li><para><a>TagResource</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "PAYCCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// <para>
         /// <para>One or more tag keys. Don't include the tag values.</para><para>If the Amazon Web Services Payment Cryptography key doesn't have the specified tag
         /// key, Amazon Web Services Payment Cryptography doesn't throw an exception or return
-        /// a response. To confirm that the operation succeeded, use the <a>ListTagsForResource</a>
+        /// a response. To confirm that the operation succeeded, use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>
         /// operation.</para>
         /// </para>
         /// </summary>

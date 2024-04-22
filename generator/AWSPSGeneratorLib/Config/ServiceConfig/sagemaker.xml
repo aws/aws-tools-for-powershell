@@ -123,6 +123,10 @@
                 <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
                 <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
                 <Param Name="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DomainSettings_RStudioServerProDomainSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1306,6 +1310,10 @@
                 <Param Name="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
                 <Param Name="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
                 <Param Name="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="DomainSettingsForUpdate_RStudioServerProDomainSettingsForUpdate_DefaultResourceSpec_SageMakerImageVersionAlias" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_LifecycleConfigArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn" />
+                <Param Name="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

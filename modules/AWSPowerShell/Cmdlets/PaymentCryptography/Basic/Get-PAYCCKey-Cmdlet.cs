@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     ///  
     /// <para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>CreateKey</a></para></li><li><para><a>DeleteKey</a></para></li><li><para><a>ListKeys</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListKeys.html">ListKeys</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "PAYCCKey")]
     [OutputType("Amazon.PaymentCryptography.Model.Key")]

@@ -117,6 +117,16 @@ $PAYCC_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptography.KeyExportability
+        {
+            ($_ -eq "Export-PAYCCKey/KeyBlockHeaders_KeyExportability") -Or
+            ($_ -eq "Export-PAYCCKey/KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability")
+        }
+        {
+            $v = "EXPORTABLE","NON_EXPORTABLE","SENSITIVE"
+            break
+        }
+
         # Amazon.PaymentCryptography.KeyMaterialType
         {
             ($_ -eq "Get-PAYCCParametersForExport/KeyMaterialType") -Or
@@ -179,6 +189,7 @@ $PAYCC_map = @{
     "KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyAttributes_KeyClass"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyAttributes_KeyUsage"=@("Import-PAYCCKey","New-PAYCCKey")
+    "KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyCheckValueAlgorithm"=@("Import-PAYCCKey","New-PAYCCKey")
     "KeyCryptogram_WrappingSpec"=@("Export-PAYCCKey","Import-PAYCCKey")
     "KeyMaterial_KeyCryptogram_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
@@ -187,6 +198,7 @@ $PAYCC_map = @{
     "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyAlgorithm"=@("Import-PAYCCKey")
     "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyClass"=@("Import-PAYCCKey")
     "KeyMaterial_RootCertificatePublicKey_KeyAttributes_KeyUsage"=@("Import-PAYCCKey")
+    "KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability"=@("Export-PAYCCKey")
     "KeyMaterialType"=@("Get-PAYCCParametersForExport","Get-PAYCCParametersForImport")
     "KeyState"=@("Get-PAYCCKeyList")
     "SigningKeyAlgorithm"=@("Get-PAYCCParametersForExport")

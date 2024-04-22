@@ -110,6 +110,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.CustomControlMethod
+        {
+            ($_ -eq "New-AABAgentActionGroup/ActionGroupExecutor_CustomControl") -Or
+            ($_ -eq "Update-AABAgentActionGroup/ActionGroupExecutor_CustomControl")
+        }
+        {
+            $v = "RETURN_CONTROL"
+            break
+        }
+
         # Amazon.BedrockAgent.DataSourceType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_Type") -Or
@@ -173,6 +183,7 @@ $AAB_Completers = {
 }
 
 $AAB_map = @{
+    "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")

@@ -115,6 +115,8 @@ $SM_Completers = {
         {
             ($_ -eq "New-SMDomain/DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "Update-SMDomain/DefaultResourceSpec_InstanceType") -Or
+            ($_ -eq "New-SMDomain/DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType") -Or
+            ($_ -eq "Update-SMDomain/DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMDomain/DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "Update-SMDomain/DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType") -Or
             ($_ -eq "New-SMDomain/DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType") -Or
@@ -1494,6 +1496,7 @@ $SM_map = @{
     "CrossAccountFilterOption"=@("Search-SMResource")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
+    "DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DesiredState"=@("Stop-SMInferenceExperiment")

@@ -35,11 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// <para>
     /// The signing key certificate signs the wrapped key under export within the TR-34 key
     /// payload. The export token and signing key certificate must be in place and operational
-    /// before calling <a>ExportKey</a>. The export token expires in 7 days. You can use the
-    /// same export token to export multiple keys from your service account.
+    /// before calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html">ExportKey</a>.
+    /// The export token expires in 7 days. You can use the same export token to export multiple
+    /// keys from your service account.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>ExportKey</a></para></li><li><para><a>GetParametersForImport</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ExportKey.html">ExportKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForImport.html">GetParametersForImport</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "PAYCCParametersForExport")]
     [OutputType("Amazon.PaymentCryptography.Model.GetParametersForExportResponse")]

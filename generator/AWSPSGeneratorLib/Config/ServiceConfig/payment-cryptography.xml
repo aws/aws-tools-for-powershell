@@ -35,7 +35,20 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ExportKey" OutputProperty="WrappedKey" Verb="Export" Noun="Key" ShouldProcessTarget="ExportKeyIdentifier" PipelineParameter="ExportKeyIdentifier" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyExportability" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyExportability" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Decrypt" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Encrypt" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_DeriveKey" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Generate" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_NoRestrictions" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Sign" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Unwrap" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Verify" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyModesOfUse_Wrap" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_KeyVersion" Alias="Tr34KeyBlock_KeyBlockHeaders_KeyVersion" />
+                <Param Name="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks" NewName="KeyMaterial_Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks" Alias="Tr34KeyBlock_KeyBlockHeaders_OptionalBlocks" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAlias" OutputProperty="Alias" Verb="Get" Noun="Alias" PipelineParameter="AliasName" NoPipelineParameter="false">

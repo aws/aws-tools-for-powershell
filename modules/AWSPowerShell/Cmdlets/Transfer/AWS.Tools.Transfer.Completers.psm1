@@ -369,6 +369,7 @@ $TFR_SelectMap = @{
                "Get-TFRUserList",
                "Get-TFRWorkflowList",
                "Send-TFRWorkflowStepState",
+               "Start-TFRDirectoryListing",
                "Start-TFRFileTransfer",
                "Start-TFRServer",
                "Stop-TFRServer",

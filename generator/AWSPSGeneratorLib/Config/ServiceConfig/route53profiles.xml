@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>route53profiles</C2jFilename>
+    <AssemblyName>Route53Profiles</AssemblyName>
+    <ServiceNounPrefix>R53P</ServiceNounPrefix>
+    <ServiceName>Amazon Route 53 Profiles</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53Profiles</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53ProfilesClient</ServiceClient>
+    <ServiceModuleGuid>C0FA7B86-0136-42F2-A154-F593EAB08A3B</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateProfile" OutputProperty="ProfileAssociation" Verb="New" Noun="ProfileAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResourceToProfile" OutputProperty="ProfileResourceAssociation" Verb="New" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProfile" OutputProperty="Profile" Verb="New" Noun="Profile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProfile" OutputProperty="Profile" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateProfile" OutputProperty="ProfileAssociation" Verb="Remove" Noun="ProfileAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResourceFromProfile" OutputProperty="ProfileResourceAssociation" Verb="Remove" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfile" OutputProperty="Profile" Verb="Get" Noun="Profile" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfileAssociation" OutputProperty="ProfileAssociation" Verb="Get" Noun="ProfileAssociation" PipelineParameter="ProfileAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProfileResourceAssociation" OutputProperty="ProfileResourceAssociation" Verb="Get" Noun="ProfileResourceAssociation" PipelineParameter="ProfileResourceAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfileAssociations" OutputProperty="ProfileAssociations" Verb="Get" Noun="ProfileAssociationList" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfileResourceAssociations" OutputProperty="ProfileResourceAssociations" Verb="Get" Noun="ProfileResourceAssociationList" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProfiles" OutputProperty="ProfileSummaries" Verb="Get" Noun="ProfileList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProfileResourceAssociation" OutputProperty="ProfileResourceAssociation" Verb="Update" Noun="ProfileResourceAssociation" ShouldProcessTarget="ProfileResourceAssociationId" PipelineParameter="ProfileResourceAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

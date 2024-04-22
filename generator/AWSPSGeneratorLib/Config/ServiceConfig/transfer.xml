@@ -195,6 +195,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartDirectoryListing" OutputProperty="*" Verb="Start" Noun="DirectoryListing" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartFileTransfer" OutputProperty="TransferId" Verb="Start" Noun="FileTransfer" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

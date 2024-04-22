@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     /// you also specify the following items:
     /// </para><ul><li><para>
     /// If you are transferring file from a partner's SFTP server to Amazon Web Services storage,
-    /// you specify one or more <c>RetreiveFilePaths</c> to identify the files you want to
+    /// you specify one or more <c>RetrieveFilePaths</c> to identify the files you want to
     /// transfer, and a <c>LocalDirectoryPath</c> to specify the destination folder.
     /// </para></li><li><para>
     /// If you are transferring file to a partner's SFTP server from Amazon Web Services storage,

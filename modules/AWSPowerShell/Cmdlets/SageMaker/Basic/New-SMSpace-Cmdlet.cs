@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EbsStorageSettings_EbsVolumeSizeInGb
         /// <summary>
         /// <para>
-        /// <para>The size of an EBS storage volume for a private space.</para>
+        /// <para>The size of an EBS storage volume for a space.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OwnershipSettings_OwnerUserProfileName
         /// <summary>
         /// <para>
-        /// <para>The user profile who is the owner of the private space.</para>
+        /// <para>The user profile who is the owner of the space.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

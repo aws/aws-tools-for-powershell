@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     ///  
     /// <para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>StopKeyUsage</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "PAYCCKeyUsage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PaymentCryptography.Model.Key")]

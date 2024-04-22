@@ -38,10 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// The tag value can be an empty (null) string. To add a tag, specify a new tag key and
     /// a tag value. To edit a tag, specify an existing tag key and a new tag value. You can
     /// also add tags to an Amazon Web Services Payment Cryptography key when you create it
-    /// with <a>CreateKey</a>.
+    /// with <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a>.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>ListTagsForResource</a></para></li><li><para><a>UntagResource</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UntagResource.html">UntagResource</a></para></li></ul>
     /// </summary>
     [Cmdlet("Add", "PAYCCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
         /// Payment Cryptography key with the same tag key. If you specify an existing tag key
         /// with a different tag value, Amazon Web Services Payment Cryptography replaces the
         /// current tag value with the new one.</para><important><para>Don't include personal, confidential or sensitive information in this field. This
-        /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To use this parameter, you must have <a>TagResource</a> permission in an IAM policy.</para><important><para>Don't include personal, confidential or sensitive information in this field. This
+        /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important><para>To use this parameter, you must have <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_TagResource.html">TagResource</a>
+        /// permission in an IAM policy.</para><important><para>Don't include personal, confidential or sensitive information in this field. This
         /// field may be displayed in plaintext in CloudTrail logs and other output.</para></important>
         /// </para>
         /// </summary>

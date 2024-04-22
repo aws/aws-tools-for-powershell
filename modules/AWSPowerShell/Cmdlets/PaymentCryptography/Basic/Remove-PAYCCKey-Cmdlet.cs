@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// </para><para>
     /// You should delete a key only when you are sure that you don't need to use it anymore
     /// and no other parties are utilizing this key. If you aren't sure, consider deactivating
-    /// it instead by calling <a>StopKeyUsage</a>.
+    /// it instead by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a>.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>RestoreKey</a></para></li><li><para><a>StartKeyUsage</a></para></li><li><para><a>StopKeyUsage</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_RestoreKey.html">RestoreKey</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "PAYCCKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.PaymentCryptography.Model.Key")]

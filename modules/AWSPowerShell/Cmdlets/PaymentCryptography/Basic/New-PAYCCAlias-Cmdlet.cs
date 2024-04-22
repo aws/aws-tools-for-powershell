@@ -41,12 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     /// Amazon Web Services Region, but you can create another alias with the same name in
     /// a different Amazon Web Services Region.
     /// </para><para>
-    /// To change the key that's associated with the alias, call <a>UpdateAlias</a>. To delete
-    /// the alias, call <a>DeleteAlias</a>. These operations don't affect the underlying key.
-    /// To get the alias that you created, call <a>ListAliases</a>.
+    /// To change the key that's associated with the alias, call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a>.
+    /// To delete the alias, call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html">DeleteAlias</a>.
+    /// These operations don't affect the underlying key. To get the alias that you created,
+    /// call <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html">ListAliases</a>.
     /// </para><para><b>Cross-account use</b>: This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>DeleteAlias</a></para></li><li><para><a>GetAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>UpdateAlias</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteAlias.html">DeleteAlias</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetAlias.html">GetAlias</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ListAliases.html">ListAliases</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_UpdateAlias.html">UpdateAlias</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PAYCCAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PaymentCryptography.Model.Alias")]

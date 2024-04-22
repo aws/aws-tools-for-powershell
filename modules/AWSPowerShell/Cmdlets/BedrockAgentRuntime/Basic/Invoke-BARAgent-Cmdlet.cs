@@ -28,7 +28,8 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Sends a prompt for the agent to process and respond to.
+    /// Sends a prompt for the agent to process and respond to. Use return control event type
+    /// for function calling.
     /// 
     ///  <note><para>
     /// The CLI doesn't support <c>InvokeAgent</c>.
@@ -43,7 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
     /// </para></li><li><para>
     /// End a conversation by setting <c>endSession</c> to <c>true</c>.
     /// </para></li><li><para>
-    /// Include attributes for the session or prompt in the <c>sessionState</c> object.
+    /// In the <c>sessionState</c> object, you can include attributes for the session or prompt
+    /// or parameters returned from the action group.
+    /// </para></li><li><para>
+    /// Use return control event type for function calling.
     /// </para></li></ul><para>
     /// The response is returned in the <c>bytes</c> field of the <c>chunk</c> object.
     /// </para><ul><li><para>
@@ -130,15 +134,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// <para>The prompt text to send the agent.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String InputText { get; set; }
+        #endregion
+        
+        #region Parameter SessionState_InvocationId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the invocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionState_InvocationId { get; set; }
         #endregion
         
         #region Parameter SessionState_PromptSessionAttribute
@@ -153,6 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SessionState_PromptSessionAttributes")]
         public System.Collections.Hashtable SessionState_PromptSessionAttribute { get; set; }
+        #endregion
+        
+        #region Parameter SessionState_ReturnControlInvocationResult
+        /// <summary>
+        /// <para>
+        /// <para>Contains information about the results from the action group invocation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionState_ReturnControlInvocationResults")]
+        public Amazon.BedrockAgentRuntime.Model.InvocationResultMember[] SessionState_ReturnControlInvocationResult { get; set; }
         #endregion
         
         #region Parameter SessionState_SessionAttribute
@@ -263,12 +281,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.EnableTrace = this.EnableTrace;
             context.EndSession = this.EndSession;
             context.InputText = this.InputText;
-            #if MODULAR
-            if (this.InputText == null && ParameterWasBound(nameof(this.InputText)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InputText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -276,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SessionState_InvocationId = this.SessionState_InvocationId;
             if (this.SessionState_PromptSessionAttribute != null)
             {
                 context.SessionState_PromptSessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -283,6 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 {
                     context.SessionState_PromptSessionAttribute.Add((String)hashKey, (System.String)(this.SessionState_PromptSessionAttribute[hashKey]));
                 }
+            }
+            if (this.SessionState_ReturnControlInvocationResult != null)
+            {
+                context.SessionState_ReturnControlInvocationResult = new List<Amazon.BedrockAgentRuntime.Model.InvocationResultMember>(this.SessionState_ReturnControlInvocationResult);
             }
             if (this.SessionState_SessionAttribute != null)
             {
@@ -336,6 +353,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
              // populate SessionState
             var requestSessionStateIsNull = true;
             request.SessionState = new Amazon.BedrockAgentRuntime.Model.SessionState();
+            System.String requestSessionState_sessionState_InvocationId = null;
+            if (cmdletContext.SessionState_InvocationId != null)
+            {
+                requestSessionState_sessionState_InvocationId = cmdletContext.SessionState_InvocationId;
+            }
+            if (requestSessionState_sessionState_InvocationId != null)
+            {
+                request.SessionState.InvocationId = requestSessionState_sessionState_InvocationId;
+                requestSessionStateIsNull = false;
+            }
             Dictionary<System.String, System.String> requestSessionState_sessionState_PromptSessionAttribute = null;
             if (cmdletContext.SessionState_PromptSessionAttribute != null)
             {
@@ -344,6 +371,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestSessionState_sessionState_PromptSessionAttribute != null)
             {
                 request.SessionState.PromptSessionAttributes = requestSessionState_sessionState_PromptSessionAttribute;
+                requestSessionStateIsNull = false;
+            }
+            List<Amazon.BedrockAgentRuntime.Model.InvocationResultMember> requestSessionState_sessionState_ReturnControlInvocationResult = null;
+            if (cmdletContext.SessionState_ReturnControlInvocationResult != null)
+            {
+                requestSessionState_sessionState_ReturnControlInvocationResult = cmdletContext.SessionState_ReturnControlInvocationResult;
+            }
+            if (requestSessionState_sessionState_ReturnControlInvocationResult != null)
+            {
+                request.SessionState.ReturnControlInvocationResults = requestSessionState_sessionState_ReturnControlInvocationResult;
                 requestSessionStateIsNull = false;
             }
             Dictionary<System.String, System.String> requestSessionState_sessionState_SessionAttribute = null;
@@ -428,7 +465,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.Boolean? EndSession { get; set; }
             public System.String InputText { get; set; }
             public System.String SessionId { get; set; }
+            public System.String SessionState_InvocationId { get; set; }
             public Dictionary<System.String, System.String> SessionState_PromptSessionAttribute { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.InvocationResultMember> SessionState_ReturnControlInvocationResult { get; set; }
             public Dictionary<System.String, System.String> SessionState_SessionAttribute { get; set; }
             public System.Func<Amazon.BedrockAgentRuntime.Model.InvokeAgentResponse, InvokeBARAgentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -35,12 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.PAYCC
     ///  
     /// <para>
     /// The wrapping key certificate wraps the key under import. The import token and wrapping
-    /// key certificate must be in place and operational before calling <a>ImportKey</a>.
+    /// key certificate must be in place and operational before calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>.
     /// The import token expires in 7 days. You can use the same import token to import multiple
     /// keys into your service account.
     /// </para><para><b>Cross-account use:</b> This operation can't be used across different Amazon Web
     /// Services accounts.
-    /// </para><para><b>Related operations:</b></para><ul><li><para><a>GetParametersForExport</a></para></li><li><para><a>ImportKey</a></para></li></ul>
+    /// </para><para><b>Related operations:</b></para><ul><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_GetParametersForExport.html">GetParametersForExport</a></para></li><li><para><a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "PAYCCParametersForImport")]
     [OutputType("Amazon.PaymentCryptography.Model.GetParametersForImportResponse")]
