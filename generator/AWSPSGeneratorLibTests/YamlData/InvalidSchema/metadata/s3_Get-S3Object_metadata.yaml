@@ -1,0 +1,27 @@
+---
+s3_ListObjects:
+  languages:
+    PowerShell:
+      versions:
+      - excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This command retrieves the information about all of the items in the bucket \"test-files\".</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - InvalidSchema/snippet_files/s3_Get-S3Object.1.1.ps1
+        - description: "<emphasis role=\"bold\">Example: This command retrieves the information about the item \"sample.txt\" from bucket \"test-files\".</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - InvalidSchema/snippet_files/s3_Get-S3Object.2.1.ps1
+        - description: "<emphasis role=\"bold\">Example: This command retrieves the information about all items with the prefix \"sample\" from bucket \"test-files\".</emphasis>"
+          snippet_files: []
+        - description: 
+          snippet_files:
+          - InvalidSchema/snippet_files/s3_Get-S3Object.3.1.ps1
+        sdk_version: 4
+  services:
+    s3: {ListObjects}
+  synopsis: use <code>Get-S3Object</code>.
+  title: Use Get-S3Object
+  title_abbrev: Get-S3Object

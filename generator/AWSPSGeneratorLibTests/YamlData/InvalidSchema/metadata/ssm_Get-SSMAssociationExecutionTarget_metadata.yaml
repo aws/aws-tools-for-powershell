@@ -1,0 +1,30 @@
+---
+ssm_DescribeAssociationExecutionTargets:
+  languages:
+    PowerShell:
+      versions:
+      - excerpts:
+        - description: "<emphasis role=\"bold\">Example 1: This example displays the resource ID and its execution status that are part of the the association execution targets</emphasis>"
+          snippet_files: []
+        - description: ""
+          snippet_files:
+          - InvalidSchema/snippet_files/ssm_Get-SSMAssociationExecutionTarget.1.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">ResourceId           Status\n----------           ------\ni-0b1b2a3456f7a890b  Success\ni-01c12a45d6fc7a89f  Success\ni-0a1caf234f56d7dc8  Success\ni-012a3fd45af6dbcfe  Failed\ni-0ddc1df23c4a5fb67  Success</programlisting>"
+          snippet_files: []
+        - description: "<emphasis role=\"bold\">Example 2: This command checks the particular execution of a particular automation since yesterday, where a command document is associated. It further checkes if the association execution failed, and if so, it will display the command invocation details for the execution along with the instance id</emphasis>"
+          snippet_files: []
+        - description:
+          snippet_files:
+          - InvalidSchema/snippet_files/ssm_Get-SSMAssociationExecutionTarget.2.1.ps1
+        - description: <emphasis role="bold">Output:</emphasis>
+          snippet_files: []
+        - description: "<programlisting language=\"none\" role=\"nocopy\">There was an issue executing the association 1c234567-890f-1aca-a234-5a678d901cb0 on i-0a1caf234f56d7dc8\n\n\nName                   : aws:runPowerShellScript\nOutput                 : \n                         ----------ERROR-------\n                         failed to run commands: exit status 1\nOutputS3BucketName     : \nOutputS3KeyPrefix      : \nOutputS3Region         : eu-west-1\nResponseCode           : 1\nResponseFinishDateTime : 5/29/2019 11:04:49 AM\nResponseStartDateTime  : 5/29/2019 11:04:49 AM\nStandardErrorUrl       : \nStandardOutputUrl      : \nStatus                 : Failed\nStatusDetails          : Failed</programlisting>"
+          snippet_files: []
+        sdk_version: 4
+  services:
+    ssm: {DescribeAssociationExecutionTargets}
+  synopsis: use <code>Get-SSMAssociationExecutionTarget</code>.
+  title: Use Get-SSMAssociationExecutionTarget
+  title_abbrev: Get-SSMAssociationExecutionTarget
