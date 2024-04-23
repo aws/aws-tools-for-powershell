@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.PI
 {
     /// <summary>
     /// Retrieve Performance Insights metrics for a set of data sources over a time period.
-    /// You can provide specific dimension groups and dimensions, and provide aggregation
-    /// and filtering criteria for each group.
+    /// You can provide specific dimension groups and dimensions, and provide filtering criteria
+    /// for each group. You must specify an aggregate function for each metric.
     /// 
     ///  <note><para>
     /// Each response element returns a maximum of 500 bytes. For larger elements, such as
@@ -91,7 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>An array of one or more queries to perform. Each query must specify a Performance
-        /// Insights metric, and can optionally specify aggregation and filtering criteria.</para>
+        /// Insights metric and specify an aggregate function, and you can provide filtering criteria.
+        /// You must append the aggregate function to the metric. For example, to find the average
+        /// for the metric <c>db.load</c> you must use <c>db.load.avg</c>. Valid values for aggregate
+        /// functions include <c>.avg</c>, <c>.min</c>, <c>.max</c>, and <c>.sum</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -41,7 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// then return empty results. After all instances that reference a deregistered AMI are
     /// terminated, specifying the ID of the image will eventually return an error indicating
     /// that the AMI ID cannot be found.
-    /// </para><note><para>
+    /// </para><important><para>
+    /// We strongly recommend using only paginated requests. Unpaginated requests are susceptible
+    /// to throttling and timeouts.
+    /// </para></important><note><para>
     /// The order of the elements in the response, including those within nested structures,
     /// might vary. Applications should not assume the elements appear in a particular order.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

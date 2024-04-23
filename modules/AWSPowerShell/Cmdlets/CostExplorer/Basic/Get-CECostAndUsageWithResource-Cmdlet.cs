@@ -34,10 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// dimensions, such as <c>SERVICE</c> or <c>AZ</c>, in a specific time range. For a complete
     /// list of valid dimensions, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
     /// operation. Management account in an organization in Organizations have access to all
-    /// member accounts. This API is currently available for the Amazon Elastic Compute Cloud
-    /// – Compute service only.
+    /// member accounts.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Hourly granularity is only available for EC2-Instances (Elastic Compute Cloud) resource-level
+    /// data. All other resource-level data is available at daily granularity.
+    /// </para><note><para>
     /// This is an opt-in only feature. You can enable this feature from the Cost Explorer
     /// Settings page. For information about how to access the Settings page, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ce-access.html">Controlling
     /// Access for Cost Explorer</a> in the <i>Billing and Cost Management User Guide</i>.

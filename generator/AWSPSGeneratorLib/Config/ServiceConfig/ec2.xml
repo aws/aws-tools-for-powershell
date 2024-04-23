@@ -1685,6 +1685,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisableImageDeregistrationProtection" OutputProperty="Return" Verb="Disable" Noun="ImageDeregistrationProtection" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisableIpamOrganizationAdminAccount" OutputProperty="Success" Verb="Disable" Noun="IpamOrganizationAdminAccount" ShouldProcessTarget="DelegatedAdminAccountId" PipelineParameter="DelegatedAdminAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1802,6 +1806,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="EnableImageDeprecation" OutputProperty="Return" Verb="Enable" Noun="ImageDeprecation" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableImageDeregistrationProtection" OutputProperty="Return" Verb="Enable" Noun="ImageDeregistrationProtection" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

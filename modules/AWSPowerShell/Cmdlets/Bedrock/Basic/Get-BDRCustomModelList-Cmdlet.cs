@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Bedrock User Guide.
+    /// models</a> in the Amazon Bedrock User Guide.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BDRCustomModelList")]
@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter BaseModelArnEqual
         /// <summary>
         /// <para>
-        /// <para>Return custom models only if the base model ARN matches this parameter.</para>
+        /// <para>Return custom models only if the base model Amazon Resource Name (ARN) matches this
+        /// parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter FoundationModelArnEqual
         /// <summary>
         /// <para>
-        /// <para>Return custom models only if the foundation model ARN matches this parameter.</para>
+        /// <para>Return custom models only if the foundation model Amazon Resource Name (ARN) matches
+        /// this parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

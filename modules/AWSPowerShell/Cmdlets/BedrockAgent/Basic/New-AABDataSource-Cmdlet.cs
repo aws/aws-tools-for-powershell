@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String S3Configuration_BucketArn { get; set; }
         #endregion
         
+        #region Parameter S3Configuration_BucketOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID for the owner of the S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DataSourceConfiguration_S3Configuration_BucketOwnerAccountId")]
+        public System.String S3Configuration_BucketOwnerAccountId { get; set; }
+        #endregion
+        
         #region Parameter ChunkingConfiguration_ChunkingStrategy
         /// <summary>
         /// <para>
@@ -73,6 +84,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [Alias("VectorIngestionConfiguration_ChunkingConfiguration_ChunkingStrategy")]
         [AWSConstantClassSource("Amazon.BedrockAgent.ChunkingStrategy")]
         public Amazon.BedrockAgent.ChunkingStrategy ChunkingConfiguration_ChunkingStrategy { get; set; }
+        #endregion
+        
+        #region Parameter DataDeletionPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The deletion policy for the requested data source</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockAgent.DataDeletionPolicy")]
+        public Amazon.BedrockAgent.DataDeletionPolicy DataDeletionPolicy { get; set; }
         #endregion
         
         #region Parameter Description
@@ -257,7 +279,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.DataDeletionPolicy = this.DataDeletionPolicy;
             context.S3Configuration_BucketArn = this.S3Configuration_BucketArn;
+            context.S3Configuration_BucketOwnerAccountId = this.S3Configuration_BucketOwnerAccountId;
             if (this.S3Configuration_InclusionPrefix != null)
             {
                 context.S3Configuration_InclusionPrefix = new List<System.String>(this.S3Configuration_InclusionPrefix);
@@ -308,6 +332,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.DataDeletionPolicy != null)
+            {
+                request.DataDeletionPolicy = cmdletContext.DataDeletionPolicy;
+            }
             
              // populate DataSourceConfiguration
             var requestDataSourceConfigurationIsNull = true;
@@ -335,6 +363,16 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn != null)
             {
                 requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.BucketArn = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketArn;
+                requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
+            }
+            System.String requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId = null;
+            if (cmdletContext.S3Configuration_BucketOwnerAccountId != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId = cmdletContext.S3Configuration_BucketOwnerAccountId;
+            }
+            if (requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId != null)
+            {
+                requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration.BucketOwnerAccountId = requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_BucketOwnerAccountId;
                 requestDataSourceConfiguration_dataSourceConfiguration_S3ConfigurationIsNull = false;
             }
             List<System.String> requestDataSourceConfiguration_dataSourceConfiguration_S3Configuration_s3Configuration_InclusionPrefix = null;
@@ -524,7 +562,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public Amazon.BedrockAgent.DataDeletionPolicy DataDeletionPolicy { get; set; }
             public System.String S3Configuration_BucketArn { get; set; }
+            public System.String S3Configuration_BucketOwnerAccountId { get; set; }
             public List<System.String> S3Configuration_InclusionPrefix { get; set; }
             public Amazon.BedrockAgent.DataSourceType DataSourceConfiguration_Type { get; set; }
             public System.String Description { get; set; }

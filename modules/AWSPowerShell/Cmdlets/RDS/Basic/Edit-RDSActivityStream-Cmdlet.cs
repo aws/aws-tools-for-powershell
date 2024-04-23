@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the RDS for Oracle or Microsoft SQL Server DB instance.
-        /// For example, <c>arn:aws:rds:us-east-1:12345667890:instance:my-orcl-db</c>.</para>
+        /// For example, <c>arn:aws:rds:us-east-1:12345667890:db:my-orcl-db</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

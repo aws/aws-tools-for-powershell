@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// <summary>
     /// Get the properties associated with a Amazon Bedrock custom model that you have created.For
     /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Bedrock User Guide.
+    /// models</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Get", "BDRCustomModel")]
     [OutputType("Amazon.Bedrock.Model.GetCustomModelResponse")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ModelIdentifier
         /// <summary>
         /// <para>
-        /// <para>Name or ARN of the custom model.</para>
+        /// <para>Name or Amazon Resource Name (ARN) of the custom model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

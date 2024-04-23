@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The ID of the launch template.</para><para>To describe one or more versions of a specified launch template, you must specify
-        /// either the <c>LaunchTemplateId</c> or the <c>LaunchTemplateName</c>, but not both.</para><para>To describe all the latest or default launch template versions in your account, you
+        /// either the launch template ID or the launch template name, but not both.</para><para>To describe all the latest or default launch template versions in your account, you
         /// must omit this parameter.</para>
         /// </para>
         /// </summary>
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the launch template.</para><para>To describe one or more versions of a specified launch template, you must specify
-        /// either the <c>LaunchTemplateName</c> or the <c>LaunchTemplateId</c>, but not both.</para><para>To describe all the latest or default launch template versions in your account, you
+        /// either the launch template name or the launch template ID, but not both.</para><para>To describe all the latest or default launch template versions in your account, you
         /// must omit this parameter.</para>
         /// </para>
         /// </summary>

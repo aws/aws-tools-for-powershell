@@ -28,8 +28,8 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Associate tags with a resource. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging
-    /// resources</a> in the Bedrock User Guide.
+    /// Associate tags with a resource. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging
+    /// resources</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Add", "BDRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource to tag.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource to tag.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

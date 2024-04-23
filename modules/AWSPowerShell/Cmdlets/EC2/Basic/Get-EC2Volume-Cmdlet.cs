@@ -37,7 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes.html">Amazon
     /// EBS volumes</a> in the <i>Amazon EBS User Guide</i>.
-    /// </para><note><para>
+    /// </para><important><para>
+    /// We strongly recommend using only paginated requests. Unpaginated requests are susceptible
+    /// to throttling and timeouts.
+    /// </para></important><note><para>
     /// The order of the elements in the response, including those within nested structures,
     /// might vary. Applications should not assume the elements appear in a particular order.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

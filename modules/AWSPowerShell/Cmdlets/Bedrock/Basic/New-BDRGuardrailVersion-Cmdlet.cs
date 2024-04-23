@@ -22,50 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpacesWeb;
-using Amazon.WorkSpacesWeb.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WSW
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Updates the trust store.
+    /// Creates a version of the guardrail. Use this API to create a snapshot of the guardrail
+    /// when you are satisfied with a configuration, or to compare the configuration with
+    /// another version.
     /// </summary>
-    [Cmdlet("Update", "WSWTrustStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces Web UpdateTrustStore API operation.", Operation = new[] {"UpdateTrustStore"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse))]
-    [AWSCmdletOutput("System.String or Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "BDRGuardrailVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Bedrock.Model.CreateGuardrailVersionResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock CreateGuardrailVersion API operation.", Operation = new[] {"CreateGuardrailVersion"}, SelectReturnType = typeof(Amazon.Bedrock.Model.CreateGuardrailVersionResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.CreateGuardrailVersionResponse",
+        "This cmdlet returns an Amazon.Bedrock.Model.CreateGuardrailVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateWSWTrustStoreCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
+    public partial class NewBDRGuardrailVersionCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CertificatesToAdd
+        #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>A list of CA certificates to add to the trust store.</para>
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than once. If this token matches a previous request, Amazon Bedrock ignores the request,
+        /// but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.IO.MemoryStream[] CertificatesToAdd { get; set; }
+        public System.String ClientRequestToken { get; set; }
         #endregion
         
-        #region Parameter CertificatesToDelete
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A list of CA certificates to delete from a trust store.</para>
+        /// <para>A description of the guardrail version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] CertificatesToDelete { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter TrustStoreArn
+        #region Parameter GuardrailIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ARN of the trust store.</para>
+        /// <para>The unique identifier of the guardrail.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,41 +82,26 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TrustStoreArn { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request. Idempotency ensures that an API request completes only once. With an
-        /// idempotent request, if the original request completes successfully, subsequent retries
-        /// with the same client token return the result from the original successful request.
-        /// </para><para>If you do not specify a client token, one is automatically generated by the Amazon
-        /// Web Services SDK.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        public System.String GuardrailIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'TrustStoreArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse).
-        /// Specifying the name of a property of type Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.CreateGuardrailVersionResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.CreateGuardrailVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "TrustStoreArn";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TrustStoreArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TrustStoreArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GuardrailIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GuardrailIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrustStoreArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GuardrailIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -130,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TrustStoreArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-WSWTrustStore (UpdateTrustStore)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.GuardrailIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-BDRGuardrailVersion (CreateGuardrailVersion)"))
             {
                 return;
             }
@@ -144,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse, UpdateWSWTrustStoreCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.CreateGuardrailVersionResponse, NewBDRGuardrailVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,23 +144,16 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TrustStoreArn;
+                context.Select = (response, cmdlet) => this.GuardrailIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.CertificatesToAdd != null)
-            {
-                context.CertificatesToAdd = new List<System.IO.MemoryStream>(this.CertificatesToAdd);
-            }
-            if (this.CertificatesToDelete != null)
-            {
-                context.CertificatesToDelete = new List<System.String>(this.CertificatesToDelete);
-            }
-            context.ClientToken = this.ClientToken;
-            context.TrustStoreArn = this.TrustStoreArn;
+            context.ClientRequestToken = this.ClientRequestToken;
+            context.Description = this.Description;
+            context.GuardrailIdentifier = this.GuardrailIdentifier;
             #if MODULAR
-            if (this.TrustStoreArn == null && ParameterWasBound(nameof(this.TrustStoreArn)))
+            if (this.GuardrailIdentifier == null && ParameterWasBound(nameof(this.GuardrailIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter TrustStoreArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GuardrailIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -186,23 +170,19 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpacesWeb.Model.UpdateTrustStoreRequest();
+            var request = new Amazon.Bedrock.Model.CreateGuardrailVersionRequest();
             
-            if (cmdletContext.CertificatesToAdd != null)
+            if (cmdletContext.ClientRequestToken != null)
             {
-                request.CertificatesToAdd = cmdletContext.CertificatesToAdd;
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
             }
-            if (cmdletContext.CertificatesToDelete != null)
+            if (cmdletContext.Description != null)
             {
-                request.CertificatesToDelete = cmdletContext.CertificatesToDelete;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.GuardrailIdentifier != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.TrustStoreArn != null)
-            {
-                request.TrustStoreArn = cmdletContext.TrustStoreArn;
+                request.GuardrailIdentifier = cmdletContext.GuardrailIdentifier;
             }
             
             CmdletOutput output;
@@ -237,15 +217,15 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse CallAWSServiceOperation(IAmazonWorkSpacesWeb client, Amazon.WorkSpacesWeb.Model.UpdateTrustStoreRequest request)
+        private Amazon.Bedrock.Model.CreateGuardrailVersionResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.CreateGuardrailVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "UpdateTrustStore");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "CreateGuardrailVersion");
             try
             {
                 #if DESKTOP
-                return client.UpdateTrustStore(request);
+                return client.CreateGuardrailVersion(request);
                 #elif CORECLR
-                return client.UpdateTrustStoreAsync(request).GetAwaiter().GetResult();
+                return client.CreateGuardrailVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,12 +245,11 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.IO.MemoryStream> CertificatesToAdd { get; set; }
-            public List<System.String> CertificatesToDelete { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String TrustStoreArn { get; set; }
-            public System.Func<Amazon.WorkSpacesWeb.Model.UpdateTrustStoreResponse, UpdateWSWTrustStoreCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TrustStoreArn;
+            public System.String ClientRequestToken { get; set; }
+            public System.String Description { get; set; }
+            public System.String GuardrailIdentifier { get; set; }
+            public System.Func<Amazon.Bedrock.Model.CreateGuardrailVersionResponse, NewBDRGuardrailVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

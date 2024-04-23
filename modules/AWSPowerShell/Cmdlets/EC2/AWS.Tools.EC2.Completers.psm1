@@ -528,7 +528,7 @@ $EC2_Completers = {
         # Amazon.EC2.ImageAttributeName
         "Get-EC2ImageAttribute/Attribute"
         {
-            $v = "blockDeviceMapping","bootMode","description","imdsSupport","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport","tpmSupport","uefiData"
+            $v = "blockDeviceMapping","bootMode","deregistrationProtection","description","imdsSupport","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport","tpmSupport","uefiData"
             break
         }
 
@@ -1741,6 +1741,7 @@ $EC2_SelectMap = @{
                "Disable-EC2Image",
                "Disable-EC2ImageBlockPublicAccess",
                "Disable-EC2ImageDeprecation",
+               "Disable-EC2ImageDeregistrationProtection",
                "Disable-EC2IpamOrganizationAdminAccount",
                "Disable-EC2SerialConsoleAccess",
                "Disable-EC2SnapshotBlockPublicAccess",
@@ -1771,6 +1772,7 @@ $EC2_SelectMap = @{
                "Enable-EC2Image",
                "Enable-EC2ImageBlockPublicAccess",
                "Enable-EC2ImageDeprecation",
+               "Enable-EC2ImageDeregistrationProtection",
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
                "Enable-EC2SerialConsoleAccess",

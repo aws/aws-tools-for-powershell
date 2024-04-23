@@ -28,8 +28,8 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Get details for a provisioned throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned
-    /// throughput</a> in the Bedrock User Guide.
+    /// Returns details for a Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned
+    /// Throughput</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Get", "BDRProvisionedModelThroughput")]
     [OutputType("Amazon.Bedrock.Model.GetProvisionedModelThroughputResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ProvisionedModelId
         /// <summary>
         /// <para>
-        /// <para>The ARN or name of the provisioned throughput.</para>
+        /// <para>The Amazon Resource Name (ARN) or name of the Provisioned Throughput.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -120,6 +120,16 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.DataDeletionPolicy
+        {
+            ($_ -eq "New-AABDataSource/DataDeletionPolicy") -Or
+            ($_ -eq "Update-AABDataSource/DataDeletionPolicy")
+        }
+        {
+            $v = "DELETE","RETAIN"
+            break
+        }
+
         # Amazon.BedrockAgent.DataSourceType
         {
             ($_ -eq "New-AABDataSource/DataSourceConfiguration_Type") -Or
@@ -186,6 +196,7 @@ $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")

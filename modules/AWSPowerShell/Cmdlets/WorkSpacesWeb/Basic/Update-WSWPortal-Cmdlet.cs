@@ -53,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         /// Defaults to <c>Standard</c>.</para><para><c>Standard</c> web portals are authenticated directly through your identity provider.
         /// You need to call <c>CreateIdentityProvider</c> to integrate your identity provider
         /// with your web portal. User and group access to your web portal is controlled through
-        /// your identity provider.</para><para><c>IAM_Identity_Center</c> web portals are authenticated through AWS IAM Identity
-        /// Center (successor to AWS Single Sign-On). They provide additional features, such as
-        /// IdP-initiated authentication. Identity sources (including external identity provider
+        /// your identity provider.</para><para><c>IAM Identity Center</c> web portals are authenticated through IAM Identity Center
+        /// (successor to Single Sign-On). Identity sources (including external identity provider
         /// integration), plus user and group access to your web portal, can be configured in
         /// the IAM Identity Center.</para>
         /// </para>
@@ -73,6 +72,28 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DisplayName { get; set; }
+        #endregion
+        
+        #region Parameter InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The type and resources of the underlying instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpacesWeb.InstanceType")]
+        public Amazon.WorkSpacesWeb.InstanceType InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter MaxConcurrentSession
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of concurrent sessions for the portal.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxConcurrentSessions")]
+        public System.Int32? MaxConcurrentSession { get; set; }
         #endregion
         
         #region Parameter PortalArn
@@ -156,6 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AuthenticationType = this.AuthenticationType;
             context.DisplayName = this.DisplayName;
+            context.InstanceType = this.InstanceType;
+            context.MaxConcurrentSession = this.MaxConcurrentSession;
             context.PortalArn = this.PortalArn;
             #if MODULAR
             if (this.PortalArn == null && ParameterWasBound(nameof(this.PortalArn)))
@@ -186,6 +209,14 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
+            }
+            if (cmdletContext.InstanceType != null)
+            {
+                request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.MaxConcurrentSession != null)
+            {
+                request.MaxConcurrentSessions = cmdletContext.MaxConcurrentSession.Value;
             }
             if (cmdletContext.PortalArn != null)
             {
@@ -254,6 +285,8 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         {
             public Amazon.WorkSpacesWeb.AuthenticationType AuthenticationType { get; set; }
             public System.String DisplayName { get; set; }
+            public Amazon.WorkSpacesWeb.InstanceType InstanceType { get; set; }
+            public System.Int32? MaxConcurrentSession { get; set; }
             public System.String PortalArn { get; set; }
             public System.Func<Amazon.WorkSpacesWeb.Model.UpdatePortalResponse, UpdateWSWPortalCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Portal;

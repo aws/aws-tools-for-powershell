@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CloudWatchConfig_RoleArn
         /// <summary>
         /// <para>
-        /// <para>The role ARN.</para>
+        /// <para>The role Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

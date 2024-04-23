@@ -28,8 +28,9 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Update a provisioned throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Provisioned
-    /// throughput</a> in the Bedrock User Guide.
+    /// Updates the name or associated model for a Provisioned Throughput. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned
+    /// Throughput</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Update", "BDRProvisionedModelThroughput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter DesiredModelId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the new model to associate with this provisioned throughput.</para>
+        /// <para>The Amazon Resource Name (ARN) of the new model to associate with this Provisioned
+        /// Throughput. You can't specify this field if this Provisioned Throughput is associated
+        /// with a base model.</para><para>If this Provisioned Throughput is associated with a custom model, you can specify
+        /// one of the following options:</para><ul><li><para>The base model from which the custom model was customized.</para></li><li><para>Another custom model that was customized from the same base model as the custom model.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter DesiredProvisionedModelName
         /// <summary>
         /// <para>
-        /// <para>The new name for this provisioned throughput.</para>
+        /// <para>The new name for this Provisioned Throughput.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ProvisionedModelId
         /// <summary>
         /// <para>
-        /// <para>The ARN or name of the provisioned throughput to update.</para>
+        /// <para>The Amazon Resource Name (ARN) or name of the Provisioned Throughput to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

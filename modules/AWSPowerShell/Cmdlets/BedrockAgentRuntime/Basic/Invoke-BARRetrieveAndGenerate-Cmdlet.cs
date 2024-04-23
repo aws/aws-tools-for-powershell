@@ -179,6 +179,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
         #endregion
         
+        #region Parameter ExternalSourcesConfiguration_ModelArn
+        /// <summary>
+        /// <para>
+        /// <para>The modelArn used with the external source wrapper object in the retrieveAndGenerate
+        /// function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_ModelArn")]
+        public System.String ExternalSourcesConfiguration_ModelArn { get; set; }
+        #endregion
+        
         #region Parameter KnowledgeBaseConfiguration_ModelArn
         /// <summary>
         /// <para>
@@ -242,6 +254,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String SessionId { get; set; }
         #endregion
         
+        #region Parameter ExternalSourcesConfiguration_Source
+        /// <summary>
+        /// <para>
+        /// <para>The document used with the external source wrapper object in the retrieveAndGenerate
+        /// function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_Sources")]
+        public Amazon.BedrockAgentRuntime.Model.ExternalSource[] ExternalSourcesConfiguration_Source { get; set; }
+        #endregion
+        
         #region Parameter Input_Text
         /// <summary>
         /// <para>
@@ -257,6 +281,22 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Input_Text { get; set; }
+        #endregion
+        
+        #region Parameter ExternalSource_PromptTemplate_TextPromptTemplate
+        /// <summary>
+        /// <para>
+        /// <para>The template for the prompt that's sent to the model for response generation. You
+        /// can include prompt placeholders, which become replaced before the prompt is sent to
+        /// the model to provide instructions and context to the model. In addition, you can include
+        /// XML tags to delineate meaningful sections of the prompt template.</para><para>For more information, see the following resources:</para><ul><li><para><a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html#kb-test-config-sysprompt">Knowledge
+        /// base prompt templates</a></para></li><li><para><a href="https://docs.anthropic.com/claude/docs/use-xml-tags">Use XML tags with Anthropic
+        /// Claude models</a></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate")]
+        public System.String ExternalSource_PromptTemplate_TextPromptTemplate { get; set; }
         #endregion
         
         #region Parameter PromptTemplate_TextPromptTemplate
@@ -454,6 +494,12 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter Input_Text which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ExternalSource_PromptTemplate_TextPromptTemplate = this.ExternalSource_PromptTemplate_TextPromptTemplate;
+            context.ExternalSourcesConfiguration_ModelArn = this.ExternalSourcesConfiguration_ModelArn;
+            if (this.ExternalSourcesConfiguration_Source != null)
+            {
+                context.ExternalSourcesConfiguration_Source = new List<Amazon.BedrockAgentRuntime.Model.ExternalSource>(this.ExternalSourcesConfiguration_Source);
+            }
             context.PromptTemplate_TextPromptTemplate = this.PromptTemplate_TextPromptTemplate;
             context.KnowledgeBaseConfiguration_KnowledgeBaseId = this.KnowledgeBaseConfiguration_KnowledgeBaseId;
             context.KnowledgeBaseConfiguration_ModelArn = this.KnowledgeBaseConfiguration_ModelArn;
@@ -535,6 +581,81 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_Type != null)
             {
                 request.RetrieveAndGenerateConfiguration.Type = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_Type;
+                requestRetrieveAndGenerateConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.ExternalSourcesRetrieveAndGenerateConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration = null;
+            
+             // populate ExternalSourcesConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration = new Amazon.BedrockAgentRuntime.Model.ExternalSourcesRetrieveAndGenerateConfiguration();
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_ModelArn = null;
+            if (cmdletContext.ExternalSourcesConfiguration_ModelArn != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_ModelArn = cmdletContext.ExternalSourcesConfiguration_ModelArn;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_ModelArn != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration.ModelArn = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_ModelArn;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfigurationIsNull = false;
+            }
+            List<Amazon.BedrockAgentRuntime.Model.ExternalSource> requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_Source = null;
+            if (cmdletContext.ExternalSourcesConfiguration_Source != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_Source = cmdletContext.ExternalSourcesConfiguration_Source;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_Source != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration.Sources = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_externalSourcesConfiguration_Source;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.ExternalSourcesGenerationConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration = null;
+            
+             // populate GenerationConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration = new Amazon.BedrockAgentRuntime.Model.ExternalSourcesGenerationConfiguration();
+            Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate = null;
+            
+             // populate PromptTemplate
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplateIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate = new Amazon.BedrockAgentRuntime.Model.PromptTemplate();
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_externalSource_PromptTemplate_TextPromptTemplate = null;
+            if (cmdletContext.ExternalSource_PromptTemplate_TextPromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_externalSource_PromptTemplate_TextPromptTemplate = cmdletContext.ExternalSource_PromptTemplate_TextPromptTemplate;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_externalSource_PromptTemplate_TextPromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate.TextPromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_externalSource_PromptTemplate_TextPromptTemplate;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplateIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplateIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration.PromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration.GenerationConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration != null)
+            {
+                request.RetrieveAndGenerateConfiguration.ExternalSourcesConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration;
                 requestRetrieveAndGenerateConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.KnowledgeBaseRetrieveAndGenerateConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration = null;
@@ -1102,6 +1223,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Input_Text { get; set; }
+            public System.String ExternalSource_PromptTemplate_TextPromptTemplate { get; set; }
+            public System.String ExternalSourcesConfiguration_ModelArn { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.ExternalSource> ExternalSourcesConfiguration_Source { get; set; }
             public System.String PromptTemplate_TextPromptTemplate { get; set; }
             public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
             public System.String KnowledgeBaseConfiguration_ModelArn { get; set; }

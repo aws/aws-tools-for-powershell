@@ -34,7 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
     /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
-    /// </para><note><para>
+    /// </para><important><para>
+    /// We strongly recommend using only paginated requests. Unpaginated requests are susceptible
+    /// to throttling and timeouts.
+    /// </para></important><note><para>
     /// The order of the elements in the response, including those within nested structures,
     /// might vary. Applications should not assume the elements appear in a particular order.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
@@ -54,14 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filters.</para><ul><li><para><c>key</c> - The tag key.</para></li><li><para><c>resource-id</c> - The ID of the resource.</para></li><li><para><c>resource-type</c> - The resource type (<c>customer-gateway</c> | <c>dedicated-host</c>
-        /// | <c>dhcp-options</c> | <c>elastic-ip</c> | <c>fleet</c> | <c>fpga-image</c> | <c>host-reservation</c>
-        /// | <c>image</c> | <c>instance</c> | <c>internet-gateway</c> | <c>key-pair</c> | <c>launch-template</c>
-        /// | <c>natgateway</c> | <c>network-acl</c> | <c>network-interface</c> | <c>placement-group</c>
-        /// | <c>reserved-instances</c> | <c>route-table</c> | <c>security-group</c> | <c>snapshot</c>
-        /// | <c>spot-instances-request</c> | <c>subnet</c> | <c>volume</c> | <c>vpc</c> | <c>vpc-endpoint</c>
-        /// | <c>vpc-endpoint-service</c> | <c>vpc-peering-connection</c> | <c>vpn-connection</c>
-        /// | <c>vpn-gateway</c>).</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of the tag. For example, specify
+        /// <para>The filters.</para><ul><li><para><c>key</c> - The tag key.</para></li><li><para><c>resource-id</c> - The ID of the resource.</para></li><li><para><c>resource-type</c> - The resource type. For a list of possible values, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TagSpecification.html">TagSpecification</a>.</para></li><li><para><c>tag</c>:&lt;key&gt; - The key/value combination of the tag. For example, specify
         /// "tag:Owner" for the filter name and "TeamA" for the filter value to find resources
         /// with the tag "Owner=TeamA".</para></li><li><para><c>value</c> - The tag value.</para></li></ul>
         /// </para>

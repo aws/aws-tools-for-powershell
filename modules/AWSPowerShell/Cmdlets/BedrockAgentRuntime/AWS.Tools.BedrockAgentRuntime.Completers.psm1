@@ -83,7 +83,7 @@ $BAR_Completers = {
         # Amazon.BedrockAgentRuntime.RetrieveAndGenerateType
         "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_Type"
         {
-            $v = "KNOWLEDGE_BASE"
+            $v = "EXTERNAL_SOURCES","KNOWLEDGE_BASE"
             break
         }
 

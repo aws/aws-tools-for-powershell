@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon Bedrock Runtime
 
 
+$BDRR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockRuntime.Trace
+        {
+            ($_ -eq "Invoke-BDRRModel/Trace") -Or
+            ($_ -eq "Invoke-BDRRModelWithResponseStream/Trace")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDRR_map = @{
+    "Trace"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+}
+
+_awsArgumentCompleterRegistration $BDRR_Completers $BDRR_map
+
 $BDRR_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

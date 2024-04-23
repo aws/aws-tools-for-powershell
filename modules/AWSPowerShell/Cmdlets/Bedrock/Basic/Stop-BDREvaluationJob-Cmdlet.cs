@@ -28,25 +28,26 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Retrieves the properties associated with a model-customization job, including the
-    /// status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Amazon Bedrock User Guide.
+    /// Stops an in progress model evaluation job.
     /// </summary>
-    [Cmdlet("Get", "BDRModelCustomizationJob")]
-    [OutputType("Amazon.Bedrock.Model.GetModelCustomizationJobResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock GetModelCustomizationJob API operation.", Operation = new[] {"GetModelCustomizationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetModelCustomizationJobResponse))]
-    [AWSCmdletOutput("Amazon.Bedrock.Model.GetModelCustomizationJobResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetModelCustomizationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "BDREvaluationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Bedrock StopEvaluationJob API operation.", Operation = new[] {"StopEvaluationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.StopEvaluationJobResponse))]
+    [AWSCmdletOutput("None or Amazon.Bedrock.Model.StopEvaluationJobResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Bedrock.Model.StopEvaluationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
+    public partial class StopBDREvaluationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>Identifier for the customization job.</para>
+        /// <para>The ARN of the model evaluation job you want to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,9 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetModelCustomizationJobResponse).
-        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetModelCustomizationJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.StopEvaluationJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,10 +81,26 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-BDREvaluationJob (StopEvaluationJob)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -94,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.StopEvaluationJobResponse, StopBDREvaluationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Bedrock.Model.GetModelCustomizationJobRequest();
+            var request = new Amazon.Bedrock.Model.StopEvaluationJobRequest();
             
             if (cmdletContext.JobIdentifier != null)
             {
@@ -166,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Bedrock.Model.GetModelCustomizationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetModelCustomizationJobRequest request)
+        private Amazon.Bedrock.Model.StopEvaluationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.StopEvaluationJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetModelCustomizationJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "StopEvaluationJob");
             try
             {
                 #if DESKTOP
-                return client.GetModelCustomizationJob(request);
+                return client.StopEvaluationJob(request);
                 #elif CORECLR
-                return client.GetModelCustomizationJobAsync(request).GetAwaiter().GetResult();
+                return client.StopEvaluationJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String JobIdentifier { get; set; }
-            public System.Func<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.Bedrock.Model.StopEvaluationJobResponse, StopBDREvaluationJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

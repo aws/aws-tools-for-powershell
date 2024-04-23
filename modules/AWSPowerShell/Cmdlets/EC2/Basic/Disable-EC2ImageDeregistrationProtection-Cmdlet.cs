@@ -22,31 +22,41 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Bedrock;
-using Amazon.Bedrock.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BDR
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Retrieves the properties associated with a model-customization job, including the
-    /// status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Amazon Bedrock User Guide.
+    /// Disables deregistration protection for an AMI. When deregistration protection is disabled,
+    /// the AMI can be deregistered.
+    /// 
+    ///  
+    /// <para>
+    /// If you chose to include a 24-hour cooldown period when you enabled deregistration
+    /// protection for the AMI, then, when you disable deregistration protection, you won’t
+    /// immediately be able to deregister the AMI.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection">Protect
+    /// an AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "BDRModelCustomizationJob")]
-    [OutputType("Amazon.Bedrock.Model.GetModelCustomizationJobResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock GetModelCustomizationJob API operation.", Operation = new[] {"GetModelCustomizationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetModelCustomizationJobResponse))]
-    [AWSCmdletOutput("Amazon.Bedrock.Model.GetModelCustomizationJobResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetModelCustomizationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Disable", "EC2ImageDeregistrationProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DisableImageDeregistrationProtection API operation.", Operation = new[] {"DisableImageDeregistrationProtection"}, SelectReturnType = typeof(Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse))]
+    [AWSCmdletOutput("System.String or Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
+    public partial class DisableEC2ImageDeregistrationProtectionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter JobIdentifier
+        #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>Identifier for the customization job.</para>
+        /// <para>The ID of the AMI.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,34 +67,50 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobIdentifier { get; set; }
+        public System.String ImageId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetModelCustomizationJobResponse).
-        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetModelCustomizationJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Return'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Return";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ImageId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ImageId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ImageId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-EC2ImageDeregistrationProtection (DisableImageDeregistrationProtection)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -94,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse, DisableEC2ImageDeregistrationProtectionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,14 +129,14 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobIdentifier;
+                context.Select = (response, cmdlet) => this.ImageId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.JobIdentifier = this.JobIdentifier;
+            context.ImageId = this.ImageId;
             #if MODULAR
-            if (this.JobIdentifier == null && ParameterWasBound(nameof(this.JobIdentifier)))
+            if (this.ImageId == null && ParameterWasBound(nameof(this.ImageId)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ImageId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -127,11 +153,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Bedrock.Model.GetModelCustomizationJobRequest();
+            var request = new Amazon.EC2.Model.DisableImageDeregistrationProtectionRequest();
             
-            if (cmdletContext.JobIdentifier != null)
+            if (cmdletContext.ImageId != null)
             {
-                request.JobIdentifier = cmdletContext.JobIdentifier;
+                request.ImageId = cmdletContext.ImageId;
             }
             
             CmdletOutput output;
@@ -166,15 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Bedrock.Model.GetModelCustomizationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetModelCustomizationJobRequest request)
+        private Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DisableImageDeregistrationProtectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetModelCustomizationJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DisableImageDeregistrationProtection");
             try
             {
                 #if DESKTOP
-                return client.GetModelCustomizationJob(request);
+                return client.DisableImageDeregistrationProtection(request);
                 #elif CORECLR
-                return client.GetModelCustomizationJobAsync(request).GetAwaiter().GetResult();
+                return client.DisableImageDeregistrationProtectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,9 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobIdentifier { get; set; }
-            public System.Func<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ImageId { get; set; }
+            public System.Func<Amazon.EC2.Model.DisableImageDeregistrationProtectionResponse, DisableEC2ImageDeregistrationProtectionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Return;
         }
         
     }

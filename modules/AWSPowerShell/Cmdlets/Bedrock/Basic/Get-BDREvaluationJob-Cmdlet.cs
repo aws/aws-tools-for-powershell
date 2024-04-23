@@ -28,25 +28,29 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Retrieves the properties associated with a model-customization job, including the
-    /// status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Amazon Bedrock User Guide.
+    /// Retrieves the properties associated with a model evaluation job, including the status
+    /// of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html">Model
+    /// evaluations</a>.
     /// </summary>
-    [Cmdlet("Get", "BDRModelCustomizationJob")]
-    [OutputType("Amazon.Bedrock.Model.GetModelCustomizationJobResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock GetModelCustomizationJob API operation.", Operation = new[] {"GetModelCustomizationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetModelCustomizationJobResponse))]
-    [AWSCmdletOutput("Amazon.Bedrock.Model.GetModelCustomizationJobResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetModelCustomizationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BDREvaluationJob")]
+    [OutputType("Amazon.Bedrock.Model.GetEvaluationJobResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock GetEvaluationJob API operation.", Operation = new[] {"GetEvaluationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetEvaluationJobResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.GetEvaluationJobResponse",
+        "This cmdlet returns an Amazon.Bedrock.Model.GetEvaluationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
+    public partial class GetBDREvaluationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>Identifier for the customization job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the model evaluation job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetModelCustomizationJobResponse).
-        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetModelCustomizationJobResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetEvaluationJobResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetEvaluationJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetEvaluationJobResponse, GetBDREvaluationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Bedrock.Model.GetModelCustomizationJobRequest();
+            var request = new Amazon.Bedrock.Model.GetEvaluationJobRequest();
             
             if (cmdletContext.JobIdentifier != null)
             {
@@ -166,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Bedrock.Model.GetModelCustomizationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetModelCustomizationJobRequest request)
+        private Amazon.Bedrock.Model.GetEvaluationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetEvaluationJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetModelCustomizationJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetEvaluationJob");
             try
             {
                 #if DESKTOP
-                return client.GetModelCustomizationJob(request);
+                return client.GetEvaluationJob(request);
                 #elif CORECLR
-                return client.GetModelCustomizationJobAsync(request).GetAwaiter().GetResult();
+                return client.GetEvaluationJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String JobIdentifier { get; set; }
-            public System.Func<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.Bedrock.Model.GetEvaluationJobResponse, GetBDREvaluationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

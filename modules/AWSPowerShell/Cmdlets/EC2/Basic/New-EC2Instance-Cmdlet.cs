@@ -574,9 +574,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplate
         /// <summary>
         /// <para>
-        /// <para>The launch template to use to launch the instances. Any parameters that you specify
-        /// in <a>RunInstances</a> override the same parameters in the launch template. You can
-        /// specify either the name or ID of a launch template, but not both.</para>
+        /// <para>The launch template. Any additional parameters that you specify for the new instance
+        /// overwrite the corresponding parameters included in the launch template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

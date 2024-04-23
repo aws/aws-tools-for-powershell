@@ -94,6 +94,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.EvaluationJobStatus
+        "Get-BDREvaluationJobList/StatusEqual"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+
         # Amazon.Bedrock.FineTuningJobStatus
         "Get-BDRModelCustomizationJobList/StatusEqual"
         {
@@ -137,7 +144,10 @@ $BDR_Completers = {
         }
 
         # Amazon.Bedrock.SortJobsBy
-        "Get-BDRModelCustomizationJobList/SortBy"
+        {
+            ($_ -eq "Get-BDREvaluationJobList/SortBy") -Or
+            ($_ -eq "Get-BDRModelCustomizationJobList/SortBy")
+        }
         {
             $v = "CreationTime"
             break
@@ -153,6 +163,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.SortOrder
         {
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
+            ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRProvisionedModelThroughputList/SortOrder")
         }
@@ -175,9 +186,9 @@ $BDR_map = @{
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
-    "SortBy"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
-    "StatusEqual"=@("Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
 }
 
 _awsArgumentCompleterRegistration $BDR_Completers $BDR_map
@@ -230,25 +241,35 @@ $BDR_SelectCompleters = {
 }
 
 $BDR_SelectMap = @{
-    "Select"=@("New-BDRModelCustomizationJob",
+    "Select"=@("New-BDREvaluationJob",
+               "New-BDRGuardrail",
+               "New-BDRGuardrailVersion",
+               "New-BDRModelCustomizationJob",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
+               "Remove-BDRGuardrail",
                "Remove-BDRModelInvocationLoggingConfiguration",
                "Remove-BDRProvisionedModelThroughput",
                "Get-BDRCustomModel",
+               "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
+               "Get-BDRGuardrail",
                "Get-BDRModelCustomizationJob",
                "Get-BDRModelInvocationLoggingConfiguration",
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRCustomModelList",
+               "Get-BDREvaluationJobList",
                "Get-BDRFoundationModelList",
+               "Get-BDRGuardrailList",
                "Get-BDRModelCustomizationJobList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
                "Write-BDRModelInvocationLoggingConfiguration",
+               "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
                "Add-BDRResourceTag",
                "Remove-BDRResourceTag",
+               "Update-BDRGuardrail",
                "Update-BDRProvisionedModelThroughput")
 }
 

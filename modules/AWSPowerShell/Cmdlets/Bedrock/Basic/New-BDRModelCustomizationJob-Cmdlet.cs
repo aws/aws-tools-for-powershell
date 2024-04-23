@@ -34,17 +34,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// <para>
     /// You specify the base foundation model and the location of the training data. After
     /// the model-customization job completes successfully, your custom model resource will
-    /// be ready to use. Training data contains input and output text for each record in a
-    /// JSONL format. Optionally, you can specify validation data in the same format as the
-    /// training data. Amazon Bedrock returns validation loss metrics and output generations
+    /// be ready to use. Amazon Bedrock returns validation loss metrics and output generations
     /// after the job completes. 
+    /// </para><para>
+    /// For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare
+    /// the datasets</a>.
     /// </para><para>
     ///  Model-customization jobs are asynchronous and the completion time depends on the
     /// base model and the training/validation data size. To monitor a job, use the <c>GetModelCustomizationJob</c>
     /// operation to retrieve the job status.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Bedrock User Guide.
+    /// models</a> in the Amazon Bedrock User Guide.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BDRModelCustomizationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,8 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Unique token value that you can provide. The GetModelCustomizationJob response includes
-        /// the same token value.</para>
+        /// <para>A unique, case-sensitive identifier to ensure that the API request completes no more
+        /// than one time. If this token matches a previous request, Amazon Bedrock ignores the
+        /// request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CustomModelName
         /// <summary>
         /// <para>
-        /// <para>Enter a name for the custom model.</para>
+        /// <para>A name for the resulting custom model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -128,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CustomModelTag
         /// <summary>
         /// <para>
-        /// <para>Assign tags to the custom model.</para>
+        /// <para>Tags to attach to the resulting custom model.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter HyperParameter
         /// <summary>
         /// <para>
-        /// <para>Parameters related to tuning the model.</para>
+        /// <para>Parameters related to tuning the model. For details on the format for different models,
+        /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom
+        /// model hyperparameters</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -157,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>Enter a unique name for the fine-tuning job.</para>
+        /// <para>A name for the fine-tuning job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -174,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter JobTag
         /// <summary>
         /// <para>
-        /// <para>Assign tags to the job.</para>
+        /// <para>Tags to attach to the job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,11 +190,11 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon Bedrock can assume to perform
-        /// tasks on your behalf. For example, during model training, Amazon Bedrock needs your
-        /// permission to read input data from an S3 bucket, write model artifacts to an S3 bucket.
-        /// To pass this role to Amazon Bedrock, the caller of this API must have the <c>iam:PassRole</c>
-        /// permission. </para>
+        /// <para>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume
+        /// to perform tasks on your behalf. For example, during model training, Amazon Bedrock
+        /// needs your permission to read input data from an S3 bucket, write model artifacts
+        /// to an S3 bucket. To pass this role to Amazon Bedrock, the caller of this API must
+        /// have the <c>iam:PassRole</c> permission. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

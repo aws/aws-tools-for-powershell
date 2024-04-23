@@ -28,25 +28,26 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Retrieves the properties associated with a model-customization job, including the
-    /// status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Amazon Bedrock User Guide.
+    /// Gets details about a guardrail. If you don't specify a version, the response returns
+    /// details for the <c>DRAFT</c> version.
     /// </summary>
-    [Cmdlet("Get", "BDRModelCustomizationJob")]
-    [OutputType("Amazon.Bedrock.Model.GetModelCustomizationJobResponse")]
-    [AWSCmdlet("Calls the Amazon Bedrock GetModelCustomizationJob API operation.", Operation = new[] {"GetModelCustomizationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetModelCustomizationJobResponse))]
-    [AWSCmdletOutput("Amazon.Bedrock.Model.GetModelCustomizationJobResponse",
-        "This cmdlet returns an Amazon.Bedrock.Model.GetModelCustomizationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BDRGuardrail")]
+    [OutputType("Amazon.Bedrock.Model.GetGuardrailResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock GetGuardrail API operation.", Operation = new[] {"GetGuardrail"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetGuardrailResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.GetGuardrailResponse",
+        "This cmdlet returns an Amazon.Bedrock.Model.GetGuardrailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBDRModelCustomizationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
+    public partial class GetBDRGuardrailCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter JobIdentifier
+        #region Parameter GuardrailIdentifier
         /// <summary>
         /// <para>
-        /// <para>Identifier for the customization job.</para>
+        /// <para>The unique identifier of the guardrail for which to get details.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,14 +58,25 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobIdentifier { get; set; }
+        public System.String GuardrailIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the guardrail for which to get details. If you don't specify a version,
+        /// the response returns details for the <c>DRAFT</c> version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GuardrailVersion { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetModelCustomizationJobResponse).
-        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetModelCustomizationJobResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetGuardrailResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetGuardrailResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,10 +85,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the GuardrailIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^GuardrailIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GuardrailIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetGuardrailResponse, GetBDRGuardrailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,16 +115,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobIdentifier;
+                context.Select = (response, cmdlet) => this.GuardrailIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.JobIdentifier = this.JobIdentifier;
+            context.GuardrailIdentifier = this.GuardrailIdentifier;
             #if MODULAR
-            if (this.JobIdentifier == null && ParameterWasBound(nameof(this.JobIdentifier)))
+            if (this.GuardrailIdentifier == null && ParameterWasBound(nameof(this.GuardrailIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter JobIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GuardrailIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GuardrailVersion = this.GuardrailVersion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,11 +140,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Bedrock.Model.GetModelCustomizationJobRequest();
+            var request = new Amazon.Bedrock.Model.GetGuardrailRequest();
             
-            if (cmdletContext.JobIdentifier != null)
+            if (cmdletContext.GuardrailIdentifier != null)
             {
-                request.JobIdentifier = cmdletContext.JobIdentifier;
+                request.GuardrailIdentifier = cmdletContext.GuardrailIdentifier;
+            }
+            if (cmdletContext.GuardrailVersion != null)
+            {
+                request.GuardrailVersion = cmdletContext.GuardrailVersion;
             }
             
             CmdletOutput output;
@@ -166,15 +183,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Bedrock.Model.GetModelCustomizationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetModelCustomizationJobRequest request)
+        private Amazon.Bedrock.Model.GetGuardrailResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetGuardrailRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetModelCustomizationJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetGuardrail");
             try
             {
                 #if DESKTOP
-                return client.GetModelCustomizationJob(request);
+                return client.GetGuardrail(request);
                 #elif CORECLR
-                return client.GetModelCustomizationJobAsync(request).GetAwaiter().GetResult();
+                return client.GetGuardrailAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,8 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String JobIdentifier { get; set; }
-            public System.Func<Amazon.Bedrock.Model.GetModelCustomizationJobResponse, GetBDRModelCustomizationJobCmdlet, object> Select { get; set; } =
+            public System.String GuardrailIdentifier { get; set; }
+            public System.String GuardrailVersion { get; set; }
+            public System.Func<Amazon.Bedrock.Model.GetGuardrailResponse, GetBDRGuardrailCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

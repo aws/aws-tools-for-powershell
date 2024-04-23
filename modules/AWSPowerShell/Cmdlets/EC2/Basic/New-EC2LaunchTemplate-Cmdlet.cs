@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User
     /// Guide</i>.
     /// </para><para>
-    /// If you want to clone an existing launch template as the basis for creating a new launch
-    /// template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support
-    /// cloning a template. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create
+    /// To clone an existing launch template as the basis for a new launch template, use the
+    /// Amazon EC2 console. The API, SDKs, and CLI do not support cloning a template. For
+    /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create
     /// a launch template from an existing launch template</a> in the <i>Amazon Elastic Compute
     /// Cloud User Guide</i>.
     /// </para>
@@ -96,9 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The tags to apply to the launch template on creation. To tag the launch template,
-        /// the resource type must be <c>launch-template</c>.</para><note><para>To specify the tags for the resources that are created when an instance is launched,
+        /// the resource type must be <c>launch-template</c>.</para><para>To specify the tags for the resources that are created when an instance is launched,
         /// you must use the <c>TagSpecifications</c> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch
-        /// template data</a> structure.</para></note>
+        /// template data</a> structure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -27,7 +27,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RetrieveAndGenerate" OutputProperty="*" Verb="Invoke" Noun="RetrieveAndGenerate" ShouldProcessTarget="SessionId" PipelineParameter="Input_Text" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate" NewName="ExternalSource_PromptTemplate_TextPromptTemplate" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

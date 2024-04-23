@@ -1,4 +1,32 @@
-﻿### 4.1.563 (2024-04-22 20:52Z)
+﻿### 4.1.564 (2024-04-23 21:19Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.795.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABDataSource: added parameters DataDeletionPolicy and S3Configuration_BucketOwnerAccountId.
+    * Modified cmdlet Update-AABDataSource: added parameters DataDeletionPolicy and S3Configuration_BucketOwnerAccountId.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDREvaluationJob leveraging the GetEvaluationJob service API.
+    * Added cmdlet Get-BDREvaluationJobList leveraging the ListEvaluationJobs service API.
+    * Added cmdlet Get-BDRGuardrail leveraging the GetGuardrail service API.
+    * Added cmdlet Get-BDRGuardrailList leveraging the ListGuardrails service API.
+    * Added cmdlet New-BDREvaluationJob leveraging the CreateEvaluationJob service API.
+    * Added cmdlet New-BDRGuardrail leveraging the CreateGuardrail service API.
+    * Added cmdlet New-BDRGuardrailVersion leveraging the CreateGuardrailVersion service API.
+    * Added cmdlet Remove-BDRGuardrail leveraging the DeleteGuardrail service API.
+    * Added cmdlet Stop-BDREvaluationJob leveraging the StopEvaluationJob service API.
+    * Added cmdlet Update-BDRGuardrail leveraging the UpdateGuardrail service API.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters ExternalSource_PromptTemplate_TextPromptTemplate, ExternalSourcesConfiguration_ModelArn and ExternalSourcesConfiguration_Source.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRModel: added parameters GuardrailIdentifier, GuardrailVersion and Trace.
+    * Modified cmdlet Invoke-BDRRModelWithResponseStream: added parameters GuardrailIdentifier, GuardrailVersion and Trace.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Disable-EC2ImageDeregistrationProtection leveraging the DisableImageDeregistrationProtection service API.
+    * Added cmdlet Enable-EC2ImageDeregistrationProtection leveraging the EnableImageDeregistrationProtection service API.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWPortal: added parameters InstanceType and MaxConcurrentSession.
+    * Modified cmdlet Update-WSWPortal: added parameters InstanceType and MaxConcurrentSession.
+
+### 4.1.563 (2024-04-22 20:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.794.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABAgentActionGroup: added parameters ActionGroupExecutor_CustomControl and FunctionSchema_Function.

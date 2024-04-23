@@ -58,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the launch template.</para><para>You must specify either the <c>LaunchTemplateId</c> or the <c>LaunchTemplateName</c>,
-        /// but not both.</para>
+        /// <para>The ID of the launch template.</para><para>You must specify either the launch template ID or the launch template name, but not
+        /// both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchTemplateName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch template.</para><para>You must specify either the <c>LaunchTemplateName</c> or the <c>LaunchTemplateId</c>,
-        /// but not both.</para>
+        /// <para>The name of the launch template.</para><para>You must specify either the launch template ID or the launch template name, but not
+        /// both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

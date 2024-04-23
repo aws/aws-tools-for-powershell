@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
     /// Stops an active model customization job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Bedrock User Guide.
+    /// models</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Stop", "BDRModelCustomizationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

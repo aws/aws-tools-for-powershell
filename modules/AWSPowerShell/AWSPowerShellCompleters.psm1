@@ -6339,6 +6339,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.EvaluationJobStatus
+        "Get-BDREvaluationJobList/StatusEqual"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+
         # Amazon.Bedrock.FineTuningJobStatus
         "Get-BDRModelCustomizationJobList/StatusEqual"
         {
@@ -6382,7 +6389,10 @@ $BDR_Completers = {
         }
 
         # Amazon.Bedrock.SortJobsBy
-        "Get-BDRModelCustomizationJobList/SortBy"
+        {
+            ($_ -eq "Get-BDREvaluationJobList/SortBy") -Or
+            ($_ -eq "Get-BDRModelCustomizationJobList/SortBy")
+        }
         {
             $v = "CreationTime"
             break
@@ -6398,6 +6408,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.SortOrder
         {
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
+            ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRProvisionedModelThroughputList/SortOrder")
         }
@@ -6420,9 +6431,9 @@ $BDR_map = @{
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
-    "SortBy"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
-    "StatusEqual"=@("Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
 }
 
 _awsArgumentCompleterRegistration $BDR_Completers $BDR_map
@@ -6475,25 +6486,35 @@ $BDR_SelectCompleters = {
 }
 
 $BDR_SelectMap = @{
-    "Select"=@("New-BDRModelCustomizationJob",
+    "Select"=@("New-BDREvaluationJob",
+               "New-BDRGuardrail",
+               "New-BDRGuardrailVersion",
+               "New-BDRModelCustomizationJob",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
+               "Remove-BDRGuardrail",
                "Remove-BDRModelInvocationLoggingConfiguration",
                "Remove-BDRProvisionedModelThroughput",
                "Get-BDRCustomModel",
+               "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
+               "Get-BDRGuardrail",
                "Get-BDRModelCustomizationJob",
                "Get-BDRModelInvocationLoggingConfiguration",
                "Get-BDRProvisionedModelThroughput",
                "Get-BDRCustomModelList",
+               "Get-BDREvaluationJobList",
                "Get-BDRFoundationModelList",
+               "Get-BDRGuardrailList",
                "Get-BDRModelCustomizationJobList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
                "Write-BDRModelInvocationLoggingConfiguration",
+               "Stop-BDREvaluationJob",
                "Stop-BDRModelCustomizationJob",
                "Add-BDRResourceTag",
                "Remove-BDRResourceTag",
+               "Update-BDRGuardrail",
                "Update-BDRProvisionedModelThroughput")
 }
 
@@ -6543,6 +6564,16 @@ $AAB_Completers = {
         }
         {
             $v = "RETURN_CONTROL"
+            break
+        }
+
+        # Amazon.BedrockAgent.DataDeletionPolicy
+        {
+            ($_ -eq "New-AABDataSource/DataDeletionPolicy") -Or
+            ($_ -eq "Update-AABDataSource/DataDeletionPolicy")
+        }
+        {
+            $v = "DELETE","RETAIN"
             break
         }
 
@@ -6612,6 +6643,7 @@ $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
@@ -6725,7 +6757,7 @@ $BAR_Completers = {
         # Amazon.BedrockAgentRuntime.RetrieveAndGenerateType
         "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_Type"
         {
-            $v = "KNOWLEDGE_BASE"
+            $v = "EXTERNAL_SOURCES","KNOWLEDGE_BASE"
             break
         }
 
@@ -6810,6 +6842,35 @@ $BAR_SelectMap = @{
 _awsArgumentCompleterRegistration $BAR_SelectCompleters $BAR_SelectMap
 # Argument completions for service Amazon Bedrock Runtime
 
+
+$BDRR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.BedrockRuntime.Trace
+        {
+            ($_ -eq "Invoke-BDRRModel/Trace") -Or
+            ($_ -eq "Invoke-BDRRModelWithResponseStream/Trace")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BDRR_map = @{
+    "Trace"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
+}
+
+_awsArgumentCompleterRegistration $BDRR_Completers $BDRR_map
 
 $BDRR_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -22926,7 +22987,7 @@ $EC2_Completers = {
         # Amazon.EC2.ImageAttributeName
         "Get-EC2ImageAttribute/Attribute"
         {
-            $v = "blockDeviceMapping","bootMode","description","imdsSupport","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport","tpmSupport","uefiData"
+            $v = "blockDeviceMapping","bootMode","deregistrationProtection","description","imdsSupport","kernel","lastLaunchedTime","launchPermission","productCodes","ramdisk","sriovNetSupport","tpmSupport","uefiData"
             break
         }
 
@@ -24139,6 +24200,7 @@ $EC2_SelectMap = @{
                "Disable-EC2Image",
                "Disable-EC2ImageBlockPublicAccess",
                "Disable-EC2ImageDeprecation",
+               "Disable-EC2ImageDeregistrationProtection",
                "Disable-EC2IpamOrganizationAdminAccount",
                "Disable-EC2SerialConsoleAccess",
                "Disable-EC2SnapshotBlockPublicAccess",
@@ -24169,6 +24231,7 @@ $EC2_SelectMap = @{
                "Enable-EC2Image",
                "Enable-EC2ImageBlockPublicAccess",
                "Enable-EC2ImageDeprecation",
+               "Enable-EC2ImageDeregistrationProtection",
                "Enable-EC2IpamOrganizationAdminAccount",
                "Enable-EC2ReachabilityAnalyzerOrganizationSharing",
                "Enable-EC2SerialConsoleAccess",
@@ -70198,6 +70261,16 @@ $WSW_Completers = {
             break
         }
 
+        # Amazon.WorkSpacesWeb.InstanceType
+        {
+            ($_ -eq "New-WSWPortal/InstanceType") -Or
+            ($_ -eq "Update-WSWPortal/InstanceType")
+        }
+        {
+            $v = "standard.large","standard.regular","standard.xlarge"
+            break
+        }
+
 
     }
 
@@ -70211,6 +70284,7 @@ $WSW_map = @{
     "CopyAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DownloadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "IdentityProviderType"=@("New-WSWIdentityProvider","Update-WSWIdentityProvider")
+    "InstanceType"=@("New-WSWPortal","Update-WSWPortal")
     "PasteAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "PrintAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "UploadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")

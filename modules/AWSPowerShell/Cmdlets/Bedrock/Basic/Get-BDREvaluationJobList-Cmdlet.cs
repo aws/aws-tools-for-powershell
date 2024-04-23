@@ -28,17 +28,16 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Lists the Provisioned Throughputs in the account. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned
-    /// Throughput</a> in the Amazon Bedrock User Guide.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists model evaluation jobs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "BDRProvisionedModelThroughputList")]
-    [OutputType("Amazon.Bedrock.Model.ProvisionedModelSummary")]
-    [AWSCmdlet("Calls the Amazon Bedrock ListProvisionedModelThroughputs API operation.", Operation = new[] {"ListProvisionedModelThroughputs"}, SelectReturnType = typeof(Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse))]
-    [AWSCmdletOutput("Amazon.Bedrock.Model.ProvisionedModelSummary or Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse",
-        "This cmdlet returns a collection of Amazon.Bedrock.Model.ProvisionedModelSummary objects.",
-        "The service call response (type Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BDREvaluationJobList")]
+    [OutputType("Amazon.Bedrock.Model.EvaluationSummary")]
+    [AWSCmdlet("Calls the Amazon Bedrock ListEvaluationJobs API operation.", Operation = new[] {"ListEvaluationJobs"}, SelectReturnType = typeof(Amazon.Bedrock.Model.ListEvaluationJobsResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.EvaluationSummary or Amazon.Bedrock.Model.ListEvaluationJobsResponse",
+        "This cmdlet returns a collection of Amazon.Bedrock.Model.EvaluationSummary objects.",
+        "The service call response (type Amazon.Bedrock.Model.ListEvaluationJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBDRProvisionedModelThroughputListCmdlet : AmazonBedrockClientCmdlet, IExecutor
+    public partial class GetBDREvaluationJobListCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -46,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that returns Provisioned Throughputs created after the specified time. </para>
+        /// <para>A filter that includes model evaluation jobs created after the time specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,30 +55,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter CreationTimeBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that returns Provisioned Throughputs created before the specified time. </para>
+        /// <para>A filter that includes model evaluation jobs created prior to the time specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.DateTime? CreationTimeBefore { get; set; }
         #endregion
         
-        #region Parameter ModelArnEqual
-        /// <summary>
-        /// <para>
-        /// <para>A filter that returns Provisioned Throughputs whose model Amazon Resource Name (ARN)
-        /// is equal to the value that you specify.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ModelArnEquals")]
-        public System.String ModelArnEqual { get; set; }
-        #endregion
-        
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>A filter that returns Provisioned Throughputs if their name contains the expression
-        /// that you specify.</para>
+        /// <para>Query parameter string for model evaluation job names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,18 +76,18 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The field by which to sort the returned list of Provisioned Throughputs.</para>
+        /// <para>Allows you to sort model evaluation jobs by when they were created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Bedrock.SortByProvisionedModels")]
-        public Amazon.Bedrock.SortByProvisionedModels SortBy { get; set; }
+        [AWSConstantClassSource("Amazon.Bedrock.SortJobsBy")]
+        public Amazon.Bedrock.SortJobsBy SortBy { get; set; }
         #endregion
         
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order of the results.</para>
+        /// <para>How you want the order of jobs sorted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,22 +98,19 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter StatusEqual
         /// <summary>
         /// <para>
-        /// <para>A filter that returns Provisioned Throughputs if their statuses matches the value
-        /// that you specify.</para>
+        /// <para>Only return jobs where the status condition is met.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StatusEquals")]
-        [AWSConstantClassSource("Amazon.Bedrock.ProvisionedModelStatus")]
-        public Amazon.Bedrock.ProvisionedModelStatus StatusEqual { get; set; }
+        [AWSConstantClassSource("Amazon.Bedrock.EvaluationJobStatus")]
+        public Amazon.Bedrock.EvaluationJobStatus StatusEqual { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>THe maximum number of results to return in the response. If there are more results
-        /// than the number you specified, the response returns a <c>nextToken</c> value. To see
-        /// the next batch of results, send the <c>nextToken</c> value in another list request.</para>
+        /// <para>The maximum number of results to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,9 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If there are more results than the number you specified in the <c>maxResults</c> field,
-        /// the response returns a <c>nextToken</c> value. To see the next batch of results, specify
-        /// the <c>nextToken</c> value in this field.</para>
+        /// <para>Continuation token from the previous response, for Amazon Bedrock to list the next
+        /// set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -153,13 +135,13 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProvisionedModelSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse).
-        /// Specifying the name of a property of type Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'JobSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.ListEvaluationJobsResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.ListEvaluationJobsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProvisionedModelSummaries";
+        public string Select { get; set; } = "JobSummaries";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -184,13 +166,12 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse, GetBDRProvisionedModelThroughputListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.ListEvaluationJobsResponse, GetBDREvaluationJobListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.CreationTimeAfter = this.CreationTimeAfter;
             context.CreationTimeBefore = this.CreationTimeBefore;
             context.MaxResult = this.MaxResult;
-            context.ModelArnEqual = this.ModelArnEqual;
             context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
             context.SortBy = this.SortBy;
@@ -212,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Bedrock.Model.ListProvisionedModelThroughputsRequest();
+            var request = new Amazon.Bedrock.Model.ListEvaluationJobsRequest();
             
             if (cmdletContext.CreationTimeAfter != null)
             {
@@ -225,10 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.ModelArnEqual != null)
-            {
-                request.ModelArnEquals = cmdletContext.ModelArnEqual;
             }
             if (cmdletContext.NameContain != null)
             {
@@ -303,15 +280,15 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         
         #region AWS Service Operation Call
         
-        private Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.ListProvisionedModelThroughputsRequest request)
+        private Amazon.Bedrock.Model.ListEvaluationJobsResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.ListEvaluationJobsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "ListProvisionedModelThroughputs");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "ListEvaluationJobs");
             try
             {
                 #if DESKTOP
-                return client.ListProvisionedModelThroughputs(request);
+                return client.ListEvaluationJobs(request);
                 #elif CORECLR
-                return client.ListProvisionedModelThroughputsAsync(request).GetAwaiter().GetResult();
+                return client.ListEvaluationJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -334,14 +311,13 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.DateTime? CreationTimeAfter { get; set; }
             public System.DateTime? CreationTimeBefore { get; set; }
             public System.Int32? MaxResult { get; set; }
-            public System.String ModelArnEqual { get; set; }
             public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.Bedrock.SortByProvisionedModels SortBy { get; set; }
+            public Amazon.Bedrock.SortJobsBy SortBy { get; set; }
             public Amazon.Bedrock.SortOrder SortOrder { get; set; }
-            public Amazon.Bedrock.ProvisionedModelStatus StatusEqual { get; set; }
-            public System.Func<Amazon.Bedrock.Model.ListProvisionedModelThroughputsResponse, GetBDRProvisionedModelThroughputListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProvisionedModelSummaries;
+            public Amazon.Bedrock.EvaluationJobStatus StatusEqual { get; set; }
+            public System.Func<Amazon.Bedrock.Model.ListEvaluationJobsResponse, GetBDREvaluationJobListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.JobSummaries;
         }
         
     }

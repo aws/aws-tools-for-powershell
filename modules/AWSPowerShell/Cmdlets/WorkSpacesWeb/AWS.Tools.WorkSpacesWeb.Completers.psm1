@@ -118,6 +118,16 @@ $WSW_Completers = {
             break
         }
 
+        # Amazon.WorkSpacesWeb.InstanceType
+        {
+            ($_ -eq "New-WSWPortal/InstanceType") -Or
+            ($_ -eq "Update-WSWPortal/InstanceType")
+        }
+        {
+            $v = "standard.large","standard.regular","standard.xlarge"
+            break
+        }
+
 
     }
 
@@ -131,6 +141,7 @@ $WSW_map = @{
     "CopyAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DownloadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "IdentityProviderType"=@("New-WSWIdentityProvider","Update-WSWIdentityProvider")
+    "InstanceType"=@("New-WSWPortal","Update-WSWPortal")
     "PasteAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "PrintAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "UploadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
