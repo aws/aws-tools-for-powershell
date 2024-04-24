@@ -28,21 +28,23 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates the current runtime configuration for the specified fleet, which tells Amazon
-    /// GameLift how to launch server processes on all instances in the fleet. You can update
-    /// a fleet's runtime configuration at any time after the fleet is created; it does not
-    /// need to be in <c>ACTIVE</c> status.
+    /// Updates the runtime configuration for the specified fleet. The runtime configuration
+    /// tells Amazon GameLift how to launch server processes on computes in the fleet. For
+    /// managed EC2 fleets, it determines what server processes to run on each fleet instance.
+    /// For container fleets, it describes what server processes to run in each replica container
+    /// group. You can update a fleet's runtime configuration at any time after the fleet
+    /// is created; it does not need to be in <c>ACTIVE</c> status.
     /// 
     ///  
     /// <para>
     /// To update runtime configuration, specify the fleet ID and provide a <c>RuntimeConfiguration</c>
     /// with an updated set of server process configurations.
     /// </para><para>
-    /// If successful, the fleet's runtime configuration settings are updated. Each instance
-    /// in the fleet regularly checks for and retrieves updated runtime configurations. Instances
-    /// immediately begin complying with the new configuration by launching new server processes
-    /// or not replacing existing processes when they shut down. Updating a fleet's runtime
-    /// configuration never affects existing server processes.
+    /// If successful, the fleet's runtime configuration settings are updated. Fleet computes
+    /// that run game server processes regularly check for and receive updated runtime configurations.
+    /// The computes immediately take action to comply with the new configuration by launching
+    /// new server processes or by not replacing existing processes when they shut down. Updating
+    /// a fleet's runtime configuration never affects existing server processes.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para>
     /// </summary>
@@ -93,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance. This
-        /// setting limits the instance resources that can be used for new game activations at
-        /// any one time.</para>
+        /// <para>The number of game sessions in status <c>ACTIVATING</c> to allow on an instance or
+        /// container. This setting limits the instance resources that can be used for new game
+        /// activations at any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>A collection of server process configurations that identify what server processes
-        /// to run on each instance in a fleet.</para>
+        /// to run on fleet computes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -18,7 +18,11 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddPolicyStatement" OutputProperty="*" Verb="Add" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="AddPolicyStatement" OutputProperty="*" Verb="Add" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteUniqueId" OutputProperty="*" Verb="Remove" Noun="DeleteUniqueId" ShouldProcessTarget="WorkflowName" PipelineParameter="WorkflowName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -26,7 +30,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdNamespace" OutputProperty="*" Verb="New" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateIdNamespace" OutputProperty="*" Verb="New" Noun="IdNamespace" ShouldProcessTarget="IdNamespaceName" PipelineParameter="IdNamespaceName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -50,7 +54,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicyStatement" OutputProperty="*" Verb="Remove" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DeletePolicyStatement" OutputProperty="*" Verb="Remove" Noun="PolicyStatement" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -126,7 +130,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPolicy" OutputProperty="*" Verb="Write" Noun="Policy" ShouldProcessTarget="Arn" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="PutPolicy" OutputProperty="*" Verb="Write" Noun="Policy" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

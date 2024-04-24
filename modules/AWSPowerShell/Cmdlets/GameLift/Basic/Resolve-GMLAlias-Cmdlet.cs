@@ -28,10 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the fleet ID that an alias is currently pointing to.
+    /// Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
+    /// alias identifier.
     /// 
     ///  
-    /// <para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
+    /// <para>
+    /// If the alias has a <c>SIMPLE</c> routing strategy, Amazon GameLift returns a fleet
+    /// ID. If the alias has a <c>TERMINAL</c> routing strategy, the result is a <c>TerminalRoutingStrategyException</c>.
+    /// </para><para><b>Related actions</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All
     /// APIs by task</a></para>
     /// </summary>
     [Cmdlet("Resolve", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="New" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateFleet" OutputProperty="FleetAttributes" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="BuildId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -92,6 +96,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteBuild" Verb="Remove" Noun="Build" ShouldProcessTarget="BuildId" PipelineParameter="BuildId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainerGroupDefinition" Verb="Remove" Noun="ContainerGroupDefinition" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -156,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCompute" OutputProperty="Compute" Verb="Get" Noun="Compute" PipelineParameter="ComputeName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContainerGroupDefinition" OutputProperty="ContainerGroupDefinition" Verb="Get" Noun="ContainerGroupDefinition" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -288,6 +300,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCompute" OutputProperty="ComputeList" Verb="Get" Noun="ComputeList" PipelineParameter="FleetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContainerGroupDefinitions" OutputProperty="ContainerGroupDefinitions" Verb="Get" Noun="ContainerGroupDefinitionList" PipelineParameter="SchedulingStrategy" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

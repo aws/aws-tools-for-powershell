@@ -202,6 +202,7 @@ $ERES_SelectCompleters = {
 
 $ERES_SelectMap = @{
     "Select"=@("Add-ERESPolicyStatement",
+               "Remove-ERESDeleteUniqueId",
                "New-ERESIdMappingWorkflow",
                "New-ERESIdNamespace",
                "New-ERESMatchingWorkflow",

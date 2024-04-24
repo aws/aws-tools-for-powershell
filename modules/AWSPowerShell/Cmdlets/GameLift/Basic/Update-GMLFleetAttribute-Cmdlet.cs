@@ -28,15 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates a fleet's mutable attributes, including game session protection and resource
+    /// Updates a fleet's mutable attributes, such as game session protection and resource
     /// creation limits.
     /// 
     ///  
     /// <para>
     /// To update fleet attributes, specify the fleet ID and the property values that you
-    /// want to change. 
-    /// </para><para>
-    /// If successful, an updated <c>FleetAttributes</c> object is returned.
+    /// want to change. If successful, Amazon GameLift returns the identifiers for the updated
+    /// fleet.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift fleets</a></para>
     /// </summary>

@@ -131,7 +131,24 @@ $GML_Completers = {
         # Amazon.GameLift.ComputeType
         "New-GMLFleet/ComputeType"
         {
-            $v = "ANYWHERE","EC2"
+            $v = "ANYWHERE","CONTAINER","EC2"
+            break
+        }
+
+        # Amazon.GameLift.ContainerOperatingSystem
+        "New-GMLContainerGroupDefinition/OperatingSystem"
+        {
+            $v = "AMAZON_LINUX_2023"
+            break
+        }
+
+        # Amazon.GameLift.ContainerSchedulingStrategy
+        {
+            ($_ -eq "Get-GMLContainerGroupDefinitionList/SchedulingStrategy") -Or
+            ($_ -eq "New-GMLContainerGroupDefinition/SchedulingStrategy")
+        }
+        {
+            $v = "DAEMON","REPLICA"
             break
         }
 
@@ -295,13 +312,14 @@ $GML_map = @{
     "InstanceRoleCredentialsProvider"=@("New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
-    "OperatingSystem"=@("New-GMLBuild")
+    "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "PolicyType"=@("Write-GMLScalingPolicy")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
     "RoutingStrategyType"=@("Get-GMLAlias")
     "ScalingAdjustmentType"=@("Write-GMLScalingPolicy")
+    "SchedulingStrategy"=@("Get-GMLContainerGroupDefinitionList","New-GMLContainerGroupDefinition")
     "SortOrder"=@("Get-GMLGameServerList")
     "Status"=@("Get-GMLBuild")
     "StatusFilter"=@("Get-GMLScalingPolicy")
@@ -362,6 +380,7 @@ $GML_SelectMap = @{
                "Request-GMLGameServer",
                "New-GMLAlias",
                "New-GMLBuild",
+               "New-GMLContainerGroupDefinition",
                "New-GMLFleet",
                "New-GMLFleetLocation",
                "New-GMLGameServerGroup",
@@ -376,6 +395,7 @@ $GML_SelectMap = @{
                "New-GMLVpcPeeringConnection",
                "Remove-GMLAlias",
                "Remove-GMLBuild",
+               "Remove-GMLContainerGroupDefinition",
                "Remove-GMLFleet",
                "Remove-GMLFleetLocation",
                "Remove-GMLGameServerGroup",
@@ -392,6 +412,7 @@ $GML_SelectMap = @{
                "Get-GMLAliasDetail",
                "Get-GMLBuildDetail",
                "Get-GMLCompute",
+               "Get-GMLContainerGroupDefinition",
                "Get-GMLEC2InstanceLimit",
                "Get-GMLFleetAttribute",
                "Get-GMLFleetCapacity",
@@ -425,6 +446,7 @@ $GML_SelectMap = @{
                "Get-GMLAlias",
                "Get-GMLBuild",
                "Get-GMLComputeList",
+               "Get-GMLContainerGroupDefinitionList",
                "Get-GMLFleet",
                "Get-GMLGameServerGroupList",
                "Get-GMLGameServerList",

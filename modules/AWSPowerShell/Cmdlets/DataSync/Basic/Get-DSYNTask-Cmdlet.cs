@@ -28,7 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Provides information about an DataSync transfer task.
+    /// Provides information about a <i>task</i>, which defines where and how DataSync transfers
+    /// your data.
     /// </summary>
     [Cmdlet("Get", "DSYNTask")]
     [OutputType("Amazon.DataSync.Model.DescribeTaskResponse")]
@@ -44,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the transfer task.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the transfer task that you want information
+        /// about.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

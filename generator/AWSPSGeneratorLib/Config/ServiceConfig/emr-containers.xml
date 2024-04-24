@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityConfiguration" OutputProperty="*" Verb="New" Noun="SecurityConfiguration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualCluster" OutputProperty="*" Verb="New" Noun="VirtualCluster" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -58,6 +62,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityConfiguration" OutputProperty="SecurityConfiguration" Verb="Get" Noun="SecurityConfiguration" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeVirtualCluster" OutputProperty="VirtualCluster" Verb="Get" Noun="VirtualCluster" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListManagedEndpoints" OutputProperty="Endpoints" Verb="Get" Noun="ManagedEndpointList" PipelineParameter="VirtualClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSecurityConfigurations" OutputProperty="SecurityConfigurations" Verb="Get" Noun="SecurityConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

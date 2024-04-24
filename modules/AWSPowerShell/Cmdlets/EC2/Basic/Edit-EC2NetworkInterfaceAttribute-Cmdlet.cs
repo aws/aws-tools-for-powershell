@@ -44,6 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssociatePublicIpAddress
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether to assign a public IPv4 address to a network interface. This option
+        /// can be enabled for any network interface but will only apply to the primary network
+        /// interface (eth0).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AssociatePublicIpAddress { get; set; }
+        #endregion
+        
         #region Parameter Attachment_AttachmentId
         /// <summary>
         /// <para>
@@ -259,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = (response, cmdlet) => this.NetworkInterfaceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssociatePublicIpAddress = this.AssociatePublicIpAddress;
             context.Attachment_AttachmentId = this.Attachment_AttachmentId;
             context.Attachment_DeleteOnTermination = this.Attachment_DeleteOnTermination;
             context.ConnectionTrackingSpecification_TcpEstablishedTimeout = this.ConnectionTrackingSpecification_TcpEstablishedTimeout;
@@ -296,6 +309,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.ModifyNetworkInterfaceAttributeRequest();
             
+            if (cmdletContext.AssociatePublicIpAddress != null)
+            {
+                request.AssociatePublicIpAddress = cmdletContext.AssociatePublicIpAddress.Value;
+            }
             
              // populate Attachment
             var requestAttachmentIsNull = true;
@@ -489,6 +506,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AssociatePublicIpAddress { get; set; }
             public System.String Attachment_AttachmentId { get; set; }
             public System.Boolean? Attachment_DeleteOnTermination { get; set; }
             public System.Int32? ConnectionTrackingSpecification_TcpEstablishedTimeout { get; set; }

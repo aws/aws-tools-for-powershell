@@ -49,6 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li></ul><para>
     /// If successful, Amazon GameLift no longer initiates scaling events except in response
     /// to manual changes using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html">UpdateFleetCapacity</a>.
+    /// To restart fleet actions again, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartFleetActions.html">StartFleetActions</a>.
     /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
     /// up Amazon GameLift Fleets</a></para>
     /// </summary>

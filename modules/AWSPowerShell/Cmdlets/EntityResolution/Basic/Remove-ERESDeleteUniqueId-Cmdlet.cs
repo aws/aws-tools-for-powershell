@@ -22,43 +22,57 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.EntityResolution;
+using Amazon.EntityResolution.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.ERES
 {
     /// <summary>
-    /// Deletes all resources and information related to a fleet and shuts down any currently
-    /// running fleet instances, including those in remote locations.
-    /// 
-    ///  <note><para>
-    /// If the fleet being deleted has a VPC peering connection, you first need to get a valid
-    /// authorization (good for 24 hours) by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>.
-    /// You don't need to explicitly delete the VPC peering connection.
-    /// </para></note><para>
-    /// To delete a fleet, specify the fleet ID to be terminated. During the deletion process,
-    /// the fleet status is changed to <c>DELETING</c>. When completed, the status switches
-    /// to <c>TERMINATED</c> and the fleet event <c>FLEET_DELETED</c> is emitted.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift Fleets</a></para>
+    /// Deletes multiple unique IDs in a matching workflow.
     /// </summary>
-    [Cmdlet("Remove", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DeleteFleet API operation.", Operation = new[] {"DeleteFleet"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeleteFleetResponse))]
-    [AWSCmdletOutput("None or Amazon.GameLift.Model.DeleteFleetResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.DeleteFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ERESDeleteUniqueId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse")]
+    [AWSCmdlet("Calls the AWS EntityResolution BatchDeleteUniqueId API operation.", Operation = new[] {"BatchDeleteUniqueId"}, SelectReturnType = typeof(Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse))]
+    [AWSCmdletOutput("Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse",
+        "This cmdlet returns an Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class RemoveERESDeleteUniqueIdCmdlet : AmazonEntityResolutionClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FleetId
+        #region Parameter InputSource
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet to be deleted. You can use either the fleet ID or
-        /// ARN value.</para>
+        /// <para>The input source for the batch delete unique ID operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputSource { get; set; }
+        #endregion
+        
+        #region Parameter UniqueId
+        /// <summary>
+        /// <para>
+        /// <para>The unique IDs to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("UniqueIds")]
+        public System.String[] UniqueId { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workflow.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,13 +83,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
+        public System.String WorkflowName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DeleteFleetResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse).
+        /// Specifying the name of a property of type Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,10 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FleetId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the WorkflowName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkflowName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -107,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FleetId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLFleet (DeleteFleet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkflowName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ERESDeleteUniqueId (BatchDeleteUniqueId)"))
             {
                 return;
             }
@@ -121,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DeleteFleetResponse, RemoveGMLFleetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse, RemoveERESDeleteUniqueIdCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,14 +145,25 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FleetId;
+                context.Select = (response, cmdlet) => this.WorkflowName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FleetId = this.FleetId;
-            #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
+            context.InputSource = this.InputSource;
+            if (this.UniqueId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.UniqueId = new List<System.String>(this.UniqueId);
+            }
+            #if MODULAR
+            if (this.UniqueId == null && ParameterWasBound(nameof(this.UniqueId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter UniqueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.WorkflowName = this.WorkflowName;
+            #if MODULAR
+            if (this.WorkflowName == null && ParameterWasBound(nameof(this.WorkflowName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter WorkflowName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -154,11 +180,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeleteFleetRequest();
+            var request = new Amazon.EntityResolution.Model.BatchDeleteUniqueIdRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.InputSource != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.InputSource = cmdletContext.InputSource;
+            }
+            if (cmdletContext.UniqueId != null)
+            {
+                request.UniqueIds = cmdletContext.UniqueId;
+            }
+            if (cmdletContext.WorkflowName != null)
+            {
+                request.WorkflowName = cmdletContext.WorkflowName;
             }
             
             CmdletOutput output;
@@ -193,15 +227,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DeleteFleetResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteFleetRequest request)
+        private Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse CallAWSServiceOperation(IAmazonEntityResolution client, Amazon.EntityResolution.Model.BatchDeleteUniqueIdRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteFleet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS EntityResolution", "BatchDeleteUniqueId");
             try
             {
                 #if DESKTOP
-                return client.DeleteFleet(request);
+                return client.BatchDeleteUniqueId(request);
                 #elif CORECLR
-                return client.DeleteFleetAsync(request).GetAwaiter().GetResult();
+                return client.BatchDeleteUniqueIdAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,9 +255,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public System.Func<Amazon.GameLift.Model.DeleteFleetResponse, RemoveGMLFleetCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String InputSource { get; set; }
+            public List<System.String> UniqueId { get; set; }
+            public System.String WorkflowName { get; set; }
+            public System.Func<Amazon.EntityResolution.Model.BatchDeleteUniqueIdResponse, RemoveERESDeleteUniqueIdCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

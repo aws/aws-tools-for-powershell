@@ -1,4 +1,32 @@
-﻿### 4.1.564 (2024-04-23 21:19Z)
+﻿### 4.1.565 (2024-04-24 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.796.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataSync
+    * Modified cmdlet New-DSYNTask: added parameter Schedule_Status.
+    * Modified cmdlet Update-DSYNTask: added parameter Schedule_Status.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2NetworkInterfaceAttribute: added parameter AssociatePublicIpAddress.
+  * Amazon EMR Containers
+    * Added cmdlet Get-EMRCSecurityConfiguration leveraging the DescribeSecurityConfiguration service API.
+    * Added cmdlet Get-EMRCSecurityConfigurationList leveraging the ListSecurityConfigurations service API.
+    * Added cmdlet New-EMRCSecurityConfiguration leveraging the CreateSecurityConfiguration service API.
+    * Modified cmdlet New-EMRCVirtualCluster: added parameter SecurityConfigurationId.
+  * Amazon EntityResolution
+    * Added cmdlet Remove-ERESDeleteUniqueId leveraging the BatchDeleteUniqueId service API.
+    * Modified cmdlet Add-ERESPolicyStatement: added parameter PassThru.
+    * Modified cmdlet New-ERESIdNamespace: added parameter PassThru.
+    * Modified cmdlet Remove-ERESPolicyStatement: added parameter PassThru.
+    * Modified cmdlet Write-ERESPolicy: added parameter PassThru.
+  * Amazon GameLift Service
+    * Added cmdlet Get-GMLContainerGroupDefinition leveraging the DescribeContainerGroupDefinition service API.
+    * Added cmdlet Get-GMLContainerGroupDefinitionList leveraging the ListContainerGroupDefinitions service API.
+    * Added cmdlet New-GMLContainerGroupDefinition leveraging the CreateContainerGroupDefinition service API.
+    * Added cmdlet Remove-GMLContainerGroupDefinition leveraging the DeleteContainerGroupDefinition service API.
+    * Modified cmdlet Get-GMLFleet: added parameter ContainerGroupDefinitionName.
+    * Modified cmdlet New-GMLFleet: added parameters ConnectionPortRange_FromPort, ConnectionPortRange_ToPort, ContainerGroupsConfiguration_ContainerGroupDefinitionName and ContainerGroupsConfiguration_DesiredReplicaContainerGroupsPerInstance.
+  * Amazon Systems Manager
+    * Added cmdlet Get-SSMInstanceProperty leveraging the DescribeInstanceProperties service API.
+
+### 4.1.564 (2024-04-23 21:19Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.795.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABDataSource: added parameters DataDeletionPolicy and S3Configuration_BucketOwnerAccountId.

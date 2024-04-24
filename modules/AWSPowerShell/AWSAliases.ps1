@@ -11272,6 +11272,8 @@ Set-Alias -Name Create-EMRCJobTemplate -Value New-EMRCJobTemplate
 Set-Alias -Name EMRC-CreateJobTemplate -Value New-EMRCJobTemplate
 Set-Alias -Name Create-EMRCManagedEndpoint -Value New-EMRCManagedEndpoint
 Set-Alias -Name EMRC-CreateManagedEndpoint -Value New-EMRCManagedEndpoint
+Set-Alias -Name Create-EMRCSecurityConfiguration -Value New-EMRCSecurityConfiguration
+Set-Alias -Name EMRC-CreateSecurityConfiguration -Value New-EMRCSecurityConfiguration
 Set-Alias -Name Create-EMRCVirtualCluster -Value New-EMRCVirtualCluster
 Set-Alias -Name EMRC-CreateVirtualCluster -Value New-EMRCVirtualCluster
 Set-Alias -Name Delete-EMRCJobTemplate -Value Remove-EMRCJobTemplate
@@ -11286,6 +11288,8 @@ Set-Alias -Name Describe-EMRCJobTemplate -Value Get-EMRCJobTemplate
 Set-Alias -Name EMRC-DescribeJobTemplate -Value Get-EMRCJobTemplate
 Set-Alias -Name Describe-EMRCManagedEndpoint -Value Get-EMRCManagedEndpoint
 Set-Alias -Name EMRC-DescribeManagedEndpoint -Value Get-EMRCManagedEndpoint
+Set-Alias -Name Describe-EMRCSecurityConfiguration -Value Get-EMRCSecurityConfiguration
+Set-Alias -Name EMRC-DescribeSecurityConfiguration -Value Get-EMRCSecurityConfiguration
 Set-Alias -Name Describe-EMRCVirtualCluster -Value Get-EMRCVirtualCluster
 Set-Alias -Name EMRC-DescribeVirtualCluster -Value Get-EMRCVirtualCluster
 Set-Alias -Name Get-EMRCManagedEndpointSessionCredentials -Value Get-EMRCManagedEndpointSessionCredential
@@ -11299,6 +11303,9 @@ Set-Alias -Name EMRC-ListJobTemplates -Value Get-EMRCJobTemplateList
 Set-Alias -Name List-EMRCManagedEndpoints -Value Get-EMRCManagedEndpointList
 Set-Alias -Name List-EMRCManagedEndpointList -Value Get-EMRCManagedEndpointList
 Set-Alias -Name EMRC-ListManagedEndpoints -Value Get-EMRCManagedEndpointList
+Set-Alias -Name List-EMRCSecurityConfigurations -Value Get-EMRCSecurityConfigurationList
+Set-Alias -Name List-EMRCSecurityConfigurationList -Value Get-EMRCSecurityConfigurationList
+Set-Alias -Name EMRC-ListSecurityConfigurations -Value Get-EMRCSecurityConfigurationList
 Set-Alias -Name EMRC-ListTagsForResource -Value Get-EMRCResourceTag
 Set-Alias -Name List-EMRCVirtualClusters -Value Get-EMRCVirtualClusterList
 Set-Alias -Name List-EMRCVirtualClusterList -Value Get-EMRCVirtualClusterList
@@ -11332,6 +11339,8 @@ Set-Alias -Name EMRServerless-UpdateApplication -Value Update-EMRServerlessAppli
 Set-Alias -Name Get-MESEntitlements -Value Get-MESEntitlementList
 Set-Alias -Name MES-GetEntitlements -Value Get-MESEntitlementList
 Set-Alias -Name ERES-AddPolicyStatement -Value Add-ERESPolicyStatement
+Set-Alias -Name Batch-ERESDeleteUniqueId -Value Remove-ERESDeleteUniqueId
+Set-Alias -Name ERES-BatchDeleteUniqueId -Value Remove-ERESDeleteUniqueId
 Set-Alias -Name Create-ERESIdMappingWorkflow -Value New-ERESIdMappingWorkflow
 Set-Alias -Name ERES-CreateIdMappingWorkflow -Value New-ERESIdMappingWorkflow
 Set-Alias -Name Create-ERESIdNamespace -Value New-ERESIdNamespace
@@ -12461,6 +12470,8 @@ Set-Alias -Name Create-GMLAlias -Value New-GMLAlias
 Set-Alias -Name GML-CreateAlias -Value New-GMLAlias
 Set-Alias -Name Create-GMLBuild -Value New-GMLBuild
 Set-Alias -Name GML-CreateBuild -Value New-GMLBuild
+Set-Alias -Name Create-GMLContainerGroupDefinition -Value New-GMLContainerGroupDefinition
+Set-Alias -Name GML-CreateContainerGroupDefinition -Value New-GMLContainerGroupDefinition
 Set-Alias -Name Create-GMLFleet -Value New-GMLFleet
 Set-Alias -Name GML-CreateFleet -Value New-GMLFleet
 Set-Alias -Name Create-GMLFleetLocations -Value New-GMLFleetLocation
@@ -12491,6 +12502,8 @@ Set-Alias -Name Delete-GMLAlias -Value Remove-GMLAlias
 Set-Alias -Name GML-DeleteAlias -Value Remove-GMLAlias
 Set-Alias -Name Delete-GMLBuild -Value Remove-GMLBuild
 Set-Alias -Name GML-DeleteBuild -Value Remove-GMLBuild
+Set-Alias -Name Delete-GMLContainerGroupDefinition -Value Remove-GMLContainerGroupDefinition
+Set-Alias -Name GML-DeleteContainerGroupDefinition -Value Remove-GMLContainerGroupDefinition
 Set-Alias -Name Delete-GMLFleet -Value Remove-GMLFleet
 Set-Alias -Name GML-DeleteFleet -Value Remove-GMLFleet
 Set-Alias -Name Delete-GMLFleetLocations -Value Remove-GMLFleetLocation
@@ -12526,6 +12539,8 @@ Set-Alias -Name Describe-GMLBuildDetail -Value Get-GMLBuildDetail
 Set-Alias -Name GML-DescribeBuild -Value Get-GMLBuildDetail
 Set-Alias -Name Describe-GMLCompute -Value Get-GMLCompute
 Set-Alias -Name GML-DescribeCompute -Value Get-GMLCompute
+Set-Alias -Name Describe-GMLContainerGroupDefinition -Value Get-GMLContainerGroupDefinition
+Set-Alias -Name GML-DescribeContainerGroupDefinition -Value Get-GMLContainerGroupDefinition
 Set-Alias -Name Describe-GMLEC2InstanceLimits -Value Get-GMLEC2InstanceLimit
 Set-Alias -Name Describe-GMLEC2InstanceLimit -Value Get-GMLEC2InstanceLimit
 Set-Alias -Name GML-DescribeEC2InstanceLimits -Value Get-GMLEC2InstanceLimit
@@ -12607,6 +12622,9 @@ Set-Alias -Name GML-ListBuilds -Value Get-GMLBuild
 Set-Alias -Name List-GMLCompute -Value Get-GMLComputeList
 Set-Alias -Name List-GMLComputeList -Value Get-GMLComputeList
 Set-Alias -Name GML-ListCompute -Value Get-GMLComputeList
+Set-Alias -Name List-GMLContainerGroupDefinitions -Value Get-GMLContainerGroupDefinitionList
+Set-Alias -Name List-GMLContainerGroupDefinitionList -Value Get-GMLContainerGroupDefinitionList
+Set-Alias -Name GML-ListContainerGroupDefinitions -Value Get-GMLContainerGroupDefinitionList
 Set-Alias -Name List-GMLFleets -Value Get-GMLFleet
 Set-Alias -Name List-GMLFleet -Value Get-GMLFleet
 Set-Alias -Name GML-ListFleets -Value Get-GMLFleet
@@ -26694,6 +26712,9 @@ Set-Alias -Name Describe-SSMInstancePatchState -Value Get-SSMInstancePatchState
 Set-Alias -Name SSM-DescribeInstancePatchStates -Value Get-SSMInstancePatchState
 Set-Alias -Name Describe-SSMInstancePatchStatesForPatchGroup -Value Get-SSMInstancePatchStatesForPatchGroup
 Set-Alias -Name SSM-DescribeInstancePatchStatesForPatchGroup -Value Get-SSMInstancePatchStatesForPatchGroup
+Set-Alias -Name Describe-SSMInstanceProperties -Value Get-SSMInstanceProperty
+Set-Alias -Name Describe-SSMInstanceProperty -Value Get-SSMInstanceProperty
+Set-Alias -Name SSM-DescribeInstanceProperties -Value Get-SSMInstanceProperty
 Set-Alias -Name Describe-SSMInventoryDeletions -Value Get-SSMInventoryDeletionList
 Set-Alias -Name Describe-SSMInventoryDeletionList -Value Get-SSMInventoryDeletionList
 Set-Alias -Name SSM-DescribeInventoryDeletions -Value Get-SSMInventoryDeletionList

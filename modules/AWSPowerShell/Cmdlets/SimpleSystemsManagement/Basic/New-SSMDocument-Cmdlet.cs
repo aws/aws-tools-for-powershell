@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>A name for the SSM document.</para><important><para>You can't use the following strings as document name prefixes. These are reserved
-        /// by Amazon Web Services for use as document name prefixes:</para><ul><li><para><c>aws</c></para></li><li><para><c>amazon</c></para></li><li><para><c>amzn</c></para></li></ul></important>
+        /// by Amazon Web Services for use as document name prefixes:</para><ul><li><para><c>aws</c></para></li><li><para><c>amazon</c></para></li><li><para><c>amzn</c></para></li><li><para><c>AWSEC2</c></para></li><li><para><c>AWSConfigRemediation</c></para></li><li><para><c>AWSSupport</c></para></li></ul></important>
         /// </para>
         /// </summary>
         #if !MODULAR

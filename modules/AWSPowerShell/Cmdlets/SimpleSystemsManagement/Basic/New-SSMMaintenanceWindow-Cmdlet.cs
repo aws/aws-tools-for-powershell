@@ -194,7 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The date and time, in ISO-8601 Extended format, for when you want the maintenance
         /// window to become active. <c>StartDate</c> allows you to delay activation of the maintenance
-        /// window until the specified future date.</para>
+        /// window until the specified future date.</para><note><para>When using a rate schedule, if you provide a start date that occurs in the past, the
+        /// current date and time are used as the start date. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

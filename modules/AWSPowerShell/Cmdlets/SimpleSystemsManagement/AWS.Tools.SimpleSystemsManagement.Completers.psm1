@@ -466,6 +466,7 @@ $SSM_SelectMap = @{
                "Get-SSMInstancePatch",
                "Get-SSMInstancePatchState",
                "Get-SSMInstancePatchStatesForPatchGroup",
+               "Get-SSMInstanceProperty",
                "Get-SSMInventoryDeletionList",
                "Get-SSMMaintenanceWindowExecutionList",
                "Get-SSMMaintenanceWindowExecutionTaskInvocationList",

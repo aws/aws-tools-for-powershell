@@ -28,33 +28,33 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
+    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
+    /// which is currently in public preview.</b><para>
     /// Retrieves a collection of fleet resources in an Amazon Web Services Region. You can
-    /// call this operation to get fleets in a previously selected default Region (see <a href="https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html">https://docs.aws.amazon.com/credref/latest/refdocs/setting-global-region.html</a>or
-    /// specify a Region in your request. You can filter the result set to find only those
-    /// fleets that are deployed with a specific build or script. For fleets that have multiple
-    /// locations, this operation retrieves fleets based on their home Region only.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be used in the following ways: 
+    /// filter the result set to find only those fleets that are deployed with a specific
+    /// build or script. For fleets that have multiple locations, this operation retrieves
+    /// fleets based on their home Region only.
+    /// </para><para>
+    /// You can use operation in the following ways: 
     /// </para><ul><li><para>
     /// To get a list of all fleets in a Region, don't provide a build or script identifier.
-    /// 
     /// </para></li><li><para>
-    /// To get a list of all fleets where a specific custom game build is deployed, provide
-    /// the build ID.
+    /// To get a list of all fleets where a specific game build is deployed, provide the build
+    /// ID.
     /// </para></li><li><para>
     /// To get a list of all Realtime Servers fleets with a specific configuration script,
     /// provide the script ID. 
+    /// </para></li><li><para>
+    ///  To get a list of all fleets with a specific container group definition, provide the
+    /// <c>ContainerGroupDefinition</c> ID. 
     /// </para></li></ul><para>
     /// Use the pagination parameters to retrieve results as a set of sequential pages. 
     /// </para><para>
-    /// If successful, a list of fleet IDs that match the request parameters is returned.
+    /// If successful, this operation returns a list of fleet IDs that match the request parameters.
     /// A NextToken value is also returned if there are more result pages to retrieve.
     /// </para><note><para>
-    /// Fleet resources are not listed in a particular order.
-    /// </para></note><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift fleets</a></para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Fleet IDs are returned in no particular order.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "GMLFleet")]
     [OutputType("System.String")]
@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BuildId { get; set; }
+        #endregion
+        
+        #region Parameter ContainerGroupDefinitionName
+        /// <summary>
+        /// <para>
+        /// <para>The container group definition name to request fleets for. Use this parameter to return
+        /// only fleets that are deployed with the specified container group definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContainerGroupDefinitionName { get; set; }
         #endregion
         
         #region Parameter ScriptId
@@ -180,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BuildId = this.BuildId;
+            context.ContainerGroupDefinitionName = this.ContainerGroupDefinitionName;
             context.Limit = this.Limit;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.Limit)) && this.Limit.HasValue)
@@ -216,6 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.BuildId != null)
             {
                 request.BuildId = cmdletContext.BuildId;
+            }
+            if (cmdletContext.ContainerGroupDefinitionName != null)
+            {
+                request.ContainerGroupDefinitionName = cmdletContext.ContainerGroupDefinitionName;
             }
             if (cmdletContext.Limit != null)
             {
@@ -283,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.BuildId != null)
             {
                 request.BuildId = cmdletContext.BuildId;
+            }
+            if (cmdletContext.ContainerGroupDefinitionName != null)
+            {
+                request.ContainerGroupDefinitionName = cmdletContext.ContainerGroupDefinitionName;
             }
             if (cmdletContext.ScriptId != null)
             {
@@ -401,6 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BuildId { get; set; }
+            public System.String ContainerGroupDefinitionName { get; set; }
             public int? Limit { get; set; }
             public System.String NextToken { get; set; }
             public System.String ScriptId { get; set; }

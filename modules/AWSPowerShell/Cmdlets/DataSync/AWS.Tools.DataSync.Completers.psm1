@@ -261,6 +261,16 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.ScheduleStatus
+        {
+            ($_ -eq "New-DSYNTask/Schedule_Status") -Or
+            ($_ -eq "Update-DSYNTask/Schedule_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.DataSync.SmbVersion
         {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
@@ -296,6 +306,7 @@ $DSYN_map = @{
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
     "S3StorageClass"=@("New-DSYNLocationS3")
+    "Schedule_Status"=@("New-DSYNTask","Update-DSYNTask")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "SystemType"=@("Add-DSYNStorageSystem")

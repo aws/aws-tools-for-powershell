@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-ERESIdNamespace', 
         'New-ERESMatchingWorkflow', 
         'New-ERESSchemaMapping', 
+        'Remove-ERESDeleteUniqueId', 
         'Remove-ERESIdMappingWorkflow', 
         'Remove-ERESIdNamespace', 
         'Remove-ERESMatchingWorkflow', 

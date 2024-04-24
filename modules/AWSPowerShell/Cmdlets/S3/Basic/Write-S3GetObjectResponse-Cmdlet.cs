@@ -325,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ObjectLockMode
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.WriteGetObjectResponseRequest.ObjectLockMode
+        /// Indicates whether an object stored in Amazon S3 has Object Lock enabled. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html">Object Lock</a>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ReplicationStatus
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.WriteGetObjectResponseRequest.ReplicationStatus
+        /// Indicates if request involves bucket that is either a source or destination in a Replication rule. For more information about S3 Replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html">Replication</a>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -431,7 +431,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter SSECustomerKeyMD5
         /// <summary>
         /// <para>
-        /// Amazon.S3.Model.WriteGetObjectResponseRequest.SSECustomerKeyMD5
+        /// 128-bit MD5 digest of customer-provided encryption key used in Amazon S3 to encrypt data stored in S3. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption (Using Customer-Provided Encryption Keys</a>.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

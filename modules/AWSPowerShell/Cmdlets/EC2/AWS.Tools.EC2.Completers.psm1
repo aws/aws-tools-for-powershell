@@ -776,7 +776,7 @@ $EC2_Completers = {
         # Amazon.EC2.NetworkInterfaceAttribute
         "Get-EC2NetworkInterfaceAttribute/Attribute"
         {
-            $v = "attachment","description","groupSet","sourceDestCheck"
+            $v = "associatePublicIpAddress","attachment","description","groupSet","sourceDestCheck"
             break
         }
 

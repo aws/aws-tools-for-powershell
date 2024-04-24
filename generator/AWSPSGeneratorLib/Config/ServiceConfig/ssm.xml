@@ -212,6 +212,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceProperties" OutputProperty="InstanceProperties" Verb="Get" Noun="InstanceProperty" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeInventoryDeletions" OutputProperty="InventoryDeletions" Verb="Get" Noun="InventoryDeletionList" PipelineParameter="DeletionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

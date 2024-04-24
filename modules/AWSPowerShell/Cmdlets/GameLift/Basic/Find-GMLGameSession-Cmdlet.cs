@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// This operation is not designed to continually track game session status because that
     /// practice can cause you to exceed your API limit and generate errors. Instead, configure
     /// an Amazon Simple Notification Service (Amazon SNS) topic to receive notifications
-    /// from a matchmaker or game session placement queue.
+    /// from a matchmaker or a game session placement queue.
     /// </para><para>
     /// When searching for game sessions, you specify exactly where you want to search and
     /// provide a search filter expression, a sort expression, or both. A search request can

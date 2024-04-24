@@ -18435,6 +18435,16 @@ $DSYN_Completers = {
             break
         }
 
+        # Amazon.DataSync.ScheduleStatus
+        {
+            ($_ -eq "New-DSYNTask/Schedule_Status") -Or
+            ($_ -eq "Update-DSYNTask/Schedule_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.DataSync.SmbVersion
         {
             ($_ -eq "New-DSYNLocationSmb/MountOptions_Version") -Or
@@ -18470,6 +18480,7 @@ $DSYN_map = @{
     "QopConfiguration_RpcProtection"=@("New-DSYNLocationHdf","Update-DSYNLocationHdf")
     "ResourceType"=@("Get-DSYNStorageSystemResource","Get-DSYNStorageSystemResourceMetric","New-DSYNRecommendation")
     "S3StorageClass"=@("New-DSYNLocationS3")
+    "Schedule_Status"=@("New-DSYNTask","Update-DSYNTask")
     "ServerProtocol"=@("New-DSYNLocationObjectStorage","Update-DSYNLocationObjectStorage")
     "Skipped_ReportLevel"=@("New-DSYNTask","Start-DSYNTaskExecution","Update-DSYNTask")
     "SystemType"=@("Add-DSYNStorageSystem")
@@ -23235,7 +23246,7 @@ $EC2_Completers = {
         # Amazon.EC2.NetworkInterfaceAttribute
         "Get-EC2NetworkInterfaceAttribute/Attribute"
         {
-            $v = "attachment","description","groupSet","sourceDestCheck"
+            $v = "associatePublicIpAddress","attachment","description","groupSet","sourceDestCheck"
             break
         }
 
@@ -26820,6 +26831,13 @@ $EMRC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.EMRContainers.CertificateProviderType
+        "New-EMRCSecurityConfiguration/TlsCertificateConfiguration_CertificateProviderType"
+        {
+            $v = "PEM"
+            break
+        }
+
         # Amazon.EMRContainers.ContainerProviderType
         {
             ($_ -eq "New-EMRCVirtualCluster/ContainerProvider_Type") -Or
@@ -26852,6 +26870,7 @@ $EMRC_map = @{
     "ContainerProvider_Type"=@("New-EMRCVirtualCluster")
     "ContainerProviderType"=@("Get-EMRCVirtualClusterList")
     "MonitoringConfiguration_PersistentAppUI"=@("New-EMRCManagedEndpoint","Start-EMRCJobRun")
+    "TlsCertificateConfiguration_CertificateProviderType"=@("New-EMRCSecurityConfiguration")
 }
 
 _awsArgumentCompleterRegistration $EMRC_Completers $EMRC_map
@@ -26907,6 +26926,7 @@ $EMRC_SelectMap = @{
     "Select"=@("Stop-EMRCJobRun",
                "New-EMRCJobTemplate",
                "New-EMRCManagedEndpoint",
+               "New-EMRCSecurityConfiguration",
                "New-EMRCVirtualCluster",
                "Remove-EMRCJobTemplate",
                "Remove-EMRCManagedEndpoint",
@@ -26914,11 +26934,13 @@ $EMRC_SelectMap = @{
                "Get-EMRCJobRun",
                "Get-EMRCJobTemplate",
                "Get-EMRCManagedEndpoint",
+               "Get-EMRCSecurityConfiguration",
                "Get-EMRCVirtualCluster",
                "Get-EMRCManagedEndpointSessionCredential",
                "Get-EMRCJobRunList",
                "Get-EMRCJobTemplateList",
                "Get-EMRCManagedEndpointList",
+               "Get-EMRCSecurityConfigurationList",
                "Get-EMRCResourceTag",
                "Get-EMRCVirtualClusterList",
                "Start-EMRCJobRun",
@@ -27210,6 +27232,7 @@ $ERES_SelectCompleters = {
 
 $ERES_SelectMap = @{
     "Select"=@("Add-ERESPolicyStatement",
+               "Remove-ERESDeleteUniqueId",
                "New-ERESIdMappingWorkflow",
                "New-ERESIdNamespace",
                "New-ERESMatchingWorkflow",
@@ -29897,7 +29920,24 @@ $GML_Completers = {
         # Amazon.GameLift.ComputeType
         "New-GMLFleet/ComputeType"
         {
-            $v = "ANYWHERE","EC2"
+            $v = "ANYWHERE","CONTAINER","EC2"
+            break
+        }
+
+        # Amazon.GameLift.ContainerOperatingSystem
+        "New-GMLContainerGroupDefinition/OperatingSystem"
+        {
+            $v = "AMAZON_LINUX_2023"
+            break
+        }
+
+        # Amazon.GameLift.ContainerSchedulingStrategy
+        {
+            ($_ -eq "Get-GMLContainerGroupDefinitionList/SchedulingStrategy") -Or
+            ($_ -eq "New-GMLContainerGroupDefinition/SchedulingStrategy")
+        }
+        {
+            $v = "DAEMON","REPLICA"
             break
         }
 
@@ -30061,13 +30101,14 @@ $GML_map = @{
     "InstanceRoleCredentialsProvider"=@("New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")
     "NewGameSessionProtectionPolicy"=@("New-GMLFleet","Update-GMLFleetAttribute")
-    "OperatingSystem"=@("New-GMLBuild")
+    "OperatingSystem"=@("New-GMLBuild","New-GMLContainerGroupDefinition")
     "PlayerSessionCreationPolicy"=@("Update-GMLGameSession")
     "PolicyType"=@("Write-GMLScalingPolicy")
     "ProtectionPolicy"=@("Update-GMLGameSession")
     "RoutingStrategy_Type"=@("New-GMLAlias","Update-GMLAlias")
     "RoutingStrategyType"=@("Get-GMLAlias")
     "ScalingAdjustmentType"=@("Write-GMLScalingPolicy")
+    "SchedulingStrategy"=@("Get-GMLContainerGroupDefinitionList","New-GMLContainerGroupDefinition")
     "SortOrder"=@("Get-GMLGameServerList")
     "Status"=@("Get-GMLBuild")
     "StatusFilter"=@("Get-GMLScalingPolicy")
@@ -30128,6 +30169,7 @@ $GML_SelectMap = @{
                "Request-GMLGameServer",
                "New-GMLAlias",
                "New-GMLBuild",
+               "New-GMLContainerGroupDefinition",
                "New-GMLFleet",
                "New-GMLFleetLocation",
                "New-GMLGameServerGroup",
@@ -30142,6 +30184,7 @@ $GML_SelectMap = @{
                "New-GMLVpcPeeringConnection",
                "Remove-GMLAlias",
                "Remove-GMLBuild",
+               "Remove-GMLContainerGroupDefinition",
                "Remove-GMLFleet",
                "Remove-GMLFleetLocation",
                "Remove-GMLGameServerGroup",
@@ -30158,6 +30201,7 @@ $GML_SelectMap = @{
                "Get-GMLAliasDetail",
                "Get-GMLBuildDetail",
                "Get-GMLCompute",
+               "Get-GMLContainerGroupDefinition",
                "Get-GMLEC2InstanceLimit",
                "Get-GMLFleetAttribute",
                "Get-GMLFleetCapacity",
@@ -30191,6 +30235,7 @@ $GML_SelectMap = @{
                "Get-GMLAlias",
                "Get-GMLBuild",
                "Get-GMLComputeList",
+               "Get-GMLContainerGroupDefinitionList",
                "Get-GMLFleet",
                "Get-GMLGameServerGroupList",
                "Get-GMLGameServerList",
@@ -64224,6 +64269,7 @@ $SSM_SelectMap = @{
                "Get-SSMInstancePatch",
                "Get-SSMInstancePatchState",
                "Get-SSMInstancePatchStatesForPatchGroup",
+               "Get-SSMInstanceProperty",
                "Get-SSMInventoryDeletionList",
                "Get-SSMMaintenanceWindowExecutionList",
                "Get-SSMMaintenanceWindowExecutionTaskInvocationList",

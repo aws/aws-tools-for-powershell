@@ -28,37 +28,32 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes all resources and information related to a fleet and shuts down any currently
-    /// running fleet instances, including those in remote locations.
-    /// 
-    ///  <note><para>
-    /// If the fleet being deleted has a VPC peering connection, you first need to get a valid
-    /// authorization (good for 24 hours) by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a>.
-    /// You don't need to explicitly delete the VPC peering connection.
-    /// </para></note><para>
-    /// To delete a fleet, specify the fleet ID to be terminated. During the deletion process,
-    /// the fleet status is changed to <c>DELETING</c>. When completed, the status switches
-    /// to <c>TERMINATED</c> and the fleet event <c>FLEET_DELETED</c> is emitted.
-    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting
-    /// up Amazon GameLift Fleets</a></para>
+    /// <b>This operation is used with the Amazon GameLift containers feature, which is currently
+    /// in public preview. </b><para>
+    /// Deletes a container group definition resource. You can delete a container group definition
+    /// if there are no fleets using the definition. 
+    /// </para><para>
+    /// To delete a container group definition, identify the resource to delete.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-create-groups.html">Manage
+    /// a container group definition</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "GMLContainerGroupDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon GameLift Service DeleteFleet API operation.", Operation = new[] {"DeleteFleet"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeleteFleetResponse))]
-    [AWSCmdletOutput("None or Amazon.GameLift.Model.DeleteFleetResponse",
+    [AWSCmdlet("Calls the Amazon GameLift Service DeleteContainerGroupDefinition API operation.", Operation = new[] {"DeleteContainerGroupDefinition"}, SelectReturnType = typeof(Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse))]
+    [AWSCmdletOutput("None or Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.GameLift.Model.DeleteFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveGMLFleetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class RemoveGMLContainerGroupDefinitionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FleetId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet to be deleted. You can use either the fleet ID or
-        /// ARN value.</para>
+        /// <para>The unique identifier for the container group definition to delete. You can use either
+        /// the <c>Name</c> or <c>ARN</c> value.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,13 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FleetId { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DeleteFleetResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FleetId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FleetId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -107,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FleetId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLFleet (DeleteFleet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLContainerGroupDefinition (DeleteContainerGroupDefinition)"))
             {
                 return;
             }
@@ -121,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DeleteFleetResponse, RemoveGMLFleetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse, RemoveGMLContainerGroupDefinitionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,14 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FleetId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FleetId = this.FleetId;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.FleetId == null && ParameterWasBound(nameof(this.FleetId)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter FleetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -154,11 +149,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeleteFleetRequest();
+            var request = new Amazon.GameLift.Model.DeleteContainerGroupDefinitionRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.Name != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -193,15 +188,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DeleteFleetResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteFleetRequest request)
+        private Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteContainerGroupDefinitionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteFleet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteContainerGroupDefinition");
             try
             {
                 #if DESKTOP
-                return client.DeleteFleet(request);
+                return client.DeleteContainerGroupDefinition(request);
                 #elif CORECLR
-                return client.DeleteFleetAsync(request).GetAwaiter().GetResult();
+                return client.DeleteContainerGroupDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public System.Func<Amazon.GameLift.Model.DeleteFleetResponse, RemoveGMLFleetCmdlet, object> Select { get; set; } =
+            public System.String Name { get; set; }
+            public System.Func<Amazon.GameLift.Model.DeleteContainerGroupDefinitionResponse, RemoveGMLContainerGroupDefinitionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

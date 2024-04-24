@@ -90,6 +90,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
         public System.String EksInfo_Namespace { get; set; }
         #endregion
         
+        #region Parameter SecurityConfigurationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the security configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityConfigurationId { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -213,6 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SecurityConfigurationId = this.SecurityConfigurationId;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -314,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.SecurityConfigurationId != null)
+            {
+                request.SecurityConfigurationId = cmdletContext.SecurityConfigurationId;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -384,6 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRC
             public System.String EksInfo_Namespace { get; set; }
             public Amazon.EMRContainers.ContainerProviderType ContainerProvider_Type { get; set; }
             public System.String Name { get; set; }
+            public System.String SecurityConfigurationId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.EMRContainers.Model.CreateVirtualClusterResponse, NewEMRCVirtualClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

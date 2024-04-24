@@ -28,13 +28,14 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the resource capacity settings for one or more fleets. The data returned
-    /// includes the current fleet capacity (number of EC2 instances), and settings that can
-    /// control how capacity scaling. For fleets with remote locations, this operation retrieves
-    /// data for the fleet's home Region only.
-    /// 
-    ///  
-    /// <para>
+    /// <b>This operation has been expanded to use with the Amazon GameLift containers feature,
+    /// which is currently in public preview.</b><para>
+    /// Retrieves the resource capacity settings for one or more fleets. For a container fleet,
+    /// this operation also returns counts for replica container groups.
+    /// </para><para>
+    /// With multi-location fleets, this operation retrieves data for the fleet's home Region
+    /// only. To retrieve capacity for remote locations, see <a>DescribeFleetLocationCapacity</a>.
+    /// </para><para>
     /// This operation can be used in the following ways: 
     /// </para><ul><li><para>
     /// To get capacity data for one or more specific fleets, provide a list of fleet IDs
@@ -46,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// as a set of sequential pages. 
     /// </para><para>
     /// If successful, a <c>FleetCapacity</c> object is returned for each requested fleet
-    /// ID. Each FleetCapacity object includes a <c>Location</c> property, which is set to
-    /// the fleet's home Region. When a list of fleet IDs is provided, attribute objects are
-    /// returned only for fleets that currently exist.
+    /// ID. Each <c>FleetCapacity</c> object includes a <c>Location</c> property, which is
+    /// set to the fleet's home Region. Capacity values are returned only for fleets that
+    /// currently exist.
     /// </para><note><para>
     /// Some API operations may limit the number of fleet IDs that are allowed in one request.
     /// If a request exceeds this limit, the request fails and the error message includes

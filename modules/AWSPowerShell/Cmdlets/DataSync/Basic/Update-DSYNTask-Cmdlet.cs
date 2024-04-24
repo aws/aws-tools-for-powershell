@@ -28,7 +28,8 @@ using Amazon.DataSync.Model;
 namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Updates the configuration of an DataSync transfer task.
+    /// Updates the configuration of a <i>task</i>, which defines where and how DataSync transfers
+    /// your data.
     /// </summary>
     [Cmdlet("Update", "DSYNTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -80,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter CloudWatchLogGroupArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource name of the Amazon CloudWatch log group.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of an Amazon CloudWatch log group for monitoring
+        /// your task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,9 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Exclude
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of filter rules that exclude specific data during your transfer.
-        /// For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering
-        /// data transferred by DataSync</a>.</para>
+        /// <para>Specifies exclude filters that define the files, objects, and folders in your source
+        /// location that you don't want DataSync to transfer. For more information and examples,
+        /// see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying
+        /// what DataSync transfers by using filters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,9 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Specifies a list of filter rules that include specific data during your transfer.
-        /// For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Filtering
-        /// data transferred by DataSync</a>.</para>
+        /// <para>Specifies include filters define the files, objects, and folders in your source location
+        /// that you want DataSync to transfer. For more information and examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html">Specifying
+        /// what DataSync transfers by using filters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the task to update.</para>
+        /// <para>Specifies the name of your task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -300,12 +303,27 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter Schedule_ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>A cron expression that specifies when DataSync initiates a scheduled transfer from
-        /// a source to a destination location. </para>
+        /// <para>Specifies your task schedule by using a cron expression in UTC time. For information
+        /// about cron expression syntax, see the <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cron-expressions.html"><i>Amazon EventBridge User Guide</i></a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Schedule_ScheduleExpression { get; set; }
+        #endregion
+        
+        #region Parameter Schedule_Status
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable or disable your task schedule. Your schedule is enabled
+        /// by default, but there can be situations where you need to disable it. For example,
+        /// you might need to pause a recurring transfer or fix an issue with your task or perform
+        /// maintenance on your storage system.</para><para>DataSync might disable your schedule automatically if your task fails repeatedly with
+        /// the same error. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_TaskScheduleDetails.html">TaskScheduleDetails</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.DataSync.ScheduleStatus")]
+        public Amazon.DataSync.ScheduleStatus Schedule_Status { get; set; }
         #endregion
         
         #region Parameter S3_Subdirectory
@@ -322,7 +340,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource name of the task to update.</para>
+        /// <para>Specifies the ARN of the task that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -415,6 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             context.Name = this.Name;
             context.Option = this.Option;
             context.Schedule_ScheduleExpression = this.Schedule_ScheduleExpression;
+            context.Schedule_Status = this.Schedule_Status;
             context.TaskArn = this.TaskArn;
             #if MODULAR
             if (this.TaskArn == null && ParameterWasBound(nameof(this.TaskArn)))
@@ -579,6 +598,16 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             if (requestSchedule_schedule_ScheduleExpression != null)
             {
                 request.Schedule.ScheduleExpression = requestSchedule_schedule_ScheduleExpression;
+                requestScheduleIsNull = false;
+            }
+            Amazon.DataSync.ScheduleStatus requestSchedule_schedule_Status = null;
+            if (cmdletContext.Schedule_Status != null)
+            {
+                requestSchedule_schedule_Status = cmdletContext.Schedule_Status;
+            }
+            if (requestSchedule_schedule_Status != null)
+            {
+                request.Schedule.Status = requestSchedule_schedule_Status;
                 requestScheduleIsNull = false;
             }
              // determine if request.Schedule should be set to null
@@ -877,6 +906,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             public System.String Name { get; set; }
             public Amazon.DataSync.Model.Options Option { get; set; }
             public System.String Schedule_ScheduleExpression { get; set; }
+            public Amazon.DataSync.ScheduleStatus Schedule_Status { get; set; }
             public System.String TaskArn { get; set; }
             public System.String TaskReportConfig_Destination_S3_BucketAccessRoleArn { get; set; }
             public System.String TaskReportConfig_Destination_S3_S3BucketArn { get; set; }

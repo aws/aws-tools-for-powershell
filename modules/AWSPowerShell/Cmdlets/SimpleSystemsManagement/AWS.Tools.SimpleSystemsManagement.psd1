@@ -120,6 +120,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-SSMInstancePatch', 
         'Get-SSMInstancePatchState', 
         'Get-SSMInstancePatchStatesForPatchGroup', 
+        'Get-SSMInstanceProperty', 
         'Get-SSMInventory', 
         'Get-SSMInventoryDeletionList', 
         'Get-SSMInventoryEntryList', 
