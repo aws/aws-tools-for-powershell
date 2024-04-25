@@ -27275,6 +27275,9 @@ Set-Alias -Name SFN-UntagResource -Value Remove-SFNResourceTag
 Set-Alias -Name SFN-UpdateMapRun -Value Update-SFNMapRun
 Set-Alias -Name SFN-UpdateStateMachineAlias -Value Update-SFNStateMachineAlias
 Set-Alias -Name SFN-UpdateStateMachine -Value Update-SFNStateMachine
+Set-Alias -Name Validate-SFNStateMachineDefinition -Value Test-SFNStateMachineDefinitionValidation
+Set-Alias -Name Validate-SFNStateMachineDefinitionValidation -Value Test-SFNStateMachineDefinitionValidation
+Set-Alias -Name SFN-ValidateStateMachineDefinition -Value Test-SFNStateMachineDefinitionValidation
 Set-Alias -Name Activate-SGGateway -Value Enable-SGGateway
 Set-Alias -Name SG-ActivateGateway -Value Enable-SGGateway
 Set-Alias -Name SG-AddCache -Value Add-SGCache

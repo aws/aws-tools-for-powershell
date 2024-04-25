@@ -1,4 +1,9 @@
-﻿### 4.1.565 (2024-04-24 21:11Z)
+﻿### 4.1.566 (2024-04-25 20:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.797.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Step Functions
+    * Added cmdlet Test-SFNStateMachineDefinitionValidation leveraging the ValidateStateMachineDefinition service API.
+
+### 4.1.565 (2024-04-24 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.796.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataSync
     * Modified cmdlet New-DSYNTask: added parameter Schedule_Status.

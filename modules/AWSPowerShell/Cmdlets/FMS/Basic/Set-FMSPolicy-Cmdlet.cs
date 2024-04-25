@@ -41,11 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     /// within scope of the policy. 
     /// </para><para>
     /// Firewall Manager provides the following types of policies: 
-    /// </para><ul><li><para><b>Shield Advanced policy</b> - This policy applies Shield Advanced protection to
+    /// </para><ul><li><para><b>WAF policy</b> - This policy applies WAF web ACL protections to specified accounts
+    /// and resources. 
+    /// </para></li><li><para><b>Shield Advanced policy</b> - This policy applies Shield Advanced protection to
     /// specified accounts and resources. 
     /// </para></li><li><para><b>Security Groups policy</b> - This type of policy gives you control over security
     /// groups that are in use throughout your organization in Organizations and lets you
     /// enforce a baseline set of rules across your organization. 
+    /// </para></li><li><para><b>Network ACL policy</b> - This type of policy gives you control over the network
+    /// ACLs that are in use throughout your organization in Organizations and lets you enforce
+    /// a baseline set of first and last network ACL rules across your organization. 
     /// </para></li><li><para><b>Network Firewall policy</b> - This policy applies Network Firewall protection
     /// to your organization's VPCs. 
     /// </para></li><li><para><b>DNS Firewall policy</b> - This policy applies Amazon Route 53 Resolver DNS Firewall

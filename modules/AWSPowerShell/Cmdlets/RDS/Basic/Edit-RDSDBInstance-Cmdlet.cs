@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB instance to a different VPC. If your DB instance isn't in a VPC, you can also use
         /// this parameter to move your DB instance into a VPC. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Working
         /// with a DB instance in a VPC</a> in the <i>Amazon RDS User Guide</i>.</para><para>Changing the subnet group causes an outage during the change. The change is applied
-        /// during the next maintenance window, unless you enable <c>ApplyImmediately</c>.</para><para>This parameter doesn't apply to RDS Custom DB instances.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DB subnet group.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
+        /// during the next maintenance window, unless you enable <c>ApplyImmediately</c>.</para><para>This setting doesn't apply to RDS Custom DB instances.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DB subnet group.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,7 +296,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>Specifies whether the DB instance has deletion protection enabled. The database can't
         /// be deleted when deletion protection is enabled. By default, deletion protection isn't
         /// enabled. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html">
-        /// Deleting a DB Instance</a>.</para>
+        /// Deleting a DB Instance</a>.</para><para>This setting doesn't apply to Amazon Aurora DB instances. You can enable or disable
+        /// deletion protection for the DB cluster. For more information, see <c>ModifyDBCluster</c>.
+        /// DB instances in a DB cluster can be deleted even when deletion protection is enabled
+        /// for the DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

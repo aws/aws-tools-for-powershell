@@ -112,7 +112,10 @@ $SFN_Completers = {
         }
 
         # Amazon.StepFunctions.StateMachineType
-        "New-SFNStateMachine/Type"
+        {
+            ($_ -eq "New-SFNStateMachine/Type") -Or
+            ($_ -eq "Test-SFNStateMachineDefinitionValidation/Type")
+        }
         {
             $v = "EXPRESS","STANDARD"
             break
@@ -131,7 +134,7 @@ $SFN_map = @{
     "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
     "RedriveFilter"=@("Get-SFNExecutionList")
     "StatusFilter"=@("Get-SFNExecutionList")
-    "Type"=@("New-SFNStateMachine")
+    "Type"=@("New-SFNStateMachine","Test-SFNStateMachineDefinitionValidation")
 }
 
 _awsArgumentCompleterRegistration $SFN_Completers $SFN_map
@@ -219,7 +222,8 @@ $SFN_SelectMap = @{
                "Remove-SFNResourceTag",
                "Update-SFNMapRun",
                "Update-SFNStateMachine",
-               "Update-SFNStateMachineAlias")
+               "Update-SFNStateMachineAlias",
+               "Test-SFNStateMachineDefinitionValidation")
 }
 
 _awsArgumentCompleterRegistration $SFN_SelectCompleters $SFN_SelectMap

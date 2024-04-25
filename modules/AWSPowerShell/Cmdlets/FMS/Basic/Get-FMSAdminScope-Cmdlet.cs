@@ -28,7 +28,7 @@ using Amazon.FMS.Model;
 namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
-    /// Returns information about the specified account's administrative scope. The admistrative
+    /// Returns information about the specified account's administrative scope. The administrative
     /// scope defines the resources that an Firewall Manager administrator can manage.
     /// </summary>
     [Cmdlet("Get", "FMSAdminScope")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter AdminAccount
         /// <summary>
         /// <para>
-        /// <para>The administator account that you want to get the details for.</para>
+        /// <para>The administrator account that you want to get the details for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

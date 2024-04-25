@@ -163,6 +163,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ValidateStateMachineDefinition" OutputProperty="*" Verb="Test" Noun="StateMachineDefinitionValidation" PipelineParameter="Definition" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>
