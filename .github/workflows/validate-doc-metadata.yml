@@ -1,0 +1,21 @@
+name: Validate Documentation Metadata
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  # Allows running this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  validate-doc-metadata:
+    name: Validate Doc Metadata
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4
+      - name: validate metadata
+        uses: awsdocs/aws-doc-sdk-examples-tools@c89a79a5141d830ae048a023cae5e2a16f1e5c39
