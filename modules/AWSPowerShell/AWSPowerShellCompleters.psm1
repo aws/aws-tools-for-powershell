@@ -14066,6 +14066,7 @@ $CP_SelectMap = @{
                "Write-CPWebhook",
                "Register-CPWebhookWithThirdParty",
                "Redo-CPStageExecution",
+               "Undo-CPStageExecution",
                "Start-CPPipelineExecution",
                "Stop-CPPipelineExecution",
                "Add-CPResourceTag",

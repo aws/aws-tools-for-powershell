@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt
+        /// <summary>
+        /// <para>
+        /// <para>Enable or disable await answer machine prompt</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt { get; set; }
+        #endregion
+        
         #region Parameter ConnectContactFlowId
         /// <summary>
         /// <para>
@@ -150,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
                 context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt = this.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt;
             context.AnswerMachineDetectionConfig_EnableAnswerMachineDetection = this.AnswerMachineDetectionConfig_EnableAnswerMachineDetection;
             context.ConnectContactFlowId = this.ConnectContactFlowId;
             context.ConnectSourcePhoneNumber = this.ConnectSourcePhoneNumber;
@@ -180,6 +191,16 @@ namespace Amazon.PowerShell.Cmdlets.CCS
              // populate AnswerMachineDetectionConfig
             var requestAnswerMachineDetectionConfigIsNull = true;
             request.AnswerMachineDetectionConfig = new Amazon.ConnectCampaignService.Model.AnswerMachineDetectionConfig();
+            System.Boolean? requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt = null;
+            if (cmdletContext.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt != null)
+            {
+                requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt = cmdletContext.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt.Value;
+            }
+            if (requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt != null)
+            {
+                request.AnswerMachineDetectionConfig.AwaitAnswerMachinePrompt = requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt.Value;
+                requestAnswerMachineDetectionConfigIsNull = false;
+            }
             System.Boolean? requestAnswerMachineDetectionConfig_answerMachineDetectionConfig_EnableAnswerMachineDetection = null;
             if (cmdletContext.AnswerMachineDetectionConfig_EnableAnswerMachineDetection != null)
             {
@@ -268,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt { get; set; }
             public System.Boolean? AnswerMachineDetectionConfig_EnableAnswerMachineDetection { get; set; }
             public System.String ConnectContactFlowId { get; set; }
             public System.String ConnectSourcePhoneNumber { get; set; }

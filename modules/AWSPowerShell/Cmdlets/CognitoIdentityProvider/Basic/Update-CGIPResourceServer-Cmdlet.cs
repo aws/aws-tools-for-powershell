@@ -55,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource server.</para>
+        /// <para>A unique resource server identifier for the resource server. The identifier can be
+        /// an API friendly name like <c>solar-system-data</c>. You can also set an API URL like
+        /// <c>https://solar-system-data-api.example.com</c> as your identifier.</para><para>Amazon Cognito represents scopes in the access token in the format <c>$resource-server-identifier/$scope</c>.
+        /// Longer scope-identifier strings increase the size of your access tokens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

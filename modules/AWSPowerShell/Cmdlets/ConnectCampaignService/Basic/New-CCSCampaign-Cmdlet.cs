@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.CCS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt
+        /// <summary>
+        /// <para>
+        /// <para>Enable or disable await answer machine prompt</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutboundCallConfig_AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt")]
+        public System.Boolean? AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt { get; set; }
+        #endregion
+        
         #region Parameter PredictiveDialerConfig_BandwidthAllocation
         /// <summary>
         /// <para>
@@ -250,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt = this.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt;
             context.AnswerMachineDetectionConfig_EnableAnswerMachineDetection = this.AnswerMachineDetectionConfig_EnableAnswerMachineDetection;
             context.OutboundCallConfig_ConnectContactFlowId = this.OutboundCallConfig_ConnectContactFlowId;
             #if MODULAR
@@ -435,6 +447,16 @@ namespace Amazon.PowerShell.Cmdlets.CCS
              // populate AnswerMachineDetectionConfig
             var requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfigIsNull = true;
             requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfig = new Amazon.ConnectCampaignService.Model.AnswerMachineDetectionConfig();
+            System.Boolean? requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt = null;
+            if (cmdletContext.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt != null)
+            {
+                requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt = cmdletContext.AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt.Value;
+            }
+            if (requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt != null)
+            {
+                requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfig.AwaitAnswerMachinePrompt = requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfig_answerMachineDetectionConfig_AwaitAnswerMachinePrompt.Value;
+                requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfigIsNull = false;
+            }
             System.Boolean? requestOutboundCallConfig_outboundCallConfig_AnswerMachineDetectionConfig_answerMachineDetectionConfig_EnableAnswerMachineDetection = null;
             if (cmdletContext.AnswerMachineDetectionConfig_EnableAnswerMachineDetection != null)
             {
@@ -532,6 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.CCS
             public System.Double? ProgressiveDialerConfig_BandwidthAllocation { get; set; }
             public System.Double? ProgressiveDialerConfig_DialingCapacity { get; set; }
             public System.String Name { get; set; }
+            public System.Boolean? AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt { get; set; }
             public System.Boolean? AnswerMachineDetectionConfig_EnableAnswerMachineDetection { get; set; }
             public System.String OutboundCallConfig_ConnectContactFlowId { get; set; }
             public System.String OutboundCallConfig_ConnectQueueId { get; set; }

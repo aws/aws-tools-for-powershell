@@ -1,4 +1,16 @@
-﻿### 4.1.566 (2024-04-25 20:58Z)
+﻿### 4.1.567 (2024-04-26 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.798.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Observability Access Manager
+    * Modified cmdlet New-CWOAMLink: added parameters LogGroupConfiguration_Filter and MetricConfiguration_Filter.
+    * Modified cmdlet Update-CWOAMLink: added parameters LogGroupConfiguration_Filter and MetricConfiguration_Filter.
+  * Amazon CodePipeline
+    * Added cmdlet Undo-CPStageExecution leveraging the RollbackStage service API.
+    * Modified cmdlet Get-CPPipelineExecutionSummary: added parameter SucceededInStage_StageName.
+  * Amazon Connect Campaign Service
+    * Modified cmdlet New-CCSCampaign: added parameter AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt.
+    * Modified cmdlet Update-CCSCampaignOutboundCallConfig: added parameter AnswerMachineDetectionConfig_AwaitAnswerMachinePrompt.
+
+### 4.1.566 (2024-04-25 20:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.797.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Step Functions
     * Added cmdlet Test-SFNStateMachineDefinitionValidation leveraging the ValidateStateMachineDefinition service API.

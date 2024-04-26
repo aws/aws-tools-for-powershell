@@ -5249,6 +5249,9 @@ Set-Alias -Name CP-PutWebhook -Value Write-CPWebhook
 Set-Alias -Name CP-RegisterWebhookWithThirdParty -Value Register-CPWebhookWithThirdParty
 Set-Alias -Name Retry-CPStageExecution -Value Redo-CPStageExecution
 Set-Alias -Name CP-RetryStageExecution -Value Redo-CPStageExecution
+Set-Alias -Name Rollback-CPStage -Value Undo-CPStageExecution
+Set-Alias -Name Rollback-CPStageExecution -Value Undo-CPStageExecution
+Set-Alias -Name CP-RollbackStage -Value Undo-CPStageExecution
 Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
 Set-Alias -Name CP-StopPipelineExecution -Value Stop-CPPipelineExecution
 Set-Alias -Name CP-TagResource -Value Add-CPResourceTag

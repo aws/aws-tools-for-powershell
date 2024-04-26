@@ -34,6 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     /// 
     ///  
     /// <para>
+    /// When you update a link, you can optionally specify filters that specify which metric
+    /// namespaces and which log groups are shared from the source account to the monitoring
+    /// account.
+    /// </para><para>
     /// To update the list of tags associated with the sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html">TagResource</a>.
     /// </para>
     /// </summary>
@@ -47,6 +51,48 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter LogGroupConfiguration_Filter
+        /// <summary>
+        /// <para>
+        /// <para>Use this field to specify which log groups are to share their log events with the
+        /// monitoring account. Use the term <c>LogGroupName</c> and one or more of the following
+        /// operands. Use single quotation marks (') around log group names. The matching of log
+        /// group names is case sensitive. Each filter has a limit of five conditional operands.
+        /// Conditional operands are <c>AND</c> and <c>OR</c>.</para><ul><li><para><c>=</c> and <c>!=</c></para></li><li><para><c>AND</c></para></li><li><para><c>OR</c></para></li><li><para><c>LIKE</c> and <c>NOT LIKE</c>. These can be used only as prefix searches. Include
+        /// a <c>%</c> at the end of the string that you want to search for and include.</para></li><li><para><c>IN</c> and <c>NOT IN</c>, using parentheses <c>( )</c></para></li></ul><para>Examples:</para><ul><li><para><c>LogGroupName IN ('This-Log-Group', 'Other-Log-Group')</c> includes only the log
+        /// groups with names <c>This-Log-Group</c> and <c>Other-Log-Group</c>.</para></li><li><para><c>LogGroupName NOT IN ('Private-Log-Group', 'Private-Log-Group-2')</c> includes
+        /// all log groups except the log groups with names <c>Private-Log-Group</c> and <c>Private-Log-Group-2</c>.</para></li><li><para><c>LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'</c> includes
+        /// all log groups that have names that start with <c>aws/lambda/</c> or <c>AWSLogs</c>.</para></li></ul><note><para>If you are updating a link that uses filters, you can specify <c>*</c> as the only
+        /// value for the <c>filter</c> parameter to delete the filter and share all log groups
+        /// with the monitoring account.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LinkConfiguration_LogGroupConfiguration_Filter")]
+        public System.String LogGroupConfiguration_Filter { get; set; }
+        #endregion
+        
+        #region Parameter MetricConfiguration_Filter
+        /// <summary>
+        /// <para>
+        /// <para>Use this field to specify which metrics are to be shared with the monitoring account.
+        /// Use the term <c>Namespace</c> and one or more of the following operands. Use single
+        /// quotation marks (') around namespace names. The matching of namespace names is case
+        /// sensitive. Each filter has a limit of five conditional operands. Conditional operands
+        /// are <c>AND</c> and <c>OR</c>.</para><ul><li><para><c>=</c> and <c>!=</c></para></li><li><para><c>AND</c></para></li><li><para><c>OR</c></para></li><li><para><c>LIKE</c> and <c>NOT LIKE</c>. These can be used only as prefix searches. Include
+        /// a <c>%</c> at the end of the string that you want to search for and include.</para></li><li><para><c>IN</c> and <c>NOT IN</c>, using parentheses <c>( )</c></para></li></ul><para>Examples:</para><ul><li><para><c>Namespace NOT LIKE 'AWS/%'</c> includes only namespaces that don't start with
+        /// <c>AWS/</c>, such as custom namespaces.</para></li><li><para><c>Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')</c> includes only the metrics in
+        /// the EC2, Elastic Load Balancing, and Amazon S3 namespaces. </para></li><li><para><c>Namespace = 'AWS/EC2' OR Namespace NOT LIKE 'AWS/%'</c> includes only the EC2
+        /// namespace and your custom namespaces.</para></li></ul><note><para>If you are updating a link that uses filters, you can specify <c>*</c> as the only
+        /// value for the <c>filter</c> parameter to delete the filter and share all metric namespaces
+        /// with the monitoring account.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("LinkConfiguration_MetricConfiguration_Filter")]
+        public System.String MetricConfiguration_Filter { get; set; }
+        #endregion
         
         #region Parameter Identifier
         /// <summary>
@@ -153,6 +199,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.LogGroupConfiguration_Filter = this.LogGroupConfiguration_Filter;
+            context.MetricConfiguration_Filter = this.MetricConfiguration_Filter;
             if (this.ResourceType != null)
             {
                 context.ResourceType = new List<System.String>(this.ResourceType);
@@ -182,6 +230,65 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            
+             // populate LinkConfiguration
+            var requestLinkConfigurationIsNull = true;
+            request.LinkConfiguration = new Amazon.OAM.Model.LinkConfiguration();
+            Amazon.OAM.Model.LogGroupConfiguration requestLinkConfiguration_linkConfiguration_LogGroupConfiguration = null;
+            
+             // populate LogGroupConfiguration
+            var requestLinkConfiguration_linkConfiguration_LogGroupConfigurationIsNull = true;
+            requestLinkConfiguration_linkConfiguration_LogGroupConfiguration = new Amazon.OAM.Model.LogGroupConfiguration();
+            System.String requestLinkConfiguration_linkConfiguration_LogGroupConfiguration_logGroupConfiguration_Filter = null;
+            if (cmdletContext.LogGroupConfiguration_Filter != null)
+            {
+                requestLinkConfiguration_linkConfiguration_LogGroupConfiguration_logGroupConfiguration_Filter = cmdletContext.LogGroupConfiguration_Filter;
+            }
+            if (requestLinkConfiguration_linkConfiguration_LogGroupConfiguration_logGroupConfiguration_Filter != null)
+            {
+                requestLinkConfiguration_linkConfiguration_LogGroupConfiguration.Filter = requestLinkConfiguration_linkConfiguration_LogGroupConfiguration_logGroupConfiguration_Filter;
+                requestLinkConfiguration_linkConfiguration_LogGroupConfigurationIsNull = false;
+            }
+             // determine if requestLinkConfiguration_linkConfiguration_LogGroupConfiguration should be set to null
+            if (requestLinkConfiguration_linkConfiguration_LogGroupConfigurationIsNull)
+            {
+                requestLinkConfiguration_linkConfiguration_LogGroupConfiguration = null;
+            }
+            if (requestLinkConfiguration_linkConfiguration_LogGroupConfiguration != null)
+            {
+                request.LinkConfiguration.LogGroupConfiguration = requestLinkConfiguration_linkConfiguration_LogGroupConfiguration;
+                requestLinkConfigurationIsNull = false;
+            }
+            Amazon.OAM.Model.MetricConfiguration requestLinkConfiguration_linkConfiguration_MetricConfiguration = null;
+            
+             // populate MetricConfiguration
+            var requestLinkConfiguration_linkConfiguration_MetricConfigurationIsNull = true;
+            requestLinkConfiguration_linkConfiguration_MetricConfiguration = new Amazon.OAM.Model.MetricConfiguration();
+            System.String requestLinkConfiguration_linkConfiguration_MetricConfiguration_metricConfiguration_Filter = null;
+            if (cmdletContext.MetricConfiguration_Filter != null)
+            {
+                requestLinkConfiguration_linkConfiguration_MetricConfiguration_metricConfiguration_Filter = cmdletContext.MetricConfiguration_Filter;
+            }
+            if (requestLinkConfiguration_linkConfiguration_MetricConfiguration_metricConfiguration_Filter != null)
+            {
+                requestLinkConfiguration_linkConfiguration_MetricConfiguration.Filter = requestLinkConfiguration_linkConfiguration_MetricConfiguration_metricConfiguration_Filter;
+                requestLinkConfiguration_linkConfiguration_MetricConfigurationIsNull = false;
+            }
+             // determine if requestLinkConfiguration_linkConfiguration_MetricConfiguration should be set to null
+            if (requestLinkConfiguration_linkConfiguration_MetricConfigurationIsNull)
+            {
+                requestLinkConfiguration_linkConfiguration_MetricConfiguration = null;
+            }
+            if (requestLinkConfiguration_linkConfiguration_MetricConfiguration != null)
+            {
+                request.LinkConfiguration.MetricConfiguration = requestLinkConfiguration_linkConfiguration_MetricConfiguration;
+                requestLinkConfigurationIsNull = false;
+            }
+             // determine if request.LinkConfiguration should be set to null
+            if (requestLinkConfigurationIsNull)
+            {
+                request.LinkConfiguration = null;
             }
             if (cmdletContext.ResourceType != null)
             {
@@ -249,6 +356,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Identifier { get; set; }
+            public System.String LogGroupConfiguration_Filter { get; set; }
+            public System.String MetricConfiguration_Filter { get; set; }
             public List<System.String> ResourceType { get; set; }
             public System.Func<Amazon.OAM.Model.UpdateLinkResponse, UpdateCWOAMLinkCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

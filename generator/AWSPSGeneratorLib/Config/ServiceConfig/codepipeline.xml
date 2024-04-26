@@ -152,6 +152,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RollbackStage" OutputProperty="PipelineExecutionId" Verb="Undo" Noun="StageExecution" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartPipelineExecution" OutputProperty="PipelineExecutionId" Verb="Start" Noun="PipelineExecution" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -59,6 +59,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
         public System.String PipelineName { get; set; }
         #endregion
         
+        #region Parameter SucceededInStage_StageName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the stage for filtering for pipeline executions where the stage was successful
+        /// in the current pipeline version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_SucceededInStage_StageName")]
+        public System.String SucceededInStage_StageName { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -149,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 context.Select = (response, cmdlet) => this.PipelineName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.SucceededInStage_StageName = this.SucceededInStage_StageName;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -188,6 +201,40 @@ namespace Amazon.PowerShell.Cmdlets.CP
             // create request and set iteration invariants
             var request = new Amazon.CodePipeline.Model.ListPipelineExecutionsRequest();
             
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.CodePipeline.Model.PipelineExecutionFilter();
+            Amazon.CodePipeline.Model.SucceededInStageFilter requestFilter_filter_SucceededInStage = null;
+            
+             // populate SucceededInStage
+            var requestFilter_filter_SucceededInStageIsNull = true;
+            requestFilter_filter_SucceededInStage = new Amazon.CodePipeline.Model.SucceededInStageFilter();
+            System.String requestFilter_filter_SucceededInStage_succeededInStage_StageName = null;
+            if (cmdletContext.SucceededInStage_StageName != null)
+            {
+                requestFilter_filter_SucceededInStage_succeededInStage_StageName = cmdletContext.SucceededInStage_StageName;
+            }
+            if (requestFilter_filter_SucceededInStage_succeededInStage_StageName != null)
+            {
+                requestFilter_filter_SucceededInStage.StageName = requestFilter_filter_SucceededInStage_succeededInStage_StageName;
+                requestFilter_filter_SucceededInStageIsNull = false;
+            }
+             // determine if requestFilter_filter_SucceededInStage should be set to null
+            if (requestFilter_filter_SucceededInStageIsNull)
+            {
+                requestFilter_filter_SucceededInStage = null;
+            }
+            if (requestFilter_filter_SucceededInStage != null)
+            {
+                request.Filter.SucceededInStage = requestFilter_filter_SucceededInStage;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
@@ -251,6 +298,40 @@ namespace Amazon.PowerShell.Cmdlets.CP
             
             // create request and set iteration invariants
             var request = new Amazon.CodePipeline.Model.ListPipelineExecutionsRequest();
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.CodePipeline.Model.PipelineExecutionFilter();
+            Amazon.CodePipeline.Model.SucceededInStageFilter requestFilter_filter_SucceededInStage = null;
+            
+             // populate SucceededInStage
+            var requestFilter_filter_SucceededInStageIsNull = true;
+            requestFilter_filter_SucceededInStage = new Amazon.CodePipeline.Model.SucceededInStageFilter();
+            System.String requestFilter_filter_SucceededInStage_succeededInStage_StageName = null;
+            if (cmdletContext.SucceededInStage_StageName != null)
+            {
+                requestFilter_filter_SucceededInStage_succeededInStage_StageName = cmdletContext.SucceededInStage_StageName;
+            }
+            if (requestFilter_filter_SucceededInStage_succeededInStage_StageName != null)
+            {
+                requestFilter_filter_SucceededInStage.StageName = requestFilter_filter_SucceededInStage_succeededInStage_StageName;
+                requestFilter_filter_SucceededInStageIsNull = false;
+            }
+             // determine if requestFilter_filter_SucceededInStage should be set to null
+            if (requestFilter_filter_SucceededInStageIsNull)
+            {
+                requestFilter_filter_SucceededInStage = null;
+            }
+            if (requestFilter_filter_SucceededInStage != null)
+            {
+                request.Filter.SucceededInStage = requestFilter_filter_SucceededInStage;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.PipelineName != null)
             {
                 request.PipelineName = cmdletContext.PipelineName;
@@ -374,6 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String SucceededInStage_StageName { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String PipelineName { get; set; }

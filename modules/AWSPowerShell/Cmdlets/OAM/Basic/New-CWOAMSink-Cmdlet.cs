@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
     /// After you create a sink, you must create a sink policy that allows source accounts
     /// to attach to it. For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.
     /// </para><para>
-    /// Each account can contain one sink. If you delete a sink, you can then create a new
-    /// one in that account.
+    /// Each account can contain one sink per Region. If you delete a sink, you can then create
+    /// a new one in that Region.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CWOAMSink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
