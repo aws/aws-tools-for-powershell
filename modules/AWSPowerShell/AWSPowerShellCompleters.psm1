@@ -16946,6 +16946,9 @@ $CCAS_SelectMap = @{
                "New-CCASRelatedItem",
                "New-CCASTemplate",
                "Remove-CCASDomain",
+               "Remove-CCASField",
+               "Remove-CCASLayout",
+               "Remove-CCASTemplate",
                "Get-CCASCase",
                "Get-CCASCaseAuditEvent",
                "Get-CCASCaseEventConfiguration",
@@ -33376,6 +33379,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.Ec2ScanMode
+        "Update-INS2Configuration/Ec2Configuration_ScanMode"
+        {
+            $v = "EC2_HYBRID","EC2_SSM_AGENT_BASED"
+            break
+        }
+
         # Amazon.Inspector2.EcrPullDateRescanDuration
         "Update-INS2Configuration/EcrConfiguration_PullDateRescanDuration"
         {
@@ -33568,6 +33578,7 @@ $INS2_map = @{
     "AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "DetailLevel"=@("Get-INS2CisScanList")
+    "Ec2Configuration_ScanMode"=@("Update-INS2Configuration")
     "Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "Ec2InstanceAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "EcrConfiguration_PullDateRescanDuration"=@("Update-INS2Configuration")
@@ -66323,6 +66334,13 @@ $TSQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamQuery.QueryPricingModel
+        "Update-TSQAccountSetting/QueryPricingModel"
+        {
+            $v = "BYTES_SCANNED","COMPUTE_UNITS"
+            break
+        }
+
         # Amazon.TimestreamQuery.S3EncryptionOption
         "New-TSQScheduledQuery/S3Configuration_EncryptionOption"
         {
@@ -66346,6 +66364,7 @@ $TSQ_Completers = {
 }
 
 $TSQ_map = @{
+    "QueryPricingModel"=@("Update-TSQAccountSetting")
     "S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
     "State"=@("Update-TSQScheduledQuery")
 }
@@ -66403,6 +66422,7 @@ $TSQ_SelectMap = @{
     "Select"=@("Stop-TSQQuery",
                "New-TSQScheduledQuery",
                "Remove-TSQScheduledQuery",
+               "Get-TSQAccountSetting",
                "Get-TSQEndpointList",
                "Get-TSQScheduledQuery",
                "Start-TSQScheduledQuery",
@@ -66412,6 +66432,7 @@ $TSQ_SelectMap = @{
                "Invoke-TSQQuery",
                "Add-TSQResourceTag",
                "Remove-TSQResourceTag",
+               "Update-TSQAccountSetting",
                "Update-TSQScheduledQuery")
 }
 
@@ -67496,6 +67517,16 @@ $TA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TrustedAdvisor.ExclusionStatus
+        {
+            ($_ -eq "Get-TAOrganizationRecommendationResourceList/ExclusionStatus") -Or
+            ($_ -eq "Get-TARecommendationResourceList/ExclusionStatus")
+        }
+        {
+            $v = "excluded","included"
+            break
+        }
+
         # Amazon.TrustedAdvisor.RecommendationLanguage
         "Get-TACheckList/Language"
         {
@@ -67584,6 +67615,7 @@ $TA_Completers = {
 }
 
 $TA_map = @{
+    "ExclusionStatus"=@("Get-TAOrganizationRecommendationResourceList","Get-TARecommendationResourceList")
     "Language"=@("Get-TACheckList")
     "LifecycleStage"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
     "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
@@ -67643,7 +67675,8 @@ $TA_SelectCompleters = {
 }
 
 $TA_SelectMap = @{
-    "Select"=@("Get-TAOrganizationRecommendation",
+    "Select"=@("Update-TAUpdateRecommendationResourceExclusionBatch",
+               "Get-TAOrganizationRecommendation",
                "Get-TARecommendation",
                "Get-TACheckList",
                "Get-TAOrganizationRecommendationAccountList",

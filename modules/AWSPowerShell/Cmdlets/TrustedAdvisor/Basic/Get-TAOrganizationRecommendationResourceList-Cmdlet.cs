@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.TA
         public System.String AffectedAccountId { get; set; }
         #endregion
         
+        #region Parameter ExclusionStatus
+        /// <summary>
+        /// <para>
+        /// <para>The exclusion status of the resource</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TrustedAdvisor.ExclusionStatus")]
+        public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
+        #endregion
+        
         #region Parameter OrganizationRecommendationIdentifier
         /// <summary>
         /// <para>
@@ -160,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AffectedAccountId = this.AffectedAccountId;
+            context.ExclusionStatus = this.ExclusionStatus;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.OrganizationRecommendationIdentifier = this.OrganizationRecommendationIdentifier;
@@ -190,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.TA
             if (cmdletContext.AffectedAccountId != null)
             {
                 request.AffectedAccountId = cmdletContext.AffectedAccountId;
+            }
+            if (cmdletContext.ExclusionStatus != null)
+            {
+                request.ExclusionStatus = cmdletContext.ExclusionStatus;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -273,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AffectedAccountId { get; set; }
+            public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String OrganizationRecommendationIdentifier { get; set; }

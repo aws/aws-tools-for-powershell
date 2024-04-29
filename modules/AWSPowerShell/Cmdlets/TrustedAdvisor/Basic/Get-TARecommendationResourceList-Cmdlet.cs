@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.TA
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ExclusionStatus
+        /// <summary>
+        /// <para>
+        /// <para>The exclusion status of the resource</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TrustedAdvisor.ExclusionStatus")]
+        public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
+        #endregion
+        
         #region Parameter RecommendationIdentifier
         /// <summary>
         /// <para>
@@ -148,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
                 context.Select = (response, cmdlet) => this.RecommendationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ExclusionStatus = this.ExclusionStatus;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.RecommendationIdentifier = this.RecommendationIdentifier;
@@ -175,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.TA
             // create request
             var request = new Amazon.TrustedAdvisor.Model.ListRecommendationResourcesRequest();
             
+            if (cmdletContext.ExclusionStatus != null)
+            {
+                request.ExclusionStatus = cmdletContext.ExclusionStatus;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -256,6 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.TA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.TrustedAdvisor.ExclusionStatus ExclusionStatus { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String RecommendationIdentifier { get; set; }

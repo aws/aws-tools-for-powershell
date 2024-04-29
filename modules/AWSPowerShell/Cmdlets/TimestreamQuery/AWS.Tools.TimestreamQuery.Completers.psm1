@@ -80,6 +80,13 @@ $TSQ_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TimestreamQuery.QueryPricingModel
+        "Update-TSQAccountSetting/QueryPricingModel"
+        {
+            $v = "BYTES_SCANNED","COMPUTE_UNITS"
+            break
+        }
+
         # Amazon.TimestreamQuery.S3EncryptionOption
         "New-TSQScheduledQuery/S3Configuration_EncryptionOption"
         {
@@ -103,6 +110,7 @@ $TSQ_Completers = {
 }
 
 $TSQ_map = @{
+    "QueryPricingModel"=@("Update-TSQAccountSetting")
     "S3Configuration_EncryptionOption"=@("New-TSQScheduledQuery")
     "State"=@("Update-TSQScheduledQuery")
 }
@@ -160,6 +168,7 @@ $TSQ_SelectMap = @{
     "Select"=@("Stop-TSQQuery",
                "New-TSQScheduledQuery",
                "Remove-TSQScheduledQuery",
+               "Get-TSQAccountSetting",
                "Get-TSQEndpointList",
                "Get-TSQScheduledQuery",
                "Start-TSQScheduledQuery",
@@ -169,6 +178,7 @@ $TSQ_SelectMap = @{
                "Invoke-TSQQuery",
                "Add-TSQResourceTag",
                "Remove-TSQResourceTag",
+               "Update-TSQAccountSetting",
                "Update-TSQScheduledQuery")
 }
 

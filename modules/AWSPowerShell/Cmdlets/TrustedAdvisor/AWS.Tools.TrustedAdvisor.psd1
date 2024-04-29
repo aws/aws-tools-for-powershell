@@ -95,7 +95,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-TARecommendationList', 
         'Get-TARecommendationResourceList', 
         'Update-TAOrganizationRecommendationLifecycle', 
-        'Update-TARecommendationLifecycle')
+        'Update-TARecommendationLifecycle', 
+        'Update-TAUpdateRecommendationResourceExclusionBatch')
 
     # Variables to export from this module
     VariablesToExport = '*'

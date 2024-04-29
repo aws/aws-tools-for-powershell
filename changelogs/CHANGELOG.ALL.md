@@ -1,4 +1,22 @@
-﻿### 4.1.567 (2024-04-26 21:00Z)
+﻿### 4.1.568 (2024-04-29 20:56Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.799.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Cases
+    * Added cmdlet Remove-CCASField leveraging the DeleteField service API.
+    * Added cmdlet Remove-CCASLayout leveraging the DeleteLayout service API.
+    * Added cmdlet Remove-CCASTemplate leveraging the DeleteTemplate service API.
+  * Amazon Inspector2
+    * Modified cmdlet Get-INS2CoverageList: added parameter FilterCriteria_ScanMode.
+    * Modified cmdlet Get-INS2CoverageStatisticList: added parameter FilterCriteria_ScanMode.
+    * Modified cmdlet Update-INS2Configuration: added parameter Ec2Configuration_ScanMode.
+  * Amazon Timestream Query
+    * Added cmdlet Get-TSQAccountSetting leveraging the DescribeAccountSettings service API.
+    * Added cmdlet Update-TSQAccountSetting leveraging the UpdateAccountSettings service API.
+  * Amazon Trusted Advisor
+    * Added cmdlet Update-TAUpdateRecommendationResourceExclusionBatch leveraging the BatchUpdateRecommendationResourceExclusion service API.
+    * Modified cmdlet Get-TAOrganizationRecommendationResourceList: added parameter ExclusionStatus.
+    * Modified cmdlet Get-TARecommendationResourceList: added parameter ExclusionStatus.
+
+### 4.1.567 (2024-04-26 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.798.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Observability Access Manager
     * Modified cmdlet New-CWOAMLink: added parameters LogGroupConfiguration_Filter and MetricConfiguration_Filter.

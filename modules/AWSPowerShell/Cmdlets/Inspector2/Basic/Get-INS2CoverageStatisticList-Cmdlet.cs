@@ -169,6 +169,17 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_ResourceType { get; set; }
         #endregion
         
+        #region Parameter FilterCriteria_ScanMode
+        /// <summary>
+        /// <para>
+        /// <para>The filter to search for Amazon EC2 instance coverage by scan mode. Valid values are
+        /// <c>EC2_SSM_AGENT_BASED</c> and <c>EC2_HYBRID</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Inspector2.Model.CoverageStringFilter[] FilterCriteria_ScanMode { get; set; }
+        #endregion
+        
         #region Parameter FilterCriteria_ScanStatusCode
         /// <summary>
         /// <para>
@@ -302,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             if (this.FilterCriteria_ResourceType != null)
             {
                 context.FilterCriteria_ResourceType = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_ResourceType);
+            }
+            if (this.FilterCriteria_ScanMode != null)
+            {
+                context.FilterCriteria_ScanMode = new List<Amazon.Inspector2.Model.CoverageStringFilter>(this.FilterCriteria_ScanMode);
             }
             if (this.FilterCriteria_ScanStatusCode != null)
             {
@@ -447,6 +462,16 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 request.FilterCriteria.ResourceType = requestFilterCriteria_filterCriteria_ResourceType;
                 requestFilterCriteriaIsNull = false;
             }
+            List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_ScanMode = null;
+            if (cmdletContext.FilterCriteria_ScanMode != null)
+            {
+                requestFilterCriteria_filterCriteria_ScanMode = cmdletContext.FilterCriteria_ScanMode;
+            }
+            if (requestFilterCriteria_filterCriteria_ScanMode != null)
+            {
+                request.FilterCriteria.ScanMode = requestFilterCriteria_filterCriteria_ScanMode;
+                requestFilterCriteriaIsNull = false;
+            }
             List<Amazon.Inspector2.Model.CoverageStringFilter> requestFilterCriteria_filterCriteria_ScanStatusCode = null;
             if (cmdletContext.FilterCriteria_ScanStatusCode != null)
             {
@@ -562,6 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             public List<Amazon.Inspector2.Model.CoverageDateFilter> FilterCriteria_LastScannedAt { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceId { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ResourceType { get; set; }
+            public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanMode { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanStatusCode { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanStatusReason { get; set; }
             public List<Amazon.Inspector2.Model.CoverageStringFilter> FilterCriteria_ScanType { get; set; }

@@ -6648,6 +6648,12 @@ Set-Alias -Name Create-CCASTemplate -Value New-CCASTemplate
 Set-Alias -Name CCAS-CreateTemplate -Value New-CCASTemplate
 Set-Alias -Name Delete-CCASDomain -Value Remove-CCASDomain
 Set-Alias -Name CCAS-DeleteDomain -Value Remove-CCASDomain
+Set-Alias -Name Delete-CCASField -Value Remove-CCASField
+Set-Alias -Name CCAS-DeleteField -Value Remove-CCASField
+Set-Alias -Name Delete-CCASLayout -Value Remove-CCASLayout
+Set-Alias -Name CCAS-DeleteLayout -Value Remove-CCASLayout
+Set-Alias -Name Delete-CCASTemplate -Value Remove-CCASTemplate
+Set-Alias -Name CCAS-DeleteTemplate -Value Remove-CCASTemplate
 Set-Alias -Name CCAS-GetCase -Value Get-CCASCase
 Set-Alias -Name Get-CCASCaseAuditEvents -Value Get-CCASCaseAuditEvent
 Set-Alias -Name CCAS-GetCaseAuditEvents -Value Get-CCASCaseAuditEvent
@@ -27701,6 +27707,9 @@ Set-Alias -Name Create-TSQScheduledQuery -Value New-TSQScheduledQuery
 Set-Alias -Name TSQ-CreateScheduledQuery -Value New-TSQScheduledQuery
 Set-Alias -Name Delete-TSQScheduledQuery -Value Remove-TSQScheduledQuery
 Set-Alias -Name TSQ-DeleteScheduledQuery -Value Remove-TSQScheduledQuery
+Set-Alias -Name Describe-TSQAccountSettings -Value Get-TSQAccountSetting
+Set-Alias -Name Describe-TSQAccountSetting -Value Get-TSQAccountSetting
+Set-Alias -Name TSQ-DescribeAccountSettings -Value Get-TSQAccountSetting
 Set-Alias -Name Describe-TSQEndpoints -Value Get-TSQEndpointList
 Set-Alias -Name Describe-TSQEndpointList -Value Get-TSQEndpointList
 Set-Alias -Name TSQ-DescribeEndpoints -Value Get-TSQEndpointList
@@ -27719,6 +27728,8 @@ Set-Alias -Name Query-TSQQuery -Value Invoke-TSQQuery
 Set-Alias -Name TSQ-Query -Value Invoke-TSQQuery
 Set-Alias -Name TSQ-TagResource -Value Add-TSQResourceTag
 Set-Alias -Name TSQ-UntagResource -Value Remove-TSQResourceTag
+Set-Alias -Name Update-TSQAccountSettings -Value Update-TSQAccountSetting
+Set-Alias -Name TSQ-UpdateAccountSettings -Value Update-TSQAccountSetting
 Set-Alias -Name TSQ-UpdateScheduledQuery -Value Update-TSQScheduledQuery
 Set-Alias -Name Create-TSWBatchLoadTask -Value New-TSWBatchLoadTask
 Set-Alias -Name TSW-CreateBatchLoadTask -Value New-TSWBatchLoadTask
@@ -28034,6 +28045,9 @@ Set-Alias -Name Translate-TRNTargetLanguage -Value ConvertTo-TRNTargetLanguage
 Set-Alias -Name TRN-TranslateText -Value ConvertTo-TRNTargetLanguage
 Set-Alias -Name TRN-UntagResource -Value Remove-TRNResourceTag
 Set-Alias -Name TRN-UpdateParallelData -Value Update-TRNParallelData
+Set-Alias -Name Batch-TAUpdateRecommendationResourceExclusion -Value Update-TAUpdateRecommendationResourceExclusionBatch
+Set-Alias -Name Batch-TAUpdateRecommendationResourceExclusionBatch -Value Update-TAUpdateRecommendationResourceExclusionBatch
+Set-Alias -Name TA-BatchUpdateRecommendationResourceExclusion -Value Update-TAUpdateRecommendationResourceExclusionBatch
 Set-Alias -Name TA-GetOrganizationRecommendation -Value Get-TAOrganizationRecommendation
 Set-Alias -Name TA-GetRecommendation -Value Get-TARecommendation
 Set-Alias -Name List-TAChecks -Value Get-TACheckList

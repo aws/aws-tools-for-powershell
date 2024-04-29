@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchUpdateRecommendationResourceExclusion" OutputProperty="BatchUpdateRecommendationResourceExclusionErrors" Verb="Update" Noun="UpdateRecommendationResourceExclusionBatch" ShouldProcessTarget="RecommendationResourceExclusions" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetOrganizationRecommendation" OutputProperty="OrganizationRecommendation" Verb="Get" Noun="OrganizationRecommendation" PipelineParameter="OrganizationRecommendationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

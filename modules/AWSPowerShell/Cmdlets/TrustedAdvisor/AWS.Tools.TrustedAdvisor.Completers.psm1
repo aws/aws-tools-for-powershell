@@ -80,6 +80,16 @@ $TA_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.TrustedAdvisor.ExclusionStatus
+        {
+            ($_ -eq "Get-TAOrganizationRecommendationResourceList/ExclusionStatus") -Or
+            ($_ -eq "Get-TARecommendationResourceList/ExclusionStatus")
+        }
+        {
+            $v = "excluded","included"
+            break
+        }
+
         # Amazon.TrustedAdvisor.RecommendationLanguage
         "Get-TACheckList/Language"
         {
@@ -168,6 +178,7 @@ $TA_Completers = {
 }
 
 $TA_map = @{
+    "ExclusionStatus"=@("Get-TAOrganizationRecommendationResourceList","Get-TARecommendationResourceList")
     "Language"=@("Get-TACheckList")
     "LifecycleStage"=@("Update-TAOrganizationRecommendationLifecycle","Update-TARecommendationLifecycle")
     "Pillar"=@("Get-TACheckList","Get-TAOrganizationRecommendationList","Get-TARecommendationList")
@@ -227,7 +238,8 @@ $TA_SelectCompleters = {
 }
 
 $TA_SelectMap = @{
-    "Select"=@("Get-TAOrganizationRecommendation",
+    "Select"=@("Update-TAUpdateRecommendationResourceExclusionBatch",
+               "Get-TAOrganizationRecommendation",
                "Get-TARecommendation",
                "Get-TACheckList",
                "Get-TAOrganizationRecommendationAccountList",

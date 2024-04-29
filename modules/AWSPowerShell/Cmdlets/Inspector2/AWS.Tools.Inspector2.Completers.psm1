@@ -198,6 +198,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.Ec2ScanMode
+        "Update-INS2Configuration/Ec2Configuration_ScanMode"
+        {
+            $v = "EC2_HYBRID","EC2_SSM_AGENT_BASED"
+            break
+        }
+
         # Amazon.Inspector2.EcrPullDateRescanDuration
         "Update-INS2Configuration/EcrConfiguration_PullDateRescanDuration"
         {
@@ -390,6 +397,7 @@ $INS2_map = @{
     "AwsEcrContainerAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "AwsEcrContainerAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "DetailLevel"=@("Get-INS2CisScanList")
+    "Ec2Configuration_ScanMode"=@("Update-INS2Configuration")
     "Ec2InstanceAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "Ec2InstanceAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "EcrConfiguration_PullDateRescanDuration"=@("Update-INS2Configuration")

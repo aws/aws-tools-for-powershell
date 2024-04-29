@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-TSQResourceTag', 
+        'Get-TSQAccountSetting', 
         'Get-TSQEndpointList', 
         'Get-TSQResourceTag', 
         'Get-TSQScheduledQuery', 
@@ -98,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-TSQScheduledQuery', 
         'Start-TSQScheduledQuery', 
         'Stop-TSQQuery', 
+        'Update-TSQAccountSetting', 
         'Update-TSQScheduledQuery')
 
     # Variables to export from this module
