@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Remove-IAMSigningCertificate -UserName Bob -CertificateId Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU</code>
-    <description>This example deletes the signing certificate with the ID <code>Y3EK7RMEXAMPLESV33FCREXAMPLEMJLU</code> from the IAM user named <code>Bob</code>.</description>
-  </example>
-</examples>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-      <code>Disable-CPStageTransition -PipelineName CodePipelineDemo -Reason "Disabling temporarily." -StageName Beta -TransitionType Inbound</code>
-      <description>This example disables the inbound transition for the specified stage in the specified pipeline.</description>
-    </example>
-</examples>

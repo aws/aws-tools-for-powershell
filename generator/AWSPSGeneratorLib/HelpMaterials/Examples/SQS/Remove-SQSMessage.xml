@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Remove-SQSMessage -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue -ReceiptHandle AQEBd329...v6gl8Q==</code>
-    <description>This example deletes the message with the specified receipt handle from the specified queue.</description>
-  </example>
-</examples>

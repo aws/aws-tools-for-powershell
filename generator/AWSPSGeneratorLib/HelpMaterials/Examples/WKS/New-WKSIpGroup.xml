@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>New-WKSIpGroup -GroupName "FreshNewIPGroup"
-wsipg-w45rty4ty</code>
-    <description>This sample creates an empty Ip group named FreshEmptyIpGroup</description>
-  </example>
-</examples>

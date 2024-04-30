@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>(Get-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile).Roles | Remove-IAMRoleFromInstanceProfile -InstanceProfileName MyAppInstanceProfile
-Remove-IAMInstanceProfile -InstanceProfileName MyAppInstanceProfile</code>
-    <description>This example deletes the EC2 instance profile named <code>MyAppInstanceProfile</code>. The first command detaches any roles from the instance profile, and then the second command deletes the instance profile.</description>
-  </example>
-</examples>

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Stop-CFNUpdateStack -StackName "myStack"</code>
-    <description>Cancels an update on the specified stack.</description>
-  </example>
-</examples>

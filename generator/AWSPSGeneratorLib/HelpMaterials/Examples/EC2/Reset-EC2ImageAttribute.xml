@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Reset-EC2ImageAttribute -ImageId ami-12345678 -Attribute launchPermission</code>
-    <description>This example resets the 'launchPermission' attribute to its default value. By default, AMIs are private.</description>
-  </example>
-</examples>

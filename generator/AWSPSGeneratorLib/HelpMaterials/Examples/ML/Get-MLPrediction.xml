@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Get-MLPrediction -ModelId ID -PredictEndpoint URL -Record @{"A" = "B"; "C" = "D";}</code>
-        <description>Send a record to the realtime prediction endpoint URL for Model with id ID.</description>
-    </example>
-</examples>

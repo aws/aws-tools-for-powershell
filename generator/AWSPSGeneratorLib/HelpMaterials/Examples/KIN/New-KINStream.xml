@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>$streamName = New-KINStream -StreamName "mystream" -ShardCount 1 -PassThru</code>
-        <description>Creates a new stream. By default this cmdlet returns no output so the -PassThru switch is added to return the value supplied to the -StreamName parameter for subsequent use.</description>
-    </example>
-</examples>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Edit-EC2SpotFleetRequest -SpotFleetRequestId sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE -TargetCapacity 10
-    
-True</code>
-    <description>This example updates the target capacity of the specified Spot fleet request.</description>
-  </example>
-</examples>

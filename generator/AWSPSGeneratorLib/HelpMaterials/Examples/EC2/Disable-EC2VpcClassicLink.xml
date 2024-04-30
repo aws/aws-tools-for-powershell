@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Disable-EC2VpcClassicLink -VpcId vpc-01e23c4a5d6db78e9</code>
-    <description>This example disables EC2VpcClassicLink for the vpc-01e23c4a5d6db78e9. It returns either True or False</description>
-  </example>
-</examples>

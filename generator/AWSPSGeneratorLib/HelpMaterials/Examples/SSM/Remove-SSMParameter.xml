@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Remove-SSMParameter -Name "helloWorld"</code>
-        <description>This example deletes a parameter. There is no output if the command succeeds.</description>
-    </example>
-</examples>

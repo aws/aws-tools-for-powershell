@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-S3BucketAnalyticsConfiguration -BucketName 's3testbucket' -AnalyticsId 'testfilter'</code>
-    <description>The command removes the analytics filter with name 'testfilter' in the given S3 bucket.</description>
-  </example>
-</examples>

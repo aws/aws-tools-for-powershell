@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Add-IAMClientIDToOpenIDConnectProvider -ClientID "my-application-ID" -OpenIDConnectProviderARN "arn:aws:iam::123456789012:oidc-provider/server.example.com"</code>
-    <description>This command adds the client ID (or audience) <code>my-application-ID</code> to the existing OIDC provider named <code>server.example.com</code>.</description>
-  </example>
-</examples>

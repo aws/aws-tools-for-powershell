@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>New-DSSnapshot -DirectoryId d-123456ijkl</code>
-    <description>This example creates a directory snapshot</description>
-  </example>
-</examples>

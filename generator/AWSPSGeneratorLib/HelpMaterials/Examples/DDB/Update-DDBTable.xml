@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Update-DDBTable -TableName "myTable" -ReadCapacity 10 -WriteCapacity 5</code>
-    <description>Updates the provisioned throughput for the given table.</description>
-  </example>
-</examples>

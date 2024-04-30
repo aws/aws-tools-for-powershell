@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Restore-DSFromSnapshot -SnapshotId s-9068b488kc</code>
-    <description>This example restores a directory using an exsisting directory snapshot.</description>
-  </example>
-</examples>

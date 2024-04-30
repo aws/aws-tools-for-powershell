@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Get-LMProvisionedConcurrencyConfigList -FunctionName "MylambdaFunction123"</code>
-    <description>This example retrieves the list of provisioned concurrency configurations for a Lambda function.</description>
-  </example>
-</examples>

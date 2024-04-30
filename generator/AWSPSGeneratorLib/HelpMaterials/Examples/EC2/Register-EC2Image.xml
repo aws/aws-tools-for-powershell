@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Register-EC2Image -ImageLocation my-s3-bucket/my-web-server-ami/image.manifest.xml -Name my-web-server-ami</code>
-    <description>This example registers an AMI using the specified manifest file in Amazon S3.</description>
-  </example>
-</examples>

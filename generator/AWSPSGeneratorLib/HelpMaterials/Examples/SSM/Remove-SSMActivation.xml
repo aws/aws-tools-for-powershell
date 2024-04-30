@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Remove-SSMActivation -ActivationId "08e51e79-1e36-446c-8e63-9458569c1363"</code>
-        <description>This example deletes an activation. There is no output if the command succeeds.</description>
-    </example>
-</examples>

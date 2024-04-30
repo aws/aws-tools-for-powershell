@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code> Get-S3BucketTagging -BucketName 's3casetestbucket'</code>
-    <description>This command returns all the tags associated with the given bucket.</description>
-  </example>
-</examples>

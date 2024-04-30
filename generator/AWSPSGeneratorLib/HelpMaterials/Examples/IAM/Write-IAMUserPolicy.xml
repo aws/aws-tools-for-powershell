@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Write-IAMUserPolicy -UserName Bob -PolicyName EC2AccessPolicy -PolicyDocument (Get-Content -Raw EC2AccessPolicy.json)</code>
-    <description>This example creates an inline policy named <code>EC2AccessPolicy</code> and embeds it in the IAM user <code>Bob</code>. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes from the file <code>EC2AccessPolicy.json</code>. Note that you must use the <code>-Raw</code> parameter to successfully process the content of the JSON file.</description>
-  </example>
-</examples>

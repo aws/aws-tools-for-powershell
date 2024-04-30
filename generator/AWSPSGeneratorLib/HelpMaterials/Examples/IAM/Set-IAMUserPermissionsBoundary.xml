@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Set-IAMUserPermissionsBoundary -UserName joe -PermissionsBoundary arn:aws:iam::123456789012:policy/intern-boundary</code>
-    <description>This example shows how to set the Permission boundary for the user. You can set AWS Managed policies or Custom policies as permission boundary. </description>
-  </example>
-</examples>

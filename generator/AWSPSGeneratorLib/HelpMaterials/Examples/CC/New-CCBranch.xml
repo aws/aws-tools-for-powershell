@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>New-CCBranch -RepositoryName MyDemoRepo -BranchName MyNewBranch -CommitId 7763222d...561fc9c9</code>
-	<description>This example creates a new branch with the specified name for the specified repository and the specified commit ID.</description>
-  </example>
-</examples>

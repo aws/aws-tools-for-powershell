@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-      <code>Remove-CPCustomActionType -Category Build -Provider MyBuildProviderName -Version 1</code>
-      <description>This example deletes the specified custom action. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the custom action without a prompt.</description>
-    </example>
-</examples>

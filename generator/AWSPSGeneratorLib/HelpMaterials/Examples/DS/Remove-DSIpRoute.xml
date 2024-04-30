@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-DSIpRoute -DirectoryId d-123456ijkl -CidrIp 203.0.113.5/32</code>
-    <description>This command removes the specified IP from Configured IP routes of Directory-id. </description>
-  </example>
-</examples>

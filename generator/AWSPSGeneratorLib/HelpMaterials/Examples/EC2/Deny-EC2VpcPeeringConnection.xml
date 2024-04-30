@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Deny-EC2VpcPeeringConnection -VpcPeeringConnectionId pcx-01a2b3ce45fe67eb8</code>
-    <description>The above example denies the request for VpcPeering request id pcx-01a2b3ce45fe67eb8</description>
-  </example>
-</examples>

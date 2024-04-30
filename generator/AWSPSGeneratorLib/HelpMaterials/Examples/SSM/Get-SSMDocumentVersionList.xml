@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Get-SSMDocumentPermission -Name "RunShellScript" -PermissionType "Share"
-
-all</code>
-        <description>This example returns the permission list for a document.</description>
-    </example>
-</examples>

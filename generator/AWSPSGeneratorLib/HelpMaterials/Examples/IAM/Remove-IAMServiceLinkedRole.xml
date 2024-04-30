@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-IAMServiceLinkedRole -RoleName AWSServiceRoleForAutoScaling_RoleNameEndsWithThis</code>
-    <description>This example deleted the service linked role. Please note that if the service is still using this role, then this command results in a failure.</description>
-  </example>
-</examples>

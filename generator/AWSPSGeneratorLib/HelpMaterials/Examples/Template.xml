@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-      <code>my-cmdlet -param1 test -param2 whatever</code>
-      <description>Use word-wrap where possible. New paragraphs should begin in column 1.</description>
-    </example>
-</examples>

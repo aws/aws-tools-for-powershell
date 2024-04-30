@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Update-CCDefaultBranch -RepositoryName MyDemoRepo -DefaultBranchName MyNewBranch</code>
-	<description>This example changes the default branch for the specified repository to the specified branch.</description>
-  </example>
-</examples>

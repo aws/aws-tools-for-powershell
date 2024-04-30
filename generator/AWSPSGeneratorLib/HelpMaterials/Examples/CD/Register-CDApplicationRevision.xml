@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Register-CDApplicationRevision -ApplicationName MyNewApplication -S3Location_Bucket MyBucket -S3Location_BundleType zip -S3Location_Key aws-codedeploy_linux-master.zip -Revision_RevisionType S3
-</code>
-	<description>This example registers an application revision with the specified Amazon S3 location, for the specified application.</description>
-  </example>
-</examples>

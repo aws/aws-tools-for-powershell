@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>"Hello World" | ConvertTo-TRNTargetLanguage -SourceLanguageCode en -TargetLanguageCode fr</code>
-    <description>Converts the specified English text to French. The text to convert can also be passed as the -Text parameter.</description>
-  </example>
-</examples>

@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Update-IAMRoleDescription -RoleName MyRoleName -Description "My testing role"</code>
-    <description>This example updates the description of an IAM role in your account.</description>
-  </example>
-</examples>

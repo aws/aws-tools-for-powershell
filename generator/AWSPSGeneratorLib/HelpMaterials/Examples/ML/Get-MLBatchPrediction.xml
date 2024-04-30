@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Get-MLBatchPrediction -BatchPredictionId ID</code>
-        <description>Returns the detailed metadata for a batch prediction with id ID.</description>
-    </example>
-</examples>

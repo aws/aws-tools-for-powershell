@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>New-MLModel -Name NAME -ModelType BINARY -Parameter @{...} -TrainingDataSourceId ID</code>
-        <description>Create a new model with training data.</description>
-    </example>
-</examples>

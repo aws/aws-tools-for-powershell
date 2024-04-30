@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Update-CDApplication -ApplicationName MyNewApplication -NewApplicationName MyNewApplication-2</code>
-	<description>This example changes the name of the specified application.</description>
-  </example>
-</examples>

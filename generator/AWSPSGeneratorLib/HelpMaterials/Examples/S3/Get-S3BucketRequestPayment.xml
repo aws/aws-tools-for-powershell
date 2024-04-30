@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Get-S3BucketRequestPayment -BucketName mybucket</code>
-    <description>Returns the request payment configuration for the bucket named 'mybucket'. By default, the bucket owner pays for downloads from the bucket.</description>
-  </example>
-</examples>

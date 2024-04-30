@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Remove-C9Environment -EnvironmentId ffd88420d4824eeeaeaa8a04bfde8cEX</code>
-	<description>This example deletes the specified AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</description>
-  </example>
-</examples>

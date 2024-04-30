@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Clear-AWSProxy</code>
-    <description>This command removes proxy configuration from the current shell. Subsequent cmdlets invocations will not use a proxy.</description>
-  </example>
-</examples>

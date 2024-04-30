@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Convert-STSAuthorizationMessage -EncodedMessage "...encoded message..."</code>
-    <description>Decodes the additional information contained in the supplied encoded message content that was returned in response to a request. The additional information is encoded because details of the authorization status can constitute privileged information that the user who requested the action should not see.</description>
-  </example>
-</examples>

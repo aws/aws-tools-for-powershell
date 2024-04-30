@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Get-SQSQueueUrl -QueueName MyQueue
-	
-https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue</code>
-    <description>This example lists the URL of the queue with the specified name.</description>
-  </example>
-</examples>

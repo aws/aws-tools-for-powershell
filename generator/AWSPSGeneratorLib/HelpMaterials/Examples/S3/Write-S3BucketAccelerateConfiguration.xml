@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>$statusVal = New-Object Amazon.S3.BucketAccelerateStatus('Enabled')
-Write-S3BucketAccelerateConfiguration -BucketName 's3testbucket' -AccelerateConfiguration_Status $statusVal</code>
-    <description>This command enables the transfer acceleration for the given S3 bucket.</description>
-  </example>
-</examples>

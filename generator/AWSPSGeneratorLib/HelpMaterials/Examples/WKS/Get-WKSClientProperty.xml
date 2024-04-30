@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Get-WKSClientProperty -ResourceId d-223562a123</code>
-    <description>This sample gets the Client Properties of the Workspace Client for the specified Directory</description>
-  </example>
-</examples>

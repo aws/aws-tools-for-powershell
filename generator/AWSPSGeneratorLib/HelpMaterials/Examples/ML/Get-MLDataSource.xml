@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Get-MLDataSource -DataSourceId ID</code>
-        <description>Returns the metadata, status, and data file information for a DataSource with the id ID</description>
-    </example>
-</examples>

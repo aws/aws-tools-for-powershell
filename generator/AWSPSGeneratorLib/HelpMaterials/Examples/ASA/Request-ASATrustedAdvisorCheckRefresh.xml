@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Request-ASATrustedAdvisorCheckRefresh -CheckId "checkid1"</code>
-    <description>Requests a refresh for the specified Trusted Advisor check.</description>
-  </example>
-</examples>

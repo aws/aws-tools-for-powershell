@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-S3BucketMetricsConfiguration -BucketName 's3testbucket' -MetricsId 'testmetrics'</code>
-    <description>The command removes the metrics filter with name 'testmetrics' in the given S3 bucket.</description>
-  </example>
-</examples>

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Remove-EFSMountTarget -MountTargetId fsmt-1a2b3c4d</code>
-        <description>Deletes the specified mount target. You are prompted for confirmation before the operation proceeds. To suppress the prompt use the <code>-Force</code> switch. Note that this operation forcibly breaks any mounts of the file system via the target - you may want to consider unmounting the file system before running this command, if feasible.</description>
-    </example>
-</examples>

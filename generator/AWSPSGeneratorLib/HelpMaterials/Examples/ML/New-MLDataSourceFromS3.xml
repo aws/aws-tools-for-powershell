@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>New-MLDataSourceFromS3 -Name NAME -ComputeStatistics $true -DataSpec_DataLocationS3 "s3://BUCKET/KEY" -DataSchema SCHEMA</code>
-        <description>Create a data source with data for an S3 location, with a name of NAME and a schema of SCHEMA.</description>
-    </example>
-</examples>

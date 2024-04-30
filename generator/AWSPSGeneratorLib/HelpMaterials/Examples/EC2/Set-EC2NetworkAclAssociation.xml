@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Set-EC2NetworkAclAssociation -NetworkAclId acl-12345678 -AssociationId aclassoc-1a2b3c4d
-    
-aclassoc-87654321</code>
-    <description>This example associates the specified network ACL with the subnet for the specified network ACL association.</description>
-  </example>
-</examples>

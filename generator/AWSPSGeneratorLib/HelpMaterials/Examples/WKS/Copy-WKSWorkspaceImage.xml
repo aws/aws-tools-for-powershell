@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Copy-WKSWorkspaceImage -Name CopiedImageTest -SourceRegion us-west-2 -SourceImageId wsi-djfoedhw6
-wsi-456abaqfe</code>
-    <description>This sample copies workspace Image with specified ID from us-west-2 to the current region with the name "CopiedImageTest"</description>
-  </example>
-</examples>

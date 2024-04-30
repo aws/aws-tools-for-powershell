@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Register-IAMUserPolicy -UserName Bob -PolicyArn arn:aws:iam::aws:policy/AmazonCognitoPowerUser</code>
-    <description>This example attaches the AWS managed policy named <code>AmazonCognitoPowerUser</code> to the IAM user <code>Bob</code>. The user is immediately affected by the permissions defined in the latest version of that policy.</description>
-  </example>
-</examples>

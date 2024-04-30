@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Remove-SSMMaintenanceWindow -WindowId "mw-06d59c1a07c022145"
-
-mw-06d59c1a07c022145</code>
-        <description>This example removes a maintenance window.</description>
-    </example>
-</examples>

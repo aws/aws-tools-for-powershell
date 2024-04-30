@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Add-LMResourceTag -Resource "arn:aws:lambda:us-west-2:123456789012:function:MyFunction" -Tag @{ "Washington" = "Olympia"; "Oregon" = "Salem"; "California" = "Sacramento" }
-</code>
-    <description>Adds the three tags (Washington, Oregon and California) and their associated values to the specified function identified by its ARN.</description>
-  </example>
-</examples>

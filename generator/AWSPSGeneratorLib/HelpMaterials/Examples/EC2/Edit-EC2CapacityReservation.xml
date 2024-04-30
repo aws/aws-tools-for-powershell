@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Edit-EC2CapacityReservation -CapacityReservationId cr-0c1f2345db6f7cdba -InstanceCount 1
-True</code>
-    <description>This example modifies the CapacityReservationId cr-0c1f2345db6f7cdba by changing the instane count to 1</description>
-  </example>
-</examples>

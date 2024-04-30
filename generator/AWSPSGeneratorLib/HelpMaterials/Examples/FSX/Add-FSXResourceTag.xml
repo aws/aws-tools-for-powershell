@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Add-FSXResourceTag -ResourceARN "arn:aws:fsx:eu-west-1:123456789012:file-system/fs-01cd23bc4bdf5678a" -Tag @{Key="Users";Value="Test"} -PassThru
-arn:aws:fsx:eu-west-1:123456789012:file-system/fs-01cd23bc4bdf5678a</code>
-    <description>This example adds tags to the given resource.</description>
-  </example>
-</examples>

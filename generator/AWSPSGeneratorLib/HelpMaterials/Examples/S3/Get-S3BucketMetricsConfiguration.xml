@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Get-S3BucketMetricsConfiguration -BucketName 's3testbucket' -MetricsId 'testfilter'</code>
-    <description>This command returns the details about the metrics filter named 'testfilter' for the given S3 bucket.</description>
-  </example>
-</examples>

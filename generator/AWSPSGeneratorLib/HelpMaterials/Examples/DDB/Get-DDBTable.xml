@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Get-DDBTable -TableName "myTable"</code>
-    <description>Returns details of the specified table.</description>
-  </example>
-</examples>

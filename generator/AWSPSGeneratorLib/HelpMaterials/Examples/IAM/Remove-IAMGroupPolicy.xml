@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Remove-IAMGroupPolicy -GroupName Testers -PolicyName TestPolicy</code>
-    <description>This example removes the inline policy named <code>TesterPolicy</code> from the IAM group <code>Testers</code>. The users in that group immediately lose the permissions defined in that policy.</description>
-  </example>
-</examples>

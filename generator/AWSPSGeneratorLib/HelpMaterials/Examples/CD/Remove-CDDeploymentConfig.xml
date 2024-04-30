@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Remove-CDDeploymentConfig -DeploymentConfigName AtLeastTwoHealthyHosts</code>
-	<description>This example deletes the deployment configuration with the specified name. The command will prompt for confirmation before proceeding. Add the -Force parameter to delete the deployment configuration without a prompt.</description>
-  </example>
-</examples>

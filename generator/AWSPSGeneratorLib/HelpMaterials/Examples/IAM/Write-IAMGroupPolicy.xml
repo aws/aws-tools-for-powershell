@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Write-IAMGroupPolicy -GroupName AppTesters -PolicyName AppTesterPolicy -PolicyDocument (Get-Content -Raw apptesterpolicy.json)</code>
-    <description>This example creates an inline policy named <code>AppTesterPolicy</code> and embeds it in the IAM group <code>AppTesters</code>. If an inline policy with the same name already exists, then it is overwritten. The JSON policy content comes the file <code>apptesterpolicy.json</code>. Note that you must use the <code>-Raw</code> parameter to successfully process the content of the JSON file.</description>
-  </example>
-</examples>

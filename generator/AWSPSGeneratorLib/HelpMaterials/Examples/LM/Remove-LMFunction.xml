@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-LMFunction -FunctionName "MylambdaFunction123" -Qualifier '3'</code>
-    <description>This example deletes a specific version of a Lambda function</description>
-  </example>
-</examples>

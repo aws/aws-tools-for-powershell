@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>New-IAMSAMLProvider -Name MySAMLProvider -SAMLMetadataDocument (Get-Content -Raw SAMLMetaData.xml)
-
-arn:aws:iam::123456789012:saml-provider/MySAMLProvider</code>
-    <description>This example creates a new SAML provider entity in IAM. It is named <code>MySAMLProvider</code> and is described by the SAML metadata document found in the file <code>SAMLMetaData.xml</code>, which was separately downloaded from the SAML service provider's web site.</description>
-  </example>
-</examples>

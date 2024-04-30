@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Get-R53HostedZoneCount</code>
-        <description>Returns the total number of public and private hosted zones for the current AWS account.</description>
-    </example>
-</examples>

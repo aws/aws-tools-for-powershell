@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Get-CFNTemplate -StackName "myStack"</code>
-    <description>Returns the template associated with the specified stack.</description>
-  </example>
-</examples>

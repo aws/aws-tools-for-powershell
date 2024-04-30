@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Get-CFDistributionList</code>
-    <description>Returns distributions.</description>
-  </example>
-</examples>

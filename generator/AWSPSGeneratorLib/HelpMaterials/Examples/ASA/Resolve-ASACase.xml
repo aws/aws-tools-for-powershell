@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Resolve-ASACase -CaseId "case-12345678910-2013-c4c1d2bf33c5cf47"</code>
-    <description>Returns the initial state of the specified case and the current state after the call to resolve it is completed.</description>
-  </example>
-</examples>

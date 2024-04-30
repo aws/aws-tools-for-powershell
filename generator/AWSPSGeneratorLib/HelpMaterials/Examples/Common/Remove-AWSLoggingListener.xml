@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Remove-AWSLoggingListener -Source Amazon.S3 -Name MyS3Logs</code>
-    <description>Removes the specified logger from the trace source.</description>
-  </example>
-</examples>

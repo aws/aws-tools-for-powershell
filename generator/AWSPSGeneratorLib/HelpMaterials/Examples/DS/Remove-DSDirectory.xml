@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-DSDirectory -DirectoryId d-123456ijkl</code>
-    <description>This example deletes an AWS Directory service directory (Simple AD/Microsoft AD/AD Connector)</description>
-  </example>
-</examples>

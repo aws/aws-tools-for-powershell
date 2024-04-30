@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-DSConditionalForwarder -DirectoryId d-123456ijkl -RemoteDomainName contoso.com</code>
-    <description>This example removes the conditional forwarder that has been set up for your AWS Direcotry.</description>
-  </example>
-</examples>

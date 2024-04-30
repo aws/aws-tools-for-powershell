@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Remove-IAMServerCertificate -ServerCertificateName MyServerCert</code>
-    <description>This example deletes the server certificate named <code>MyServerCert</code>.</description>
-  </example>
-</examples>

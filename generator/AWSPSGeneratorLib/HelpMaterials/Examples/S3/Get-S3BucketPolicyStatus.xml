@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Get-S3BucketPolicyStatus -BucketName 's3casetestbucket'</code>
-    <description>This command returns policy status for the given S3 bucket, indicating whether the bucket is public.</description>
-  </example>
-</examples>

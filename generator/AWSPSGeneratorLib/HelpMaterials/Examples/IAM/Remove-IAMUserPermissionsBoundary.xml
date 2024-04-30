@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Remove-IAMUserPermissionsBoundary -UserName joe</code>
-    <description>This example shows how to remove the permission boundary attached to an IAM user.</description>
-  </example>
-</examples>

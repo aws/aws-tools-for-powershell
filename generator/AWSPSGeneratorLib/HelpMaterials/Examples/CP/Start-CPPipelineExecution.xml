@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-      <code>Start-CPPipelineExecution -Name CodePipelineDemo</code>
-      <description>This example starts running the specified pipeline.</description>
-    </example>
-</examples>

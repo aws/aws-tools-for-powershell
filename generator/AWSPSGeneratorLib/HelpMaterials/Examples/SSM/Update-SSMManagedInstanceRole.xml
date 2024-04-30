@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Update-SSMManagedInstanceRole -InstanceId "mi-08ab247cdf1046573" -IamRole "AutomationRole"</code>
-        <description>This example updates the role of a managed instance. There is no output if the command succeeds.</description>
-    </example>
-</examples>

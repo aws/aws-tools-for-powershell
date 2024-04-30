@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Get-S3BucketReplication -BucketName mybucket</code>
-    <description>Returns the replication configuration information set on the bucket named 'mybucket'.</description>
-  </example>
-</examples>

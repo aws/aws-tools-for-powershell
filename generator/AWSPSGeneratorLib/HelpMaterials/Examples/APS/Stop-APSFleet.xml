@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Stop-APSFleet -Name PowershellFleet</code>
-    <description>This sample stops a fleet</description>
-  </example>
-</examples>

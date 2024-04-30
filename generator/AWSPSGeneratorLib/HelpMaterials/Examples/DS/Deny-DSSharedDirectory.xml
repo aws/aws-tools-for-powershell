@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Deny-DSSharedDirectory -SharedDirectoryId d-9067012345
-d-9067012345</code>
-    <description>This example rejects a directory sharing request that was sent from the directory owner account. </description>
-  </example>
-</examples>

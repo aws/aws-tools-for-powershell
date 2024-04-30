@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Approve-DSTrust -TrustId t-9067157123</code>
-    <description>This example calls the AWS Directory Service VerifyTrust API operation for specified Trustid.</description>
-  </example>
-</examples>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-      <code>Enable-CPStageTransition -PipelineName CodePipelineDemo -StageName Beta -TransitionType Inbound</code>
-      <description>This example enables the inbound transition for the specified stage in the specified pipeline.</description>
-    </example>
-</examples>

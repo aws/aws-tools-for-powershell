@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Get-MLEvaluation -EvaluationId ID</code>
-        <description>Returns metadata and status for an Evaluation with id ID.</description>
-    </example>
-</examples>

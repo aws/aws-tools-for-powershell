@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Disable-DSLDAPS -DirectoryId d-123456ijkl -Type Client</code>
-    <description>This example deactivates LDAP secure calls for the specified directory.</description>
-  </example>
-</examples>

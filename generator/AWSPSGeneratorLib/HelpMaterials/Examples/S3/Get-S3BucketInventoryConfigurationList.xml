@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Get-S3BucketInventoryConfigurationList -BucketName 's3testbucket'</code>
-    <description>This command returns the first 100 inventory configurations of the given S3 bucket.</description>
-  </example>
-</examples>

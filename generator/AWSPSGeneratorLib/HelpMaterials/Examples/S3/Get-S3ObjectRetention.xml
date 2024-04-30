@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Get-S3ObjectRetention -BucketName 's3buckettesting' -Key 'testfile.txt'</code>
-    <description>The command returns the mode and date till the object would be retained.</description>
-  </example>
-</examples>

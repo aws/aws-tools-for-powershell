@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Edit-WKSSelfservicePermission -Region us-west-2 -ResourceId d-123454a369 -SelfservicePermissions_ChangeComputeType ENABLED -SelfservicePermissions_IncreaseVolumeSize ENABLED</code>
-    <description>This sample enables self service permissions to Change compute type and Increase Volume Size for the specified Directory</description>
-  </example>
-</examples>

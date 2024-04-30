@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>Stop-EC2ConversionTask -ConversionTaskId "import-i-123456"</code>
-    <description>This example cancels the conversion task with the ID 'import-i-123456'. The image file artifacts that were uploaded for the conversion are retained in Amazon S3 - use the Remove-EC2DiskImage cmdlet to delete artifacts that you do not want to keep.</description>
-  </example>
-</examples>

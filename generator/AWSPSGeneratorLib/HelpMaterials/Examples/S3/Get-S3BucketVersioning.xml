@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>Get-S3BucketVersioning -BucketName 's3testbucket'</code>
-    <description>This command returns the status of versioning with respect to the given bucket.</description>
-  </example>
-</examples>

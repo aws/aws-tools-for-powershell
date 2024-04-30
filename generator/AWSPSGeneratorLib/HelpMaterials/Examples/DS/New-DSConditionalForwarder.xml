@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>New-DSConditionalForwarder -DirectoryId d-123456ijkl -DnsIpAddr 172.31.36.96,172.31.10.56 -RemoteDomainName contoso.com</code>
-    <description>This example creates a Conditional forwarder in specified AWS Directory-id. </description>
-  </example>
-</examples>

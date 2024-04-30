@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<!--Examples for the AWS PowerShell CmdLets-->
-<examples>
-  <example>
-    <code>New-EC2Host -AutoPlacement on -AvailabilityZone eu-west-1b -InstanceType m4.xlarge -Quantity 1
-h-01e23f4cd567890f3</code>
-    <description>This example allocates a Dedicated Host to your account for the given instance type and availability zone</description>
-  </example>
-</examples>

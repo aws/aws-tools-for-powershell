@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Remove-SSMPatchBaseline -BaselineId "pb-045f10b4f382baeda"
-
-pb-045f10b4f382baeda</code>
-        <description>This example deletes a patch baseline.</description>
-    </example>
-</examples>

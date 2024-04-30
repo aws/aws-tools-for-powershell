@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<examples>
-    <example>
-        <code>Get-SSMInventorySchema</code>
-        <description>This example returns a list of inventory type names for the account.</description>
-    </example>
-</examples>
