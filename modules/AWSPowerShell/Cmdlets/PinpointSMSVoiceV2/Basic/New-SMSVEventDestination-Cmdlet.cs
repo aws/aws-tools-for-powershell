@@ -103,8 +103,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter CloudWatchLogsDestination_IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role
-        /// that is able to write event data to an Amazon CloudWatch destination.</para>
+        /// <para>The Amazon Resource Name (ARN) of an Identity and Access Management role that is able
+        /// to write event data to an Amazon CloudWatch destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter KinesisFirehoseDestination_IamRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an Amazon Identity and Access Management (IAM) role that is able to write
-        /// event data to an Amazon Firehose destination.</para>
+        /// <para>The ARN of an Identity and Access Management role that is able to write event data
+        /// to an Amazon Kinesis Data Firehose destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

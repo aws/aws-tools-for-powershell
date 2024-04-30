@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Accepts a share for an analytics store.
+    /// Accept a resource share request.
     /// </summary>
     [Cmdlet("Receive", "OMICSShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.ShareStatus")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ShareId
         /// <summary>
         /// <para>
-        /// <para> The ID for a share offer for analytics store data. </para>
+        /// <para>The ID of the resource share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

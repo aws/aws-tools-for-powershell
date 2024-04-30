@@ -125,6 +125,16 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.FirewallDomainRedirectionAction
+        {
+            ($_ -eq "Edit-R53RFirewallRule/FirewallDomainRedirectionAction") -Or
+            ($_ -eq "New-R53RFirewallRule/FirewallDomainRedirectionAction")
+        }
+        {
+            $v = "INSPECT_REDIRECTION_DOMAIN","TRUST_REDIRECTION_DOMAIN"
+            break
+        }
+
         # Amazon.Route53Resolver.FirewallDomainUpdateOperation
         "Edit-R53RFirewallDomain/Operation"
         {
@@ -211,6 +221,7 @@ $R53R_map = @{
     "BlockOverrideDnsType"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "BlockResponse"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "Direction"=@("New-R53RResolverEndpoint")
+    "FirewallDomainRedirectionAction"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")
     "Operation"=@("Edit-R53RFirewallDomain","Import-R53RFirewallDomainList")

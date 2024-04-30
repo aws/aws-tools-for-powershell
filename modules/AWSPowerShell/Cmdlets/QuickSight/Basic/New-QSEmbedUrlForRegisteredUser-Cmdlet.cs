@@ -177,14 +177,34 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String QuickSightConsole_InitialPath { get; set; }
         #endregion
         
+        #region Parameter GenerativeQnA_InitialTopicId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the new Q reader experience topic that you want to make the starting topic
+        /// in the Generative Q&amp;A experience. You can find a topic ID by navigating to the
+        /// Topics pane in the Amazon QuickSight application and opening a topic. The ID is in
+        /// the URL for the topic that you open.</para><para>If you don't specify an initial topic or you specify a legacy topic, a list of all
+        /// shared new reader experience topics is shown in the Generative Q&amp;A experience
+        /// for your readers. When you select an initial new reader experience topic, you can
+        /// specify whether or not readers are allowed to select other new reader experience topics
+        /// from the available ones in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExperienceConfiguration_GenerativeQnA_InitialTopicId")]
+        public System.String GenerativeQnA_InitialTopicId { get; set; }
+        #endregion
+        
         #region Parameter QSearchBar_InitialTopicId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Q topic that you want to make the starting topic in the Q search bar.
-        /// You can find a topic ID by navigating to the Topics pane in the Amazon QuickSight
-        /// application and opening a topic. The ID is in the URL for the topic that you open.</para><para>If you don't specify an initial topic, a list of all shared topics is shown in the
-        /// Q bar for your readers. When you select an initial topic, you can specify whether
-        /// or not readers are allowed to select other topics from the available ones in the list.</para>
+        /// <para>The ID of the legacy Q topic that you want to use as the starting topic in the Q search
+        /// bar. To locate the topic ID of the topic that you want to use, open the <a href="https://quicksight.aws.amazon.com/">Amazon
+        /// QuickSight console</a>, navigate to the <b>Topics</b> pane, and choose thre topic
+        /// that you want to use. The <c>TopicID</c> is located in the URL of the topic that opens.
+        /// When you select an initial topic, you can specify whether or not readers are allowed
+        /// to select other topics from the list of available topics.</para><para>If you don't specify an initial topic or if you specify a new reader experience topic,
+        /// a list of all shared legacy topics is shown in the Q bar. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.InitialDashboardVisualId_DashboardId = this.InitialDashboardVisualId_DashboardId;
             context.InitialDashboardVisualId_SheetId = this.InitialDashboardVisualId_SheetId;
             context.InitialDashboardVisualId_VisualId = this.InitialDashboardVisualId_VisualId;
+            context.GenerativeQnA_InitialTopicId = this.GenerativeQnA_InitialTopicId;
             context.QSearchBar_InitialTopicId = this.QSearchBar_InitialTopicId;
             context.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled = this.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled;
             context.QuickSightConsole_InitialPath = this.QuickSightConsole_InitialPath;
@@ -423,6 +444,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (requestExperienceConfiguration_experienceConfiguration_DashboardVisual != null)
             {
                 request.ExperienceConfiguration.DashboardVisual = requestExperienceConfiguration_experienceConfiguration_DashboardVisual;
+                requestExperienceConfigurationIsNull = false;
+            }
+            Amazon.QuickSight.Model.RegisteredUserGenerativeQnAEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_GenerativeQnA = null;
+            
+             // populate GenerativeQnA
+            var requestExperienceConfiguration_experienceConfiguration_GenerativeQnAIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_GenerativeQnA = new Amazon.QuickSight.Model.RegisteredUserGenerativeQnAEmbeddingConfiguration();
+            System.String requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId = null;
+            if (cmdletContext.GenerativeQnA_InitialTopicId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId = cmdletContext.GenerativeQnA_InitialTopicId;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnA.InitialTopicId = requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId;
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnAIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_GenerativeQnA should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_GenerativeQnAIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnA = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_GenerativeQnA != null)
+            {
+                request.ExperienceConfiguration.GenerativeQnA = requestExperienceConfiguration_experienceConfiguration_GenerativeQnA;
                 requestExperienceConfigurationIsNull = false;
             }
             Amazon.QuickSight.Model.RegisteredUserQSearchBarEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_QSearchBar = null;
@@ -687,6 +733,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String InitialDashboardVisualId_DashboardId { get; set; }
             public System.String InitialDashboardVisualId_SheetId { get; set; }
             public System.String InitialDashboardVisualId_VisualId { get; set; }
+            public System.String GenerativeQnA_InitialTopicId { get; set; }
             public System.String QSearchBar_InitialTopicId { get; set; }
             public System.Boolean? ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled { get; set; }
             public System.String QuickSightConsole_InitialPath { get; set; }

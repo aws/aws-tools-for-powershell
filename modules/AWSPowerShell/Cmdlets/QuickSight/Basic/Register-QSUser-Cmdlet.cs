@@ -90,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// QuickSight console. Then, you use the <c>RegisterUser</c> API operation to assign
         /// the named set of permissions to a Amazon QuickSight user. </para><para>Amazon QuickSight custom permissions are applied through IAM policies. Therefore,
         /// they override the permissions typically granted by assigning Amazon QuickSight users
-        /// to one of the default security cohorts in Amazon QuickSight (admin, author, reader).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
+        /// to one of the default security cohorts in Amazon QuickSight (admin, author, reader,
+        /// admin pro, author pro, reader pro).</para><para>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -153,9 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter IdentityType
         /// <summary>
         /// <para>
-        /// <para>Amazon QuickSight supports several ways of managing the identity of users. This parameter
-        /// accepts two values:</para><ul><li><para><c>IAM</c>: A user whose identity maps to an existing IAM user or role. </para></li><li><para><c>QUICKSIGHT</c>: A user whose identity is owned and managed internally by Amazon
-        /// QuickSight. </para></li></ul>
+        /// <para>The identity type that your Amazon QuickSight account uses to manage the identity
+        /// of users.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

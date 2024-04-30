@@ -152,13 +152,30 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Dashboard_InitialDashboardId { get; set; }
         #endregion
         
+        #region Parameter GenerativeQnA_InitialTopicId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon QuickSight Q topic ID of the new reader experience topic that you want
+        /// the anonymous user to see first. This ID is included in the output URL. When the URL
+        /// in response is accessed, Amazon QuickSight renders the Generative Q&amp;A experience
+        /// with this new reader experience topic pre selected.</para><para>The Amazon Resource Name (ARN) of this Q new reader experience topic must be included
+        /// in the <c>AuthorizedResourceArns</c> parameter. Otherwise, the request fails with
+        /// an <c>InvalidParameterValueException</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ExperienceConfiguration_GenerativeQnA_InitialTopicId")]
+        public System.String GenerativeQnA_InitialTopicId { get; set; }
+        #endregion
+        
         #region Parameter QSearchBar_InitialTopicId
         /// <summary>
         /// <para>
-        /// <para>The QuickSight Q topic ID of the topic that you want the anonymous user to see first.
-        /// This ID is included in the output URL. When the URL in response is accessed, Amazon
-        /// QuickSight renders the Q search bar with this topic pre-selected.</para><para>The Amazon Resource Name (ARN) of this Q topic must be included in the <c>AuthorizedResourceArns</c>
-        /// parameter. Otherwise, the request will fail with <c>InvalidParameterValueException</c>.</para>
+        /// <para>The Amazon QuickSight Q topic ID of the legacy topic that you want the anonymous user
+        /// to see first. This ID is included in the output URL. When the URL in response is accessed,
+        /// Amazon QuickSight renders the Q search bar with this legacy topic pre-selected.</para><para>The Amazon Resource Name (ARN) of this Q legacy topic must be included in the <c>AuthorizedResourceArns</c>
+        /// parameter. Otherwise, the request fails with an <c>InvalidParameterValueException</c>
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.InitialDashboardVisualId_DashboardId = this.InitialDashboardVisualId_DashboardId;
             context.InitialDashboardVisualId_SheetId = this.InitialDashboardVisualId_SheetId;
             context.InitialDashboardVisualId_VisualId = this.InitialDashboardVisualId_VisualId;
+            context.GenerativeQnA_InitialTopicId = this.GenerativeQnA_InitialTopicId;
             context.QSearchBar_InitialTopicId = this.QSearchBar_InitialTopicId;
             context.Namespace = this.Namespace;
             #if MODULAR
@@ -454,6 +472,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.ExperienceConfiguration.DashboardVisual = requestExperienceConfiguration_experienceConfiguration_DashboardVisual;
                 requestExperienceConfigurationIsNull = false;
             }
+            Amazon.QuickSight.Model.AnonymousUserGenerativeQnAEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_GenerativeQnA = null;
+            
+             // populate GenerativeQnA
+            var requestExperienceConfiguration_experienceConfiguration_GenerativeQnAIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_GenerativeQnA = new Amazon.QuickSight.Model.AnonymousUserGenerativeQnAEmbeddingConfiguration();
+            System.String requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId = null;
+            if (cmdletContext.GenerativeQnA_InitialTopicId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId = cmdletContext.GenerativeQnA_InitialTopicId;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnA.InitialTopicId = requestExperienceConfiguration_experienceConfiguration_GenerativeQnA_generativeQnA_InitialTopicId;
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnAIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_GenerativeQnA should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_GenerativeQnAIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_GenerativeQnA = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_GenerativeQnA != null)
+            {
+                request.ExperienceConfiguration.GenerativeQnA = requestExperienceConfiguration_experienceConfiguration_GenerativeQnA;
+                requestExperienceConfigurationIsNull = false;
+            }
             Amazon.QuickSight.Model.AnonymousUserQSearchBarEmbeddingConfiguration requestExperienceConfiguration_experienceConfiguration_QSearchBar = null;
             
              // populate QSearchBar
@@ -564,6 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String InitialDashboardVisualId_DashboardId { get; set; }
             public System.String InitialDashboardVisualId_SheetId { get; set; }
             public System.String InitialDashboardVisualId_VisualId { get; set; }
+            public System.String GenerativeQnA_InitialTopicId { get; set; }
             public System.String QSearchBar_InitialTopicId { get; set; }
             public System.String Namespace { get; set; }
             public System.Int64? SessionLifetimeInMinute { get; set; }

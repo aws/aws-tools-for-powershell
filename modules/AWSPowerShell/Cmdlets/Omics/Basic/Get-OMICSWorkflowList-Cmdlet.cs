@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The workflows' name.</para>
+        /// <para>Filter the list by workflow name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The workflows' type.</para>
+        /// <para>Filter the list by workflow type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

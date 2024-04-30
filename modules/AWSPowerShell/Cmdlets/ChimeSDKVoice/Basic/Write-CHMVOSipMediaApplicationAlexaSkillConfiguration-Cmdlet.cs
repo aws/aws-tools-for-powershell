@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
     /// Updates the Alexa Skill configuration for the SIP media application.
+    /// 
+    ///  <important><para>
+    /// Due to changes made by the Amazon Alexa service, this API is no longer available for
+    /// use. For more information, refer to the <a href="https://developer.amazon.com/en-US/alexa/alexasmartproperties">Alexa
+    /// Smart Properties</a> page.
+    /// </para></important><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Write", "CHMVOSipMediaApplicationAlexaSkillConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.SipMediaApplicationAlexaSkillConfiguration")]
@@ -37,6 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         "This cmdlet returns an Amazon.ChimeSDKVoice.Model.SipMediaApplicationAlexaSkillConfiguration object.",
         "The service call response (type Amazon.ChimeSDKVoice.Model.PutSipMediaApplicationAlexaSkillConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("Due to changes made by the Amazon Alexa service, this API is no longer available for use. For more information, refer to the Alexa Smart Properties page(https://developer.amazon.com/en-US/alexa/alexasmartproperties).")]
     public partial class WriteCHMVOSipMediaApplicationAlexaSkillConfigurationCmdlet : AmazonChimeSDKVoiceClientCmdlet, IExecutor
     {
         

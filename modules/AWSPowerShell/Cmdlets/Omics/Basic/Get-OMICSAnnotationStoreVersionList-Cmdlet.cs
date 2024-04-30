@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
-        /// <para> The status of an annotation store version. </para>
+        /// <para>The status of an annotation store version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

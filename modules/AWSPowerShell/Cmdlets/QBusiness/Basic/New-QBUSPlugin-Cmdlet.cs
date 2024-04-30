@@ -39,7 +39,20 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     public partial class NewQBUSPluginCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter CustomPluginConfiguration_ApiSchemaType
+        /// <summary>
+        /// <para>
+        /// <para>The type of OpenAPI schema to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.APISchemaType")]
+        public Amazon.QBusiness.APISchemaType CustomPluginConfiguration_ApiSchemaType { get; set; }
+        #endregion
         
         #region Parameter ApplicationId
         /// <summary>
@@ -58,6 +71,27 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter S3_Bucket
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket that contains the file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomPluginConfiguration_ApiSchema_S3_Bucket")]
+        public System.String S3_Bucket { get; set; }
+        #endregion
+        
+        #region Parameter CustomPluginConfiguration_Description
+        /// <summary>
+        /// <para>
+        /// <para>A description for your custom plugin configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomPluginConfiguration_Description { get; set; }
+        #endregion
+        
         #region Parameter DisplayName
         /// <summary>
         /// <para>
@@ -73,6 +107,39 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String DisplayName { get; set; }
+        #endregion
+        
+        #region Parameter S3_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name of the file.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomPluginConfiguration_ApiSchema_S3_Key")]
+        public System.String S3_Key { get; set; }
+        #endregion
+        
+        #region Parameter AuthConfiguration_NoAuthConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>Information about invoking a custom plugin without any authentication.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QBusiness.Model.NoAuthConfiguration AuthConfiguration_NoAuthConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter ApiSchema_Payload
+        /// <summary>
+        /// <para>
+        /// <para>The JSON or YAML-formatted payload defining the OpenAPI schema for a custom plugin.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("CustomPluginConfiguration_ApiSchema_Payload")]
+        public System.String ApiSchema_Payload { get; set; }
         #endregion
         
         #region Parameter BasicAuthConfiguration_RoleArn
@@ -129,14 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// <para>The source URL used for plugin configuration.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ServerUrl { get; set; }
         #endregion
         
@@ -253,9 +313,15 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             #endif
             context.BasicAuthConfiguration_RoleArn = this.BasicAuthConfiguration_RoleArn;
             context.BasicAuthConfiguration_SecretArn = this.BasicAuthConfiguration_SecretArn;
+            context.AuthConfiguration_NoAuthConfiguration = this.AuthConfiguration_NoAuthConfiguration;
             context.OAuth2ClientCredentialConfiguration_RoleArn = this.OAuth2ClientCredentialConfiguration_RoleArn;
             context.OAuth2ClientCredentialConfiguration_SecretArn = this.OAuth2ClientCredentialConfiguration_SecretArn;
             context.ClientToken = this.ClientToken;
+            context.ApiSchema_Payload = this.ApiSchema_Payload;
+            context.S3_Bucket = this.S3_Bucket;
+            context.S3_Key = this.S3_Key;
+            context.CustomPluginConfiguration_ApiSchemaType = this.CustomPluginConfiguration_ApiSchemaType;
+            context.CustomPluginConfiguration_Description = this.CustomPluginConfiguration_Description;
             context.DisplayName = this.DisplayName;
             #if MODULAR
             if (this.DisplayName == null && ParameterWasBound(nameof(this.DisplayName)))
@@ -264,12 +330,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #endif
             context.ServerUrl = this.ServerUrl;
-            #if MODULAR
-            if (this.ServerUrl == null && ParameterWasBound(nameof(this.ServerUrl)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ServerUrl which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.QBusiness.Model.Tag>(this.Tag);
@@ -305,6 +365,16 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
              // populate AuthConfiguration
             var requestAuthConfigurationIsNull = true;
             request.AuthConfiguration = new Amazon.QBusiness.Model.PluginAuthConfiguration();
+            Amazon.QBusiness.Model.NoAuthConfiguration requestAuthConfiguration_authConfiguration_NoAuthConfiguration = null;
+            if (cmdletContext.AuthConfiguration_NoAuthConfiguration != null)
+            {
+                requestAuthConfiguration_authConfiguration_NoAuthConfiguration = cmdletContext.AuthConfiguration_NoAuthConfiguration;
+            }
+            if (requestAuthConfiguration_authConfiguration_NoAuthConfiguration != null)
+            {
+                request.AuthConfiguration.NoAuthConfiguration = requestAuthConfiguration_authConfiguration_NoAuthConfiguration;
+                requestAuthConfigurationIsNull = false;
+            }
             Amazon.QBusiness.Model.BasicAuthConfiguration requestAuthConfiguration_authConfiguration_BasicAuthConfiguration = null;
             
              // populate BasicAuthConfiguration
@@ -383,6 +453,95 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate CustomPluginConfiguration
+            var requestCustomPluginConfigurationIsNull = true;
+            request.CustomPluginConfiguration = new Amazon.QBusiness.Model.CustomPluginConfiguration();
+            Amazon.QBusiness.APISchemaType requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaType = null;
+            if (cmdletContext.CustomPluginConfiguration_ApiSchemaType != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaType = cmdletContext.CustomPluginConfiguration_ApiSchemaType;
+            }
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaType != null)
+            {
+                request.CustomPluginConfiguration.ApiSchemaType = requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaType;
+                requestCustomPluginConfigurationIsNull = false;
+            }
+            System.String requestCustomPluginConfiguration_customPluginConfiguration_Description = null;
+            if (cmdletContext.CustomPluginConfiguration_Description != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_Description = cmdletContext.CustomPluginConfiguration_Description;
+            }
+            if (requestCustomPluginConfiguration_customPluginConfiguration_Description != null)
+            {
+                request.CustomPluginConfiguration.Description = requestCustomPluginConfiguration_customPluginConfiguration_Description;
+                requestCustomPluginConfigurationIsNull = false;
+            }
+            Amazon.QBusiness.Model.APISchema requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema = null;
+            
+             // populate ApiSchema
+            var requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaIsNull = true;
+            requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema = new Amazon.QBusiness.Model.APISchema();
+            System.String requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_apiSchema_Payload = null;
+            if (cmdletContext.ApiSchema_Payload != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_apiSchema_Payload = cmdletContext.ApiSchema_Payload;
+            }
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_apiSchema_Payload != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema.Payload = requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_apiSchema_Payload;
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaIsNull = false;
+            }
+            Amazon.QBusiness.Model.S3 requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3 = null;
+            
+             // populate S3
+            var requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3IsNull = true;
+            requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3 = new Amazon.QBusiness.Model.S3();
+            System.String requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Bucket = null;
+            if (cmdletContext.S3_Bucket != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Bucket = cmdletContext.S3_Bucket;
+            }
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Bucket != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3.Bucket = requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Bucket;
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3IsNull = false;
+            }
+            System.String requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Key = null;
+            if (cmdletContext.S3_Key != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Key = cmdletContext.S3_Key;
+            }
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Key != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3.Key = requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3_s3_Key;
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3IsNull = false;
+            }
+             // determine if requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3 should be set to null
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3IsNull)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3 = null;
+            }
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3 != null)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema.S3 = requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema_customPluginConfiguration_ApiSchema_S3;
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaIsNull = false;
+            }
+             // determine if requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema should be set to null
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchemaIsNull)
+            {
+                requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema = null;
+            }
+            if (requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema != null)
+            {
+                request.CustomPluginConfiguration.ApiSchema = requestCustomPluginConfiguration_customPluginConfiguration_ApiSchema;
+                requestCustomPluginConfigurationIsNull = false;
+            }
+             // determine if request.CustomPluginConfiguration should be set to null
+            if (requestCustomPluginConfigurationIsNull)
+            {
+                request.CustomPluginConfiguration = null;
             }
             if (cmdletContext.DisplayName != null)
             {
@@ -464,9 +623,15 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String ApplicationId { get; set; }
             public System.String BasicAuthConfiguration_RoleArn { get; set; }
             public System.String BasicAuthConfiguration_SecretArn { get; set; }
+            public Amazon.QBusiness.Model.NoAuthConfiguration AuthConfiguration_NoAuthConfiguration { get; set; }
             public System.String OAuth2ClientCredentialConfiguration_RoleArn { get; set; }
             public System.String OAuth2ClientCredentialConfiguration_SecretArn { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String ApiSchema_Payload { get; set; }
+            public System.String S3_Bucket { get; set; }
+            public System.String S3_Key { get; set; }
+            public Amazon.QBusiness.APISchemaType CustomPluginConfiguration_ApiSchemaType { get; set; }
+            public System.String CustomPluginConfiguration_Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String ServerUrl { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
     /// Gets information about a workflow.
+    /// 
+    ///  
+    /// <para>
+    /// If a workflow is shared with you, you cannot export the workflow.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSWorkflow")]
     [OutputType("Amazon.Omics.Model.GetWorkflowResponse")]
@@ -77,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.Omics.WorkflowType")]
         public Amazon.Omics.WorkflowType Type { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowOwnerId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the workflow owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkflowOwnerId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -137,6 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             }
             #endif
             context.Type = this.Type;
+            context.WorkflowOwnerId = this.WorkflowOwnerId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -164,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
+            }
+            if (cmdletContext.WorkflowOwnerId != null)
+            {
+                request.WorkflowOwnerId = cmdletContext.WorkflowOwnerId;
             }
             
             CmdletOutput output;
@@ -229,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public List<System.String> Export { get; set; }
             public System.String Id { get; set; }
             public Amazon.Omics.WorkflowType Type { get; set; }
+            public System.String WorkflowOwnerId { get; set; }
             public System.Func<Amazon.Omics.Model.GetWorkflowResponse, GetOMICSWorkflowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

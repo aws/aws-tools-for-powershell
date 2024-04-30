@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.799.0",
+    "ProductVersion"    : "3.7.800.0",
     "CoreVersion"       : "3.7.303.24",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -947,7 +947,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.319.5",
+            "Version" : "3.7.320.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -1067,7 +1067,7 @@
             "InPreview"               : false
         },
         "FMS"                             : {
-            "Version" : "3.7.301.2",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -1155,7 +1155,7 @@
             "InPreview"               : false
         },
         "Signer"                          : {
-            "Version" : "3.7.300.84",
+            "Version" : "3.7.300.85",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -1203,7 +1203,7 @@
             "InPreview"               : false
         },
         "Route53Resolver"                 : {
-            "Version" : "3.7.302.52",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -1219,7 +1219,7 @@
             "InPreview"               : false
         },
         "QuickSight"                      : {
-            "Version" : "3.7.309.7",
+            "Version" : "3.7.310.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -1779,7 +1779,7 @@
             "InPreview"               : false
         },
         "CodeArtifact"                    : {
-            "Version" : "3.7.301.25",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -2219,7 +2219,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.305.33",
+            "Version" : "3.7.306.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -2411,7 +2411,7 @@
             "InPreview"               : false
         },
         "PinpointSMSVoiceV2"                  : {
-            "Version" : "3.7.301.80",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -2555,7 +2555,7 @@
             "InPreview"               : false
         },
         "ChimeSDKVoice"                       : {
-            "Version" : "3.7.300.84",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -2611,7 +2611,7 @@
             "InPreview"               : false
         },
         "Omics"                               : {
-            "Version" : "3.7.301.10",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"
@@ -2947,7 +2947,7 @@
             "InPreview"               : false
         },
         "QBusiness"                           : {
-            "Version" : "3.7.302.8",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.24"

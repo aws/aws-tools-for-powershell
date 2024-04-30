@@ -28,7 +28,7 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Retrieves the metadata for a share.
+    /// Retrieves the metadata for the specified resource share.
     /// </summary>
     [Cmdlet("Get", "OMICSShare")]
     [OutputType("Amazon.Omics.Model.ShareDetails")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ShareId
         /// <summary>
         /// <para>
-        /// <para> The generated ID for a share. </para>
+        /// <para>The ID of the share.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

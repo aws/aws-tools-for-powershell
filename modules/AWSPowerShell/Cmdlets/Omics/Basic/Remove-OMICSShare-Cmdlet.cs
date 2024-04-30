@@ -28,7 +28,9 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Deletes a share of an analytics store.
+    /// Deletes a resource share. If you are the resource owner, the subscriber will no longer
+    /// have access to the shared resource. If you are the subscriber, this operation deletes
+    /// your access to the share.
     /// </summary>
     [Cmdlet("Remove", "OMICSShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Omics.ShareStatus")]
@@ -45,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ShareId
         /// <summary>
         /// <para>
-        /// <para> The ID for the share request to be deleted. </para>
+        /// <para>The ID for the resource share to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

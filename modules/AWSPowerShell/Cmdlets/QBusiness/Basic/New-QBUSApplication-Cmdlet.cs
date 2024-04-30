@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
 {
     /// <summary>
     /// Creates an Amazon Q Business application.
+    /// 
+    ///  <note><para>
+    /// There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro
+    /// are also available in Amazon Q Business Lite. For information on what's included in
+    /// Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers">Amazon
+    /// Q Business tiers</a>. You must use the Amazon Q Business console to assign subscription
+    /// tiers to users.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "QBUSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QBusiness.Model.CreateApplicationResponse")]
@@ -110,14 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// CloudWatch logs and metrics.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
         #endregion
         
@@ -221,12 +222,6 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.QBusiness.Model.Tag>(this.Tag);

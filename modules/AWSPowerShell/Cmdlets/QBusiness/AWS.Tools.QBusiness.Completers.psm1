@@ -80,6 +80,16 @@ $QBUS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.QBusiness.APISchemaType
+        {
+            ($_ -eq "New-QBUSPlugin/CustomPluginConfiguration_ApiSchemaType") -Or
+            ($_ -eq "Update-QBUSPlugin/CustomPluginConfiguration_ApiSchemaType")
+        }
+        {
+            $v = "OPEN_API_V3"
+            break
+        }
+
         # Amazon.QBusiness.AttachmentsControlMode
         {
             ($_ -eq "New-QBUSApplication/AttachmentsConfiguration_AttachmentsControlMode") -Or
@@ -123,6 +133,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.IndexType
+        "New-QBUSIndex/Type"
+        {
+            $v = "ENTERPRISE","STARTER"
+            break
+        }
+
         # Amazon.QBusiness.MembershipType
         "Write-QBUSGroup/Type"
         {
@@ -154,7 +171,7 @@ $QBUS_Completers = {
         # Amazon.QBusiness.PluginType
         "New-QBUSPlugin/Type"
         {
-            $v = "JIRA","SALESFORCE","SERVICE_NOW","ZENDESK"
+            $v = "CUSTOM","JIRA","SALESFORCE","SERVICE_NOW","ZENDESK"
             break
         }
 
@@ -194,6 +211,7 @@ $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "ChatMode"=@("Set-QBUSChatSync")
     "CreatorModeConfiguration_CreatorModeControl"=@("Update-QBUSChatControlsConfiguration")
+    "CustomPluginConfiguration_ApiSchemaType"=@("New-QBUSPlugin","Update-QBUSPlugin")
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
@@ -202,7 +220,7 @@ $QBUS_map = @{
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
     "State"=@("Update-QBUSPlugin")
     "StatusFilter"=@("Get-QBUSDataSourceSyncJobList")
-    "Type"=@("New-QBUSPlugin","New-QBUSRetriever","Write-QBUSGroup")
+    "Type"=@("New-QBUSIndex","New-QBUSPlugin","New-QBUSRetriever","Write-QBUSGroup")
 }
 
 _awsArgumentCompleterRegistration $QBUS_Completers $QBUS_map

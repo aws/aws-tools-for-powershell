@@ -28,7 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Lists all shares associated with an account.
+    /// Retrieves the resource shares associated with an account. Use the filter parameter
+    /// to retrieve a specific subset of the shares.
     /// </summary>
     [Cmdlet("Get", "OMICSShareList")]
     [OutputType("Amazon.Omics.Model.ShareDetails")]
@@ -45,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Filter_ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Number (Arn) for an analytics store. </para>
+        /// <para>Filter based on the Amazon Resource Number (ARN) of the resource. You can specify
+        /// up to 10 values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ResourceOwner
         /// <summary>
         /// <para>
-        /// <para> The account that owns the analytics store shared. </para>
+        /// <para>The account that owns the resource shares.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,17 +75,28 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter Filter_Status
         /// <summary>
         /// <para>
-        /// <para> The status of an annotation store version. </para>
+        /// <para>Filter based on the resource status. You can specify up to 10 values.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] Filter_Status { get; set; }
         #endregion
         
+        #region Parameter Filter_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of resources to be filtered. You can specify one or more of the resource
+        /// types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] Filter_Type { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of shares to return in one page of results. </para>
+        /// <para>The maximum number of shares to return in one page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> Next token returned in the response of a previous ListReadSetUploadPartsRequest call.
-        /// Used to get the next page of results. </para>
+        /// <para>Next token returned in the response of a previous ListReadSetUploadPartsRequest call.
+        /// Used to get the next page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 context.Filter_Status = new List<System.String>(this.Filter_Status);
             }
+            if (this.Filter_Type != null)
+            {
+                context.Filter_Type = new List<System.String>(this.Filter_Type);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.ResourceOwner = this.ResourceOwner;
@@ -203,6 +220,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (requestFilter_filter_Status != null)
             {
                 request.Filter.Status = requestFilter_filter_Status;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Type = null;
+            if (cmdletContext.Filter_Type != null)
+            {
+                requestFilter_filter_Type = cmdletContext.Filter_Type;
+            }
+            if (requestFilter_filter_Type != null)
+            {
+                request.Filter.Type = requestFilter_filter_Type;
                 requestFilterIsNull = false;
             }
              // determine if request.Filter should be set to null
@@ -285,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         {
             public List<System.String> Filter_ResourceArn { get; set; }
             public List<System.String> Filter_Status { get; set; }
+            public List<System.String> Filter_Type { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Omics.ResourceOwner ResourceOwner { get; set; }

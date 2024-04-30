@@ -123,6 +123,22 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         public System.String FirewallDomainListId { get; set; }
         #endregion
         
+        #region Parameter FirewallDomainRedirectionAction
+        /// <summary>
+        /// <para>
+        /// <para> How you want the the rule to evaluate DNS redirection in the DNS redirection chain,
+        /// such as CNAME, DNAME, ot ALIAS. </para><para><c>Inspect_Redirection_Domain </c>(Default) inspects all domains in the redirection
+        /// chain. The individual domains in the redirection chain must be added to the allow
+        /// domain list.</para><para><c>Trust_Redirection_Domain </c> inspects only the first domain in the redirection
+        /// chain. You don't need to add the subsequent domains in the domain in the redirection
+        /// list to the domain alloww list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Route53Resolver.FirewallDomainRedirectionAction")]
+        public Amazon.Route53Resolver.FirewallDomainRedirectionAction FirewallDomainRedirectionAction { get; set; }
+        #endregion
+        
         #region Parameter FirewallRuleGroupId
         /// <summary>
         /// <para>
@@ -168,7 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         #region Parameter Qtype
         /// <summary>
         /// <para>
-        /// <para> The DNS query type you want the rule to evaluate. Allowed values are; </para><ul><li><para> A: Returns an IPv4 address.</para></li><li><para>AAAA: Returns an Ipv6 address.</para></li><li><para>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</para></li><li><para>CNAME: Returns another domain name.</para></li><li><para>DS: Record that identifies the DNSSEC signing key of a delegated zone.</para></li><li><para>MX: Specifies mail servers.</para></li><li><para>NAPTR: Regular-expression-based rewriting of domain names.</para></li><li><para>NS: Authoritative name servers.</para></li><li><para>PTR: Maps an IP address to a domain name.</para></li><li><para>SOA: Start of authority record for the zone.</para></li><li><para>SPF: Lists the servers authorized to send emails from a domain.</para></li><li><para>SRV: Application specific values that identify servers.</para></li><li><para>TXT: Verifies email senders and application-specific values.</para></li></ul>
+        /// <para> The DNS query type you want the rule to evaluate. Allowed values are; </para><ul><li><para> A: Returns an IPv4 address.</para></li><li><para>AAAA: Returns an Ipv6 address.</para></li><li><para>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</para></li><li><para>CNAME: Returns another domain name.</para></li><li><para>DS: Record that identifies the DNSSEC signing key of a delegated zone.</para></li><li><para>MX: Specifies mail servers.</para></li><li><para>NAPTR: Regular-expression-based rewriting of domain names.</para></li><li><para>NS: Authoritative name servers.</para></li><li><para>PTR: Maps an IP address to a domain name.</para></li><li><para>SOA: Start of authority record for the zone.</para></li><li><para>SPF: Lists the servers authorized to send emails from a domain.</para></li><li><para>SRV: Application specific values that identify servers.</para></li><li><para>TXT: Verifies email senders and application-specific values.</para></li><li><para>A query type you define by using the DNS type ID, for example 28 for AAAA. The values
+        /// must be defined as TYPENUMBER, where the NUMBER can be 1-65334, for example, TYPE28.
+        /// For more information, see <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List
+        /// of DNS record types</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -229,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 WriteWarning("You are passing $null as a value for parameter FirewallDomainListId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FirewallDomainRedirectionAction = this.FirewallDomainRedirectionAction;
             context.FirewallRuleGroupId = this.FirewallRuleGroupId;
             #if MODULAR
             if (this.FirewallRuleGroupId == null && ParameterWasBound(nameof(this.FirewallRuleGroupId)))
@@ -278,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             if (cmdletContext.FirewallDomainListId != null)
             {
                 request.FirewallDomainListId = cmdletContext.FirewallDomainListId;
+            }
+            if (cmdletContext.FirewallDomainRedirectionAction != null)
+            {
+                request.FirewallDomainRedirectionAction = cmdletContext.FirewallDomainRedirectionAction;
             }
             if (cmdletContext.FirewallRuleGroupId != null)
             {
@@ -362,6 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
             public System.Int32? BlockOverrideTtl { get; set; }
             public Amazon.Route53Resolver.BlockResponse BlockResponse { get; set; }
             public System.String FirewallDomainListId { get; set; }
+            public Amazon.Route53Resolver.FirewallDomainRedirectionAction FirewallDomainRedirectionAction { get; set; }
             public System.String FirewallRuleGroupId { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }

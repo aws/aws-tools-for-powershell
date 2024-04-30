@@ -28,7 +28,13 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    /// Updates one or more phone numbers.
+    /// Updates phone number product types, calling names, or phone number names. You can
+    /// update one attribute at a time for each <c>UpdatePhoneNumberRequestItem</c>. For example,
+    /// you can update the product type, the calling name, or phone name. 
+    /// 
+    ///  <note><para>
+    /// You cannot have a duplicate <c>phoneNumberId</c> in a request.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Group", "CHMVOUpdatePhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKVoice.Model.PhoneNumberError")]

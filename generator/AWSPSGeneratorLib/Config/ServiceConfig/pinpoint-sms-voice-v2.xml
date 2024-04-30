@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateProtectConfiguration" OutputProperty="*" Verb="Register" Noun="ProtectConfiguration" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateConfigurationSet" OutputProperty="*" Verb="New" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -36,6 +40,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePool" OutputProperty="*" Verb="New" Noun="Pool" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProtectConfiguration" OutputProperty="*" Verb="New" Noun="ProtectConfiguration" ShouldProcessTarget="DeletionProtectionEnabled" PipelineParameter="DeletionProtectionEnabled" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -59,6 +67,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAccountDefaultProtectConfiguration" OutputProperty="*" Verb="Remove" Noun="AccountDefaultProtectConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteConfigurationSet" OutputProperty="*" Verb="Remove" Noun="ConfigurationSet" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -79,6 +91,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMediaMessageSpendLimitOverride" OutputProperty="MonthlyLimit" Verb="Remove" Noun="MediaMessageSpendLimitOverride" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteOptedOutNumber" OutputProperty="*" Verb="Remove" Noun="OptedOutNumber" ShouldProcessTarget="OptOutListName" PipelineParameter="OptOutListName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -88,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePool" OutputProperty="*" Verb="Remove" Noun="Pool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProtectConfiguration" OutputProperty="*" Verb="Remove" Noun="ProtectConfiguration" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -147,6 +167,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeProtectConfigurations" OutputProperty="ProtectConfigurations" Verb="Get" Noun="ProtectConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRegistrationAttachments" OutputProperty="*" Verb="Get" Noun="RegistrationAttachment" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -191,7 +215,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateProtectConfiguration" OutputProperty="*" Verb="Unregister" Noun="ProtectConfiguration" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DiscardRegistrationVersion" OutputProperty="*" Verb="Close" Noun="RegistrationVersion" ShouldProcessTarget="RegistrationId" PipelineParameter="RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProtectConfigurationCountryRuleSet" OutputProperty="*" Verb="Get" Noun="ProtectConfigurationCountryRuleSet" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -239,6 +271,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SendMediaMessage" OutputProperty="MessageId" Verb="Send" Noun="MediaMessage" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="DestinationPhoneNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SendTextMessage" OutputProperty="*" Verb="Send" Noun="TextMessage" ShouldProcessTarget="DestinationPhoneNumber" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -247,11 +283,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SetAccountDefaultProtectConfiguration" OutputProperty="*" Verb="Set" Noun="AccountDefaultProtectConfiguration" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SetDefaultMessageType" OutputProperty="*" Verb="Set" Noun="DefaultMessageType" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SetDefaultSenderId" OutputProperty="*" Verb="Set" Noun="DefaultSenderId" ShouldProcessTarget="ConfigurationSetName" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetMediaMessageSpendLimitOverride" OutputProperty="MonthlyLimit" Verb="Set" Noun="MediaMessageSpendLimitOverride" ShouldProcessTarget="MonthlyLimit" PipelineParameter="MonthlyLimit" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -284,6 +328,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePool" OutputProperty="*" Verb="Update" Noun="Pool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProtectConfiguration" OutputProperty="*" Verb="Update" Noun="ProtectConfiguration" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateProtectConfigurationCountryRuleSet" OutputProperty="*" Verb="Update" Noun="ProtectConfigurationCountryRuleSet" ShouldProcessTarget="ProtectConfigurationId" PipelineParameter="ProtectConfigurationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

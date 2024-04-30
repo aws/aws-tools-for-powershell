@@ -227,6 +227,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.StorageType
+        "Start-OMICSRun/StorageType"
+        {
+            $v = "DYNAMIC","STATIC"
+            break
+        }
+
         # Amazon.Omics.StoreFormat
         "New-OMICSAnnotationStore/StoreFormat"
         {
@@ -298,6 +305,7 @@ $OMICS_map = @{
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
+    "StorageType"=@("Start-OMICSRun")
     "StoreFormat"=@("New-OMICSAnnotationStore")
     "TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
     "TsvVersionOptions_AnnotationType"=@("New-OMICSAnnotationStoreVersion")

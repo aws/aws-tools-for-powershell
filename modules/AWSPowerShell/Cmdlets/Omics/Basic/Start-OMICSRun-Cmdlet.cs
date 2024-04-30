@@ -33,9 +33,17 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// 
     ///  
     /// <para>
+    /// StartRun will not support re-run for a workflow that is shared with you.
+    /// </para><para>
     /// The total number of runs in your account is subject to a quota per Region. To avoid
     /// needing to delete runs manually, you can set the retention mode to <c>REMOVE</c>.
     /// Runs with this setting are deleted automatically when the run quoata is exceeded.
+    /// </para><para>
+    /// By default, the run uses STATIC storage. For STATIC storage, set the <c>storageCapacity</c>
+    /// field. You can set the storage type to DYNAMIC. You do not set <c>storageCapacity</c>,
+    /// because HealthOmics dynamically scales the storage up or down as required. For more
+    /// information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running
+    /// workflows</a> in the <i>AWS HealthOmics User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "OMICSRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -162,11 +170,25 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter StorageCapacity
         /// <summary>
         /// <para>
-        /// <para>A storage capacity for the run in gibibytes.</para>
+        /// <para>A storage capacity for the run in gibibytes. This field is not required if the storage
+        /// type is dynamic (the system ignores any value that you enter).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Int32? StorageCapacity { get; set; }
+        #endregion
+        
+        #region Parameter StorageType
+        /// <summary>
+        /// <para>
+        /// <para>The run's storage type. By default, the run uses STATIC storage type, which allocates
+        /// a fixed amount of storage. If you set the storage type to DYNAMIC, HealthOmics dynamically
+        /// scales the storage up or down, based on file system utilization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Omics.StorageType")]
+        public Amazon.Omics.StorageType StorageType { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -188,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String WorkflowId { get; set; }
+        #endregion
+        
+        #region Parameter WorkflowOwnerId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the workflow owner. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkflowOwnerId { get; set; }
         #endregion
         
         #region Parameter WorkflowType
@@ -280,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             context.RunGroupId = this.RunGroupId;
             context.RunId = this.RunId;
             context.StorageCapacity = this.StorageCapacity;
+            context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -289,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
                 }
             }
             context.WorkflowId = this.WorkflowId;
+            context.WorkflowOwnerId = this.WorkflowOwnerId;
             context.WorkflowType = this.WorkflowType;
             
             // allow further manipulation of loaded context prior to processing
@@ -350,6 +384,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             {
                 request.StorageCapacity = cmdletContext.StorageCapacity.Value;
             }
+            if (cmdletContext.StorageType != null)
+            {
+                request.StorageType = cmdletContext.StorageType;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -357,6 +395,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             if (cmdletContext.WorkflowId != null)
             {
                 request.WorkflowId = cmdletContext.WorkflowId;
+            }
+            if (cmdletContext.WorkflowOwnerId != null)
+            {
+                request.WorkflowOwnerId = cmdletContext.WorkflowOwnerId;
             }
             if (cmdletContext.WorkflowType != null)
             {
@@ -434,8 +476,10 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
             public System.String RunGroupId { get; set; }
             public System.String RunId { get; set; }
             public System.Int32? StorageCapacity { get; set; }
+            public Amazon.Omics.StorageType StorageType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String WorkflowId { get; set; }
+            public System.String WorkflowOwnerId { get; set; }
             public Amazon.Omics.WorkflowType WorkflowType { get; set; }
             public System.Func<Amazon.Omics.Model.StartRunResponse, StartOMICSRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

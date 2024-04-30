@@ -282,6 +282,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.PurchaseMode
+        "Update-QSSPICECapacityConfiguration/PurchaseMode"
+        {
+            $v = "AUTO_PURCHASE","MANUAL"
+            break
+        }
+
         # Amazon.QuickSight.RefreshInterval
         {
             ($_ -eq "New-QSRefreshSchedule/ScheduleFrequency_Interval") -Or
@@ -316,7 +323,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSRoleCustomPermission/Role")
         }
         {
-            $v = "ADMIN","AUTHOR","READER"
+            $v = "ADMIN","ADMIN_PRO","AUTHOR","AUTHOR_PRO","READER","READER_PRO"
             break
         }
 
@@ -426,7 +433,7 @@ $QS_Completers = {
             ($_ -eq "Register-QSUser/UserRole")
         }
         {
-            $v = "ADMIN","AUTHOR","READER","RESTRICTED_AUTHOR","RESTRICTED_READER"
+            $v = "ADMIN","ADMIN_PRO","AUTHOR","AUTHOR_PRO","READER","READER_PRO","RESTRICTED_AUTHOR","RESTRICTED_READER"
             break
         }
 
@@ -476,6 +483,7 @@ $QS_map = @{
     "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
@@ -709,6 +717,7 @@ $QS_SelectMap = @{
                "Update-QSPublicSharingSetting",
                "Update-QSRefreshSchedule",
                "Update-QSRoleCustomPermission",
+               "Update-QSSPICECapacityConfiguration",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",

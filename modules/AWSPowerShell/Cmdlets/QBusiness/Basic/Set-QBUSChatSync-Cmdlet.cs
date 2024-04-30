@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ChatMode
         /// <summary>
         /// <para>
-        /// <para>The chat modes available in an Amazon Q Business web experience.</para><ul><li><para><c>RETRIEVAL_MODE</c> - The default chat mode for an Amazon Q Business application.
+        /// <para>The chat modes available to an Amazon Q Business end user.</para><ul><li><para><c>RETRIEVAL_MODE</c> - The default chat mode for an Amazon Q Business application.
         /// When this mode is enabled, Amazon Q Business generates responses only from data sources
         /// connected to an Amazon Q Business application.</para></li><li><para><c>CREATOR_MODE</c> - By selecting this mode, users can choose to generate responses
         /// only from the LLM knowledge, without consulting connected data sources, for a chat
@@ -161,6 +161,16 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ChatModeConfiguration_PluginConfiguration_PluginId")]
         public System.String PluginConfiguration_PluginId { get; set; }
+        #endregion
+        
+        #region Parameter AuthChallengeResponse_ResponseMap
+        /// <summary>
+        /// <para>
+        /// <para>The mapping of key-value pairs in an authentication challenge response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AuthChallengeResponse_ResponseMap { get; set; }
         #endregion
         
         #region Parameter UserGroup
@@ -288,6 +298,14 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
                 context.Attachment = new List<Amazon.QBusiness.Model.AttachmentInput>(this.Attachment);
             }
             context.AttributeFilter = this.AttributeFilter;
+            if (this.AuthChallengeResponse_ResponseMap != null)
+            {
+                context.AuthChallengeResponse_ResponseMap = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AuthChallengeResponse_ResponseMap.Keys)
+                {
+                    context.AuthChallengeResponse_ResponseMap.Add((String)hashKey, (System.String)(this.AuthChallengeResponse_ResponseMap[hashKey]));
+                }
+            }
             context.ChatMode = this.ChatMode;
             context.PluginConfiguration_PluginId = this.PluginConfiguration_PluginId;
             context.ClientToken = this.ClientToken;
@@ -365,6 +383,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.AttributeFilter != null)
             {
                 request.AttributeFilter = cmdletContext.AttributeFilter;
+            }
+            
+             // populate AuthChallengeResponse
+            var requestAuthChallengeResponseIsNull = true;
+            request.AuthChallengeResponse = new Amazon.QBusiness.Model.AuthChallengeResponse();
+            Dictionary<System.String, System.String> requestAuthChallengeResponse_authChallengeResponse_ResponseMap = null;
+            if (cmdletContext.AuthChallengeResponse_ResponseMap != null)
+            {
+                requestAuthChallengeResponse_authChallengeResponse_ResponseMap = cmdletContext.AuthChallengeResponse_ResponseMap;
+            }
+            if (requestAuthChallengeResponse_authChallengeResponse_ResponseMap != null)
+            {
+                request.AuthChallengeResponse.ResponseMap = requestAuthChallengeResponse_authChallengeResponse_ResponseMap;
+                requestAuthChallengeResponseIsNull = false;
+            }
+             // determine if request.AuthChallengeResponse should be set to null
+            if (requestAuthChallengeResponseIsNull)
+            {
+                request.AuthChallengeResponse = null;
             }
             if (cmdletContext.ChatMode != null)
             {
@@ -495,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String ApplicationId { get; set; }
             public List<Amazon.QBusiness.Model.AttachmentInput> Attachment { get; set; }
             public Amazon.QBusiness.Model.AttributeFilter AttributeFilter { get; set; }
+            public Dictionary<System.String, System.String> AuthChallengeResponse_ResponseMap { get; set; }
             public Amazon.QBusiness.ChatMode ChatMode { get; set; }
             public System.String PluginConfiguration_PluginId { get; set; }
             public System.String ClientToken { get; set; }

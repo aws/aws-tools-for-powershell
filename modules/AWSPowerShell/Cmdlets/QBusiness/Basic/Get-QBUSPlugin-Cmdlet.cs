@@ -39,6 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     public partial class GetQBUSPluginCmdlet : AmazonQBusinessClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ApplicationId

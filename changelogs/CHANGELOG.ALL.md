@@ -1,4 +1,44 @@
-﻿### 4.1.568 (2024-04-29 20:56Z)
+﻿### 4.1.569 (2024-04-30 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.800.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Omics
+    * Modified cmdlet Get-OMICSShareList: added parameter Filter_Type.
+    * Modified cmdlet Get-OMICSWorkflow: added parameter WorkflowOwnerId.
+    * Modified cmdlet Start-OMICSRun: added parameters StorageType and WorkflowOwnerId.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Get-SMSVProtectConfiguration leveraging the DescribeProtectConfigurations service API.
+    * Added cmdlet Get-SMSVProtectConfigurationCountryRuleSet leveraging the GetProtectConfigurationCountryRuleSet service API.
+    * Added cmdlet New-SMSVProtectConfiguration leveraging the CreateProtectConfiguration service API.
+    * Added cmdlet Register-SMSVProtectConfiguration leveraging the AssociateProtectConfiguration service API.
+    * Added cmdlet Remove-SMSVAccountDefaultProtectConfiguration leveraging the DeleteAccountDefaultProtectConfiguration service API.
+    * Added cmdlet Remove-SMSVMediaMessageSpendLimitOverride leveraging the DeleteMediaMessageSpendLimitOverride service API.
+    * Added cmdlet Remove-SMSVProtectConfiguration leveraging the DeleteProtectConfiguration service API.
+    * Added cmdlet Send-SMSVMediaMessage leveraging the SendMediaMessage service API.
+    * Added cmdlet Set-SMSVAccountDefaultProtectConfiguration leveraging the SetAccountDefaultProtectConfiguration service API.
+    * Added cmdlet Set-SMSVMediaMessageSpendLimitOverride leveraging the SetMediaMessageSpendLimitOverride service API.
+    * Added cmdlet Unregister-SMSVProtectConfiguration leveraging the DisassociateProtectConfiguration service API.
+    * Added cmdlet Update-SMSVProtectConfiguration leveraging the UpdateProtectConfiguration service API.
+    * Added cmdlet Update-SMSVProtectConfigurationCountryRuleSet leveraging the UpdateProtectConfigurationCountryRuleSet service API.
+    * Modified cmdlet Send-SMSVTextMessage: added parameter ProtectConfigurationId.
+    * Modified cmdlet Send-SMSVVoiceMessage: added parameter ProtectConfigurationId.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSIndex: added parameter Type.
+    * Modified cmdlet New-QBUSPlugin: added parameters ApiSchema_Payload, AuthConfiguration_NoAuthConfiguration, CustomPluginConfiguration_ApiSchemaType, CustomPluginConfiguration_Description, S3_Bucket and S3_Key.
+    * Modified cmdlet Set-QBUSChatSync: added parameter AuthChallengeResponse_ResponseMap.
+    * Modified cmdlet Update-QBUSApplication: added parameter IdentityCenterInstanceArn.
+    * Modified cmdlet Update-QBUSPlugin: added parameters ApiSchema_Payload, AuthConfiguration_NoAuthConfiguration, CustomPluginConfiguration_ApiSchemaType, CustomPluginConfiguration_Description, S3_Bucket and S3_Key.
+    * Modified cmdlet Update-QBUSWebExperience: added parameter RoleArn.
+  * Amazon QuickSight
+    * Added cmdlet Update-QSSPICECapacityConfiguration leveraging the UpdateSPICECapacityConfiguration service API.
+    * Modified cmdlet New-QSAccountSubscription: added parameters AdminProGroup, AuthorProGroup and ReaderProGroup.
+    * Modified cmdlet New-QSEmbedUrlForAnonymousUser: added parameter GenerativeQnA_InitialTopicId.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameter GenerativeQnA_InitialTopicId.
+  * Amazon Route 53 Resolver
+    * Modified cmdlet Edit-R53RFirewallRule: added parameter FirewallDomainRedirectionAction.
+    * Modified cmdlet New-R53RFirewallRule: added parameter FirewallDomainRedirectionAction.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMTrainingJob: added parameter SessionChainingConfig_EnableSessionTagChaining.
+
+### 4.1.568 (2024-04-29 20:56Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.799.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Added cmdlet Remove-CCASField leveraging the DeleteField service API.

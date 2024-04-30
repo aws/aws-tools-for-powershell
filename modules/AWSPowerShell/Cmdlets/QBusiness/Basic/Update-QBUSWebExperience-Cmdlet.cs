@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String SamlConfiguration_RoleArn { get; set; }
         #endregion
         
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the role with permission to access the Amazon Q
+        /// Business web experience and required resources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
         #region Parameter SamplePromptsControlMode
         /// <summary>
         /// <para>
@@ -235,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.SamlConfiguration_RoleArn = this.SamlConfiguration_RoleArn;
             context.SamlConfiguration_UserGroupAttribute = this.SamlConfiguration_UserGroupAttribute;
             context.SamlConfiguration_UserIdAttribute = this.SamlConfiguration_UserIdAttribute;
+            context.RoleArn = this.RoleArn;
             context.SamplePromptsControlMode = this.SamplePromptsControlMode;
             context.Subtitle = this.Subtitle;
             context.Title = this.Title;
@@ -330,6 +342,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.AuthenticationConfiguration = null;
             }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
+            }
             if (cmdletContext.SamplePromptsControlMode != null)
             {
                 request.SamplePromptsControlMode = cmdletContext.SamplePromptsControlMode;
@@ -416,6 +432,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String SamlConfiguration_RoleArn { get; set; }
             public System.String SamlConfiguration_UserGroupAttribute { get; set; }
             public System.String SamlConfiguration_UserIdAttribute { get; set; }
+            public System.String RoleArn { get; set; }
             public Amazon.QBusiness.WebExperienceSamplePromptsControlMode SamplePromptsControlMode { get; set; }
             public System.String Subtitle { get; set; }
             public System.String Title { get; set; }

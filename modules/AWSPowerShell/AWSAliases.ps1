@@ -21478,6 +21478,8 @@ Set-Alias -Name PINE-UntagResource -Value Remove-PINEResourceTag
 Set-Alias -Name PINE-UpdateConfigurationSetEventDestination -Value Update-PINEConfigurationSetEventDestination
 Set-Alias -Name Associate-SMSVOriginationIdentity -Value Register-SMSVOriginationIdentity
 Set-Alias -Name SMSV-AssociateOriginationIdentity -Value Register-SMSVOriginationIdentity
+Set-Alias -Name Associate-SMSVProtectConfiguration -Value Register-SMSVProtectConfiguration
+Set-Alias -Name SMSV-AssociateProtectConfiguration -Value Register-SMSVProtectConfiguration
 Set-Alias -Name Create-SMSVConfigurationSet -Value New-SMSVConfigurationSet
 Set-Alias -Name SMSV-CreateConfigurationSet -Value New-SMSVConfigurationSet
 Set-Alias -Name Create-SMSVEventDestination -Value New-SMSVEventDestination
@@ -21486,6 +21488,8 @@ Set-Alias -Name Create-SMSVOptOutList -Value New-SMSVOptOutList
 Set-Alias -Name SMSV-CreateOptOutList -Value New-SMSVOptOutList
 Set-Alias -Name Create-SMSVPool -Value New-SMSVPool
 Set-Alias -Name SMSV-CreatePool -Value New-SMSVPool
+Set-Alias -Name Create-SMSVProtectConfiguration -Value New-SMSVProtectConfiguration
+Set-Alias -Name SMSV-CreateProtectConfiguration -Value New-SMSVProtectConfiguration
 Set-Alias -Name Create-SMSVRegistrationAssociation -Value New-SMSVRegistrationAssociation
 Set-Alias -Name SMSV-CreateRegistrationAssociation -Value New-SMSVRegistrationAssociation
 Set-Alias -Name Create-SMSVRegistration -Value New-SMSVRegistration
@@ -21496,6 +21500,8 @@ Set-Alias -Name Create-SMSVRegistrationVersion -Value New-SMSVRegistrationVersio
 Set-Alias -Name SMSV-CreateRegistrationVersion -Value New-SMSVRegistrationVersion
 Set-Alias -Name Create-SMSVVerifiedDestinationNumber -Value New-SMSVVerifiedDestinationNumber
 Set-Alias -Name SMSV-CreateVerifiedDestinationNumber -Value New-SMSVVerifiedDestinationNumber
+Set-Alias -Name Delete-SMSVAccountDefaultProtectConfiguration -Value Remove-SMSVAccountDefaultProtectConfiguration
+Set-Alias -Name SMSV-DeleteAccountDefaultProtectConfiguration -Value Remove-SMSVAccountDefaultProtectConfiguration
 Set-Alias -Name Delete-SMSVConfigurationSet -Value Remove-SMSVConfigurationSet
 Set-Alias -Name SMSV-DeleteConfigurationSet -Value Remove-SMSVConfigurationSet
 Set-Alias -Name Delete-SMSVDefaultMessageType -Value Remove-SMSVDefaultMessageType
@@ -21506,12 +21512,16 @@ Set-Alias -Name Delete-SMSVEventDestination -Value Remove-SMSVEventDestination
 Set-Alias -Name SMSV-DeleteEventDestination -Value Remove-SMSVEventDestination
 Set-Alias -Name Delete-SMSVKeyword -Value Remove-SMSVKeyword
 Set-Alias -Name SMSV-DeleteKeyword -Value Remove-SMSVKeyword
+Set-Alias -Name Delete-SMSVMediaMessageSpendLimitOverride -Value Remove-SMSVMediaMessageSpendLimitOverride
+Set-Alias -Name SMSV-DeleteMediaMessageSpendLimitOverride -Value Remove-SMSVMediaMessageSpendLimitOverride
 Set-Alias -Name Delete-SMSVOptedOutNumber -Value Remove-SMSVOptedOutNumber
 Set-Alias -Name SMSV-DeleteOptedOutNumber -Value Remove-SMSVOptedOutNumber
 Set-Alias -Name Delete-SMSVOptOutList -Value Remove-SMSVOptOutList
 Set-Alias -Name SMSV-DeleteOptOutList -Value Remove-SMSVOptOutList
 Set-Alias -Name Delete-SMSVPool -Value Remove-SMSVPool
 Set-Alias -Name SMSV-DeletePool -Value Remove-SMSVPool
+Set-Alias -Name Delete-SMSVProtectConfiguration -Value Remove-SMSVProtectConfiguration
+Set-Alias -Name SMSV-DeleteProtectConfiguration -Value Remove-SMSVProtectConfiguration
 Set-Alias -Name Delete-SMSVRegistration -Value Remove-SMSVRegistration
 Set-Alias -Name SMSV-DeleteRegistration -Value Remove-SMSVRegistration
 Set-Alias -Name Delete-SMSVRegistrationAttachment -Value Remove-SMSVRegistrationAttachment
@@ -21548,6 +21558,9 @@ Set-Alias -Name SMSV-DescribePhoneNumbers -Value Get-SMSVPhoneNumber
 Set-Alias -Name Describe-SMSVPools -Value Get-SMSVPool
 Set-Alias -Name Describe-SMSVPool -Value Get-SMSVPool
 Set-Alias -Name SMSV-DescribePools -Value Get-SMSVPool
+Set-Alias -Name Describe-SMSVProtectConfigurations -Value Get-SMSVProtectConfiguration
+Set-Alias -Name Describe-SMSVProtectConfiguration -Value Get-SMSVProtectConfiguration
+Set-Alias -Name SMSV-DescribeProtectConfigurations -Value Get-SMSVProtectConfiguration
 Set-Alias -Name Describe-SMSVRegistrationAttachments -Value Get-SMSVRegistrationAttachment
 Set-Alias -Name Describe-SMSVRegistrationAttachment -Value Get-SMSVRegistrationAttachment
 Set-Alias -Name SMSV-DescribeRegistrationAttachments -Value Get-SMSVRegistrationAttachment
@@ -21580,8 +21593,11 @@ Set-Alias -Name Describe-SMSVVerifiedDestinationNumber -Value Get-SMSVVerifiedDe
 Set-Alias -Name SMSV-DescribeVerifiedDestinationNumbers -Value Get-SMSVVerifiedDestinationNumber
 Set-Alias -Name Disassociate-SMSVOriginationIdentity -Value Unregister-SMSVOriginationIdentity
 Set-Alias -Name SMSV-DisassociateOriginationIdentity -Value Unregister-SMSVOriginationIdentity
+Set-Alias -Name Disassociate-SMSVProtectConfiguration -Value Unregister-SMSVProtectConfiguration
+Set-Alias -Name SMSV-DisassociateProtectConfiguration -Value Unregister-SMSVProtectConfiguration
 Set-Alias -Name Discard-SMSVRegistrationVersion -Value Close-SMSVRegistrationVersion
 Set-Alias -Name SMSV-DiscardRegistrationVersion -Value Close-SMSVRegistrationVersion
+Set-Alias -Name SMSV-GetProtectConfigurationCountryRuleSet -Value Get-SMSVProtectConfigurationCountryRuleSet
 Set-Alias -Name List-SMSVPoolOriginationIdentities -Value Get-SMSVPoolOriginationIdentityList
 Set-Alias -Name List-SMSVPoolOriginationIdentityList -Value Get-SMSVPoolOriginationIdentityList
 Set-Alias -Name SMSV-ListPoolOriginationIdentities -Value Get-SMSVPoolOriginationIdentityList
@@ -21604,10 +21620,13 @@ Set-Alias -Name Request-SMSVPhoneNumber -Value New-SMSVPhoneNumber
 Set-Alias -Name SMSV-RequestPhoneNumber -Value New-SMSVPhoneNumber
 Set-Alias -Name SMSV-RequestSenderId -Value Request-SMSVSenderId
 Set-Alias -Name SMSV-SendDestinationNumberVerificationCode -Value Send-SMSVDestinationNumberVerificationCode
+Set-Alias -Name SMSV-SendMediaMessage -Value Send-SMSVMediaMessage
 Set-Alias -Name SMSV-SendTextMessage -Value Send-SMSVTextMessage
 Set-Alias -Name SMSV-SendVoiceMessage -Value Send-SMSVVoiceMessage
+Set-Alias -Name SMSV-SetAccountDefaultProtectConfiguration -Value Set-SMSVAccountDefaultProtectConfiguration
 Set-Alias -Name SMSV-SetDefaultMessageType -Value Set-SMSVDefaultMessageType
 Set-Alias -Name SMSV-SetDefaultSenderId -Value Set-SMSVDefaultSenderId
+Set-Alias -Name SMSV-SetMediaMessageSpendLimitOverride -Value Set-SMSVMediaMessageSpendLimitOverride
 Set-Alias -Name SMSV-SetTextMessageSpendLimitOverride -Value Set-SMSVTextMessageSpendLimitOverride
 Set-Alias -Name SMSV-SetVoiceMessageSpendLimitOverride -Value Set-SMSVVoiceMessageSpendLimitOverride
 Set-Alias -Name SMSV-SubmitRegistrationVersion -Value Submit-SMSVRegistrationVersion
@@ -21616,6 +21635,8 @@ Set-Alias -Name SMSV-UntagResource -Value Remove-SMSVResourceTag
 Set-Alias -Name SMSV-UpdateEventDestination -Value Update-SMSVEventDestination
 Set-Alias -Name SMSV-UpdatePhoneNumber -Value Update-SMSVPhoneNumber
 Set-Alias -Name SMSV-UpdatePool -Value Update-SMSVPool
+Set-Alias -Name SMSV-UpdateProtectConfiguration -Value Update-SMSVProtectConfiguration
+Set-Alias -Name SMSV-UpdateProtectConfigurationCountryRuleSet -Value Update-SMSVProtectConfigurationCountryRuleSet
 Set-Alias -Name SMSV-UpdateSenderId -Value Update-SMSVSenderId
 Set-Alias -Name Verify-SMSVDestinationNumber -Value Confirm-SMSVDestinationNumber
 Set-Alias -Name SMSV-VerifyDestinationNumber -Value Confirm-SMSVDestinationNumber
@@ -22478,6 +22499,7 @@ Set-Alias -Name Update-QSPublicSharingSettings -Value Update-QSPublicSharingSett
 Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdateRefreshSchedule -Value Update-QSRefreshSchedule
 Set-Alias -Name QS-UpdateRoleCustomPermission -Value Update-QSRoleCustomPermission
+Set-Alias -Name QS-UpdateSPICECapacityConfiguration -Value Update-QSSPICECapacityConfiguration
 Set-Alias -Name QS-UpdateTemplateAlias -Value Update-QSTemplateAlias
 Set-Alias -Name QS-UpdateTemplate -Value Update-QSTemplate
 Set-Alias -Name Update-QSTemplatePermissions -Value Update-QSTemplatePermission

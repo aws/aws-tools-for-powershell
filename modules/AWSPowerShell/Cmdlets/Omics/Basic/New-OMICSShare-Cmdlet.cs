@@ -28,8 +28,20 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates a share offer that can be accepted outside the account by a subscriber. The
-    /// share is created by the owner and accepted by the principal subscriber.
+    /// Creates a cross-account shared resource. The resource owner makes an offer to share
+    /// the resource with the principal subscriber (an AWS user with a different account than
+    /// the resource owner).
+    /// 
+    ///  
+    /// <para>
+    /// The following resources support cross-account sharing:
+    /// </para><ul><li><para>
+    /// Healthomics variant stores
+    /// </para></li><li><para>
+    /// Healthomics annotation stores
+    /// </para></li><li><para>
+    /// Private workflows
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "OMICSShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateShareResponse")]
@@ -45,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter PrincipalSubscriber
         /// <summary>
         /// <para>
-        /// <para> The principal subscriber is the account being given access to the analytics store
-        /// data through the share offer. </para>
+        /// <para>The principal subscriber is the account being offered shared access to the resource.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para> The resource ARN for the analytics store to be shared. </para>
+        /// <para>The ARN of the resource to be shared.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter ShareName
         /// <summary>
         /// <para>
-        /// <para> A name given to the share. </para>
+        /// <para>A name that the owner defines for the share.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

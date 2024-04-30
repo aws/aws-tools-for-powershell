@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CA
     /// Returns the endpoint of a repository for a specific package format. A repository
     /// has one endpoint for each package format: 
     /// 
-    ///  <ul><li><para><c>generic</c></para></li><li><para><c>maven</c></para></li><li><para><c>npm</c></para></li><li><para><c>nuget</c></para></li><li><para><c>pypi</c></para></li><li><para><c>swift</c></para></li></ul>
+    ///  <ul><li><para><c>generic</c></para></li><li><para><c>maven</c></para></li><li><para><c>npm</c></para></li><li><para><c>nuget</c></para></li><li><para><c>pypi</c></para></li><li><para><c>ruby</c></para></li><li><para><c>swift</c></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CARepositoryEndpoint")]
     [OutputType("System.String")]

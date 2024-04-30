@@ -169,6 +169,16 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.String OriginationIdentity { get; set; }
         #endregion
         
+        #region Parameter ProtectConfigurationId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the protect configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProtectConfigurationId { get; set; }
+        #endregion
+        
         #region Parameter TimeToLive
         /// <summary>
         /// <para>
@@ -251,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             context.MessageBody = this.MessageBody;
             context.MessageType = this.MessageType;
             context.OriginationIdentity = this.OriginationIdentity;
+            context.ProtectConfigurationId = this.ProtectConfigurationId;
             context.TimeToLive = this.TimeToLive;
             
             // allow further manipulation of loaded context prior to processing
@@ -307,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.OriginationIdentity != null)
             {
                 request.OriginationIdentity = cmdletContext.OriginationIdentity;
+            }
+            if (cmdletContext.ProtectConfigurationId != null)
+            {
+                request.ProtectConfigurationId = cmdletContext.ProtectConfigurationId;
             }
             if (cmdletContext.TimeToLive != null)
             {
@@ -383,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String MessageBody { get; set; }
             public Amazon.PinpointSMSVoiceV2.MessageType MessageType { get; set; }
             public System.String OriginationIdentity { get; set; }
+            public System.String ProtectConfigurationId { get; set; }
             public System.Int32? TimeToLive { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.SendTextMessageResponse, SendSMSVTextMessageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

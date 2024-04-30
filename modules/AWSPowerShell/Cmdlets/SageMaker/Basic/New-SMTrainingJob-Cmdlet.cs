@@ -209,6 +209,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Boolean? RemoteDebugConfig_EnableRemoteDebug { get; set; }
         #endregion
         
+        #region Parameter SessionChainingConfig_EnableSessionTagChaining
+        /// <summary>
+        /// <para>
+        /// <para>Set to <c>True</c> to allow SageMaker to extract session tags from a training job
+        /// creation role and reuse these tags when assuming the training job execution role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SessionChainingConfig_EnableSessionTagChaining { get; set; }
+        #endregion
+        
         #region Parameter Environment
         /// <summary>
         /// <para>
@@ -755,6 +766,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.SessionChainingConfig_EnableSessionTagChaining = this.SessionChainingConfig_EnableSessionTagChaining;
             context.StoppingCondition_MaxPendingTimeInSecond = this.StoppingCondition_MaxPendingTimeInSecond;
             context.StoppingCondition_MaxRuntimeInSecond = this.StoppingCondition_MaxRuntimeInSecond;
             context.StoppingCondition_MaxWaitTimeInSecond = this.StoppingCondition_MaxWaitTimeInSecond;
@@ -1077,6 +1089,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.RoleArn = cmdletContext.RoleArn;
             }
             
+             // populate SessionChainingConfig
+            var requestSessionChainingConfigIsNull = true;
+            request.SessionChainingConfig = new Amazon.SageMaker.Model.SessionChainingConfig();
+            System.Boolean? requestSessionChainingConfig_sessionChainingConfig_EnableSessionTagChaining = null;
+            if (cmdletContext.SessionChainingConfig_EnableSessionTagChaining != null)
+            {
+                requestSessionChainingConfig_sessionChainingConfig_EnableSessionTagChaining = cmdletContext.SessionChainingConfig_EnableSessionTagChaining.Value;
+            }
+            if (requestSessionChainingConfig_sessionChainingConfig_EnableSessionTagChaining != null)
+            {
+                request.SessionChainingConfig.EnableSessionTagChaining = requestSessionChainingConfig_sessionChainingConfig_EnableSessionTagChaining.Value;
+                requestSessionChainingConfigIsNull = false;
+            }
+             // determine if request.SessionChainingConfig should be set to null
+            if (requestSessionChainingConfigIsNull)
+            {
+                request.SessionChainingConfig = null;
+            }
+            
              // populate StoppingCondition
             var requestStoppingConditionIsNull = true;
             request.StoppingCondition = new Amazon.SageMaker.Model.StoppingCondition();
@@ -1271,6 +1302,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.Model.ResourceConfig ResourceConfig { get; set; }
             public System.Int32? RetryStrategy_MaximumRetryAttempt { get; set; }
             public System.String RoleArn { get; set; }
+            public System.Boolean? SessionChainingConfig_EnableSessionTagChaining { get; set; }
             public System.Int32? StoppingCondition_MaxPendingTimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxRuntimeInSecond { get; set; }
             public System.Int32? StoppingCondition_MaxWaitTimeInSecond { get; set; }

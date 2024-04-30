@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter IdentityCenterInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) of the IAM Identity Center instance you are either
+        /// creating for—or connecting to—your Amazon Q Business application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdentityCenterInstanceArn { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -173,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.AttachmentsConfiguration_AttachmentsControlMode = this.AttachmentsConfiguration_AttachmentsControlMode;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
+            context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
             context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -220,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
+            }
+            if (cmdletContext.IdentityCenterInstanceArn != null)
+            {
+                request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -290,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public Amazon.QBusiness.AttachmentsControlMode AttachmentsConfiguration_AttachmentsControlMode { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
+            public System.String IdentityCenterInstanceArn { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.QBusiness.Model.UpdateApplicationResponse, UpdateQBUSApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

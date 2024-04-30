@@ -11992,7 +11992,7 @@ $CA_Completers = {
             ($_ -eq "Write-CAPackageOriginConfiguration/Format")
         }
         {
-            $v = "generic","maven","npm","nuget","pypi","swift"
+            $v = "generic","maven","npm","nuget","pypi","ruby","swift"
             break
         }
 
@@ -48350,6 +48350,13 @@ $OMICS_Completers = {
             break
         }
 
+        # Amazon.Omics.StorageType
+        "Start-OMICSRun/StorageType"
+        {
+            $v = "DYNAMIC","STATIC"
+            break
+        }
+
         # Amazon.Omics.StoreFormat
         "New-OMICSAnnotationStore/StoreFormat"
         {
@@ -48421,6 +48428,7 @@ $OMICS_map = @{
     "SourceFileType"=@("New-OMICSMultipartReadSetUpload")
     "SseConfig_Type"=@("New-OMICSAnnotationStore","New-OMICSReferenceStore","New-OMICSSequenceStore","New-OMICSVariantStore")
     "Status"=@("Get-OMICSRunList","Get-OMICSRunTaskList")
+    "StorageType"=@("Start-OMICSRun")
     "StoreFormat"=@("New-OMICSAnnotationStore")
     "TsvStoreOptions_AnnotationType"=@("New-OMICSAnnotationStore")
     "TsvVersionOptions_AnnotationType"=@("New-OMICSAnnotationStoreVersion")
@@ -51753,6 +51761,16 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.NumberCapability
+        {
+            ($_ -eq "Get-SMSVProtectConfigurationCountryRuleSet/NumberCapability") -Or
+            ($_ -eq "Update-SMSVProtectConfigurationCountryRuleSet/NumberCapability")
+        }
+        {
+            $v = "MMS","SMS","VOICE"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.RequestableNumberType
         "New-SMSVPhoneNumber/NumberType"
         {
@@ -51794,6 +51812,7 @@ $SMSV_map = @{
     "LanguageCode"=@("Send-SMSVDestinationNumberVerificationCode")
     "MessageBodyTextType"=@("Send-SMSVVoiceMessage")
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
+    "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
     "NumberType"=@("New-SMSVPhoneNumber")
     "VerificationChannel"=@("Send-SMSVDestinationNumberVerificationCode")
     "VoiceId"=@("Send-SMSVVoiceMessage")
@@ -51850,23 +51869,28 @@ $SMSV_SelectCompleters = {
 
 $SMSV_SelectMap = @{
     "Select"=@("Register-SMSVOriginationIdentity",
+               "Register-SMSVProtectConfiguration",
                "New-SMSVConfigurationSet",
                "New-SMSVEventDestination",
                "New-SMSVOptOutList",
                "New-SMSVPool",
+               "New-SMSVProtectConfiguration",
                "New-SMSVRegistration",
                "New-SMSVRegistrationAssociation",
                "New-SMSVRegistrationAttachment",
                "New-SMSVRegistrationVersion",
                "New-SMSVVerifiedDestinationNumber",
+               "Remove-SMSVAccountDefaultProtectConfiguration",
                "Remove-SMSVConfigurationSet",
                "Remove-SMSVDefaultMessageType",
                "Remove-SMSVDefaultSenderId",
                "Remove-SMSVEventDestination",
                "Remove-SMSVKeyword",
+               "Remove-SMSVMediaMessageSpendLimitOverride",
                "Remove-SMSVOptedOutNumber",
                "Remove-SMSVOptOutList",
                "Remove-SMSVPool",
+               "Remove-SMSVProtectConfiguration",
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
@@ -51881,6 +51905,7 @@ $SMSV_SelectMap = @{
                "Get-SMSVOptOutList",
                "Get-SMSVPhoneNumber",
                "Get-SMSVPool",
+               "Get-SMSVProtectConfiguration",
                "Get-SMSVRegistrationAttachment",
                "Get-SMSVRegistrationFieldDefinition",
                "Get-SMSVRegistrationFieldValue",
@@ -51892,7 +51917,9 @@ $SMSV_SelectMap = @{
                "Get-SMSVSpendLimit",
                "Get-SMSVVerifiedDestinationNumber",
                "Unregister-SMSVOriginationIdentity",
+               "Unregister-SMSVProtectConfiguration",
                "Close-SMSVRegistrationVersion",
+               "Get-SMSVProtectConfigurationCountryRuleSet",
                "Get-SMSVPoolOriginationIdentityList",
                "Get-SMSVRegistrationAssociationList",
                "Get-SMSVResourceTagList",
@@ -51904,10 +51931,13 @@ $SMSV_SelectMap = @{
                "New-SMSVPhoneNumber",
                "Request-SMSVSenderId",
                "Send-SMSVDestinationNumberVerificationCode",
+               "Send-SMSVMediaMessage",
                "Send-SMSVTextMessage",
                "Send-SMSVVoiceMessage",
+               "Set-SMSVAccountDefaultProtectConfiguration",
                "Set-SMSVDefaultMessageType",
                "Set-SMSVDefaultSenderId",
+               "Set-SMSVMediaMessageSpendLimitOverride",
                "Set-SMSVTextMessageSpendLimitOverride",
                "Set-SMSVVoiceMessageSpendLimitOverride",
                "Submit-SMSVRegistrationVersion",
@@ -51916,6 +51946,8 @@ $SMSV_SelectMap = @{
                "Update-SMSVEventDestination",
                "Update-SMSVPhoneNumber",
                "Update-SMSVPool",
+               "Update-SMSVProtectConfiguration",
+               "Update-SMSVProtectConfigurationCountryRuleSet",
                "Update-SMSVSenderId",
                "Confirm-SMSVDestinationNumber")
 }
@@ -52851,6 +52883,16 @@ $QBUS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.QBusiness.APISchemaType
+        {
+            ($_ -eq "New-QBUSPlugin/CustomPluginConfiguration_ApiSchemaType") -Or
+            ($_ -eq "Update-QBUSPlugin/CustomPluginConfiguration_ApiSchemaType")
+        }
+        {
+            $v = "OPEN_API_V3"
+            break
+        }
+
         # Amazon.QBusiness.AttachmentsControlMode
         {
             ($_ -eq "New-QBUSApplication/AttachmentsConfiguration_AttachmentsControlMode") -Or
@@ -52894,6 +52936,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.IndexType
+        "New-QBUSIndex/Type"
+        {
+            $v = "ENTERPRISE","STARTER"
+            break
+        }
+
         # Amazon.QBusiness.MembershipType
         "Write-QBUSGroup/Type"
         {
@@ -52925,7 +52974,7 @@ $QBUS_Completers = {
         # Amazon.QBusiness.PluginType
         "New-QBUSPlugin/Type"
         {
-            $v = "JIRA","SALESFORCE","SERVICE_NOW","ZENDESK"
+            $v = "CUSTOM","JIRA","SALESFORCE","SERVICE_NOW","ZENDESK"
             break
         }
 
@@ -52965,6 +53014,7 @@ $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "ChatMode"=@("Set-QBUSChatSync")
     "CreatorModeConfiguration_CreatorModeControl"=@("Update-QBUSChatControlsConfiguration")
+    "CustomPluginConfiguration_ApiSchemaType"=@("New-QBUSPlugin","Update-QBUSPlugin")
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
@@ -52973,7 +53023,7 @@ $QBUS_map = @{
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
     "State"=@("Update-QBUSPlugin")
     "StatusFilter"=@("Get-QBUSDataSourceSyncJobList")
-    "Type"=@("New-QBUSPlugin","New-QBUSRetriever","Write-QBUSGroup")
+    "Type"=@("New-QBUSIndex","New-QBUSPlugin","New-QBUSRetriever","Write-QBUSGroup")
 }
 
 _awsArgumentCompleterRegistration $QBUS_Completers $QBUS_map
@@ -53647,6 +53697,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.PurchaseMode
+        "Update-QSSPICECapacityConfiguration/PurchaseMode"
+        {
+            $v = "AUTO_PURCHASE","MANUAL"
+            break
+        }
+
         # Amazon.QuickSight.RefreshInterval
         {
             ($_ -eq "New-QSRefreshSchedule/ScheduleFrequency_Interval") -Or
@@ -53681,7 +53738,7 @@ $QS_Completers = {
             ($_ -eq "Update-QSRoleCustomPermission/Role")
         }
         {
-            $v = "ADMIN","AUTHOR","READER"
+            $v = "ADMIN","ADMIN_PRO","AUTHOR","AUTHOR_PRO","READER","READER_PRO"
             break
         }
 
@@ -53791,7 +53848,7 @@ $QS_Completers = {
             ($_ -eq "Register-QSUser/UserRole")
         }
         {
-            $v = "ADMIN","AUTHOR","READER","RESTRICTED_AUTHOR","RESTRICTED_READER"
+            $v = "ADMIN","ADMIN_PRO","AUTHOR","AUTHOR_PRO","READER","READER_PRO","RESTRICTED_AUTHOR","RESTRICTED_READER"
             break
         }
 
@@ -53841,6 +53898,7 @@ $QS_map = @{
     "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
@@ -54074,6 +54132,7 @@ $QS_SelectMap = @{
                "Update-QSPublicSharingSetting",
                "Update-QSRefreshSchedule",
                "Update-QSRoleCustomPermission",
+               "Update-QSSPICECapacityConfiguration",
                "Update-QSTemplate",
                "Update-QSTemplateAlias",
                "Update-QSTemplatePermission",
@@ -57205,6 +57264,16 @@ $R53R_Completers = {
             break
         }
 
+        # Amazon.Route53Resolver.FirewallDomainRedirectionAction
+        {
+            ($_ -eq "Edit-R53RFirewallRule/FirewallDomainRedirectionAction") -Or
+            ($_ -eq "New-R53RFirewallRule/FirewallDomainRedirectionAction")
+        }
+        {
+            $v = "INSPECT_REDIRECTION_DOMAIN","TRUST_REDIRECTION_DOMAIN"
+            break
+        }
+
         # Amazon.Route53Resolver.FirewallDomainUpdateOperation
         "Edit-R53RFirewallDomain/Operation"
         {
@@ -57291,6 +57360,7 @@ $R53R_map = @{
     "BlockOverrideDnsType"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "BlockResponse"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "Direction"=@("New-R53RResolverEndpoint")
+    "FirewallDomainRedirectionAction"=@("Edit-R53RFirewallRule","New-R53RFirewallRule")
     "FirewallFailOpen"=@("Edit-R53RFirewallConfig")
     "MutationProtection"=@("Edit-R53RFirewallRuleGroupAssociation","New-R53RFirewallRuleGroupAssociation")
     "Operation"=@("Edit-R53RFirewallDomain","Import-R53RFirewallDomainList")

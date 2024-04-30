@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
     /// Gets information about a workflow run.
+    /// 
+    ///  
+    /// <para>
+    /// If a workflow is shared with you, you cannot export information about the run.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "OMICSRun")]
     [OutputType("Amazon.Omics.Model.GetRunResponse")]

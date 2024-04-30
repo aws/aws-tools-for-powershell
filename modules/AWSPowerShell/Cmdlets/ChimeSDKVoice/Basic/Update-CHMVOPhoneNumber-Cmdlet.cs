@@ -28,9 +28,10 @@ using Amazon.ChimeSDKVoice.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMVO
 {
     /// <summary>
-    /// Updates phone number details, such as product type or calling name, for the specified
-    /// phone number ID. You can update one phone number detail at a time. For example, you
-    /// can update either the product type or the calling name in one action.
+    /// Updates phone number details, such as product type, calling name, or phone number
+    /// name for the specified phone number ID. You can update one phone number detail at
+    /// a time. For example, you can update either the product type, calling name, or phone
+    /// number name in one action.
     /// 
     ///  
     /// <para>
@@ -70,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Specifies the name assigned to one or more phone numbers.</para>
+        /// <para>Specifies the updated name assigned to one or more phone numbers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

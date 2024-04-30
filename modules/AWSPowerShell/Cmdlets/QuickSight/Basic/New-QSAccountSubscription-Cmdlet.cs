@@ -103,8 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// <summary>
         /// <para>
         /// <para>The admin group associated with your Active Directory or IAM Identity Center account.
-        /// This field is required if <c>ACTIVE_DIRECTORY</c> or <c>IAM_IDENTITY_CENTER</c> is
-        /// the selected authentication method of the new Amazon QuickSight account.</para><para>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// Either this field or the <c>AdminProGroup</c> field is required if <c>ACTIVE_DIRECTORY</c>
+        /// or <c>IAM_IDENTITY_CENTER</c> is the selected authentication method of the new Amazon
+        /// QuickSight account.</para><para>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
         /// IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
         /// User Guide. For more information about using Active Directory in Amazon QuickSight,
         /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
@@ -114,6 +115,24 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] AdminGroup { get; set; }
+        #endregion
+        
+        #region Parameter AdminProGroup
+        /// <summary>
+        /// <para>
+        /// <para>The admin pro group associated with your Active Directory or IAM Identity Center account.
+        /// Either this field or the <c>AdminGroup</c> field is required if <c>ACTIVE_DIRECTORY</c>
+        /// or <c>IAM_IDENTITY_CENTER</c> is the selected authentication method of the new Amazon
+        /// QuickSight account.</para><para>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+        /// User Guide. For more information about using Active Directory in Amazon QuickSight,
+        /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+        /// User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AdminProGroup { get; set; }
         #endregion
         
         #region Parameter AuthenticationMethod
@@ -148,6 +167,22 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] AuthorGroup { get; set; }
+        #endregion
+        
+        #region Parameter AuthorProGroup
+        /// <summary>
+        /// <para>
+        /// <para>The author pro group associated with your Active Directory or IAM Identity Center
+        /// account.</para><para>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+        /// User Guide. For more information about using Active Directory in Amazon QuickSight,
+        /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+        /// User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AuthorProGroup { get; set; }
         #endregion
         
         #region Parameter AwsAccountId
@@ -197,13 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// can choose from <c>ENTERPRISE</c> or <c>ENTERPRISE_AND_Q</c>.</para><para>If you choose <c>ENTERPRISE_AND_Q</c>, the following parameters are required:</para><ul><li><para><c>FirstName</c></para></li><li><para><c>LastName</c></para></li><li><para><c>EmailAddress</c></para></li><li><para><c>ContactNumber</c></para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [AWSConstantClassSource("Amazon.QuickSight.Edition")]
         public Amazon.QuickSight.Edition Edition { get; set; }
         #endregion
@@ -285,6 +314,22 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String[] ReaderGroup { get; set; }
+        #endregion
+        
+        #region Parameter ReaderProGroup
+        /// <summary>
+        /// <para>
+        /// <para>The reader pro group associated with your Active Directory or IAM Identity Center
+        /// account.</para><para>For more information about using IAM Identity Center in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sec-identity-management-identity-center.html">Using
+        /// IAM Identity Center with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+        /// User Guide. For more information about using Active Directory in Amazon QuickSight,
+        /// see <a href="https://docs.aws.amazon.com/quicksight/latest/user/aws-directory-service.html">Using
+        /// Active Directory with Amazon QuickSight Enterprise Edition</a> in the Amazon QuickSight
+        /// User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ReaderProGroup { get; set; }
         #endregion
         
         #region Parameter Realm
@@ -373,6 +418,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.AdminGroup = new List<System.String>(this.AdminGroup);
             }
+            if (this.AdminProGroup != null)
+            {
+                context.AdminProGroup = new List<System.String>(this.AdminProGroup);
+            }
             context.AuthenticationMethod = this.AuthenticationMethod;
             #if MODULAR
             if (this.AuthenticationMethod == null && ParameterWasBound(nameof(this.AuthenticationMethod)))
@@ -384,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.AuthorGroup = new List<System.String>(this.AuthorGroup);
             }
+            if (this.AuthorProGroup != null)
+            {
+                context.AuthorProGroup = new List<System.String>(this.AuthorProGroup);
+            }
             context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
             if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
@@ -394,12 +447,6 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.ContactNumber = this.ContactNumber;
             context.DirectoryId = this.DirectoryId;
             context.Edition = this.Edition;
-            #if MODULAR
-            if (this.Edition == null && ParameterWasBound(nameof(this.Edition)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Edition which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.EmailAddress = this.EmailAddress;
             context.FirstName = this.FirstName;
             context.IAMIdentityCenterInstanceArn = this.IAMIdentityCenterInstanceArn;
@@ -414,6 +461,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.ReaderGroup != null)
             {
                 context.ReaderGroup = new List<System.String>(this.ReaderGroup);
+            }
+            if (this.ReaderProGroup != null)
+            {
+                context.ReaderProGroup = new List<System.String>(this.ReaderProGroup);
             }
             context.Realm = this.Realm;
             
@@ -444,6 +495,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 request.AdminGroup = cmdletContext.AdminGroup;
             }
+            if (cmdletContext.AdminProGroup != null)
+            {
+                request.AdminProGroup = cmdletContext.AdminProGroup;
+            }
             if (cmdletContext.AuthenticationMethod != null)
             {
                 request.AuthenticationMethod = cmdletContext.AuthenticationMethod;
@@ -451,6 +506,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.AuthorGroup != null)
             {
                 request.AuthorGroup = cmdletContext.AuthorGroup;
+            }
+            if (cmdletContext.AuthorProGroup != null)
+            {
+                request.AuthorProGroup = cmdletContext.AuthorProGroup;
             }
             if (cmdletContext.AwsAccountId != null)
             {
@@ -491,6 +550,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (cmdletContext.ReaderGroup != null)
             {
                 request.ReaderGroup = cmdletContext.ReaderGroup;
+            }
+            if (cmdletContext.ReaderProGroup != null)
+            {
+                request.ReaderProGroup = cmdletContext.ReaderProGroup;
             }
             if (cmdletContext.Realm != null)
             {
@@ -560,8 +623,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String AccountName { get; set; }
             public System.String ActiveDirectoryName { get; set; }
             public List<System.String> AdminGroup { get; set; }
+            public List<System.String> AdminProGroup { get; set; }
             public Amazon.QuickSight.AuthenticationMethodOption AuthenticationMethod { get; set; }
             public List<System.String> AuthorGroup { get; set; }
+            public List<System.String> AuthorProGroup { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.String ContactNumber { get; set; }
             public System.String DirectoryId { get; set; }
@@ -572,6 +637,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String LastName { get; set; }
             public System.String NotificationEmail { get; set; }
             public List<System.String> ReaderGroup { get; set; }
+            public List<System.String> ReaderProGroup { get; set; }
             public System.String Realm { get; set; }
             public System.Func<Amazon.QuickSight.Model.CreateAccountSubscriptionResponse, NewQSAccountSubscriptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

@@ -107,6 +107,19 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public Amazon.QBusiness.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The index type that's suitable for your needs. For more information on what's included
+        /// in each type of index or index tier, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers">Amazon
+        /// Q Business tiers</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.IndexType")]
+        public Amazon.QBusiness.IndexType Type { get; set; }
+        #endregion
+        
         #region Parameter CapacityConfiguration_Unit
         /// <summary>
         /// <para>
@@ -212,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 context.Tag = new List<Amazon.QBusiness.Model.Tag>(this.Tag);
             }
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -266,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -334,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }
+            public Amazon.QBusiness.IndexType Type { get; set; }
             public System.Func<Amazon.QBusiness.Model.CreateIndexResponse, NewQBUSIndexCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

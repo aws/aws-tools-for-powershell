@@ -143,6 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         public System.String OriginationIdentity { get; set; }
         #endregion
         
+        #region Parameter ProtectConfigurationId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the protect configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProtectConfigurationId { get; set; }
+        #endregion
+        
         #region Parameter TimeToLive
         /// <summary>
         /// <para>
@@ -234,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
                 WriteWarning("You are passing $null as a value for parameter OriginationIdentity which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ProtectConfigurationId = this.ProtectConfigurationId;
             context.TimeToLive = this.TimeToLive;
             context.VoiceId = this.VoiceId;
             
@@ -283,6 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.OriginationIdentity != null)
             {
                 request.OriginationIdentity = cmdletContext.OriginationIdentity;
+            }
+            if (cmdletContext.ProtectConfigurationId != null)
+            {
+                request.ProtectConfigurationId = cmdletContext.ProtectConfigurationId;
             }
             if (cmdletContext.TimeToLive != null)
             {
@@ -361,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.String MessageBody { get; set; }
             public Amazon.PinpointSMSVoiceV2.VoiceMessageBodyTextType MessageBodyTextType { get; set; }
             public System.String OriginationIdentity { get; set; }
+            public System.String ProtectConfigurationId { get; set; }
             public System.Int32? TimeToLive { get; set; }
             public Amazon.PinpointSMSVoiceV2.VoiceId VoiceId { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.SendVoiceMessageResponse, SendSMSVVoiceMessageCmdlet, object> Select { get; set; } =

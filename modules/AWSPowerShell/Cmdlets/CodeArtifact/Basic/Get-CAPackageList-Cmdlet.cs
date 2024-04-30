@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CA
         /// <para>The namespace prefix used to filter requested packages. Only packages with a namespace
         /// that starts with the provided string value are returned. Note that although this option
         /// is called <c>--namespace</c> and not <c>--namespace-prefix</c>, it has prefix-matching
-        /// behavior.</para><para>Each package format uses namespace as follows:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm or Swift package version is its <c>scope</c>. </para></li><li><para>The namespace of a generic package is its <c>namespace</c>.</para></li><li><para> Python and NuGet package versions do not contain a corresponding component, package
-        /// versions of those formats do not have a namespace. </para></li></ul>
+        /// behavior.</para><para>Each package format uses namespace as follows:</para><ul><li><para> The namespace of a Maven package version is its <c>groupId</c>. </para></li><li><para> The namespace of an npm or Swift package version is its <c>scope</c>. </para></li><li><para>The namespace of a generic package is its <c>namespace</c>.</para></li><li><para> Python, NuGet, and Ruby package versions do not contain a corresponding component,
+        /// package versions of those formats do not have a namespace. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
