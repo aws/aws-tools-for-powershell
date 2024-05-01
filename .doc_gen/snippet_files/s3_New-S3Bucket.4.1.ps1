@@ -8,4 +8,4 @@ $bucketConfiguration = @{
           Type = 'AvailabilityZone'
       }
     }
-New-S3Bucket -BucketName samplebucket--use1-az5--x-s3 -BucketConfiguration $bucketConfiguration
+New-S3Bucket -BucketName samplebucket--use1-az5--x-s3 -BucketConfiguration $bucketConfiguration -Region us-east-1
