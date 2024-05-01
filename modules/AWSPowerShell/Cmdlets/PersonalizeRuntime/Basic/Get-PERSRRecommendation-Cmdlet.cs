@@ -56,6 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.PERSR
     public partial class GetPERSRRecommendationCmdlet : AmazonPersonalizeRuntimeClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter CampaignArn

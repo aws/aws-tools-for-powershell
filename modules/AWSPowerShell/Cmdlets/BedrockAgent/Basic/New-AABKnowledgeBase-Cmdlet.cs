@@ -89,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String OpensearchServerlessConfiguration_CollectionArn { get; set; }
         #endregion
         
+        #region Parameter MongoDbAtlasConfiguration_CollectionName
+        /// <summary>
+        /// <para>
+        /// <para>The collection name of the knowledge base in MongoDB Atlas.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_MongoDbAtlasConfiguration_CollectionName")]
+        public System.String MongoDbAtlasConfiguration_CollectionName { get; set; }
+        #endregion
+        
         #region Parameter PineconeConfiguration_ConnectionString
         /// <summary>
         /// <para>
@@ -98,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageConfiguration_PineconeConfiguration_ConnectionString")]
         public System.String PineconeConfiguration_ConnectionString { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbAtlasConfiguration_CredentialsSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the secret that you created in Secrets Manager that
+        /// contains user credentials for your MongoDB Atlas cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_MongoDbAtlasConfiguration_CredentialsSecretArn")]
+        public System.String MongoDbAtlasConfiguration_CredentialsSecretArn { get; set; }
         #endregion
         
         #region Parameter PineconeConfiguration_CredentialsSecretArn
@@ -136,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String RedisEnterpriseCloudConfiguration_CredentialsSecretArn { get; set; }
         #endregion
         
+        #region Parameter MongoDbAtlasConfiguration_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The database name in your MongoDB Atlas cluster for your knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_MongoDbAtlasConfiguration_DatabaseName")]
+        public System.String MongoDbAtlasConfiguration_DatabaseName { get; set; }
+        #endregion
+        
         #region Parameter RdsConfiguration_DatabaseName
         /// <summary>
         /// <para>
@@ -169,6 +203,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String VectorKnowledgeBaseConfiguration_EmbeddingModelArn { get; set; }
         #endregion
         
+        #region Parameter MongoDbAtlasConfiguration_Endpoint
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint URL of your MongoDB Atlas cluster for your knowledge base.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_MongoDbAtlasConfiguration_Endpoint")]
+        public System.String MongoDbAtlasConfiguration_Endpoint { get; set; }
+        #endregion
+        
         #region Parameter RedisEnterpriseCloudConfiguration_Endpoint
         /// <summary>
         /// <para>
@@ -178,6 +223,28 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("StorageConfiguration_RedisEnterpriseCloudConfiguration_Endpoint")]
         public System.String RedisEnterpriseCloudConfiguration_Endpoint { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbAtlasConfiguration_EndpointServiceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the VPC endpoint service in your account that is connected to your MongoDB
+        /// Atlas cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_MongoDbAtlasConfiguration_EndpointServiceName")]
+        public System.String MongoDbAtlasConfiguration_EndpointServiceName { get; set; }
+        #endregion
+        
+        #region Parameter StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores metadata about the vector store.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField { get; set; }
         #endregion
         
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField
@@ -312,6 +379,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores the raw text from your data.
+        /// The text is split according to the chunking strategy you choose.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField
         /// <summary>
         /// <para>
@@ -391,6 +469,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public Amazon.BedrockAgent.KnowledgeBaseStorageType StorageConfiguration_Type { get; set; }
         #endregion
         
+        #region Parameter StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField
+        /// <summary>
+        /// <para>
+        /// <para>The name of the field in which Amazon Bedrock stores the vector embeddings for your
+        /// data sources.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField { get; set; }
+        #endregion
+        
         #region Parameter StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_VectorField
         /// <summary>
         /// <para>
@@ -423,6 +512,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField { get; set; }
+        #endregion
+        
+        #region Parameter MongoDbAtlasConfiguration_VectorIndexName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the MongoDB Atlas vector search index.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("StorageConfiguration_MongoDbAtlasConfiguration_VectorIndexName")]
+        public System.String MongoDbAtlasConfiguration_VectorIndexName { get; set; }
         #endregion
         
         #region Parameter OpensearchServerlessConfiguration_VectorIndexName
@@ -546,6 +646,15 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MongoDbAtlasConfiguration_CollectionName = this.MongoDbAtlasConfiguration_CollectionName;
+            context.MongoDbAtlasConfiguration_CredentialsSecretArn = this.MongoDbAtlasConfiguration_CredentialsSecretArn;
+            context.MongoDbAtlasConfiguration_DatabaseName = this.MongoDbAtlasConfiguration_DatabaseName;
+            context.MongoDbAtlasConfiguration_Endpoint = this.MongoDbAtlasConfiguration_Endpoint;
+            context.MongoDbAtlasConfiguration_EndpointServiceName = this.MongoDbAtlasConfiguration_EndpointServiceName;
+            context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField;
+            context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField;
+            context.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField = this.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField;
+            context.MongoDbAtlasConfiguration_VectorIndexName = this.MongoDbAtlasConfiguration_VectorIndexName;
             context.OpensearchServerlessConfiguration_CollectionArn = this.OpensearchServerlessConfiguration_CollectionArn;
             context.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField = this.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField;
             context.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField = this.StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField;
@@ -1035,6 +1144,126 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 request.StorageConfiguration.RdsConfiguration = requestStorageConfiguration_storageConfiguration_RdsConfiguration;
                 requestStorageConfigurationIsNull = false;
             }
+            Amazon.BedrockAgent.Model.MongoDbAtlasConfiguration requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration = null;
+            
+             // populate MongoDbAtlasConfiguration
+            var requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = true;
+            requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration = new Amazon.BedrockAgent.Model.MongoDbAtlasConfiguration();
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CollectionName = null;
+            if (cmdletContext.MongoDbAtlasConfiguration_CollectionName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CollectionName = cmdletContext.MongoDbAtlasConfiguration_CollectionName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CollectionName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.CollectionName = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CollectionName;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CredentialsSecretArn = null;
+            if (cmdletContext.MongoDbAtlasConfiguration_CredentialsSecretArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CredentialsSecretArn = cmdletContext.MongoDbAtlasConfiguration_CredentialsSecretArn;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CredentialsSecretArn != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.CredentialsSecretArn = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_CredentialsSecretArn;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_DatabaseName = null;
+            if (cmdletContext.MongoDbAtlasConfiguration_DatabaseName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_DatabaseName = cmdletContext.MongoDbAtlasConfiguration_DatabaseName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_DatabaseName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.DatabaseName = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_DatabaseName;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_Endpoint = null;
+            if (cmdletContext.MongoDbAtlasConfiguration_Endpoint != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_Endpoint = cmdletContext.MongoDbAtlasConfiguration_Endpoint;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_Endpoint != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.Endpoint = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_Endpoint;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_EndpointServiceName = null;
+            if (cmdletContext.MongoDbAtlasConfiguration_EndpointServiceName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_EndpointServiceName = cmdletContext.MongoDbAtlasConfiguration_EndpointServiceName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_EndpointServiceName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.EndpointServiceName = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_EndpointServiceName;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_VectorIndexName = null;
+            if (cmdletContext.MongoDbAtlasConfiguration_VectorIndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_VectorIndexName = cmdletContext.MongoDbAtlasConfiguration_VectorIndexName;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_VectorIndexName != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.VectorIndexName = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_mongoDbAtlasConfiguration_VectorIndexName;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgent.Model.MongoDbAtlasFieldMapping requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping = null;
+            
+             // populate FieldMapping
+            var requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMappingIsNull = true;
+            requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping = new Amazon.BedrockAgent.Model.MongoDbAtlasFieldMapping();
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField = null;
+            if (cmdletContext.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField = cmdletContext.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping.MetadataField = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField = null;
+            if (cmdletContext.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField = cmdletContext.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping.TextField = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMappingIsNull = false;
+            }
+            System.String requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField = null;
+            if (cmdletContext.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField = cmdletContext.StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping.VectorField = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMappingIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping should be set to null
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMappingIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping != null)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration.FieldMapping = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration_storageConfiguration_MongoDbAtlasConfiguration_FieldMapping;
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull = false;
+            }
+             // determine if requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration should be set to null
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfigurationIsNull)
+            {
+                requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration = null;
+            }
+            if (requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration != null)
+            {
+                request.StorageConfiguration.MongoDbAtlasConfiguration = requestStorageConfiguration_storageConfiguration_MongoDbAtlasConfiguration;
+                requestStorageConfigurationIsNull = false;
+            }
              // determine if request.StorageConfiguration should be set to null
             if (requestStorageConfigurationIsNull)
             {
@@ -1111,6 +1340,15 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String VectorKnowledgeBaseConfiguration_EmbeddingModelArn { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
+            public System.String MongoDbAtlasConfiguration_CollectionName { get; set; }
+            public System.String MongoDbAtlasConfiguration_CredentialsSecretArn { get; set; }
+            public System.String MongoDbAtlasConfiguration_DatabaseName { get; set; }
+            public System.String MongoDbAtlasConfiguration_Endpoint { get; set; }
+            public System.String MongoDbAtlasConfiguration_EndpointServiceName { get; set; }
+            public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField { get; set; }
+            public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField { get; set; }
+            public System.String StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField { get; set; }
+            public System.String MongoDbAtlasConfiguration_VectorIndexName { get; set; }
             public System.String OpensearchServerlessConfiguration_CollectionArn { get; set; }
             public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_MetadataField { get; set; }
             public System.String StorageConfiguration_OpensearchServerlessConfiguration_FieldMapping_TextField { get; set; }

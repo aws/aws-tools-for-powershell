@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter S3Configuration_BucketOwnerAccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID for the owner of the S3 bucket.</para>
+        /// <para>The bucket account owner ID for the S3 bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataDeletionPolicy
         /// <summary>
         /// <para>
-        /// <para>The data deletion policy of the updated data source.</para>
+        /// <para>The data deletion policy assigned to the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -48,6 +48,9 @@
                 <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -193,6 +196,9 @@
                 <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_MetadataField" />
                 <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_TextField" />
                 <Param Name="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_RedisEnterpriseCloudConfiguration_FieldMapping_VectorField" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField" />
+                <Param Name="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" NewName="StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

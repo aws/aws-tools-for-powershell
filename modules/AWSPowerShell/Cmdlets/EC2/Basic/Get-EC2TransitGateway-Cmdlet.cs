@@ -57,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>disable</c>).</para></li><li><para><c>options.vpn-ecmp-support</c> - Indicates whether Equal Cost Multipath Protocol
         /// support is enabled (<c>enable</c> | <c>disable</c>).</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the transit
         /// gateway.</para></li><li><para><c>state</c> - The state of the transit gateway (<c>available</c> | <c>deleted</c>
-        /// | <c>deleting</c> | <c>modifying</c> | <c>pending</c>).</para></li><li><para><c>transit-gateway-id</c> - The ID of the transit gateway.</para></li></ul>
+        /// | <c>deleting</c> | <c>modifying</c> | <c>pending</c>).</para></li><li><para><c>transit-gateway-id</c> - The ID of the transit gateway.</para></li><li><para><c>tag-key </c>- The key/value combination of a tag assigned to the resource. Use
+        /// the tag key in the filter name and the tag value as the filter value. For example,
+        /// to find all resources that have a tag with the key <c>Owner</c> and the value <c>TeamA</c>,
+        /// specify <c>tag:Owner</c> for the filter name and <c>TeamA</c> for the filter value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

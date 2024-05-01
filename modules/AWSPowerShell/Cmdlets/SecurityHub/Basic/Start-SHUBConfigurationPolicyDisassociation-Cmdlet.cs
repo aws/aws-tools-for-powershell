@@ -60,8 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter ConfigurationPolicyIdentifier
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration
-        /// policy. </para>
+        /// <para> The Amazon Resource Name (ARN) of a configuration policy, the universally unique
+        /// identifier (UUID) of a configuration policy, or a value of <c>SELF_MANAGED_SECURITY_HUB</c>
+        /// for a self-managed configuration. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

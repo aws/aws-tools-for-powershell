@@ -1,4 +1,10 @@
-﻿### 4.1.569 (2024-04-30 21:02Z)
+﻿### 4.1.570 (2024-05-01 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.801.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameters MongoDbAtlasConfiguration_CollectionName, MongoDbAtlasConfiguration_CredentialsSecretArn, MongoDbAtlasConfiguration_DatabaseName, MongoDbAtlasConfiguration_Endpoint, MongoDbAtlasConfiguration_EndpointServiceName, MongoDbAtlasConfiguration_VectorIndexName, StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField, StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField and StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameters MongoDbAtlasConfiguration_CollectionName, MongoDbAtlasConfiguration_CredentialsSecretArn, MongoDbAtlasConfiguration_DatabaseName, MongoDbAtlasConfiguration_Endpoint, MongoDbAtlasConfiguration_EndpointServiceName, MongoDbAtlasConfiguration_VectorIndexName, StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField, StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField and StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField.
+
+### 4.1.569 (2024-04-30 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.800.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Omics
     * Modified cmdlet Get-OMICSShareList: added parameter Filter_Type.
