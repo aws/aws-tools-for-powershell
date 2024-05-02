@@ -7,7 +7,7 @@
     <ServiceName>Amazon QLDB Session</ServiceName>
     <ServiceClientInterface>IAmazonQLDBSession</ServiceClientInterface>
     <ServiceClient>AmazonQLDBSessionClient</ServiceClient>
-    <ServiceModuleGuid>ca176a00-3267-42cc-8159-f2f2bbe1d784</ServiceModuleGuid>
+    <ServiceModuleGuid>bbb200b4-2f8a-4055-81bc-220a1b440256</ServiceModuleGuid>
     <PipelineParameter />
     <VerbMappings />
     <NounMappings />
