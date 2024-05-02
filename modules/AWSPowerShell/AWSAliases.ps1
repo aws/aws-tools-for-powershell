@@ -9789,6 +9789,7 @@ Set-Alias -Name EC2-GetHostReservationPurchasePreview -Value Get-EC2HostReservat
 Set-Alias -Name EC2-GetImageBlockPublicAccessState -Value Get-EC2ImageBlockPublicAccessState
 Set-Alias -Name Get-EC2InstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
 Set-Alias -Name EC2-GetInstanceMetadataDefaults -Value Get-EC2InstanceMetadataDefault
+Set-Alias -Name EC2-GetInstanceTpmEkPub -Value Get-EC2InstanceTpmEkPub
 Set-Alias -Name Get-EC2InstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceTypesFromInstanceRequirements -Value Get-EC2InstanceTypesFromInstanceRequirement
 Set-Alias -Name EC2-GetInstanceUefiData -Value Get-EC2InstanceUefiData
@@ -21016,6 +21017,8 @@ Set-Alias -Name Create-PERSBatchSegmentJob -Value New-PERSBatchSegmentJob
 Set-Alias -Name PERS-CreateBatchSegmentJob -Value New-PERSBatchSegmentJob
 Set-Alias -Name Create-PERSCampaign -Value New-PERSCampaign
 Set-Alias -Name PERS-CreateCampaign -Value New-PERSCampaign
+Set-Alias -Name Create-PERSDataDeletionJob -Value New-PERSDataDeletionJob
+Set-Alias -Name PERS-CreateDataDeletionJob -Value New-PERSDataDeletionJob
 Set-Alias -Name Create-PERSDataset -Value New-PERSDataset
 Set-Alias -Name PERS-CreateDataset -Value New-PERSDataset
 Set-Alias -Name Create-PERSDatasetExportJob -Value New-PERSDatasetExportJob
@@ -21064,6 +21067,8 @@ Set-Alias -Name Describe-PERSBatchSegmentJob -Value Get-PERSBatchSegmentJob
 Set-Alias -Name PERS-DescribeBatchSegmentJob -Value Get-PERSBatchSegmentJob
 Set-Alias -Name Describe-PERSCampaign -Value Get-PERSCampaign
 Set-Alias -Name PERS-DescribeCampaign -Value Get-PERSCampaign
+Set-Alias -Name Describe-PERSDataDeletionJob -Value Get-PERSDataDeletionJob
+Set-Alias -Name PERS-DescribeDataDeletionJob -Value Get-PERSDataDeletionJob
 Set-Alias -Name Describe-PERSDataset -Value Get-PERSDataset
 Set-Alias -Name PERS-DescribeDataset -Value Get-PERSDataset
 Set-Alias -Name Describe-PERSDatasetExportJob -Value Get-PERSDatasetExportJob
@@ -21101,6 +21106,9 @@ Set-Alias -Name PERS-ListBatchSegmentJobs -Value Get-PERSBatchSegmentJobList
 Set-Alias -Name List-PERSCampaigns -Value Get-PERSCampaignList
 Set-Alias -Name List-PERSCampaignList -Value Get-PERSCampaignList
 Set-Alias -Name PERS-ListCampaigns -Value Get-PERSCampaignList
+Set-Alias -Name List-PERSDataDeletionJobs -Value Get-PERSDataDeletionJobList
+Set-Alias -Name List-PERSDataDeletionJobList -Value Get-PERSDataDeletionJobList
+Set-Alias -Name PERS-ListDataDeletionJobs -Value Get-PERSDataDeletionJobList
 Set-Alias -Name List-PERSDatasetExportJobs -Value Get-PERSDatasetExportJobList
 Set-Alias -Name List-PERSDatasetExportJobList -Value Get-PERSDatasetExportJobList
 Set-Alias -Name PERS-ListDatasetExportJobs -Value Get-PERSDatasetExportJobList

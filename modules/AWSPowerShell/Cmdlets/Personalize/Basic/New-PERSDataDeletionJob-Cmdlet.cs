@@ -28,45 +28,48 @@ using Amazon.Personalize.Model;
 namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
-    /// Creates a job that imports training data from your data source (an Amazon S3 bucket)
-    /// to an Amazon Personalize dataset. To allow Amazon Personalize to import the training
-    /// data, you must specify an IAM service role that has permission to read from the data
-    /// source, as Amazon Personalize makes a copy of your data and processes it internally.
-    /// For information on granting access to your Amazon S3 bucket, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html">Giving
-    /// Amazon Personalize Access to Amazon S3 Resources</a>. 
+    /// Creates a batch job that deletes all references to specific users from an Amazon Personalize
+    /// dataset group in batches. You specify the users to delete in a CSV file of userIds
+    /// in an Amazon S3 bucket. After a job completes, Amazon Personalize no longer trains
+    /// on the users’ data and no longer considers the users when generating user segments.
+    /// For more information about creating a data deletion job, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/delete-records.html">Deleting
+    /// users</a>.
     /// 
-    ///  
-    /// <para>
-    /// If you already created a recommender or deployed a custom solution version with a
-    /// campaign, how new bulk records influence recommendations depends on the domain use
-    /// case or recipe that you use. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/how-new-data-influences-recommendations.html">How
-    /// new data influences real-time recommendations</a>.
-    /// </para><important><para>
-    /// By default, a dataset import job replaces any existing data in the dataset that you
-    /// imported in bulk. To add new records without replacing existing data, specify INCREMENTAL
-    /// for the import mode in the CreateDatasetImportJob operation.
-    /// </para></important><para><b>Status</b></para><para>
-    /// A dataset import job can be in one of the following states:
-    /// </para><ul><li><para>
-    /// CREATE PENDING &gt; CREATE IN_PROGRESS &gt; ACTIVE -or- CREATE FAILED
+    ///  <ul><li><para>
+    /// Your input file must be a CSV file with a single USER_ID column that lists the users
+    /// IDs. For more information about preparing the CSV file, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/prepare-deletion-input-file.html">Preparing
+    /// your data deletion file and uploading it to Amazon S3</a>.
+    /// </para></li><li><para>
+    /// To give Amazon Personalize permission to access your input CSV file of userIds, you
+    /// must specify an IAM service role that has permission to read from the data source.
+    /// This role needs <c>GetObject</c> and <c>ListBucket</c> permissions for the bucket
+    /// and its content. These permissions are the same as importing data. For information
+    /// on granting access to your Amazon S3 bucket, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html">Giving
+    /// Amazon Personalize Access to Amazon S3 Resources</a>. 
     /// </para></li></ul><para>
-    /// To get the status of the import job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a>,
-    /// providing the Amazon Resource Name (ARN) of the dataset import job. The dataset import
-    /// is complete when the status shows as ACTIVE. If the status shows as CREATE FAILED,
-    /// the response includes a <c>failureReason</c> key, which describes why the job failed.
-    /// </para><note><para>
-    /// Importing takes time. You must wait until the status shows as ACTIVE before training
-    /// a model using the dataset.
-    /// </para></note><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetImportJobs.html">ListDatasetImportJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a></para></li></ul>
+    ///  After you create a job, it can take up to a day to delete all references to the users
+    /// from datasets and models. Until the job completes, Amazon Personalize continues to
+    /// use the data when training. And if you use a User Segmentation recipe, the users might
+    /// appear in user segments. 
+    /// </para><para><b>Status</b></para><para>
+    /// A data deletion job can have one of the following statuses:
+    /// </para><ul><li><para>
+    /// PENDING &gt; IN_PROGRESS &gt; COMPLETED -or- FAILED
+    /// </para></li></ul><para>
+    /// To get the status of the data deletion job, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html">DescribeDataDeletionJob</a>
+    /// API operation and specify the Amazon Resource Name (ARN) of the job. If the status
+    /// is FAILED, the response includes a <c>failureReason</c> key, which describes why the
+    /// job failed.
+    /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListDataDeletionJobs.html">ListDataDeletionJobs</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataDeletionJob.html">DescribeDataDeletionJob</a></para></li></ul>
     /// </summary>
-    [Cmdlet("New", "PERSDatasetImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "PERSDataDeletionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Personalize CreateDatasetImportJob API operation.", Operation = new[] {"CreateDatasetImportJob"}, SelectReturnType = typeof(Amazon.Personalize.Model.CreateDatasetImportJobResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Personalize.Model.CreateDatasetImportJobResponse",
+    [AWSCmdlet("Calls the AWS Personalize CreateDataDeletionJob API operation.", Operation = new[] {"CreateDataDeletionJob"}, SelectReturnType = typeof(Amazon.Personalize.Model.CreateDataDeletionJobResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Personalize.Model.CreateDataDeletionJobResponse",
         "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Personalize.Model.CreateDatasetImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.Personalize.Model.CreateDataDeletionJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewPERSDatasetImportJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
+    public partial class NewPERSDataDeletionJobCmdlet : AmazonPersonalizeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -86,42 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         public System.String DataSource_DataLocation { get; set; }
         #endregion
         
-        #region Parameter DatasetArn
+        #region Parameter DatasetGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the dataset that receives the imported data.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DatasetArn { get; set; }
-        #endregion
-        
-        #region Parameter ImportMode
-        /// <summary>
-        /// <para>
-        /// <para>Specify how to add the new records to an existing dataset. The default import mode
-        /// is <c>FULL</c>. If you haven't imported bulk records into the dataset previously,
-        /// you can only specify <c>FULL</c>.</para><ul><li><para>Specify <c>FULL</c> to overwrite all existing bulk data in your dataset. Data you
-        /// imported individually is not replaced.</para></li><li><para>Specify <c>INCREMENTAL</c> to append the new records to the existing data in your
-        /// dataset. Amazon Personalize replaces any record with the same ID with the new one.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Personalize.ImportMode")]
-        public Amazon.Personalize.ImportMode ImportMode { get; set; }
-        #endregion
-        
-        #region Parameter JobName
-        /// <summary>
-        /// <para>
-        /// <para>The name for the dataset import job.</para>
+        /// <para>The Amazon Resource Name (ARN) of the dataset group that has the datasets you want
+        /// to delete records from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -132,24 +104,31 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String JobName { get; set; }
+        public System.String DatasetGroupArn { get; set; }
         #endregion
         
-        #region Parameter PublishAttributionMetricsToS3
+        #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>If you created a metric attribution, specify whether to publish metrics for this import
-        /// job to Amazon S3</para>
+        /// <para>The name for the data deletion job.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? PublishAttributionMetricsToS3 { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String JobName { get; set; }
         #endregion
         
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role that has permissions to read from the
+        /// Amazon S3 data source.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -167,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// <summary>
         /// <para>
         /// <para>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a>
-        /// to apply to the dataset import job.</para>
+        /// to apply to the data deletion job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -177,21 +156,21 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DatasetImportJobArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.CreateDatasetImportJobResponse).
-        /// Specifying the name of a property of type Amazon.Personalize.Model.CreateDatasetImportJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DataDeletionJobArn'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Personalize.Model.CreateDataDeletionJobResponse).
+        /// Specifying the name of a property of type Amazon.Personalize.Model.CreateDataDeletionJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DatasetImportJobArn";
+        public string Select { get; set; } = "DataDeletionJobArn";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the JobName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^JobName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DatasetGroupArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DatasetGroupArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -211,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PERSDatasetImportJob (CreateDatasetImportJob)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DatasetGroupArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PERSDataDeletionJob (CreateDataDeletionJob)"))
             {
                 return;
             }
@@ -225,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.CreateDatasetImportJobResponse, NewPERSDatasetImportJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Personalize.Model.CreateDataDeletionJobResponse, NewPERSDataDeletionJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -234,18 +213,17 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.JobName;
+                context.Select = (response, cmdlet) => this.DatasetGroupArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DatasetArn = this.DatasetArn;
+            context.DatasetGroupArn = this.DatasetGroupArn;
             #if MODULAR
-            if (this.DatasetArn == null && ParameterWasBound(nameof(this.DatasetArn)))
+            if (this.DatasetGroupArn == null && ParameterWasBound(nameof(this.DatasetGroupArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DatasetArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DatasetGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.DataSource_DataLocation = this.DataSource_DataLocation;
-            context.ImportMode = this.ImportMode;
             context.JobName = this.JobName;
             #if MODULAR
             if (this.JobName == null && ParameterWasBound(nameof(this.JobName)))
@@ -253,7 +231,6 @@ namespace Amazon.PowerShell.Cmdlets.PERS
                 WriteWarning("You are passing $null as a value for parameter JobName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PublishAttributionMetricsToS3 = this.PublishAttributionMetricsToS3;
             context.RoleArn = this.RoleArn;
             #if MODULAR
             if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
@@ -279,11 +256,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Personalize.Model.CreateDatasetImportJobRequest();
+            var request = new Amazon.Personalize.Model.CreateDataDeletionJobRequest();
             
-            if (cmdletContext.DatasetArn != null)
+            if (cmdletContext.DatasetGroupArn != null)
             {
-                request.DatasetArn = cmdletContext.DatasetArn;
+                request.DatasetGroupArn = cmdletContext.DatasetGroupArn;
             }
             
              // populate DataSource
@@ -304,17 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
             {
                 request.DataSource = null;
             }
-            if (cmdletContext.ImportMode != null)
-            {
-                request.ImportMode = cmdletContext.ImportMode;
-            }
             if (cmdletContext.JobName != null)
             {
                 request.JobName = cmdletContext.JobName;
-            }
-            if (cmdletContext.PublishAttributionMetricsToS3 != null)
-            {
-                request.PublishAttributionMetricsToS3 = cmdletContext.PublishAttributionMetricsToS3.Value;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -357,15 +326,15 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         #region AWS Service Operation Call
         
-        private Amazon.Personalize.Model.CreateDatasetImportJobResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.CreateDatasetImportJobRequest request)
+        private Amazon.Personalize.Model.CreateDataDeletionJobResponse CallAWSServiceOperation(IAmazonPersonalize client, Amazon.Personalize.Model.CreateDataDeletionJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "CreateDatasetImportJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Personalize", "CreateDataDeletionJob");
             try
             {
                 #if DESKTOP
-                return client.CreateDatasetImportJob(request);
+                return client.CreateDataDeletionJob(request);
                 #elif CORECLR
-                return client.CreateDatasetImportJobAsync(request).GetAwaiter().GetResult();
+                return client.CreateDataDeletionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -385,15 +354,13 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DatasetArn { get; set; }
+            public System.String DatasetGroupArn { get; set; }
             public System.String DataSource_DataLocation { get; set; }
-            public Amazon.Personalize.ImportMode ImportMode { get; set; }
             public System.String JobName { get; set; }
-            public System.Boolean? PublishAttributionMetricsToS3 { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.Personalize.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.Personalize.Model.CreateDatasetImportJobResponse, NewPERSDatasetImportJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DatasetImportJobArn;
+            public System.Func<Amazon.Personalize.Model.CreateDataDeletionJobResponse, NewPERSDataDeletionJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DataDeletionJobArn;
         }
         
     }

@@ -185,6 +185,32 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String SSESpecification_KMSMasterKeyId { get; set; }
         #endregion
         
+        #region Parameter OnDemandThroughput_MaxReadRequestUnit
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of read request units for the specified table.</para><para>To specify a maximum <c>OnDemandThroughput</c> on your table, set the value of <c>MaxReadRequestUnits</c>
+        /// as greater than or equal to 1. To remove the maximum <c>OnDemandThroughput</c> that
+        /// is currently set on your table, set the value of <c>MaxReadRequestUnits</c> to -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableCreationParameters_OnDemandThroughput_MaxReadRequestUnits")]
+        public System.Int64? OnDemandThroughput_MaxReadRequestUnit { get; set; }
+        #endregion
+        
+        #region Parameter OnDemandThroughput_MaxWriteRequestUnit
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of write request units for the specified table.</para><para>To specify a maximum <c>OnDemandThroughput</c> on your table, set the value of <c>MaxWriteRequestUnits</c>
+        /// as greater than or equal to 1. To remove the maximum <c>OnDemandThroughput</c> that
+        /// is currently set on your table, set the value of <c>MaxWriteRequestUnits</c> to -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableCreationParameters_OnDemandThroughput_MaxWriteRequestUnits")]
+        public System.Int64? OnDemandThroughput_MaxWriteRequestUnit { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedThroughput_ReadCapacityUnit
         /// <summary>
         /// <para>
@@ -405,6 +431,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 WriteWarning("You are passing $null as a value for parameter TableCreationParameters_KeySchema which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OnDemandThroughput_MaxReadRequestUnit = this.OnDemandThroughput_MaxReadRequestUnit;
+            context.OnDemandThroughput_MaxWriteRequestUnit = this.OnDemandThroughput_MaxWriteRequestUnit;
             context.ProvisionedThroughput_ReadCapacityUnit = this.ProvisionedThroughput_ReadCapacityUnit;
             context.ProvisionedThroughput_WriteCapacityUnit = this.ProvisionedThroughput_WriteCapacityUnit;
             context.SSESpecification_Enabled = this.SSESpecification_Enabled;
@@ -582,6 +610,41 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 request.TableCreationParameters.TableName = requestTableCreationParameters_tableCreationParameters_TableName;
                 requestTableCreationParametersIsNull = false;
             }
+            Amazon.DynamoDBv2.Model.OnDemandThroughput requestTableCreationParameters_tableCreationParameters_OnDemandThroughput = null;
+            
+             // populate OnDemandThroughput
+            var requestTableCreationParameters_tableCreationParameters_OnDemandThroughputIsNull = true;
+            requestTableCreationParameters_tableCreationParameters_OnDemandThroughput = new Amazon.DynamoDBv2.Model.OnDemandThroughput();
+            System.Int64? requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxReadRequestUnit = null;
+            if (cmdletContext.OnDemandThroughput_MaxReadRequestUnit != null)
+            {
+                requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxReadRequestUnit = cmdletContext.OnDemandThroughput_MaxReadRequestUnit.Value;
+            }
+            if (requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxReadRequestUnit != null)
+            {
+                requestTableCreationParameters_tableCreationParameters_OnDemandThroughput.MaxReadRequestUnits = requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxReadRequestUnit.Value;
+                requestTableCreationParameters_tableCreationParameters_OnDemandThroughputIsNull = false;
+            }
+            System.Int64? requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit = null;
+            if (cmdletContext.OnDemandThroughput_MaxWriteRequestUnit != null)
+            {
+                requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit = cmdletContext.OnDemandThroughput_MaxWriteRequestUnit.Value;
+            }
+            if (requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit != null)
+            {
+                requestTableCreationParameters_tableCreationParameters_OnDemandThroughput.MaxWriteRequestUnits = requestTableCreationParameters_tableCreationParameters_OnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit.Value;
+                requestTableCreationParameters_tableCreationParameters_OnDemandThroughputIsNull = false;
+            }
+             // determine if requestTableCreationParameters_tableCreationParameters_OnDemandThroughput should be set to null
+            if (requestTableCreationParameters_tableCreationParameters_OnDemandThroughputIsNull)
+            {
+                requestTableCreationParameters_tableCreationParameters_OnDemandThroughput = null;
+            }
+            if (requestTableCreationParameters_tableCreationParameters_OnDemandThroughput != null)
+            {
+                request.TableCreationParameters.OnDemandThroughput = requestTableCreationParameters_tableCreationParameters_OnDemandThroughput;
+                requestTableCreationParametersIsNull = false;
+            }
             Amazon.DynamoDBv2.Model.ProvisionedThroughput requestTableCreationParameters_tableCreationParameters_ProvisionedThroughput = null;
             
              // populate ProvisionedThroughput
@@ -740,6 +803,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.BillingMode TableCreationParameters_BillingMode { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndex> TableCreationParameters_GlobalSecondaryIndex { get; set; }
             public List<Amazon.DynamoDBv2.Model.KeySchemaElement> TableCreationParameters_KeySchema { get; set; }
+            public System.Int64? OnDemandThroughput_MaxReadRequestUnit { get; set; }
+            public System.Int64? OnDemandThroughput_MaxWriteRequestUnit { get; set; }
             public System.Int64? ProvisionedThroughput_ReadCapacityUnit { get; set; }
             public System.Int64? ProvisionedThroughput_WriteCapacityUnit { get; set; }
             public System.Boolean? SSESpecification_Enabled { get; set; }

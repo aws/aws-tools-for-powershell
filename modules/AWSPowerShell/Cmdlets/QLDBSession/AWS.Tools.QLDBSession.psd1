@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = 'ca176a00-3267-42cc-8159-f2f2bbe1d784'
+    GUID = 'bbb200b4-2f8a-4055-81bc-220a1b440256'
 
     # Author of this module
     Author = 'Amazon.com, Inc'

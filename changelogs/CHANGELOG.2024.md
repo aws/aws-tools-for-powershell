@@ -1,4 +1,20 @@
-﻿### 4.1.570 (2024-05-01 21:02Z)
+﻿### 4.1.571 (2024-05-02 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.802.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DynamoDB
+    * Modified cmdlet Import-DDBTable: added parameters OnDemandThroughput_MaxReadRequestUnit and OnDemandThroughput_MaxWriteRequestUnit.
+    * Modified cmdlet Restore-DDBTableFromBackup: added parameters OnDemandThroughputOverride_MaxReadRequestUnit and OnDemandThroughputOverride_MaxWriteRequestUnit.
+    * Modified cmdlet Restore-DDBTableToPointInTime: added parameters OnDemandThroughputOverride_MaxReadRequestUnit and OnDemandThroughputOverride_MaxWriteRequestUnit.
+    * Modified cmdlet Update-DDBTable: added parameters OnDemandThroughput_MaxReadRequestUnit and OnDemandThroughput_MaxWriteRequestUnit.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2InstanceTpmEkPub leveraging the GetInstanceTpmEkPub service API.
+  * Amazon Personalize
+    * Added cmdlet Get-PERSDataDeletionJob leveraging the DescribeDataDeletionJob service API.
+    * Added cmdlet Get-PERSDataDeletionJobList leveraging the ListDataDeletionJobs service API.
+    * Added cmdlet New-PERSDataDeletionJob leveraging the CreateDataDeletionJob service API.
+  * Amazon Redshift Serverless
+    * [Breaking Change] Modified cmdlet Get-RSSScheduledActionList: output changed from System.String to Amazon.RedshiftServerless.Model.ScheduledActionAssociation.
+
+### 4.1.570 (2024-05-01 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.801.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameters MongoDbAtlasConfiguration_CollectionName, MongoDbAtlasConfiguration_CredentialsSecretArn, MongoDbAtlasConfiguration_DatabaseName, MongoDbAtlasConfiguration_Endpoint, MongoDbAtlasConfiguration_EndpointServiceName, MongoDbAtlasConfiguration_VectorIndexName, StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_MetadataField, StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_TextField and StorageConfiguration_MongoDbAtlasConfiguration_FieldMapping_VectorField.

@@ -22821,6 +22821,20 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.EkPubKeyFormat
+        "Get-EC2InstanceTpmEkPub/KeyFormat"
+        {
+            $v = "der","tpmt"
+            break
+        }
+
+        # Amazon.EC2.EkPubKeyType
+        "Get-EC2InstanceTpmEkPub/KeyType"
+        {
+            $v = "ecc-sec-p384","rsa-2048"
+            break
+        }
+
         # Amazon.EC2.EndDateType
         {
             ($_ -eq "Add-EC2CapacityReservation/EndDateType") -Or
@@ -23703,8 +23717,8 @@ $EC2_map = @{
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "InterfaceType"=@("New-EC2NetworkInterface")
     "IpAddressType"=@("Edit-EC2VpcEndpoint","New-EC2VpcEndpoint")
-    "KeyFormat"=@("New-EC2KeyPair")
-    "KeyType"=@("New-EC2KeyPair")
+    "KeyFormat"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
+    "KeyType"=@("Get-EC2InstanceTpmEkPub","New-EC2KeyPair")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "LoadBalancerOptions_Protocol"=@("Edit-EC2VerifiedAccessEndpoint","New-EC2VerifiedAccessEndpoint")
@@ -24275,6 +24289,7 @@ $EC2_SelectMap = @{
                "Get-EC2HostReservationPurchasePreview",
                "Get-EC2ImageBlockPublicAccessState",
                "Get-EC2InstanceMetadataDefault",
+               "Get-EC2InstanceTpmEkPub",
                "Get-EC2InstanceTypesFromInstanceRequirement",
                "Get-EC2InstanceUefiData",
                "Get-EC2IpamAddressHistory",
@@ -50876,6 +50891,7 @@ $PERS_SelectMap = @{
     "Select"=@("New-PERSBatchInferenceJob",
                "New-PERSBatchSegmentJob",
                "New-PERSCampaign",
+               "New-PERSDataDeletionJob",
                "New-PERSDataset",
                "New-PERSDatasetExportJob",
                "New-PERSDatasetGroup",
@@ -50900,6 +50916,7 @@ $PERS_SelectMap = @{
                "Get-PERSBatchInferenceJob",
                "Get-PERSBatchSegmentJob",
                "Get-PERSCampaign",
+               "Get-PERSDataDeletionJob",
                "Get-PERSDataset",
                "Get-PERSDatasetExportJob",
                "Get-PERSDatasetGroup",
@@ -50917,6 +50934,7 @@ $PERS_SelectMap = @{
                "Get-PERSBatchInferenceJobList",
                "Get-PERSBatchSegmentJobList",
                "Get-PERSCampaignList",
+               "Get-PERSDataDeletionJobList",
                "Get-PERSDatasetExportJobList",
                "Get-PERSDatasetGroupList",
                "Get-PERSDatasetImportJobList",

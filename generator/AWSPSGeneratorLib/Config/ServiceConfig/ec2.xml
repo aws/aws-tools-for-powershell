@@ -1925,6 +1925,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInstanceTpmEkPub" OutputProperty="*" Verb="Get" Noun="InstanceTpmEkPub" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInstanceTypesFromInstanceRequirements" OutputProperty="InstanceTypes" Verb="Get" Noun="InstanceTypesFromInstanceRequirement" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

@@ -145,6 +145,32 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public System.String SSESpecification_KMSMasterKeyId { get; set; }
         #endregion
         
+        #region Parameter OnDemandThroughput_MaxReadRequestUnit
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of read request units for the specified table.</para><para>To specify a maximum <c>OnDemandThroughput</c> on your table, set the value of <c>MaxReadRequestUnits</c>
+        /// as greater than or equal to 1. To remove the maximum <c>OnDemandThroughput</c> that
+        /// is currently set on your table, set the value of <c>MaxReadRequestUnits</c> to -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDemandThroughput_MaxReadRequestUnits")]
+        public System.Int64? OnDemandThroughput_MaxReadRequestUnit { get; set; }
+        #endregion
+        
+        #region Parameter OnDemandThroughput_MaxWriteRequestUnit
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of write request units for the specified table.</para><para>To specify a maximum <c>OnDemandThroughput</c> on your table, set the value of <c>MaxWriteRequestUnits</c>
+        /// as greater than or equal to 1. To remove the maximum <c>OnDemandThroughput</c> that
+        /// is currently set on your table, set the value of <c>MaxWriteRequestUnits</c> to -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDemandThroughput_MaxWriteRequestUnits")]
+        public System.Int64? OnDemandThroughput_MaxWriteRequestUnit { get; set; }
+        #endregion
+        
         #region Parameter ReadCapacity
         /// <summary>
         /// <para>
@@ -322,6 +348,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 context.GlobalSecondaryIndexUpdate = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
             }
+            context.OnDemandThroughput_MaxReadRequestUnit = this.OnDemandThroughput_MaxReadRequestUnit;
+            context.OnDemandThroughput_MaxWriteRequestUnit = this.OnDemandThroughput_MaxWriteRequestUnit;
             context.ReadCapacity = this.ReadCapacity;
             context.WriteCapacity = this.WriteCapacity;
             if (this.ReplicaUpdate != null)
@@ -372,6 +400,35 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.GlobalSecondaryIndexUpdate != null)
             {
                 request.GlobalSecondaryIndexUpdates = cmdletContext.GlobalSecondaryIndexUpdate;
+            }
+            
+             // populate OnDemandThroughput
+            var requestOnDemandThroughputIsNull = true;
+            request.OnDemandThroughput = new Amazon.DynamoDBv2.Model.OnDemandThroughput();
+            System.Int64? requestOnDemandThroughput_onDemandThroughput_MaxReadRequestUnit = null;
+            if (cmdletContext.OnDemandThroughput_MaxReadRequestUnit != null)
+            {
+                requestOnDemandThroughput_onDemandThroughput_MaxReadRequestUnit = cmdletContext.OnDemandThroughput_MaxReadRequestUnit.Value;
+            }
+            if (requestOnDemandThroughput_onDemandThroughput_MaxReadRequestUnit != null)
+            {
+                request.OnDemandThroughput.MaxReadRequestUnits = requestOnDemandThroughput_onDemandThroughput_MaxReadRequestUnit.Value;
+                requestOnDemandThroughputIsNull = false;
+            }
+            System.Int64? requestOnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit = null;
+            if (cmdletContext.OnDemandThroughput_MaxWriteRequestUnit != null)
+            {
+                requestOnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit = cmdletContext.OnDemandThroughput_MaxWriteRequestUnit.Value;
+            }
+            if (requestOnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit != null)
+            {
+                request.OnDemandThroughput.MaxWriteRequestUnits = requestOnDemandThroughput_onDemandThroughput_MaxWriteRequestUnit.Value;
+                requestOnDemandThroughputIsNull = false;
+            }
+             // determine if request.OnDemandThroughput should be set to null
+            if (requestOnDemandThroughputIsNull)
+            {
+                request.OnDemandThroughput = null;
             }
             
              // populate ProvisionedThroughput
@@ -547,6 +604,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
             public System.Boolean? DeletionProtectionEnabled { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdate { get; set; }
+            public System.Int64? OnDemandThroughput_MaxReadRequestUnit { get; set; }
+            public System.Int64? OnDemandThroughput_MaxWriteRequestUnit { get; set; }
             public System.Int64? ReadCapacity { get; set; }
             public System.Int64? WriteCapacity { get; set; }
             public List<Amazon.DynamoDBv2.Model.ReplicationGroupUpdate> ReplicaUpdate { get; set; }

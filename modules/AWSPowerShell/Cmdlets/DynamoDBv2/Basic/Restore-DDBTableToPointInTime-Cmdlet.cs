@@ -144,6 +144,32 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.Model.LocalSecondaryIndex[] LocalSecondaryIndexOverride { get; set; }
         #endregion
         
+        #region Parameter OnDemandThroughputOverride_MaxReadRequestUnit
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of read request units for the specified table.</para><para>To specify a maximum <c>OnDemandThroughput</c> on your table, set the value of <c>MaxReadRequestUnits</c>
+        /// as greater than or equal to 1. To remove the maximum <c>OnDemandThroughput</c> that
+        /// is currently set on your table, set the value of <c>MaxReadRequestUnits</c> to -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDemandThroughputOverride_MaxReadRequestUnits")]
+        public System.Int64? OnDemandThroughputOverride_MaxReadRequestUnit { get; set; }
+        #endregion
+        
+        #region Parameter OnDemandThroughputOverride_MaxWriteRequestUnit
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of write request units for the specified table.</para><para>To specify a maximum <c>OnDemandThroughput</c> on your table, set the value of <c>MaxWriteRequestUnits</c>
+        /// as greater than or equal to 1. To remove the maximum <c>OnDemandThroughput</c> that
+        /// is currently set on your table, set the value of <c>MaxWriteRequestUnits</c> to -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OnDemandThroughputOverride_MaxWriteRequestUnits")]
+        public System.Int64? OnDemandThroughputOverride_MaxWriteRequestUnit { get; set; }
+        #endregion
+        
         #region Parameter ProvisionedThroughputOverride_ReadCapacityUnit
         /// <summary>
         /// <para>
@@ -311,6 +337,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 context.LocalSecondaryIndexOverride = new List<Amazon.DynamoDBv2.Model.LocalSecondaryIndex>(this.LocalSecondaryIndexOverride);
             }
+            context.OnDemandThroughputOverride_MaxReadRequestUnit = this.OnDemandThroughputOverride_MaxReadRequestUnit;
+            context.OnDemandThroughputOverride_MaxWriteRequestUnit = this.OnDemandThroughputOverride_MaxWriteRequestUnit;
             context.ProvisionedThroughputOverride_ReadCapacityUnit = this.ProvisionedThroughputOverride_ReadCapacityUnit;
             context.ProvisionedThroughputOverride_WriteCapacityUnit = this.ProvisionedThroughputOverride_WriteCapacityUnit;
             context.RestoreDateTime = this.RestoreDateTime;
@@ -354,6 +382,35 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.LocalSecondaryIndexOverride != null)
             {
                 request.LocalSecondaryIndexOverride = cmdletContext.LocalSecondaryIndexOverride;
+            }
+            
+             // populate OnDemandThroughputOverride
+            var requestOnDemandThroughputOverrideIsNull = true;
+            request.OnDemandThroughputOverride = new Amazon.DynamoDBv2.Model.OnDemandThroughput();
+            System.Int64? requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxReadRequestUnit = null;
+            if (cmdletContext.OnDemandThroughputOverride_MaxReadRequestUnit != null)
+            {
+                requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxReadRequestUnit = cmdletContext.OnDemandThroughputOverride_MaxReadRequestUnit.Value;
+            }
+            if (requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxReadRequestUnit != null)
+            {
+                request.OnDemandThroughputOverride.MaxReadRequestUnits = requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxReadRequestUnit.Value;
+                requestOnDemandThroughputOverrideIsNull = false;
+            }
+            System.Int64? requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxWriteRequestUnit = null;
+            if (cmdletContext.OnDemandThroughputOverride_MaxWriteRequestUnit != null)
+            {
+                requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxWriteRequestUnit = cmdletContext.OnDemandThroughputOverride_MaxWriteRequestUnit.Value;
+            }
+            if (requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxWriteRequestUnit != null)
+            {
+                request.OnDemandThroughputOverride.MaxWriteRequestUnits = requestOnDemandThroughputOverride_onDemandThroughputOverride_MaxWriteRequestUnit.Value;
+                requestOnDemandThroughputOverrideIsNull = false;
+            }
+             // determine if request.OnDemandThroughputOverride should be set to null
+            if (requestOnDemandThroughputOverrideIsNull)
+            {
+                request.OnDemandThroughputOverride = null;
             }
             
              // populate ProvisionedThroughputOverride
@@ -507,6 +564,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             public Amazon.DynamoDBv2.BillingMode BillingModeOverride { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndex> GlobalSecondaryIndexOverride { get; set; }
             public List<Amazon.DynamoDBv2.Model.LocalSecondaryIndex> LocalSecondaryIndexOverride { get; set; }
+            public System.Int64? OnDemandThroughputOverride_MaxReadRequestUnit { get; set; }
+            public System.Int64? OnDemandThroughputOverride_MaxWriteRequestUnit { get; set; }
             public System.Int64? ProvisionedThroughputOverride_ReadCapacityUnit { get; set; }
             public System.Int64? ProvisionedThroughputOverride_WriteCapacityUnit { get; set; }
             public System.DateTime? RestoreDateTime { get; set; }

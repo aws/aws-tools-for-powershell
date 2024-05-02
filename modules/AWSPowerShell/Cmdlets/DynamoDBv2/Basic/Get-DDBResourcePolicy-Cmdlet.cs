@@ -51,11 +51,11 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// and then retry the <c>GetResourcePolicy</c> request.
     /// </para><para>
     /// After a <c>GetResourcePolicy</c> request returns a policy created using the <c>PutResourcePolicy</c>
-    /// request, you can assume the policy will start getting applied in the authorization
-    /// of requests to the resource. Because this process is eventually consistent, it will
-    /// take some time to apply the policy to all requests to a resource. Policies that you
-    /// attach while creating a table using the <c>CreateTable</c> request will always be
-    /// applied to all requests for that table.
+    /// request, the policy will be applied in the authorization of requests to the resource.
+    /// Because this process is eventually consistent, it will take some time to apply the
+    /// policy to all requests to a resource. Policies that you attach while creating a table
+    /// using the <c>CreateTable</c> request will always be applied to all requests for that
+    /// table.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "DDBResourcePolicy")]
