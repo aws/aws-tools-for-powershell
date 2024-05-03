@@ -6,3 +6,4 @@ $item = @{
         Genre = 'Country'
         CriticRating = 9.0
 } | ConvertTo-DDBItem
+Set-DDBItem -TableName 'Music' -Item $item

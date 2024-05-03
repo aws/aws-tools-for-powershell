@@ -14,10 +14,6 @@ elastic-load-balancing-v2_DeregisterTargets:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/elastic-load-balancing-v2_Unregister-ELB2Target.1.1.ps1
-        - description: <emphasis role="bold">Output:</emphasis>
-          snippet_files: []
-        - description: <programlisting language="none" role="nocopy">Unregister-ELB2Target -Target $targetDescription -TargetGroupArn 'arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/test-tg/a4e04b3688be1970'</programlisting>
-          snippet_files: []
   services:
     elastic-load-balancing-v2:
       DeregisterTargets:

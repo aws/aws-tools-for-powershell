@@ -14,10 +14,6 @@ dynamodb_PutItem:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/dynamodb_Set-DDBItem.1.1.ps1
-        - description: <emphasis role="bold">Output:</emphasis>
-          snippet_files: []
-        - description: <programlisting language="none" role="nocopy">Set-DDBItem -TableName 'Music' -Item $item</programlisting>
-          snippet_files: []
   services:
     dynamodb:
       PutItem:

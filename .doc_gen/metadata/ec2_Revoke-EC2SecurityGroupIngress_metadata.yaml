@@ -14,10 +14,6 @@ ec2_RevokeSecurityGroupIngress:
         - description:
           snippet_files:
           - .doc_gen/snippet_files/ec2_Revoke-EC2SecurityGroupIngress.1.1.ps1
-        - description: <emphasis role="bold">Output:</emphasis>
-          snippet_files: []
-        - description: <programlisting language="none" role="nocopy">Revoke-EC2SecurityGroupIngress -GroupId sg-12345678 -IpPermission $ip</programlisting>
-          snippet_files: []
         - description: '<emphasis role="bold">Example 2: With PowerShell version 2, you must use New-Object to create the IpPermission object.</emphasis>'
           snippet_files: []
         - description:
