@@ -6161,6 +6161,9 @@ Set-Alias -Name CONN-BatchAssociateAnalyticsDataSet -Value Register-CONNBatchAna
 Set-Alias -Name Batch-CONNDisassociateAnalyticsDataSet -Value Unregister-CONNBatchAnalyticsDataSet
 Set-Alias -Name Batch-CONNBatchAnalyticsDataSet -Value Unregister-CONNBatchAnalyticsDataSet
 Set-Alias -Name CONN-BatchDisassociateAnalyticsDataSet -Value Unregister-CONNBatchAnalyticsDataSet
+Set-Alias -Name Batch-CONNGetAttachedFileMetadata -Value Get-CONNBatchAttachedFileMetadata
+Set-Alias -Name Batch-CONNBatchAttachedFileMetadata -Value Get-CONNBatchAttachedFileMetadata
+Set-Alias -Name CONN-BatchGetAttachedFileMetadata -Value Get-CONNBatchAttachedFileMetadata
 Set-Alias -Name Batch-CONNGetFlowAssociation -Value Get-CONNFlowAssociationBatch
 Set-Alias -Name Batch-CONNFlowAssociationBatch -Value Get-CONNFlowAssociationBatch
 Set-Alias -Name CONN-BatchGetFlowAssociation -Value Get-CONNFlowAssociationBatch
@@ -6169,6 +6172,7 @@ Set-Alias -Name Batch-CONNBatchPutContact -Value Set-CONNBatchPutContact
 Set-Alias -Name CONN-BatchPutContact -Value Set-CONNBatchPutContact
 Set-Alias -Name Claim-CONNPhoneNumber -Value Request-CONNPhoneNumber
 Set-Alias -Name CONN-ClaimPhoneNumber -Value Request-CONNPhoneNumber
+Set-Alias -Name CONN-CompleteAttachedFileUpload -Value Complete-CONNAttachedFileUpload
 Set-Alias -Name Create-CONNAgentStatus -Value New-CONNAgentStatus
 Set-Alias -Name CONN-CreateAgentStatus -Value New-CONNAgentStatus
 Set-Alias -Name Create-CONNContactFlow -Value New-CONNContactFlow
@@ -6219,6 +6223,8 @@ Set-Alias -Name Create-CONNVocabulary -Value New-CONNVocabulary
 Set-Alias -Name CONN-CreateVocabulary -Value New-CONNVocabulary
 Set-Alias -Name Deactivate-CONNEvaluationForm -Value Disable-CONNEvaluationForm
 Set-Alias -Name CONN-DeactivateEvaluationForm -Value Disable-CONNEvaluationForm
+Set-Alias -Name Delete-CONNAttachedFile -Value Remove-CONNAttachedFile
+Set-Alias -Name CONN-DeleteAttachedFile -Value Remove-CONNAttachedFile
 Set-Alias -Name Delete-CONNContactEvaluation -Value Remove-CONNContactEvaluation
 Set-Alias -Name CONN-DeleteContactEvaluation -Value Remove-CONNContactEvaluation
 Set-Alias -Name Delete-CONNContactFlow -Value Remove-CONNContactFlow
@@ -6342,6 +6348,7 @@ Set-Alias -Name Disassociate-CONNUserProficiency -Value Remove-CONNUserProficien
 Set-Alias -Name CONN-DisassociateUserProficiencies -Value Remove-CONNUserProficiency
 Set-Alias -Name Dismiss-CONNUserContact -Value Write-CONNUserContact
 Set-Alias -Name CONN-DismissUserContact -Value Write-CONNUserContact
+Set-Alias -Name CONN-GetAttachedFile -Value Get-CONNAttachedFile
 Set-Alias -Name Get-CONNContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetContactAttributes -Value Get-CONNContactAttribute
 Set-Alias -Name CONN-GetCurrentMetricData -Value Get-CONNCurrentMetricData
@@ -6525,6 +6532,7 @@ Set-Alias -Name CONN-SearchUsers -Value Search-CONNUser
 Set-Alias -Name Search-CONNVocabularies -Value Search-CONNVocabulary
 Set-Alias -Name CONN-SearchVocabularies -Value Search-CONNVocabulary
 Set-Alias -Name CONN-SendChatIntegrationEvent -Value Send-CONNChatIntegrationEvent
+Set-Alias -Name CONN-StartAttachedFileUpload -Value Start-CONNAttachedFileUpload
 Set-Alias -Name CONN-StartChatContact -Value Start-CONNChatContact
 Set-Alias -Name CONN-StartContactEvaluation -Value Start-CONNContactEvaluation
 Set-Alias -Name CONN-StartContactRecording -Value Start-CONNContactRecording

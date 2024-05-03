@@ -316,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         /// <para>
         /// <para>Specifies whether to enable or disable your task schedule. Your schedule is enabled
         /// by default, but there can be situations where you need to disable it. For example,
-        /// you might need to pause a recurring transfer or fix an issue with your task or perform
+        /// you might need to pause a recurring transfer to fix an issue with your task or perform
         /// maintenance on your storage system.</para><para>DataSync might disable your schedule automatically if your task fails repeatedly with
         /// the same error. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_TaskScheduleDetails.html">TaskScheduleDetails</a>.</para>
         /// </para>

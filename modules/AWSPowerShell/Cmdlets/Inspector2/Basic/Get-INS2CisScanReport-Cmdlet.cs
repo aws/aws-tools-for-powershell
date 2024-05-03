@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ReportFormat
+        /// <summary>
+        /// <para>
+        /// <para> The format of the report. Valid values are <c>PDF</c> and <c>CSV</c>. If no value
+        /// is specified, the report format defaults to <c>PDF</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Inspector2.CisReportFormat")]
+        public Amazon.Inspector2.CisReportFormat ReportFormat { get; set; }
+        #endregion
+        
         #region Parameter ScanArn
         /// <summary>
         /// <para>
@@ -115,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
                 context.Select = (response, cmdlet) => this.ScanArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ReportFormat = this.ReportFormat;
             context.ScanArn = this.ScanArn;
             #if MODULAR
             if (this.ScanArn == null && ParameterWasBound(nameof(this.ScanArn)))
@@ -142,6 +155,10 @@ namespace Amazon.PowerShell.Cmdlets.INS2
             // create request
             var request = new Amazon.Inspector2.Model.GetCisScanReportRequest();
             
+            if (cmdletContext.ReportFormat != null)
+            {
+                request.ReportFormat = cmdletContext.ReportFormat;
+            }
             if (cmdletContext.ScanArn != null)
             {
                 request.ScanArn = cmdletContext.ScanArn;
@@ -211,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.INS2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.Inspector2.CisReportFormat ReportFormat { get; set; }
             public System.String ScanArn { get; set; }
             public List<System.String> TargetAccount { get; set; }
             public System.Func<Amazon.Inspector2.Model.GetCisScanReportResponse, GetINS2CisScanReportCmdlet, object> Select { get; set; } =

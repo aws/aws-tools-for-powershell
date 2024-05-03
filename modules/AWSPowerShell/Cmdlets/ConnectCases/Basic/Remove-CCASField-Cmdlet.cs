@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter DomainId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain. </para>
+        /// <para>The unique identifier of the Cases domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         #region Parameter FieldId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of a field.</para>
+        /// <para>Unique identifier of the field.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

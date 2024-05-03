@@ -92,6 +92,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetAttachedFileMetadata" OutputProperty="*" Verb="Get" Noun="BatchAttachedFileMetadata" AnonymousShouldProcessTarget="true" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetFlowAssociation" OutputProperty="FlowAssociationSummaryList" Verb="Get" Noun="FlowAssociationBatch" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -101,6 +105,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ClaimPhoneNumber" OutputProperty="*" Verb="Request" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumber" PipelineParameter="PhoneNumber" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CompleteAttachedFileUpload" Verb="Complete" Noun="AttachedFileUpload" ShouldProcessTarget="FileId" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -201,6 +209,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeactivateEvaluationForm" OutputProperty="*" Verb="Disable" Noun="EvaluationForm" ShouldProcessTarget="EvaluationFormId" PipelineParameter="EvaluationFormId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAttachedFile" Verb="Remove" Noun="AttachedFile" ShouldProcessTarget="FileId" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -441,6 +453,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DismissUserContact" Verb="Write" Noun="UserContact" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAttachedFile" OutputProperty="*" Verb="Get" Noun="AttachedFile" PipelineParameter="AssociatedResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -796,6 +812,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SendChatIntegrationEvent" OutputProperty="*" Verb="Send" Noun="ChatIntegrationEvent" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="DestinationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAttachedFileUpload" OutputProperty="*" Verb="Start" Noun="AttachedFileUpload" ShouldProcessTarget="AssociatedResourceArn" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

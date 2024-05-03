@@ -130,6 +130,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.CisReportFormat
+        "Get-INS2CisScanReport/ReportFormat"
+        {
+            $v = "CSV","PDF"
+            break
+        }
+
         # Amazon.Inspector2.CisScanConfigurationsSortBy
         "Get-INS2CisScanConfigurationList/SortBy"
         {
@@ -417,7 +424,7 @@ $INS2_map = @{
     "Monthly_Day"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "ReportFormat"=@("New-INS2FindingsReport","New-INS2SbomExport")
+    "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")

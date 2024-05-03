@@ -109,6 +109,17 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         public System.String DomainId { get; set; }
         #endregion
         
+        #region Parameter File_FileArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a File in Amazon Connect.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Content_File_FileArn")]
+        public System.String File_FileArn { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -208,6 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             context.Comment_Body = this.Comment_Body;
             context.Comment_ContentType = this.Comment_ContentType;
             context.Contact_ContactArn = this.Contact_ContactArn;
+            context.File_FileArn = this.File_FileArn;
             context.DomainId = this.DomainId;
             #if MODULAR
             if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
@@ -270,6 +282,31 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             if (requestContent_content_Contact != null)
             {
                 request.Content.Contact = requestContent_content_Contact;
+                requestContentIsNull = false;
+            }
+            Amazon.ConnectCases.Model.FileContent requestContent_content_File = null;
+            
+             // populate File
+            var requestContent_content_FileIsNull = true;
+            requestContent_content_File = new Amazon.ConnectCases.Model.FileContent();
+            System.String requestContent_content_File_file_FileArn = null;
+            if (cmdletContext.File_FileArn != null)
+            {
+                requestContent_content_File_file_FileArn = cmdletContext.File_FileArn;
+            }
+            if (requestContent_content_File_file_FileArn != null)
+            {
+                requestContent_content_File.FileArn = requestContent_content_File_file_FileArn;
+                requestContent_content_FileIsNull = false;
+            }
+             // determine if requestContent_content_File should be set to null
+            if (requestContent_content_FileIsNull)
+            {
+                requestContent_content_File = null;
+            }
+            if (requestContent_content_File != null)
+            {
+                request.Content.File = requestContent_content_File;
                 requestContentIsNull = false;
             }
             Amazon.ConnectCases.Model.CommentContent requestContent_content_Comment = null;
@@ -404,6 +441,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             public System.String Comment_Body { get; set; }
             public Amazon.ConnectCases.CommentBodyTextType Comment_ContentType { get; set; }
             public System.String Contact_ContactArn { get; set; }
+            public System.String File_FileArn { get; set; }
             public System.String DomainId { get; set; }
             public System.String PerformedBy_UserArn { get; set; }
             public Amazon.ConnectCases.RelatedItemType Type { get; set; }

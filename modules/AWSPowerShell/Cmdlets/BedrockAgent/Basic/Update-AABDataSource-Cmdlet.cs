@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataDeletionPolicy
         /// <summary>
         /// <para>
-        /// <para>The data deletion policy assigned to the data source.</para>
+        /// <para>The data deletion policy of the updated data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

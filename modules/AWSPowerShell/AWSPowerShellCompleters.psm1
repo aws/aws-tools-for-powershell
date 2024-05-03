@@ -16074,6 +16074,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.FileUseCaseType
+        "Start-CONNAttachedFileUpload/FileUseCaseType"
+        {
+            $v = "ATTACHMENT"
+            break
+        }
+
         # Amazon.Connect.FlowAssociationResourceType
         {
             ($_ -eq "Add-CONNFlow/ResourceType") -Or
@@ -16387,6 +16394,7 @@ $CONN_map = @{
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
+    "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
     "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
@@ -16495,9 +16503,11 @@ $CONN_SelectMap = @{
                "Add-CONNUserProficiency",
                "Register-CONNBatchAnalyticsDataSet",
                "Unregister-CONNBatchAnalyticsDataSet",
+               "Get-CONNBatchAttachedFileMetadata",
                "Get-CONNFlowAssociationBatch",
                "Set-CONNBatchPutContact",
                "Request-CONNPhoneNumber",
+               "Complete-CONNAttachedFileUpload",
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
@@ -16523,6 +16533,7 @@ $CONN_SelectMap = @{
                "New-CONNViewVersion",
                "New-CONNVocabulary",
                "Disable-CONNEvaluationForm",
+               "Remove-CONNAttachedFile",
                "Remove-CONNContactEvaluation",
                "Remove-CONNContactFlow",
                "Remove-CONNContactFlowModule",
@@ -16583,6 +16594,7 @@ $CONN_SelectMap = @{
                "Remove-CONNTrafficDistributionGroupUser",
                "Remove-CONNUserProficiency",
                "Write-CONNUserContact",
+               "Get-CONNAttachedFile",
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
@@ -16658,6 +16670,7 @@ $CONN_SelectMap = @{
                "Search-CONNUser",
                "Search-CONNVocabulary",
                "Send-CONNChatIntegrationEvent",
+               "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",
@@ -16859,7 +16872,7 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.RelatedItemType
         "New-CCASRelatedItem/Type"
         {
-            $v = "Comment","Contact"
+            $v = "Comment","Contact","File"
             break
         }
 
@@ -33326,6 +33339,13 @@ $INS2_Completers = {
             break
         }
 
+        # Amazon.Inspector2.CisReportFormat
+        "Get-INS2CisScanReport/ReportFormat"
+        {
+            $v = "CSV","PDF"
+            break
+        }
+
         # Amazon.Inspector2.CisScanConfigurationsSortBy
         "Get-INS2CisScanConfigurationList/SortBy"
         {
@@ -33613,7 +33633,7 @@ $INS2_map = @{
     "Monthly_Day"=@("New-INS2CisScanConfiguration","Update-INS2CisScanConfiguration")
     "PackageAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "PackageAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
-    "ReportFormat"=@("New-INS2FindingsReport","New-INS2SbomExport")
+    "ReportFormat"=@("Get-INS2CisScanReport","New-INS2FindingsReport","New-INS2SbomExport")
     "RepositoryAggregation_SortBy"=@("Get-INS2FindingAggregationList")
     "RepositoryAggregation_SortOrder"=@("Get-INS2FindingAggregationList")
     "ResourceType"=@("Get-INS2EncryptionKey","Reset-INS2EncryptionKey","Update-INS2EncryptionKey")
@@ -60161,7 +60181,7 @@ $SM_Completers = {
         # Amazon.SageMaker.TransformInstanceType
         "New-SMTransformJob/TransformResources_InstanceType"
         {
-            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge"
+            $v = "ml.c4.2xlarge","ml.c4.4xlarge","ml.c4.8xlarge","ml.c4.xlarge","ml.c5.18xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.m4.10xlarge","ml.m4.16xlarge","ml.m4.2xlarge","ml.m4.4xlarge","ml.m4.xlarge","ml.m5.12xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.large","ml.m5.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p2.16xlarge","ml.p2.8xlarge","ml.p2.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge"
             break
         }
 

@@ -97,7 +97,7 @@ $CCAS_Completers = {
         # Amazon.ConnectCases.RelatedItemType
         "New-CCASRelatedItem/Type"
         {
-            $v = "Comment","Contact"
+            $v = "Comment","Contact","File"
             break
         }
 

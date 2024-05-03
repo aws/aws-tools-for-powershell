@@ -180,6 +180,13 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.FileUseCaseType
+        "Start-CONNAttachedFileUpload/FileUseCaseType"
+        {
+            $v = "ATTACHMENT"
+            break
+        }
+
         # Amazon.Connect.FlowAssociationResourceType
         {
             ($_ -eq "Add-CONNFlow/ResourceType") -Or
@@ -493,6 +500,7 @@ $CONN_map = @{
     "Customer_Video"=@("Start-CONNWebRTCContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
+    "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
     "HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "IdentityManagementType"=@("New-CONNInstance")
     "IntegrationType"=@("Get-CONNIntegrationAssociationList","New-CONNIntegrationAssociation")
@@ -601,9 +609,11 @@ $CONN_SelectMap = @{
                "Add-CONNUserProficiency",
                "Register-CONNBatchAnalyticsDataSet",
                "Unregister-CONNBatchAnalyticsDataSet",
+               "Get-CONNBatchAttachedFileMetadata",
                "Get-CONNFlowAssociationBatch",
                "Set-CONNBatchPutContact",
                "Request-CONNPhoneNumber",
+               "Complete-CONNAttachedFileUpload",
                "New-CONNAgentStatus",
                "New-CONNContactFlow",
                "New-CONNContactFlowModule",
@@ -629,6 +639,7 @@ $CONN_SelectMap = @{
                "New-CONNViewVersion",
                "New-CONNVocabulary",
                "Disable-CONNEvaluationForm",
+               "Remove-CONNAttachedFile",
                "Remove-CONNContactEvaluation",
                "Remove-CONNContactFlow",
                "Remove-CONNContactFlowModule",
@@ -689,6 +700,7 @@ $CONN_SelectMap = @{
                "Remove-CONNTrafficDistributionGroupUser",
                "Remove-CONNUserProficiency",
                "Write-CONNUserContact",
+               "Get-CONNAttachedFile",
                "Get-CONNContactAttribute",
                "Get-CONNCurrentMetricData",
                "Get-CONNCurrentUserData",
@@ -764,6 +776,7 @@ $CONN_SelectMap = @{
                "Search-CONNUser",
                "Search-CONNVocabulary",
                "Send-CONNChatIntegrationEvent",
+               "Start-CONNAttachedFileUpload",
                "Start-CONNChatContact",
                "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",

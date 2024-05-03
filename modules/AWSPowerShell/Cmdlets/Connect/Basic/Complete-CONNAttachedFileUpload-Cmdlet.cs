@@ -22,37 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ConnectCases;
-using Amazon.ConnectCases.Model;
+using Amazon.Connect;
+using Amazon.Connect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CCAS
+namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes a layout from a cases template. You can delete up to 100 layouts per domain.
-    /// 
-    ///  <pre><c> &lt;p&gt;After a layout is deleted:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;You
-    /// can still retrieve the layout by calling &lt;code&gt;GetLayout&lt;/code&gt;.&lt;/p&gt;
-    /// &lt;/li&gt; &lt;li&gt; &lt;p&gt;You cannot update a deleted layout by calling &lt;code&gt;UpdateLayout&lt;/code&gt;;
-    /// it throws a &lt;code&gt;ValidationException&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt;
-    /// &lt;p&gt;Deleted layouts are not included in the &lt;code&gt;ListLayouts&lt;/code&gt;
-    /// response.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; </c></pre>
+    /// Allows you to confirm that the attached file has been uploaded using the pre-signed
+    /// URL provided in the StartAttachedFileUpload API.
     /// </summary>
-    [Cmdlet("Remove", "CCASLayout", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Complete", "CONNAttachedFileUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Cases DeleteLayout API operation.", Operation = new[] {"DeleteLayout"}, SelectReturnType = typeof(Amazon.ConnectCases.Model.DeleteLayoutResponse))]
-    [AWSCmdletOutput("None or Amazon.ConnectCases.Model.DeleteLayoutResponse",
+    [AWSCmdlet("Calls the Amazon Connect Service CompleteAttachedFileUpload API operation.", Operation = new[] {"CompleteAttachedFileUpload"}, SelectReturnType = typeof(Amazon.Connect.Model.CompleteAttachedFileUploadResponse))]
+    [AWSCmdletOutput("None or Amazon.Connect.Model.CompleteAttachedFileUploadResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.ConnectCases.Model.DeleteLayoutResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Connect.Model.CompleteAttachedFileUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCCASLayoutCmdlet : AmazonConnectCasesClientCmdlet, IExecutor
+    public partial class CompleteCONNAttachedFileUploadCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainId
+        #region Parameter AssociatedResourceArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Cases domain.</para>
+        /// <para>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a>
+        /// are the only current supported resource.</para><note><para>This value must be a valid ARN.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainId { get; set; }
+        public System.String AssociatedResourceArn { get; set; }
         #endregion
         
-        #region Parameter LayoutId
+        #region Parameter FileId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the layout.</para>
+        /// <para>The unique identifier of the attached file resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,13 +75,30 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LayoutId { get; set; }
+        public System.String FileId { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the Connect instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ConnectCases.Model.DeleteLayoutResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.CompleteAttachedFileUploadResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -95,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DomainId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AssociatedResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AssociatedResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssociatedResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DomainId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCASLayout (DeleteLayout)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Complete-CONNAttachedFileUpload (CompleteAttachedFileUpload)"))
             {
                 return;
             }
@@ -132,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ConnectCases.Model.DeleteLayoutResponse, RemoveCCASLayoutCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.CompleteAttachedFileUploadResponse, CompleteCONNAttachedFileUploadCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,21 +153,28 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DomainId;
+                context.Select = (response, cmdlet) => this.AssociatedResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainId = this.DomainId;
+            context.AssociatedResourceArn = this.AssociatedResourceArn;
             #if MODULAR
-            if (this.DomainId == null && ParameterWasBound(nameof(this.DomainId)))
+            if (this.AssociatedResourceArn == null && ParameterWasBound(nameof(this.AssociatedResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssociatedResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LayoutId = this.LayoutId;
+            context.FileId = this.FileId;
             #if MODULAR
-            if (this.LayoutId == null && ParameterWasBound(nameof(this.LayoutId)))
+            if (this.FileId == null && ParameterWasBound(nameof(this.FileId)))
             {
-                WriteWarning("You are passing $null as a value for parameter LayoutId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -172,15 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ConnectCases.Model.DeleteLayoutRequest();
+            var request = new Amazon.Connect.Model.CompleteAttachedFileUploadRequest();
             
-            if (cmdletContext.DomainId != null)
+            if (cmdletContext.AssociatedResourceArn != null)
             {
-                request.DomainId = cmdletContext.DomainId;
+                request.AssociatedResourceArn = cmdletContext.AssociatedResourceArn;
             }
-            if (cmdletContext.LayoutId != null)
+            if (cmdletContext.FileId != null)
             {
-                request.LayoutId = cmdletContext.LayoutId;
+                request.FileId = cmdletContext.FileId;
+            }
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -215,15 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ConnectCases.Model.DeleteLayoutResponse CallAWSServiceOperation(IAmazonConnectCases client, Amazon.ConnectCases.Model.DeleteLayoutRequest request)
+        private Amazon.Connect.Model.CompleteAttachedFileUploadResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.CompleteAttachedFileUploadRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Cases", "DeleteLayout");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "CompleteAttachedFileUpload");
             try
             {
                 #if DESKTOP
-                return client.DeleteLayout(request);
+                return client.CompleteAttachedFileUpload(request);
                 #elif CORECLR
-                return client.DeleteLayoutAsync(request).GetAwaiter().GetResult();
+                return client.CompleteAttachedFileUploadAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -243,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.CCAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainId { get; set; }
-            public System.String LayoutId { get; set; }
-            public System.Func<Amazon.ConnectCases.Model.DeleteLayoutResponse, RemoveCCASLayoutCmdlet, object> Select { get; set; } =
+            public System.String AssociatedResourceArn { get; set; }
+            public System.String FileId { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Func<Amazon.Connect.Model.CompleteAttachedFileUploadResponse, CompleteCONNAttachedFileUploadCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

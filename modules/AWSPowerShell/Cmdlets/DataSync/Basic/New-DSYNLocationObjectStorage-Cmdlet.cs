@@ -112,9 +112,13 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         #region Parameter ServerCertificate
         /// <summary>
         /// <para>
-        /// <para>Specifies a file with the certificates that are used to sign the object storage server's
-        /// certificate (for example, <c>file:///home/user/.ssh/storage_sys_certificate.pem</c>).
-        /// The file you specify must include the following:</para><ul><li><para>The certificate of the signing certificate authority (CA)</para></li><li><para>Any intermediate certificates</para></li><li><para>base64 encoding</para></li><li><para>A <c>.pem</c> extension</para></li></ul><para>The file can be up to 32768 bytes (before base64 encoding).</para><para>To use this parameter, configure <c>ServerProtocol</c> to <c>HTTPS</c>.</para>
+        /// <para>Specifies a certificate chain for DataSync to authenticate with your object storage
+        /// system if the system uses a private or self-signed certificate authority (CA). You
+        /// must specify a single <c>.pem</c> file with a full certificate chain (for example,
+        /// <c>file:///home/user/.ssh/object_storage_certificates.pem</c>).</para><para>The certificate chain might include:</para><ul><li><para>The object storage system's certificate</para></li><li><para>All intermediate certificates (if there are any)</para></li><li><para>The root certificate of the signing CA</para></li></ul><para>You can concatenate your certificates into a <c>.pem</c> file (which can be up to
+        /// 32768 bytes before base64 encoding). The following example <c>cat</c> command creates
+        /// an <c>object_storage_certificates.pem</c> file that includes three certificates:</para><para><c>cat object_server_certificate.pem intermediate_certificate.pem ca_root_certificate.pem
+        /// &gt; object_storage_certificates.pem</c></para><para>To use this parameter, configure <c>ServerProtocol</c> to <c>HTTPS</c>.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
