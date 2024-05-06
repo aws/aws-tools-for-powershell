@@ -1,4 +1,7 @@
-﻿### 4.1.572 (2024-05-03 21:03Z)
+﻿### 4.1.573 (2024-05-06 20:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.804.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.572 (2024-05-03 21:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.803.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Cases
     * Modified cmdlet New-CCASRelatedItem: added parameter File_FileArn.
