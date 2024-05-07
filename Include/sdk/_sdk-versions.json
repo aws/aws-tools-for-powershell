@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.804.0",
+    "ProductVersion"    : "3.7.805.0",
     "CoreVersion"       : "3.7.303.27",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -595,7 +595,7 @@
             "InPreview"               : false
         },
         "Budgets"                         : {
-            "Version" : "3.7.300.87",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.27"
@@ -2291,7 +2291,7 @@
             "InPreview"               : false
         },
         "ResilienceHub"                   : {
-            "Version" : "3.7.300.87",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.27"
@@ -2931,7 +2931,7 @@
             "InPreview"               : false
         },
         "B2bi"                                : {
-            "Version" : "3.7.303.18",
+            "Version" : "3.7.303.19",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.27"
@@ -3067,7 +3067,7 @@
             "InPreview"               : false
         },
         "Route53Profiles"                     : {
-            "Version" : "3.7.300.8",
+            "Version" : "3.7.300.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.303.27"

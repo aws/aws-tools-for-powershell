@@ -83,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter MappingTemplate
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the mapping template for the transformer. This template is used
-        /// to convert the input document into the correct set of objects.</para>
+        /// <para>Specifies the mapping template for the transformer. This template is used to map the
+        /// parsed EDI file using JSONata or XSLT.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

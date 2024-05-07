@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewBudget_CostFilter
         /// <summary>
         /// <para>
-        /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>member account</c>, <c>Tag</c>,
-        /// or <c>Cost Category</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
+        /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>LinkedAccount</c>, <c>Tag</c>,
+        /// or <c>CostCategory</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
         /// for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
         /// </para>
         /// </summary>

@@ -1,4 +1,15 @@
-﻿### 4.1.573 (2024-05-06 20:53Z)
+﻿### 4.1.574 (2024-05-07 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.805.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Budgets
+    * Added cmdlet Add-BGTResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-BGTResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-BGTResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-BGTBudget: added parameter ResourceTag.
+    * Modified cmdlet New-BGTBudgetAction: added parameter ResourceTag.
+  * Amazon Resilience Hub
+    * Added cmdlet Get-RESHAppAssessmentResourceDriftList leveraging the ListAppAssessmentResourceDrifts service API.
+
+### 4.1.573 (2024-05-06 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.804.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.572 (2024-05-03 21:03Z)

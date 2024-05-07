@@ -2661,6 +2661,9 @@ Set-Alias -Name Describe-BGTSubscribersForNotification -Value Get-BGTSubscribers
 Set-Alias -Name BGT-DescribeSubscribersForNotification -Value Get-BGTSubscribersForNotification
 Set-Alias -Name Execute-BGTBudgetAction -Value Invoke-BGTBudgetAction
 Set-Alias -Name BGT-ExecuteBudgetAction -Value Invoke-BGTBudgetAction
+Set-Alias -Name BGT-ListTagsForResource -Value Get-BGTResourceTag
+Set-Alias -Name BGT-TagResource -Value Add-BGTResourceTag
+Set-Alias -Name BGT-UntagResource -Value Remove-BGTResourceTag
 Set-Alias -Name BGT-UpdateBudgetAction -Value Update-BGTBudgetAction
 Set-Alias -Name BGT-UpdateBudget -Value Update-BGTBudget
 Set-Alias -Name BGT-UpdateNotification -Value Update-BGTNotification
@@ -23597,6 +23600,9 @@ Set-Alias -Name RESH-ListAlarmRecommendations -Value Get-RESHAlarmRecommendation
 Set-Alias -Name List-RESHAppAssessmentComplianceDrifts -Value Get-RESHAppAssessmentComplianceDriftList
 Set-Alias -Name List-RESHAppAssessmentComplianceDriftList -Value Get-RESHAppAssessmentComplianceDriftList
 Set-Alias -Name RESH-ListAppAssessmentComplianceDrifts -Value Get-RESHAppAssessmentComplianceDriftList
+Set-Alias -Name List-RESHAppAssessmentResourceDrifts -Value Get-RESHAppAssessmentResourceDriftList
+Set-Alias -Name List-RESHAppAssessmentResourceDriftList -Value Get-RESHAppAssessmentResourceDriftList
+Set-Alias -Name RESH-ListAppAssessmentResourceDrifts -Value Get-RESHAppAssessmentResourceDriftList
 Set-Alias -Name List-RESHAppAssessments -Value Get-RESHAppAssessmentList
 Set-Alias -Name List-RESHAppAssessmentList -Value Get-RESHAppAssessmentList
 Set-Alias -Name RESH-ListAppAssessments -Value Get-RESHAppAssessmentList

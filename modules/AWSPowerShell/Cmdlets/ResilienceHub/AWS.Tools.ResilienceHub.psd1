@@ -93,6 +93,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-RESHAppAssessment', 
         'Get-RESHAppAssessmentComplianceDriftList', 
         'Get-RESHAppAssessmentList', 
+        'Get-RESHAppAssessmentResourceDriftList', 
         'Get-RESHAppComponentComplianceList', 
         'Get-RESHAppComponentRecommendationList', 
         'Get-RESHAppInputSourceList', 

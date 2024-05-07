@@ -169,8 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_CostFilter
         /// <summary>
         /// <para>
-        /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>member account</c>, <c>Tag</c>,
-        /// or <c>Cost Category</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
+        /// <para>The cost filters, such as <c>Region</c>, <c>Service</c>, <c>LinkedAccount</c>, <c>Tag</c>,
+        /// or <c>CostCategory</c>, that are applied to a budget.</para><para>Amazon Web Services Budgets supports the following services as a <c>Service</c> filter
         /// for RI budgets:</para><ul><li><para>Amazon EC2</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon OpenSearch Service</para></li></ul>
         /// </para>
         /// </summary>
@@ -369,6 +369,18 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Budget_PlannedBudgetLimits")]
         public System.Collections.Hashtable Budget_PlannedBudgetLimit { get; set; }
+        #endregion
+        
+        #region Parameter ResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of tags to associate with the specified budget. Each tag consists
+        /// of a key and a value, and each key must be unique for the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceTags")]
+        public Amazon.Budgets.Model.ResourceTag[] ResourceTag { get; set; }
         #endregion
         
         #region Parameter TimePeriod_Start
@@ -607,6 +619,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (this.NotificationsWithSubscriber != null)
             {
                 context.NotificationsWithSubscriber = new List<Amazon.Budgets.Model.NotificationWithSubscribers>(this.NotificationsWithSubscriber);
+            }
+            if (this.ResourceTag != null)
+            {
+                context.ResourceTag = new List<Amazon.Budgets.Model.ResourceTag>(this.ResourceTag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -1051,6 +1067,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             {
                 request.NotificationsWithSubscribers = cmdletContext.NotificationsWithSubscriber;
             }
+            if (cmdletContext.ResourceTag != null)
+            {
+                request.ResourceTags = cmdletContext.ResourceTag;
+            }
             
             CmdletOutput output;
             
@@ -1143,6 +1163,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.DateTime? TimePeriod_Start { get; set; }
             public Amazon.Budgets.TimeUnit Budget_TimeUnit { get; set; }
             public List<Amazon.Budgets.Model.NotificationWithSubscribers> NotificationsWithSubscriber { get; set; }
+            public List<Amazon.Budgets.Model.ResourceTag> ResourceTag { get; set; }
             public System.Func<Amazon.Budgets.Model.CreateBudgetResponse, NewBGTBudgetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

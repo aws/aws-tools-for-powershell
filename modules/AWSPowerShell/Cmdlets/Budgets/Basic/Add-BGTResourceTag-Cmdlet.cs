@@ -22,40 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53Profiles;
-using Amazon.Route53Profiles.Model;
+using Amazon.Budgets;
+using Amazon.Budgets.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53P
+namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Updates the specified Route 53 Profile resourse association.
+    /// Creates tags for a budget or budget action resource.
     /// </summary>
-    [Cmdlet("Update", "R53PProfileResourceAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Route53Profiles.Model.ProfileResourceAssociation")]
-    [AWSCmdlet("Calls the Amazon Route 53 Profiles UpdateProfileResourceAssociation API operation.", Operation = new[] {"UpdateProfileResourceAssociation"}, SelectReturnType = typeof(Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse))]
-    [AWSCmdletOutput("Amazon.Route53Profiles.Model.ProfileResourceAssociation or Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse",
-        "This cmdlet returns an Amazon.Route53Profiles.Model.ProfileResourceAssociation object.",
-        "The service call response (type Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "BGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Budgets TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Budgets.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.Budgets.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Budgets.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateR53PProfileResourceAssociationCmdlet : AmazonRoute53ProfilesClientCmdlet, IExecutor
+    public partial class AddBGTResourceTagCmdlet : AmazonBudgetsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para> Name of the resource association. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ProfileResourceAssociationId
-        /// <summary>
-        /// <para>
-        /// <para> ID of the resource association. </para>
+        /// <para>The unique identifier for the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,39 +56,43 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ProfileResourceAssociationId { get; set; }
+        public System.String ResourceARN { get; set; }
         #endregion
         
-        #region Parameter ResourceProperty
+        #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para> If you are adding a DNS Firewall rule group, include also a priority. The priority
-        /// indicates the processing order for the rule groups, starting with the priority assinged
-        /// the lowest value. </para><para>The allowed values for priority are between 100 and 9900.</para>
+        /// <para>The tags associated with the resource.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ResourceProperties")]
-        public System.String ResourceProperty { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("ResourceTags")]
+        public Amazon.Budgets.Model.ResourceTag[] ResourceTag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ProfileResourceAssociation'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse).
-        /// Specifying the name of a property of type Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Budgets.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ProfileResourceAssociation";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ProfileResourceAssociationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ProfileResourceAssociationId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProfileResourceAssociationId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.R53P
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProfileResourceAssociationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-R53PProfileResourceAssociation (UpdateProfileResourceAssociation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-BGTResourceTag (TagResource)"))
             {
                 return;
             }
@@ -132,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.R53P
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse, UpdateR53PProfileResourceAssociationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Budgets.Model.TagResourceResponse, AddBGTResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,18 +135,26 @@ namespace Amazon.PowerShell.Cmdlets.R53P
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ProfileResourceAssociationId;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
-            context.ProfileResourceAssociationId = this.ProfileResourceAssociationId;
+            context.ResourceARN = this.ResourceARN;
             #if MODULAR
-            if (this.ProfileResourceAssociationId == null && ParameterWasBound(nameof(this.ProfileResourceAssociationId)))
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter ProfileResourceAssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ResourceProperty = this.ResourceProperty;
+            if (this.ResourceTag != null)
+            {
+                context.ResourceTag = new List<Amazon.Budgets.Model.ResourceTag>(this.ResourceTag);
+            }
+            #if MODULAR
+            if (this.ResourceTag == null && ParameterWasBound(nameof(this.ResourceTag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ResourceTag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -167,19 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationRequest();
+            var request = new Amazon.Budgets.Model.TagResourceRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.ProfileResourceAssociationId != null)
+            if (cmdletContext.ResourceTag != null)
             {
-                request.ProfileResourceAssociationId = cmdletContext.ProfileResourceAssociationId;
-            }
-            if (cmdletContext.ResourceProperty != null)
-            {
-                request.ResourceProperties = cmdletContext.ResourceProperty;
+                request.ResourceTags = cmdletContext.ResourceTag;
             }
             
             CmdletOutput output;
@@ -214,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse CallAWSServiceOperation(IAmazonRoute53Profiles client, Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationRequest request)
+        private Amazon.Budgets.Model.TagResourceResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Profiles", "UpdateProfileResourceAssociation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.UpdateProfileResourceAssociation(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.UpdateProfileResourceAssociationAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,11 +240,10 @@ namespace Amazon.PowerShell.Cmdlets.R53P
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.String ProfileResourceAssociationId { get; set; }
-            public System.String ResourceProperty { get; set; }
-            public System.Func<Amazon.Route53Profiles.Model.UpdateProfileResourceAssociationResponse, UpdateR53PProfileResourceAssociationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ProfileResourceAssociation;
+            public System.String ResourceARN { get; set; }
+            public List<Amazon.Budgets.Model.ResourceTag> ResourceTag { get; set; }
+            public System.Func<Amazon.Budgets.Model.TagResourceResponse, AddBGTResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

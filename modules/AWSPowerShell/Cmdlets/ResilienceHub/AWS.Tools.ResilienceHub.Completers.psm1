@@ -243,6 +243,7 @@ $RESH_SelectMap = @{
                "Import-RESHResourcesToDraftAppVersion",
                "Get-RESHAlarmRecommendationList",
                "Get-RESHAppAssessmentComplianceDriftList",
+               "Get-RESHAppAssessmentResourceDriftList",
                "Get-RESHAppAssessmentList",
                "Get-RESHAppComponentComplianceList",
                "Get-RESHAppComponentRecommendationList",

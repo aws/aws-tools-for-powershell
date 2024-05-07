@@ -247,6 +247,18 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.String SsmActionDefinition_Region { get; set; }
         #endregion
         
+        #region Parameter ResourceTag
+        /// <summary>
+        /// <para>
+        /// <para>An optional list of tags to associate with the specified budget action. Each tag consists
+        /// of a key and a value, and each key must be unique for the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourceTags")]
+        public Amazon.Budgets.Model.ResourceTag[] ResourceTag { get; set; }
+        #endregion
+        
         #region Parameter IamActionDefinition_Role
         /// <summary>
         /// <para>
@@ -440,6 +452,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 WriteWarning("You are passing $null as a value for parameter NotificationType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ResourceTag != null)
+            {
+                context.ResourceTag = new List<Amazon.Budgets.Model.ResourceTag>(this.ResourceTag);
+            }
             if (this.Subscriber != null)
             {
                 context.Subscriber = new List<Amazon.Budgets.Model.Subscriber>(this.Subscriber);
@@ -663,6 +679,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             {
                 request.NotificationType = cmdletContext.NotificationType;
             }
+            if (cmdletContext.ResourceTag != null)
+            {
+                request.ResourceTags = cmdletContext.ResourceTag;
+            }
             if (cmdletContext.Subscriber != null)
             {
                 request.Subscribers = cmdletContext.Subscriber;
@@ -745,6 +765,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.String SsmActionDefinition_Region { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public Amazon.Budgets.NotificationType NotificationType { get; set; }
+            public List<Amazon.Budgets.Model.ResourceTag> ResourceTag { get; set; }
             public List<Amazon.Budgets.Model.Subscriber> Subscriber { get; set; }
             public System.Func<Amazon.Budgets.Model.CreateBudgetActionResponse, NewBGTBudgetActionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

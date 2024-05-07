@@ -28,19 +28,17 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists the recommendation templates for the Resilience Hub applications.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Indicates the list of resource drifts that were detected while running an assessment.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RESHRecommendationTemplateList")]
-    [OutputType("Amazon.ResilienceHub.Model.RecommendationTemplate")]
-    [AWSCmdlet("Calls the AWS Resilience Hub ListRecommendationTemplates API operation.", Operation = new[] {"ListRecommendationTemplates"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.RecommendationTemplate or Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse",
-        "This cmdlet returns a collection of Amazon.ResilienceHub.Model.RecommendationTemplate objects.",
-        "The service call response (type Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RESHAppAssessmentResourceDriftList")]
+    [OutputType("Amazon.ResilienceHub.Model.ResourceDrift")]
+    [AWSCmdlet("Calls the AWS Resilience Hub ListAppAssessmentResourceDrifts API operation.", Operation = new[] {"ListAppAssessmentResourceDrifts"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse))]
+    [AWSCmdletOutput("Amazon.ResilienceHub.Model.ResourceDrift or Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse",
+        "This cmdlet returns a collection of Amazon.ResilienceHub.Model.ResourceDrift objects.",
+        "The service call response (type Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRESHRecommendationTemplateListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class GetRESHAppAssessmentResourceDriftListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -53,57 +51,23 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// guide.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AssessmentArn { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name for one of the listed recommendation templates.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter RecommendationTemplateArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) for a recommendation template.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RecommendationTemplateArn { get; set; }
-        #endregion
-        
-        #region Parameter ReverseOrder
-        /// <summary>
-        /// <para>
-        /// <para>The default is to sort by ascending <b>startTime</b>. To sort by descending <b>startTime</b>,
-        /// set reverseOrder to <c>true</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ReverseOrder { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>Status of the action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Status { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to include in the response. If more results exist than the
-        /// specified <c>MaxResults</c> value, a token is included in the response so that the
-        /// remaining results can be retrieved.</para>
+        /// <para>Indicates the maximum number of drift results to include in the response. If more
+        /// results exist than the specified <c>MaxResults</c> value, a token is included in the
+        /// response so that the remaining results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,13 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RecommendationTemplates'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ResourceDrifts'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse).
+        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RecommendationTemplates";
+        public string Select { get; set; } = "ResourceDrifts";
         #endregion
         
         #region Parameter PassThru
@@ -169,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse, GetRESHRecommendationTemplateListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse, GetRESHAppAssessmentResourceDriftListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -182,15 +146,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AssessmentArn = this.AssessmentArn;
-            context.MaxResult = this.MaxResult;
-            context.Name = this.Name;
-            context.NextToken = this.NextToken;
-            context.RecommendationTemplateArn = this.RecommendationTemplateArn;
-            context.ReverseOrder = this.ReverseOrder;
-            if (this.Status != null)
+            #if MODULAR
+            if (this.AssessmentArn == null && ParameterWasBound(nameof(this.AssessmentArn)))
             {
-                context.Status = new List<System.String>(this.Status);
+                WriteWarning("You are passing $null as a value for parameter AssessmentArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
+            #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -209,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.ResilienceHub.Model.ListRecommendationTemplatesRequest();
+            var request = new Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsRequest();
             
             if (cmdletContext.AssessmentArn != null)
             {
@@ -218,22 +181,6 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.RecommendationTemplateArn != null)
-            {
-                request.RecommendationTemplateArn = cmdletContext.RecommendationTemplateArn;
-            }
-            if (cmdletContext.ReverseOrder != null)
-            {
-                request.ReverseOrder = cmdletContext.ReverseOrder.Value;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
             }
             
             // Initialize loop variant and commence piping
@@ -292,15 +239,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.ListRecommendationTemplatesRequest request)
+        private Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "ListRecommendationTemplates");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "ListAppAssessmentResourceDrifts");
             try
             {
                 #if DESKTOP
-                return client.ListRecommendationTemplates(request);
+                return client.ListAppAssessmentResourceDrifts(request);
                 #elif CORECLR
-                return client.ListRecommendationTemplatesAsync(request).GetAwaiter().GetResult();
+                return client.ListAppAssessmentResourceDriftsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -322,13 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             public System.String AssessmentArn { get; set; }
             public System.Int32? MaxResult { get; set; }
-            public System.String Name { get; set; }
             public System.String NextToken { get; set; }
-            public System.String RecommendationTemplateArn { get; set; }
-            public System.Boolean? ReverseOrder { get; set; }
-            public List<System.String> Status { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.ListRecommendationTemplatesResponse, GetRESHRecommendationTemplateListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RecommendationTemplates;
+            public System.Func<Amazon.ResilienceHub.Model.ListAppAssessmentResourceDriftsResponse, GetRESHAppAssessmentResourceDriftListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ResourceDrifts;
         }
         
     }

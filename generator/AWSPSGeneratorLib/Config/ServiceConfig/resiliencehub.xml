@@ -123,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListAppAssessmentResourceDrifts" OutputProperty="ResourceDrifts" Verb="Get" Noun="AppAssessmentResourceDriftList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListAppAssessments" OutputProperty="AssessmentSummaries" Verb="Get" Noun="AppAssessmentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
