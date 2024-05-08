@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Specifies the engine (<c>standard</c>, <c>neural</c> or <c>long-form</c>) used by
-        /// Amazon Polly when processing input text for speech synthesis. </para>
+        /// <para>Specifies the engine (<c>standard</c>, <c>neural</c>, <c>long-form</c> or <c>generative</c>)
+        /// used by Amazon Polly when processing input text for speech synthesis. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

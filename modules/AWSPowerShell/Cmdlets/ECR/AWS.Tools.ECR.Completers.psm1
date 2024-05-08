@@ -118,7 +118,7 @@ $ECR_Completers = {
         # Amazon.ECR.UpstreamRegistry
         "New-ECRPullThroughCacheRule/UpstreamRegistry"
         {
-            $v = "azure-container-registry","docker-hub","ecr-public","github-container-registry","k8s","quay"
+            $v = "azure-container-registry","docker-hub","ecr-public","github-container-registry","gitlab-container-registry","k8s","quay"
             break
         }
 

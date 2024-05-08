@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Specifies the engine (<c>standard</c>, <c>neural</c> or <c>long-form</c>) for Amazon
-        /// Polly to use when processing input text for speech synthesis. Using a voice that is
-        /// not supported for the engine selected will result in an error.</para>
+        /// <para>Specifies the engine (<c>standard</c>, <c>neural</c>, <c>long-form</c> or <c>generative</c>)
+        /// for Amazon Polly to use when processing input text for speech synthesis. Using a voice
+        /// that is not supported for the engine selected will result in an error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <para>
         /// <para>The audio frequency specified in Hz.</para><para>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000".
         /// The default value for standard voices is "22050". The default value for neural voices
-        /// is "24000". The default value for long-form voices is "24000".</para><para>Valid values for pcm are "8000" and "16000" The default value is "16000". </para>
+        /// is "24000". The default value for long-form voices is "24000". The default value for
+        /// generative voices is "24000".</para><para>Valid values for pcm are "8000" and "16000" The default value is "16000". </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

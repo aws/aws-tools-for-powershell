@@ -48,16 +48,13 @@ namespace Amazon.PowerShell.Cmdlets.POL
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>Specifies the engine (<c>standard</c>, <c>neural</c> or <c>long-form</c>) for Amazon
-        /// Polly to use when processing input text for speech synthesis. For information on Amazon
-        /// Polly voices and which voices are available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available
-        /// Voices</a>.</para><para><b>NTTS-only voices</b></para><para>When using NTTS-only voices such as Kevin (en-US), this parameter is required and
-        /// must be set to <c>neural</c>. If the engine is not specified, or is set to <c>standard</c>,
-        /// this will result in an error. </para><para><b>long-form-only voices</b></para><para>When using long-form-only voices such as Danielle (en-US), this parameter is required
-        /// and must be set to <c>long-form</c>. If the engine is not specified, or is set to
-        /// <c>standard</c> or <c>neural</c>, this will result in an error. </para><para>Type: String</para><para>Valid Values: <c>standard</c> | <c>neural</c> | <c>long-form</c></para><para>Required: Yes</para><para><b>Standard voices</b></para><para>For standard voices, this is not required; the engine parameter defaults to <c>standard</c>.
-        /// If the engine is not specified, or is set to <c>standard</c> and an NTTS-only voice
-        /// is selected, this will result in an error. </para>
+        /// <para>Specifies the engine (<c>standard</c>, <c>neural</c>, <c>long-form</c>, or <c>generative</c>)
+        /// for Amazon Polly to use when processing input text for speech synthesis. Provide an
+        /// engine that is supported by the voice you select. If you don't provide an engine,
+        /// the standard engine is selected by default. If a chosen voice isn't supported by the
+        /// standard engine, this will result in an error. For information on Amazon Polly voices
+        /// and which voices are available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available
+        /// Voices</a>.</para><para>Type: String</para><para>Valid Values: <c>standard</c> | <c>neural</c> | <c>long-form</c> | <c>generative</c></para><para>Required: Yes</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         /// <para>
         /// <para>The audio frequency specified in Hz.</para><para>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050", and "24000".
         /// The default value for standard voices is "22050". The default value for neural voices
-        /// is "24000". The default value for long-form voices is "24000".</para><para>Valid values for pcm are "8000" and "16000" The default value is "16000". </para>
+        /// is "24000". The default value for long-form voices is "24000". The default value for
+        /// generative voices is "24000".</para><para>Valid values for pcm are "8000" and "16000" The default value is "16000". </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

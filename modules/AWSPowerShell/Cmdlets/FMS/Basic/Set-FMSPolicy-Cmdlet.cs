@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     /// protections to your organization's VPCs. 
     /// </para></li><li><para><b>Third-party firewall policy</b> - This policy applies third-party firewall protections.
     /// Third-party firewalls are available by subscription through the Amazon Web Services
-    /// Marketplace console at <a href="https://aws.amazon.com/marketplace">Amazon Web Services
+    /// Marketplace console at <a href="http://aws.amazon.com/marketplace">Amazon Web Services
     /// Marketplace</a>.
     /// </para><ul><li><para><b>Palo Alto Networks Cloud NGFW policy</b> - This policy applies Palo Alto Networks
     /// Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW

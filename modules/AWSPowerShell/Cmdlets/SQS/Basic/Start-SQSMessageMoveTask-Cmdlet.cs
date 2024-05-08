@@ -42,8 +42,6 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// which the messages were driven to the dead-letter-queue), or a custom destination
     /// queue.
     /// </para></li><li><para>
-    /// Currently, only standard queues support redrive. FIFO queues don't support redrive.
-    /// </para></li><li><para>
     /// Only one active message movement task is supported per queue at any given time.
     /// </para></li></ul></note>
     /// </summary>

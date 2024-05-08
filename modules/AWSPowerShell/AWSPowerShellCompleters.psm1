@@ -24588,7 +24588,7 @@ $ECR_Completers = {
         # Amazon.ECR.UpstreamRegistry
         "New-ECRPullThroughCacheRule/UpstreamRegistry"
         {
-            $v = "azure-container-registry","docker-hub","ecr-public","github-container-registry","k8s","quay"
+            $v = "azure-container-registry","docker-hub","ecr-public","github-container-registry","gitlab-container-registry","k8s","quay"
             break
         }
 
@@ -52226,7 +52226,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/Engine")
         }
         {
-            $v = "long-form","neural","standard"
+            $v = "generative","long-form","neural","standard"
             break
         }
 

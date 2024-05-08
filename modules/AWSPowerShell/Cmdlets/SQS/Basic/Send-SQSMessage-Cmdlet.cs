@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// the queue, but the session data of each user is processed in a FIFO fashion.</para><ul><li><para>You must associate a non-empty <c>MessageGroupId</c> with a message. If you don't
         /// provide a <c>MessageGroupId</c>, the action fails.</para></li><li><para><c>ReceiveMessage</c> might return messages with multiple <c>MessageGroupId</c> values.
         /// For each <c>MessageGroupId</c>, the messages are sorted by time sent. The caller can't
-        /// specify a <c>MessageGroupId</c>.</para></li></ul><para>The length of <c>MessageGroupId</c> is 128 characters. Valid values: alphanumeric
+        /// specify a <c>MessageGroupId</c>.</para></li></ul><para>The maximum length of <c>MessageGroupId</c> is 128 characters. Valid values: alphanumeric
         /// characters and punctuation <c>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</c>.</para><para>For best practices of using <c>MessageGroupId</c>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html">Using
         /// the MessageGroupId Property</a> in the <i>Amazon SQS Developer Guide</i>.</para><important><para><c>MessageGroupId</c> is required for FIFO queues. You can't use it for Standard
         /// queues.</para></important>
