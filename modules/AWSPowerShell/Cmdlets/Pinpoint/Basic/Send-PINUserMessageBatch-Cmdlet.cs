@@ -527,6 +527,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String EmailMessage_FromAddress { get; set; }
         #endregion
         
+        #region Parameter SimpleEmail_Header
+        /// <summary>
+        /// <para>
+        /// <para>The list of MessageHeaders for the email. You can have up to 15 Headers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Headers")]
+        public Amazon.Pinpoint.Model.MessageHeader[] SimpleEmail_Header { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_IconReference
         /// <summary>
         /// <para>
@@ -1792,6 +1803,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 context.EmailMessage_ReplyToAddress = new List<System.String>(this.EmailMessage_ReplyToAddress);
             }
+            if (this.SimpleEmail_Header != null)
+            {
+                context.SimpleEmail_Header = new List<Amazon.Pinpoint.Model.MessageHeader>(this.SimpleEmail_Header);
+            }
             context.HtmlPart_Charset = this.HtmlPart_Charset;
             context.HtmlPart_Data = this.HtmlPart_Data;
             context.Subject_Charset = this.Subject_Charset;
@@ -2463,6 +2478,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                  // populate SimpleEmail
                 var requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmailIsNull = true;
                 requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail = new Amazon.Pinpoint.Model.SimpleEmail();
+                List<Amazon.Pinpoint.Model.MessageHeader> requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header = null;
+                if (cmdletContext.SimpleEmail_Header != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header = cmdletContext.SimpleEmail_Header;
+                }
+                if (requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header != null)
+                {
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail.Headers = requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header;
+                    requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmailIsNull = false;
+                }
                 Amazon.Pinpoint.Model.SimpleEmailPart requestSendUsersMessageRequest_sendUsersMessageRequest_MessageConfiguration_sendUsersMessageRequest_MessageConfiguration_EmailMessage_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_sendUsersMessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_HtmlPart = null;
                 
                  // populate HtmlPart
@@ -3561,6 +3586,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String EmailMessage_FromAddress { get; set; }
             public byte[] RawEmail_Data { get; set; }
             public List<System.String> EmailMessage_ReplyToAddress { get; set; }
+            public List<Amazon.Pinpoint.Model.MessageHeader> SimpleEmail_Header { get; set; }
             public System.String HtmlPart_Charset { get; set; }
             public System.String HtmlPart_Data { get; set; }
             public System.String Subject_Charset { get; set; }

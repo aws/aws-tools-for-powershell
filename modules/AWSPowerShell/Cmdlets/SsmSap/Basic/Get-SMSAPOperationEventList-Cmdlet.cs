@@ -28,16 +28,22 @@ using Amazon.SsmSap.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSAP
 {
     /// <summary>
-    /// Lists all the applications registered with AWS Systems Manager for SAP.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of operations events.
+    /// 
+    ///  
+    /// <para>
+    /// Available parameters include <c>OperationID</c>, as well as optional parameters <c>MaxResults</c>,
+    /// <c>NextToken</c>, and <c>Filters</c>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "SMSAPApplicationList")]
-    [OutputType("Amazon.SsmSap.Model.ApplicationSummary")]
-    [AWSCmdlet("Calls the AWS Systems Manager for SAP ListApplications API operation.", Operation = new[] {"ListApplications"}, SelectReturnType = typeof(Amazon.SsmSap.Model.ListApplicationsResponse))]
-    [AWSCmdletOutput("Amazon.SsmSap.Model.ApplicationSummary or Amazon.SsmSap.Model.ListApplicationsResponse",
-        "This cmdlet returns a collection of Amazon.SsmSap.Model.ApplicationSummary objects.",
-        "The service call response (type Amazon.SsmSap.Model.ListApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMSAPOperationEventList")]
+    [OutputType("Amazon.SsmSap.Model.OperationEvent")]
+    [AWSCmdlet("Calls the AWS Systems Manager for SAP ListOperationEvents API operation.", Operation = new[] {"ListOperationEvents"}, SelectReturnType = typeof(Amazon.SsmSap.Model.ListOperationEventsResponse))]
+    [AWSCmdletOutput("Amazon.SsmSap.Model.OperationEvent or Amazon.SsmSap.Model.ListOperationEventsResponse",
+        "This cmdlet returns a collection of Amazon.SsmSap.Model.OperationEvent objects.",
+        "The service call response (type Amazon.SsmSap.Model.ListOperationEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSMSAPApplicationListCmdlet : AmazonSsmSapClientCmdlet, IExecutor
+    public partial class GetSMSAPOperationEventListCmdlet : AmazonSsmSapClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -45,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter of name, value, and operator.</para>
+        /// <para>Optionally specify filters to narrow the returned operation event items.</para><para>Valid filter names include <c>status</c>, <c>resourceID</c>, and <c>resourceType</c>.
+        /// The valid operator for all three filters is <c>Equals</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,11 +60,29 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         public Amazon.SsmSap.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter OperationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the operation.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String OperationId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
         /// <para>The maximum number of results to return with a single call. To retrieve the remaining
-        /// results, make another call with the returned nextToken value.</para>
+        /// results, make another call with the returned nextToken value.</para><para>If you do not specify a value for <c>MaxResults</c>, the request returns 50 items
+        /// per page by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>The token to use to retrieve the next page of results. This value is null when there
+        /// are no more results to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -81,13 +107,23 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Applications'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SsmSap.Model.ListApplicationsResponse).
-        /// Specifying the name of a property of type Amazon.SsmSap.Model.ListApplicationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'OperationEvents'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SsmSap.Model.ListOperationEventsResponse).
+        /// Specifying the name of a property of type Amazon.SsmSap.Model.ListOperationEventsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Applications";
+        public string Select { get; set; } = "OperationEvents";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the OperationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^OperationId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OperationId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -110,17 +146,34 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SsmSap.Model.ListApplicationsResponse, GetSMSAPApplicationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SsmSap.Model.ListOperationEventsResponse, GetSMSAPOperationEventListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.OperationId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Filter != null)
             {
                 context.Filter = new List<Amazon.SsmSap.Model.Filter>(this.Filter);
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OperationId = this.OperationId;
+            #if MODULAR
+            if (this.OperationId == null && ParameterWasBound(nameof(this.OperationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter OperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,10 +187,12 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.SsmSap.Model.ListApplicationsRequest();
+            var request = new Amazon.SsmSap.Model.ListOperationEventsRequest();
             
             if (cmdletContext.Filter != null)
             {
@@ -146,6 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.OperationId != null)
+            {
+                request.OperationId = cmdletContext.OperationId;
             }
             
             // Initialize loop variant and commence piping
@@ -204,15 +263,15 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
         
         #region AWS Service Operation Call
         
-        private Amazon.SsmSap.Model.ListApplicationsResponse CallAWSServiceOperation(IAmazonSsmSap client, Amazon.SsmSap.Model.ListApplicationsRequest request)
+        private Amazon.SsmSap.Model.ListOperationEventsResponse CallAWSServiceOperation(IAmazonSsmSap client, Amazon.SsmSap.Model.ListOperationEventsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager for SAP", "ListApplications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager for SAP", "ListOperationEvents");
             try
             {
                 #if DESKTOP
-                return client.ListApplications(request);
+                return client.ListOperationEvents(request);
                 #elif CORECLR
-                return client.ListApplicationsAsync(request).GetAwaiter().GetResult();
+                return client.ListOperationEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -235,8 +294,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSAP
             public List<Amazon.SsmSap.Model.Filter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.SsmSap.Model.ListApplicationsResponse, GetSMSAPApplicationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Applications;
+            public System.String OperationId { get; set; }
+            public System.Func<Amazon.SsmSap.Model.ListOperationEventsResponse, GetSMSAPOperationEventListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.OperationEvents;
         }
         
     }

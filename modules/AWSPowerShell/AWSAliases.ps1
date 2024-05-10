@@ -27085,6 +27085,9 @@ Set-Alias -Name SMSAP-ListComponents -Value Get-SMSAPComponentList
 Set-Alias -Name List-SMSAPDatabases -Value Get-SMSAPDatabasisList
 Set-Alias -Name List-SMSAPDatabasisList -Value Get-SMSAPDatabasisList
 Set-Alias -Name SMSAP-ListDatabases -Value Get-SMSAPDatabasisList
+Set-Alias -Name List-SMSAPOperationEvents -Value Get-SMSAPOperationEventList
+Set-Alias -Name List-SMSAPOperationEventList -Value Get-SMSAPOperationEventList
+Set-Alias -Name SMSAP-ListOperationEvents -Value Get-SMSAPOperationEventList
 Set-Alias -Name List-SMSAPOperations -Value Get-SMSAPOperationList
 Set-Alias -Name List-SMSAPOperationList -Value Get-SMSAPOperationList
 Set-Alias -Name SMSAP-ListOperations -Value Get-SMSAPOperationList
@@ -27092,7 +27095,9 @@ Set-Alias -Name SMSAP-ListTagsForResource -Value Get-SMSAPResourceTag
 Set-Alias -Name Put-SMSAPResourcePermission -Value Write-SMSAPResourcePermission
 Set-Alias -Name SMSAP-PutResourcePermission -Value Write-SMSAPResourcePermission
 Set-Alias -Name SMSAP-RegisterApplication -Value Register-SMSAPApplication
+Set-Alias -Name SMSAP-StartApplication -Value Start-SMSAPApplication
 Set-Alias -Name SMSAP-StartApplicationRefresh -Value Start-SMSAPApplicationRefresh
+Set-Alias -Name SMSAP-StopApplication -Value Stop-SMSAPApplication
 Set-Alias -Name SMSAP-TagResource -Value Add-SMSAPResourceTag
 Set-Alias -Name SMSAP-UntagResource -Value Remove-SMSAPResourceTag
 Set-Alias -Name Update-SMSAPApplicationSettings -Value Update-SMSAPApplicationSetting

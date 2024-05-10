@@ -64798,6 +64798,13 @@ $SMSAP_Completers = {
             break
         }
 
+        # Amazon.SsmSap.ConnectedEntityType
+        "Stop-SMSAPApplication/StopConnectedEntity"
+        {
+            $v = "DBMS"
+            break
+        }
+
         # Amazon.SsmSap.PermissionActionType
         {
             ($_ -eq "Get-SMSAPResourcePermission/ActionType") -Or
@@ -64821,6 +64828,7 @@ $SMSAP_map = @{
     "ActionType"=@("Get-SMSAPResourcePermission","Remove-SMSAPResourcePermission","Write-SMSAPResourcePermission")
     "ApplicationType"=@("Register-SMSAPApplication")
     "Backint_BackintMode"=@("Update-SMSAPApplicationSetting")
+    "StopConnectedEntity"=@("Stop-SMSAPApplication")
 }
 
 _awsArgumentCompleterRegistration $SMSAP_Completers $SMSAP_map
@@ -64883,11 +64891,14 @@ $SMSAP_SelectMap = @{
                "Get-SMSAPApplicationList",
                "Get-SMSAPComponentList",
                "Get-SMSAPDatabasisList",
+               "Get-SMSAPOperationEventList",
                "Get-SMSAPOperationList",
                "Get-SMSAPResourceTag",
                "Write-SMSAPResourcePermission",
                "Register-SMSAPApplication",
+               "Start-SMSAPApplication",
                "Start-SMSAPApplicationRefresh",
+               "Stop-SMSAPApplication",
                "Add-SMSAPResourceTag",
                "Remove-SMSAPResourceTag",
                "Update-SMSAPApplicationSetting")

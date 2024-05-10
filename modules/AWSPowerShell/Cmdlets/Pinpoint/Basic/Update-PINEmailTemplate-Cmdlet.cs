@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String EmailTemplateRequest_DefaultSubstitution { get; set; }
         #endregion
         
+        #region Parameter EmailTemplateRequest_Header
+        /// <summary>
+        /// <para>
+        /// <para>The list of <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader">MessageHeaders</a>
+        /// for the email. You can have up to 15 Headers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EmailTemplateRequest_Headers")]
+        public Amazon.Pinpoint.Model.MessageHeader[] EmailTemplateRequest_Header { get; set; }
+        #endregion
+        
         #region Parameter EmailTemplateRequest_HtmlPart
         /// <summary>
         /// <para>
@@ -250,6 +262,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CreateNewVersion = this.CreateNewVersion;
             context.EmailTemplateRequest_DefaultSubstitution = this.EmailTemplateRequest_DefaultSubstitution;
+            if (this.EmailTemplateRequest_Header != null)
+            {
+                context.EmailTemplateRequest_Header = new List<Amazon.Pinpoint.Model.MessageHeader>(this.EmailTemplateRequest_Header);
+            }
             context.EmailTemplateRequest_HtmlPart = this.EmailTemplateRequest_HtmlPart;
             context.EmailTemplateRequest_RecommenderId = this.EmailTemplateRequest_RecommenderId;
             context.EmailTemplateRequest_Subject = this.EmailTemplateRequest_Subject;
@@ -303,6 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution != null)
             {
                 request.EmailTemplateRequest.DefaultSubstitutions = requestEmailTemplateRequest_emailTemplateRequest_DefaultSubstitution;
+                requestEmailTemplateRequestIsNull = false;
+            }
+            List<Amazon.Pinpoint.Model.MessageHeader> requestEmailTemplateRequest_emailTemplateRequest_Header = null;
+            if (cmdletContext.EmailTemplateRequest_Header != null)
+            {
+                requestEmailTemplateRequest_emailTemplateRequest_Header = cmdletContext.EmailTemplateRequest_Header;
+            }
+            if (requestEmailTemplateRequest_emailTemplateRequest_Header != null)
+            {
+                request.EmailTemplateRequest.Headers = requestEmailTemplateRequest_emailTemplateRequest_Header;
                 requestEmailTemplateRequestIsNull = false;
             }
             System.String requestEmailTemplateRequest_emailTemplateRequest_HtmlPart = null;
@@ -441,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             public System.Boolean? CreateNewVersion { get; set; }
             public System.String EmailTemplateRequest_DefaultSubstitution { get; set; }
+            public List<Amazon.Pinpoint.Model.MessageHeader> EmailTemplateRequest_Header { get; set; }
             public System.String EmailTemplateRequest_HtmlPart { get; set; }
             public System.String EmailTemplateRequest_RecommenderId { get; set; }
             public System.String EmailTemplateRequest_Subject { get; set; }

@@ -46,6 +46,31 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields
+        /// <summary>
+        /// <para>
+        /// <para> Additional model parameters and their corresponding values not included in the textInferenceConfig
+        /// structure for an external source. Takes in custom model parameters specific to the
+        /// language model being used. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields { get; set; }
+        #endregion
+        
+        #region Parameter GenerationConfiguration_AdditionalModelRequestField
+        /// <summary>
+        /// <para>
+        /// <para> Additional model parameters and corresponding values not included in the textInferenceConfig
+        /// structure for a knowledge base. This allows users to provide custom model parameters
+        /// specific to the language model being used. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_AdditionalModelRequestFields")]
+        public System.Collections.Hashtable GenerationConfiguration_AdditionalModelRequestField { get; set; }
+        #endregion
+        
         #region Parameter Filter_AndAll
         /// <summary>
         /// <para>
@@ -56,6 +81,46 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration_VectorSearchConfiguration_Filter_AndAll")]
         public Amazon.BedrockAgentRuntime.Model.RetrievalFilter[] Filter_AndAll { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier for the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion { get; set; }
         #endregion
         
         #region Parameter Equals_Key
@@ -179,6 +244,31 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
         #endregion
         
+        #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tokens to generate in the output text. Do not use the minimum
+        /// of 0 or the maximum of 65536. The limit values described here are arbitary values,
+        /// for actual values consult the limits defined by your specific model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens { get; set; }
+        #endregion
+        
+        #region Parameter TextInferenceConfig_MaxToken
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tokens to generate in the output text. Do not use the minimum
+        /// of 0 or the maximum of 65536. The limit values described here are arbitary values,
+        /// for actual values consult the limits defined by your specific model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens")]
+        public System.Int32? TextInferenceConfig_MaxToken { get; set; }
+        #endregion
+        
         #region Parameter ExternalSourcesConfiguration_ModelArn
         /// <summary>
         /// <para>
@@ -266,6 +356,62 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public Amazon.BedrockAgentRuntime.Model.ExternalSource[] ExternalSourcesConfiguration_Source { get; set; }
         #endregion
         
+        #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences
+        /// <summary>
+        /// <para>
+        /// <para>A list of sequences of characters that, if generated, will cause the model to stop
+        /// generating further tokens. Do not use a minimum length of 1 or a maximum length of
+        /// 1000. The limit values described here are arbitary values, for actual values consult
+        /// the limits defined by your specific model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences { get; set; }
+        #endregion
+        
+        #region Parameter TextInferenceConfig_StopSequence
+        /// <summary>
+        /// <para>
+        /// <para>A list of sequences of characters that, if generated, will cause the model to stop
+        /// generating further tokens. Do not use a minimum length of 1 or a maximum length of
+        /// 1000. The limit values described here are arbitary values, for actual values consult
+        /// the limits defined by your specific model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences")]
+        public System.String[] TextInferenceConfig_StopSequence { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature
+        /// <summary>
+        /// <para>
+        /// <para> Controls the random-ness of text generated by the language model, influencing how
+        /// much the model sticks to the most predictable next words versus exploring more surprising
+        /// options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic
+        /// or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more
+        /// creative or unpredictable. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature { get; set; }
+        #endregion
+        
+        #region Parameter TextInferenceConfig_Temperature
+        /// <summary>
+        /// <para>
+        /// <para> Controls the random-ness of text generated by the language model, influencing how
+        /// much the model sticks to the most predictable next words versus exploring more surprising
+        /// options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic
+        /// or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more
+        /// creative or unpredictable. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature")]
+        public System.Single? TextInferenceConfig_Temperature { get; set; }
+        #endregion
+        
         #region Parameter Input_Text
         /// <summary>
         /// <para>
@@ -313,6 +459,31 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_TextPromptTemplate")]
         public System.String PromptTemplate_TextPromptTemplate { get; set; }
+        #endregion
+        
+        #region Parameter RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP
+        /// <summary>
+        /// <para>
+        /// <para> A probability distribution threshold which controls what the model considers for
+        /// the set of possible next tokens. The model will only consider the top p% of the probability
+        /// distribution when generating the next token. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Single? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP { get; set; }
+        #endregion
+        
+        #region Parameter TextInferenceConfig_TopP
+        /// <summary>
+        /// <para>
+        /// <para> A probability distribution threshold which controls what the model considers for
+        /// the set of possible next tokens. The model will only consider the top p% of the probability
+        /// distribution when generating the next token. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP")]
+        public System.Single? TextInferenceConfig_TopP { get; set; }
         #endregion
         
         #region Parameter RetrieveAndGenerateConfiguration_Type
@@ -494,12 +665,46 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter Input_Text which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields != null)
+            {
+                context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields = new Dictionary<System.String, Amazon.Runtime.Documents.Document>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields.Keys)
+                {
+                    context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields.Add((String)hashKey, Amazon.PowerShell.Common.DocumentHelper.ToDocument(this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields[hashKey]));
+                }
+            }
+            context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId;
+            context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion;
+            context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens;
+            if (this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences != null)
+            {
+                context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences = new List<System.String>(this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences);
+            }
+            context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature;
+            context.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP = this.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP;
             context.ExternalSource_PromptTemplate_TextPromptTemplate = this.ExternalSource_PromptTemplate_TextPromptTemplate;
             context.ExternalSourcesConfiguration_ModelArn = this.ExternalSourcesConfiguration_ModelArn;
             if (this.ExternalSourcesConfiguration_Source != null)
             {
                 context.ExternalSourcesConfiguration_Source = new List<Amazon.BedrockAgentRuntime.Model.ExternalSource>(this.ExternalSourcesConfiguration_Source);
             }
+            if (this.GenerationConfiguration_AdditionalModelRequestField != null)
+            {
+                context.GenerationConfiguration_AdditionalModelRequestField = new Dictionary<System.String, Amazon.Runtime.Documents.Document>(StringComparer.Ordinal);
+                foreach (var hashKey in this.GenerationConfiguration_AdditionalModelRequestField.Keys)
+                {
+                    context.GenerationConfiguration_AdditionalModelRequestField.Add((String)hashKey, Amazon.PowerShell.Common.DocumentHelper.ToDocument(this.GenerationConfiguration_AdditionalModelRequestField[hashKey]));
+                }
+            }
+            context.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId = this.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId;
+            context.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion = this.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion;
+            context.TextInferenceConfig_MaxToken = this.TextInferenceConfig_MaxToken;
+            if (this.TextInferenceConfig_StopSequence != null)
+            {
+                context.TextInferenceConfig_StopSequence = new List<System.String>(this.TextInferenceConfig_StopSequence);
+            }
+            context.TextInferenceConfig_Temperature = this.TextInferenceConfig_Temperature;
+            context.TextInferenceConfig_TopP = this.TextInferenceConfig_TopP;
             context.PromptTemplate_TextPromptTemplate = this.PromptTemplate_TextPromptTemplate;
             context.KnowledgeBaseConfiguration_KnowledgeBaseId = this.KnowledgeBaseConfiguration_KnowledgeBaseId;
             context.KnowledgeBaseConfiguration_ModelArn = this.KnowledgeBaseConfiguration_ModelArn;
@@ -613,6 +818,86 @@ namespace Amazon.PowerShell.Cmdlets.BAR
              // populate GenerationConfiguration
             var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = true;
             requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration = new Amazon.BedrockAgentRuntime.Model.ExternalSourcesGenerationConfiguration();
+            Dictionary<System.String, Amazon.Runtime.Documents.Document> requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields = cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration.AdditionalModelRequestFields = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.InferenceConfig requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig = null;
+            
+             // populate InferenceConfig
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfigIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig = new Amazon.BedrockAgentRuntime.Model.InferenceConfig();
+            Amazon.BedrockAgentRuntime.Model.TextInferenceConfig requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig = null;
+            
+             // populate TextInferenceConfig
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig = new Amazon.BedrockAgentRuntime.Model.TextInferenceConfig();
+            System.Int32? requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens = cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens.Value;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.MaxTokens = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens.Value;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+            List<System.String> requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences = cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.StopSequences = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+            System.Single? requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature = cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature.Value;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.Temperature = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature.Value;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+            System.Single? requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP = cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP.Value;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.TopP = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP.Value;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig.TextInferenceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfigIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfigIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration.InferenceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = false;
+            }
             Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate = null;
             
              // populate PromptTemplate
@@ -636,6 +921,41 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate != null)
             {
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration.PromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_PromptTemplate;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.GuardrailConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration = null;
+            
+             // populate GuardrailConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration = new Amazon.BedrockAgentRuntime.Model.GuardrailConfiguration();
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId = cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration.GuardrailId = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull = false;
+            }
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion = cmdletContext.RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration.GuardrailVersion = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration.GuardrailConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfigurationIsNull = false;
             }
              // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_retrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration should be set to null
@@ -681,46 +1001,6 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_knowledgeBaseConfiguration_ModelArn != null)
             {
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.ModelArn = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_knowledgeBaseConfiguration_ModelArn;
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
-            }
-            Amazon.BedrockAgentRuntime.Model.GenerationConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = null;
-            
-             // populate GenerationConfiguration
-            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = true;
-            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = new Amazon.BedrockAgentRuntime.Model.GenerationConfiguration();
-            Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = null;
-            
-             // populate PromptTemplate
-            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull = true;
-            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = new Amazon.BedrockAgentRuntime.Model.PromptTemplate();
-            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate = null;
-            if (cmdletContext.PromptTemplate_TextPromptTemplate != null)
-            {
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate = cmdletContext.PromptTemplate_TextPromptTemplate;
-            }
-            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate != null)
-            {
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate.TextPromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate;
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull = false;
-            }
-             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate should be set to null
-            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull)
-            {
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = null;
-            }
-            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate != null)
-            {
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.PromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate;
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
-            }
-             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration should be set to null
-            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull)
-            {
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = null;
-            }
-            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration != null)
-            {
-                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.GenerationConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.KnowledgeBaseRetrievalConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration = null;
@@ -1123,6 +1403,161 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.RetrievalConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
             }
+            Amazon.BedrockAgentRuntime.Model.GenerationConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = null;
+            
+             // populate GenerationConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = new Amazon.BedrockAgentRuntime.Model.GenerationConfiguration();
+            Dictionary<System.String, Amazon.Runtime.Documents.Document> requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_generationConfiguration_AdditionalModelRequestField = null;
+            if (cmdletContext.GenerationConfiguration_AdditionalModelRequestField != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_generationConfiguration_AdditionalModelRequestField = cmdletContext.GenerationConfiguration_AdditionalModelRequestField;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_generationConfiguration_AdditionalModelRequestField != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.AdditionalModelRequestFields = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_generationConfiguration_AdditionalModelRequestField;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.InferenceConfig requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig = null;
+            
+             // populate InferenceConfig
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfigIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig = new Amazon.BedrockAgentRuntime.Model.InferenceConfig();
+            Amazon.BedrockAgentRuntime.Model.TextInferenceConfig requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig = null;
+            
+             // populate TextInferenceConfig
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig = new Amazon.BedrockAgentRuntime.Model.TextInferenceConfig();
+            System.Int32? requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_MaxToken = null;
+            if (cmdletContext.TextInferenceConfig_MaxToken != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_MaxToken = cmdletContext.TextInferenceConfig_MaxToken.Value;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_MaxToken != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.MaxTokens = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_MaxToken.Value;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+            List<System.String> requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_StopSequence = null;
+            if (cmdletContext.TextInferenceConfig_StopSequence != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_StopSequence = cmdletContext.TextInferenceConfig_StopSequence;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_StopSequence != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.StopSequences = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_StopSequence;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+            System.Single? requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_Temperature = null;
+            if (cmdletContext.TextInferenceConfig_Temperature != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_Temperature = cmdletContext.TextInferenceConfig_Temperature.Value;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_Temperature != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.Temperature = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_Temperature.Value;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+            System.Single? requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_TopP = null;
+            if (cmdletContext.TextInferenceConfig_TopP != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_TopP = cmdletContext.TextInferenceConfig_TopP.Value;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_TopP != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig.TopP = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_textInferenceConfig_TopP.Value;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfigIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig.TextInferenceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfigIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfigIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.InferenceConfig = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.PromptTemplate requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = null;
+            
+             // populate PromptTemplate
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = new Amazon.BedrockAgentRuntime.Model.PromptTemplate();
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate = null;
+            if (cmdletContext.PromptTemplate_TextPromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate = cmdletContext.PromptTemplate_TextPromptTemplate;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate.TextPromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate_promptTemplate_TextPromptTemplate;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplateIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.PromptTemplate = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_PromptTemplate;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.GuardrailConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration = null;
+            
+             // populate GuardrailConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration = new Amazon.BedrockAgentRuntime.Model.GuardrailConfiguration();
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId = cmdletContext.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration.GuardrailId = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull = false;
+            }
+            System.String requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion = null;
+            if (cmdletContext.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion = cmdletContext.RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration.GuardrailVersion = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration.GuardrailConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.GenerationConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
+            }
              // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration should be set to null
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull)
             {
@@ -1223,9 +1658,23 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Input_Text { get; set; }
+            public Dictionary<System.String, Amazon.Runtime.Documents.Document> RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields { get; set; }
+            public System.String RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId { get; set; }
+            public System.String RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion { get; set; }
+            public System.Int32? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens { get; set; }
+            public List<System.String> RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences { get; set; }
+            public System.Single? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature { get; set; }
+            public System.Single? RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP { get; set; }
             public System.String ExternalSource_PromptTemplate_TextPromptTemplate { get; set; }
             public System.String ExternalSourcesConfiguration_ModelArn { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.ExternalSource> ExternalSourcesConfiguration_Source { get; set; }
+            public Dictionary<System.String, Amazon.Runtime.Documents.Document> GenerationConfiguration_AdditionalModelRequestField { get; set; }
+            public System.String RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId { get; set; }
+            public System.String RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion { get; set; }
+            public System.Int32? TextInferenceConfig_MaxToken { get; set; }
+            public List<System.String> TextInferenceConfig_StopSequence { get; set; }
+            public System.Single? TextInferenceConfig_Temperature { get; set; }
+            public System.Single? TextInferenceConfig_TopP { get; set; }
             public System.String PromptTemplate_TextPromptTemplate { get; set; }
             public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
             public System.String KnowledgeBaseConfiguration_ModelArn { get; set; }

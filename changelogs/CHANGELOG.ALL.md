@@ -1,4 +1,20 @@
-﻿### 4.1.575 (2024-05-08 20:53Z)
+﻿### 4.1.576 (2024-05-10 02:27Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.807.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters GenerationConfiguration_AdditionalModelRequestField, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion, TextInferenceConfig_MaxToken, TextInferenceConfig_StopSequence, TextInferenceConfig_Temperature and TextInferenceConfig_TopP.
+  * Amazon Pinpoint
+    * Modified cmdlet New-PINCampaign: added parameter EmailMessage_Header.
+    * Modified cmdlet New-PINEmailTemplate: added parameter EmailTemplateRequest_Header.
+    * Modified cmdlet Send-PINMessage: added parameter SimpleEmail_Header.
+    * Modified cmdlet Send-PINUserMessageBatch: added parameter SimpleEmail_Header.
+    * Modified cmdlet Update-PINCampaign: added parameter EmailMessage_Header.
+    * Modified cmdlet Update-PINEmailTemplate: added parameter EmailTemplateRequest_Header.
+  * Amazon Systems Manager for SAP
+    * Added cmdlet Get-SMSAPOperationEventList leveraging the ListOperationEvents service API.
+    * Added cmdlet Start-SMSAPApplication leveraging the StartApplication service API.
+    * Added cmdlet Stop-SMSAPApplication leveraging the StopApplication service API.
+
+### 4.1.575 (2024-05-08 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.806.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Simple Queue Service (SQS)
     * Modified cmdlet Receive-SQSMessage: added parameter MessageSystemAttributeName.

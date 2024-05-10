@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// Note that the service might return fewer results than the maximum even when there
         /// are more results available. You should check <c>NextToken</c> after every operation
         /// to ensure that you receive all of the results.</para><para>If you do not specify this parameter, the operation defaults to 10 identity sources
-        /// per response. You can specify a maximum of 200 identity sources per response.</para>
+        /// per response. You can specify a maximum of 50 identity sources per response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

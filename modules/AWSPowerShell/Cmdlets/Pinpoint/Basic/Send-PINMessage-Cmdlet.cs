@@ -555,6 +555,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String EmailMessage_FromAddress { get; set; }
         #endregion
         
+        #region Parameter SimpleEmail_Header
+        /// <summary>
+        /// <para>
+        /// <para>The list of MessageHeaders for the email. You can have up to 15 Headers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MessageRequest_MessageConfiguration_EmailMessage_SimpleEmail_Headers")]
+        public Amazon.Pinpoint.Model.MessageHeader[] SimpleEmail_Header { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_IconReference
         /// <summary>
         /// <para>
@@ -1815,6 +1826,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 context.EmailMessage_ReplyToAddress = new List<System.String>(this.EmailMessage_ReplyToAddress);
             }
+            if (this.SimpleEmail_Header != null)
+            {
+                context.SimpleEmail_Header = new List<Amazon.Pinpoint.Model.MessageHeader>(this.SimpleEmail_Header);
+            }
             context.HtmlPart_Charset = this.HtmlPart_Charset;
             context.HtmlPart_Data = this.HtmlPart_Data;
             context.Subject_Charset = this.Subject_Charset;
@@ -2482,6 +2497,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                  // populate SimpleEmail
                 var requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmailIsNull = true;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail = new Amazon.Pinpoint.Model.SimpleEmail();
+                List<Amazon.Pinpoint.Model.MessageHeader> requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header = null;
+                if (cmdletContext.SimpleEmail_Header != null)
+                {
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header = cmdletContext.SimpleEmail_Header;
+                }
+                if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header != null)
+                {
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail.Headers = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail_simpleEmail_Header;
+                    requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmailIsNull = false;
+                }
                 Amazon.Pinpoint.Model.SimpleEmailPart requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail_messageRequest_MessageConfiguration_EmailMessage_SimpleEmail_HtmlPart = null;
                 
                  // populate HtmlPart
@@ -3582,6 +3607,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String EmailMessage_FromAddress { get; set; }
             public byte[] RawEmail_Data { get; set; }
             public List<System.String> EmailMessage_ReplyToAddress { get; set; }
+            public List<Amazon.Pinpoint.Model.MessageHeader> SimpleEmail_Header { get; set; }
             public System.String HtmlPart_Charset { get; set; }
             public System.String HtmlPart_Data { get; set; }
             public System.String Subject_Charset { get; set; }
