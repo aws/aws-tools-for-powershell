@@ -80,6 +80,53 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         public System.String ClientType { get; set; }
         #endregion
         
+        #region Parameter EntitledApplicationArn
+        /// <summary>
+        /// <para>
+        /// <para>This IAM Identity Center application ARN is used to define administrator-managed configuration
+        /// for public client access to resources. At authorization, the scopes, grants, and redirect
+        /// URI available to this client will be restricted by this application resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EntitledApplicationArn { get; set; }
+        #endregion
+        
+        #region Parameter GrantType
+        /// <summary>
+        /// <para>
+        /// <para>The list of OAuth 2.0 grant types that are defined by the client. This list is used
+        /// to restrict the token granting flows available to the client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GrantTypes")]
+        public System.String[] GrantType { get; set; }
+        #endregion
+        
+        #region Parameter IssuerUrl
+        /// <summary>
+        /// <para>
+        /// <para>The IAM Identity Center Issuer URL associated with an instance of IAM Identity Center.
+        /// This value is needed for user access to resources through the client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IssuerUrl { get; set; }
+        #endregion
+        
+        #region Parameter RedirectUris
+        /// <summary>
+        /// <para>
+        /// <para>The list of redirect URI that are defined by the client. At completion of authorization,
+        /// this list is used to restrict what locations the user agent can be redirected back
+        /// to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] RedirectUris { get; set; }
+        #endregion
+        
         #region Parameter Scope
         /// <summary>
         /// <para>
@@ -168,6 +215,16 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
                 WriteWarning("You are passing $null as a value for parameter ClientType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EntitledApplicationArn = this.EntitledApplicationArn;
+            if (this.GrantType != null)
+            {
+                context.GrantType = new List<System.String>(this.GrantType);
+            }
+            context.IssuerUrl = this.IssuerUrl;
+            if (this.RedirectUris != null)
+            {
+                context.RedirectUris = new List<System.String>(this.RedirectUris);
+            }
             if (this.Scope != null)
             {
                 context.Scope = new List<System.String>(this.Scope);
@@ -195,6 +252,22 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
             if (cmdletContext.ClientType != null)
             {
                 request.ClientType = cmdletContext.ClientType;
+            }
+            if (cmdletContext.EntitledApplicationArn != null)
+            {
+                request.EntitledApplicationArn = cmdletContext.EntitledApplicationArn;
+            }
+            if (cmdletContext.GrantType != null)
+            {
+                request.GrantTypes = cmdletContext.GrantType;
+            }
+            if (cmdletContext.IssuerUrl != null)
+            {
+                request.IssuerUrl = cmdletContext.IssuerUrl;
+            }
+            if (cmdletContext.RedirectUris != null)
+            {
+                request.RedirectUris = cmdletContext.RedirectUris;
             }
             if (cmdletContext.Scope != null)
             {
@@ -263,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
         {
             public System.String ClientName { get; set; }
             public System.String ClientType { get; set; }
+            public System.String EntitledApplicationArn { get; set; }
+            public List<System.String> GrantType { get; set; }
+            public System.String IssuerUrl { get; set; }
+            public List<System.String> RedirectUris { get; set; }
             public List<System.String> Scope { get; set; }
             public System.Func<Amazon.SSOOIDC.Model.RegisterClientResponse, RegisterSSOOIDCClientCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

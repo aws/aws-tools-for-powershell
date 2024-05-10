@@ -1,4 +1,13 @@
-﻿### 4.1.576 (2024-05-10 02:27Z)
+﻿### 4.1.577 (2024-05-10 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.808.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon GreengrassV2
+    * Modified cmdlet Get-GGV2ComponentVersionArtifact: added parameters IotEndpointType and S3EndpointType.
+  * Amazon Single Sign-On OIDC
+    * Modified cmdlet New-SSOOIDCToken: added parameter CodeVerifier.
+    * Modified cmdlet New-SSOOIDCTokenWithIAM: added parameter CodeVerifier.
+    * Modified cmdlet Register-SSOOIDCClient: added parameters EntitledApplicationArn, GrantType, IssuerUrl and RedirectUris.
+
+### 4.1.576 (2024-05-10 02:27Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.807.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Runtime
     * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters GenerationConfiguration_AdditionalModelRequestField, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_AdditionalModelRequestFields, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_MaxTokens, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_StopSequences, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_Temperature, RetrieveAndGenerateConfiguration_ExternalSourcesConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailId, RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_GuardrailConfiguration_GuardrailVersion, TextInferenceConfig_MaxToken, TextInferenceConfig_StopSequence, TextInferenceConfig_Temperature and TextInferenceConfig_TopP.

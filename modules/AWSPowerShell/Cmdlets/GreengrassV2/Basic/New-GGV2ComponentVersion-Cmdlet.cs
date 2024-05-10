@@ -50,17 +50,10 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
     /// this operation to migrate Lambda functions from IoT Greengrass V1 to IoT Greengrass
     /// V2.
     /// </para><para>
-    /// This function only accepts Lambda functions that use the following runtimes:
-    /// </para><ul><li><para>
-    /// Python 2.7 – <c>python2.7</c></para></li><li><para>
-    /// Python 3.7 – <c>python3.7</c></para></li><li><para>
-    /// Python 3.8 – <c>python3.8</c></para></li><li><para>
-    /// Python 3.9 – <c>python3.9</c></para></li><li><para>
-    /// Java 8 – <c>java8</c></para></li><li><para>
-    /// Java 11 – <c>java11</c></para></li><li><para>
-    /// Node.js 10 – <c>nodejs10.x</c></para></li><li><para>
-    /// Node.js 12 – <c>nodejs12.x</c></para></li><li><para>
-    /// Node.js 14 – <c>nodejs14.x</c></para></li></ul><para>
+    /// This function accepts Lambda functions in all supported versions of Python, Node.js,
+    /// and Java runtimes. IoT Greengrass doesn't apply any additional restrictions on deprecated
+    /// Lambda runtime versions.
+    /// </para><para>
     /// To create a component from a Lambda function, specify <c>lambdaFunction</c> when you
     /// call this operation.
     /// </para><note><para>

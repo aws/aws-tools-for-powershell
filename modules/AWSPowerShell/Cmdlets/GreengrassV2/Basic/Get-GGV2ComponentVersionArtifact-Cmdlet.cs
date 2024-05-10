@@ -82,6 +82,32 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         public System.String ArtifactName { get; set; }
         #endregion
         
+        #region Parameter IotEndpointType
+        /// <summary>
+        /// <para>
+        /// <para>Determines if the Amazon S3 URL returned is a FIPS pre-signed URL endpoint. Specify
+        /// <c>fips</c> if you want the returned Amazon S3 pre-signed URL to point to an Amazon
+        /// S3 FIPS endpoint. If you don't specify a value, the default is <c>standard</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GreengrassV2.IotEndpointType")]
+        public Amazon.GreengrassV2.IotEndpointType IotEndpointType { get; set; }
+        #endregion
+        
+        #region Parameter S3EndpointType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the endpoint to use when getting Amazon S3 pre-signed URLs.</para><para>All Amazon Web Services Regions except US East (N. Virginia) use <c>REGIONAL</c> in
+        /// all cases. In the US East (N. Virginia) Region the default is <c>GLOBAL</c>, but you
+        /// can change it to <c>REGIONAL</c> with this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.GreengrassV2.S3EndpointType")]
+        public Amazon.GreengrassV2.S3EndpointType S3EndpointType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'PreSignedUrl'.
@@ -142,6 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
                 WriteWarning("You are passing $null as a value for parameter ArtifactName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IotEndpointType = this.IotEndpointType;
+            context.S3EndpointType = this.S3EndpointType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -165,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
             if (cmdletContext.ArtifactName != null)
             {
                 request.ArtifactName = cmdletContext.ArtifactName;
+            }
+            if (cmdletContext.IotEndpointType != null)
+            {
+                request.IotEndpointType = cmdletContext.IotEndpointType;
+            }
+            if (cmdletContext.S3EndpointType != null)
+            {
+                request.S3EndpointType = cmdletContext.S3EndpointType;
             }
             
             CmdletOutput output;
@@ -229,6 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         {
             public System.String Arn { get; set; }
             public System.String ArtifactName { get; set; }
+            public Amazon.GreengrassV2.IotEndpointType IotEndpointType { get; set; }
+            public Amazon.GreengrassV2.S3EndpointType S3EndpointType { get; set; }
             public System.Func<Amazon.GreengrassV2.Model.GetComponentVersionArtifactResponse, GetGGV2ComponentVersionArtifactCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PreSignedUrl;
         }

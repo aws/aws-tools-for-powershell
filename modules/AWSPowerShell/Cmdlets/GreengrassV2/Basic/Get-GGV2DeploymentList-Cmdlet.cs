@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GGV2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to be returned per paginated request.</para>
+        /// <para>The maximum number of results to be returned per paginated request.</para><para>Default: <c>50</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

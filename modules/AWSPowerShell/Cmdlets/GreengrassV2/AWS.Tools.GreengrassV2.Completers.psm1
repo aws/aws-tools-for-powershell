@@ -122,6 +122,13 @@ $GGV2_Completers = {
             break
         }
 
+        # Amazon.GreengrassV2.IotEndpointType
+        "Get-GGV2ComponentVersionArtifact/IotEndpointType"
+        {
+            $v = "fips","standard"
+            break
+        }
+
         # Amazon.GreengrassV2.LambdaInputPayloadEncodingType
         "New-GGV2ComponentVersion/ComponentLambdaParameters_InputPayloadEncodingType"
         {
@@ -143,6 +150,13 @@ $GGV2_Completers = {
             break
         }
 
+        # Amazon.GreengrassV2.S3EndpointType
+        "Get-GGV2ComponentVersionArtifact/S3EndpointType"
+        {
+            $v = "GLOBAL","REGIONAL"
+            break
+        }
+
 
     }
 
@@ -156,8 +170,10 @@ $GGV2_map = @{
     "ComponentUpdatePolicy_Action"=@("New-GGV2Deployment")
     "DeploymentPolicies_FailureHandlingPolicy"=@("New-GGV2Deployment")
     "HistoryFilter"=@("Get-GGV2DeploymentList")
+    "IotEndpointType"=@("Get-GGV2ComponentVersionArtifact")
     "LinuxProcessParams_IsolationMode"=@("New-GGV2ComponentVersion")
     "RecipeOutputFormat"=@("Get-GGV2Component")
+    "S3EndpointType"=@("Get-GGV2ComponentVersionArtifact")
     "Scope"=@("Get-GGV2ComponentList")
     "Status"=@("Get-GGV2CoreDeviceList")
     "TopologyFilter"=@("Get-GGV2InstalledComponentList")
