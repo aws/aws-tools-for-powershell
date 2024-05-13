@@ -33,6 +33,22 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// period of time for changes to take effect. If you do not specify a pattern to filter
     /// events sent to the archive, all events are sent to the archive except replayed events.
     /// Replayed events are not sent to an archive.
+    /// 
+    ///  <note><para>
+    /// Archives and schema discovery are not supported for event buses encrypted using a
+    /// customer managed key. EventBridge returns an error if:
+    /// </para><ul><li><para>
+    /// You call <c><a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html">CreateArchive</a></c> on an event bus set to use a customer managed key for encryption.
+    /// </para></li><li><para>
+    /// You call <c><a href="https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer">CreateDiscoverer</a></c> on an event bus set to use a customer managed key for encryption.
+    /// </para></li><li><para>
+    /// You call <c><a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html">UpdatedEventBus</a></c> to set a customer managed key on an event bus with an archives or schema discovery
+    /// enabled.
+    /// </para></li></ul><para>
+    /// To enable archives or schema discovery on an event bus, choose to use an Amazon Web
+    /// Services owned key. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html">Data
+    /// encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "EVBArchive", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EventBridge.Model.CreateArchiveResponse")]

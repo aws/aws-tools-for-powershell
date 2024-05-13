@@ -1,4 +1,10 @@
-﻿### 4.1.577 (2024-05-10 21:13Z)
+﻿### 4.1.578 (2024-05-13 20:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.809.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EventBridge
+    * Added cmdlet Update-EVBEventBus leveraging the UpdateEventBus service API.
+    * Modified cmdlet New-EVBEventBus: added parameters DeadLetterConfig_Arn, Description and KmsKeyIdentifier.
+
+### 4.1.577 (2024-05-10 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.808.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GreengrassV2
     * Modified cmdlet Get-GGV2ComponentVersionArtifact: added parameters IotEndpointType and S3EndpointType.

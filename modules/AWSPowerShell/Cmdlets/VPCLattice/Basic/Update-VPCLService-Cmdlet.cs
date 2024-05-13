@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the certificate. </para>
+        /// <para>The Amazon Resource Name (ARN) of the certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter VpcIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID or Amazon Resource Name (ARN) of the service.</para>
+        /// <para>The ID or Amazon Resource Name (ARN) of the VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

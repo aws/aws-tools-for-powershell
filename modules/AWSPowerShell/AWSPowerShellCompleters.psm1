@@ -27711,7 +27711,8 @@ $EVB_SelectMap = @{
                "Update-EVBApiDestination",
                "Update-EVBArchive",
                "Update-EVBConnection",
-               "Update-EVBEndpoint")
+               "Update-EVBEndpoint",
+               "Update-EVBEventBus")
 }
 
 _awsArgumentCompleterRegistration $EVB_SelectCompleters $EVB_SelectMap
@@ -68132,7 +68133,7 @@ $VPCL_Completers = {
         # Amazon.VPCLattice.ListenerProtocol
         "New-VPCLListener/Protocol"
         {
-            $v = "HTTP","HTTPS"
+            $v = "HTTP","HTTPS","TLS_PASSTHROUGH"
             break
         }
 
@@ -68143,7 +68144,7 @@ $VPCL_Completers = {
             ($_ -eq "Update-VPCLTargetGroup/HealthCheck_Protocol")
         }
         {
-            $v = "HTTP","HTTPS"
+            $v = "HTTP","HTTPS","TCP"
             break
         }
 

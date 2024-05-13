@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
     /// Deletes the association between a specified service and the specific service network.
-    /// This request will fail if an association is still in progress.
+    /// This operation fails if an association is still in progress.
     /// </summary>
     [Cmdlet("Remove", "VPCLServiceNetworkServiceAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.VPCLattice.Model.DeleteServiceNetworkServiceAssociationResponse")]

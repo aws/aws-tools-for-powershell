@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter PathMatch_CaseSensitive
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the match is case sensitive. Defaults to false.</para>
+        /// <para>Indicates whether the match is case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// and selection of each target group. This means that requests are distributed to individual
         /// target groups based on their weights. For example, if two target groups have the same
         /// weight, each target group receives half of the traffic.</para><para>The default value is 1. This means that if only one target group is provided, there
-        /// is no need to set the weight; 100% of traffic will go to that target group.</para>
+        /// is no need to set the weight; 100% of the traffic goes to that target group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

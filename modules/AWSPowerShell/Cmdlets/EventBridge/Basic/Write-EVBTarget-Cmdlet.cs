@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// Each rule can have up to five (5) targets associated with it at one time.
     /// </para></note><para>
     /// For a list of services you can configure as targets for events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html">EventBridge
-    /// targets</a> in the <i>Amazon EventBridge User Guide</i>.
+    /// targets</a> in the <i><i>Amazon EventBridge User Guide</i></i>.
     /// </para><para>
     /// Creating rules with built-in targets is supported only in the Amazon Web Services
     /// Management Console. The built-in targets are:
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// in <c>PutTargets</c>.
     /// </para></li></ul><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
-    /// and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.
+    /// and Access Control</a> in the <i><i>Amazon EventBridge User Guide</i></i>.
     /// </para><para>
     /// If another Amazon Web Services account is in the same region and has granted you permission
     /// (using <c>PutPermission</c>), you can send events to that account. Set that account's

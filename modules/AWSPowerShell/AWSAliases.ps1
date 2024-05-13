@@ -11653,6 +11653,7 @@ Set-Alias -Name EVB-UpdateApiDestination -Value Update-EVBApiDestination
 Set-Alias -Name EVB-UpdateArchive -Value Update-EVBArchive
 Set-Alias -Name EVB-UpdateConnection -Value Update-EVBConnection
 Set-Alias -Name EVB-UpdateEndpoint -Value Update-EVBEndpoint
+Set-Alias -Name EVB-UpdateEventBus -Value Update-EVBEventBus
 Set-Alias -Name Activate-CWEEventSource -Value Enable-CWEEventSource
 Set-Alias -Name CWE-ActivateEventSource -Value Enable-CWEEventSource
 Set-Alias -Name Cancel-CWEReplay -Value Stop-CWEReplay

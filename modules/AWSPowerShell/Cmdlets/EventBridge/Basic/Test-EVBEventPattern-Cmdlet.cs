@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
         /// <summary>
         /// <para>
         /// <para>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events
-        /// and Event Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</para>
+        /// and Event Patterns</a> in the <i><i>Amazon EventBridge User Guide</i></i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

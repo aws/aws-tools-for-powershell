@@ -28,7 +28,8 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Associates a service with a service network.
+    /// Associates a service with a service network. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations">Manage
+    /// service associations</a> in the <i>Amazon VPC Lattice User Guide</i>.
     /// 
     ///  
     /// <para>

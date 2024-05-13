@@ -28,7 +28,14 @@ using Amazon.VPCLattice.Model;
 namespace Amazon.PowerShell.Cmdlets.VPCL
 {
     /// <summary>
-    /// Creates or updates the auth policy.
+    /// Creates or updates the auth policy. The policy string in JSON must not contain newlines
+    /// or blank lines.
+    /// 
+    ///  
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth
+    /// policies</a> in the <i>Amazon VPC Lattice User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "VPCLAuthPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.VPCLattice.Model.PutAuthPolicyResponse")]
@@ -44,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The auth policy.</para>
+        /// <para>The auth policy. The policy string in JSON must not contain newlines or blank lines.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

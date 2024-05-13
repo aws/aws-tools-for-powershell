@@ -110,9 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP address used for the target group. The possible values are <c>ipv4</c>
-        /// and <c>ipv6</c>. This is an optional parameter. If not specified, the IP address type
-        /// defaults to <c>ipv4</c>.</para>
+        /// <para>The type of IP address used for the target group. Supported only if the target group
+        /// type is <c>IP</c>. The default is <c>IPV4</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,7 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_LambdaEventStructureVersion
         /// <summary>
         /// <para>
-        /// <para>Lambda event structure version</para>
+        /// <para>The version of the event structure that your Lambda function receives. Supported only
+        /// if the target group type is <c>LAMBDA</c>. The default is <c>V1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_Port
         /// <summary>
         /// <para>
-        /// <para>The port on which the targets are listening. For HTTP, the default is <c>80</c>. For
-        /// HTTPS, the default is <c>443</c></para>
+        /// <para>The port on which the targets are listening. For HTTP, the default is 80. For HTTPS,
+        /// the default is 443. Not supported if the target group type is <c>LAMBDA</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -203,8 +203,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol to use for routing traffic to the targets. Default is the protocol of
-        /// a target group.</para>
+        /// <para>The protocol to use for routing traffic to the targets. The default is the protocol
+        /// of the target group. Not supported if the target group type is <c>LAMBDA</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,7 +228,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_ProtocolVersion
         /// <summary>
         /// <para>
-        /// <para>The protocol version. Default value is <c>HTTP1</c>.</para>
+        /// <para>The protocol version. The default is <c>HTTP1</c>. Not supported if the target group
+        /// type is <c>LAMBDA</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -279,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Config_VpcIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC.</para>
+        /// <para>The ID of the VPC. Not supported if the target group type is <c>LAMBDA</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

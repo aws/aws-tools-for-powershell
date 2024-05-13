@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The listener port. You can specify a value from <c>1</c> to <c>65535</c>. For HTTP,
-        /// the default is <c>80</c>. For HTTPS, the default is <c>443</c>.</para>
+        /// <para>The listener port. You can specify a value from 1 to 65535. For HTTP, the default
+        /// is 80. For HTTPS, the default is 443.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The listener protocol HTTP or HTTPS.</para>
+        /// <para>The listener protocol.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         /// and selection of each target group. This means that requests are distributed to individual
         /// target groups based on their weights. For example, if two target groups have the same
         /// weight, each target group receives half of the traffic.</para><para>The default value is 1. This means that if only one target group is provided, there
-        /// is no need to set the weight; 100% of traffic will go to that target group.</para>
+        /// is no need to set the weight; 100% of the traffic goes to that target group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

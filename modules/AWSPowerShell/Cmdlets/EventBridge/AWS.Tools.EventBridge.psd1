@@ -137,6 +137,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-EVBArchive', 
         'Update-EVBConnection', 
         'Update-EVBEndpoint', 
+        'Update-EVBEventBus', 
         'Write-EVBEvent', 
         'Write-EVBPartnerEvent', 
         'Write-EVBPermission', 

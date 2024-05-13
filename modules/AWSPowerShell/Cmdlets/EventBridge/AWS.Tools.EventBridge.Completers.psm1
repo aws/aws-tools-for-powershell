@@ -270,7 +270,8 @@ $EVB_SelectMap = @{
                "Update-EVBApiDestination",
                "Update-EVBArchive",
                "Update-EVBConnection",
-               "Update-EVBEndpoint")
+               "Update-EVBEndpoint",
+               "Update-EVBEventBus")
 }
 
 _awsArgumentCompleterRegistration $EVB_SelectCompleters $EVB_SelectMap

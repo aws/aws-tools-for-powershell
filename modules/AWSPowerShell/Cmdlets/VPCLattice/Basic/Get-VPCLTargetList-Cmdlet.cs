@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.VPCL
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets to list.</para>
+        /// <para>The targets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

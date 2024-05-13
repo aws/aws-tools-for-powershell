@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EVB
     /// List the global endpoints associated with this account. For more information about
     /// global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making
     /// applications Regional-fault tolerant with global endpoints and event replication</a>
-    /// in the <i>Amazon EventBridge User Guide</i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// in the <i><i>Amazon EventBridge User Guide</i></i>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EVBEndpointList")]
     [OutputType("Amazon.EventBridge.Model.Endpoint")]
