@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
     /// Describes the specified flow module.
+    /// 
+    ///  
+    /// <para>
+    /// Use the <c>$SAVED</c> alias in the request to describe the <c>SAVED</c> content of
+    /// a Flow. For example, <c>arn:aws:.../contact-flow/{id}:$SAVED</c>. Once a contact flow
+    /// is published, <c>$SAVED</c> needs to be supplied to view saved content that has not
+    /// been published.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CONNContactFlowModule")]
     [OutputType("Amazon.Connect.Model.ContactFlowModule")]

@@ -34,7 +34,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <para>
     /// You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon
     /// Connect Flow language</a>.
-    /// </para>
+    /// </para><para>
+    /// Use the <c>$SAVED</c> alias in the request to describe the <c>SAVED</c> content of
+    /// a Flow. For example, <c>arn:aws:.../contact-flow/{id}:$SAVED</c>. Once a contact flow
+    /// is published, <c>$SAVED</c> needs to be supplied to view saved content that has not
+    /// been published.
+    /// </para><para>
+    /// In the response, <b>Status</b> indicates the flow status as either <c>SAVED</c> or
+    /// <c>PUBLISHED</c>. The <c>PUBLISHED</c> status will initiate validation on the content.
+    /// <c>SAVED</c> does not initiate validation of the content. <c>SAVED</c> | <c>PUBLISHED</c></para>
     /// </summary>
     [Cmdlet("Get", "CONNContactFlow")]
     [OutputType("Amazon.Connect.Model.ContactFlow")]

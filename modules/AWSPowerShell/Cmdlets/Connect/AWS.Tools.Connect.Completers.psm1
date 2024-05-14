@@ -118,14 +118,30 @@ $CONN_Completers = {
         }
 
         # Amazon.Connect.ContactFlowState
-        "Update-CONNContactFlowMetadata/ContactFlowState"
+        {
+            ($_ -eq "Update-CONNContactFlowMetadata/ContactFlowState") -Or
+            ($_ -eq "Search-CONNContactFlow/SearchCriteria_StateCondition")
+        }
         {
             $v = "ACTIVE","ARCHIVED"
             break
         }
 
+        # Amazon.Connect.ContactFlowStatus
+        {
+            ($_ -eq "Search-CONNContactFlow/SearchCriteria_StatusCondition") -Or
+            ($_ -eq "New-CONNContactFlow/Status")
+        }
+        {
+            $v = "PUBLISHED","SAVED"
+            break
+        }
+
         # Amazon.Connect.ContactFlowType
-        "New-CONNContactFlow/Type"
+        {
+            ($_ -eq "Search-CONNContactFlow/SearchCriteria_TypeCondition") -Or
+            ($_ -eq "New-CONNContactFlow/Type")
+        }
         {
             $v = "AGENT_HOLD","AGENT_TRANSFER","AGENT_WHISPER","CONTACT_FLOW","CUSTOMER_HOLD","CUSTOMER_QUEUE","CUSTOMER_WHISPER","OUTBOUND_WHISPER","QUEUE_TRANSFER"
             break
@@ -389,6 +405,8 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
+            ($_ -eq "Search-CONNContactFlow/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNContactFlowModule/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPredefinedAttribute/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNPrompt/StringCondition_ComparisonType") -Or
@@ -520,17 +538,20 @@ $CONN_map = @{
     "ScoringStrategy_Status"=@("New-CONNEvaluationForm","Update-CONNEvaluationForm")
     "SearchableContactAttributes_MatchType"=@("Search-CONNContact")
     "SearchCriteria_QueueTypeCondition"=@("Search-CONNQueue")
+    "SearchCriteria_StateCondition"=@("Search-CONNContactFlow")
+    "SearchCriteria_StatusCondition"=@("Search-CONNContactFlow")
+    "SearchCriteria_TypeCondition"=@("Search-CONNContactFlow")
     "SearchFilter_UserAttributeFilter_AndCondition_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
     "Sort_Order"=@("Search-CONNContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
-    "Status"=@("Get-CONNTaskTemplateList","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
+    "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StringCondition_ComparisonType"=@("Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
+    "StringCondition_ComparisonType"=@("Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
     "TimeRange_Type"=@("Search-CONNContact")
@@ -764,6 +785,8 @@ $CONN_SelectMap = @{
                "Invoke-CONNResumeContact",
                "Resume-CONNContactRecording",
                "Search-CONNAvailablePhoneNumber",
+               "Search-CONNContactFlowModule",
+               "Search-CONNContactFlow",
                "Search-CONNContact",
                "Search-CONNHoursOfOperation",
                "Search-CONNPredefinedAttribute",

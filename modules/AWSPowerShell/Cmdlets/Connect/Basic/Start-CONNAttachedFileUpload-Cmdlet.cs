@@ -169,7 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter UrlExpiryInSecond
         /// <summary>
         /// <para>
-        /// <para>Optional override for the expiry of the pre-signed S3 URL in seconds.</para>
+        /// <para>Optional override for the expiry of the pre-signed S3 URL in seconds. The default
+        /// value is 300.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

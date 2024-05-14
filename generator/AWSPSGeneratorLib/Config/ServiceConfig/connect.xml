@@ -712,6 +712,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="SearchContactFlowModules" OutputProperty="*" Verb="Search" Noun="ContactFlowModule" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchContactFlows" OutputProperty="*" Verb="Search" Noun="ContactFlow" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchContacts" OutputProperty="*" Verb="Search" Noun="Contact" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

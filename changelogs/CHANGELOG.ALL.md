@@ -1,4 +1,11 @@
-﻿### 4.1.578 (2024-05-13 20:59Z)
+﻿### 4.1.579 (2024-05-14 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.810.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNContactFlow leveraging the SearchContactFlows service API.
+    * Added cmdlet Search-CONNContactFlowModule leveraging the SearchContactFlowModules service API.
+    * Modified cmdlet New-CONNContactFlow: added parameter Status.
+
+### 4.1.578 (2024-05-13 20:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.809.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EventBridge
     * Added cmdlet Update-EVBEventBus leveraging the UpdateEventBus service API.

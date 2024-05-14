@@ -109,6 +109,19 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the flow status as either <c>SAVED</c> or <c>PUBLISHED</c>. The <c>PUBLISHED</c>
+        /// status will initiate validation on the content. the <c>SAVED</c> status does not initiate
+        /// validation of the content. <c>SAVED</c> | <c>PUBLISHED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Connect.ContactFlowStatus")]
+        public Amazon.Connect.ContactFlowStatus Status { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -223,6 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Status = this.Status;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -269,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             if (cmdletContext.Tag != null)
             {
@@ -343,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String Description { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
+            public Amazon.Connect.ContactFlowStatus Status { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.Connect.ContactFlowType Type { get; set; }
             public System.Func<Amazon.Connect.Model.CreateContactFlowResponse, NewCONNContactFlowCmdlet, object> Select { get; set; } =

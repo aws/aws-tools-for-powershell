@@ -6512,6 +6512,10 @@ Set-Alias -Name CONN-ResumeContact -Value Invoke-CONNResumeContact
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
+Set-Alias -Name Search-CONNContactFlowModules -Value Search-CONNContactFlowModule
+Set-Alias -Name CONN-SearchContactFlowModules -Value Search-CONNContactFlowModule
+Set-Alias -Name Search-CONNContactFlows -Value Search-CONNContactFlow
+Set-Alias -Name CONN-SearchContactFlows -Value Search-CONNContactFlow
 Set-Alias -Name Search-CONNContacts -Value Search-CONNContact
 Set-Alias -Name CONN-SearchContacts -Value Search-CONNContact
 Set-Alias -Name Search-CONNHoursOfOperations -Value Search-CONNHoursOfOperation
