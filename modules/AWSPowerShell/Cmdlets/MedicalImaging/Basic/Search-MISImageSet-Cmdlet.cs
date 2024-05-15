@@ -31,10 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.MIS
     /// Search image sets based on defined input attributes.
     /// 
     ///  <note><para><c>SearchImageSets</c> accepts a single search query parameter and returns a paginated
-    /// response of all image sets that have the matching criteria. All range queries must
-    /// be input as <c>(lowerBound, upperBound)</c>.
-    /// </para><para><c>SearchImageSets</c> uses the <c>updatedAt</c> field for sorting in decreasing
-    /// order from latest to oldest.
+    /// response of all image sets that have the matching criteria. All date range queries
+    /// must be input as <c>(lowerBound, upperBound)</c>.
+    /// </para><para>
+    /// By default, <c>SearchImageSets</c> uses the <c>updatedAt</c> field for sorting in
+    /// descending order from newest to oldest.
     /// </para></note>
     /// </summary>
     [Cmdlet("Search", "MISImageSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

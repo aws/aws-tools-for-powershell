@@ -28,8 +28,10 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// Assigns a Grafana Enterprise license to a workspace. Upgrading to Grafana Enterprise
-    /// incurs additional fees. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade
+    /// Assigns a Grafana Enterprise license to a workspace. To upgrade, you must use <c>ENTERPRISE</c>
+    /// for the <c>licenseType</c>, and pass in a valid Grafana Labs token for the <c>grafanaToken</c>.
+    /// Upgrading to Grafana Enterprise incurs additional fees. For more information, see
+    /// <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html">Upgrade
     /// a workspace to Grafana Enterprise</a>.
     /// </summary>
     [Cmdlet("Add", "MGRFLicense", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>A token from Grafana Labs that ties your Amazon Web Services account with a Grafana
-        /// Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register
-        /// with Grafana Labs</a>.</para>
+        /// Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Link
+        /// your account with Grafana Labs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

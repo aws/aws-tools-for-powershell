@@ -30,11 +30,27 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspaceServiceAccount" OutputProperty="*" Verb="New" Noun="WorkspaceServiceAccount" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspaceServiceAccountToken" OutputProperty="*" Verb="New" Noun="WorkspaceServiceAccountToken" ShouldProcessTarget="WorkspaceId" PipelineParameter="ServiceAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkspace" OutputProperty="Workspace" Verb="Remove" Noun="Workspace" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteWorkspaceApiKey" OutputProperty="*" Verb="Remove" Noun="WorkspaceApiKey" ShouldProcessTarget="KeyName" PipelineParameter="KeyName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspaceServiceAccount" OutputProperty="*" Verb="Remove" Noun="WorkspaceServiceAccount" ShouldProcessTarget="WorkspaceId" PipelineParameter="ServiceAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWorkspaceServiceAccountToken" OutputProperty="*" Verb="Remove" Noun="WorkspaceServiceAccountToken" ShouldProcessTarget="WorkspaceId" PipelineParameter="TokenId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +83,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListWorkspaces" OutputProperty="Workspaces" Verb="Get" Noun="WorkspaceList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkspaceServiceAccounts" OutputProperty="*" Verb="Get" Noun="WorkspaceServiceAccountList" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWorkspaceServiceAccountTokens" OutputProperty="*" Verb="Get" Noun="WorkspaceServiceAccountTokenList" PipelineParameter="ServiceAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -770,7 +770,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// to the version of the source code you want to build. If a pull request ID is specified,
         /// it must use the format <c>pr/pull-request-ID</c> (for example <c>pr/25</c>). If a
         /// branch name is specified, the branch's HEAD commit ID is used. If not specified, the
-        /// default branch's HEAD commit ID is used.</para></li><li><para>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version
+        /// default branch's HEAD commit ID is used.</para></li><li><para>For GitLab: the commit ID, branch, or Git tag to use.</para></li><li><para>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version
         /// of the source code you want to build. If a branch name is specified, the branch's
         /// HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</para></li><li><para>For Amazon S3: the version ID of the object that represents the build input ZIP file
         /// to use.</para></li></ul><para>If <c>sourceVersion</c> is specified at the build level, then that version takes precedence

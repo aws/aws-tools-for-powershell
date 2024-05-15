@@ -79,6 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         public System.String DatastoreId { get; set; }
         #endregion
         
+        #region Parameter InputOwnerAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The account ID of the source S3 bucket owner.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InputOwnerAccountId { get; set; }
+        #endregion
+        
         #region Parameter InputS3Uri
         /// <summary>
         /// <para>
@@ -210,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 WriteWarning("You are passing $null as a value for parameter DatastoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InputOwnerAccountId = this.InputOwnerAccountId;
             context.InputS3Uri = this.InputS3Uri;
             #if MODULAR
             if (this.InputS3Uri == null && ParameterWasBound(nameof(this.InputS3Uri)))
@@ -252,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             if (cmdletContext.DatastoreId != null)
             {
                 request.DatastoreId = cmdletContext.DatastoreId;
+            }
+            if (cmdletContext.InputOwnerAccountId != null)
+            {
+                request.InputOwnerAccountId = cmdletContext.InputOwnerAccountId;
             }
             if (cmdletContext.InputS3Uri != null)
             {
@@ -329,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             public System.String ClientToken { get; set; }
             public System.String DataAccessRoleArn { get; set; }
             public System.String DatastoreId { get; set; }
+            public System.String InputOwnerAccountId { get; set; }
             public System.String InputS3Uri { get; set; }
             public System.String JobName { get; set; }
             public System.String OutputS3Uri { get; set; }

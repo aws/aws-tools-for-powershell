@@ -31217,6 +31217,13 @@ $MGRF_Completers = {
             break
         }
 
+        # Amazon.ManagedGrafana.Role
+        "New-MGRFWorkspaceServiceAccount/GrafanaRole"
+        {
+            $v = "ADMIN","EDITOR","VIEWER"
+            break
+        }
+
         # Amazon.ManagedGrafana.UserType
         "Get-MGRFPermissionList/UserType"
         {
@@ -31234,6 +31241,7 @@ $MGRF_Completers = {
 
 $MGRF_map = @{
     "AccountAccessType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
+    "GrafanaRole"=@("New-MGRFWorkspaceServiceAccount")
     "LicenseType"=@("Add-MGRFLicense","Remove-MGRFLicense")
     "PermissionType"=@("New-MGRFWorkspace","Update-MGRFWorkspace")
     "UserType"=@("Get-MGRFPermissionList")
@@ -31292,8 +31300,12 @@ $MGRF_SelectMap = @{
     "Select"=@("Add-MGRFLicense",
                "New-MGRFWorkspace",
                "New-MGRFWorkspaceApiKey",
+               "New-MGRFWorkspaceServiceAccount",
+               "New-MGRFWorkspaceServiceAccountToken",
                "Remove-MGRFWorkspace",
                "Remove-MGRFWorkspaceApiKey",
+               "Remove-MGRFWorkspaceServiceAccount",
+               "Remove-MGRFWorkspaceServiceAccountToken",
                "Get-MGRFWorkspace",
                "Get-MGRFWorkspaceAuthentication",
                "Get-MGRFWorkspaceConfiguration",
@@ -31302,6 +31314,8 @@ $MGRF_SelectMap = @{
                "Get-MGRFResourceTag",
                "Get-MGRFVersionList",
                "Get-MGRFWorkspaceList",
+               "Get-MGRFWorkspaceServiceAccountList",
+               "Get-MGRFWorkspaceServiceAccountTokenList",
                "Add-MGRFResourceTag",
                "Remove-MGRFResourceTag",
                "Update-MGRFPermission",

@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter Filter_AndAll
         /// <summary>
         /// <para>
-        /// <para>Knowledge base data sources whose metadata attributes fulfill all the filter conditions
-        /// inside this list are returned.</para>
+        /// <para>Knowledge base data sources are returned if their metadata attributes fulfill all
+        /// the filter conditions inside this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -123,6 +123,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String LessThanOrEquals_Key { get; set; }
         #endregion
         
+        #region Parameter ListContains_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Key")]
+        public System.String ListContains_Key { get; set; }
+        #endregion
+        
         #region Parameter NotEquals_Key
         /// <summary>
         /// <para>
@@ -156,6 +167,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.String StartsWith_Key { get; set; }
         #endregion
         
+        #region Parameter StringContains_Key
+        /// <summary>
+        /// <para>
+        /// <para>The name that the metadata attribute must match.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Key")]
+        public System.String StringContains_Key { get; set; }
+        #endregion
+        
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
@@ -187,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter Filter_OrAll
         /// <summary>
         /// <para>
-        /// <para>Knowledge base data sources whose metadata attributes fulfill at least one of the
-        /// filter conditions inside this list are returned.</para>
+        /// <para>Knowledge base data sources are returned if their metadata attributes fulfill at least
+        /// one of the filter conditions inside this list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,6 +319,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.Management.Automation.PSObject LessThanOrEquals_Value { get; set; }
         #endregion
         
+        #region Parameter ListContains_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_Value")]
+        public System.Management.Automation.PSObject ListContains_Value { get; set; }
+        #endregion
+        
         #region Parameter NotEquals_Value
         /// <summary>
         /// <para>
@@ -328,6 +361,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith_Value")]
         public System.Management.Automation.PSObject StartsWith_Value { get; set; }
+        #endregion
+        
+        #region Parameter StringContains_Value
+        /// <summary>
+        /// <para>
+        /// <para>The value to whcih to compare the value of the metadata attribute.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_Value")]
+        public System.Management.Automation.PSObject StringContains_Value { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -428,6 +472,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.LessThan_Value = this.LessThan_Value;
             context.LessThanOrEquals_Key = this.LessThanOrEquals_Key;
             context.LessThanOrEquals_Value = this.LessThanOrEquals_Value;
+            context.ListContains_Key = this.ListContains_Key;
+            context.ListContains_Value = this.ListContains_Value;
             context.NotEquals_Key = this.NotEquals_Key;
             context.NotEquals_Value = this.NotEquals_Value;
             context.NotIn_Key = this.NotIn_Key;
@@ -438,6 +484,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             }
             context.StartsWith_Key = this.StartsWith_Key;
             context.StartsWith_Value = this.StartsWith_Value;
+            context.StringContains_Key = this.StringContains_Key;
+            context.StringContains_Value = this.StringContains_Value;
             context.VectorSearchConfiguration_NumberOfResult = this.VectorSearchConfiguration_NumberOfResult;
             context.VectorSearchConfiguration_OverrideSearchType = this.VectorSearchConfiguration_OverrideSearchType;
             context.RetrievalQuery_Text = this.RetrievalQuery_Text;
@@ -735,6 +783,41 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter.LessThanOrEquals = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_LessThanOrEquals;
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_FilterIsNull = false;
             }
+            Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains = null;
+            
+             // populate ListContains
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContainsIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+            System.String requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Key = null;
+            if (cmdletContext.ListContains_Key != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Key = cmdletContext.ListContains_Key;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Key != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains.Key = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Key;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContainsIsNull = false;
+            }
+            Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Value = null;
+            if (cmdletContext.ListContains_Value != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.ListContains_Value);
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Value != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains.Value = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains_listContains_Value.Value;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContainsIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContainsIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter.ListContains = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_ListContains;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_FilterIsNull = false;
+            }
             Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_NotEquals = null;
             
              // populate NotEquals
@@ -838,6 +921,41 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith != null)
             {
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter.StartsWith = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StartsWith;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_FilterIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.FilterAttribute requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains = null;
+            
+             // populate StringContains
+            var requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContainsIsNull = true;
+            requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains = new Amazon.BedrockAgentRuntime.Model.FilterAttribute();
+            System.String requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Key = null;
+            if (cmdletContext.StringContains_Key != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Key = cmdletContext.StringContains_Key;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Key != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains.Key = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Key;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContainsIsNull = false;
+            }
+            Amazon.Runtime.Documents.Document? requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Value = null;
+            if (cmdletContext.StringContains_Value != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Value = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.StringContains_Value);
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Value != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains.Value = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains_stringContains_Value.Value;
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContainsIsNull = false;
+            }
+             // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains should be set to null
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContainsIsNull)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains = null;
+            }
+            if (requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains != null)
+            {
+                requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter.StringContains = requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter_retrievalConfiguration_VectorSearchConfiguration_Filter_StringContains;
                 requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_FilterIsNull = false;
             }
              // determine if requestRetrievalConfiguration_retrievalConfiguration_VectorSearchConfiguration_retrievalConfiguration_VectorSearchConfiguration_Filter should be set to null
@@ -960,6 +1078,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.Management.Automation.PSObject LessThan_Value { get; set; }
             public System.String LessThanOrEquals_Key { get; set; }
             public System.Management.Automation.PSObject LessThanOrEquals_Value { get; set; }
+            public System.String ListContains_Key { get; set; }
+            public System.Management.Automation.PSObject ListContains_Value { get; set; }
             public System.String NotEquals_Key { get; set; }
             public System.Management.Automation.PSObject NotEquals_Value { get; set; }
             public System.String NotIn_Key { get; set; }
@@ -967,6 +1087,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> Filter_OrAll { get; set; }
             public System.String StartsWith_Key { get; set; }
             public System.Management.Automation.PSObject StartsWith_Value { get; set; }
+            public System.String StringContains_Key { get; set; }
+            public System.Management.Automation.PSObject StringContains_Value { get; set; }
             public System.Int32? VectorSearchConfiguration_NumberOfResult { get; set; }
             public Amazon.BedrockAgentRuntime.SearchType VectorSearchConfiguration_OverrideSearchType { get; set; }
             public System.String RetrievalQuery_Text { get; set; }

@@ -48,9 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter AuthType
         /// <summary>
         /// <para>
-        /// <para> The type of authentication used to connect to a GitHub, GitHub Enterprise, or Bitbucket
-        /// repository. An OAUTH connection is not supported by the API and must be created using
-        /// the CodeBuild console. </para>
+        /// <para> The type of authentication used to connect to a GitHub, GitHub Enterprise, GitLab,
+        /// GitLab Self Managed, or Bitbucket repository. An OAUTH connection is not supported
+        /// by the API and must be created using the CodeBuild console. Note that CODECONNECTIONS
+        /// is only valid for GitLab and GitLab Self Managed.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para> For GitHub or GitHub Enterprise, this is the personal access token. For Bitbucket,
-        /// this is either the access token or the app password. </para>
+        /// this is either the access token or the app password. For the <c>authType</c> CODECONNECTIONS,
+        /// this is the <c>connectionArn</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

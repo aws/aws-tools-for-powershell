@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         /// <summary>
         /// <para>
         /// <para>Specifies the version of Grafana to support in the new workspace. If not specified,
-        /// defaults to the latest version (for example, 9.4).</para><para>To get a list of supported versions, use the <c>ListVersions</c> operation.</para>
+        /// defaults to the latest version (for example, 10.4).</para><para>To get a list of supported versions, use the <c>ListVersions</c> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

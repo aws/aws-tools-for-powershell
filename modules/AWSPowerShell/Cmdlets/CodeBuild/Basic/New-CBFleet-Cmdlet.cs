@@ -117,6 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.EnvironmentType EnvironmentType { get; set; }
         #endregion
         
+        #region Parameter FleetServiceRole
+        /// <summary>
+        /// <para>
+        /// <para>The service role associated with the compute fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FleetServiceRole { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_MaxCapacity
         /// <summary>
         /// <para>
@@ -148,7 +158,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>The compute fleet overflow behavior.</para><ul><li><para>For overflow behavior <c>QUEUE</c>, your overflow builds need to wait on the existing
-        /// fleet instance to become available.</para></li><li><para>For overflow behavior <c>ON_DEMAND</c>, your overflow builds run on CodeBuild on-demand.</para></li></ul>
+        /// fleet instance to become available.</para></li><li><para>For overflow behavior <c>ON_DEMAND</c>, your overflow builds run on CodeBuild on-demand.</para><note><para>If you choose to set your overflow behavior to on-demand while creating a VPC-connected
+        /// fleet, make sure that you add the required VPC permissions to your project service
+        /// role. For more information, see <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface">Example
+        /// policy statement to allow CodeBuild access to Amazon Web Services services required
+        /// to create a VPC network interface</a>.</para></note></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,6 +179,28 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CodeBuild.FleetScalingType")]
         public Amazon.CodeBuild.FleetScalingType ScalingConfiguration_ScalingType { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more security groups IDs in your Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more subnet IDs in your Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -188,6 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ScalingConfiguration_TargetTrackingScalingConfigs")]
         public Amazon.CodeBuild.Model.TargetTrackingScalingConfiguration[] ScalingConfiguration_TargetTrackingScalingConfig { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String VpcConfig_VpcId { get; set; }
         #endregion
         
         #region Parameter Select
@@ -253,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter EnvironmentType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FleetServiceRole = this.FleetServiceRole;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -271,6 +318,15 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 context.Tag = new List<Amazon.CodeBuild.Model.Tag>(this.Tag);
             }
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnet = new List<System.String>(this.VpcConfig_Subnet);
+            }
+            context.VpcConfig_VpcId = this.VpcConfig_VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -298,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.EnvironmentType != null)
             {
                 request.EnvironmentType = cmdletContext.EnvironmentType;
+            }
+            if (cmdletContext.FleetServiceRole != null)
+            {
+                request.FleetServiceRole = cmdletContext.FleetServiceRole;
             }
             if (cmdletContext.Name != null)
             {
@@ -349,6 +409,45 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate VpcConfig
+            var requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.CodeBuild.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupId != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupId;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnet != null)
+            {
+                requestVpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnet;
+            }
+            if (requestVpcConfig_vpcConfig_Subnet != null)
+            {
+                request.VpcConfig.Subnets = requestVpcConfig_vpcConfig_Subnet;
+                requestVpcConfigIsNull = false;
+            }
+            System.String requestVpcConfig_vpcConfig_VpcId = null;
+            if (cmdletContext.VpcConfig_VpcId != null)
+            {
+                requestVpcConfig_vpcConfig_VpcId = cmdletContext.VpcConfig_VpcId;
+            }
+            if (requestVpcConfig_vpcConfig_VpcId != null)
+            {
+                request.VpcConfig.VpcId = requestVpcConfig_vpcConfig_VpcId;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
             }
             
             CmdletOutput output;
@@ -414,12 +513,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Int32? BaseCapacity { get; set; }
             public Amazon.CodeBuild.ComputeType ComputeType { get; set; }
             public Amazon.CodeBuild.EnvironmentType EnvironmentType { get; set; }
+            public System.String FleetServiceRole { get; set; }
             public System.String Name { get; set; }
             public Amazon.CodeBuild.FleetOverflowBehavior OverflowBehavior { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public Amazon.CodeBuild.FleetScalingType ScalingConfiguration_ScalingType { get; set; }
             public List<Amazon.CodeBuild.Model.TargetTrackingScalingConfiguration> ScalingConfiguration_TargetTrackingScalingConfig { get; set; }
             public List<Amazon.CodeBuild.Model.Tag> Tag { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfig_Subnet { get; set; }
+            public System.String VpcConfig_VpcId { get; set; }
             public System.Func<Amazon.CodeBuild.Model.CreateFleetResponse, NewCBFleetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Fleet;
         }

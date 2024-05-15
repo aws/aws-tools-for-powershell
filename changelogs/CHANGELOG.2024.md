@@ -1,4 +1,22 @@
-﻿### 4.1.579 (2024-05-14 21:04Z)
+﻿### 4.1.580 (2024-05-15 20:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.811.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Agent Runtime
+    * Modified cmdlet Invoke-BARRetrieve: added parameters ListContains_Key, ListContains_Value, StringContains_Key and StringContains_Value.
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameters ListContains_Key, ListContains_Value, StringContains_Key and StringContains_Value.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBFleet: added parameters FleetServiceRole, VpcConfig_SecurityGroupId, VpcConfig_Subnet and VpcConfig_VpcId.
+    * Modified cmdlet Update-CBFleet: added parameters FleetServiceRole, VpcConfig_SecurityGroupId, VpcConfig_Subnet and VpcConfig_VpcId.
+  * Amazon Managed Grafana
+    * Added cmdlet Get-MGRFWorkspaceServiceAccountList leveraging the ListWorkspaceServiceAccounts service API.
+    * Added cmdlet Get-MGRFWorkspaceServiceAccountTokenList leveraging the ListWorkspaceServiceAccountTokens service API.
+    * Added cmdlet New-MGRFWorkspaceServiceAccount leveraging the CreateWorkspaceServiceAccount service API.
+    * Added cmdlet New-MGRFWorkspaceServiceAccountToken leveraging the CreateWorkspaceServiceAccountToken service API.
+    * Added cmdlet Remove-MGRFWorkspaceServiceAccount leveraging the DeleteWorkspaceServiceAccount service API.
+    * Added cmdlet Remove-MGRFWorkspaceServiceAccountToken leveraging the DeleteWorkspaceServiceAccountToken service API.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet Start-MISDICOMImportJob: added parameter InputOwnerAccountId.
+
+### 4.1.579 (2024-05-14 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.810.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNContactFlow leveraging the SearchContactFlows service API.

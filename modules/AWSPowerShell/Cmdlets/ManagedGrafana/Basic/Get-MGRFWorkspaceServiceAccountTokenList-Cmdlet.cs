@@ -28,32 +28,31 @@ using Amazon.ManagedGrafana.Model;
 namespace Amazon.PowerShell.Cmdlets.MGRF
 {
     /// <summary>
-    /// Creates a Grafana API key for the workspace. This key can be used to authenticate
-    /// requests sent to the workspace's HTTP API. See <a href="https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html">https://docs.aws.amazon.com/grafana/latest/userguide/Using-Grafana-APIs.html</a>
-    /// for available APIs and example requests.
+    /// Returns a list of tokens for a workspace service account.
     /// 
     ///  <note><para>
-    /// In workspaces compatible with Grafana version 9 or above, use workspace service accounts
-    /// instead of API keys. API keys will be removed in a future release.
-    /// </para></note>
+    /// This does not return the key for each token. You cannot access keys after they are
+    /// created. To create a new key, delete the token and recreate it.
+    /// </para></note><para>
+    /// Service accounts are only available for workspaces that are compatible with Grafana
+    /// version 9 and above.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "MGRFWorkspaceApiKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse")]
-    [AWSCmdlet("Calls the Amazon Managed Grafana CreateWorkspaceApiKey API operation.", Operation = new[] {"CreateWorkspaceApiKey"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse))]
-    [AWSCmdletOutput("Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse",
-        "This cmdlet returns an Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "MGRFWorkspaceServiceAccountTokenList")]
+    [OutputType("Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse")]
+    [AWSCmdlet("Calls the Amazon Managed Grafana ListWorkspaceServiceAccountTokens API operation.", Operation = new[] {"ListWorkspaceServiceAccountTokens"}, SelectReturnType = typeof(Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse))]
+    [AWSCmdletOutput("Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse",
+        "This cmdlet returns an Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewMGRFWorkspaceApiKeyCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
+    public partial class GetMGRFWorkspaceServiceAccountTokenListCmdlet : AmazonManagedGrafanaClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KeyName
+        #region Parameter ServiceAccountId
         /// <summary>
         /// <para>
-        /// <para>Specifies the name of the key. Keynames must be unique to the workspace.</para>
+        /// <para>The ID of the service account for which to return tokens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,47 +63,13 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyName { get; set; }
-        #endregion
-        
-        #region Parameter KeyRole
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the permission level of the key.</para><para> Valid values: <c>ADMIN</c>|<c>EDITOR</c>|<c>VIEWER</c></para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KeyRole { get; set; }
-        #endregion
-        
-        #region Parameter SecondsToLive
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the time in seconds until the key expires. Keys can be valid for up to 30
-        /// days.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int32? SecondsToLive { get; set; }
+        public System.String ServiceAccountId { get; set; }
         #endregion
         
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the workspace to create an API key.</para>
+        /// <para>The ID of the workspace for which to return tokens.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,11 +83,33 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         public System.String WorkspaceId { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of tokens to include in the results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token for the next set of service accounts to return. (You receive this token
+        /// from a previous <c>ListWorkspaceServiceAccountTokens</c> operation.)</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse).
-        /// Specifying the name of a property of type Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse).
+        /// Specifying the name of a property of type Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,34 +118,18 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KeyName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ServiceAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ServiceAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KeyName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ServiceAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkspaceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MGRFWorkspaceApiKey (CreateWorkspaceApiKey)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -168,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse, NewMGRFWorkspaceApiKeyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse, GetMGRFWorkspaceServiceAccountTokenListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -177,28 +148,16 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KeyName;
+                context.Select = (response, cmdlet) => this.ServiceAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KeyName = this.KeyName;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.ServiceAccountId = this.ServiceAccountId;
             #if MODULAR
-            if (this.KeyName == null && ParameterWasBound(nameof(this.KeyName)))
+            if (this.ServiceAccountId == null && ParameterWasBound(nameof(this.ServiceAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter KeyName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.KeyRole = this.KeyRole;
-            #if MODULAR
-            if (this.KeyRole == null && ParameterWasBound(nameof(this.KeyRole)))
-            {
-                WriteWarning("You are passing $null as a value for parameter KeyRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.SecondsToLive = this.SecondsToLive;
-            #if MODULAR
-            if (this.SecondsToLive == null && ParameterWasBound(nameof(this.SecondsToLive)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SecondsToLive which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ServiceAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.WorkspaceId = this.WorkspaceId;
@@ -222,19 +181,19 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyRequest();
+            var request = new Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensRequest();
             
-            if (cmdletContext.KeyName != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.KeyName = cmdletContext.KeyName;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.KeyRole != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.KeyRole = cmdletContext.KeyRole;
+                request.NextToken = cmdletContext.NextToken;
             }
-            if (cmdletContext.SecondsToLive != null)
+            if (cmdletContext.ServiceAccountId != null)
             {
-                request.SecondsToLive = cmdletContext.SecondsToLive.Value;
+                request.ServiceAccountId = cmdletContext.ServiceAccountId;
             }
             if (cmdletContext.WorkspaceId != null)
             {
@@ -273,15 +232,15 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         #region AWS Service Operation Call
         
-        private Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse CallAWSServiceOperation(IAmazonManagedGrafana client, Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyRequest request)
+        private Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse CallAWSServiceOperation(IAmazonManagedGrafana client, Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Grafana", "CreateWorkspaceApiKey");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Grafana", "ListWorkspaceServiceAccountTokens");
             try
             {
                 #if DESKTOP
-                return client.CreateWorkspaceApiKey(request);
+                return client.ListWorkspaceServiceAccountTokens(request);
                 #elif CORECLR
-                return client.CreateWorkspaceApiKeyAsync(request).GetAwaiter().GetResult();
+                return client.ListWorkspaceServiceAccountTokensAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -301,11 +260,11 @@ namespace Amazon.PowerShell.Cmdlets.MGRF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KeyName { get; set; }
-            public System.String KeyRole { get; set; }
-            public System.Int32? SecondsToLive { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.String ServiceAccountId { get; set; }
             public System.String WorkspaceId { get; set; }
-            public System.Func<Amazon.ManagedGrafana.Model.CreateWorkspaceApiKeyResponse, NewMGRFWorkspaceApiKeyCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ManagedGrafana.Model.ListWorkspaceServiceAccountTokensResponse, GetMGRFWorkspaceServiceAccountTokenListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
