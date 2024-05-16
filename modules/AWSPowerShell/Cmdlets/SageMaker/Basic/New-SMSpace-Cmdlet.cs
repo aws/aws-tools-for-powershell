@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a space used for real time collaboration in a domain.
+    /// Creates a private space or a space used for real time collaboration in a domain.
     /// </summary>
     [Cmdlet("New", "SMSpace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

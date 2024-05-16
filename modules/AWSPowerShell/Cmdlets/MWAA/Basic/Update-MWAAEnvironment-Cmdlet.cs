@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         /// other resources used in your workflows are compatible with the new Apache Airflow
         /// version. For more information about updating your resources, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/upgrading-environment.html">Upgrading
         /// an Amazon MWAA environment</a>.</para><para>Valid values: <c>1.10.12</c>, <c>2.0.2</c>, <c>2.2.2</c>, <c>2.4.3</c>, <c>2.5.1</c>,
-        /// <c>2.6.3</c>, <c>2.7.2</c>.</para>
+        /// <c>2.6.3</c>, <c>2.7.2</c>, <c>2.8.1</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         #region Parameter EnvironmentClass
         /// <summary>
         /// <para>
-        /// <para>The environment class type. Valid values: <c>mw1.small</c>, <c>mw1.medium</c>, <c>mw1.large</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
+        /// <para>The environment class type. Valid values: <c>mw1.small</c>, <c>mw1.medium</c>, <c>mw1.large</c>,
+        /// <c>mw1.xlarge</c>, and <c>mw1.2xlarge</c>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon
         /// MWAA environment class</a>.</para>
         /// </para>
         /// </summary>
@@ -224,6 +224,24 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         public Amazon.MWAA.LoggingLevel WorkerLogs_LogLevel { get; set; }
         #endregion
         
+        #region Parameter MaxWebserver
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of web servers that you want to run in your environment. Amazon
+        /// MWAA scales the number of Apache Airflow web servers up to the number you specify
+        /// for <c>MaxWebservers</c> when you interact with your Apache Airflow environment using
+        /// Apache Airflow REST API, or the Apache Airflow CLI. For example, in scenarios where
+        /// your workload requires network calls to the Apache Airflow REST API with a high transaction-per-second
+        /// (TPS) rate, Amazon MWAA will increase the number of web servers up to the number set
+        /// in <c>MaxWebserers</c>. As TPS rates decrease Amazon MWAA disposes of the additional
+        /// web servers, and scales down to the number set in <c>MinxWebserers</c>. </para><para>Valid values: Accepts between <c>2</c> and <c>5</c>. Defaults to <c>2</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxWebservers")]
+        public System.Int32? MaxWebserver { get; set; }
+        #endregion
+        
         #region Parameter MaxWorker
         /// <summary>
         /// <para>
@@ -237,6 +255,22 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("MaxWorkers")]
         public System.Int32? MaxWorker { get; set; }
+        #endregion
+        
+        #region Parameter MinWebserver
+        /// <summary>
+        /// <para>
+        /// <para> The minimum number of web servers that you want to run in your environment. Amazon
+        /// MWAA scales the number of Apache Airflow web servers up to the number you specify
+        /// for <c>MaxWebservers</c> when you interact with your Apache Airflow environment using
+        /// Apache Airflow REST API, or the Apache Airflow CLI. As the transaction-per-second
+        /// rate, and the network load, decrease, Amazon MWAA disposes of the additional web servers,
+        /// and scales down to the number set in <c>MinxWebserers</c>. </para><para>Valid values: Accepts between <c>2</c> and <c>5</c>. Defaults to <c>2</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MinWebservers")]
+        public System.Int32? MinWebserver { get; set; }
         #endregion
         
         #region Parameter MinWorker
@@ -496,7 +530,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             context.WebserverLogs_LogLevel = this.WebserverLogs_LogLevel;
             context.WorkerLogs_Enabled = this.WorkerLogs_Enabled;
             context.WorkerLogs_LogLevel = this.WorkerLogs_LogLevel;
+            context.MaxWebserver = this.MaxWebserver;
             context.MaxWorker = this.MaxWorker;
+            context.MinWebserver = this.MinWebserver;
             context.MinWorker = this.MinWorker;
             context.Name = this.Name;
             #if MODULAR
@@ -739,9 +775,17 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             {
                 request.LoggingConfiguration = null;
             }
+            if (cmdletContext.MaxWebserver != null)
+            {
+                request.MaxWebservers = cmdletContext.MaxWebserver.Value;
+            }
             if (cmdletContext.MaxWorker != null)
             {
                 request.MaxWorkers = cmdletContext.MaxWorker.Value;
+            }
+            if (cmdletContext.MinWebserver != null)
+            {
+                request.MinWebservers = cmdletContext.MinWebserver.Value;
             }
             if (cmdletContext.MinWorker != null)
             {
@@ -886,7 +930,9 @@ namespace Amazon.PowerShell.Cmdlets.MWAA
             public Amazon.MWAA.LoggingLevel WebserverLogs_LogLevel { get; set; }
             public System.Boolean? WorkerLogs_Enabled { get; set; }
             public Amazon.MWAA.LoggingLevel WorkerLogs_LogLevel { get; set; }
+            public System.Int32? MaxWebserver { get; set; }
             public System.Int32? MaxWorker { get; set; }
+            public System.Int32? MinWebserver { get; set; }
             public System.Int32? MinWorker { get; set; }
             public System.String Name { get; set; }
             public List<System.String> NetworkConfiguration_SecurityGroupId { get; set; }

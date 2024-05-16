@@ -106,6 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String NotificationConfiguration_NotificationTopicArn { get; set; }
         #endregion
         
+        #region Parameter IamPolicyConstraints_SourceIp
+        /// <summary>
+        /// <para>
+        /// <para>When <c>SourceIp</c> is <c>Enabled</c> the worker's IP address when a task is rendered
+        /// in the worker portal is added to the IAM policy as a <c>Condition</c> used to generate
+        /// the Amazon S3 presigned URL. This IP address is checked by Amazon S3 and must match
+        /// in order for the Amazon S3 resource to be rendered in the worker portal.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkerAccessConfiguration_S3Presign_IamPolicyConstraints_SourceIp")]
+        [AWSConstantClassSource("Amazon.SageMaker.EnabledOrDisabled")]
+        public Amazon.SageMaker.EnabledOrDisabled IamPolicyConstraints_SourceIp { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -118,6 +133,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter IamPolicyConstraints_VpcSourceIp
+        /// <summary>
+        /// <para>
+        /// <para>When <c>VpcSourceIp</c> is <c>Enabled</c> the worker's IP address when a task is rendered
+        /// in private worker portal inside the VPC is added to the IAM policy as a <c>Condition</c>
+        /// used to generate the Amazon S3 presigned URL. To render the task successfully Amazon
+        /// S3 checks that the presigned URL is being accessed over an Amazon S3 VPC Endpoint,
+        /// and that the worker's IP address matches the IP address in the IAM policy. To learn
+        /// more about configuring private worker portal, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/samurai-vpc-worker-portal.html">Use
+        /// Amazon VPC mode from a private worker portal</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WorkerAccessConfiguration_S3Presign_IamPolicyConstraints_VpcSourceIp")]
+        [AWSConstantClassSource("Amazon.SageMaker.EnabledOrDisabled")]
+        public Amazon.SageMaker.EnabledOrDisabled IamPolicyConstraints_VpcSourceIp { get; set; }
         #endregion
         
         #region Parameter WorkforceName
@@ -231,6 +264,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            context.IamPolicyConstraints_SourceIp = this.IamPolicyConstraints_SourceIp;
+            context.IamPolicyConstraints_VpcSourceIp = this.IamPolicyConstraints_VpcSourceIp;
             context.WorkforceName = this.WorkforceName;
             context.WorkteamName = this.WorkteamName;
             #if MODULAR
@@ -285,6 +320,65 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate WorkerAccessConfiguration
+            var requestWorkerAccessConfigurationIsNull = true;
+            request.WorkerAccessConfiguration = new Amazon.SageMaker.Model.WorkerAccessConfiguration();
+            Amazon.SageMaker.Model.S3Presign requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign = null;
+            
+             // populate S3Presign
+            var requestWorkerAccessConfiguration_workerAccessConfiguration_S3PresignIsNull = true;
+            requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign = new Amazon.SageMaker.Model.S3Presign();
+            Amazon.SageMaker.Model.IamPolicyConstraints requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints = null;
+            
+             // populate IamPolicyConstraints
+            var requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraintsIsNull = true;
+            requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints = new Amazon.SageMaker.Model.IamPolicyConstraints();
+            Amazon.SageMaker.EnabledOrDisabled requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_SourceIp = null;
+            if (cmdletContext.IamPolicyConstraints_SourceIp != null)
+            {
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_SourceIp = cmdletContext.IamPolicyConstraints_SourceIp;
+            }
+            if (requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_SourceIp != null)
+            {
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints.SourceIp = requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_SourceIp;
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraintsIsNull = false;
+            }
+            Amazon.SageMaker.EnabledOrDisabled requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_VpcSourceIp = null;
+            if (cmdletContext.IamPolicyConstraints_VpcSourceIp != null)
+            {
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_VpcSourceIp = cmdletContext.IamPolicyConstraints_VpcSourceIp;
+            }
+            if (requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_VpcSourceIp != null)
+            {
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints.VpcSourceIp = requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints_iamPolicyConstraints_VpcSourceIp;
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraintsIsNull = false;
+            }
+             // determine if requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints should be set to null
+            if (requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraintsIsNull)
+            {
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints = null;
+            }
+            if (requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints != null)
+            {
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign.IamPolicyConstraints = requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign_workerAccessConfiguration_S3Presign_IamPolicyConstraints;
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3PresignIsNull = false;
+            }
+             // determine if requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign should be set to null
+            if (requestWorkerAccessConfiguration_workerAccessConfiguration_S3PresignIsNull)
+            {
+                requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign = null;
+            }
+            if (requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign != null)
+            {
+                request.WorkerAccessConfiguration.S3Presign = requestWorkerAccessConfiguration_workerAccessConfiguration_S3Presign;
+                requestWorkerAccessConfigurationIsNull = false;
+            }
+             // determine if request.WorkerAccessConfiguration should be set to null
+            if (requestWorkerAccessConfigurationIsNull)
+            {
+                request.WorkerAccessConfiguration = null;
             }
             if (cmdletContext.WorkforceName != null)
             {
@@ -359,6 +453,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.MemberDefinition> MemberDefinition { get; set; }
             public System.String NotificationConfiguration_NotificationTopicArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public Amazon.SageMaker.EnabledOrDisabled IamPolicyConstraints_SourceIp { get; set; }
+            public Amazon.SageMaker.EnabledOrDisabled IamPolicyConstraints_VpcSourceIp { get; set; }
             public System.String WorkforceName { get; set; }
             public System.String WorkteamName { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateWorkteamResponse, NewSMWorkteamCmdlet, object> Select { get; set; } =

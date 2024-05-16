@@ -102,10 +102,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The total number of items to return in the response. If the total number of items
-        /// available is more than the value specified, a <c>NextToken</c> is provided in the
-        /// response. To resume pagination, provide the <c>NextToken</c> value in the as part
-        /// of a subsequent call. The default value is 10.</para>
+        /// <para>This parameter defines the maximum number of results that can be returned in a single
+        /// response. The <c>MaxResults</c> parameter is an upper bound, not a target. If there
+        /// are more results available than the value specified, a <c>NextToken</c> is provided
+        /// in the response. The <c>NextToken</c> indicates that the user should get the next
+        /// set of results by providing this token as a part of a subsequent call. The default
+        /// value for <c>MaxResults</c> is 10.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

@@ -331,6 +331,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKeyRegistration" OutputProperty="*" Verb="Get" Noun="KeyRegistration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeNamespace" OutputProperty="Namespace" Verb="Get" Noun="Namespace" PipelineParameter="Namespace" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -667,6 +671,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIpRestriction" OutputProperty="AwsAccountId" Verb="Update" Noun="IpRestriction" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKeyRegistration" OutputProperty="*" Verb="Update" Noun="KeyRegistration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -22356,6 +22356,8 @@ Set-Alias -Name Describe-QSIngestion -Value Get-QSIngestion
 Set-Alias -Name QS-DescribeIngestion -Value Get-QSIngestion
 Set-Alias -Name Describe-QSIpRestriction -Value Get-QSIpRestriction
 Set-Alias -Name QS-DescribeIpRestriction -Value Get-QSIpRestriction
+Set-Alias -Name Describe-QSKeyRegistration -Value Get-QSKeyRegistration
+Set-Alias -Name QS-DescribeKeyRegistration -Value Get-QSKeyRegistration
 Set-Alias -Name Describe-QSNamespace -Value Get-QSNamespace
 Set-Alias -Name QS-DescribeNamespace -Value Get-QSNamespace
 Set-Alias -Name Describe-QSRefreshSchedule -Value Get-QSRefreshSchedule
@@ -22533,6 +22535,7 @@ Set-Alias -Name QS-UpdateGroup -Value Update-QSGroup
 Set-Alias -Name QS-UpdateIAMPolicyAssignment -Value Update-QSIAMPolicyAssignment
 Set-Alias -Name QS-UpdateIdentityPropagationConfig -Value Update-QSIdentityPropagationConfig
 Set-Alias -Name QS-UpdateIpRestriction -Value Update-QSIpRestriction
+Set-Alias -Name QS-UpdateKeyRegistration -Value Update-QSKeyRegistration
 Set-Alias -Name Update-QSPublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdateRefreshSchedule -Value Update-QSRefreshSchedule

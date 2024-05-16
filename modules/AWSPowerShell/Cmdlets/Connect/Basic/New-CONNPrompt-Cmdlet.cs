@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// <summary>
     /// Creates a prompt. For more information about prompts, such as supported file types
     /// and maximum length, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/prompts.html">Create
-    /// prompts</a> in the <i>Amazon Connect Administrator's Guide</i>.
+    /// prompts</a> in the <i>Amazon Connect Administrator Guide</i>.
     /// </summary>
     [Cmdlet("New", "CONNPrompt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.CreatePromptResponse")]

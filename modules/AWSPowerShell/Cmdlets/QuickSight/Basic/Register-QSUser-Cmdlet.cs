@@ -224,7 +224,12 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserRole
         /// <summary>
         /// <para>
-        /// <para>The Amazon QuickSight role for the user. The user role can be one of the following:</para><ul><li><para><c>READER</c>: A user who has read-only access to dashboards.</para></li><li><para><c>AUTHOR</c>: A user who can create data sources, datasets, analyses, and dashboards.</para></li><li><para><c>ADMIN</c>: A user who is an author, who can also manage Amazon QuickSight settings.</para></li><li><para><c>RESTRICTED_READER</c>: This role isn't currently available for use.</para></li><li><para><c>RESTRICTED_AUTHOR</c>: This role isn't currently available for use.</para></li></ul>
+        /// <para>The Amazon QuickSight role for the user. The user role can be one of the following:</para><ul><li><para><c>READER</c>: A user who has read-only access to dashboards.</para></li><li><para><c>AUTHOR</c>: A user who can create data sources, datasets, analyses, and dashboards.</para></li><li><para><c>ADMIN</c>: A user who is an author, who can also manage Amazon QuickSight settings.</para></li><li><para><c>READER_PRO</c>: Reader Pro adds Generative BI capabilities to the Reader role.
+        /// Reader Pros have access to Amazon Q in Amazon QuickSight, can build stories with Amazon
+        /// Q, and can generate executive summaries from dashboards.</para></li><li><para><c>AUTHOR_PRO</c>: Author Pro adds Generative BI capabilities to the Author role.
+        /// Author Pros can author dashboards with natural language with Amazon Q, build stories
+        /// with Amazon Q, create Topics for Q&amp;A, and generate executive summaries from dashboards.</para></li><li><para><c>ADMIN_PRO</c>: Admin Pros are Author Pros who can also manage Amazon QuickSight
+        /// administrative settings. Admin Pro users are billed at Author Pro pricing.</para></li><li><para><c>RESTRICTED_READER</c>: This role isn't currently available for use.</para></li><li><para><c>RESTRICTED_AUTHOR</c>: This role isn't currently available for use.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

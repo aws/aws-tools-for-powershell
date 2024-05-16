@@ -1,4 +1,16 @@
-﻿### 4.1.580 (2024-05-15 20:36Z)
+﻿### 4.1.581 (2024-05-16 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.812.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AmazonMWAA
+    * Modified cmdlet New-MWAAEnvironment: added parameters MaxWebserver and MinWebserver.
+    * Modified cmdlet Update-MWAAEnvironment: added parameters MaxWebserver and MinWebserver.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSKeyRegistration leveraging the DescribeKeyRegistration service API.
+    * Added cmdlet Update-QSKeyRegistration leveraging the UpdateKeyRegistration service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMWorkteam: added parameters IamPolicyConstraints_SourceIp and IamPolicyConstraints_VpcSourceIp.
+    * Modified cmdlet Update-SMWorkteam: added parameters IamPolicyConstraints_SourceIp and IamPolicyConstraints_VpcSourceIp.
+
+### 4.1.580 (2024-05-15 20:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.811.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Agent Runtime
     * Modified cmdlet Invoke-BARRetrieve: added parameters ListContains_Key, ListContains_Value, StringContains_Key and StringContains_Value.

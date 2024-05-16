@@ -54142,6 +54142,7 @@ $QS_SelectMap = @{
                "Get-QSIAMPolicyAssignment",
                "Get-QSIngestion",
                "Get-QSIpRestriction",
+               "Get-QSKeyRegistration",
                "Get-QSNamespace",
                "Get-QSRefreshSchedule",
                "Get-QSRoleCustomPermission",
@@ -54224,6 +54225,7 @@ $QS_SelectMap = @{
                "Update-QSIAMPolicyAssignment",
                "Update-QSIdentityPropagationConfig",
                "Update-QSIpRestriction",
+               "Update-QSKeyRegistration",
                "Update-QSPublicSharingSetting",
                "Update-QSRefreshSchedule",
                "Update-QSRoleCustomPermission",
@@ -59232,6 +59234,18 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.EnabledOrDisabled
+        {
+            ($_ -eq "New-SMWorkteam/IamPolicyConstraints_SourceIp") -Or
+            ($_ -eq "Update-SMWorkteam/IamPolicyConstraints_SourceIp") -Or
+            ($_ -eq "New-SMWorkteam/IamPolicyConstraints_VpcSourceIp") -Or
+            ($_ -eq "Update-SMWorkteam/IamPolicyConstraints_VpcSourceIp")
+        }
+        {
+            $v = "Disabled","Enabled"
+            break
+        }
+
         # Amazon.SageMaker.EndpointConfigSortKey
         "Get-SMConfigList/SortBy"
         {
@@ -60344,6 +60358,8 @@ $SM_map = @{
     "HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningResourceConfig_AllocationStrategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")
+    "IamPolicyConstraints_SourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
+    "IamPolicyConstraints_VpcSourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
