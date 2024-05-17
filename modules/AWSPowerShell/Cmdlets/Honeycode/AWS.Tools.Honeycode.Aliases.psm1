@@ -1,3 +1,0 @@
-﻿# Honeycode
-
-Export-ModuleMember -Alias *

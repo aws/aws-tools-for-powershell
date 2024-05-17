@@ -1002,14 +1002,6 @@
             },
             "InPreview"               : false
         },
-        "AlexaForBusiness"                : {
-            "Version" : "3.7.300.92",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.304.2"
-            },
-            "InPreview"               : false
-        },
         "ServerlessApplicationRepository" : {
             "Version" : "3.7.300.92",
             "AssemblyVersionOverride" : "3.3",
@@ -1780,14 +1772,6 @@
         },
         "CodeArtifact"                    : {
             "Version" : "3.7.302.8",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.304.2"
-            },
-            "InPreview"               : false
-        },
-        "Honeycode"                       : {
-            "Version" : "3.7.300.92",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.2"

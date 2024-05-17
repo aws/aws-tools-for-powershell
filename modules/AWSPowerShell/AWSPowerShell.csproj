@@ -67,9 +67,6 @@
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.AlexaForBusiness">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AlexaForBusiness.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Amplify">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Amplify.dll</HintPath>
     </Reference>
@@ -552,9 +549,6 @@
     </Reference>
     <Reference Include="AWSSDK.HealthLake">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.HealthLake.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Honeycode">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Honeycode.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IAMRolesAnywhere">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.IAMRolesAnywhere.dll</HintPath>
@@ -1197,9 +1191,6 @@
     <Reference Include="AWSSDK.ACMPCA">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ACMPCA.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.AlexaForBusiness">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AlexaForBusiness.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Amplify">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Amplify.dll</HintPath>
     </Reference>
@@ -1682,9 +1673,6 @@
     </Reference>
     <Reference Include="AWSSDK.HealthLake">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.HealthLake.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Honeycode">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Honeycode.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IAMRolesAnywhere">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.IAMRolesAnywhere.dll</HintPath>

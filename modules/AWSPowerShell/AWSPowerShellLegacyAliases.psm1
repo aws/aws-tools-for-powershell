@@ -6,10 +6,6 @@ Set-Alias -Name Initialize-AWSDefaults -Value Initialize-AWSDefaultConfiguration
 Set-Alias -Name New-AWSCredentials -Value New-AWSCredential
 Set-Alias -Name Set-AWSCredentials -Value Set-AWSCredential
 
-# AlexaForBusiness
-Set-Alias -Name Add-ALXBContactWithAddressBook -Value Add-ALXBContactToAddressBook
-Set-Alias -Name Remove-ALXBSmartHomeAppliances -Value Remove-ALXBSmartHomeAppliance
-
 # ApiGatewayV2
 Set-Alias -Name Get-AG2ApiLis -Value Get-AG2ApiList
 
