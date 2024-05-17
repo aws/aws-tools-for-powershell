@@ -105,6 +105,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataLakePrincipal" OutputProperty="Identity" Verb="Get" Noun="DataLakePrincipal" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataLakeSettings" OutputProperty="DataLakeSettings" Verb="Get" Noun="DataLakeSetting" PipelineParameter="CatalogId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

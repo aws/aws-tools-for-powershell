@@ -1,4 +1,11 @@
-﻿### 4.1.581 (2024-05-16 21:06Z)
+﻿### 4.1.582 (2024-05-17 21:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.813.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Alexa For Business
+  * [Breaking Change] Removed support for Amazon Honeycode
+  * Amazon Lake Formation
+    * Added cmdlet Get-LKFDataLakePrincipal leveraging the GetDataLakePrincipal service API.
+
+### 4.1.581 (2024-05-16 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.812.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AmazonMWAA
     * Modified cmdlet New-MWAAEnvironment: added parameters MaxWebserver and MinWebserver.

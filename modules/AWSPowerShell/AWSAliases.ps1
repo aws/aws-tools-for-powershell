@@ -16377,6 +16377,7 @@ Set-Alias -Name LKF-DescribeTransaction -Value Get-LKFTransaction
 Set-Alias -Name Extend-LKFTransaction -Value Invoke-LKFTransaction
 Set-Alias -Name LKF-ExtendTransaction -Value Invoke-LKFTransaction
 Set-Alias -Name LKF-GetDataCellsFilter -Value Get-LKFDataCellsFilter
+Set-Alias -Name LKF-GetDataLakePrincipal -Value Get-LKFDataLakePrincipal
 Set-Alias -Name Get-LKFDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetDataLakeSettings -Value Get-LKFDataLakeSetting
 Set-Alias -Name LKF-GetEffectivePermissionsForPath -Value Get-LKFEffectivePermissionsForPath

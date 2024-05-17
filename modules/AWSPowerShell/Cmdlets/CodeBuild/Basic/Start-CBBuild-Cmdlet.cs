@@ -680,7 +680,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter TimeoutInMinutesOverride
         /// <summary>
         /// <para>
-        /// <para>The number of build timeout minutes, from 5 to 480 (8 hours), that overrides, for
+        /// <para>The number of build timeout minutes, from 5 to 2160 (36 hours), that overrides, for
         /// this build only, the latest setting already defined in the build project.</para>
         /// </para>
         /// </summary>

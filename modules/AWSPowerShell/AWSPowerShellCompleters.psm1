@@ -25877,7 +25877,7 @@ $ELB2_Completers = {
             ($_ -eq "Set-ELB2Subnet/IpAddressType")
         }
         {
-            $v = "dualstack","ipv4"
+            $v = "dualstack","dualstack-without-public-ipv4","ipv4"
             break
         }
 
@@ -38636,6 +38636,7 @@ $LKF_SelectMap = @{
                "Get-LKFTransaction",
                "Invoke-LKFTransaction",
                "Get-LKFDataCellsFilter",
+               "Get-LKFDataLakePrincipal",
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
                "Get-LKFLFTag",

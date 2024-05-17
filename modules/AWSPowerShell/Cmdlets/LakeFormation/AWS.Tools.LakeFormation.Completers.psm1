@@ -238,6 +238,7 @@ $LKF_SelectMap = @{
                "Get-LKFTransaction",
                "Invoke-LKFTransaction",
                "Get-LKFDataCellsFilter",
+               "Get-LKFDataLakePrincipal",
                "Get-LKFDataLakeSetting",
                "Get-LKFEffectivePermissionsForPath",
                "Get-LKFLFTag",

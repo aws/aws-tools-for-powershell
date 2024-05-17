@@ -67,9 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP addresses used by the subnets for your load balancer. The possible
-        /// values are <c>ipv4</c> (for IPv4 addresses) and <c>dualstack</c> (for IPv4 and IPv6
-        /// addresses). </para>
+        /// <para>Note: Internal load balancers must use the <c>ipv4</c> IP address type.</para><para>[Application Load Balancers] The IP address type. The possible values are <c>ipv4</c>
+        /// (for only IPv4 addresses), <c>dualstack</c> (for IPv4 and IPv6 addresses), and <c>dualstack-without-public-ipv4</c>
+        /// (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).</para><para>[Network Load Balancers] The IP address type. The possible values are <c>ipv4</c>
+        /// (for only IPv4 addresses) and <c>dualstack</c> (for IPv4 and IPv6 addresses). You
+        /// can’t specify <c>dualstack</c> for a load balancer with a UDP or TCP_UDP listener.</para><para>[Gateway Load Balancers] The IP address type. The possible values are <c>ipv4</c>
+        /// (for only IPv4 addresses) and <c>dualstack</c> (for IPv4 and IPv6 addresses).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
