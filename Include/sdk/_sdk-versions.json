@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.813.0",
+    "ProductVersion"    : "3.7.814.0",
     "CoreVersion"       : "3.7.304.3",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -145,7 +145,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.303.8",
+            "Version" : "3.7.303.9",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.3"
@@ -283,7 +283,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.312.10",
+            "Version" : "3.7.313.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.3"
@@ -1067,7 +1067,7 @@
             "InPreview"               : false
         },
         "SecretsManager"                  : {
-            "Version" : "3.7.302.68",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.3"
@@ -2491,7 +2491,7 @@
             "InPreview"               : false
         },
         "ControlTower"                        : {
-            "Version" : "3.7.304.43",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.3"
@@ -2715,7 +2715,7 @@
             "InPreview"               : false
         },
         "OSIS"                                : {
-            "Version" : "3.7.301.88",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.3"
@@ -2923,7 +2923,7 @@
             "InPreview"               : false
         },
         "BedrockAgentRuntime"                 : {
-            "Version" : "3.7.307.2",
+            "Version" : "3.7.308.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.3"
@@ -2947,7 +2947,7 @@
             "InPreview"               : false
         },
         "BedrockAgent"                        : {
-            "Version" : "3.7.308.7",
+            "Version" : "3.7.309.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.3"

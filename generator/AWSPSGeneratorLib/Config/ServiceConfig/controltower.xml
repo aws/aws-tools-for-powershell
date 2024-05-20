@@ -74,6 +74,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListControlOperations" OutputProperty="ControlOperations" Verb="Get" Noun="ControlOperationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnabledBaselines" OutputProperty="EnabledBaselines" Verb="Get" Noun="EnabledBaselineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

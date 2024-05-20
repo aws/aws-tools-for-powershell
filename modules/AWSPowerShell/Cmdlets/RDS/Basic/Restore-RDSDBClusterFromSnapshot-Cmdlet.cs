@@ -249,6 +249,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String Engine { get; set; }
         #endregion
         
+        #region Parameter EngineLifecycleSupport
+        /// <summary>
+        /// <para>
+        /// <para>The life cycle type for this DB cluster.</para><note><para>By default, this value is set to <c>open-source-rds-extended-support</c>, which enrolls
+        /// your DB cluster into Amazon RDS Extended Support. At the end of standard support,
+        /// you can avoid charges for Extended Support by setting the value to <c>open-source-rds-extended-support-disabled</c>.
+        /// In this case, RDS automatically upgrades your restored DB cluster to a higher engine
+        /// version, if the major engine version is past its end of standard support date.</para></note><para>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        /// With RDS Extended Support, you can run the selected major engine version on your DB
+        /// cluster past the end of standard support for that engine version. For more information,
+        /// see the following sections:</para><ul><li><para>Amazon Aurora (PostgreSQL only) - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
+        /// Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i></para></li><li><para>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using
+        /// Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i></para></li></ul><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineLifecycleSupport { get; set; }
+        #endregion
+        
         #region Parameter EngineMode
         /// <summary>
         /// <para>
@@ -627,6 +646,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
             context.Iops = this.Iops;
@@ -733,6 +753,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Engine != null)
             {
                 request.Engine = cmdletContext.Engine;
+            }
+            if (cmdletContext.EngineLifecycleSupport != null)
+            {
+                request.EngineLifecycleSupport = cmdletContext.EngineLifecycleSupport;
             }
             if (cmdletContext.EngineMode != null)
             {
@@ -994,6 +1018,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public List<System.String> EnableCloudwatchLogsExport { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String Engine { get; set; }
+            public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }

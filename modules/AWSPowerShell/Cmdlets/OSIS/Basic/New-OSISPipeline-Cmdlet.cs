@@ -43,6 +43,29 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter VpcAttachmentOptions_AttachToVpc
+        /// <summary>
+        /// <para>
+        /// <para>Whether a VPC is attached to the pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcOptions_VpcAttachmentOptions_AttachToVpc")]
+        public System.Boolean? VpcAttachmentOptions_AttachToVpc { get; set; }
+        #endregion
+        
+        #region Parameter VpcAttachmentOptions_CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>The CIDR block to be reserved for OpenSearch Ingestion to create elastic network interfaces
+        /// (ENIs).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcOptions_VpcAttachmentOptions_CidrBlock")]
+        public System.String VpcAttachmentOptions_CidrBlock { get; set; }
+        #endregion
+        
         #region Parameter LogPublishingOptions_IsLoggingEnabled
         /// <summary>
         /// <para>
@@ -56,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         #region Parameter EncryptionAtRestOptions_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default,
-        /// data is encrypted using an AWS owned key.</para>
+        /// <para>The ARN of the KMS key used to encrypt buffer data. By default, data is encrypted
+        /// using an Amazon Web Services owned key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         /// <summary>
         /// <para>
         /// <para>The name of the CloudWatch Logs group to send pipeline logs to. You can specify an
-        /// existing log group or create a new one. For example, <c>/aws/OpenSearchService/IngestionService/my-pipeline</c>.</para>
+        /// existing log group or create a new one. For example, <c>/aws/vendedlogs/OpenSearchService/pipelines</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,6 +319,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             {
                 context.VpcOptions_SubnetId = new List<System.String>(this.VpcOptions_SubnetId);
             }
+            context.VpcAttachmentOptions_AttachToVpc = this.VpcAttachmentOptions_AttachToVpc;
+            context.VpcAttachmentOptions_CidrBlock = this.VpcAttachmentOptions_CidrBlock;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -438,6 +463,41 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
                 request.VpcOptions.SubnetIds = requestVpcOptions_vpcOptions_SubnetId;
                 requestVpcOptionsIsNull = false;
             }
+            Amazon.OSIS.Model.VpcAttachmentOptions requestVpcOptions_vpcOptions_VpcAttachmentOptions = null;
+            
+             // populate VpcAttachmentOptions
+            var requestVpcOptions_vpcOptions_VpcAttachmentOptionsIsNull = true;
+            requestVpcOptions_vpcOptions_VpcAttachmentOptions = new Amazon.OSIS.Model.VpcAttachmentOptions();
+            System.Boolean? requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_AttachToVpc = null;
+            if (cmdletContext.VpcAttachmentOptions_AttachToVpc != null)
+            {
+                requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_AttachToVpc = cmdletContext.VpcAttachmentOptions_AttachToVpc.Value;
+            }
+            if (requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_AttachToVpc != null)
+            {
+                requestVpcOptions_vpcOptions_VpcAttachmentOptions.AttachToVpc = requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_AttachToVpc.Value;
+                requestVpcOptions_vpcOptions_VpcAttachmentOptionsIsNull = false;
+            }
+            System.String requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_CidrBlock = null;
+            if (cmdletContext.VpcAttachmentOptions_CidrBlock != null)
+            {
+                requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_CidrBlock = cmdletContext.VpcAttachmentOptions_CidrBlock;
+            }
+            if (requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_CidrBlock != null)
+            {
+                requestVpcOptions_vpcOptions_VpcAttachmentOptions.CidrBlock = requestVpcOptions_vpcOptions_VpcAttachmentOptions_vpcAttachmentOptions_CidrBlock;
+                requestVpcOptions_vpcOptions_VpcAttachmentOptionsIsNull = false;
+            }
+             // determine if requestVpcOptions_vpcOptions_VpcAttachmentOptions should be set to null
+            if (requestVpcOptions_vpcOptions_VpcAttachmentOptionsIsNull)
+            {
+                requestVpcOptions_vpcOptions_VpcAttachmentOptions = null;
+            }
+            if (requestVpcOptions_vpcOptions_VpcAttachmentOptions != null)
+            {
+                request.VpcOptions.VpcAttachmentOptions = requestVpcOptions_vpcOptions_VpcAttachmentOptions;
+                requestVpcOptionsIsNull = false;
+            }
              // determine if request.VpcOptions should be set to null
             if (requestVpcOptionsIsNull)
             {
@@ -515,6 +575,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             public List<Amazon.OSIS.Model.Tag> Tag { get; set; }
             public List<System.String> VpcOptions_SecurityGroupId { get; set; }
             public List<System.String> VpcOptions_SubnetId { get; set; }
+            public System.Boolean? VpcAttachmentOptions_AttachToVpc { get; set; }
+            public System.String VpcAttachmentOptions_CidrBlock { get; set; }
             public System.Func<Amazon.OSIS.Model.CreatePipelineResponse, NewOSISPipelineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Pipeline;
         }

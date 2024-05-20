@@ -43,6 +43,39 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Filter_ControlIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The set of <c>controlIdentifier</c> returned by the filter. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_ControlIdentifiers")]
+        public System.String[] Filter_ControlIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Filter_DriftStatus
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>DriftStatus</c> items.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_DriftStatuses")]
+        public System.String[] Filter_DriftStatus { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Status
+        /// <summary>
+        /// <para>
+        /// <para>A list of <c>EnablementStatus</c> items.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Statuses")]
+        public System.String[] Filter_Status { get; set; }
+        #endregion
+        
         #region Parameter TargetIdentifier
         /// <summary>
         /// <para>
@@ -51,14 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         /// overview page</a>.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String TargetIdentifier { get; set; }
         #endregion
         
@@ -129,15 +155,21 @@ namespace Amazon.PowerShell.Cmdlets.ACT
                 context.Select = (response, cmdlet) => this.TargetIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Filter_ControlIdentifier != null)
+            {
+                context.Filter_ControlIdentifier = new List<System.String>(this.Filter_ControlIdentifier);
+            }
+            if (this.Filter_DriftStatus != null)
+            {
+                context.Filter_DriftStatus = new List<System.String>(this.Filter_DriftStatus);
+            }
+            if (this.Filter_Status != null)
+            {
+                context.Filter_Status = new List<System.String>(this.Filter_Status);
+            }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             context.TargetIdentifier = this.TargetIdentifier;
-            #if MODULAR
-            if (this.TargetIdentifier == null && ParameterWasBound(nameof(this.TargetIdentifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter TargetIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,6 +186,45 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             // create request
             var request = new Amazon.ControlTower.Model.ListEnabledControlsRequest();
             
+            
+             // populate Filter
+            var requestFilterIsNull = true;
+            request.Filter = new Amazon.ControlTower.Model.EnabledControlFilter();
+            List<System.String> requestFilter_filter_ControlIdentifier = null;
+            if (cmdletContext.Filter_ControlIdentifier != null)
+            {
+                requestFilter_filter_ControlIdentifier = cmdletContext.Filter_ControlIdentifier;
+            }
+            if (requestFilter_filter_ControlIdentifier != null)
+            {
+                request.Filter.ControlIdentifiers = requestFilter_filter_ControlIdentifier;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_DriftStatus = null;
+            if (cmdletContext.Filter_DriftStatus != null)
+            {
+                requestFilter_filter_DriftStatus = cmdletContext.Filter_DriftStatus;
+            }
+            if (requestFilter_filter_DriftStatus != null)
+            {
+                request.Filter.DriftStatuses = requestFilter_filter_DriftStatus;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Status = null;
+            if (cmdletContext.Filter_Status != null)
+            {
+                requestFilter_filter_Status = cmdletContext.Filter_Status;
+            }
+            if (requestFilter_filter_Status != null)
+            {
+                request.Filter.Statuses = requestFilter_filter_Status;
+                requestFilterIsNull = false;
+            }
+             // determine if request.Filter should be set to null
+            if (requestFilterIsNull)
+            {
+                request.Filter = null;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -227,6 +298,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Filter_ControlIdentifier { get; set; }
+            public List<System.String> Filter_DriftStatus { get; set; }
+            public List<System.String> Filter_Status { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.String TargetIdentifier { get; set; }

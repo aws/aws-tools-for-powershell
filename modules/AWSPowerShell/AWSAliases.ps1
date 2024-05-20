@@ -6574,6 +6574,9 @@ Set-Alias -Name ACT-GetLandingZoneOperation -Value Get-ACTLandingZoneOperation
 Set-Alias -Name List-ACTBaselines -Value Get-ACTBaselineList
 Set-Alias -Name List-ACTBaselineList -Value Get-ACTBaselineList
 Set-Alias -Name ACT-ListBaselines -Value Get-ACTBaselineList
+Set-Alias -Name List-ACTControlOperations -Value Get-ACTControlOperationList
+Set-Alias -Name List-ACTControlOperationList -Value Get-ACTControlOperationList
+Set-Alias -Name ACT-ListControlOperations -Value Get-ACTControlOperationList
 Set-Alias -Name List-ACTEnabledBaselines -Value Get-ACTEnabledBaselineList
 Set-Alias -Name List-ACTEnabledBaselineList -Value Get-ACTEnabledBaselineList
 Set-Alias -Name ACT-ListEnabledBaselines -Value Get-ACTEnabledBaselineList

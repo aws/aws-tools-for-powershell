@@ -99,8 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>A list of Availability Zones (AZs) where DB instances in the DB cluster can be created.</para><para>For information on Amazon Web Services Regions and Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html">Choosing
-        /// the Regions and Availability Zones</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para>
+        /// <para>A list of Availability Zones (AZs) where you specifically want to create DB instances
+        /// in the DB cluster.</para><para>For information on AZs, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html#Concepts.RegionsAndAvailabilityZones.AvailabilityZones">Availability
+        /// Zones</a> in the <i>Amazon Aurora User Guide</i>.</para><para>Valid for Cluster Type: Aurora DB clusters only</para><para>Constraints:</para><ul><li><para>Can't specify more than three AZs.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for this DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>aurora-mysql | aurora-postgresql | mysql | postgres</c></para>
+        /// <para>The database engine to use for this DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values:</para><ul><li><para><c>aurora-mysql</c></para></li><li><para><c>aurora-postgresql</c></para></li><li><para><c>mysql</c></para></li><li><para><c>postgres</c></para></li><li><para><c>neptune</c> - For information about using Amazon Neptune, see the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/intro.html"><i>Amazon Neptune User Guide</i></a>.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -375,6 +376,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Engine { get; set; }
+        #endregion
+        
+        #region Parameter EngineLifecycleSupport
+        /// <summary>
+        /// <para>
+        /// <para>The life cycle type for this DB cluster.</para><note><para>By default, this value is set to <c>open-source-rds-extended-support</c>, which enrolls
+        /// your DB cluster into Amazon RDS Extended Support. At the end of standard support,
+        /// you can avoid charges for Extended Support by setting the value to <c>open-source-rds-extended-support-disabled</c>.
+        /// In this case, creating the DB cluster will fail if the DB major version is past its
+        /// end of standard support date.</para></note><para>You can use this setting to enroll your DB cluster into Amazon RDS Extended Support.
+        /// With RDS Extended Support, you can run the selected major engine version on your DB
+        /// cluster past the end of standard support for that engine version. For more information,
+        /// see the following sections:</para><ul><li><para>Amazon Aurora (PostgreSQL only) - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html">Using
+        /// Amazon RDS Extended Support</a> in the <i>Amazon Aurora User Guide</i></para></li><li><para>Amazon RDS - <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html">Using
+        /// Amazon RDS Extended Support</a> in the <i>Amazon RDS User Guide</i></para></li></ul><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Valid Values: <c>open-source-rds-extended-support | open-source-rds-extended-support-disabled</c></para><para>Default: <c>open-source-rds-extended-support</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EngineLifecycleSupport { get; set; }
         #endregion
         
         #region Parameter EngineMode
@@ -967,6 +987,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter Engine which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EngineLifecycleSupport = this.EngineLifecycleSupport;
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
@@ -1128,6 +1149,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.Engine != null)
             {
                 request.Engine = cmdletContext.Engine;
+            }
+            if (cmdletContext.EngineLifecycleSupport != null)
+            {
+                request.EngineLifecycleSupport = cmdletContext.EngineLifecycleSupport;
             }
             if (cmdletContext.EngineMode != null)
             {
@@ -1453,6 +1478,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? EnableLocalWriteForwarding { get; set; }
             public System.Boolean? EnablePerformanceInsight { get; set; }
             public System.String Engine { get; set; }
+            public System.String EngineLifecycleSupport { get; set; }
             public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String GlobalClusterIdentifier { get; set; }

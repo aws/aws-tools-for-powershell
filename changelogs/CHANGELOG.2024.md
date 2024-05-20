@@ -1,4 +1,26 @@
-﻿### 4.1.582 (2024-05-17 21:33Z)
+﻿### 4.1.583 (2024-05-20 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.814.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABAgent: added parameters GuardrailConfiguration_GuardrailIdentifier and GuardrailConfiguration_GuardrailVersion.
+    * Modified cmdlet Update-AABAgent: added parameters GuardrailConfiguration_GuardrailIdentifier and GuardrailConfiguration_GuardrailVersion.
+  * Amazon Control Tower
+    * Added cmdlet Get-ACTControlOperationList leveraging the ListControlOperations service API.
+    * Modified cmdlet Get-ACTEnabledControlList: added parameters Filter_ControlIdentifier, Filter_DriftStatus and Filter_Status.
+  * Amazon OpenSearch Ingestion
+    * Modified cmdlet Get-OSISPipelineBlueprint: added parameter Format.
+    * Modified cmdlet New-OSISPipeline: added parameters VpcAttachmentOptions_AttachToVpc and VpcAttachmentOptions_CidrBlock.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBCluster: added parameter EngineLifecycleSupport.
+    * Modified cmdlet New-RDSDBInstance: added parameter EngineLifecycleSupport.
+    * Modified cmdlet New-RDSGlobalCluster: added parameter EngineLifecycleSupport.
+    * Modified cmdlet Restore-RDSDBClusterFromS3: added parameter EngineLifecycleSupport.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameter EngineLifecycleSupport.
+    * Modified cmdlet Restore-RDSDBClusterToPointInTime: added parameter EngineLifecycleSupport.
+    * Modified cmdlet Restore-RDSDBInstanceFromDBSnapshot: added parameter EngineLifecycleSupport.
+    * Modified cmdlet Restore-RDSDBInstanceFromS3: added parameter EngineLifecycleSupport.
+    * Modified cmdlet Restore-RDSDBInstanceToPointInTime: added parameter EngineLifecycleSupport.
+
+### 4.1.582 (2024-05-17 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.813.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Alexa For Business
   * [Breaking Change] Removed support for Amazon Honeycode

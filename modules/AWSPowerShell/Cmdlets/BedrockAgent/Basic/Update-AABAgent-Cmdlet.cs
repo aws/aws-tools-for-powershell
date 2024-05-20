@@ -135,6 +135,26 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String FoundationModel { get; set; }
         #endregion
         
+        #region Parameter GuardrailConfiguration_GuardrailIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The guardrails identifier assigned to the guardrails configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GuardrailConfiguration_GuardrailIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailConfiguration_GuardrailVersion
+        /// <summary>
+        /// <para>
+        /// <para>The guardrails version assigned to the guardrails configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GuardrailConfiguration_GuardrailVersion { get; set; }
+        #endregion
+        
         #region Parameter IdleSessionTTLInSecond
         /// <summary>
         /// <para>
@@ -165,7 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <para>
         /// <para>The ARN of the Lambda function to use when parsing the raw foundation model output
         /// in parts of the agent sequence. If you specify this field, at least one of the <c>promptConfigurations</c>
-        /// must contain a <c>parserMode</c> value that is set to <c>OVERRIDDEN</c>.</para>
+        /// must contain a <c>parserMode</c> value that is set to <c>OVERRIDDEN</c>. For more
+        /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser
+        /// Lambda function in Agents for Amazon Bedrock</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,6 +299,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
                 WriteWarning("You are passing $null as a value for parameter FoundationModel which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.GuardrailConfiguration_GuardrailIdentifier = this.GuardrailConfiguration_GuardrailIdentifier;
+            context.GuardrailConfiguration_GuardrailVersion = this.GuardrailConfiguration_GuardrailVersion;
             context.IdleSessionTTLInSecond = this.IdleSessionTTLInSecond;
             context.Instruction = this.Instruction;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;
@@ -323,6 +347,35 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (cmdletContext.FoundationModel != null)
             {
                 request.FoundationModel = cmdletContext.FoundationModel;
+            }
+            
+             // populate GuardrailConfiguration
+            var requestGuardrailConfigurationIsNull = true;
+            request.GuardrailConfiguration = new Amazon.BedrockAgent.Model.GuardrailConfiguration();
+            System.String requestGuardrailConfiguration_guardrailConfiguration_GuardrailIdentifier = null;
+            if (cmdletContext.GuardrailConfiguration_GuardrailIdentifier != null)
+            {
+                requestGuardrailConfiguration_guardrailConfiguration_GuardrailIdentifier = cmdletContext.GuardrailConfiguration_GuardrailIdentifier;
+            }
+            if (requestGuardrailConfiguration_guardrailConfiguration_GuardrailIdentifier != null)
+            {
+                request.GuardrailConfiguration.GuardrailIdentifier = requestGuardrailConfiguration_guardrailConfiguration_GuardrailIdentifier;
+                requestGuardrailConfigurationIsNull = false;
+            }
+            System.String requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion = null;
+            if (cmdletContext.GuardrailConfiguration_GuardrailVersion != null)
+            {
+                requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion = cmdletContext.GuardrailConfiguration_GuardrailVersion;
+            }
+            if (requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion != null)
+            {
+                request.GuardrailConfiguration.GuardrailVersion = requestGuardrailConfiguration_guardrailConfiguration_GuardrailVersion;
+                requestGuardrailConfigurationIsNull = false;
+            }
+             // determine if request.GuardrailConfiguration should be set to null
+            if (requestGuardrailConfigurationIsNull)
+            {
+                request.GuardrailConfiguration = null;
             }
             if (cmdletContext.IdleSessionTTLInSecond != null)
             {
@@ -428,6 +481,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String CustomerEncryptionKeyArn { get; set; }
             public System.String Description { get; set; }
             public System.String FoundationModel { get; set; }
+            public System.String GuardrailConfiguration_GuardrailIdentifier { get; set; }
+            public System.String GuardrailConfiguration_GuardrailVersion { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }
             public System.String Instruction { get; set; }
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }

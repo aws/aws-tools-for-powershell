@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         #region Parameter PipelineName
         /// <summary>
         /// <para>
-        /// <para>The name of the pipeline to get information about.</para>
+        /// <para>The name of the pipeline.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

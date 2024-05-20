@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         #region Parameter EncryptionAtRestOptions_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the KMS key used to encrypt data-at-rest in OpenSearch Ingestion. By default,
-        /// data is encrypted using an AWS owned key.</para>
+        /// <para>The ARN of the KMS key used to encrypt buffer data. By default, data is encrypted
+        /// using an Amazon Web Services owned key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         /// <summary>
         /// <para>
         /// <para>The name of the CloudWatch Logs group to send pipeline logs to. You can specify an
-        /// existing log group or create a new one. For example, <c>/aws/OpenSearchService/IngestionService/my-pipeline</c>.</para>
+        /// existing log group or create a new one. For example, <c>/aws/vendedlogs/OpenSearchService/pipelines</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

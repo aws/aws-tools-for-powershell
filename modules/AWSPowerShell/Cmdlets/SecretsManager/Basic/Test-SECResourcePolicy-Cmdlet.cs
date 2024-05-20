@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The ARN or name of the secret with the resource-based policy you want to validate.</para>
+        /// <para>This field is reserved for internal use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

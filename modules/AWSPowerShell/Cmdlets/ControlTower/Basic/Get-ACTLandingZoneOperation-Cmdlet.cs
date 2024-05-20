@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
     /// Returns the status of the specified landing zone operation. Details for an operation
-    /// are available for 60 days.
+    /// are available for 90 days.
     /// </summary>
     [Cmdlet("Get", "ACTLandingZoneOperation")]
     [OutputType("Amazon.ControlTower.Model.LandingZoneOperationDetail")]

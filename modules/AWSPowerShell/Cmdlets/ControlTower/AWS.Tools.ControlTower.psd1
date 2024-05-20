@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ACTBaselineList', 
         'Get-ACTBaselineOperation', 
         'Get-ACTControlOperation', 
+        'Get-ACTControlOperationList', 
         'Get-ACTEnabledBaseline', 
         'Get-ACTEnabledBaselineList', 
         'Get-ACTEnabledControl', 

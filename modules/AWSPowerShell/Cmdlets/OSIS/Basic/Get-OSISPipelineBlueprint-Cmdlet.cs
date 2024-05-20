@@ -62,6 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         public System.String BlueprintName { get; set; }
         #endregion
         
+        #region Parameter Format
+        /// <summary>
+        /// <para>
+        /// <para>The format format of the blueprint to retrieve.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Format { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Blueprint'.
@@ -115,6 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
                 WriteWarning("You are passing $null as a value for parameter BlueprintName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Format = this.Format;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             if (cmdletContext.BlueprintName != null)
             {
                 request.BlueprintName = cmdletContext.BlueprintName;
+            }
+            if (cmdletContext.Format != null)
+            {
+                request.Format = cmdletContext.Format;
             }
             
             CmdletOutput output;
@@ -197,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BlueprintName { get; set; }
+            public System.String Format { get; set; }
             public System.Func<Amazon.OSIS.Model.GetPipelineBlueprintResponse, GetOSISPipelineBlueprintCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Blueprint;
         }

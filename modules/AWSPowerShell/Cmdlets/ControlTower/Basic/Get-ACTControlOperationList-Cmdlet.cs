@@ -28,37 +28,68 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Returns a list of summaries describing <c>EnabledBaseline</c> resources. You can filter
-    /// the list by the corresponding <c>Baseline</c> or <c>Target</c> of the <c>EnabledBaseline</c>
-    /// resources. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html"><i>the Amazon Web Services Control Tower User Guide</i></a>.
+    /// Provides a list of operations in progress or queued.
     /// </summary>
-    [Cmdlet("Get", "ACTEnabledBaselineList")]
-    [OutputType("Amazon.ControlTower.Model.EnabledBaselineSummary")]
-    [AWSCmdlet("Calls the AWS Control Tower ListEnabledBaselines API operation.", Operation = new[] {"ListEnabledBaselines"}, SelectReturnType = typeof(Amazon.ControlTower.Model.ListEnabledBaselinesResponse))]
-    [AWSCmdletOutput("Amazon.ControlTower.Model.EnabledBaselineSummary or Amazon.ControlTower.Model.ListEnabledBaselinesResponse",
-        "This cmdlet returns a collection of Amazon.ControlTower.Model.EnabledBaselineSummary objects.",
-        "The service call response (type Amazon.ControlTower.Model.ListEnabledBaselinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ACTControlOperationList")]
+    [OutputType("Amazon.ControlTower.Model.ControlOperationSummary")]
+    [AWSCmdlet("Calls the AWS Control Tower ListControlOperations API operation.", Operation = new[] {"ListControlOperations"}, SelectReturnType = typeof(Amazon.ControlTower.Model.ListControlOperationsResponse))]
+    [AWSCmdletOutput("Amazon.ControlTower.Model.ControlOperationSummary or Amazon.ControlTower.Model.ListControlOperationsResponse",
+        "This cmdlet returns a collection of Amazon.ControlTower.Model.ControlOperationSummary objects.",
+        "The service call response (type Amazon.ControlTower.Model.ListControlOperationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetACTEnabledBaselineListCmdlet : AmazonControlTowerClientCmdlet, IExecutor
+    public partial class GetACTControlOperationListCmdlet : AmazonControlTowerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Filter_BaselineIdentifier
+        #region Parameter Filter_ControlIdentifier
         /// <summary>
         /// <para>
-        /// <para>Identifiers for the <c>Baseline</c> objects returned as part of the filter operation.</para>
+        /// <para>The set of <c>controlIdentifier</c> returned by the filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Filter_BaselineIdentifiers")]
-        public System.String[] Filter_BaselineIdentifier { get; set; }
+        [Alias("Filter_ControlIdentifiers")]
+        public System.String[] Filter_ControlIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Filter_ControlOperationType
+        /// <summary>
+        /// <para>
+        /// <para>The set of <c>ControlOperation</c> objects returned by the filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_ControlOperationTypes")]
+        public System.String[] Filter_ControlOperationType { get; set; }
+        #endregion
+        
+        #region Parameter Filter_EnabledControlIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The set <c>controlIdentifier</c> of enabled controls selected by the filter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_EnabledControlIdentifiers")]
+        public System.String[] Filter_EnabledControlIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Filter_Status
+        /// <summary>
+        /// <para>
+        /// <para>Lists the status of control operations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filter_Statuses")]
+        public System.String[] Filter_Status { get; set; }
         #endregion
         
         #region Parameter Filter_TargetIdentifier
         /// <summary>
         /// <para>
-        /// <para>Identifiers for the targets of the <c>Baseline</c> filter operation.</para>
+        /// <para>The set of <c>targetIdentifier</c> objects returned by the filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -89,13 +120,13 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EnabledBaselines'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.ListEnabledBaselinesResponse).
-        /// Specifying the name of a property of type Amazon.ControlTower.Model.ListEnabledBaselinesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ControlOperations'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.ListControlOperationsResponse).
+        /// Specifying the name of a property of type Amazon.ControlTower.Model.ListControlOperationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EnabledBaselines";
+        public string Select { get; set; } = "ControlOperations";
         #endregion
         
         protected override void ProcessRecord()
@@ -110,12 +141,24 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.ListEnabledBaselinesResponse, GetACTEnabledBaselineListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.ListControlOperationsResponse, GetACTControlOperationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            if (this.Filter_BaselineIdentifier != null)
+            if (this.Filter_ControlIdentifier != null)
             {
-                context.Filter_BaselineIdentifier = new List<System.String>(this.Filter_BaselineIdentifier);
+                context.Filter_ControlIdentifier = new List<System.String>(this.Filter_ControlIdentifier);
+            }
+            if (this.Filter_ControlOperationType != null)
+            {
+                context.Filter_ControlOperationType = new List<System.String>(this.Filter_ControlOperationType);
+            }
+            if (this.Filter_EnabledControlIdentifier != null)
+            {
+                context.Filter_EnabledControlIdentifier = new List<System.String>(this.Filter_EnabledControlIdentifier);
+            }
+            if (this.Filter_Status != null)
+            {
+                context.Filter_Status = new List<System.String>(this.Filter_Status);
             }
             if (this.Filter_TargetIdentifier != null)
             {
@@ -137,20 +180,50 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ControlTower.Model.ListEnabledBaselinesRequest();
+            var request = new Amazon.ControlTower.Model.ListControlOperationsRequest();
             
             
              // populate Filter
             var requestFilterIsNull = true;
-            request.Filter = new Amazon.ControlTower.Model.EnabledBaselineFilter();
-            List<System.String> requestFilter_filter_BaselineIdentifier = null;
-            if (cmdletContext.Filter_BaselineIdentifier != null)
+            request.Filter = new Amazon.ControlTower.Model.ControlOperationFilter();
+            List<System.String> requestFilter_filter_ControlIdentifier = null;
+            if (cmdletContext.Filter_ControlIdentifier != null)
             {
-                requestFilter_filter_BaselineIdentifier = cmdletContext.Filter_BaselineIdentifier;
+                requestFilter_filter_ControlIdentifier = cmdletContext.Filter_ControlIdentifier;
             }
-            if (requestFilter_filter_BaselineIdentifier != null)
+            if (requestFilter_filter_ControlIdentifier != null)
             {
-                request.Filter.BaselineIdentifiers = requestFilter_filter_BaselineIdentifier;
+                request.Filter.ControlIdentifiers = requestFilter_filter_ControlIdentifier;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_ControlOperationType = null;
+            if (cmdletContext.Filter_ControlOperationType != null)
+            {
+                requestFilter_filter_ControlOperationType = cmdletContext.Filter_ControlOperationType;
+            }
+            if (requestFilter_filter_ControlOperationType != null)
+            {
+                request.Filter.ControlOperationTypes = requestFilter_filter_ControlOperationType;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_EnabledControlIdentifier = null;
+            if (cmdletContext.Filter_EnabledControlIdentifier != null)
+            {
+                requestFilter_filter_EnabledControlIdentifier = cmdletContext.Filter_EnabledControlIdentifier;
+            }
+            if (requestFilter_filter_EnabledControlIdentifier != null)
+            {
+                request.Filter.EnabledControlIdentifiers = requestFilter_filter_EnabledControlIdentifier;
+                requestFilterIsNull = false;
+            }
+            List<System.String> requestFilter_filter_Status = null;
+            if (cmdletContext.Filter_Status != null)
+            {
+                requestFilter_filter_Status = cmdletContext.Filter_Status;
+            }
+            if (requestFilter_filter_Status != null)
+            {
+                request.Filter.Statuses = requestFilter_filter_Status;
                 requestFilterIsNull = false;
             }
             List<System.String> requestFilter_filter_TargetIdentifier = null;
@@ -209,15 +282,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region AWS Service Operation Call
         
-        private Amazon.ControlTower.Model.ListEnabledBaselinesResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.ListEnabledBaselinesRequest request)
+        private Amazon.ControlTower.Model.ListControlOperationsResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.ListControlOperationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "ListEnabledBaselines");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "ListControlOperations");
             try
             {
                 #if DESKTOP
-                return client.ListEnabledBaselines(request);
+                return client.ListControlOperations(request);
                 #elif CORECLR
-                return client.ListEnabledBaselinesAsync(request).GetAwaiter().GetResult();
+                return client.ListControlOperationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,12 +310,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Filter_BaselineIdentifier { get; set; }
+            public List<System.String> Filter_ControlIdentifier { get; set; }
+            public List<System.String> Filter_ControlOperationType { get; set; }
+            public List<System.String> Filter_EnabledControlIdentifier { get; set; }
+            public List<System.String> Filter_Status { get; set; }
             public List<System.String> Filter_TargetIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.ControlTower.Model.ListEnabledBaselinesResponse, GetACTEnabledBaselineListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EnabledBaselines;
+            public System.Func<Amazon.ControlTower.Model.ListControlOperationsResponse, GetACTControlOperationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ControlOperations;
         }
         
     }
