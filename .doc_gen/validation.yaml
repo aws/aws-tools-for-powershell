@@ -1,1 +1,2 @@
-allow_list: {}
+allow_list:
+  - ChangeMessageVisibilityBatchRequestEntry

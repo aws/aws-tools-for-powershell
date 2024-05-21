@@ -1,5 +1,5 @@
 ---
-ssm_ListInventoryEntries:
+ssm_Get-SSMInventoryEntryList:
   title: Use Get-SSMInventoryEntryList
   title_abbrev: Get-SSMInventoryEntryList
   synopsis: use Get-SSMInventoryEntryList
@@ -30,5 +30,5 @@ ssm_ListInventoryEntries:
           snippet_files: []
   services:
     ssm:
-      ListInventoryEntries:
+      Get-SSMInventoryEntryList:
 
