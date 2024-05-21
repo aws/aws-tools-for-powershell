@@ -90,7 +90,7 @@ try {
       /p:SignModules=$SignModules
     $BuildResult = $LASTEXITCODE
   }
-  elseif ($BuildType -eq 'RELEASE') {
+  elseif ($BuildType -in 'RELEASE','DRY_RUN') {
     if ($SdkArtifactsUri) {
       Write-Host "Downloading $SdkArtifactsUri"
       $maxHttpGetAttempts = 10
@@ -134,8 +134,8 @@ try {
     $BuildResult = $LASTEXITCODE
   }
   else {
-    #DRY_RUN | PULL_REQUEST
-    throw "DRY_RUN | PULL_REQUEST are not supported. Type: ${BuildType}"
+    #PULL_REQUEST
+    throw "PULL_REQUEST are not supported. Type: ${BuildType}"
   }
 
   if ($BuildResult -ne 0) {

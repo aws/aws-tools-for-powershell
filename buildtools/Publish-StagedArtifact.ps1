@@ -85,6 +85,7 @@ Param
 
 $ErrorActionPreference = "Stop"
 $paramSetRemoteName = "remote"
+$paramSetLocalName = "local"
 
 Import-Module -Name "PowerShellGet"
 
@@ -97,6 +98,13 @@ if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
     Import-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse
 
     Import-Module $PSScriptRoot/Update-ModulePackageVersion.psm1
+}
+elseif($PSCmdlet.ParameterSetName -eq $paramSetLocalName){
+    # validate if the LocalRepositoryName exists
+    $localRepo = Get-PSRepository -Name $LocalRepositoryName -ErrorAction SilentlyContinue
+    if(-not $localRepo){
+        throw "Local repository $LocalRepositoryName does not exist."
+    }
 }
 
 $alreadyImportedModules = New-Object System.Collections.Generic.HashSet[string]
