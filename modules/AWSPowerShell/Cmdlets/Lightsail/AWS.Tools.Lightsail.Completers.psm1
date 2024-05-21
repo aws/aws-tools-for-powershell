@@ -242,7 +242,7 @@ $LS_Completers = {
             ($_ -eq "Set-LSIpAddressType/IpAddressType")
         }
         {
-            $v = "dualstack","ipv4"
+            $v = "dualstack","ipv4","ipv6"
             break
         }
 
@@ -286,7 +286,7 @@ $LS_Completers = {
             ($_ -eq "Open-LSInstancePublicPort/PortInfo_Protocol")
         }
         {
-            $v = "all","icmp","tcp","udp"
+            $v = "all","icmp","icmpv6","tcp","udp"
             break
         }
 

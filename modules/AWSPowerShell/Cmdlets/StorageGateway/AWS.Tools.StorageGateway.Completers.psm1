@@ -119,7 +119,7 @@ $SG_Completers = {
         # Amazon.StorageGateway.SMBSecurityStrategy
         "Update-SGSMBSecurityStrategy/SMBSecurityStrategy"
         {
-            $v = "ClientSpecified","MandatoryEncryption","MandatorySigning"
+            $v = "ClientSpecified","MandatoryEncryption","MandatoryEncryptionNoAes128","MandatorySigning"
             break
         }
 

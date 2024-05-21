@@ -119,10 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that indicates the time zone you want to set for the gateway. The time zone
-        /// is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time
-        /// is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time
-        /// zone is used, for example, for scheduling snapshots and your gateway's maintenance
-        /// schedule.</para>
+        /// is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, GMT indicates Greenwich
+        /// Mean Time without any offset. GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00
+        /// indicates the time is 2 hours ahead of GMT. The time zone is used, for example, for
+        /// scheduling snapshots and your gateway's maintenance schedule.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -141,8 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>A value that defines the type of gateway to activate. The type specified is critical
         /// to all later functions of the gateway and cannot be changed after activation. The
-        /// default value is <c>CACHED</c>.</para><para>Valid Values: <c>STORED</c> | <c>CACHED</c> | <c>VTL</c> | <c>VTL_SNOW</c> | <c>FILE_S3</c>
-        /// | <c>FILE_FSX_SMB</c></para>
+        /// default value is <c>CACHED</c>.</para><para>Valid Values: <c>STORED</c> | <c>CACHED</c> | <c>VTL</c> | <c>FILE_S3</c> | <c>FILE_FSX_SMB</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]

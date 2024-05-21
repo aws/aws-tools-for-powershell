@@ -1,4 +1,14 @@
-﻿### 4.1.583 (2024-05-20 21:04Z)
+﻿### 4.1.584 (2024-05-21 20:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.815.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEJob: added parameter MaintenanceWindow.
+  * Amazon Lightsail
+    * Modified cmdlet Set-LSIpAddressType: added parameter AcceptBundleUpdate.
+  * Amazon Performance Insights
+    * Modified cmdlet Get-PIAvailableResourceDimensionList: added parameter AuthorizedAction.
+  * Amazon SES Mail Manager. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MMGR and can be listed using the command 'Get-AWSCmdletName -Service MMGR'.
+
+### 4.1.583 (2024-05-20 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.814.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABAgent: added parameters GuardrailConfiguration_GuardrailIdentifier and GuardrailConfiguration_GuardrailVersion.

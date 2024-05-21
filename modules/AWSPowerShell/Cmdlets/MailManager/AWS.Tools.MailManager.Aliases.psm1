@@ -1,0 +1,3 @@
+﻿# MailManager
+
+Export-ModuleMember -Alias *

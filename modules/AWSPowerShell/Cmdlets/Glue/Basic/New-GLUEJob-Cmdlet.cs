@@ -206,6 +206,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String LogUri { get; set; }
         #endregion
         
+        #region Parameter MaintenanceWindow
+        /// <summary>
+        /// <para>
+        /// <para>This field specifies a day of the week and hour for a maintenance window for streaming
+        /// jobs. Glue periodically performs maintenance activities. During these maintenance
+        /// windows, Glue will need to restart your streaming jobs.</para><para>Glue will restart the job within 3 hours of the specified maintenance window. For
+        /// instance, if you set up the maintenance window for Monday at 10:00AM GMT, your jobs
+        /// will be restarted between 10:00AM GMT to 1:00PM GMT.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MaintenanceWindow { get; set; }
+        #endregion
+        
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
@@ -533,6 +547,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.ExecutionProperty_MaxConcurrentRun = this.ExecutionProperty_MaxConcurrentRun;
             context.GlueVersion = this.GlueVersion;
             context.LogUri = this.LogUri;
+            context.MaintenanceWindow = this.MaintenanceWindow;
             context.MaxCapacity = this.MaxCapacity;
             context.MaxRetry = this.MaxRetry;
             context.Name = this.Name;
@@ -665,6 +680,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.LogUri != null)
             {
                 request.LogUri = cmdletContext.LogUri;
+            }
+            if (cmdletContext.MaintenanceWindow != null)
+            {
+                request.MaintenanceWindow = cmdletContext.MaintenanceWindow;
             }
             if (cmdletContext.MaxCapacity != null)
             {
@@ -886,6 +905,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Int32? ExecutionProperty_MaxConcurrentRun { get; set; }
             public System.String GlueVersion { get; set; }
             public System.String LogUri { get; set; }
+            public System.String MaintenanceWindow { get; set; }
             public System.Double? MaxCapacity { get; set; }
             public System.Int32? MaxRetry { get; set; }
             public System.String Name { get; set; }

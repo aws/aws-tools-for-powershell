@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>A comma-separated list of the paths of folders to refresh in the cache. The default
         /// is [<c>"/"</c>]. The default refreshes objects and folders at the root of the Amazon
         /// S3 bucket. If <c>Recursive</c> is set to <c>true</c>, the entire S3 bucket that the
-        /// file share has access to is refreshed.</para>
+        /// file share has access to is refreshed.</para><para>Do not include <c>/</c> when specifying folder names. For example, you would specify
+        /// <c>samplefolder</c> rather than <c>samplefolder/</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

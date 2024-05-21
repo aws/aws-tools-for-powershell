@@ -121,8 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for the load balancer.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
-        /// IPv6.</para><para>The default value is <c>dualstack</c>.</para>
+        /// <para>The IP address type for the load balancer.</para><para>The possible values are <c>ipv4</c> for IPv4 only, <c>ipv6</c> for IPv6 only, and
+        /// <c>dualstack</c> for IPv4 and IPv6.</para><para>The default value is <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

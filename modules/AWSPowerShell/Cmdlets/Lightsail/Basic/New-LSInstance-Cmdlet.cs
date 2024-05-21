@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter BlueprintId
         /// <summary>
         /// <para>
-        /// <para>The ID for a virtual private server image (<c>app_wordpress_4_4</c> or <c>app_lamp_7_0</c>).
+        /// <para>The ID for a virtual private server image (<c>app_wordpress_x_x</c> or <c>app_lamp_x_x</c>).
         /// Use the <c>get blueprints</c> operation to return a list of available images (or <i>blueprints</i>).</para><note><para>Use active blueprints when creating new instances. Inactive blueprints are listed
         /// to support customers with existing instances and are not necessarily available to
         /// create new instances. Blueprints are marked inactive when they become outdated due
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>The bundle of specification information for your virtual private server (or <i>instance</i>),
-        /// including the pricing plan (<c>micro_1_0</c>).</para>
+        /// including the pricing plan (<c>medium_x_x</c>).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -142,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type for the instance.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
-        /// IPv6.</para><para>The default value is <c>dualstack</c>.</para>
+        /// <para>The IP address type for the instance.</para><para>The possible values are <c>ipv4</c> for IPv4 only, <c>ipv6</c> for IPv6 only, and
+        /// <c>dualstack</c> for IPv4 and IPv6.</para><para>The default value is <c>dualstack</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

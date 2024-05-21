@@ -273,6 +273,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.LookoutMetrics.dll',
         'AWSSDK.MachineLearning.dll',
         'AWSSDK.Macie2.dll',
+        'AWSSDK.MailManager.dll',
         'AWSSDK.MainframeModernization.dll',
         'AWSSDK.ManagedBlockchain.dll',
         'AWSSDK.ManagedBlockchainQuery.dll',

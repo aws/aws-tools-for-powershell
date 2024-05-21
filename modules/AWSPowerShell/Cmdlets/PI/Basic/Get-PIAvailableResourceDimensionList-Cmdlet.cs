@@ -43,6 +43,21 @@ namespace Amazon.PowerShell.Cmdlets.PI
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AuthorizedAction
+        /// <summary>
+        /// <para>
+        /// <para>The actions to discover the dimensions you are authorized to access. If you specify
+        /// multiple actions, then the response will contain the dimensions common for all the
+        /// actions.</para><para>When you don't specify this request parameter or provide an empty list, the response
+        /// contains all the available dimensions for the target database engine whether or not
+        /// you are authorized to access them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AuthorizedActions")]
+        public System.String[] AuthorizedAction { get; set; }
+        #endregion
+        
         #region Parameter Identifier
         /// <summary>
         /// <para>
@@ -149,6 +164,10 @@ namespace Amazon.PowerShell.Cmdlets.PI
                 context.Select = CreateSelectDelegate<Amazon.PI.Model.ListAvailableResourceDimensionsResponse, GetPIAvailableResourceDimensionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            if (this.AuthorizedAction != null)
+            {
+                context.AuthorizedAction = new List<System.String>(this.AuthorizedAction);
+            }
             context.Identifier = this.Identifier;
             #if MODULAR
             if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
@@ -191,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.PI
             // create request
             var request = new Amazon.PI.Model.ListAvailableResourceDimensionsRequest();
             
+            if (cmdletContext.AuthorizedAction != null)
+            {
+                request.AuthorizedActions = cmdletContext.AuthorizedAction;
+            }
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
@@ -272,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AuthorizedAction { get; set; }
             public System.String Identifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public List<System.String> Metric { get; set; }

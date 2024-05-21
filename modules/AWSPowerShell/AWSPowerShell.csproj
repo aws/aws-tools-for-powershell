@@ -715,6 +715,9 @@
     <Reference Include="AWSSDK.Macie2">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Macie2.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MailManager">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MailManager.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MainframeModernization">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MainframeModernization.dll</HintPath>
     </Reference>
@@ -1838,6 +1841,9 @@
     </Reference>
     <Reference Include="AWSSDK.Macie2">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Macie2.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MailManager">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MailManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MainframeModernization">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MainframeModernization.dll</HintPath>

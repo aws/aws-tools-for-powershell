@@ -49,11 +49,26 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AcceptBundleUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Required parameter to accept the instance bundle update when changing to, and from,
+        /// IPv6-only.</para><note><para>An instance bundle will change when switching from <c>dual-stack</c> or <c>ipv4</c>,
+        /// to <c>ipv6</c>. It also changes when switching from <c>ipv6</c>, to <c>dual-stack</c>
+        /// or <c>ipv4</c>.</para><para>You must include this parameter in the command to update the bundle. For example,
+        /// if you switch from <c>dual-stack</c> to <c>ipv6</c>, the bundle will be updated, and
+        /// billing for the IPv6-only instance bundle begins immediately.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AcceptBundleUpdate { get; set; }
+        #endregion
+        
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The IP address type to set for the specified resource.</para><para>The possible values are <c>ipv4</c> for IPv4 only, and <c>dualstack</c> for IPv4 and
-        /// IPv6.</para>
+        /// <para>The IP address type to set for the specified resource.</para><para>The possible values are <c>ipv4</c> for IPv4 only, <c>ipv6</c> for IPv6 only, and
+        /// <c>dualstack</c> for IPv4 and IPv6.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -145,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.Select = CreateSelectDelegate<Amazon.Lightsail.Model.SetIpAddressTypeResponse, SetLSIpAddressTypeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AcceptBundleUpdate = this.AcceptBundleUpdate;
             context.IpAddressType = this.IpAddressType;
             #if MODULAR
             if (this.IpAddressType == null && ParameterWasBound(nameof(this.IpAddressType)))
@@ -182,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.SetIpAddressTypeRequest();
             
+            if (cmdletContext.AcceptBundleUpdate != null)
+            {
+                request.AcceptBundleUpdate = cmdletContext.AcceptBundleUpdate.Value;
+            }
             if (cmdletContext.IpAddressType != null)
             {
                 request.IpAddressType = cmdletContext.IpAddressType;
@@ -255,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AcceptBundleUpdate { get; set; }
             public Amazon.Lightsail.IpAddressType IpAddressType { get; set; }
             public System.String ResourceName { get; set; }
             public Amazon.Lightsail.ResourceType ResourceType { get; set; }
