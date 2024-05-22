@@ -42,6 +42,34 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter LogScope
+        /// <summary>
+        /// <para>
+        /// <para>The owner of the logging configuration, which must be set to <c>CUSTOMER</c> for the
+        /// configurations that you manage. </para><para>The log scope <c>SECURITY_LAKE</c> indicates a configuration that is managed through
+        /// Amazon Security Lake. You can use Security Lake to collect log and event data from
+        /// various sources for normalization, analysis, and management. For information, see
+        /// <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting
+        /// data from Amazon Web Services services</a> in the <i>Amazon Security Lake user guide</i>.
+        /// </para><para>Default: <c>CUSTOMER</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.LogScope")]
+        public Amazon.WAFV2.LogScope LogScope { get; set; }
+        #endregion
+        
+        #region Parameter LogType
+        /// <summary>
+        /// <para>
+        /// <para>Used to distinguish between various logging options. Currently, there is one option.</para><para>Default: <c>WAF_LOGS</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.LogType")]
+        public Amazon.WAFV2.LogType LogType { get; set; }
+        #endregion
+        
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
@@ -105,6 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.LogScope = this.LogScope;
+            context.LogType = this.LogType;
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
             if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
@@ -128,6 +158,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             // create request
             var request = new Amazon.WAFV2.Model.GetLoggingConfigurationRequest();
             
+            if (cmdletContext.LogScope != null)
+            {
+                request.LogScope = cmdletContext.LogScope;
+            }
+            if (cmdletContext.LogType != null)
+            {
+                request.LogType = cmdletContext.LogType;
+            }
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
@@ -193,6 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WAFV2.LogScope LogScope { get; set; }
+            public Amazon.WAFV2.LogType LogType { get; set; }
             public System.String ResourceArn { get; set; }
             public System.Func<Amazon.WAFV2.Model.GetLoggingConfigurationResponse, GetWAF2LoggingConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.LoggingConfiguration;

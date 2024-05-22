@@ -64,6 +64,19 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter DeletionMode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the deletion mode for the stack. Possible values are:</para><ul><li><para><c>STANDARD</c> - Use the standard behavior. Specifying this value is the same as
+        /// not specifying this parameter.</para></li><li><para><c>FORCE_DELETE_STACK</c> - Delete the stack if it's stuck in a <c>DELETE_FAILED</c>
+        /// state due to resource deletion failure.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudFormation.DeletionMode")]
+        public Amazon.CloudFormation.DeletionMode DeletionMode { get; set; }
+        #endregion
+        
         #region Parameter RetainResource
         /// <summary>
         /// <para>
@@ -171,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.DeletionMode = this.DeletionMode;
             if (this.RetainResource != null)
             {
                 context.RetainResource = new List<System.String>(this.RetainResource);
@@ -202,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            if (cmdletContext.DeletionMode != null)
+            {
+                request.DeletionMode = cmdletContext.DeletionMode;
             }
             if (cmdletContext.RetainResource != null)
             {
@@ -277,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public Amazon.CloudFormation.DeletionMode DeletionMode { get; set; }
             public List<System.String> RetainResource { get; set; }
             public System.String RoleARN { get; set; }
             public System.String StackName { get; set; }

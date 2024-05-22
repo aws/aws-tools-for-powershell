@@ -86,12 +86,14 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-CHATResourceTag', 
         'Get-CHATAccountPreference', 
         'Get-CHATChimeWebhookConfiguration', 
         'Get-CHATMicrosoftTeamsChannelConfiguration', 
         'Get-CHATMicrosoftTeamsChannelConfigurationList', 
         'Get-CHATMicrosoftTeamsConfiguredTeamList', 
         'Get-CHATMicrosoftTeamsUserIdentityList', 
+        'Get-CHATResourceTag', 
         'Get-CHATSlackChannelConfiguration', 
         'Get-CHATSlackUserIdentity', 
         'Get-CHATSlackWorkspace', 
@@ -102,6 +104,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-CHATMicrosoftTeamsChannelConfiguration', 
         'Remove-CHATMicrosoftTeamsConfiguredTeam', 
         'Remove-CHATMicrosoftTeamsUserIdentity', 
+        'Remove-CHATResourceTag', 
         'Remove-CHATSlackChannelConfiguration', 
         'Remove-CHATSlackUserIdentity', 
         'Remove-CHATSlackWorkspaceAuthorization', 

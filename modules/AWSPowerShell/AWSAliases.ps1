@@ -2605,6 +2605,9 @@ Set-Alias -Name CHAT-ListMicrosoftTeamsConfiguredTeams -Value Get-CHATMicrosoftT
 Set-Alias -Name List-CHATMicrosoftTeamsUserIdentities -Value Get-CHATMicrosoftTeamsUserIdentityList
 Set-Alias -Name List-CHATMicrosoftTeamsUserIdentityList -Value Get-CHATMicrosoftTeamsUserIdentityList
 Set-Alias -Name CHAT-ListMicrosoftTeamsUserIdentities -Value Get-CHATMicrosoftTeamsUserIdentityList
+Set-Alias -Name CHAT-ListTagsForResource -Value Get-CHATResourceTag
+Set-Alias -Name CHAT-TagResource -Value Add-CHATResourceTag
+Set-Alias -Name CHAT-UntagResource -Value Remove-CHATResourceTag
 Set-Alias -Name Update-CHATAccountPreferences -Value Update-CHATAccountPreference
 Set-Alias -Name CHAT-UpdateAccountPreferences -Value Update-CHATAccountPreference
 Set-Alias -Name CHAT-UpdateChimeWebhookConfiguration -Value Update-CHATChimeWebhookConfiguration

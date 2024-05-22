@@ -161,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         public System.String[] SnsTopicArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A list of tags to apply to the configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Chatbot.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UserAuthorizationRequired
         /// <summary>
         /// <para>
@@ -252,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             {
                 context.SnsTopicArn = new List<System.String>(this.SnsTopicArn);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Chatbot.Model.Tag>(this.Tag);
+            }
             context.UserAuthorizationRequired = this.UserAuthorizationRequired;
             
             // allow further manipulation of loaded context prior to processing
@@ -300,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             if (cmdletContext.SnsTopicArn != null)
             {
                 request.SnsTopicArns = cmdletContext.SnsTopicArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.UserAuthorizationRequired != null)
             {
@@ -374,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             public System.String SlackChannelName { get; set; }
             public System.String SlackTeamId { get; set; }
             public List<System.String> SnsTopicArn { get; set; }
+            public List<Amazon.Chatbot.Model.Tag> Tag { get; set; }
             public System.Boolean? UserAuthorizationRequired { get; set; }
             public System.Func<Amazon.Chatbot.Model.CreateSlackChannelConfigurationResponse, NewCHATSlackChannelConfigurationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ChannelConfiguration;

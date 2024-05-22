@@ -1,4 +1,23 @@
-﻿### 4.1.584 (2024-05-21 20:45Z)
+﻿### 4.1.585 (2024-05-22 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.816.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Chatbot
+    * Added cmdlet Add-CHATResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CHATResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CHATResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-CHATChimeWebhookConfiguration: added parameter Tag.
+    * Modified cmdlet New-CHATMicrosoftTeamsChannelConfiguration: added parameter Tag.
+    * Modified cmdlet New-CHATSlackChannelConfiguration: added parameter Tag.
+  * Amazon CloudFormation
+    * Modified cmdlet Remove-CFNStack: added parameter DeletionMode.
+  * Amazon OpenSearch Service
+    * Modified cmdlet Update-OSDataSource: added parameter Status.
+  * Amazon WAF V2
+    * Modified cmdlet Get-WAF2LoggingConfiguration: added parameters LogScope and LogType.
+    * Modified cmdlet Get-WAF2LoggingConfigurationList: added parameter LogScope.
+    * Modified cmdlet Remove-WAF2LoggingConfiguration: added parameters LogScope and LogType.
+    * Modified cmdlet Write-WAF2LoggingConfiguration: added parameters LoggingConfiguration_LogScope and LoggingConfiguration_LogType.
+
+### 4.1.584 (2024-05-21 20:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.815.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Glue
     * Modified cmdlet New-GLUEJob: added parameter MaintenanceWindow.

@@ -104,6 +104,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DataSourceStatus
+        "Update-OSDataSource/Status"
+        {
+            $v = "ACTIVE","DISABLED"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
@@ -245,7 +252,7 @@ $OS_map = @{
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
-    "Status"=@("Get-OSDomainMaintenanceList")
+    "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
 }
 
 _awsArgumentCompleterRegistration $OS_Completers $OS_map

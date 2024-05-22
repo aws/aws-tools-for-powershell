@@ -42,6 +42,23 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter LogScope
+        /// <summary>
+        /// <para>
+        /// <para>The owner of the logging configuration, which must be set to <c>CUSTOMER</c> for the
+        /// configurations that you manage. </para><para>The log scope <c>SECURITY_LAKE</c> indicates a configuration that is managed through
+        /// Amazon Security Lake. You can use Security Lake to collect log and event data from
+        /// various sources for normalization, analysis, and management. For information, see
+        /// <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting
+        /// data from Amazon Web Services services</a> in the <i>Amazon Security Lake user guide</i>.
+        /// </para><para>Default: <c>CUSTOMER</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.LogScope")]
+        public Amazon.WAFV2.LogScope LogScope { get; set; }
+        #endregion
+        
         #region Parameter Scope
         /// <summary>
         /// <para>
@@ -151,6 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Limit = this.Limit;
+            context.LogScope = this.LogScope;
             context.NextMarker = this.NextMarker;
             context.Scope = this.Scope;
             #if MODULAR
@@ -182,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
+            }
+            if (cmdletContext.LogScope != null)
+            {
+                request.LogScope = cmdletContext.LogScope;
             }
             if (cmdletContext.Scope != null)
             {
@@ -273,6 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Limit { get; set; }
+            public Amazon.WAFV2.LogScope LogScope { get; set; }
             public System.String NextMarker { get; set; }
             public Amazon.WAFV2.Scope Scope { get; set; }
             public System.Func<Amazon.WAFV2.Model.ListLoggingConfigurationsResponse, GetWAF2LoggingConfigurationListCmdlet, object> Select { get; set; } =

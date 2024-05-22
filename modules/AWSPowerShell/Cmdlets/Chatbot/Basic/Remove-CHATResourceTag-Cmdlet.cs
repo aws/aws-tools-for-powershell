@@ -22,58 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WAFV2;
-using Amazon.WAFV2.Model;
+using Amazon.Chatbot;
+using Amazon.Chatbot.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WAF2
+namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Deletes the <a>LoggingConfiguration</a> from the specified web ACL.
+    /// Removes the supplied tags from a configuration
     /// </summary>
-    [Cmdlet("Remove", "WAF2LoggingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "CHATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS WAF V2 DeleteLoggingConfiguration API operation.", Operation = new[] {"DeleteLoggingConfiguration"}, SelectReturnType = typeof(Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse))]
-    [AWSCmdletOutput("None or Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse",
+    [AWSCmdlet("Calls the AWS Chatbot UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.Chatbot.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.Chatbot.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Chatbot.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWAF2LoggingConfigurationCmdlet : AmazonWAFV2ClientCmdlet, IExecutor
+    public partial class RemoveCHATResourceTagCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter LogScope
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>The owner of the logging configuration, which must be set to <c>CUSTOMER</c> for the
-        /// configurations that you manage. </para><para>The log scope <c>SECURITY_LAKE</c> indicates a configuration that is managed through
-        /// Amazon Security Lake. You can use Security Lake to collect log and event data from
-        /// various sources for normalization, analysis, and management. For information, see
-        /// <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting
-        /// data from Amazon Web Services services</a> in the <i>Amazon Security Lake user guide</i>.
-        /// </para><para>Default: <c>CUSTOMER</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WAFV2.LogScope")]
-        public Amazon.WAFV2.LogScope LogScope { get; set; }
-        #endregion
-        
-        #region Parameter LogType
-        /// <summary>
-        /// <para>
-        /// <para>Used to distinguish between various logging options. Currently, there is one option.</para><para>Default: <c>WAF_LOGS</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.WAFV2.LogType")]
-        public Amazon.WAFV2.LogType LogType { get; set; }
-        #endregion
-        
-        #region Parameter ResourceArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the web ACL from which you want to delete the <a>LoggingConfiguration</a>.</para>
+        /// The ARN of the configuration.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,13 +56,31 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ResourceARN { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// A list of tag keys to remove from the configuration.
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chatbot.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -122,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WAF2LoggingConfiguration (DeleteLoggingConfiguration)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CHATResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -136,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse, RemoveWAF2LoggingConfigurationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Chatbot.Model.UntagResourceResponse, RemoveCHATResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,16 +135,24 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ResourceARN;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.LogScope = this.LogScope;
-            context.LogType = this.LogType;
-            context.ResourceArn = this.ResourceArn;
+            context.ResourceARN = this.ResourceARN;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.TagKey != null)
+            {
+                context.TagKey = new List<System.String>(this.TagKey);
+            }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,19 +169,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WAFV2.Model.DeleteLoggingConfigurationRequest();
+            var request = new Amazon.Chatbot.Model.UntagResourceRequest();
             
-            if (cmdletContext.LogScope != null)
+            if (cmdletContext.ResourceARN != null)
             {
-                request.LogScope = cmdletContext.LogScope;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
-            if (cmdletContext.LogType != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.LogType = cmdletContext.LogType;
-            }
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -218,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         #region AWS Service Operation Call
         
-        private Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse CallAWSServiceOperation(IAmazonWAFV2 client, Amazon.WAFV2.Model.DeleteLoggingConfigurationRequest request)
+        private Amazon.Chatbot.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonChatbot client, Amazon.Chatbot.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF V2", "DeleteLoggingConfiguration");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Chatbot", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteLoggingConfiguration(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.DeleteLoggingConfigurationAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -246,10 +240,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.WAFV2.LogScope LogScope { get; set; }
-            public Amazon.WAFV2.LogType LogType { get; set; }
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.WAFV2.Model.DeleteLoggingConfigurationResponse, RemoveWAF2LoggingConfigurationCmdlet, object> Select { get; set; } =
+            public System.String ResourceARN { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.Chatbot.Model.UntagResourceResponse, RemoveCHATResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

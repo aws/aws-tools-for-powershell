@@ -140,6 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         public System.String[] SnsTopicArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A list of tags to apply to the configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Chatbot.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TeamId
         /// <summary>
         /// <para>
@@ -272,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             {
                 context.SnsTopicArn = new List<System.String>(this.SnsTopicArn);
             }
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Chatbot.Model.Tag>(this.Tag);
+            }
             context.TeamId = this.TeamId;
             #if MODULAR
             if (this.TeamId == null && ParameterWasBound(nameof(this.TeamId)))
@@ -331,6 +346,10 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             if (cmdletContext.SnsTopicArn != null)
             {
                 request.SnsTopicArns = cmdletContext.SnsTopicArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.TeamId != null)
             {
@@ -416,6 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             public System.String IamRoleArn { get; set; }
             public System.String LoggingLevel { get; set; }
             public List<System.String> SnsTopicArn { get; set; }
+            public List<Amazon.Chatbot.Model.Tag> Tag { get; set; }
             public System.String TeamId { get; set; }
             public System.String TeamName { get; set; }
             public System.String TenantId { get; set; }

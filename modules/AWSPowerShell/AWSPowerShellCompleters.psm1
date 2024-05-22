@@ -7532,6 +7532,9 @@ $CHAT_SelectMap = @{
                "Get-CHATMicrosoftTeamsChannelConfigurationList",
                "Get-CHATMicrosoftTeamsConfiguredTeamList",
                "Get-CHATMicrosoftTeamsUserIdentityList",
+               "Get-CHATResourceTag",
+               "Add-CHATResourceTag",
+               "Remove-CHATResourceTag",
                "Update-CHATAccountPreference",
                "Update-CHATChimeWebhookConfiguration",
                "Update-CHATMicrosoftTeamsChannelConfiguration",
@@ -10097,6 +10100,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.DeletionMode
+        "Remove-CFNStack/DeletionMode"
+        {
+            $v = "FORCE_DELETE_STACK","STANDARD"
+            break
+        }
+
         # Amazon.CloudFormation.DeprecatedStatus
         {
             ($_ -eq "Get-CFNTypeList/DeprecatedStatus") -Or
@@ -10274,6 +10284,7 @@ $CFN_map = @{
     "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackInstanceResourceDrift","Get-CFNStackSet","Get-CFNStackSetAutoDeploymentTarget","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
+    "DeletionMode"=@("Remove-CFNStack")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
     "ErrorCode"=@("Write-CFNHandlerProgress")
@@ -38201,7 +38212,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.AlgorithmSpec
         "Get-KMSParametersForImport/WrappingAlgorithm"
         {
-            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","RSAES_PKCS1_V1_5","RSA_AES_KEY_WRAP_SHA_1","RSA_AES_KEY_WRAP_SHA_256"
+            $v = "RSAES_OAEP_SHA_1","RSAES_OAEP_SHA_256","RSAES_PKCS1_V1_5","RSA_AES_KEY_WRAP_SHA_1","RSA_AES_KEY_WRAP_SHA_256","SM2PKE"
             break
         }
 
@@ -38324,7 +38335,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.WrappingKeySpec
         "Get-KMSParametersForImport/WrappingKeySpec"
         {
-            $v = "RSA_2048","RSA_3072","RSA_4096"
+            $v = "RSA_2048","RSA_3072","RSA_4096","SM2"
             break
         }
 
@@ -48442,6 +48453,13 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.DataSourceStatus
+        "Update-OSDataSource/Status"
+        {
+            $v = "ACTIVE","DISABLED"
+            break
+        }
+
         # Amazon.OpenSearchService.DryRunMode
         "Update-OSDomainConfig/DryRunMode"
         {
@@ -48583,7 +48601,7 @@ $OS_map = @{
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
-    "Status"=@("Get-OSDomainMaintenanceList")
+    "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
 }
 
 _awsArgumentCompleterRegistration $OS_Completers $OS_map
@@ -68461,6 +68479,29 @@ $WAF2_Completers = {
             break
         }
 
+        # Amazon.WAFV2.LogScope
+        {
+            ($_ -eq "Write-WAF2LoggingConfiguration/LoggingConfiguration_LogScope") -Or
+            ($_ -eq "Get-WAF2LoggingConfiguration/LogScope") -Or
+            ($_ -eq "Get-WAF2LoggingConfigurationList/LogScope") -Or
+            ($_ -eq "Remove-WAF2LoggingConfiguration/LogScope")
+        }
+        {
+            $v = "CUSTOMER","SECURITY_LAKE"
+            break
+        }
+
+        # Amazon.WAFV2.LogType
+        {
+            ($_ -eq "Write-WAF2LoggingConfiguration/LoggingConfiguration_LogType") -Or
+            ($_ -eq "Get-WAF2LoggingConfiguration/LogType") -Or
+            ($_ -eq "Remove-WAF2LoggingConfiguration/LogType")
+        }
+        {
+            $v = "WAF_LOGS"
+            break
+        }
+
         # Amazon.WAFV2.Platform
         {
             ($_ -eq "Get-WAF2MobileSdkRelease/Platform") -Or
@@ -68534,7 +68575,11 @@ $WAF2_Completers = {
 
 $WAF2_map = @{
     "IPAddressVersion"=@("New-WAF2IPSet")
+    "LoggingConfiguration_LogScope"=@("Write-WAF2LoggingConfiguration")
+    "LoggingConfiguration_LogType"=@("Write-WAF2LoggingConfiguration")
     "LoggingFilter_DefaultBehavior"=@("Write-WAF2LoggingConfiguration")
+    "LogScope"=@("Get-WAF2LoggingConfiguration","Get-WAF2LoggingConfigurationList","Remove-WAF2LoggingConfiguration")
+    "LogType"=@("Get-WAF2LoggingConfiguration","Remove-WAF2LoggingConfiguration")
     "Platform"=@("Get-WAF2MobileSdkRelease","Get-WAF2MobileSdkReleaseList","New-WAF2MobileSdkReleaseUrl")
     "ResourceType"=@("Get-WAF2ResourcesForWebACLList")
     "Scope"=@("Get-WAF2AllManagedProduct","Get-WAF2APIKeyList","Get-WAF2AvailableManagedRuleGroupList","Get-WAF2AvailableManagedRuleGroupVersionList","Get-WAF2DecryptedAPIKey","Get-WAF2IPSet","Get-WAF2IPSetList","Get-WAF2LoggingConfigurationList","Get-WAF2ManagedProductsByVendor","Get-WAF2ManagedRuleGroup","Get-WAF2ManagedRuleSet","Get-WAF2ManagedRuleSetList","Get-WAF2RateBasedStatementManagedKey","Get-WAF2RegexPatternSet","Get-WAF2RegexPatternSetList","Get-WAF2RuleGroup","Get-WAF2RuleGroupList","Get-WAF2SampledRequest","Get-WAF2WebACL","Get-WAF2WebACLsList","New-WAF2APIKey","New-WAF2IPSet","New-WAF2RegexPatternSet","New-WAF2RuleGroup","New-WAF2WebACL","Remove-WAF2APIKey","Remove-WAF2IPSet","Remove-WAF2RegexPatternSet","Remove-WAF2RuleGroup","Remove-WAF2WebACL","Test-WAF2Capacity","Update-WAF2IPSet","Update-WAF2ManagedRuleSetVersionExpiryDate","Update-WAF2RegexPatternSet","Update-WAF2RuleGroup","Update-WAF2WebACL","Write-WAF2ManagedRuleSetVersion")

@@ -126,6 +126,34 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         public System.String[] LoggingConfiguration_LogDestinationConfig { get; set; }
         #endregion
         
+        #region Parameter LoggingConfiguration_LogScope
+        /// <summary>
+        /// <para>
+        /// <para>The owner of the logging configuration, which must be set to <c>CUSTOMER</c> for the
+        /// configurations that you manage. </para><para>The log scope <c>SECURITY_LAKE</c> indicates a configuration that is managed through
+        /// Amazon Security Lake. You can use Security Lake to collect log and event data from
+        /// various sources for normalization, analysis, and management. For information, see
+        /// <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/internal-sources.html">Collecting
+        /// data from Amazon Web Services services</a> in the <i>Amazon Security Lake user guide</i>.
+        /// </para><para>Default: <c>CUSTOMER</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.LogScope")]
+        public Amazon.WAFV2.LogScope LoggingConfiguration_LogScope { get; set; }
+        #endregion
+        
+        #region Parameter LoggingConfiguration_LogType
+        /// <summary>
+        /// <para>
+        /// <para>Used to distinguish between various logging options. Currently, there is one option.</para><para>Default: <c>WAF_LOGS</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WAFV2.LogType")]
+        public Amazon.WAFV2.LogType LoggingConfiguration_LogType { get; set; }
+        #endregion
+        
         #region Parameter LoggingConfiguration_ManagedByFirewallManager
         /// <summary>
         /// <para>
@@ -145,7 +173,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
         /// in the logs will be <c>REDACTED</c> for all rules that use the <c>SingleHeader</c><c>FieldToMatch</c> setting. </para><para>Redaction applies only to the component that's specified in the rule's <c>FieldToMatch</c>
         /// setting, so the <c>SingleHeader</c> redaction doesn't apply to rules that use the
         /// <c>Headers</c><c>FieldToMatch</c>.</para><note><para>You can specify only the following fields for redaction: <c>UriPath</c>, <c>QueryString</c>,
-        /// <c>SingleHeader</c>, and <c>Method</c>.</para></note>
+        /// <c>SingleHeader</c>, and <c>Method</c>.</para></note><note><para>This setting has no impact on request sampling. With request sampling, the only way
+        /// to exclude fields is by disabling sampling in the web ACL visibility configuration.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -247,6 +277,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             {
                 context.LoggingFilter_Filter = new List<Amazon.WAFV2.Model.Filter>(this.LoggingFilter_Filter);
             }
+            context.LoggingConfiguration_LogScope = this.LoggingConfiguration_LogScope;
+            context.LoggingConfiguration_LogType = this.LoggingConfiguration_LogType;
             context.LoggingConfiguration_ManagedByFirewallManager = this.LoggingConfiguration_ManagedByFirewallManager;
             if (this.LoggingConfiguration_RedactedField != null)
             {
@@ -287,6 +319,26 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             if (requestLoggingConfiguration_loggingConfiguration_LogDestinationConfig != null)
             {
                 request.LoggingConfiguration.LogDestinationConfigs = requestLoggingConfiguration_loggingConfiguration_LogDestinationConfig;
+                requestLoggingConfigurationIsNull = false;
+            }
+            Amazon.WAFV2.LogScope requestLoggingConfiguration_loggingConfiguration_LogScope = null;
+            if (cmdletContext.LoggingConfiguration_LogScope != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LogScope = cmdletContext.LoggingConfiguration_LogScope;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_LogScope != null)
+            {
+                request.LoggingConfiguration.LogScope = requestLoggingConfiguration_loggingConfiguration_LogScope;
+                requestLoggingConfigurationIsNull = false;
+            }
+            Amazon.WAFV2.LogType requestLoggingConfiguration_loggingConfiguration_LogType = null;
+            if (cmdletContext.LoggingConfiguration_LogType != null)
+            {
+                requestLoggingConfiguration_loggingConfiguration_LogType = cmdletContext.LoggingConfiguration_LogType;
+            }
+            if (requestLoggingConfiguration_loggingConfiguration_LogType != null)
+            {
+                request.LoggingConfiguration.LogType = requestLoggingConfiguration_loggingConfiguration_LogType;
                 requestLoggingConfigurationIsNull = false;
             }
             System.Boolean? requestLoggingConfiguration_loggingConfiguration_ManagedByFirewallManager = null;
@@ -423,6 +475,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
             public List<System.String> LoggingConfiguration_LogDestinationConfig { get; set; }
             public Amazon.WAFV2.FilterBehavior LoggingFilter_DefaultBehavior { get; set; }
             public List<Amazon.WAFV2.Model.Filter> LoggingFilter_Filter { get; set; }
+            public Amazon.WAFV2.LogScope LoggingConfiguration_LogScope { get; set; }
+            public Amazon.WAFV2.LogType LoggingConfiguration_LogType { get; set; }
             public System.Boolean? LoggingConfiguration_ManagedByFirewallManager { get; set; }
             public List<Amazon.WAFV2.Model.FieldToMatch> LoggingConfiguration_RedactedField { get; set; }
             public System.String LoggingConfiguration_ResourceArn { get; set; }

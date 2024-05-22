@@ -98,6 +98,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.String S3GlueDataCatalog_RoleArn { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>The status of the data source update request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OpenSearchService.DataSourceStatus")]
+        public Amazon.OpenSearchService.DataSourceStatus Status { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Message'.
@@ -156,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -217,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Status != null)
+            {
+                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -283,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String Description { get; set; }
             public System.String DomainName { get; set; }
             public System.String Name { get; set; }
+            public Amazon.OpenSearchService.DataSourceStatus Status { get; set; }
             public System.Func<Amazon.OpenSearchService.Model.UpdateDataSourceResponse, UpdateOSDataSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Message;
         }

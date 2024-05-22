@@ -107,6 +107,17 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         public System.String[] SnsTopicArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A list of tags to apply to the configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.Chatbot.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter WebhookDescription
         /// <summary>
         /// <para>
@@ -210,6 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
                 WriteWarning("You are passing $null as a value for parameter SnsTopicArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.Chatbot.Model.Tag>(this.Tag);
+            }
             context.WebhookDescription = this.WebhookDescription;
             #if MODULAR
             if (this.WebhookDescription == null && ParameterWasBound(nameof(this.WebhookDescription)))
@@ -255,6 +270,10 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             if (cmdletContext.SnsTopicArn != null)
             {
                 request.SnsTopicArns = cmdletContext.SnsTopicArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.WebhookDescription != null)
             {
@@ -329,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             public System.String IamRoleArn { get; set; }
             public System.String LoggingLevel { get; set; }
             public List<System.String> SnsTopicArn { get; set; }
+            public List<Amazon.Chatbot.Model.Tag> Tag { get; set; }
             public System.String WebhookDescription { get; set; }
             public System.String WebhookUrl { get; set; }
             public System.Func<Amazon.Chatbot.Model.CreateChimeWebhookConfigurationResponse, NewCHATChimeWebhookConfigurationCmdlet, object> Select { get; set; } =

@@ -134,6 +134,13 @@ $CFN_Completers = {
             break
         }
 
+        # Amazon.CloudFormation.DeletionMode
+        "Remove-CFNStack/DeletionMode"
+        {
+            $v = "FORCE_DELETE_STACK","STANDARD"
+            break
+        }
+
         # Amazon.CloudFormation.DeprecatedStatus
         {
             ($_ -eq "Get-CFNTypeList/DeprecatedStatus") -Or
@@ -311,6 +318,7 @@ $CFN_map = @{
     "CallAs"=@("Get-CFNOrganizationsAccess","Get-CFNStackInstance","Get-CFNStackInstanceList","Get-CFNStackInstanceResourceDrift","Get-CFNStackSet","Get-CFNStackSetAutoDeploymentTarget","Get-CFNStackSetList","Get-CFNStackSetOperation","Get-CFNStackSetOperationList","Get-CFNStackSetOperationResultList","Get-CFNTemplateSummary","Import-CFNStacksToStackSet","New-CFNStackInstance","New-CFNStackSet","Remove-CFNStackInstance","Remove-CFNStackSet","Start-CFNStackSetDriftDetection","Stop-CFNStackSetOperation","Update-CFNStackInstance","Update-CFNStackSet")
     "ChangeSetType"=@("New-CFNChangeSet")
     "CurrentOperationStatus"=@("Write-CFNHandlerProgress")
+    "DeletionMode"=@("Remove-CFNStack")
     "DeploymentTargets_AccountFilterType"=@("New-CFNStackInstance","Remove-CFNStackInstance","Update-CFNStackInstance","Update-CFNStackSet")
     "DeprecatedStatus"=@("Get-CFNTypeList","Get-CFNTypeVersion")
     "ErrorCode"=@("Write-CFNHandlerProgress")
