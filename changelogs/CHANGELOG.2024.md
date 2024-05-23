@@ -1,4 +1,10 @@
-﻿### 4.1.585 (2024-05-22 21:11Z)
+﻿### 4.1.586 (2024-05-23 20:31Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.817.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameters InteractiveConfiguration_LivyEndpointEnabled and InteractiveConfiguration_StudioEnabled.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameters InteractiveConfiguration_LivyEndpointEnabled and InteractiveConfiguration_StudioEnabled.
+
+### 4.1.585 (2024-05-22 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.816.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Chatbot
     * Added cmdlet Add-CHATResourceTag leveraging the TagResource service API.

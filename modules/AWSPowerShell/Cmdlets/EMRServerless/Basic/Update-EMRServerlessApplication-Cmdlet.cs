@@ -207,6 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.Collections.Hashtable InitialCapacity { get; set; }
         #endregion
         
+        #region Parameter InteractiveConfiguration_LivyEndpointEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables an Apache Livy endpoint that you can connect to and run interactive jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InteractiveConfiguration_LivyEndpointEnabled { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLoggingConfiguration_LogGroupName
         /// <summary>
         /// <para>
@@ -313,6 +323,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("NetworkConfiguration_SecurityGroupIds")]
         public System.String[] NetworkConfiguration_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter InteractiveConfiguration_StudioEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables you to connect an application to Amazon EMR Studio to run interactive workloads
+        /// in a notebook.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InteractiveConfiguration_StudioEnabled { get; set; }
         #endregion
         
         #region Parameter NetworkConfiguration_SubnetId
@@ -436,6 +457,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                     context.InitialCapacity.Add((String)hashKey, (Amazon.EMRServerless.Model.InitialCapacityConfig)(this.InitialCapacity[hashKey]));
                 }
             }
+            context.InteractiveConfiguration_LivyEndpointEnabled = this.InteractiveConfiguration_LivyEndpointEnabled;
+            context.InteractiveConfiguration_StudioEnabled = this.InteractiveConfiguration_StudioEnabled;
             context.MaximumCapacity_Cpu = this.MaximumCapacity_Cpu;
             context.MaximumCapacity_Disk = this.MaximumCapacity_Disk;
             context.MaximumCapacity_Memory = this.MaximumCapacity_Memory;
@@ -587,6 +610,35 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (cmdletContext.InitialCapacity != null)
             {
                 request.InitialCapacity = cmdletContext.InitialCapacity;
+            }
+            
+             // populate InteractiveConfiguration
+            var requestInteractiveConfigurationIsNull = true;
+            request.InteractiveConfiguration = new Amazon.EMRServerless.Model.InteractiveConfiguration();
+            System.Boolean? requestInteractiveConfiguration_interactiveConfiguration_LivyEndpointEnabled = null;
+            if (cmdletContext.InteractiveConfiguration_LivyEndpointEnabled != null)
+            {
+                requestInteractiveConfiguration_interactiveConfiguration_LivyEndpointEnabled = cmdletContext.InteractiveConfiguration_LivyEndpointEnabled.Value;
+            }
+            if (requestInteractiveConfiguration_interactiveConfiguration_LivyEndpointEnabled != null)
+            {
+                request.InteractiveConfiguration.LivyEndpointEnabled = requestInteractiveConfiguration_interactiveConfiguration_LivyEndpointEnabled.Value;
+                requestInteractiveConfigurationIsNull = false;
+            }
+            System.Boolean? requestInteractiveConfiguration_interactiveConfiguration_StudioEnabled = null;
+            if (cmdletContext.InteractiveConfiguration_StudioEnabled != null)
+            {
+                requestInteractiveConfiguration_interactiveConfiguration_StudioEnabled = cmdletContext.InteractiveConfiguration_StudioEnabled.Value;
+            }
+            if (requestInteractiveConfiguration_interactiveConfiguration_StudioEnabled != null)
+            {
+                request.InteractiveConfiguration.StudioEnabled = requestInteractiveConfiguration_interactiveConfiguration_StudioEnabled.Value;
+                requestInteractiveConfigurationIsNull = false;
+            }
+             // determine if request.InteractiveConfiguration should be set to null
+            if (requestInteractiveConfigurationIsNull)
+            {
+                request.InteractiveConfiguration = null;
             }
             
              // populate MaximumCapacity
@@ -906,6 +958,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String ClientToken { get; set; }
             public System.String ImageConfiguration_ImageUri { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.InitialCapacityConfig> InitialCapacity { get; set; }
+            public System.Boolean? InteractiveConfiguration_LivyEndpointEnabled { get; set; }
+            public System.Boolean? InteractiveConfiguration_StudioEnabled { get; set; }
             public System.String MaximumCapacity_Cpu { get; set; }
             public System.String MaximumCapacity_Disk { get; set; }
             public System.String MaximumCapacity_Memory { get; set; }

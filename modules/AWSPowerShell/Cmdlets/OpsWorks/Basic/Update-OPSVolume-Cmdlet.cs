@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The new name.</para>
+        /// <para>The new name. Volume names can be a maximum of 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

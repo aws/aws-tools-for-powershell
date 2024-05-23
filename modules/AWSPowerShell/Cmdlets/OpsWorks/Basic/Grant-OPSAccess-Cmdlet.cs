@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance's AWS OpsWorks Stacks ID.</para>
+        /// <para>The instance's OpsWorks Stacks ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,8 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The length of time (in minutes) that the grant is valid. When the grant expires at
         /// the end of this period, the user will no longer be able to use the credentials to
-        /// log in. If the user is logged in at the time, he or she automatically will be logged
-        /// out.</para>
+        /// log in. If the user is logged in at the time, they are logged out.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

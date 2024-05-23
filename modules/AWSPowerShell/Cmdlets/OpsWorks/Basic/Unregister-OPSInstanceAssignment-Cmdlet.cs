@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// <summary>
     /// Unassigns a registered instance from all layers that are using the instance. The instance
     /// remains in the stack as an unassigned instance, and can be assigned to another layer
-    /// as needed. You cannot use this action with instances that were created with AWS OpsWorks
+    /// as needed. You cannot use this action with instances that were created with OpsWorks
     /// Stacks.
     /// 
     ///  

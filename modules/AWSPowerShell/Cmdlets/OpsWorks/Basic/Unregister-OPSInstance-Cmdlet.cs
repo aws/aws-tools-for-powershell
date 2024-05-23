@@ -28,9 +28,9 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Deregister a registered Amazon EC2 or on-premises instance. This action removes the
-    /// instance from the stack and returns it to your control. This action cannot be used
-    /// with instances that were created with AWS OpsWorks Stacks.
+    /// Deregister an instance from OpsWorks Stacks. The instance can be a registered instance
+    /// (Amazon EC2 or on-premises) or an instance created with OpsWorks. This action removes
+    /// the instance from the stack and returns it to your control.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions

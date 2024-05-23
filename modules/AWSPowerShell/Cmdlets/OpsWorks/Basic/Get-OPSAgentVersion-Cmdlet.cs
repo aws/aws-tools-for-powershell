@@ -28,8 +28,8 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Describes the available AWS OpsWorks Stacks agent versions. You must specify a stack
-    /// ID or a configuration manager. <c>DescribeAgentVersions</c> returns a list of available
+    /// Describes the available OpsWorks Stacks agent versions. You must specify a stack ID
+    /// or a configuration manager. <c>DescribeAgentVersions</c> returns a list of available
     /// agent versions for the specified stack or configuration manager.
     /// </summary>
     [Cmdlet("Get", "OPSAgentVersion")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter ConfigurationManager_Name
         /// <summary>
         /// <para>
-        /// <para>The name. This parameter must be set to "Chef".</para>
+        /// <para>The name. This parameter must be set to <c>Chef</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The Chef version. This parameter must be set to 12, 11.10, or 11.4 for Linux stacks,
-        /// and to 12.2 for Windows stacks. The default value for Linux stacks is 11.4.</para>
+        /// and to 12.2 for Windows stacks. The default value for Linux stacks is 12.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

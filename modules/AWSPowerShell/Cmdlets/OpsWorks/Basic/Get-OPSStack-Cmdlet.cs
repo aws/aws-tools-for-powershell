@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>An array of stack IDs that specify the stacks to be described. If you omit this parameter,
-        /// <c>DescribeStacks</c> returns a description of every stack.</para>
+        /// and have permissions to get information about all stacks, <c>DescribeStacks</c> returns
+        /// a description of every stack. If the IAM policy that is attached to an IAM user limits
+        /// the <c>DescribeStacks</c> action to specific stack ARNs, this parameter is required,
+        /// and the user must specify a stack ARN that is allowed by the policy. Otherwise, <c>DescribeStacks</c>
+        /// returns an <c>AccessDenied</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

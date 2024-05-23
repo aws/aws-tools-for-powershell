@@ -53,10 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AgentVersion
         /// <summary>
         /// <para>
-        /// <para>The default AWS OpsWorks Stacks agent version. You have the following options:</para><ul><li><para><c>INHERIT</c> - Use the stack's default agent version setting.</para></li><li><para><i>version_number</i> - Use the specified agent version. This value overrides the
+        /// <para>The default OpsWorks Stacks agent version. You have the following options:</para><ul><li><para><c>INHERIT</c> - Use the stack's default agent version setting.</para></li><li><para><i>version_number</i> - Use the specified agent version. This value overrides the
         /// stack's default setting. To update the agent version, edit the instance configuration
-        /// and specify a new version. AWS OpsWorks Stacks then automatically installs that version
-        /// on the instance.</para></li></ul><para>The default setting is <c>INHERIT</c>. To specify an agent version, you must use the
+        /// and specify a new version. OpsWorks Stacks installs that version on the instance.</para></li></ul><para>The default setting is <c>INHERIT</c>. To specify an agent version, you must use the
         /// complete version number, not the abbreviated number shown on the console. For a list
         /// of available agent version numbers, call <a>DescribeAgentVersions</a>. AgentVersion
         /// cannot be set to Chef 12.2.</para>
@@ -141,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Hostname
         /// <summary>
         /// <para>
-        /// <para>The instance host name.</para>
+        /// <para>The instance host name. The following are character limits for instance host names.</para><ul><li><para>Linux-based instances: 63 characters</para></li><li><para>Windows-based instances: 15 characters</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,20 +206,19 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The instance's operating system, which must be set to one of the following.</para><ul><li><para>A supported Linux operating system: An Amazon Linux version, such as <c>Amazon Linux
-        /// 2018.03</c>, <c>Amazon Linux 2017.09</c>, <c>Amazon Linux 2017.03</c>, <c>Amazon Linux
-        /// 2016.09</c>, <c>Amazon Linux 2016.03</c>, <c>Amazon Linux 2015.09</c>, or <c>Amazon
-        /// Linux 2015.03</c>.</para></li><li><para>A supported Ubuntu operating system, such as <c>Ubuntu 16.04 LTS</c>, <c>Ubuntu 14.04
-        /// LTS</c>, or <c>Ubuntu 12.04 LTS</c>.</para></li><li><para><c>CentOS Linux 7</c></para></li><li><para><c>Red Hat Enterprise Linux 7</c></para></li><li><para>A supported Windows operating system, such as <c>Microsoft Windows Server 2012 R2
+        /// 2</c>, <c>Amazon Linux 2018.03</c>, <c>Amazon Linux 2017.09</c>, <c>Amazon Linux 2017.03</c>,
+        /// <c>Amazon Linux 2016.09</c>, <c>Amazon Linux 2016.03</c>, <c>Amazon Linux 2015.09</c>,
+        /// or <c>Amazon Linux 2015.03</c>.</para></li><li><para>A supported Ubuntu operating system, such as <c>Ubuntu 18.04 LTS</c>, <c>Ubuntu 16.04
+        /// LTS</c>, <c>Ubuntu 14.04 LTS</c>, or <c>Ubuntu 12.04 LTS</c>.</para></li><li><para><c>CentOS Linux 7</c></para></li><li><para><c>Red Hat Enterprise Linux 7</c></para></li><li><para>A supported Windows operating system, such as <c>Microsoft Windows Server 2012 R2
         /// Base</c>, <c>Microsoft Windows Server 2012 R2 with SQL Server Express</c>, <c>Microsoft
         /// Windows Server 2012 R2 with SQL Server Standard</c>, or <c>Microsoft Windows Server
-        /// 2012 R2 with SQL Server Web</c>.</para></li><li><para>A custom AMI: <c>Custom</c>.</para></li></ul><para>For more information about the supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">AWS
-        /// OpsWorks Stacks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
+        /// 2012 R2 with SQL Server Web</c>.</para></li><li><para>A custom AMI: <c>Custom</c>.</para></li></ul><para>Not all operating systems are supported with all versions of Chef. For more information
+        /// about the supported operating systems, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">OpsWorks
+        /// Stacks Operating Systems</a>.</para><para>The default option is the current Amazon Linux version. If you set this parameter
         /// to <c>Custom</c>, you must use the <a>CreateInstance</a> action's AmiId parameter
         /// to specify the custom AMI that you want to use. Block device mappings are not supported
-        /// if the value is <c>Custom</c>. For more information about supported operating systems,
-        /// see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html">Operating
-        /// Systems</a>For more information about how to use custom AMIs with AWS OpsWorks Stacks,
-        /// see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
+        /// if the value is <c>Custom</c>. For more information about how to use custom AMIs with
+        /// OpsWorks Stacks, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html">Using
         /// Custom AMIs</a>.</para>
         /// </para>
         /// </summary>
@@ -271,8 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>The ID of the instance's subnet. If the stack is running in a VPC, you can use this
-        /// parameter to override the stack's default subnet ID value and direct AWS OpsWorks
-        /// Stacks to launch the instance in a different subnet.</para>
+        /// parameter to override the stack's default subnet ID value and direct OpsWorks Stacks
+        /// to launch the instance in a different subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

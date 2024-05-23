@@ -57,10 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>Specifies whether to force an instance to stop. If the instance's root device type
         /// is <c>ebs</c>, or EBS-backed, adding the <c>Force</c> parameter to the <c>StopInstances</c>
-        /// API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion
+        /// API call disassociates the OpsWorks Stacks instance from EC2, and forces deletion
         /// of <i>only</i> the OpsWorks Stacks instance. You must also delete the formerly-associated
-        /// instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance
-        /// with a new one.</para>
+        /// instance in EC2 after troubleshooting and replacing the OpsWorks Stacks instance with
+        /// a new one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

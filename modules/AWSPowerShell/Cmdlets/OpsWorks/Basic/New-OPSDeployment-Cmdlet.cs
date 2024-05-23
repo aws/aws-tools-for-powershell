@@ -67,12 +67,12 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>The arguments of those commands that take arguments. It should be set to a JSON object
         /// with the following format:</para><para><c>{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2", ...],
-        /// ...}</c></para><para>The <c>update_dependencies</c> command takes two arguments:</para><ul><li><para><c>upgrade_os_to</c> - Specifies the desired Amazon Linux version for instances whose
-        /// OS you want to upgrade, such as <c>Amazon Linux 2016.09</c>. You must also set the
-        /// <c>allow_reboot</c> argument to true.</para></li><li><para><c>allow_reboot</c> - Specifies whether to allow AWS OpsWorks Stacks to reboot the
-        /// instances if necessary, after installing the updates. This argument can be set to
-        /// either <c>true</c> or <c>false</c>. The default value is <c>false</c>.</para></li></ul><para>For example, to upgrade an instance to Amazon Linux 2016.09, set <c>Args</c> to the
-        /// following.</para><para><c> { "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } </c></para>
+        /// ...}</c></para><para>The <c>update_dependencies</c> command takes two arguments:</para><ul><li><para><c>upgrade_os_to</c> - Specifies the Amazon Linux version that you want instances
+        /// to run, such as <c>Amazon Linux 2</c>. You must also set the <c>allow_reboot</c> argument
+        /// to true.</para></li><li><para><c>allow_reboot</c> - Specifies whether to allow OpsWorks Stacks to reboot the instances
+        /// if necessary, after installing the updates. This argument can be set to either <c>true</c>
+        /// or <c>false</c>. The default value is <c>false</c>.</para></li></ul><para>For example, to upgrade an instance to Amazon Linux 2018.03, set <c>Args</c> to the
+        /// following.</para><para><c> { "upgrade_os_to":["Amazon Linux 2018.03"], "allow_reboot":["true"] } </c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// nothing.</para></note><para>For apps, the following commands are available:</para><ul><li><para><c>deploy</c>: Deploy an app. Ruby on Rails apps have an optional <c>Args</c> parameter
         /// named <c>migrate</c>. Set <c>Args</c> to {"migrate":["true"]} to migrate the database.
         /// The default setting is {"migrate":["false"]}.</para></li><li><para><c>rollback</c> Roll the app back to the previous version. When you update an app,
-        /// AWS OpsWorks Stacks stores the previous version, up to a maximum of five versions.
-        /// You can use this command to roll an app back as many as four versions.</para></li><li><para><c>start</c>: Start the app's web or application server.</para></li><li><para><c>stop</c>: Stop the app's web or application server.</para></li><li><para><c>restart</c>: Restart the app's web or application server.</para></li><li><para><c>undeploy</c>: Undeploy the app.</para></li></ul>
+        /// OpsWorks Stacks stores the previous version, up to a maximum of five versions. You
+        /// can use this command to roll an app back as many as four versions.</para></li><li><para><c>start</c>: Start the app's web or application server.</para></li><li><para><c>stop</c>: Stop the app's web or application server.</para></li><li><para><c>restart</c>: Restart the app's web or application server.</para></li><li><para><c>undeploy</c>: Undeploy the app.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

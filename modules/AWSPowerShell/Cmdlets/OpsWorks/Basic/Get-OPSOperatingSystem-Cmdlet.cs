@@ -28,7 +28,7 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Describes the operating systems that are supported by AWS OpsWorks Stacks.
+    /// Describes the operating systems that are supported by OpsWorks Stacks.
     /// </summary>
     [Cmdlet("Get", "OPSOperatingSystem")]
     [OutputType("Amazon.OpsWorks.Model.OperatingSystem")]

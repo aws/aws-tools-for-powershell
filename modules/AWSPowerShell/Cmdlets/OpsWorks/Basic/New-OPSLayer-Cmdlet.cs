@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>
         /// <para>A JSON-formatted string containing custom stack configuration and deployment attributes
         /// to be installed on the layer's instances. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html">
-        /// Using Custom JSON</a>. This feature is supported as of version 1.7.42 of the AWS CLI.
+        /// Using Custom JSON</a>. This feature is supported as of version 1.7.42 of the CLI.
         /// </para>
         /// </para>
         /// </summary>
@@ -185,8 +185,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Shutdown_ExecutionTimeout
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, that AWS OpsWorks Stacks will wait after triggering a Shutdown
-        /// event before shutting down an instance.</para>
+        /// <para>The time, in seconds, that OpsWorks Stacks waits after triggering a Shutdown event
+        /// before shutting down an instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The layer name, which is used by the console.</para>
+        /// <para>The layer name, which is used by the console. Layer names can be a maximum of 32 characters.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -262,11 +262,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <summary>
         /// <para>
         /// <para>For custom layers only, use this parameter to specify the layer's short name, which
-        /// is used internally by AWS OpsWorks Stacks and by Chef recipes. The short name is also
+        /// is used internally by OpsWorks Stacks and by Chef recipes. The short name is also
         /// used as the name for the directory where your app files are installed. It can have
-        /// a maximum of 200 characters, which are limited to the alphanumeric characters, '-',
-        /// '_', and '.'.</para><para>The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information,
-        /// see the <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html">Layer
+        /// a maximum of 32 characters, which are limited to the alphanumeric characters, '-',
+        /// '_', and '.'.</para><para>Built-in layer short names are defined by OpsWorks Stacks. For more information, see
+        /// the <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html">Layer
         /// Reference</a>.</para>
         /// </para>
         /// </summary>

@@ -28,9 +28,9 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks. For
-    /// more information about how tagging works, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html">Tags</a>
-    /// in the AWS OpsWorks User Guide.
+    /// Apply cost-allocation tags to a specified stack or layer in OpsWorks Stacks. For more
+    /// information about how tagging works, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html">Tags</a>
+    /// in the OpsWorks User Guide.
     /// </summary>
     [Cmdlet("Add", "OPSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

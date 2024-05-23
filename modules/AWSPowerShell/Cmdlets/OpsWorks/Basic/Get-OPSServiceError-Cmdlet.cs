@@ -28,7 +28,7 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Describes AWS OpsWorks Stacks service errors.
+    /// Describes OpsWorks Stacks service errors.
     /// 
     ///  
     /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy,

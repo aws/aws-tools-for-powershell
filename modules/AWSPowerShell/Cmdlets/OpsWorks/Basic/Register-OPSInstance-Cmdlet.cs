@@ -28,16 +28,16 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Registers instances that were created outside of AWS OpsWorks Stacks with a specified
+    /// Registers instances that were created outside of OpsWorks Stacks with a specified
     /// stack.
     /// 
     ///  <note><para>
     /// We do not recommend using this action to register instances. The complete registration
-    /// operation includes two tasks: installing the AWS OpsWorks Stacks agent on the instance,
+    /// operation includes two tasks: installing the OpsWorks Stacks agent on the instance,
     /// and registering the instance with the stack. <c>RegisterInstance</c> handles only
-    /// the second step. You should instead use the AWS CLI <c>register</c> command, which
-    /// performs the entire registration operation. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html">
-    /// Registering an Instance with an AWS OpsWorks Stacks Stack</a>.
+    /// the second step. You should instead use the CLI <c>register</c> command, which performs
+    /// the entire registration operation. For more information, see <a href="https://docs.aws.amazon.com/opsworks/latest/userguide/registered-instances-register.html">
+    /// Registering an Instance with an OpsWorks Stacks Stack</a>.
     /// </para></note><para>
     /// Registered instances have the same requirements as instances that are created by using
     /// the <a>CreateInstance</a> API. For example, registered instances must be running a
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Hostname
         /// <summary>
         /// <para>
-        /// <para>The instance's hostname.</para>
+        /// <para>The instance's host name. The following are character limits for instance host names.</para><ul><li><para>Linux-based instances: 63 characters</para></li><li><para>Windows-based instances: 15 characters</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

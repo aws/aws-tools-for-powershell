@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The new name.</para>
+        /// <para>The new name, which can be a maximum of 32 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
