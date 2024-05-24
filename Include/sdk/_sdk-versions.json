@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.817.0",
+    "ProductVersion"    : "3.7.818.0",
     "CoreVersion"       : "3.7.304.5",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -145,7 +145,7 @@
             "InPreview"               : false
         },
         "DynamoDBv2"        : {
-            "Version" : "3.7.303.11",
+            "Version" : "3.7.303.12",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.5"
@@ -1371,7 +1371,7 @@
             "InPreview"               : false
         },
         "ManagedBlockchain"               : {
-            "Version" : "3.7.301.87",
+            "Version" : "3.7.301.88",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.5"
@@ -2499,7 +2499,7 @@
             "InPreview"               : false
         },
         "IoTFleetWise"                        : {
-            "Version" : "3.7.303.58",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.5"

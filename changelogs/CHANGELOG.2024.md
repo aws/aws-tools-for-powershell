@@ -1,4 +1,9 @@
-﻿### 4.1.586 (2024-05-23 20:31Z)
+﻿### 4.1.587 (2024-05-24 21:05Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.818.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT FleetWise
+    * Modified cmdlet Get-IFWVehicleList: added parameters AttributeName and AttributeValue.
+
+### 4.1.586 (2024-05-23 20:31Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.817.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet New-EMRServerlessApplication: added parameters InteractiveConfiguration_LivyEndpointEnabled and InteractiveConfiguration_StudioEnabled.

@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Streams settings for a given table.
     /// 
     ///  <important><para>
-    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-    /// 2019.11.21 (Current)</a> of global tables. 
+    /// For global tables, this operation only applies to global tables using Version 2019.11.21
+    /// (Current version). 
     /// </para></important><para>
     /// You can only perform one of the following operations at once:
     /// </para><ul><li><para>
@@ -82,10 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// values must be set. The initial provisioned capacity values are estimated based on
         /// the consumed read and write capacity of your table and global secondary indexes over
         /// the past 30 minutes.</para><ul><li><para><c>PROVISIONED</c> - We recommend using <c>PROVISIONED</c> for predictable workloads.
-        /// <c>PROVISIONED</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned
-        /// Mode</a>.</para></li><li><para><c>PAY_PER_REQUEST</c> - We recommend using <c>PAY_PER_REQUEST</c> for unpredictable
-        /// workloads. <c>PAY_PER_REQUEST</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand
-        /// Mode</a>. </para></li></ul>
+        /// <c>PROVISIONED</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned
+        /// capacity mode</a>.</para></li><li><para><c>PAY_PER_REQUEST</c> - We recommend using <c>PAY_PER_REQUEST</c> for unpredictable
+        /// workloads. <c>PAY_PER_REQUEST</c> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand
+        /// capacity mode</a>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -187,8 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter ReplicaUpdate
         /// <summary>
         /// <para>
-        /// <para>A list of replica update actions (create, delete, or update) for the table.</para><note><para>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-        /// 2019.11.21 (Current)</a> of global tables. </para></note>
+        /// <para>A list of replica update actions (create, delete, or update) for the table.</para><note><para>For global tables, this property only applies to global tables using Version 2019.11.21
+        /// (Current version). </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

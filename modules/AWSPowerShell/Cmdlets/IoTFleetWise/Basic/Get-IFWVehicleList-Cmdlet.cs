@@ -47,6 +47,29 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AttributeName
+        /// <summary>
+        /// <para>
+        /// <para>The fully qualified names of the attributes. For example, the fully qualified name
+        /// of an attribute might be <c>Vehicle.Body.Engine.Type</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeNames")]
+        public System.String[] AttributeName { get; set; }
+        #endregion
+        
+        #region Parameter AttributeValue
+        /// <summary>
+        /// <para>
+        /// <para>Static information about a vehicle attribute value in string format. For example:</para><para><c>"1.3 L R2"</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AttributeValues")]
+        public System.String[] AttributeValue { get; set; }
+        #endregion
+        
         #region Parameter ModelManifestArn
         /// <summary>
         /// <para>
@@ -130,6 +153,14 @@ namespace Amazon.PowerShell.Cmdlets.IFW
                 context.Select = (response, cmdlet) => this.ModelManifestArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AttributeName != null)
+            {
+                context.AttributeName = new List<System.String>(this.AttributeName);
+            }
+            if (this.AttributeValue != null)
+            {
+                context.AttributeValue = new List<System.String>(this.AttributeValue);
+            }
             context.MaxResult = this.MaxResult;
             context.ModelManifestArn = this.ModelManifestArn;
             context.NextToken = this.NextToken;
@@ -149,6 +180,14 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             // create request
             var request = new Amazon.IoTFleetWise.Model.ListVehiclesRequest();
             
+            if (cmdletContext.AttributeName != null)
+            {
+                request.AttributeNames = cmdletContext.AttributeName;
+            }
+            if (cmdletContext.AttributeValue != null)
+            {
+                request.AttributeValues = cmdletContext.AttributeValue;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -222,6 +261,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributeName { get; set; }
+            public List<System.String> AttributeValue { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String ModelManifestArn { get; set; }
             public System.String NextToken { get; set; }

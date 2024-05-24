@@ -76,10 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter NetworkType
         /// <summary>
         /// <para>
-        /// <para>The blockchain network that the <c>Accessor</c> token is created for.</para><note><para>We recommend using the appropriate <c>networkType</c> value for the blockchain network
-        /// that you are creating the <c>Accessor</c> token for. You cannnot use the value <c>ETHEREUM_MAINNET_AND_GOERLI</c>
-        /// to specify a <c>networkType</c> for your Accessor token.</para><para>The default value of <c>ETHEREUM_MAINNET_AND_GOERLI</c> is only applied:</para><ul><li><para>when the <c>CreateAccessor</c> action does not set a <c>networkType</c>.</para></li><li><para>to all existing <c>Accessor</c> tokens that were created before the <c>networkType</c>
-        /// property was introduced. </para></li></ul></note>
+        /// <para>The blockchain network that the <c>Accessor</c> token is created for.</para><note><ul><li><para>Use the actual <c>networkType</c> value for the blockchain network that you are creating
+        /// the <c>Accessor</c> token for.</para></li><li><para>With the shut down of the <i>Ethereum Goerli</i> and <i>Polygon Mumbai Testnet</i>
+        /// networks the following <c>networkType</c> values are no longer available for selection
+        /// and use.</para><ul><li><para><c>ETHEREUM_MAINNET_AND_GOERLI</c></para></li><li><para><c>ETHEREUM_GOERLI</c></para></li><li><para><c>POLYGON_MUMBAI</c></para></li></ul><para>However, your existing <c>Accessor</c> tokens with these <c>networkType</c> values
+        /// will remain unchanged.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

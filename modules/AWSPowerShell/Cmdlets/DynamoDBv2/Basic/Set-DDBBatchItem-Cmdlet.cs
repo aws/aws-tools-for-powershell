@@ -100,6 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// Any individual item in a batch exceeds 400 KB.
     /// </para></li><li><para>
     /// The total request size exceeds 16 MB.
+    /// </para></li><li><para>
+    /// Any individual items with keys exceeding the key length limits. For a partition key,
+    /// the limit is 2048 bytes and for a sort key, the limit is 1024 bytes.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Set", "DDBBatchItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

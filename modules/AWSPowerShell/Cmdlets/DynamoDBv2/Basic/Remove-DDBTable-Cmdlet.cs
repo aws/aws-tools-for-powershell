@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// If table is already in the <c>DELETING</c> state, no error is returned. 
     /// 
     ///  <important><para>
-    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-    /// 2019.11.21 (Current)</a> of global tables. 
+    /// For global tables, this operation only applies to global tables using Version 2019.11.21
+    /// (Current version). 
     /// </para></important><note><para>
     /// DynamoDB might continue to accept data read and write operations, such as <c>GetItem</c>
     /// and <c>PutItem</c>, on a table in the <c>DELETING</c> state until the table deletion

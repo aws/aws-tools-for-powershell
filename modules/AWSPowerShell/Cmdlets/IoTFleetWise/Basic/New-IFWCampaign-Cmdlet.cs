@@ -220,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         #region Parameter SignalCatalogArn
         /// <summary>
         /// <para>
-        /// <para>(Optional) The Amazon Resource Name (ARN) of the signal catalog to associate with
-        /// the campaign. </para>
+        /// <para>The Amazon Resource Name (ARN) of the signal catalog to associate with the campaign.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

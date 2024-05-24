@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.MBC
         #region Parameter NetworkId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the network for the node.</para><para>Ethereum public networks have the following <c>NetworkId</c>s:</para><ul><li><para><c>n-ethereum-mainnet</c></para></li><li><para><c>n-ethereum-goerli</c></para></li></ul>
+        /// <para>The unique identifier of the network for the node.</para><para>Ethereum public networks have the following <c>NetworkId</c>s:</para><ul><li><para><c>n-ethereum-mainnet</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

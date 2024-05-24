@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// it was created, the primary key schema, and any indexes on the table.
     /// 
     ///  <important><para>
-    /// This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
-    /// 2019.11.21 (Current)</a> of global tables. 
+    /// For global tables, this operation only applies to global tables using Version 2019.11.21
+    /// (Current version). 
     /// </para></important><note><para>
     /// If you issue a <c>DescribeTable</c> request immediately after a <c>CreateTable</c>
     /// request, DynamoDB might return a <c>ResourceNotFoundException</c>. This is because
