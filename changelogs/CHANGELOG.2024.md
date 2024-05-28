@@ -1,4 +1,12 @@
-﻿### 4.1.587 (2024-05-24 21:05Z)
+﻿### 4.1.588 (2024-05-28 20:51Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.819.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2CustomerGateway: added parameter BgpAsnExtended.
+  * Amazon Simple Workflow Service (SWF)
+    * Added cmdlet Uninstall-SWFActivityType leveraging the DeleteActivityType service API.
+    * Added cmdlet Uninstall-SWFWorkflowType leveraging the DeleteWorkflowType service API.
+
+### 4.1.587 (2024-05-24 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.818.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT FleetWise
     * Modified cmdlet Get-IFWVehicleList: added parameters AttributeName and AttributeValue.

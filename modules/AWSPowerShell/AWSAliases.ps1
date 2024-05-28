@@ -27507,6 +27507,10 @@ Set-Alias -Name SWF-CountPendingActivityTasks -Value Get-SWFPendingActivityTaskC
 Set-Alias -Name Count-SWFPendingDecisionTasks -Value Get-SWFPendingDecisionTaskCount
 Set-Alias -Name Count-SWFPendingDecisionTaskCount -Value Get-SWFPendingDecisionTaskCount
 Set-Alias -Name SWF-CountPendingDecisionTasks -Value Get-SWFPendingDecisionTaskCount
+Set-Alias -Name Delete-SWFActivityType -Value Uninstall-SWFActivityType
+Set-Alias -Name SWF-DeleteActivityType -Value Uninstall-SWFActivityType
+Set-Alias -Name Delete-SWFWorkflowType -Value Uninstall-SWFWorkflowType
+Set-Alias -Name SWF-DeleteWorkflowType -Value Uninstall-SWFWorkflowType
 Set-Alias -Name Deprecate-SWFActivityType -Value Remove-SWFActivityType
 Set-Alias -Name SWF-DeprecateActivityType -Value Remove-SWFActivityType
 Set-Alias -Name Deprecate-SWFDomain -Value Remove-SWFDomain

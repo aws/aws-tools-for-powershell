@@ -64,11 +64,25 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BgpAsn
         /// <summary>
         /// <para>
-        /// <para>For devices that support BGP, the customer gateway's BGP ASN.</para><para>Default: 65000</para>
+        /// <para>For customer gateway devices that support BGP, specify the device's ASN. You must
+        /// specify either <c>BgpAsn</c> or <c>BgpAsnExtended</c> when creating the customer gateway.
+        /// If the ASN is larger than <c>2,147,483,647</c>, you must use <c>BgpAsnExtended</c>.</para><para>Default: 65000</para><para>Valid values: <c>1</c> to <c>2,147,483,647</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.Int32? BgpAsn { get; set; }
+        #endregion
+        
+        #region Parameter BgpAsnExtended
+        /// <summary>
+        /// <para>
+        /// <para>For customer gateway devices that support BGP, specify the device's ASN. You must
+        /// specify either <c>BgpAsn</c> or <c>BgpAsnExtended</c> when creating the customer gateway.
+        /// If the ASN is larger than <c>2,147,483,647</c>, you must use <c>BgpAsnExtended</c>.</para><para>Valid values: <c>2,147,483,648</c> to <c>4,294,967,295</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64? BgpAsnExtended { get; set; }
         #endregion
         
         #region Parameter CertificateArn
@@ -94,8 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpAddress
         /// <summary>
         /// <para>
-        /// <para> IPv4 address for the customer gateway device's outside interface. The address must
-        /// be static. </para>
+        /// <para>IPv4 address for the customer gateway device's outside interface. The address must
+        /// be static. If <c>OutsideIpAddressType</c> in your VPN connection options is set to
+        /// <c>PrivateIpv4</c>, you can use an RFC6598 or RFC1918 private IPv4 address. If <c>OutsideIpAddressType</c>
+        /// is set to <c>PublicIpv4</c>, you can use a public IPv4 address. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.BgpAsn = this.BgpAsn;
+            context.BgpAsnExtended = this.BgpAsnExtended;
             context.CertificateArn = this.CertificateArn;
             context.DeviceName = this.DeviceName;
             context.IpAddress = this.IpAddress;
@@ -238,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.BgpAsn != null)
             {
                 request.BgpAsn = cmdletContext.BgpAsn.Value;
+            }
+            if (cmdletContext.BgpAsnExtended != null)
+            {
+                request.BgpAsnExtended = cmdletContext.BgpAsnExtended.Value;
             }
             if (cmdletContext.CertificateArn != null)
             {
@@ -325,6 +346,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? BgpAsn { get; set; }
+            public System.Int64? BgpAsnExtended { get; set; }
             public System.String CertificateArn { get; set; }
             public System.String DeviceName { get; set; }
             public System.String IpAddress { get; set; }

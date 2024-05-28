@@ -181,6 +181,8 @@ $SWF_SelectMap = @{
                "Get-SWFOpenWorkflowExecutionCount",
                "Get-SWFPendingActivityTaskCount",
                "Get-SWFPendingDecisionTaskCount",
+               "Uninstall-SWFActivityType",
+               "Uninstall-SWFWorkflowType",
                "Remove-SWFActivityType",
                "Remove-SWFDomain",
                "Remove-SWFWorkflowType",

@@ -28,12 +28,15 @@ using Amazon.SimpleWorkflow.Model;
 namespace Amazon.PowerShell.Cmdlets.SWF
 {
     /// <summary>
-    /// Deprecates the specified <i>activity type</i>. After an activity type has been deprecated,
-    /// you cannot create new tasks of that activity type. Tasks of this type that were scheduled
-    /// before the type was deprecated continue to run.
+    /// Deletes the specified <i>activity type</i>.
     /// 
     ///  
-    /// <para><b>Access Control</b></para><para>
+    /// <para>
+    /// Note: Prior to deletion, activity types must first be <b>deprecated</b>. 
+    /// </para><para>
+    ///  After an activity type has been deleted, you cannot schedule new activities of that
+    /// type. Activities that started before the type was deleted will continue to run. 
+    /// </para><para><b>Access Control</b></para><para>
     /// You can use IAM policies to control this action's access to Amazon SWF resources as
     /// follows:
     /// </para><ul><li><para>
@@ -54,14 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.SWF
     /// IAM to Manage Access to Amazon SWF Workflows</a> in the <i>Amazon SWF Developer Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "SWFActivityType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Uninstall", "SWFActivityType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) DeprecateActivityType API operation.", Operation = new[] {"DeprecateActivityType"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.DeprecateActivityTypeResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.DeprecateActivityTypeResponse",
+    [AWSCmdlet("Calls the AWS Simple Workflow Service (SWF) DeleteActivityType API operation.", Operation = new[] {"DeleteActivityType"}, SelectReturnType = typeof(Amazon.SimpleWorkflow.Model.DeleteActivityTypeResponse))]
+    [AWSCmdletOutput("None or Amazon.SimpleWorkflow.Model.DeleteActivityTypeResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleWorkflow.Model.DeprecateActivityTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.SimpleWorkflow.Model.DeleteActivityTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSWFActivityTypeCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
+    public partial class UninstallSWFActivityTypeCmdlet : AmazonSimpleWorkflowClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -73,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -90,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -120,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleWorkflow.Model.DeprecateActivityTypeResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleWorkflow.Model.DeleteActivityTypeResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -129,10 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ActivityType_Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ActivityType_Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Domain parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ActivityType_Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Domain' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -153,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ActivityType_Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SWFActivityType (DeprecateActivityType)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Uninstall-SWFActivityType (DeleteActivityType)"))
             {
                 return;
             }
@@ -166,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleWorkflow.Model.DeprecateActivityTypeResponse, RemoveSWFActivityTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SimpleWorkflow.Model.DeleteActivityTypeResponse, UninstallSWFActivityTypeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -175,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ActivityType_Name;
+                context.Select = (response, cmdlet) => this.Domain;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ActivityType_Name = this.ActivityType_Name;
@@ -213,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleWorkflow.Model.DeprecateActivityTypeRequest();
+            var request = new Amazon.SimpleWorkflow.Model.DeleteActivityTypeRequest();
             
             
              // populate ActivityType
@@ -281,15 +284,15 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleWorkflow.Model.DeprecateActivityTypeResponse CallAWSServiceOperation(IAmazonSimpleWorkflow client, Amazon.SimpleWorkflow.Model.DeprecateActivityTypeRequest request)
+        private Amazon.SimpleWorkflow.Model.DeleteActivityTypeResponse CallAWSServiceOperation(IAmazonSimpleWorkflow client, Amazon.SimpleWorkflow.Model.DeleteActivityTypeRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Simple Workflow Service (SWF)", "DeprecateActivityType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Simple Workflow Service (SWF)", "DeleteActivityType");
             try
             {
                 #if DESKTOP
-                return client.DeprecateActivityType(request);
+                return client.DeleteActivityType(request);
                 #elif CORECLR
-                return client.DeprecateActivityTypeAsync(request).GetAwaiter().GetResult();
+                return client.DeleteActivityTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -312,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
             public System.String ActivityType_Name { get; set; }
             public System.String ActivityType_Version { get; set; }
             public System.String Domain { get; set; }
-            public System.Func<Amazon.SimpleWorkflow.Model.DeprecateActivityTypeResponse, RemoveSWFActivityTypeCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.SimpleWorkflow.Model.DeleteActivityTypeResponse, UninstallSWFActivityTypeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

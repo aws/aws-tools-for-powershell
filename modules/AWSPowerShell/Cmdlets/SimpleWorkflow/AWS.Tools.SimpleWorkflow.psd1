@@ -114,7 +114,9 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Restore-SWFWorkflowType', 
         'Send-SWFSignalToWorkflowExecution', 
         'Start-SWFWorkflowExecution', 
-        'Stop-SWFWorkflowExecution')
+        'Stop-SWFWorkflowExecution', 
+        'Uninstall-SWFActivityType', 
+        'Uninstall-SWFWorkflowType')
 
     # Variables to export from this module
     VariablesToExport = '*'
