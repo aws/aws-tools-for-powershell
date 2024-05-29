@@ -186,6 +186,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String GlueVersion { get; set; }
         #endregion
         
+        #region Parameter JobMode
+        /// <summary>
+        /// <para>
+        /// <para>A mode that describes how a job was created. Valid values are:</para><ul><li><para><c>SCRIPT</c> - The job was created using the Glue Studio script editor.</para></li><li><para><c>VISUAL</c> - The job was created using the Glue Studio visual editor.</para></li><li><para><c>NOTEBOOK</c> - The job was created using an interactive sessions notebook.</para></li></ul><para>When the <c>JobMode</c> field is missing or null, <c>SCRIPT</c> is assigned as the
+        /// default value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.JobMode")]
+        public Amazon.Glue.JobMode JobMode { get; set; }
+        #endregion
+        
         #region Parameter SourceControlDetails_LastCommitId
         /// <summary>
         /// <para>
@@ -546,6 +558,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.ExecutionClass = this.ExecutionClass;
             context.ExecutionProperty_MaxConcurrentRun = this.ExecutionProperty_MaxConcurrentRun;
             context.GlueVersion = this.GlueVersion;
+            context.JobMode = this.JobMode;
             context.LogUri = this.LogUri;
             context.MaintenanceWindow = this.MaintenanceWindow;
             context.MaxCapacity = this.MaxCapacity;
@@ -676,6 +689,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.GlueVersion != null)
             {
                 request.GlueVersion = cmdletContext.GlueVersion;
+            }
+            if (cmdletContext.JobMode != null)
+            {
+                request.JobMode = cmdletContext.JobMode;
             }
             if (cmdletContext.LogUri != null)
             {
@@ -904,6 +921,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
             public System.Int32? ExecutionProperty_MaxConcurrentRun { get; set; }
             public System.String GlueVersion { get; set; }
+            public Amazon.Glue.JobMode JobMode { get; set; }
             public System.String LogUri { get; set; }
             public System.String MaintenanceWindow { get; set; }
             public System.Double? MaxCapacity { get; set; }

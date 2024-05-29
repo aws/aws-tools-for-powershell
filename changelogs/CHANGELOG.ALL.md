@@ -1,4 +1,11 @@
-﻿### 4.1.588 (2024-05-28 20:51Z)
+﻿### 4.1.589 (2024-05-29 20:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.820.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBWebhook: added parameter ManualCreation.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEJob: added parameter JobMode.
+
+### 4.1.588 (2024-05-28 20:51Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.819.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Modified cmdlet New-EC2CustomerGateway: added parameter BgpAsnExtended.

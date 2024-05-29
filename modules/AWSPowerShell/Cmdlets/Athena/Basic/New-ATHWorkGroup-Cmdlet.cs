@@ -269,10 +269,8 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// results location using one of the ways: either for individual queries using either
         /// this setting (client-side), or in the workgroup, using <a>WorkGroupConfiguration</a>.
         /// If none of them is set, Athena issues an error that no output location is provided.
-        /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Working
-        /// with query results, recent queries, and output files</a>. If workgroup settings override
-        /// client-side settings, then the query uses the settings specified for the workgroup.
-        /// See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</para>
+        /// If workgroup settings override client-side settings, then the query uses the settings
+        /// specified for the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

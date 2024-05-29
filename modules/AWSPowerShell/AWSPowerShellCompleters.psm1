@@ -30397,6 +30397,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.JobMode
+        "New-GLUEJob/JobMode"
+        {
+            $v = "NOTEBOOK","SCRIPT","VISUAL"
+            break
+        }
+
         # Amazon.Glue.Language
         {
             ($_ -eq "Get-GLUEPlan/Language") -Or
@@ -30598,6 +30605,7 @@ $GLUE_map = @{
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
     "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
+    "JobMode"=@("New-GLUEJob")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "LineageConfiguration_CrawlerLineageSetting"=@("New-GLUECrawler","Update-GLUECrawler")
     "MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")

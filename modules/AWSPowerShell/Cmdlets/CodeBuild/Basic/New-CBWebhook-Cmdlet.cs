@@ -92,6 +92,19 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.Model.WebhookFilter[][] FilterGroup { get; set; }
         #endregion
         
+        #region Parameter ManualCreation
+        /// <summary>
+        /// <para>
+        /// <para>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead
+        /// returns <c>payloadUrl</c> and <c>secret</c> values for the webhook. The <c>payloadUrl</c>
+        /// and <c>secret</c> values in the output can be used to manually create a webhook within
+        /// GitHub.</para><note><para>manualCreation is only available for GitHub webhooks.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ManualCreation { get; set; }
+        #endregion
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>
@@ -181,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                     context.FilterGroup.Add(new List<Amazon.CodeBuild.Model.WebhookFilter>(innerList));
                 }
             }
+            context.ManualCreation = this.ManualCreation;
             context.ProjectName = this.ProjectName;
             #if MODULAR
             if (this.ProjectName == null && ParameterWasBound(nameof(this.ProjectName)))
@@ -215,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.FilterGroup != null)
             {
                 request.FilterGroups = cmdletContext.FilterGroup;
+            }
+            if (cmdletContext.ManualCreation != null)
+            {
+                request.ManualCreation = cmdletContext.ManualCreation.Value;
             }
             if (cmdletContext.ProjectName != null)
             {
@@ -284,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String BranchFilter { get; set; }
             public Amazon.CodeBuild.WebhookBuildType BuildType { get; set; }
             public List<List<Amazon.CodeBuild.Model.WebhookFilter>> FilterGroup { get; set; }
+            public System.Boolean? ManualCreation { get; set; }
             public System.String ProjectName { get; set; }
             public System.Func<Amazon.CodeBuild.Model.CreateWebhookResponse, NewCBWebhookCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Webhook;
