@@ -57,6 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMModelPackageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AdditionalInferenceSpecification
@@ -497,6 +499,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String MetadataProperties_GeneratedBy { get; set; }
         #endregion
         
+        #region Parameter SecurityConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The KMS Key ID (<c>KMSKeyId</c>) used for encryption of model package information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SecurityConfig_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter ModelApprovalStatus
         /// <summary>
         /// <para>
@@ -508,6 +520,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.ModelApprovalStatus")]
         public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
+        #endregion
+        
+        #region Parameter ModelCard_ModelCardContent
+        /// <summary>
+        /// <para>
+        /// <para>The content of the model card.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelCard_ModelCardContent { get; set; }
+        #endregion
+        
+        #region Parameter ModelCard_ModelCardStatus
+        /// <summary>
+        /// <para>
+        /// <para>The approval status of the model card within your organization. Different organizations
+        /// might have different criteria for model card review and approval.</para><ul><li><para><c>Draft</c>: The model card is a work in progress.</para></li><li><para><c>PendingReview</c>: The model card is pending review.</para></li><li><para><c>Approved</c>: The model card is approved.</para></li><li><para><c>Archived</c>: The model card is archived. No more updates can be made to the model
+        /// card content. If you try to update the model card content, you will receive the message
+        /// <c>Model Card is in Archived state</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ModelCardStatus")]
+        public Amazon.SageMaker.ModelCardStatus ModelCard_ModelCardStatus { get; set; }
         #endregion
         
         #region Parameter ModelPackageDescription
@@ -1026,6 +1062,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.MetadataProperties_ProjectId = this.MetadataProperties_ProjectId;
             context.MetadataProperties_Repository = this.MetadataProperties_Repository;
             context.ModelApprovalStatus = this.ModelApprovalStatus;
+            context.ModelCard_ModelCardContent = this.ModelCard_ModelCardContent;
+            context.ModelCard_ModelCardStatus = this.ModelCard_ModelCardStatus;
             context.PostTrainingReport_ContentDigest = this.PostTrainingReport_ContentDigest;
             context.PostTrainingReport_ContentType = this.PostTrainingReport_ContentType;
             context.PostTrainingReport_S3Uri = this.PostTrainingReport_S3Uri;
@@ -1054,6 +1092,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ModelPackageGroupName = this.ModelPackageGroupName;
             context.ModelPackageName = this.ModelPackageName;
             context.SamplePayloadUrl = this.SamplePayloadUrl;
+            context.SecurityConfig_KmsKeyId = this.SecurityConfig_KmsKeyId;
             context.SkipModelValidation = this.SkipModelValidation;
             if (this.SourceAlgorithmSpecification_SourceAlgorithm != null)
             {
@@ -1693,6 +1732,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.ModelApprovalStatus = cmdletContext.ModelApprovalStatus;
             }
             
+             // populate ModelCard
+            var requestModelCardIsNull = true;
+            request.ModelCard = new Amazon.SageMaker.Model.ModelPackageModelCard();
+            System.String requestModelCard_modelCard_ModelCardContent = null;
+            if (cmdletContext.ModelCard_ModelCardContent != null)
+            {
+                requestModelCard_modelCard_ModelCardContent = cmdletContext.ModelCard_ModelCardContent;
+            }
+            if (requestModelCard_modelCard_ModelCardContent != null)
+            {
+                request.ModelCard.ModelCardContent = requestModelCard_modelCard_ModelCardContent;
+                requestModelCardIsNull = false;
+            }
+            Amazon.SageMaker.ModelCardStatus requestModelCard_modelCard_ModelCardStatus = null;
+            if (cmdletContext.ModelCard_ModelCardStatus != null)
+            {
+                requestModelCard_modelCard_ModelCardStatus = cmdletContext.ModelCard_ModelCardStatus;
+            }
+            if (requestModelCard_modelCard_ModelCardStatus != null)
+            {
+                request.ModelCard.ModelCardStatus = requestModelCard_modelCard_ModelCardStatus;
+                requestModelCardIsNull = false;
+            }
+             // determine if request.ModelCard should be set to null
+            if (requestModelCardIsNull)
+            {
+                request.ModelCard = null;
+            }
+            
              // populate ModelMetrics
             var requestModelMetricsIsNull = true;
             request.ModelMetrics = new Amazon.SageMaker.Model.ModelMetrics();
@@ -2137,6 +2205,25 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.SamplePayloadUrl = cmdletContext.SamplePayloadUrl;
             }
+            
+             // populate SecurityConfig
+            var requestSecurityConfigIsNull = true;
+            request.SecurityConfig = new Amazon.SageMaker.Model.ModelPackageSecurityConfig();
+            System.String requestSecurityConfig_securityConfig_KmsKeyId = null;
+            if (cmdletContext.SecurityConfig_KmsKeyId != null)
+            {
+                requestSecurityConfig_securityConfig_KmsKeyId = cmdletContext.SecurityConfig_KmsKeyId;
+            }
+            if (requestSecurityConfig_securityConfig_KmsKeyId != null)
+            {
+                request.SecurityConfig.KmsKeyId = requestSecurityConfig_securityConfig_KmsKeyId;
+                requestSecurityConfigIsNull = false;
+            }
+             // determine if request.SecurityConfig should be set to null
+            if (requestSecurityConfigIsNull)
+            {
+                request.SecurityConfig = null;
+            }
             if (cmdletContext.SkipModelValidation != null)
             {
                 request.SkipModelValidation = cmdletContext.SkipModelValidation;
@@ -2304,6 +2391,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String MetadataProperties_ProjectId { get; set; }
             public System.String MetadataProperties_Repository { get; set; }
             public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
+            public System.String ModelCard_ModelCardContent { get; set; }
+            public Amazon.SageMaker.ModelCardStatus ModelCard_ModelCardStatus { get; set; }
             public System.String PostTrainingReport_ContentDigest { get; set; }
             public System.String PostTrainingReport_ContentType { get; set; }
             public System.String PostTrainingReport_S3Uri { get; set; }
@@ -2332,6 +2421,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ModelPackageGroupName { get; set; }
             public System.String ModelPackageName { get; set; }
             public System.String SamplePayloadUrl { get; set; }
+            public System.String SecurityConfig_KmsKeyId { get; set; }
             public Amazon.SageMaker.SkipModelValidation SkipModelValidation { get; set; }
             public List<Amazon.SageMaker.Model.SourceAlgorithm> SourceAlgorithmSpecification_SourceAlgorithm { get; set; }
             public System.String SourceUri { get; set; }

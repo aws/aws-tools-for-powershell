@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>This parameter defines the maximum number of results that can be returned in a single
+        /// <para>This parameter defines the maximum number of results that can be return in a single
         /// response. The <c>MaxResults</c> parameter is an upper bound, not a target. If there
         /// are more results available than the value specified, a <c>NextToken</c> is provided
         /// in the response. The <c>NextToken</c> indicates that the user should get the next

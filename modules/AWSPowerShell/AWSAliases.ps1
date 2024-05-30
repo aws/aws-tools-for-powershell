@@ -2353,6 +2353,12 @@ Set-Alias -Name BAR-RetrieveAndGenerate -Value Invoke-BARRetrieveAndGenerate
 Set-Alias -Name Retrieve-BAR -Value Invoke-BARRetrieve
 Set-Alias -Name Retrieve-BARRetrieve -Value Invoke-BARRetrieve
 Set-Alias -Name BAR-Retrieve -Value Invoke-BARRetrieve
+Set-Alias -Name Converse-BDRR -Value Invoke-BDRRConverse
+Set-Alias -Name Converse-BDRRConverse -Value Invoke-BDRRConverse
+Set-Alias -Name BDRR-Converse -Value Invoke-BDRRConverse
+Set-Alias -Name Converse-BDRRStream -Value Invoke-BDRRConverseStream
+Set-Alias -Name Converse-BDRRConverseStream -Value Invoke-BDRRConverseStream
+Set-Alias -Name BDRR-ConverseStream -Value Invoke-BDRRConverseStream
 Set-Alias -Name BDRR-InvokeModel -Value Invoke-BDRRModel
 Set-Alias -Name BDRR-InvokeModelWithResponseStream -Value Invoke-BDRRModelWithResponseStream
 Set-Alias -Name Associate-ABCAccounts -Value Register-ABCAccount
@@ -11182,6 +11188,9 @@ Set-Alias -Name EMRServerless-GetJobRun -Value Get-EMRServerlessJobRun
 Set-Alias -Name List-EMRServerlessApplications -Value Get-EMRServerlessApplicationList
 Set-Alias -Name List-EMRServerlessApplicationList -Value Get-EMRServerlessApplicationList
 Set-Alias -Name EMRServerless-ListApplications -Value Get-EMRServerlessApplicationList
+Set-Alias -Name List-EMRServerlessJobRunAttempts -Value Get-EMRServerlessJobRunAttemptList
+Set-Alias -Name List-EMRServerlessJobRunAttemptList -Value Get-EMRServerlessJobRunAttemptList
+Set-Alias -Name EMRServerless-ListJobRunAttempts -Value Get-EMRServerlessJobRunAttemptList
 Set-Alias -Name List-EMRServerlessJobRuns -Value Get-EMRServerlessJobRunList
 Set-Alias -Name List-EMRServerlessJobRunList -Value Get-EMRServerlessJobRunList
 Set-Alias -Name EMRServerless-ListJobRuns -Value Get-EMRServerlessJobRunList

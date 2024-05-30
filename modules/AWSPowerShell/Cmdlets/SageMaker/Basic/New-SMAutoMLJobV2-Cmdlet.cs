@@ -89,23 +89,59 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Collections.Hashtable Transformations_Aggregation { get; set; }
         #endregion
         
-        #region Parameter CandidateGenerationConfig_AlgorithmsConfig
+        #region Parameter TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig
         /// <summary>
         /// <para>
-        /// <para>Stores the configuration information for the selection of algorithms used to train
-        /// model candidates on tabular data.</para><para>The list of available algorithms to choose from depends on the training mode set in
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html"><c>TabularJobConfig.Mode</c></a>.</para><ul><li><para><c>AlgorithmsConfig</c> should not be set in <c>AUTO</c> training mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
+        /// <para>Your Autopilot job trains a default set of algorithms on your dataset. For tabular
+        /// and time-series data, you can customize the algorithm list by selecting a subset of
+        /// algorithms for your problem type.</para><para><c>AlgorithmsConfig</c> stores the customized selection of algorithms to train on
+        /// your data.</para><ul><li><para><b>For the tabular problem type <c>TabularJobConfig</c>,</b> the list of available
+        /// algorithms to choose from depends on the training mode set in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html"><c>AutoMLJobConfig.Mode</c></a>.</para><ul><li><para><c>AlgorithmsConfig</c> should not be set when the training mode <c>AutoMLJobConfig.Mode</c>
+        /// is set to <c>AUTO</c>.</para></li><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
         /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
         /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for the given training
         /// mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
-        /// the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
-        /// AutoMLAlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
-        /// support</a> section in Autopilot developer guide.</para>
+        /// the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// AlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
+        /// support</a> section in the Autopilot developer guide.</para></li><li><para><b>For the time-series forecasting problem type <c>TimeSeriesForecastingJobConfig</c>,</b>
+        /// choose your algorithms from the list provided in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// AlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-forecasting-algorithms.html">Algorithms
+        /// support for time-series forecasting</a> section in the Autopilot developer guide.</para><ul><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
+        /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
+        /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for time-series forecasting.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
+        /// the full set of algorithms for time-series forecasting.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig")]
-        public Amazon.SageMaker.Model.AutoMLAlgorithmConfig[] CandidateGenerationConfig_AlgorithmsConfig { get; set; }
+        [Alias("AutoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig","CandidateGenerationConfig_AlgorithmsConfig")]
+        public Amazon.SageMaker.Model.AutoMLAlgorithmConfig[] TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig { get; set; }
+        #endregion
+        
+        #region Parameter AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig
+        /// <summary>
+        /// <para>
+        /// <para>Your Autopilot job trains a default set of algorithms on your dataset. For tabular
+        /// and time-series data, you can customize the algorithm list by selecting a subset of
+        /// algorithms for your problem type.</para><para><c>AlgorithmsConfig</c> stores the customized selection of algorithms to train on
+        /// your data.</para><ul><li><para><b>For the tabular problem type <c>TabularJobConfig</c>,</b> the list of available
+        /// algorithms to choose from depends on the training mode set in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html"><c>AutoMLJobConfig.Mode</c></a>.</para><ul><li><para><c>AlgorithmsConfig</c> should not be set when the training mode <c>AutoMLJobConfig.Mode</c>
+        /// is set to <c>AUTO</c>.</para></li><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
+        /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
+        /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for the given training
+        /// mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
+        /// the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// AlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
+        /// support</a> section in the Autopilot developer guide.</para></li><li><para><b>For the time-series forecasting problem type <c>TimeSeriesForecastingJobConfig</c>,</b>
+        /// choose your algorithms from the list provided in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// AlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/timeseries-forecasting-algorithms.html">Algorithms
+        /// support for time-series forecasting</a> section in the Autopilot developer guide.</para><ul><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
+        /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
+        /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for time-series forecasting.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
+        /// the full set of algorithms for time-series forecasting.</para></li></ul></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.SageMaker.Model.AutoMLAlgorithmConfig[] AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig { get; set; }
         #endregion
         
         #region Parameter ModelDeployConfig_AutoGenerateEndpointName
@@ -919,9 +955,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidate = this.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidate;
             context.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond = this.AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond;
-            if (this.CandidateGenerationConfig_AlgorithmsConfig != null)
+            if (this.TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig != null)
             {
-                context.CandidateGenerationConfig_AlgorithmsConfig = new List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig>(this.CandidateGenerationConfig_AlgorithmsConfig);
+                context.TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig = new List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig>(this.TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig);
             }
             context.CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.CompletionCriteria_MaxCandidate = this.CompletionCriteria_MaxCandidate;
@@ -949,6 +985,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 {
                     context.TextGenerationJobConfig_TextGenerationHyperParameter.Add((String)hashKey, (System.String)(this.TextGenerationJobConfig_TextGenerationHyperParameter[hashKey]));
                 }
+            }
+            if (this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig = new List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig>(this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig);
             }
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond;
             context.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate = this.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate;
@@ -1381,14 +1421,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate CandidateGenerationConfig
             var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = true;
             requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.CandidateGenerationConfig();
-            List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = null;
-            if (cmdletContext.CandidateGenerationConfig_AlgorithmsConfig != null)
+            List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_tabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig = null;
+            if (cmdletContext.TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig != null)
             {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig = cmdletContext.CandidateGenerationConfig_AlgorithmsConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_tabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig = cmdletContext.TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig;
             }
-            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig != null)
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_tabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig != null)
             {
-                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig.AlgorithmsConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_candidateGenerationConfig_AlgorithmsConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig.AlgorithmsConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig_tabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig;
                 requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfigIsNull = false;
             }
              // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TabularJobConfig_autoMLProblemTypeConfig_TabularJobConfig_CandidateGenerationConfig should be set to null
@@ -1509,6 +1549,31 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_HolidayConfig != null)
             {
                 requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig.HolidayConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_timeSeriesForecastingJobConfig_HolidayConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.Model.CandidateGenerationConfig requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig = null;
+            
+             // populate CandidateGenerationConfig
+            var requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfigIsNull = true;
+            requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig = new Amazon.SageMaker.Model.CandidateGenerationConfig();
+            List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig = null;
+            if (cmdletContext.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig = cmdletContext.AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig.AlgorithmsConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig;
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfigIsNull = false;
+            }
+             // determine if requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig should be set to null
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfigIsNull)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig = null;
+            }
+            if (requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig != null)
+            {
+                requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig.CandidateGenerationConfig = requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig;
                 requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.TimeSeriesTransformations requestAutoMLProblemTypeConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_autoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_Transformations = null;
@@ -1877,7 +1942,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_ImageClassificationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
-            public List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> CandidateGenerationConfig_AlgorithmsConfig { get; set; }
+            public List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> TabularJobConfig_CandidateGenerationConfig_AlgorithmsConfig { get; set; }
             public System.Int32? CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
@@ -1898,6 +1963,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? AutoMLProblemTypeConfig_TextGenerationJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }
             public System.Boolean? ModelAccessConfig_AcceptEula { get; set; }
             public Dictionary<System.String, System.String> TextGenerationJobConfig_TextGenerationHyperParameter { get; set; }
+            public List<Amazon.SageMaker.Model.AutoMLAlgorithmConfig> AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxAutoMLJobRuntimeInSecond { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxCandidate { get; set; }
             public System.Int32? AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CompletionCriteria_MaxRuntimePerTrainingJobInSecond { get; set; }

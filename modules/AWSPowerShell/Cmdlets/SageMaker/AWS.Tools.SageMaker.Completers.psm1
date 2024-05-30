@@ -787,6 +787,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ModelCardStatus
         {
+            ($_ -eq "New-SMModelPackage/ModelCard_ModelCardStatus") -Or
+            ($_ -eq "Update-SMModelPackage/ModelCard_ModelCardStatus") -Or
             ($_ -eq "Get-SMModelCardList/ModelCardStatus") -Or
             ($_ -eq "Get-SMModelCardVersionList/ModelCardStatus") -Or
             ($_ -eq "New-SMModelCard/ModelCardStatus") -Or
@@ -1536,6 +1538,7 @@ $SM_map = @{
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
+    "ModelCard_ModelCardStatus"=@("New-SMModelPackage","Update-SMModelPackage")
     "ModelCardStatus"=@("Get-SMModelCardList","Get-SMModelCardVersionList","New-SMModelCard","Update-SMModelCard")
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")

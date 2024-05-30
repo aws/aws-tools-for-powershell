@@ -240,6 +240,40 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String S3MonitoringConfiguration_LogUri { get; set; }
         #endregion
         
+        #region Parameter RetryPolicy_MaxAttempt
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of attempts for the job run. This parameter is only applicable for
+        /// <c>BATCH</c> mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetryPolicy_MaxAttempts")]
+        public System.Int32? RetryPolicy_MaxAttempt { get; set; }
+        #endregion
+        
+        #region Parameter RetryPolicy_MaxFailedAttemptsPerHour
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of failed attempts per hour. This [arameter is only applicable for
+        /// <c>STREAMING</c> mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? RetryPolicy_MaxFailedAttemptsPerHour { get; set; }
+        #endregion
+        
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>The mode of the job run when it starts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EMRServerless.JobRunMode")]
+        public Amazon.EMRServerless.JobRunMode Mode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -437,7 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 context.SparkSubmit_EntryPointArgument = new List<System.String>(this.SparkSubmit_EntryPointArgument);
             }
             context.SparkSubmit_SparkSubmitParameter = this.SparkSubmit_SparkSubmitParameter;
+            context.Mode = this.Mode;
             context.Name = this.Name;
+            context.RetryPolicy_MaxAttempt = this.RetryPolicy_MaxAttempt;
+            context.RetryPolicy_MaxFailedAttemptsPerHour = this.RetryPolicy_MaxFailedAttemptsPerHour;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -771,9 +808,42 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 request.JobDriver = null;
             }
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate RetryPolicy
+            var requestRetryPolicyIsNull = true;
+            request.RetryPolicy = new Amazon.EMRServerless.Model.RetryPolicy();
+            System.Int32? requestRetryPolicy_retryPolicy_MaxAttempt = null;
+            if (cmdletContext.RetryPolicy_MaxAttempt != null)
+            {
+                requestRetryPolicy_retryPolicy_MaxAttempt = cmdletContext.RetryPolicy_MaxAttempt.Value;
+            }
+            if (requestRetryPolicy_retryPolicy_MaxAttempt != null)
+            {
+                request.RetryPolicy.MaxAttempts = requestRetryPolicy_retryPolicy_MaxAttempt.Value;
+                requestRetryPolicyIsNull = false;
+            }
+            System.Int32? requestRetryPolicy_retryPolicy_MaxFailedAttemptsPerHour = null;
+            if (cmdletContext.RetryPolicy_MaxFailedAttemptsPerHour != null)
+            {
+                requestRetryPolicy_retryPolicy_MaxFailedAttemptsPerHour = cmdletContext.RetryPolicy_MaxFailedAttemptsPerHour.Value;
+            }
+            if (requestRetryPolicy_retryPolicy_MaxFailedAttemptsPerHour != null)
+            {
+                request.RetryPolicy.MaxFailedAttemptsPerHour = requestRetryPolicy_retryPolicy_MaxFailedAttemptsPerHour.Value;
+                requestRetryPolicyIsNull = false;
+            }
+             // determine if request.RetryPolicy should be set to null
+            if (requestRetryPolicyIsNull)
+            {
+                request.RetryPolicy = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -861,7 +931,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.String SparkSubmit_EntryPoint { get; set; }
             public List<System.String> SparkSubmit_EntryPointArgument { get; set; }
             public System.String SparkSubmit_SparkSubmitParameter { get; set; }
+            public Amazon.EMRServerless.JobRunMode Mode { get; set; }
             public System.String Name { get; set; }
+            public System.Int32? RetryPolicy_MaxAttempt { get; set; }
+            public System.Int32? RetryPolicy_MaxFailedAttemptsPerHour { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.EMRServerless.Model.StartJobRunResponse, StartEMRServerlessJobRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

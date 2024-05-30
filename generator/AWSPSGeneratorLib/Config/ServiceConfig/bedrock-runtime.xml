@@ -18,6 +18,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="Converse" OutputProperty="*" Verb="Invoke" Noun="Converse" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConverseStream" OutputProperty="Stream" Verb="Invoke" Noun="ConverseStream" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InvokeModel" OutputProperty="*" Verb="Invoke" Noun="Model" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

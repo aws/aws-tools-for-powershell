@@ -586,8 +586,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter S3IngestionRoleArn
         /// <summary>
         /// <para>
-        /// <para>An Amazon Web Services Identity and Access Management (IAM) role to allow Amazon RDS
-        /// to access your Amazon S3 bucket.</para>
+        /// <para>An Amazon Web Services Identity and Access Management (IAM) role with a trust policy
+        /// and a permissions policy that allows Amazon RDS to access your Amazon S3 bucket. For
+        /// information about this role, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Procedural.Importing.html#MySQL.Procedural.Importing.Enabling.IAM">
+        /// Creating an IAM role manually</a> in the <i>Amazon RDS User Guide.</i></para>
         /// </para>
         /// </summary>
         #if !MODULAR

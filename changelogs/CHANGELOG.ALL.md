@@ -1,4 +1,23 @@
-﻿### 4.1.589 (2024-05-29 20:53Z)
+﻿### 4.1.590 (2024-05-30 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.821.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Modified cmdlet New-AABKnowledgeBase: added parameter BedrockEmbeddingModelConfiguration_Dimension.
+    * Modified cmdlet Update-AABKnowledgeBase: added parameter BedrockEmbeddingModelConfiguration_Dimension.
+  * Amazon Bedrock Runtime
+    * Added cmdlet Invoke-BDRRConverse leveraging the Converse service API.
+    * Added cmdlet Invoke-BDRRConverseStream leveraging the ConverseStream service API.
+  * Amazon EMR Serverless
+    * Added cmdlet Get-EMRServerlessJobRunAttemptList leveraging the ListJobRunAttempts service API.
+    * Modified cmdlet Get-EMRServerlessDashboardForJobRun: added parameter Attempt.
+    * Modified cmdlet Get-EMRServerlessJobRun: added parameter Attempt.
+    * Modified cmdlet Get-EMRServerlessJobRunList: added parameter Mode.
+    * Modified cmdlet Start-EMRServerlessJobRun: added parameters Mode, RetryPolicy_MaxAttempt and RetryPolicy_MaxFailedAttemptsPerHour.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJobV2: added parameter AutoMLProblemTypeConfig_TimeSeriesForecastingJobConfig_CandidateGenerationConfig_AlgorithmsConfig.
+    * Modified cmdlet New-SMModelPackage: added parameters ModelCard_ModelCardContent, ModelCard_ModelCardStatus and SecurityConfig_KmsKeyId.
+    * Modified cmdlet Update-SMModelPackage: added parameters ModelCard_ModelCardContent and ModelCard_ModelCardStatus.
+
+### 4.1.589 (2024-05-29 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.820.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeBuild
     * Modified cmdlet New-CBWebhook: added parameter ManualCreation.

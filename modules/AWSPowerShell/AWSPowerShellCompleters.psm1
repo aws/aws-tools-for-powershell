@@ -6611,7 +6611,9 @@ $BDRR_SelectCompleters = {
 }
 
 $BDRR_SelectMap = @{
-    "Select"=@("Invoke-BDRRModel",
+    "Select"=@("Invoke-BDRRConverse",
+               "Invoke-BDRRConverseStream",
+               "Invoke-BDRRModel",
                "Invoke-BDRRModelWithResponseStream")
 }
 
@@ -26728,6 +26730,16 @@ $EMRServerless_Completers = {
             break
         }
 
+        # Amazon.EMRServerless.JobRunMode
+        {
+            ($_ -eq "Get-EMRServerlessJobRunList/Mode") -Or
+            ($_ -eq "Start-EMRServerlessJobRun/Mode")
+        }
+        {
+            $v = "BATCH","STREAMING"
+            break
+        }
+
 
     }
 
@@ -26738,6 +26750,7 @@ $EMRServerless_Completers = {
 
 $EMRServerless_map = @{
     "Architecture"=@("New-EMRServerlessApplication","Update-EMRServerlessApplication")
+    "Mode"=@("Get-EMRServerlessJobRunList","Start-EMRServerlessJobRun")
 }
 
 _awsArgumentCompleterRegistration $EMRServerless_Completers $EMRServerless_map
@@ -26797,6 +26810,7 @@ $EMRServerless_SelectMap = @{
                "Get-EMRServerlessDashboardForJobRun",
                "Get-EMRServerlessJobRun",
                "Get-EMRServerlessApplicationList",
+               "Get-EMRServerlessJobRunAttemptList",
                "Get-EMRServerlessJobRunList",
                "Get-EMRServerlessResourceTagList",
                "Start-EMRServerlessApplication",
@@ -59391,6 +59405,8 @@ $SM_Completers = {
 
         # Amazon.SageMaker.ModelCardStatus
         {
+            ($_ -eq "New-SMModelPackage/ModelCard_ModelCardStatus") -Or
+            ($_ -eq "Update-SMModelPackage/ModelCard_ModelCardStatus") -Or
             ($_ -eq "Get-SMModelCardList/ModelCardStatus") -Or
             ($_ -eq "Get-SMModelCardVersionList/ModelCardStatus") -Or
             ($_ -eq "New-SMModelCard/ModelCardStatus") -Or
@@ -60140,6 +60156,7 @@ $SM_map = @{
     "LinearStepSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "MaximumBatchSize_Type"=@("New-SMEndpoint","Update-SMEndpoint")
     "ModelApprovalStatus"=@("Get-SMModelPackageList","New-SMModelPackage","Update-SMModelPackage")
+    "ModelCard_ModelCardStatus"=@("New-SMModelPackage","Update-SMModelPackage")
     "ModelCardStatus"=@("Get-SMModelCardList","Get-SMModelCardVersionList","New-SMModelCard","Update-SMModelCard")
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")

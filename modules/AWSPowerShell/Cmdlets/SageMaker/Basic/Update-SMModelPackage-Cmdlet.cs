@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMModelPackageCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AdditionalInferenceSpecificationsToAdd
@@ -107,6 +109,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.SageMaker.ModelApprovalStatus")]
         public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
+        #endregion
+        
+        #region Parameter ModelCard_ModelCardContent
+        /// <summary>
+        /// <para>
+        /// <para>The content of the model card.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ModelCard_ModelCardContent { get; set; }
+        #endregion
+        
+        #region Parameter ModelCard_ModelCardStatus
+        /// <summary>
+        /// <para>
+        /// <para>The approval status of the model card within your organization. Different organizations
+        /// might have different criteria for model card review and approval.</para><ul><li><para><c>Draft</c>: The model card is a work in progress.</para></li><li><para><c>PendingReview</c>: The model card is pending review.</para></li><li><para><c>Approved</c>: The model card is approved.</para></li><li><para><c>Archived</c>: The model card is archived. No more updates can be made to the model
+        /// card content. If you try to update the model card content, you will receive the message
+        /// <c>Model Card is in Archived state</c>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ModelCardStatus")]
+        public Amazon.SageMaker.ModelCardStatus ModelCard_ModelCardStatus { get; set; }
         #endregion
         
         #region Parameter ModelPackageArn
@@ -281,6 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.InferenceSpecification_SupportedTransformInstanceType = new List<System.String>(this.InferenceSpecification_SupportedTransformInstanceType);
             }
             context.ModelApprovalStatus = this.ModelApprovalStatus;
+            context.ModelCard_ModelCardContent = this.ModelCard_ModelCardContent;
+            context.ModelCard_ModelCardStatus = this.ModelCard_ModelCardStatus;
             context.ModelPackageArn = this.ModelPackageArn;
             #if MODULAR
             if (this.ModelPackageArn == null && ParameterWasBound(nameof(this.ModelPackageArn)))
@@ -384,6 +412,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.ModelApprovalStatus = cmdletContext.ModelApprovalStatus;
             }
+            
+             // populate ModelCard
+            var requestModelCardIsNull = true;
+            request.ModelCard = new Amazon.SageMaker.Model.ModelPackageModelCard();
+            System.String requestModelCard_modelCard_ModelCardContent = null;
+            if (cmdletContext.ModelCard_ModelCardContent != null)
+            {
+                requestModelCard_modelCard_ModelCardContent = cmdletContext.ModelCard_ModelCardContent;
+            }
+            if (requestModelCard_modelCard_ModelCardContent != null)
+            {
+                request.ModelCard.ModelCardContent = requestModelCard_modelCard_ModelCardContent;
+                requestModelCardIsNull = false;
+            }
+            Amazon.SageMaker.ModelCardStatus requestModelCard_modelCard_ModelCardStatus = null;
+            if (cmdletContext.ModelCard_ModelCardStatus != null)
+            {
+                requestModelCard_modelCard_ModelCardStatus = cmdletContext.ModelCard_ModelCardStatus;
+            }
+            if (requestModelCard_modelCard_ModelCardStatus != null)
+            {
+                request.ModelCard.ModelCardStatus = requestModelCard_modelCard_ModelCardStatus;
+                requestModelCardIsNull = false;
+            }
+             // determine if request.ModelCard should be set to null
+            if (requestModelCardIsNull)
+            {
+                request.ModelCard = null;
+            }
             if (cmdletContext.ModelPackageArn != null)
             {
                 request.ModelPackageArn = cmdletContext.ModelPackageArn;
@@ -463,6 +520,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> InferenceSpecification_SupportedResponseMIMEType { get; set; }
             public List<System.String> InferenceSpecification_SupportedTransformInstanceType { get; set; }
             public Amazon.SageMaker.ModelApprovalStatus ModelApprovalStatus { get; set; }
+            public System.String ModelCard_ModelCardContent { get; set; }
+            public Amazon.SageMaker.ModelCardStatus ModelCard_ModelCardStatus { get; set; }
             public System.String ModelPackageArn { get; set; }
             public System.String SourceUri { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateModelPackageResponse, UpdateSMModelPackageCmdlet, object> Select { get; set; } =

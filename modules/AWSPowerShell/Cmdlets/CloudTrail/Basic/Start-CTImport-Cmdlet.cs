@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// <c>CloudTrail</c> prefix and the prefixes inside the <c>CloudTrail</c> prefix, and
     /// does not check prefixes for other Amazon Web Services services. If you want to import
     /// CloudTrail events contained in another prefix, you must include the prefix in the
-    /// <c>S3LocationUri</c>. For more considerations about importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations</a>.
-    /// 
+    /// <c>S3LocationUri</c>. For more considerations about importing trail events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-copy-trail-to-lake.html#cloudtrail-trail-copy-considerations">Considerations
+    /// for copying trail events</a> in the <i>CloudTrail User Guide</i>. 
     /// 
     ///  
     /// <para>

@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.DateTime? CreatedAtBefore { get; set; }
         #endregion
         
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>The mode of the job runs to list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EMRServerless.JobRunMode")]
+        public Amazon.EMRServerless.JobRunMode Mode { get; set; }
+        #endregion
+        
         #region Parameter State
         /// <summary>
         /// <para>
@@ -168,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             context.CreatedAtAfter = this.CreatedAtAfter;
             context.CreatedAtBefore = this.CreatedAtBefore;
             context.MaxResult = this.MaxResult;
+            context.Mode = this.Mode;
             context.NextToken = this.NextToken;
             if (this.State != null)
             {
@@ -204,6 +216,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -278,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public System.DateTime? CreatedAtAfter { get; set; }
             public System.DateTime? CreatedAtBefore { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public Amazon.EMRServerless.JobRunMode Mode { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> State { get; set; }
             public System.Func<Amazon.EMRServerless.Model.ListJobRunsResponse, GetEMRServerlessJobRunListCmdlet, object> Select { get; set; } =

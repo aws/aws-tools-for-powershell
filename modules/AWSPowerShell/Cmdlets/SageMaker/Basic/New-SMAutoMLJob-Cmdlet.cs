@@ -61,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CandidateGenerationConfig_AlgorithmsConfig
         /// <summary>
         /// <para>
-        /// <para>Stores the configuration information for the selection of algorithms used to train
-        /// the model candidates.</para><para>The list of available algorithms to choose from depends on the training mode set in
-        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLJobConfig.html"><c>AutoMLJobConfig.Mode</c></a>.</para><ul><li><para><c>AlgorithmsConfig</c> should not be set in <c>AUTO</c> training mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
+        /// <para>Stores the configuration information for the selection of algorithms trained on tabular
+        /// data.</para><para>The list of available algorithms to choose from depends on the training mode set in
+        /// <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TabularJobConfig.html"><c>TabularJobConfig.Mode</c></a>.</para><ul><li><para><c>AlgorithmsConfig</c> should not be set if the training mode is set on <c>AUTO</c>.</para></li><li><para>When <c>AlgorithmsConfig</c> is provided, one <c>AutoMLAlgorithms</c> attribute must
         /// be set and one only.</para><para>If the list of algorithms provided as values for <c>AutoMLAlgorithms</c> is empty,
-        /// <c>AutoMLCandidateGenerationConfig</c> uses the full set of algorithms for the given
-        /// training mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>AutoMLCandidateGenerationConfig</c>
-        /// uses the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
+        /// <c>CandidateGenerationConfig</c> uses the full set of algorithms for the given training
+        /// mode.</para></li><li><para>When <c>AlgorithmsConfig</c> is not provided, <c>CandidateGenerationConfig</c> uses
+        /// the full set of algorithms for the given training mode.</para></li></ul><para>For the list of all algorithms per problem type and training mode, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLAlgorithmConfig.html">
         /// AutoMLAlgorithmConfig</a>.</para><para>For more information on each algorithm, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-model-support-validation.html#autopilot-algorithm-support">Algorithm
         /// support</a> section in Autopilot developer guide.</para>
         /// </para>

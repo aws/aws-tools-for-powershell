@@ -152,7 +152,9 @@ $BDRR_SelectCompleters = {
 }
 
 $BDRR_SelectMap = @{
-    "Select"=@("Invoke-BDRRModel",
+    "Select"=@("Invoke-BDRRConverse",
+               "Invoke-BDRRConverseStream",
+               "Invoke-BDRRModel",
                "Invoke-BDRRModelWithResponseStream")
 }
 

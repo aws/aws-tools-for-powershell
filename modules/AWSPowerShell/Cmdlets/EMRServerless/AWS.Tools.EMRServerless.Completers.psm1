@@ -90,6 +90,16 @@ $EMRServerless_Completers = {
             break
         }
 
+        # Amazon.EMRServerless.JobRunMode
+        {
+            ($_ -eq "Get-EMRServerlessJobRunList/Mode") -Or
+            ($_ -eq "Start-EMRServerlessJobRun/Mode")
+        }
+        {
+            $v = "BATCH","STREAMING"
+            break
+        }
+
 
     }
 
@@ -100,6 +110,7 @@ $EMRServerless_Completers = {
 
 $EMRServerless_map = @{
     "Architecture"=@("New-EMRServerlessApplication","Update-EMRServerlessApplication")
+    "Mode"=@("Get-EMRServerlessJobRunList","Start-EMRServerlessJobRun")
 }
 
 _awsArgumentCompleterRegistration $EMRServerless_Completers $EMRServerless_map
@@ -159,6 +170,7 @@ $EMRServerless_SelectMap = @{
                "Get-EMRServerlessDashboardForJobRun",
                "Get-EMRServerlessJobRun",
                "Get-EMRServerlessApplicationList",
+               "Get-EMRServerlessJobRunAttemptList",
                "Get-EMRServerlessJobRunList",
                "Get-EMRServerlessResourceTagList",
                "Start-EMRServerlessApplication",

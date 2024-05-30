@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter Attempt
+        /// <summary>
+        /// <para>
+        /// <para>An optimal parameter that indicates the amount of attempts for the job. If not specified,
+        /// this value defaults to the attempt of the latest job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? Attempt { get; set; }
+        #endregion
+        
         #region Parameter JobRunId
         /// <summary>
         /// <para>
@@ -131,6 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Attempt = this.Attempt;
             context.JobRunId = this.JobRunId;
             #if MODULAR
             if (this.JobRunId == null && ParameterWasBound(nameof(this.JobRunId)))
@@ -157,6 +169,10 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.Attempt != null)
+            {
+                request.Attempt = cmdletContext.Attempt.Value;
             }
             if (cmdletContext.JobRunId != null)
             {
@@ -224,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public System.Int32? Attempt { get; set; }
             public System.String JobRunId { get; set; }
             public System.Func<Amazon.EMRServerless.Model.GetJobRunResponse, GetEMRServerlessJobRunCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobRun;
