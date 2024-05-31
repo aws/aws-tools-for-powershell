@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Utils
 
             InternalSDKUtils.SetUserAgent(moduleName,
                                           TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
-                                          string.Format("{0}/{1}.{2}", platform, hostVersion.Major, hostVersion.MajorRevision));
+                                          string.Format("md/{0}/{1}.{2}", platform, hostVersion.Major, hostVersion.MajorRevision));
         }
 
         public static void CopyStream(Stream source, Stream destination, int bufferSize = 8192)
