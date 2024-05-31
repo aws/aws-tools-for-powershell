@@ -28,7 +28,7 @@ using Amazon.CodeGuruSecurity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGS
 {
     /// <summary>
-    /// Use to get account level configuration.
+    /// Use to get the encryption configuration for an account.
     /// </summary>
     [Cmdlet("Get", "CGSAccountConfiguration")]
     [OutputType("Amazon.CodeGuruSecurity.Model.EncryptionConfig")]

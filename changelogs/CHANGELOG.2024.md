@@ -1,4 +1,13 @@
-﻿### 4.1.590 (2024-05-30 20:54Z)
+﻿### 4.1.591 (2024-05-31 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.822.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Launch Wizard
+    * Added cmdlet Add-LWIZResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-LWIZResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-LWIZWorkloadDeploymentPattern leveraging the GetWorkloadDeploymentPattern service API.
+    * Added cmdlet Remove-LWIZResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-LWIZDeployment: added parameter Tag.
+
+### 4.1.590 (2024-05-30 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.821.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Modified cmdlet New-AABKnowledgeBase: added parameter BedrockEmbeddingModelConfiguration_Dimension.

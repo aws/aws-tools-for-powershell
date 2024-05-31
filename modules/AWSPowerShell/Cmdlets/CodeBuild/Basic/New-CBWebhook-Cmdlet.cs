@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>If manualCreation is true, CodeBuild doesn't create a webhook in GitHub and instead
         /// returns <c>payloadUrl</c> and <c>secret</c> values for the webhook. The <c>payloadUrl</c>
         /// and <c>secret</c> values in the output can be used to manually create a webhook within
-        /// GitHub.</para><note><para>manualCreation is only available for GitHub webhooks.</para></note>
+        /// GitHub.</para><note><para><c>manualCreation</c> is only available for GitHub webhooks.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

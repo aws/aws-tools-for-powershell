@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Represents the input of a <c>TestFailover</c> operation which test automatic failover
+    /// Represents the input of a <c>TestFailover</c> operation which tests automatic failover
     /// on a specified node group (called shard in the console) in a replication group (called
     /// cluster in the console).
     /// 
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// overcome a problem you may have with the cluster. Moreover, in certain conditions
     /// such as large-scale operational events, Amazon may block this API. 
     /// </para><para><b>Note the following</b></para><ul><li><para>
-    /// A customer can use this operation to test automatic failover on up to 5 shards (called
+    /// A customer can use this operation to test automatic failover on up to 15 shards (called
     /// node groups in the ElastiCache API and Amazon CLI) in any rolling 24-hour period.
     /// </para></li><li><para>
     /// If calling this operation on shards in different clusters (called replication groups
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the node group (called shard in the console) in this replication group
         /// on which automatic failover is to be tested. You may test automatic failover on up
-        /// to 5 node groups in any rolling 24-hour period.</para>
+        /// to 15 node groups in any rolling 24-hour period.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

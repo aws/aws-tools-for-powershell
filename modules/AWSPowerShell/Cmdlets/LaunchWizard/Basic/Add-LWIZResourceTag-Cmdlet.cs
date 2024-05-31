@@ -22,41 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeGuruSecurity;
-using Amazon.CodeGuruSecurity.Model;
+using Amazon.LaunchWizard;
+using Amazon.LaunchWizard.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGS
+namespace Amazon.PowerShell.Cmdlets.LWIZ
 {
     /// <summary>
-    /// Generates a pre-signed URL, request headers used to upload a code resource, and code
-    /// artifact identifier for the uploaded resource.
-    /// 
-    ///  
-    /// <para>
-    /// You can upload your code resource to the URL with the request headers using any HTTP
-    /// client.
-    /// </para>
+    /// Adds the specified tags to the given resource.
     /// </summary>
-    [Cmdlet("New", "CGSUploadUrl", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse")]
-    [AWSCmdlet("Calls the Amazon CodeGuru Security CreateUploadUrl API operation.", Operation = new[] {"CreateUploadUrl"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse))]
-    [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse",
-        "This cmdlet returns an Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "LWIZResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Launch Wizard TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.LaunchWizard.Model.TagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.LaunchWizard.Model.TagResourceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.LaunchWizard.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCGSUploadUrlCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
+    public partial class AddLWIZResourceTagCmdlet : AmazonLaunchWizardClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ScanName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the scan that will use the uploaded resource. CodeGuru Security uses the
-        /// unique scan name to track revisions across multiple scans of the same resource. Use
-        /// this <c>scanName</c> when you call <c>CreateScan</c> on the code resource you upload
-        /// to this URL.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,14 +56,31 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ScanName { get; set; }
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tags to attach to the resource.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse).
-        /// Specifying the name of a property of type Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LaunchWizard.Model.TagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,10 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ScanName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ScanName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ScanName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -106,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ScanName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CGSUploadUrl (CreateUploadUrl)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-LWIZResourceTag (TagResource)"))
             {
                 return;
             }
@@ -120,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse, NewCGSUploadUrlCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LaunchWizard.Model.TagResourceResponse, AddLWIZResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,14 +135,28 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ScanName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ScanName = this.ScanName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.ScanName == null && ParameterWasBound(nameof(this.ScanName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ScanName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
+            #if MODULAR
+            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,11 +173,15 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeGuruSecurity.Model.CreateUploadUrlRequest();
+            var request = new Amazon.LaunchWizard.Model.TagResourceRequest();
             
-            if (cmdletContext.ScanName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ScanName = cmdletContext.ScanName;
+                request.ResourceArn = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -192,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse CallAWSServiceOperation(IAmazonCodeGuruSecurity client, Amazon.CodeGuruSecurity.Model.CreateUploadUrlRequest request)
+        private Amazon.LaunchWizard.Model.TagResourceResponse CallAWSServiceOperation(IAmazonLaunchWizard client, Amazon.LaunchWizard.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CodeGuru Security", "CreateUploadUrl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Launch Wizard", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.CreateUploadUrl(request);
+                return client.TagResource(request);
                 #elif CORECLR
-                return client.CreateUploadUrlAsync(request).GetAwaiter().GetResult();
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,9 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ScanName { get; set; }
-            public System.Func<Amazon.CodeGuruSecurity.Model.CreateUploadUrlResponse, NewCGSUploadUrlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String ResourceArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.LaunchWizard.Model.TagResourceResponse, AddLWIZResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

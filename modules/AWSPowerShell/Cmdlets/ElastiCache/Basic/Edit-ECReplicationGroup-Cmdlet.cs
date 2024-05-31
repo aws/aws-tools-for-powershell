@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies the strategy to use to update the AUTH token. This parameter must be specified
-        /// with the <c>auth-token</c> parameter. Possible values:</para><ul><li><para>Rotate</para></li><li><para>Set</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
+        /// with the <c>auth-token</c> parameter. Possible values:</para><ul><li><para>ROTATE - default, if no update strategy is provided</para></li><li><para>SET - allowed only after ROTATE</para></li><li><para>DELETE - allowed only when transitioning to RBAC</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
         /// Users with Redis AUTH</a></para>
         /// </para>
         /// </summary>

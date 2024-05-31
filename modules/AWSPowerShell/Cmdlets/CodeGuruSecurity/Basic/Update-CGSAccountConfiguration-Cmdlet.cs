@@ -28,7 +28,7 @@ using Amazon.CodeGuruSecurity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGS
 {
     /// <summary>
-    /// Use to update account-level configuration with an encryption key.
+    /// Use to update the encryption configuration for an account.
     /// </summary>
     [Cmdlet("Update", "CGSAccountConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruSecurity.Model.EncryptionConfig")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         #region Parameter EncryptionConfig_KmsKeyArn
         /// <summary>
         /// <para>
-        /// <para>The KMS key ARN to use for encryption. This must be provided as a header when uploading
-        /// your code resource.</para>
+        /// <para>The KMS key ARN that is used for encryption. If an AWS-managed key is used for encryption,
+        /// returns empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

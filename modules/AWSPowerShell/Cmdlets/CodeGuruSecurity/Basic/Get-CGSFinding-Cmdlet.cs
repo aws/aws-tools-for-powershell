@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         /// <para>The maximum number of results to return in the response. Use this parameter when paginating
         /// results. If additional results exist beyond the number you specify, the <c>nextToken</c>
         /// element is returned in the response. Use <c>nextToken</c> in a subsequent request
-        /// to retrieve additional results.</para>
+        /// to retrieve additional results. If not specified, returns 1000 results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

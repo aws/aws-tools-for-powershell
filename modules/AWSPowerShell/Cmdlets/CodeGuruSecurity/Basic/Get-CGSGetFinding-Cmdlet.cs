@@ -28,7 +28,7 @@ using Amazon.CodeGuruSecurity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGS
 {
     /// <summary>
-    /// Returns a list of all requested findings.
+    /// Returns a list of requested findings from standard scans.
     /// </summary>
     [Cmdlet("Get", "CGSGetFinding")]
     [OutputType("Amazon.CodeGuruSecurity.Model.BatchGetFindingsResponse")]

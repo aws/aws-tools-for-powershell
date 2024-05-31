@@ -28,7 +28,7 @@ using Amazon.CodeGuruSecurity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGS
 {
     /// <summary>
-    /// Use to create a scan using code uploaded to an S3 bucket.
+    /// Use to create a scan using code uploaded to an Amazon S3 bucket.
     /// </summary>
     [Cmdlet("New", "CGSScan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeGuruSecurity.Model.CreateScanResponse")]
@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         #region Parameter ResourceId_CodeArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the code file uploaded to the resource where a finding was detected.</para>
+        /// <para>The identifier for the code file uploaded to the resource object. Returned by <c>CreateUploadUrl</c>
+        /// when you upload resources to be scanned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,8 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         /// <summary>
         /// <para>
         /// <para>The unique name that CodeGuru Security uses to track revisions across multiple scans
-        /// of the same resource. Only allowed for a <c>STANDARD</c> scan type. If not specified,
-        /// it will be auto generated. </para>
+        /// of the same resource. Only allowed for a <c>STANDARD</c> scan type. </para>
         /// </para>
         /// </summary>
         #if !MODULAR

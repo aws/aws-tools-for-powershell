@@ -1,8 +1,8 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.821.0",
-    "CoreVersion"       : "3.7.304.8",
+    "ProductVersion"    : "3.7.822.0",
+    "CoreVersion"       : "3.7.304.9",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
     "ServiceVersions"     : {
@@ -169,7 +169,7 @@
             "InPreview"               : false
         },
         "ElastiCache"       : {
-            "Version" : "3.7.302.35",
+            "Version" : "3.7.302.36",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.8"
@@ -659,7 +659,7 @@
             "InPreview"               : false
         },
         "CodeBuild"                       : {
-            "Version" : "3.7.309.1",
+            "Version" : "3.7.309.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.8"
@@ -2747,7 +2747,7 @@
             "InPreview"               : false
         },
         "CodeGuruSecurity"                    : {
-            "Version" : "3.7.300.98",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.8"
@@ -2835,7 +2835,7 @@
             "InPreview"               : false
         },
         "LaunchWizard"                        : {
-            "Version" : "3.7.300.98",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.8"

@@ -22,62 +22,60 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeGuruSecurity;
-using Amazon.CodeGuruSecurity.Model;
+using Amazon.LaunchWizard;
+using Amazon.LaunchWizard.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGS
+namespace Amazon.PowerShell.Cmdlets.LWIZ
 {
     /// <summary>
-    /// Returns a summary of metrics for an account from a specified date, including number
-    /// of open findings, the categories with most findings, the scans with most open findings,
-    /// and scans with most open critical findings.
+    /// Lists the tags associated with a specified resource.
     /// </summary>
-    [Cmdlet("Get", "CGSMetricsSummary")]
-    [OutputType("Amazon.CodeGuruSecurity.Model.MetricsSummary")]
-    [AWSCmdlet("Calls the Amazon CodeGuru Security GetMetricsSummary API operation.", Operation = new[] {"GetMetricsSummary"}, SelectReturnType = typeof(Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse))]
-    [AWSCmdletOutput("Amazon.CodeGuruSecurity.Model.MetricsSummary or Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse",
-        "This cmdlet returns an Amazon.CodeGuruSecurity.Model.MetricsSummary object.",
-        "The service call response (type Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LWIZResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Launch Wizard ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, SelectReturnType = typeof(Amazon.LaunchWizard.Model.ListTagsForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.LaunchWizard.Model.ListTagsForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.LaunchWizard.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCGSMetricsSummaryCmdlet : AmazonCodeGuruSecurityClientCmdlet, IExecutor
+    public partial class GetLWIZResourceTagCmdlet : AmazonLaunchWizardClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Date
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The date you want to retrieve summary metrics from, rounded to the nearest day. The
-        /// date must be within the past two years.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? Date { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MetricsSummary'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse).
-        /// Specifying the name of a property of type Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Tags'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.LaunchWizard.Model.ListTagsForResourceResponse).
+        /// Specifying the name of a property of type Amazon.LaunchWizard.Model.ListTagsForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MetricsSummary";
+        public string Select { get; set; } = "Tags";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Date parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Date' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Date' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -95,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse, GetCGSMetricsSummaryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.LaunchWizard.Model.ListTagsForResourceResponse, GetLWIZResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -104,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.CGS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Date;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Date = this.Date;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Date == null && ParameterWasBound(nameof(this.Date)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Date which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeGuruSecurity.Model.GetMetricsSummaryRequest();
+            var request = new Amazon.LaunchWizard.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.Date != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Date = cmdletContext.Date.Value;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -167,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse CallAWSServiceOperation(IAmazonCodeGuruSecurity client, Amazon.CodeGuruSecurity.Model.GetMetricsSummaryRequest request)
+        private Amazon.LaunchWizard.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonLaunchWizard client, Amazon.LaunchWizard.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CodeGuru Security", "GetMetricsSummary");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Launch Wizard", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.GetMetricsSummary(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                return client.GetMetricsSummaryAsync(request).GetAwaiter().GetResult();
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.CGS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? Date { get; set; }
-            public System.Func<Amazon.CodeGuruSecurity.Model.GetMetricsSummaryResponse, GetCGSMetricsSummaryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MetricsSummary;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.LaunchWizard.Model.ListTagsForResourceResponse, GetLWIZResourceTagCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Tags;
         }
         
     }

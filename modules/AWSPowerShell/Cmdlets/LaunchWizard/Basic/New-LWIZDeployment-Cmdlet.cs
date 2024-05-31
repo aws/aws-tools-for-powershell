@@ -97,9 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
         #region Parameter Specification
         /// <summary>
         /// <para>
-        /// <para>The settings specified for the deployment. For more information on the specifications
-        /// required for creating a deployment, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications.html">Workload
-        /// specifications</a>.</para>
+        /// <para>The settings specified for the deployment. These settings define how to deploy and
+        /// configure your resources created by the deployment. For more information about the
+        /// specifications required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP
+        /// deployment specifications</a>. To retrieve the specifications required to create a
+        /// deployment for other workloads, use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html"><c>GetWorkloadDeploymentPattern</c></a> operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,11 +116,21 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
         public System.Collections.Hashtable Specification { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to add to the deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter WorkloadName
         /// <summary>
         /// <para>
-        /// <para>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloadDeploymentPatterns.html"><c>ListWorkloadDeploymentPatterns</c></a> operation to discover supported values
-        /// for this parameter.</para>
+        /// <para>The name of the workload. You can use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html"><c>ListWorkloads</c></a> operation to discover supported values for this parameter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -203,6 +215,14 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
                 WriteWarning("You are passing $null as a value for parameter Specification which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             context.WorkloadName = this.WorkloadName;
             #if MODULAR
             if (this.WorkloadName == null && ParameterWasBound(nameof(this.WorkloadName)))
@@ -241,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
             if (cmdletContext.Specification != null)
             {
                 request.Specifications = cmdletContext.Specification;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             if (cmdletContext.WorkloadName != null)
             {
@@ -311,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
             public System.Boolean? DryRun { get; set; }
             public System.String Name { get; set; }
             public Dictionary<System.String, System.String> Specification { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String WorkloadName { get; set; }
             public System.Func<Amazon.LaunchWizard.Model.CreateDeploymentResponse, NewLWIZDeploymentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DeploymentId;

@@ -28,7 +28,9 @@ using Amazon.LaunchWizard.Model;
 namespace Amazon.PowerShell.Cmdlets.LWIZ
 {
     /// <summary>
-    /// Lists the workload deployment patterns.
+    /// Lists the workload deployment patterns for a given workload name. You can use the
+    /// <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html">ListWorkloads</a>
+    /// operation to discover the available workload names.
     /// </summary>
     [Cmdlet("Get", "LWIZWorkloadDeploymentPatternList")]
     [OutputType("Amazon.LaunchWizard.Model.WorkloadDeploymentPatternDataSummary")]
