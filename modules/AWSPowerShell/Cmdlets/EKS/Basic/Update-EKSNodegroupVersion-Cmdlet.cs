@@ -159,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon
         /// EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</para><para>If you specify <c>launchTemplate</c>, and your launch template uses a custom AMI,
         /// then don't specify <c>releaseVersion</c>, or the node group update will fail. For
-        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,8 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// of the cluster to update the node group to the latest AMI version of the cluster's
         /// Kubernetes version. If you specify <c>launchTemplate</c>, and your launch template
         /// uses a custom AMI, then don't specify <c>version</c>, or the node group update will
-        /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// fail. For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

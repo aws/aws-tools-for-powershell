@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-BATJobDetail', 
         'Get-BATJobList', 
         'Get-BATJobQueue', 
+        'Get-BATJobQueueSnapshot', 
         'Get-BATResourceTag', 
         'Get-BATSchedulingPolicy', 
         'Get-BATSchedulingPolicyList', 

@@ -1,4 +1,12 @@
-﻿### 4.1.591 (2024-05-31 21:01Z)
+﻿### 4.1.592 (2024-06-03 20:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.823.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Added cmdlet Get-BATJobQueueSnapshot leveraging the GetJobQueueSnapshot service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSAddon: added parameter PodIdentityAssociation.
+    * Modified cmdlet Update-EKSAddon: added parameter PodIdentityAssociation.
+
+### 4.1.591 (2024-05-31 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.822.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Launch Wizard
     * Added cmdlet Add-LWIZResourceTag leveraging the TagResource service API.

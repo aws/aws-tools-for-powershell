@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// version for the cluster. All node groups are created with the latest AMI release version
     /// for the respective minor Kubernetes version of the cluster, unless you deploy a custom
     /// AMI using a launch template. For more information about using launch templates, see
-    /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-    /// template support</a>.
+    /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+    /// managed nodes with launch templates</a>.
     /// </para><para>
     /// An Amazon EKS managed node group is an Amazon EC2 Auto Scaling group and associated
     /// Amazon EC2 instances that are managed by Amazon Web Services for an Amazon EKS cluster.
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// template uses a custom AMI, then don't specify <c>amiType</c>, or the node group deployment
         /// will fail. If your launch template uses a Windows custom AMI, then add <c>eks:kube-proxy-windows</c>
         /// to your Windows nodes <c>rolearn</c> in the <c>aws-auth</c><c>ConfigMap</c>. For
-        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,8 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// size is 20 GiB for Linux and Bottlerocket. The default disk size is 50 GiB for Windows.
         /// If you specify <c>launchTemplate</c>, then don't specify <c>diskSize</c>, or the node
         /// group deployment will fail. For more information about using launch templates with
-        /// Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// an instance type in a launch template or for <c>instanceTypes</c>, then <c>t3.medium</c>
         /// is used, by default. If you specify <c>Spot</c> for <c>capacityType</c>, then we recommend
         /// specifying multiple values for <c>instanceTypes</c>. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html#managed-node-group-capacity-types">Managed
-        /// node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// node group capacity types</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -297,8 +297,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// are launched. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html">Amazon
         /// EKS node IAM role</a> in the <i><i>Amazon EKS User Guide</i></i>. If you specify
         /// <c>launchTemplate</c>, then don't specify <c><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_IamInstanceProfile.html">IamInstanceProfile</a></c> in your launch template, or the node group deployment will fail. For more information
-        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -323,8 +323,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// AMIs. For information about Windows versions, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-ami-versions-windows.html">Amazon
         /// EKS optimized Windows AMI versions</a> in the <i>Amazon EKS User Guide</i>.</para><para>If you specify <c>launchTemplate</c>, and your launch template uses a custom AMI,
         /// then don't specify <c>releaseVersion</c>, or the node group deployment will fail.
-        /// For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// For more information about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -351,8 +351,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The subnets to use for the Auto Scaling group that is created for your node group.
         /// If you specify <c>launchTemplate</c>, then don't specify <c><a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">SubnetId</a></c> in your launch template, or the node group deployment will fail. For more information
-        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// about using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -411,8 +411,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// of the cluster is used, and this is the only accepted specified value. If you specify
         /// <c>launchTemplate</c>, and your launch template uses a custom AMI, then don't specify
         /// <c>version</c>, or the node group deployment will fail. For more information about
-        /// using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Launch
-        /// template support</a> in the <i>Amazon EKS User Guide</i>.</para>
+        /// using launch templates with Amazon EKS, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html">Customizing
+        /// managed nodes with launch templates</a> in the <i>Amazon EKS User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

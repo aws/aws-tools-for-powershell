@@ -66,8 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         #region Parameter BackendEnvironmentArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify
-        /// app. </para>
+        /// <para>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify
+        /// app. </para><para>This field is available to Amplify Gen 1 apps only where the backend is created using
+        /// Amplify Studio or the Amplify command line interface (CLI).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

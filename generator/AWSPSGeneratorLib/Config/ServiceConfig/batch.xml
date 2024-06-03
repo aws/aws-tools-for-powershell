@@ -73,6 +73,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetJobQueueSnapshot" OutputProperty="FrontOfQueue" Verb="Get" Noun="JobQueueSnapshot" PipelineParameter="JobQueue" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListJobs" OutputProperty="JobSummaryList" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

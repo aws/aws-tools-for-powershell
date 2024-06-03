@@ -2188,6 +2188,7 @@ Set-Alias -Name BAT-DescribeJobs -Value Get-BATJobDetail
 Set-Alias -Name Describe-BATSchedulingPolicies -Value Get-BATSchedulingPolicy
 Set-Alias -Name Describe-BATSchedulingPolicy -Value Get-BATSchedulingPolicy
 Set-Alias -Name BAT-DescribeSchedulingPolicies -Value Get-BATSchedulingPolicy
+Set-Alias -Name BAT-GetJobQueueSnapshot -Value Get-BATJobQueueSnapshot
 Set-Alias -Name List-BATJobs -Value Get-BATJobList
 Set-Alias -Name List-BATJobList -Value Get-BATJobList
 Set-Alias -Name BAT-ListJobs -Value Get-BATJobList

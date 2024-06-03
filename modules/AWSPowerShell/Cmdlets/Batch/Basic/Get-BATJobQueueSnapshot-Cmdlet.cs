@@ -22,55 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Amplify;
-using Amazon.Amplify.Model;
+using Amazon.Batch;
+using Amazon.Batch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AMP
+namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Returns a backend environment for an Amplify app. 
-    /// 
-    ///  
-    /// <para>
-    /// This API is available only to Amplify Gen 1 applications where the backend is created
-    /// using Amplify Studio or the Amplify command line interface (CLI). This API isn’t available
-    /// to Amplify Gen 2 applications. When you deploy an application with Amplify Gen 2,
-    /// you provision the app's backend infrastructure using Typescript code.
-    /// </para>
+    /// Provides a list of the first 100 <c>RUNNABLE</c> jobs associated to a single job queue.
     /// </summary>
-    [Cmdlet("Get", "AMPBackendEnvironment")]
-    [OutputType("Amazon.Amplify.Model.BackendEnvironment")]
-    [AWSCmdlet("Calls the AWS Amplify GetBackendEnvironment API operation.", Operation = new[] {"GetBackendEnvironment"}, SelectReturnType = typeof(Amazon.Amplify.Model.GetBackendEnvironmentResponse))]
-    [AWSCmdletOutput("Amazon.Amplify.Model.BackendEnvironment or Amazon.Amplify.Model.GetBackendEnvironmentResponse",
-        "This cmdlet returns an Amazon.Amplify.Model.BackendEnvironment object.",
-        "The service call response (type Amazon.Amplify.Model.GetBackendEnvironmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BATJobQueueSnapshot")]
+    [OutputType("Amazon.Batch.Model.FrontOfQueueDetail")]
+    [AWSCmdlet("Calls the AWS Batch GetJobQueueSnapshot API operation.", Operation = new[] {"GetJobQueueSnapshot"}, SelectReturnType = typeof(Amazon.Batch.Model.GetJobQueueSnapshotResponse))]
+    [AWSCmdletOutput("Amazon.Batch.Model.FrontOfQueueDetail or Amazon.Batch.Model.GetJobQueueSnapshotResponse",
+        "This cmdlet returns an Amazon.Batch.Model.FrontOfQueueDetail object.",
+        "The service call response (type Amazon.Batch.Model.GetJobQueueSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAMPBackendEnvironmentCmdlet : AmazonAmplifyClientCmdlet, IExecutor
+    public partial class GetBATJobQueueSnapshotCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AppId
+        #region Parameter JobQueue
         /// <summary>
         /// <para>
-        /// <para>The unique id for an Amplify app. </para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AppId { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentName
-        /// <summary>
-        /// <para>
-        /// <para>The name for the backend environment. </para>
+        /// <para>The job queue’s name or full queue Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,26 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentName { get; set; }
+        public System.String JobQueue { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'BackendEnvironment'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Amplify.Model.GetBackendEnvironmentResponse).
-        /// Specifying the name of a property of type Amazon.Amplify.Model.GetBackendEnvironmentResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'FrontOfQueue'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Batch.Model.GetJobQueueSnapshotResponse).
+        /// Specifying the name of a property of type Amazon.Batch.Model.GetJobQueueSnapshotResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "BackendEnvironment";
+        public string Select { get; set; } = "FrontOfQueue";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the JobQueue parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobQueue' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobQueue' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -118,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Amplify.Model.GetBackendEnvironmentResponse, GetAMPBackendEnvironmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Batch.Model.GetJobQueueSnapshotResponse, GetBATJobQueueSnapshotCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -127,21 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentName;
+                context.Select = (response, cmdlet) => this.JobQueue;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AppId = this.AppId;
+            context.JobQueue = this.JobQueue;
             #if MODULAR
-            if (this.AppId == null && ParameterWasBound(nameof(this.AppId)))
+            if (this.JobQueue == null && ParameterWasBound(nameof(this.JobQueue)))
             {
-                WriteWarning("You are passing $null as a value for parameter AppId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.EnvironmentName = this.EnvironmentName;
-            #if MODULAR
-            if (this.EnvironmentName == null && ParameterWasBound(nameof(this.EnvironmentName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobQueue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -158,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Amplify.Model.GetBackendEnvironmentRequest();
+            var request = new Amazon.Batch.Model.GetJobQueueSnapshotRequest();
             
-            if (cmdletContext.AppId != null)
+            if (cmdletContext.JobQueue != null)
             {
-                request.AppId = cmdletContext.AppId;
-            }
-            if (cmdletContext.EnvironmentName != null)
-            {
-                request.EnvironmentName = cmdletContext.EnvironmentName;
+                request.JobQueue = cmdletContext.JobQueue;
             }
             
             CmdletOutput output;
@@ -201,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         
         #region AWS Service Operation Call
         
-        private Amazon.Amplify.Model.GetBackendEnvironmentResponse CallAWSServiceOperation(IAmazonAmplify client, Amazon.Amplify.Model.GetBackendEnvironmentRequest request)
+        private Amazon.Batch.Model.GetJobQueueSnapshotResponse CallAWSServiceOperation(IAmazonBatch client, Amazon.Batch.Model.GetJobQueueSnapshotRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Amplify", "GetBackendEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Batch", "GetJobQueueSnapshot");
             try
             {
                 #if DESKTOP
-                return client.GetBackendEnvironment(request);
+                return client.GetJobQueueSnapshot(request);
                 #elif CORECLR
-                return client.GetBackendEnvironmentAsync(request).GetAwaiter().GetResult();
+                return client.GetJobQueueSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -229,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AppId { get; set; }
-            public System.String EnvironmentName { get; set; }
-            public System.Func<Amazon.Amplify.Model.GetBackendEnvironmentResponse, GetAMPBackendEnvironmentCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.BackendEnvironment;
+            public System.String JobQueue { get; set; }
+            public System.Func<Amazon.Batch.Model.GetJobQueueSnapshotResponse, GetBATJobQueueSnapshotCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.FrontOfQueue;
         }
         
     }

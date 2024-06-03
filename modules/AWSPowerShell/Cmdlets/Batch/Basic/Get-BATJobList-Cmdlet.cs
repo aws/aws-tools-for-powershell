@@ -137,13 +137,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results returned by <c>ListJobs</c> in paginated output. When
-        /// this parameter is used, <c>ListJobs</c> only returns <c>maxResults</c> results in
-        /// a single page and a <c>nextToken</c> response element. The remaining results of the
-        /// initial request can be seen by sending another <c>ListJobs</c> request with the returned
-        /// <c>nextToken</c> value. This value can be between 1 and 100. If this parameter isn't
-        /// used, then <c>ListJobs</c> returns up to 100 results and a <c>nextToken</c> value
-        /// if applicable.</para>
+        /// <para>The maximum number of results returned by <c>ListJobs</c> in a paginated output. When
+        /// this parameter is used, <c>ListJobs</c> returns up to <c>maxResults</c> results in
+        /// a single page and a <c>nextToken</c> response element, if applicable. The remaining
+        /// results of the initial request can be seen by sending another <c>ListJobs</c> request
+        /// with the returned <c>nextToken</c> value.</para><para>The following outlines key parameters and limitations:</para><ul><li><para>The minimum value is 1. </para></li><li><para>When <c>--job-status</c> is used, Batch returns up to 1000 values. </para></li><li><para>When <c>--filters</c> is used, Batch returns up to 100 values.</para></li><li><para>If neither parameter is used, then <c>ListJobs</c> returns up to 1000 results (jobs
+        /// that are in the <c>RUNNING</c> status) and a <c>nextToken</c> value, if applicable.</para></li></ul>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

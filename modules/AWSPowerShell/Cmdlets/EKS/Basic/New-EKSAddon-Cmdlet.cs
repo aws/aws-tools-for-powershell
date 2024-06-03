@@ -117,6 +117,19 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.String ConfigurationValue { get; set; }
         #endregion
         
+        #region Parameter PodIdentityAssociation
+        /// <summary>
+        /// <para>
+        /// <para>An array of Pod Identity Assocations to be created. Each EKS Pod Identity association
+        /// maps a Kubernetes service account to an IAM Role.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/add-ons-iam.html">Attach
+        /// an IAM Role to an Amazon EKS add-on using Pod Identity</a> in the EKS User Guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PodIdentityAssociations")]
+        public Amazon.EKS.Model.AddonPodIdentityAssociations[] PodIdentityAssociation { get; set; }
+        #endregion
+        
         #region Parameter ResolveConflict
         /// <summary>
         /// <para>
@@ -246,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.ConfigurationValue = this.ConfigurationValue;
+            if (this.PodIdentityAssociation != null)
+            {
+                context.PodIdentityAssociation = new List<Amazon.EKS.Model.AddonPodIdentityAssociations>(this.PodIdentityAssociation);
+            }
             context.ResolveConflict = this.ResolveConflict;
             context.ServiceAccountRoleArn = this.ServiceAccountRoleArn;
             if (this.Tag != null)
@@ -291,6 +308,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ConfigurationValue != null)
             {
                 request.ConfigurationValues = cmdletContext.ConfigurationValue;
+            }
+            if (cmdletContext.PodIdentityAssociation != null)
+            {
+                request.PodIdentityAssociations = cmdletContext.PodIdentityAssociation;
             }
             if (cmdletContext.ResolveConflict != null)
             {
@@ -370,6 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public System.String ClientRequestToken { get; set; }
             public System.String ClusterName { get; set; }
             public System.String ConfigurationValue { get; set; }
+            public List<Amazon.EKS.Model.AddonPodIdentityAssociations> PodIdentityAssociation { get; set; }
             public Amazon.EKS.ResolveConflicts ResolveConflict { get; set; }
             public System.String ServiceAccountRoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
