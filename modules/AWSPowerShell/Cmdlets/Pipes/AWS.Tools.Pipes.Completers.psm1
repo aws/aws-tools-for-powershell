@@ -97,6 +97,16 @@ $PIPES_Completers = {
             break
         }
 
+        # Amazon.Pipes.EpochTimeUnit
+        {
+            ($_ -eq "New-PIPESPipe/TimestreamParameters_EpochTimeUnit") -Or
+            ($_ -eq "Update-PIPESPipe/TimestreamParameters_EpochTimeUnit")
+        }
+        {
+            $v = "MICROSECONDS","MILLISECONDS","NANOSECONDS","SECONDS"
+            break
+        }
+
         # Amazon.Pipes.KinesisStreamStartPosition
         "New-PIPESPipe/KinesisStreamParameters_StartingPosition"
         {
@@ -200,6 +210,16 @@ $PIPES_Completers = {
             break
         }
 
+        # Amazon.Pipes.TimeFieldType
+        {
+            ($_ -eq "New-PIPESPipe/TimestreamParameters_TimeFieldType") -Or
+            ($_ -eq "Update-PIPESPipe/TimestreamParameters_TimeFieldType")
+        }
+        {
+            $v = "EPOCH","TIMESTAMP_FORMAT"
+            break
+        }
+
 
     }
 
@@ -224,6 +244,8 @@ $PIPES_map = @{
     "S3LogDestination_OutputFormat"=@("New-PIPESPipe","Update-PIPESPipe")
     "SelfManagedKafkaParameters_StartingPosition"=@("New-PIPESPipe")
     "StepFunctionStateMachineParameters_InvocationType"=@("New-PIPESPipe","Update-PIPESPipe")
+    "TimestreamParameters_EpochTimeUnit"=@("New-PIPESPipe","Update-PIPESPipe")
+    "TimestreamParameters_TimeFieldType"=@("New-PIPESPipe","Update-PIPESPipe")
 }
 
 _awsArgumentCompleterRegistration $PIPES_Completers $PIPES_map

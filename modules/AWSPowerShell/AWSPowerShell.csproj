@@ -1108,6 +1108,9 @@
     <Reference Include="AWSSDK.Synthetics">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Synthetics.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.TaxSettings">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.TaxSettings.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Textract.dll</HintPath>
     </Reference>
@@ -2234,6 +2237,9 @@
     </Reference>
     <Reference Include="AWSSDK.Synthetics">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Synthetics.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.TaxSettings">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.TaxSettings.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Textract">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Textract.dll</HintPath>

@@ -1,4 +1,11 @@
-﻿### 4.1.592 (2024-06-03 20:50Z)
+﻿### 4.1.593 (2024-06-04 21:04Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.824.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EventBridge Pipes
+    * Modified cmdlet New-PIPESPipe: added parameters TimestreamParameters_DimensionMapping, TimestreamParameters_EpochTimeUnit, TimestreamParameters_MultiMeasureMapping, TimestreamParameters_SingleMeasureMapping, TimestreamParameters_TimeFieldType, TimestreamParameters_TimestampFormat, TimestreamParameters_TimeValue and TimestreamParameters_VersionValue.
+    * Modified cmdlet Update-PIPESPipe: added parameters TimestreamParameters_DimensionMapping, TimestreamParameters_EpochTimeUnit, TimestreamParameters_MultiMeasureMapping, TimestreamParameters_SingleMeasureMapping, TimestreamParameters_TimeFieldType, TimestreamParameters_TimestampFormat, TimestreamParameters_TimeValue and TimestreamParameters_VersionValue.
+  * Amazon Tax Settings. Added cmdlets to support the service. Cmdlets for the service have the noun prefix TSA and can be listed using the command 'Get-AWSCmdletName -Service TSA'.
+
+### 4.1.592 (2024-06-03 20:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.823.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Added cmdlet Get-BATJobQueueSnapshot leveraging the GetJobQueueSnapshot service API.

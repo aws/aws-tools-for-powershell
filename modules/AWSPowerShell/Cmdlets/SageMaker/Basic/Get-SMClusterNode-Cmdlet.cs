@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Retrieves information of an instance (also called a <i>node</i> interchangeably) of
+    /// Retrieves information of a node (also called a <i>instance</i> interchangeably) of
     /// a SageMaker HyperPod cluster.
     /// </summary>
     [Cmdlet("Get", "SMClusterNode")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The string name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster
-        /// in which the instance is.</para>
+        /// in which the node is.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NodeId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance.</para>
+        /// <para>The ID of the SageMaker HyperPod cluster node.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

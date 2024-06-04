@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>taxsettings</C2jFilename>
+    <AssemblyName>TaxSettings</AssemblyName>
+    <ServiceNounPrefix>TSA</ServiceNounPrefix>
+    <ServiceName>AWS Tax Settings</ServiceName>
+    <ServiceClientInterface>IAmazonTaxSettings</ServiceClientInterface>
+    <ServiceClient>AmazonTaxSettingsClient</ServiceClient>
+    <ServiceModuleGuid>5fd8dc48-7922-481b-b34c-80c0cfb7d9ef</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchDeleteTaxRegistration" OutputProperty="Errors" Verb="Remove" Noun="TaxRegistrationBatch" ShouldProcessTarget="AccountIds" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutTaxRegistration" OutputProperty="*" Verb="Write" Noun="TaxRegistrationBatch" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="TaxRegistrationEntry_RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTaxRegistration" Verb="Remove" Noun="TaxRegistration" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTaxRegistration" OutputProperty="TaxRegistration" Verb="Get" Noun="TaxRegistration" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTaxRegistrationDocument" OutputProperty="DestinationFilePath" Verb="Get" Noun="TaxRegistrationDocument" PipelineParameter="TaxDocumentMetadata_TaxDocumentName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTaxRegistrations" OutputProperty="AccountDetails" Verb="Get" Noun="TaxRegistrationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTaxRegistration" OutputProperty="Status" Verb="Write" Noun="TaxRegistration" ShouldProcessTarget="TaxRegistrationEntry_RegistrationId" PipelineParameter="TaxRegistrationEntry_RegistrationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

@@ -335,8 +335,8 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter FirehoseLogDestination_DeliveryStreamArn
         /// <summary>
         /// <para>
-        /// <para>Specifies the Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream
-        /// to which EventBridge delivers the pipe log records.</para>
+        /// <para>Specifies the Amazon Resource Name (ARN) of the Firehose delivery stream to which
+        /// EventBridge delivers the pipe log records.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -391,6 +391,18 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetParameters_EventBridgeEventBusParameters_DetailType")]
         public System.String EventBridgeEventBusParameters_DetailType { get; set; }
+        #endregion
+        
+        #region Parameter TimestreamParameters_DimensionMapping
+        /// <summary>
+        /// <para>
+        /// <para>Map source data to dimensions in the target Timestream for LiveAnalytics table.</para><para>For more information, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/concepts.html">Amazon
+        /// Timestream for LiveAnalytics concepts</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_DimensionMappings")]
+        public Amazon.Pipes.Model.DimensionMapping[] TimestreamParameters_DimensionMapping { get; set; }
         #endregion
         
         #region Parameter EcsTaskParameters_EnableECSManagedTag
@@ -456,6 +468,18 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public Amazon.Pipes.Model.BatchEnvironmentVariable[] ContainerOverrides_Environment { get; set; }
         #endregion
         
+        #region Parameter TimestreamParameters_EpochTimeUnit
+        /// <summary>
+        /// <para>
+        /// <para>The granularity of the time units used. Default is <c>MILLISECONDS</c>.</para><para>Required if <c>TimeFieldType</c> is specified as <c>EPOCH</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_EpochTimeUnit")]
+        [AWSConstantClassSource("Amazon.Pipes.EpochTimeUnit")]
+        public Amazon.Pipes.EpochTimeUnit TimestreamParameters_EpochTimeUnit { get; set; }
+        #endregion
+        
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -519,9 +543,9 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter LogConfiguration_IncludeExecutionData
         /// <summary>
         /// <para>
-        /// <para>Specify <c>ON</c> to include the execution data (specifically, the <c>payload</c>
-        /// and <c>awsRequest</c> fields) in the log messages for this pipe.</para><para>This applies to all log destinations for the pipe.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data">Including
-        /// execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</para><para>The default is <c>OFF</c>.</para>
+        /// <para>Specify <c>ALL</c> to include the execution data (specifically, the <c>payload</c>,
+        /// <c>awsRequest</c>, and <c>awsResponse</c> fields) in the log messages for this pipe.</para><para>This applies to all log destinations for the pipe.</para><para>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html#eb-pipes-logs-execution-data">Including
+        /// execution data in logs</a> in the <i>Amazon EventBridge User Guide</i>.</para><para>By default, execution data is not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -849,6 +873,18 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetParameters_SqsQueueParameters_MessageGroupId")]
         public System.String SqsQueueParameters_MessageGroupId { get; set; }
+        #endregion
+        
+        #region Parameter TimestreamParameters_MultiMeasureMapping
+        /// <summary>
+        /// <para>
+        /// <para>Maps multiple measures from the source event to the same record in the specified Timestream
+        /// for LiveAnalytics table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_MultiMeasureMappings")]
+        public Amazon.Pipes.Model.MultiMeasureMapping[] TimestreamParameters_MultiMeasureMapping { get; set; }
         #endregion
         
         #region Parameter Name
@@ -1227,6 +1263,18 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public System.String SelfManagedKafkaParameters_ServerRootCaCertificate { get; set; }
         #endregion
         
+        #region Parameter TimestreamParameters_SingleMeasureMapping
+        /// <summary>
+        /// <para>
+        /// <para>Mappings of single source data fields to individual records in the specified Timestream
+        /// for LiveAnalytics table.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_SingleMeasureMappings")]
+        public Amazon.Pipes.Model.SingleMeasureMapping[] TimestreamParameters_SingleMeasureMapping { get; set; }
+        #endregion
+        
         #region Parameter ArrayProperties_Size
         /// <summary>
         /// <para>
@@ -1381,6 +1429,18 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public System.String EventBridgeEventBusParameters_Time { get; set; }
         #endregion
         
+        #region Parameter TimestreamParameters_TimeFieldType
+        /// <summary>
+        /// <para>
+        /// <para>The type of time value used.</para><para>The default is <c>EPOCH</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_TimeFieldType")]
+        [AWSConstantClassSource("Amazon.Pipes.TimeFieldType")]
+        public Amazon.Pipes.TimeFieldType TimestreamParameters_TimeFieldType { get; set; }
+        #endregion
+        
         #region Parameter CloudWatchLogsParameters_Timestamp
         /// <summary>
         /// <para>
@@ -1391,6 +1451,46 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetParameters_CloudWatchLogsParameters_Timestamp")]
         public System.String CloudWatchLogsParameters_Timestamp { get; set; }
+        #endregion
+        
+        #region Parameter TimestreamParameters_TimestampFormat
+        /// <summary>
+        /// <para>
+        /// <para>How to format the timestamps. For example, <c>YYYY-MM-DDThh:mm:ss.sssTZD</c>.</para><para>Required if <c>TimeFieldType</c> is specified as <c>TIMESTAMP_FORMAT</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_TimestampFormat")]
+        public System.String TimestreamParameters_TimestampFormat { get; set; }
+        #endregion
+        
+        #region Parameter TimestreamParameters_TimeValue
+        /// <summary>
+        /// <para>
+        /// <para>Dynamic path to the source data field that represents the time value for your data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_TimeValue")]
+        public System.String TimestreamParameters_TimeValue { get; set; }
+        #endregion
+        
+        #region Parameter TimestreamParameters_VersionValue
+        /// <summary>
+        /// <para>
+        /// <para>64 bit version value or source data field that represents the version value for your
+        /// data.</para><para>Write requests with a higher version number will update the existing measure values
+        /// of the record and version. In cases where the measure value is the same, the version
+        /// will still be updated. </para><para>Default value is 1. </para><para>Timestream for LiveAnalytics does not support updating partial measure values in a
+        /// record.</para><para>Write requests for duplicate data with a higher version number will update the existing
+        /// measure value and version. In cases where the measure value is the same, <c>Version</c>
+        /// will still be updated. Default value is <c>1</c>.</para><note><para><c>Version</c> must be <c>1</c> or greater, or you will receive a <c>ValidationException</c>
+        /// error.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TargetParameters_TimestreamParameters_VersionValue")]
+        public System.String TimestreamParameters_VersionValue { get; set; }
         #endregion
         
         #region Parameter RedshiftDataParameters_WithEvent
@@ -1686,6 +1786,23 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             context.SqsQueueParameters_MessageDeduplicationId = this.SqsQueueParameters_MessageDeduplicationId;
             context.SqsQueueParameters_MessageGroupId = this.SqsQueueParameters_MessageGroupId;
             context.StepFunctionStateMachineParameters_InvocationType = this.StepFunctionStateMachineParameters_InvocationType;
+            if (this.TimestreamParameters_DimensionMapping != null)
+            {
+                context.TimestreamParameters_DimensionMapping = new List<Amazon.Pipes.Model.DimensionMapping>(this.TimestreamParameters_DimensionMapping);
+            }
+            context.TimestreamParameters_EpochTimeUnit = this.TimestreamParameters_EpochTimeUnit;
+            if (this.TimestreamParameters_MultiMeasureMapping != null)
+            {
+                context.TimestreamParameters_MultiMeasureMapping = new List<Amazon.Pipes.Model.MultiMeasureMapping>(this.TimestreamParameters_MultiMeasureMapping);
+            }
+            if (this.TimestreamParameters_SingleMeasureMapping != null)
+            {
+                context.TimestreamParameters_SingleMeasureMapping = new List<Amazon.Pipes.Model.SingleMeasureMapping>(this.TimestreamParameters_SingleMeasureMapping);
+            }
+            context.TimestreamParameters_TimeFieldType = this.TimestreamParameters_TimeFieldType;
+            context.TimestreamParameters_TimestampFormat = this.TimestreamParameters_TimestampFormat;
+            context.TimestreamParameters_TimeValue = this.TimestreamParameters_TimeValue;
+            context.TimestreamParameters_VersionValue = this.TimestreamParameters_VersionValue;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -3047,6 +3164,101 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 request.TargetParameters.BatchJobParameters = requestTargetParameters_targetParameters_BatchJobParameters;
                 requestTargetParametersIsNull = false;
             }
+            Amazon.Pipes.Model.PipeTargetTimestreamParameters requestTargetParameters_targetParameters_TimestreamParameters = null;
+            
+             // populate TimestreamParameters
+            var requestTargetParameters_targetParameters_TimestreamParametersIsNull = true;
+            requestTargetParameters_targetParameters_TimestreamParameters = new Amazon.Pipes.Model.PipeTargetTimestreamParameters();
+            List<Amazon.Pipes.Model.DimensionMapping> requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_DimensionMapping = null;
+            if (cmdletContext.TimestreamParameters_DimensionMapping != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_DimensionMapping = cmdletContext.TimestreamParameters_DimensionMapping;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_DimensionMapping != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.DimensionMappings = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_DimensionMapping;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            Amazon.Pipes.EpochTimeUnit requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_EpochTimeUnit = null;
+            if (cmdletContext.TimestreamParameters_EpochTimeUnit != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_EpochTimeUnit = cmdletContext.TimestreamParameters_EpochTimeUnit;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_EpochTimeUnit != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.EpochTimeUnit = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_EpochTimeUnit;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            List<Amazon.Pipes.Model.MultiMeasureMapping> requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_MultiMeasureMapping = null;
+            if (cmdletContext.TimestreamParameters_MultiMeasureMapping != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_MultiMeasureMapping = cmdletContext.TimestreamParameters_MultiMeasureMapping;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_MultiMeasureMapping != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.MultiMeasureMappings = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_MultiMeasureMapping;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            List<Amazon.Pipes.Model.SingleMeasureMapping> requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_SingleMeasureMapping = null;
+            if (cmdletContext.TimestreamParameters_SingleMeasureMapping != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_SingleMeasureMapping = cmdletContext.TimestreamParameters_SingleMeasureMapping;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_SingleMeasureMapping != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.SingleMeasureMappings = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_SingleMeasureMapping;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            Amazon.Pipes.TimeFieldType requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeFieldType = null;
+            if (cmdletContext.TimestreamParameters_TimeFieldType != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeFieldType = cmdletContext.TimestreamParameters_TimeFieldType;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeFieldType != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.TimeFieldType = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeFieldType;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            System.String requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat = null;
+            if (cmdletContext.TimestreamParameters_TimestampFormat != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat = cmdletContext.TimestreamParameters_TimestampFormat;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.TimestampFormat = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimestampFormat;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            System.String requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeValue = null;
+            if (cmdletContext.TimestreamParameters_TimeValue != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeValue = cmdletContext.TimestreamParameters_TimeValue;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeValue != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.TimeValue = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_TimeValue;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+            System.String requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_VersionValue = null;
+            if (cmdletContext.TimestreamParameters_VersionValue != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_VersionValue = cmdletContext.TimestreamParameters_VersionValue;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_VersionValue != null)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters.VersionValue = requestTargetParameters_targetParameters_TimestreamParameters_timestreamParameters_VersionValue;
+                requestTargetParameters_targetParameters_TimestreamParametersIsNull = false;
+            }
+             // determine if requestTargetParameters_targetParameters_TimestreamParameters should be set to null
+            if (requestTargetParameters_targetParameters_TimestreamParametersIsNull)
+            {
+                requestTargetParameters_targetParameters_TimestreamParameters = null;
+            }
+            if (requestTargetParameters_targetParameters_TimestreamParameters != null)
+            {
+                request.TargetParameters.TimestreamParameters = requestTargetParameters_targetParameters_TimestreamParameters;
+                requestTargetParametersIsNull = false;
+            }
             Amazon.Pipes.Model.PipeTargetEcsTaskParameters requestTargetParameters_targetParameters_EcsTaskParameters = null;
             
              // populate EcsTaskParameters
@@ -3528,6 +3740,14 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             public System.String SqsQueueParameters_MessageDeduplicationId { get; set; }
             public System.String SqsQueueParameters_MessageGroupId { get; set; }
             public Amazon.Pipes.PipeTargetInvocationType StepFunctionStateMachineParameters_InvocationType { get; set; }
+            public List<Amazon.Pipes.Model.DimensionMapping> TimestreamParameters_DimensionMapping { get; set; }
+            public Amazon.Pipes.EpochTimeUnit TimestreamParameters_EpochTimeUnit { get; set; }
+            public List<Amazon.Pipes.Model.MultiMeasureMapping> TimestreamParameters_MultiMeasureMapping { get; set; }
+            public List<Amazon.Pipes.Model.SingleMeasureMapping> TimestreamParameters_SingleMeasureMapping { get; set; }
+            public Amazon.Pipes.TimeFieldType TimestreamParameters_TimeFieldType { get; set; }
+            public System.String TimestreamParameters_TimestampFormat { get; set; }
+            public System.String TimestreamParameters_TimeValue { get; set; }
+            public System.String TimestreamParameters_VersionValue { get; set; }
             public System.Func<Amazon.Pipes.Model.UpdatePipeResponse, UpdatePIPESPipeCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
