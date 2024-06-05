@@ -37,11 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// </para>
     /// </summary>
     [Cmdlet("New", "GLUEConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.Glue.Model.CreateConnectionResponse")]
     [AWSCmdlet("Calls the AWS Glue CreateConnection API operation.", Operation = new[] {"CreateConnection"}, SelectReturnType = typeof(Amazon.Glue.Model.CreateConnectionResponse))]
-    [AWSCmdletOutput("None or Amazon.Glue.Model.CreateConnectionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Glue.Model.CreateConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Glue.Model.CreateConnectionResponse",
+        "This cmdlet returns an Amazon.Glue.Model.CreateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
@@ -88,8 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.CreateConnectionResponse).
+        /// Specifying the name of a property of type Amazon.Glue.Model.CreateConnectionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.Model.ConnectionInput ConnectionInput { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Glue.Model.CreateConnectionResponse, NewGLUEConnectionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

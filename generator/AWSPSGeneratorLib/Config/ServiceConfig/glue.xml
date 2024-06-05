@@ -117,7 +117,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnection" Verb="New" Noun="Connection" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionInput" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateConnection" OutputProperty="*" Verb="New" Noun="Connection" AnonymousShouldProcessTarget="true" PipelineParameter="ConnectionInput" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

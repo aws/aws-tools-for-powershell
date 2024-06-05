@@ -93,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         public System.Boolean? Enabled { get; set; }
         #endregion
         
+        #region Parameter IpAddress
+        /// <summary>
+        /// <para>
+        /// <para>The IP addresses for an accelerator.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IpAddresses")]
+        public System.String[] IpAddress { get; set; }
+        #endregion
+        
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
@@ -187,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             }
             #endif
             context.Enabled = this.Enabled;
+            if (this.IpAddress != null)
+            {
+                context.IpAddress = new List<System.String>(this.IpAddress);
+            }
             context.IpAddressType = this.IpAddressType;
             context.Name = this.Name;
             
@@ -212,6 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             if (cmdletContext.Enabled != null)
             {
                 request.Enabled = cmdletContext.Enabled.Value;
+            }
+            if (cmdletContext.IpAddress != null)
+            {
+                request.IpAddresses = cmdletContext.IpAddress;
             }
             if (cmdletContext.IpAddressType != null)
             {
@@ -284,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         {
             public System.String AcceleratorArn { get; set; }
             public System.Boolean? Enabled { get; set; }
+            public List<System.String> IpAddress { get; set; }
             public Amazon.GlobalAccelerator.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.GlobalAccelerator.Model.UpdateAcceleratorResponse, UpdateGACLAcceleratorCmdlet, object> Select { get; set; } =

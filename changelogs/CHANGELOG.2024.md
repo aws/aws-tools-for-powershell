@@ -1,4 +1,10 @@
-﻿### 4.1.593 (2024-06-04 21:04Z)
+﻿### 4.1.594 (2024-06-05 21:36Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.825.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Global Accelerator
+    * Modified cmdlet Update-GACLAccelerator: added parameter IpAddress.
+    * Modified cmdlet Update-GACLCustomRoutingAccelerator: added parameter IpAddress.
+
+### 4.1.593 (2024-06-04 21:04Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.824.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EventBridge Pipes
     * Modified cmdlet New-PIPESPipe: added parameters TimestreamParameters_DimensionMapping, TimestreamParameters_EpochTimeUnit, TimestreamParameters_MultiMeasureMapping, TimestreamParameters_SingleMeasureMapping, TimestreamParameters_TimeFieldType, TimestreamParameters_TimestampFormat, TimestreamParameters_TimeValue and TimestreamParameters_VersionValue.
