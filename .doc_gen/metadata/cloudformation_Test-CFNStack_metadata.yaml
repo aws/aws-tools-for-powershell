@@ -1,5 +1,5 @@
 ---
-cloudformation_DescribeStacks:
+cloudformation_Test-CFNStack:
   title: Use Test-CFNStack
   title_abbrev: Test-CFNStack
   synopsis: use Test-CFNStack
@@ -29,5 +29,5 @@ cloudformation_DescribeStacks:
           snippet_files: []
   services:
     cloudformation:
-      DescribeStacks:
+      Test-CFNStack:
 

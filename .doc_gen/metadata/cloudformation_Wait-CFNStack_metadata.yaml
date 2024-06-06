@@ -1,5 +1,5 @@
 ---
-cloudformation_DescribeStacks:
+cloudformation_Wait-CFNStack:
   title: Use Wait-CFNStack
   title_abbrev: Wait-CFNStack
   synopsis: use Wait-CFNStack
@@ -57,5 +57,5 @@ cloudformation_DescribeStacks:
           snippet_files: []
   services:
     cloudformation:
-      DescribeStacks:
+      Wait-CFNStack:
 
