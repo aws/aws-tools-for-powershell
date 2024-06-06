@@ -71,6 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String DatabaseName { get; set; }
         #endregion
         
+        #region Parameter ForceUpdate
+        /// <summary>
+        /// <para>
+        /// <para>A flag that can be set to true to ignore matching storage descriptor and subobject
+        /// matching requirements.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceUpdate { get; set; }
+        #endregion
+        
         #region Parameter SkipArchive
         /// <summary>
         /// <para>
@@ -117,6 +128,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VersionId { get; set; }
+        #endregion
+        
+        #region Parameter ViewUpdateAction
+        /// <summary>
+        /// <para>
+        /// <para>The operation to be performed when updating the view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.ViewUpdateAction")]
+        public Amazon.Glue.ViewUpdateAction ViewUpdateAction { get; set; }
         #endregion
         
         #region Parameter Select
@@ -188,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 WriteWarning("You are passing $null as a value for parameter DatabaseName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceUpdate = this.ForceUpdate;
             context.SkipArchive = this.SkipArchive;
             context.TableInput = this.TableInput;
             #if MODULAR
@@ -198,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #endif
             context.TransactionId = this.TransactionId;
             context.VersionId = this.VersionId;
+            context.ViewUpdateAction = this.ViewUpdateAction;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -222,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.DatabaseName = cmdletContext.DatabaseName;
             }
+            if (cmdletContext.ForceUpdate != null)
+            {
+                request.Force = cmdletContext.ForceUpdate.Value;
+            }
             if (cmdletContext.SkipArchive != null)
             {
                 request.SkipArchive = cmdletContext.SkipArchive.Value;
@@ -237,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.VersionId != null)
             {
                 request.VersionId = cmdletContext.VersionId;
+            }
+            if (cmdletContext.ViewUpdateAction != null)
+            {
+                request.ViewUpdateAction = cmdletContext.ViewUpdateAction;
             }
             
             CmdletOutput output;
@@ -301,10 +333,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
+            public System.Boolean? ForceUpdate { get; set; }
             public System.Boolean? SkipArchive { get; set; }
             public Amazon.Glue.Model.TableInput TableInput { get; set; }
             public System.String TransactionId { get; set; }
             public System.String VersionId { get; set; }
+            public Amazon.Glue.ViewUpdateAction ViewUpdateAction { get; set; }
             public System.Func<Amazon.Glue.Model.UpdateTableResponse, UpdateGLUETableCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

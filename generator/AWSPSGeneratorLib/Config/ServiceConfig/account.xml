@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptPrimaryEmailUpdate" OutputProperty="Status" Verb="Approve" Noun="PrimaryEmailUpdate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAlternateContact" Verb="Remove" Noun="AlternateContact" AnonymousShouldProcessTarget="true" PipelineParameter="AlternateContactType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -38,6 +42,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetPrimaryEmail" OutputProperty="PrimaryEmail" Verb="Get" Noun="PrimaryEmail" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetRegionOptStatus" OutputProperty="RegionOptStatus" Verb="Get" Noun="RegionOptStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -51,6 +59,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutContactInformation" Verb="Write" Noun="ContactInformation" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartPrimaryEmailUpdate" OutputProperty="Status" Verb="Start" Noun="PrimaryEmailUpdate" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

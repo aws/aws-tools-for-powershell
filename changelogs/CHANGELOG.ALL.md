@@ -1,4 +1,22 @@
-﻿### 4.1.594 (2024-06-05 21:36Z)
+﻿### 4.1.595 (2024-06-06 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.826.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Account
+    * Added cmdlet Approve-ACCTPrimaryEmailUpdate leveraging the AcceptPrimaryEmailUpdate service API.
+    * Added cmdlet Get-ACCTPrimaryEmail leveraging the GetPrimaryEmail service API.
+    * Added cmdlet Start-ACCTPrimaryEmailUpdate leveraging the StartPrimaryEmailUpdate service API.
+  * Amazon Glue
+    * Modified cmdlet Update-GLUETable: added parameters ForceUpdate and ViewUpdateAction.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_Enabled, HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_RoleARN, HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_SecretARN, SnowflakeDestinationConfiguration_SecretsManagerConfiguration_Enabled, SnowflakeDestinationConfiguration_SecretsManagerConfiguration_RoleARN and SnowflakeDestinationConfiguration_SecretsManagerConfiguration_SecretARN.
+    * Modified cmdlet Update-KINFDestination: added parameters HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled, HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN, HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN, SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled, SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN and SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN.
+  * Amazon Location Service
+    * Added cmdlet Invoke-LOCForecastGeofenceEventsOperation leveraging the ForecastGeofenceEvents service API.
+    * Added cmdlet Invoke-LOCVerifyDevicePositionOperation leveraging the VerifyDevicePosition service API.
+    * Modified cmdlet Set-LOCGeofence: added parameter Geometry_Geobuf.
+  * Amazon Storage Gateway
+    * Modified cmdlet Update-SGMaintenanceStartTime: added parameter SoftwareUpdatePreferences_AutomaticUpdatePolicy.
+
+### 4.1.594 (2024-06-05 21:36Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.825.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Global Accelerator
     * Modified cmdlet Update-GACLAccelerator: added parameter IpAddress.

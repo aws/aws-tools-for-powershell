@@ -346,6 +346,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ViewUpdateAction
+        "Update-GLUETable/ViewUpdateAction"
+        {
+            $v = "ADD","ADD_OR_REPLACE","DROP","REPLACE"
+            break
+        }
+
         # Amazon.Glue.WorkerType
         {
             ($_ -eq "New-GLUEDevEndpoint/WorkerType") -Or
@@ -399,6 +406,7 @@ $GLUE_map = @{
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
+    "ViewUpdateAction"=@("Update-GLUETable")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
 

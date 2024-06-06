@@ -58,12 +58,15 @@ Set-Alias -Name IAMAA-UpdateFindings -Value Update-IAMAAFinding
 Set-Alias -Name Validate-IAMAAPolicy -Value Use-IAMAAPolicyValidation
 Set-Alias -Name Validate-IAMAAPolicyValidation -Value Use-IAMAAPolicyValidation
 Set-Alias -Name IAMAA-ValidatePolicy -Value Use-IAMAAPolicyValidation
+Set-Alias -Name Accept-ACCTPrimaryEmailUpdate -Value Approve-ACCTPrimaryEmailUpdate
+Set-Alias -Name ACCT-AcceptPrimaryEmailUpdate -Value Approve-ACCTPrimaryEmailUpdate
 Set-Alias -Name Delete-ACCTAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DeleteAlternateContact -Value Remove-ACCTAlternateContact
 Set-Alias -Name ACCT-DisableRegion -Value Disable-ACCTRegion
 Set-Alias -Name ACCT-EnableRegion -Value Enable-ACCTRegion
 Set-Alias -Name ACCT-GetAlternateContact -Value Get-ACCTAlternateContact
 Set-Alias -Name ACCT-GetContactInformation -Value Get-ACCTContactInformation
+Set-Alias -Name ACCT-GetPrimaryEmail -Value Get-ACCTPrimaryEmail
 Set-Alias -Name ACCT-GetRegionOptStatus -Value Get-ACCTRegionOptStatus
 Set-Alias -Name List-ACCTRegions -Value Get-ACCTRegionList
 Set-Alias -Name List-ACCTRegionList -Value Get-ACCTRegionList
@@ -72,6 +75,7 @@ Set-Alias -Name Put-ACCTAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name ACCT-PutAlternateContact -Value Write-ACCTAlternateContact
 Set-Alias -Name Put-ACCTContactInformation -Value Write-ACCTContactInformation
 Set-Alias -Name ACCT-PutContactInformation -Value Write-ACCTContactInformation
+Set-Alias -Name ACCT-StartPrimaryEmailUpdate -Value Start-ACCTPrimaryEmailUpdate
 Set-Alias -Name Add-ACMTagsToCertificate -Value Add-ACMCertificateTag
 Set-Alias -Name ACM-AddTagsToCertificate -Value Add-ACMCertificateTag
 Set-Alias -Name Delete-ACMCertificate -Value Remove-ACMCertificate
@@ -17141,6 +17145,9 @@ Set-Alias -Name Describe-LOCTracker -Value Get-LOCTracker
 Set-Alias -Name LOC-DescribeTracker -Value Get-LOCTracker
 Set-Alias -Name Disassociate-LOCTrackerConsumer -Value Unregister-LOCTrackerConsumer
 Set-Alias -Name LOC-DisassociateTrackerConsumer -Value Unregister-LOCTrackerConsumer
+Set-Alias -Name Forecast-LOCGeofenceEvents -Value Invoke-LOCForecastGeofenceEventsOperation
+Set-Alias -Name Forecast-LOCForecastGeofenceEventsOperation -Value Invoke-LOCForecastGeofenceEventsOperation
+Set-Alias -Name LOC-ForecastGeofenceEvents -Value Invoke-LOCForecastGeofenceEventsOperation
 Set-Alias -Name LOC-GetDevicePosition -Value Get-LOCDevicePosition
 Set-Alias -Name LOC-GetDevicePositionHistory -Value Get-LOCDevicePositionHistory
 Set-Alias -Name LOC-GetGeofence -Value Get-LOCGeofence
@@ -17201,6 +17208,9 @@ Set-Alias -Name Update-LOCRouteCalculator -Value Edit-LOCRouteCalculator
 Set-Alias -Name LOC-UpdateRouteCalculator -Value Edit-LOCRouteCalculator
 Set-Alias -Name Update-LOCTracker -Value Edit-LOCTracker
 Set-Alias -Name LOC-UpdateTracker -Value Edit-LOCTracker
+Set-Alias -Name Verify-LOCDevicePosition -Value Invoke-LOCVerifyDevicePositionOperation
+Set-Alias -Name Verify-LOCVerifyDevicePositionOperation -Value Invoke-LOCVerifyDevicePositionOperation
+Set-Alias -Name LOC-VerifyDevicePosition -Value Invoke-LOCVerifyDevicePositionOperation
 Set-Alias -Name Associate-CWLKmsKey -Value Register-CWLKmsKey
 Set-Alias -Name CWL-AssociateKmsKey -Value Register-CWLKmsKey
 Set-Alias -Name Cancel-CWLExportTask -Value Stop-CWLExportTask

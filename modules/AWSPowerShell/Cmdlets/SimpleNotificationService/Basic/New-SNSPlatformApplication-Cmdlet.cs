@@ -37,17 +37,17 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// <para><c>PlatformPrincipal</c> and <c>PlatformCredential</c> are received from the notification
     /// service.
     /// </para><ul><li><para>
-    /// For <c>ADM</c>, <c>PlatformPrincipal</c> is <c>client id</c> and <c>PlatformCredential</c>
+    /// For ADM, <c>PlatformPrincipal</c> is <c>client id</c> and <c>PlatformCredential</c>
     /// is <c>client secret</c>.
     /// </para></li><li><para>
-    /// For <c>Baidu</c>, <c>PlatformPrincipal</c> is <c>API key</c> and <c>PlatformCredential</c>
-    /// is <c>secret key</c>.
-    /// </para></li><li><para>
-    /// For <c>APNS</c> and <c>APNS_SANDBOX</c> using certificate credentials, <c>PlatformPrincipal</c>
+    /// For APNS and <c>APNS_SANDBOX</c> using certificate credentials, <c>PlatformPrincipal</c>
     /// is <c>SSL certificate</c> and <c>PlatformCredential</c> is <c>private key</c>.
     /// </para></li><li><para>
-    /// For <c>APNS</c> and <c>APNS_SANDBOX</c> using token credentials, <c>PlatformPrincipal</c>
+    /// For APNS and <c>APNS_SANDBOX</c> using token credentials, <c>PlatformPrincipal</c>
     /// is <c>signing key ID</c> and <c>PlatformCredential</c> is <c>signing key</c>.
+    /// </para></li><li><para>
+    /// For Baidu, <c>PlatformPrincipal</c> is <c>API key</c> and <c>PlatformCredential</c>
+    /// is <c>secret key</c>.
     /// </para></li><li><para>
     /// For GCM (Firebase Cloud Messaging) using key credentials, there is no <c>PlatformPrincipal</c>.
     /// The <c>PlatformCredential</c> is <c>API key</c>.
@@ -58,11 +58,11 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// must be ignored. To format the file correctly, Amazon SNS recommends using the following
     /// command: <c>SERVICE_JSON=`jq @json &lt;&lt;&lt; cat service.json`</c>.
     /// </para></li><li><para>
-    /// For <c>MPNS</c>, <c>PlatformPrincipal</c> is <c>TLS certificate</c> and <c>PlatformCredential</c>
+    /// For MPNS, <c>PlatformPrincipal</c> is <c>TLS certificate</c> and <c>PlatformCredential</c>
     /// is <c>private key</c>.
     /// </para></li><li><para>
-    /// For <c>WNS</c>, <c>PlatformPrincipal</c> is <c>Package Security Identifier</c> and
-    /// <c>PlatformCredential</c> is <c>secret key</c>.
+    /// For WNS, <c>PlatformPrincipal</c> is <c>Package Security Identifier</c> and <c>PlatformCredential</c>
+    /// is <c>secret key</c>.
     /// </para></li></ul><para>
     /// You can use the returned <c>PlatformApplicationArn</c> as an attribute for the <c>CreatePlatformEndpoint</c>
     /// action.

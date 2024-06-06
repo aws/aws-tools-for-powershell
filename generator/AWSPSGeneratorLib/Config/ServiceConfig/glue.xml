@@ -862,7 +862,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTable" Verb="Update" Noun="Table" ShouldProcessTarget="DatabaseName" PipelineParameter="TableInput" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="ForceUpdate" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTableOptimizer" Verb="Update" Noun="TableOptimizer" ShouldProcessTarget="TableName" PipelineParameter="" NoPipelineParameter="true">

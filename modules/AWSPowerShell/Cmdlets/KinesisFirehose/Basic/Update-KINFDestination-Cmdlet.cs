@@ -453,6 +453,19 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Boolean? HttpEndpointDestinationUpdate_ProcessingConfiguration_Enabled { get; set; }
         #endregion
         
+        #region Parameter HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want to use the the secrets manager feature. When set as <c>True</c>
+        /// the secrets manager configuration overwrites the existing secrets in the destination
+        /// configuration. When it's set to <c>False</c> Firehose falls back to the credentials
+        /// in the destination configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled { get; set; }
+        #endregion
+        
         #region Parameter SnowflakeDestinationConfiguration_CloudWatchLoggingOptions_Enabled
         /// <summary>
         /// <para>
@@ -473,6 +486,19 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SnowflakeDestinationUpdate_ProcessingConfiguration_Enabled")]
         public System.Boolean? SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want to use the the secrets manager feature. When set as <c>True</c>
+        /// the secrets manager configuration overwrites the existing secrets in the destination
+        /// configuration. When it's set to <c>False</c> Firehose falls back to the credentials
+        /// in the destination configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled { get; set; }
         #endregion
         
         #region Parameter SnowflakeRoleConfiguration_Enabled
@@ -863,6 +889,19 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String HttpEndpointDestinationUpdate_RoleARN { get; set; }
         #endregion
         
+        #region Parameter HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the role that Firehose assumes when calling the Secrets Manager API operation.
+        /// When you provide the role, it overrides any destination specific role defined in the
+        /// destination configuration. If you do not provide the then we use the destination specific
+        /// role. This parameter is required for Splunk. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN { get; set; }
+        #endregion
+        
         #region Parameter SnowflakeDestinationUpdate_RoleARN
         /// <summary>
         /// <para>
@@ -871,6 +910,19 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SnowflakeDestinationUpdate_RoleARN { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the role that Firehose assumes when calling the Secrets Manager API operation.
+        /// When you provide the role, it overrides any destination specific role defined in the
+        /// destination configuration. If you do not provide the then we use the destination specific
+        /// role. This parameter is required for Splunk. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN { get; set; }
         #endregion
         
         #region Parameter HttpEndpointDestinationUpdate_S3BackupMode
@@ -957,6 +1009,32 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SnowflakeDestinationUpdate_Schema { get; set; }
+        #endregion
+        
+        #region Parameter HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the secret that stores your credentials. It must be in the same region
+        /// as the Firehose stream and the role. The secret ARN can reside in a different account
+        /// than the delivery stream and role as Firehose supports cross-account secret access.
+        /// This parameter is required when <b>Enabled</b> is set to <c>True</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN { get; set; }
+        #endregion
+        
+        #region Parameter SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the secret that stores your credentials. It must be in the same region
+        /// as the Firehose stream and the role. The secret ARN can reside in a different account
+        /// than the delivery stream and role as Firehose supports cross-account secret access.
+        /// This parameter is required when <b>Enabled</b> is set to <c>True</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN { get; set; }
         #endregion
         
         #region Parameter AmazonOpenSearchServerlessDestinationUpdate_BufferingHints_SizeInMBs
@@ -1246,6 +1324,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.HttpEndpointDestinationUpdate_RoleARN = this.HttpEndpointDestinationUpdate_RoleARN;
             context.HttpEndpointDestinationUpdate_S3BackupMode = this.HttpEndpointDestinationUpdate_S3BackupMode;
             context.HttpEndpointDestinationUpdate_S3Update = this.HttpEndpointDestinationUpdate_S3Update;
+            context.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled = this.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled;
+            context.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN = this.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN;
+            context.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN = this.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN;
             context.RedshiftDestinationUpdate = this.RedshiftDestinationUpdate;
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.S3DestinationUpdate = this.S3DestinationUpdate;
@@ -1270,6 +1351,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.SnowflakeDestinationUpdate_S3BackupMode = this.SnowflakeDestinationUpdate_S3BackupMode;
             context.SnowflakeDestinationUpdate_S3Update = this.SnowflakeDestinationUpdate_S3Update;
             context.SnowflakeDestinationUpdate_Schema = this.SnowflakeDestinationUpdate_Schema;
+            context.SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled = this.SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled;
+            context.SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN = this.SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN;
+            context.SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN = this.SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN;
             context.SnowflakeRoleConfiguration_Enabled = this.SnowflakeRoleConfiguration_Enabled;
             context.SnowflakeRoleConfiguration_SnowflakeRole = this.SnowflakeRoleConfiguration_SnowflakeRole;
             context.SnowflakeDestinationUpdate_Table = this.SnowflakeDestinationUpdate_Table;
@@ -2238,6 +2322,51 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.HttpEndpointDestinationUpdate.EndpointConfiguration = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_EndpointConfiguration;
                 requestHttpEndpointDestinationUpdateIsNull = false;
             }
+            Amazon.KinesisFirehose.Model.SecretsManagerConfiguration requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration = null;
+            
+             // populate SecretsManagerConfiguration
+            var requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfigurationIsNull = true;
+            requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration = new Amazon.KinesisFirehose.Model.SecretsManagerConfiguration();
+            System.Boolean? requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled = cmdletContext.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled.Value;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration.Enabled = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled.Value;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfigurationIsNull = false;
+            }
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN = cmdletContext.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration.RoleARN = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfigurationIsNull = false;
+            }
+            System.String requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN = null;
+            if (cmdletContext.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN = cmdletContext.HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN != null)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration.SecretARN = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration_httpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN;
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfigurationIsNull = false;
+            }
+             // determine if requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration should be set to null
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfigurationIsNull)
+            {
+                requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration = null;
+            }
+            if (requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration != null)
+            {
+                request.HttpEndpointDestinationUpdate.SecretsManagerConfiguration = requestHttpEndpointDestinationUpdate_httpEndpointDestinationUpdate_SecretsManagerConfiguration;
+                requestHttpEndpointDestinationUpdateIsNull = false;
+            }
              // determine if request.HttpEndpointDestinationUpdate should be set to null
             if (requestHttpEndpointDestinationUpdateIsNull)
             {
@@ -2527,6 +2656,51 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 request.SnowflakeDestinationUpdate.CloudWatchLoggingOptions = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_CloudWatchLoggingOptions;
                 requestSnowflakeDestinationUpdateIsNull = false;
             }
+            Amazon.KinesisFirehose.Model.SecretsManagerConfiguration requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration = null;
+            
+             // populate SecretsManagerConfiguration
+            var requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfigurationIsNull = true;
+            requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration = new Amazon.KinesisFirehose.Model.SecretsManagerConfiguration();
+            System.Boolean? requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled = cmdletContext.SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled.Value;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration.Enabled = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled.Value;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfigurationIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN = cmdletContext.SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration.RoleARN = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfigurationIsNull = false;
+            }
+            System.String requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN = null;
+            if (cmdletContext.SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN = cmdletContext.SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN != null)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration.SecretARN = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration_snowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN;
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfigurationIsNull = false;
+            }
+             // determine if requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration should be set to null
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfigurationIsNull)
+            {
+                requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration = null;
+            }
+            if (requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration != null)
+            {
+                request.SnowflakeDestinationUpdate.SecretsManagerConfiguration = requestSnowflakeDestinationUpdate_snowflakeDestinationUpdate_SecretsManagerConfiguration;
+                requestSnowflakeDestinationUpdateIsNull = false;
+            }
              // determine if request.SnowflakeDestinationUpdate should be set to null
             if (requestSnowflakeDestinationUpdateIsNull)
             {
@@ -2661,6 +2835,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String HttpEndpointDestinationUpdate_RoleARN { get; set; }
             public Amazon.KinesisFirehose.HttpEndpointS3BackupMode HttpEndpointDestinationUpdate_S3BackupMode { get; set; }
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate HttpEndpointDestinationUpdate_S3Update { get; set; }
+            public System.Boolean? HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled { get; set; }
+            public System.String HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN { get; set; }
+            public System.String HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
             [System.ObsoleteAttribute]
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
@@ -2681,6 +2858,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.SnowflakeS3BackupMode SnowflakeDestinationUpdate_S3BackupMode { get; set; }
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate SnowflakeDestinationUpdate_S3Update { get; set; }
             public System.String SnowflakeDestinationUpdate_Schema { get; set; }
+            public System.Boolean? SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled { get; set; }
+            public System.String SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN { get; set; }
+            public System.String SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN { get; set; }
             public System.Boolean? SnowflakeRoleConfiguration_Enabled { get; set; }
             public System.String SnowflakeRoleConfiguration_SnowflakeRole { get; set; }
             public System.String SnowflakeDestinationUpdate_Table { get; set; }

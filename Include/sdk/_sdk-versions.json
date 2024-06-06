@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.825.0",
+    "ProductVersion"    : "3.7.826.0",
     "CoreVersion"       : "3.7.304.12",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -347,7 +347,7 @@
             "InPreview"               : false
         },
         "SimpleNotificationService" : {
-            "Version" : "3.7.301.49",
+            "Version" : "3.7.301.50",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -363,7 +363,7 @@
             "InPreview"               : false
         },
         "SQS"                       : {
-            "Version" : "3.7.301.14",
+            "Version" : "3.7.301.15",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -379,7 +379,7 @@
             "InPreview"               : false
         },
         "StorageGateway"            : {
-            "Version" : "3.7.302.8",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -443,7 +443,7 @@
             "InPreview"               : false
         },
         "KinesisFirehose"           : {
-            "Version" : "3.7.304.49",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -827,7 +827,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.313.0",
+            "Version" : "3.7.314.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -1283,7 +1283,7 @@
             "InPreview"               : false
         },
         "FSx"                             : {
-            "Version" : "3.7.304.47",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -1995,7 +1995,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.302.26",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -2019,7 +2019,7 @@
             "InPreview"               : false
         },
         "LocationService"                 : {
-            "Version" : "3.7.304.68",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"
@@ -2235,7 +2235,7 @@
             "InPreview"               : false
         },
         "Account"                         : {
-            "Version" : "3.7.300.101",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.12"

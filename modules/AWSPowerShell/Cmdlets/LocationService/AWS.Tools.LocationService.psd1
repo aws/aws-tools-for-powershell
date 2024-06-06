@@ -119,6 +119,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LOCTracker', 
         'Get-LOCTrackerConsumerList', 
         'Get-LOCTrackerList', 
+        'Invoke-LOCForecastGeofenceEventsOperation', 
+        'Invoke-LOCVerifyDevicePositionOperation', 
         'New-LOCGeofenceCollection', 
         'New-LOCKey', 
         'New-LOCMap', 

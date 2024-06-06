@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.LOC
 {
     /// <summary>
     /// Retrieves the geofence details from a geofence collection.
+    /// 
+    ///  <note><para>
+    /// The returned geometry will always match the geometry format used when the geofence
+    /// was created.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "LOCGeofence")]
     [OutputType("System.Collections.Generic.List<System.Collections.Generic.List<System.Double>>")]

@@ -36,6 +36,9 @@
                 <Param Name="HttpEndpointDestinationConfiguration_RoleARN" NewName="HttpEndpointDestinationConfiguration_RoleARN" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationConfiguration_S3BackupMode" NewName="HttpEndpointDestinationConfiguration_S3BackupMode" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationConfiguration_S3Configuration" NewName="HttpEndpointDestinationConfiguration_S3Configuration" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_Enabled" NewName="HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_Enabled" />
+                <Param Name="HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_RoleARN" NewName="HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_RoleARN" />
+                <Param Name="HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_SecretARN" NewName="HttpEndpointDestinationConfiguration_SecretsManagerConfiguration_SecretARN" />
                 <Param Name="AmazonopensearchserviceDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="AmazonopensearchserviceDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationConfiguration_BufferingHints_SizeInMBs" NewName="AmazonopensearchserviceDestinationConfiguration_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="AmazonopensearchserviceDestinationConfiguration_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
@@ -65,6 +68,9 @@
                 <Param Name="SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled" />
                 <Param Name="SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors" />
                 <Param Name="SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds" NewName="SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds" />
+                <Param Name="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_Enabled" NewName="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_Enabled" />
+                <Param Name="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_RoleARN" NewName="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_RoleARN" />
+                <Param Name="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_SecretARN" NewName="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_SecretARN" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -129,6 +135,9 @@
                 <Param Name="HttpEndpointDestinationUpdate_RoleARN" NewName="HttpEndpointDestinationUpdate_RoleARN" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationUpdate_S3BackupMode" NewName="HttpEndpointDestinationUpdate_S3BackupMode" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationUpdate_S3Update" NewName="HttpEndpointDestinationUpdate_S3Update" AutoApplyAlias="false" />
+                <Param Name="HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled" NewName="HttpEndpointDestinationUpdate_SecretsManagerConfiguration_Enabled" />
+                <Param Name="HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN" NewName="HttpEndpointDestinationUpdate_SecretsManagerConfiguration_RoleARN" />
+                <Param Name="HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN" NewName="HttpEndpointDestinationUpdate_SecretsManagerConfiguration_SecretARN" />
                 <Param Name="AmazonopensearchserviceDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="AmazonopensearchserviceDestinationUpdate_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationUpdate_BufferingHints_SizeInMBs" NewName="AmazonopensearchserviceDestinationUpdate_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
                 <Param Name="AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="AmazonopensearchserviceDestinationUpdate_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
@@ -152,6 +161,9 @@
                 <Param Name="SnowflakeDestinationUpdate_ProcessingConfiguration_Enabled" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Enabled" />
                 <Param Name="SnowflakeDestinationUpdate_ProcessingConfiguration_Processors" NewName="SnowflakeDestinationConfiguration_ProcessingConfiguration_Processors" />
                 <Param Name="SnowflakeDestinationUpdate_RetryOptions_DurationInSeconds" NewName="SnowflakeDestinationConfiguration_RetryOptions_DurationInSeconds" />
+                <Param Name="SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled" NewName="SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled" />
+                <Param Name="SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN" NewName="SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN" />
+                <Param Name="SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN" NewName="SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

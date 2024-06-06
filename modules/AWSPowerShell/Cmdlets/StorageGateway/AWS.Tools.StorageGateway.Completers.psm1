@@ -80,6 +80,13 @@ $SG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.StorageGateway.AutomaticUpdatePolicy
+        "Update-SGMaintenanceStartTime/SoftwareUpdatePreferences_AutomaticUpdatePolicy"
+        {
+            $v = "ALL_VERSIONS","EMERGENCY_VERSIONS_ONLY"
+            break
+        }
+
         # Amazon.StorageGateway.CaseSensitivity
         {
             ($_ -eq "New-SGSMBFileShare/CaseSensitivity") -Or
@@ -144,6 +151,7 @@ $SG_map = @{
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "RetentionLockType"=@("New-SGTapePool")
     "SMBSecurityStrategy"=@("Update-SGSMBSecurityStrategy")
+    "SoftwareUpdatePreferences_AutomaticUpdatePolicy"=@("Update-SGMaintenanceStartTime")
     "StorageClass"=@("New-SGTapePool")
 }
 

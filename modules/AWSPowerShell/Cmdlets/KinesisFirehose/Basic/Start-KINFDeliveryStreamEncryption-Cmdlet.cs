@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// is of type <c>CUSTOMER_MANAGED_CMK</c>, Firehose creates a grant that enables it to
     /// use the new CMK to encrypt and decrypt data and to manage the grant.
     /// </para><para>
-    /// For the KMS grant creation to be successful, Firehose APIs <c>StartDeliveryStreamEncryption</c>
+    /// For the KMS grant creation to be successful, the Firehose API operations <c>StartDeliveryStreamEncryption</c>
     /// and <c>CreateDeliveryStream</c> should not be called with session credentials that
     /// are more than 6 hours old.
     /// </para><para>

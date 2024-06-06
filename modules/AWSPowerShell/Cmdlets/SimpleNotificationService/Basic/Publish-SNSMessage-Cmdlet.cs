@@ -169,9 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// <para>
         /// <para>Optional parameter to be used as the "Subject" line when the message is delivered
         /// to email endpoints. This field will also be included, if present, in the standard
-        /// JSON messages delivered to other endpoints.</para><para>Constraints: Subjects must be ASCII text that begins with a letter, number, or punctuation
-        /// mark; must not include line breaks or control characters; and must be less than 100
-        /// characters long.</para>
+        /// JSON messages delivered to other endpoints.</para><para>Constraints: Subjects must be UTF-8 text with no line breaks or control characters,
+        /// and less than 100 characters long.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

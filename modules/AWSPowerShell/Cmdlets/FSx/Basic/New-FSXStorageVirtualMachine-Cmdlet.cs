@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// users are NFS clients, and an application accessing the data uses a UNIX user as the
         /// service account.</para></li><li><para><c>NTFS</c> if the file system is managed by a Microsoft Windows administrator, the
         /// majority of users are SMB clients, and an application accessing the data uses a Microsoft
-        /// Windows user as the service account.</para></li><li><para><c>MIXED</c> This is an advanced setting. For more information, see <a href="fsx/latest/ONTAPGuide/volume-security-style.html">Volume
+        /// Windows user as the service account.</para></li><li><para><c>MIXED</c> This is an advanced setting. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-security-style.html">Volume
         /// security style</a> in the Amazon FSx for NetApp ONTAP User Guide.</para></li></ul>
         /// </para>
         /// </summary>

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
     /// If a file system with the specified client request token exists and the parameters
     /// don't match, this call returns <c>IncompatibleParameterError</c>. If a file system
     /// with the specified client request token doesn't exist, <c>CreateFileSystem</c> does
-    /// the following: 
+    /// the following:
     /// </para><ul><li><para>
     /// Creates a new, empty Amazon FSx file system with an assigned ID, and an initial lifecycle
     /// state of <c>CREATING</c>.
@@ -295,11 +295,12 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter FileSystemTypeVersion
         /// <summary>
         /// <para>
-        /// <para>(Optional) For FSx for Lustre file systems, sets the Lustre version for the file system
-        /// that you're creating. Valid values are <c>2.10</c>, <c>2.12</c>, and <c>2.15</c>:</para><ul><li><para>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para>2.12 and 2.15 are supported by all Lustre deployment types. <c>2.12</c> or <c>2.15</c>
-        /// is required when setting FSx for Lustre <c>DeploymentType</c> to <c>PERSISTENT_2</c>.</para></li></ul><para>Default value = <c>2.10</c>, except when <c>DeploymentType</c> is set to <c>PERSISTENT_2</c>,
-        /// then the default is <c>2.12</c>.</para><note><para>If you set <c>FileSystemTypeVersion</c> to <c>2.10</c> for a <c>PERSISTENT_2</c> Lustre
-        /// deployment type, the <c>CreateFileSystem</c> operation fails.</para></note>
+        /// <para>For FSx for Lustre file systems, sets the Lustre version for the file system that
+        /// you're creating. Valid values are <c>2.10</c>, <c>2.12</c>, and <c>2.15</c>:</para><ul><li><para><c>2.10</c> is supported by the Scratch and Persistent_1 Lustre deployment types.</para></li><li><para><c>2.12</c> is supported by all Lustre deployment types, except for <c>PERSISTENT_2</c>
+        /// with a metadata configuration mode.</para></li><li><para><c>2.15</c> is supported by all Lustre deployment types and is recommended for all
+        /// new file systems.</para></li></ul><para>Default value is <c>2.10</c>, except for the following deployments:</para><ul><li><para>Default value is <c>2.12</c> when <c>DeploymentType</c> is set to <c>PERSISTENT_2</c>
+        /// without a metadata configuration mode.</para></li><li><para>Default value is <c>2.15</c> when <c>DeploymentType</c> is set to <c>PERSISTENT_2</c>
+        /// with a metadata configuration mode.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -324,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// system. Scale-up file systems are powered by 1 HA pair. The default value is 1. FSx
         /// for ONTAP scale-out file systems are powered by up to 12 HA pairs. The value of this
         /// property affects the values of <c>StorageCapacity</c>, <c>Iops</c>, and <c>ThroughputCapacity</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html">High-availability
+        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs">High-availability
         /// (HA) pairs</a> in the FSx for ONTAP user guide.</para><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>HAPairs</c> is less than 1 or greater than 12.</para></li><li><para>The value of <c>HAPairs</c> is greater than 1 and the value of <c>DeploymentType</c>
         /// is <c>SINGLE_AZ_1</c> or <c>MULTI_AZ_1</c>.</para></li></ul>
         /// </para>
@@ -518,7 +519,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>
         /// <para>Sets the storage capacity of the file system that you're creating, in gibibytes (GiB).</para><para><b>FSx for Lustre file systems</b> - The amount of storage capacity that you can
         /// configure depends on the value that you set for <c>StorageType</c> and the Lustre
-        /// <c>DeploymentType</c>, as follows:</para><ul><li><para>For <c>SCRATCH_2</c>, <c>PERSISTENT_2</c> and <c>PERSISTENT_1</c> deployment types
+        /// <c>DeploymentType</c>, as follows:</para><ul><li><para>For <c>SCRATCH_2</c>, <c>PERSISTENT_2</c>, and <c>PERSISTENT_1</c> deployment types
         /// using SSD storage type, the valid values are 1200 GiB, 2400 GiB, and increments of
         /// 2400 GiB.</para></li><li><para>For <c>PERSISTENT_1</c> HDD file systems, valid values are increments of 6000 GiB
         /// for 12 MB/s/TiB file systems and increments of 1800 GiB for 40 MB/s/TiB file systems.</para></li><li><para>For <c>SCRATCH_1</c> deployment type, valid values are 1200 GiB, 2400 GiB, and increments
@@ -548,7 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// and <c>HDD</c>.</para><ul><li><para>Set to <c>SSD</c> to use solid state drive storage. SSD is supported on all Windows,
         /// Lustre, ONTAP, and OpenZFS deployment types.</para></li><li><para>Set to <c>HDD</c> to use hard disk drive storage. HDD is supported on <c>SINGLE_AZ_2</c>
         /// and <c>MULTI_AZ_1</c> Windows file system deployment types, and on <c>PERSISTENT_1</c>
-        /// Lustre file system deployment types. </para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
+        /// Lustre file system deployment types.</para></li></ul><para>Default value is <c>SSD</c>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options">
         /// Storage type options</a> in the <i>FSx for Windows File Server User Guide</i> and
         /// <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple
         /// storage options</a> in the <i>FSx for Lustre User Guide</i>. </para>

@@ -65,10 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         /// Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors
         /// (for example, when the subscribed endpoint is unreachable) or server errors (for example,
         /// when the service that powers the subscribed endpoint becomes unavailable) are held
-        /// in the dead-letter queue for further analysis or reprocessing.</para></li></ul><para>The following attribute applies only to Amazon Kinesis Data Firehose delivery stream
-        /// subscriptions:</para><ul><li><para><c>SubscriptionRoleArn</c> – The ARN of the IAM role that has the following:</para><ul><li><para>Permission to write to the Kinesis Data Firehose delivery stream</para></li><li><para>Amazon SNS listed as a trusted entity</para></li></ul><para>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery
-        /// stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
-        /// to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO
+        /// in the dead-letter queue for further analysis or reprocessing.</para></li></ul><para>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</para><ul><li><para><c>SubscriptionRoleArn</c> – The ARN of the IAM role that has the following:</para><ul><li><para>Permission to write to the Firehose delivery stream</para></li><li><para>Amazon SNS listed as a trusted entity</para></li></ul><para>Specifying a valid ARN for this attribute is required for Firehose delivery stream
+        /// subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
+        /// to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</para></li></ul><para>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO
         /// topics</a>:</para><ul><li><para><c>ReplayPolicy</c> – Adds or updates an inline policy document for a subscription
         /// to replay messages stored in the specified Amazon SNS topic.</para></li><li><para><c>ReplayStatus</c> – Retrieves the status of the subscription message replay, which
         /// can be one of the following:</para><ul><li><para><c>Completed</c> – The replay has successfully redelivered all messages, and is now

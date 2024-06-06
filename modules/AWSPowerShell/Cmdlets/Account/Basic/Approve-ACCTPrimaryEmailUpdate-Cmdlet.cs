@@ -28,22 +28,21 @@ using Amazon.Account.Model;
 namespace Amazon.PowerShell.Cmdlets.ACCT
 {
     /// <summary>
-    /// Disables (opts-out) a particular Region for an account.
-    /// 
-    ///  <note><para>
-    /// The act of disabling a Region will remove all IAM access to any resources that reside
-    /// in that Region.
-    /// </para></note>
+    /// Accepts the request that originated from <a>StartPrimaryEmailUpdate</a> to update
+    /// the primary email address (also known as the root user email address) for the specified
+    /// account.
     /// </summary>
-    [Cmdlet("Disable", "ACCTRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Account DisableRegion API operation.", Operation = new[] {"DisableRegion"}, SelectReturnType = typeof(Amazon.Account.Model.DisableRegionResponse))]
-    [AWSCmdletOutput("None or Amazon.Account.Model.DisableRegionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Account.Model.DisableRegionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Approve", "ACCTPrimaryEmailUpdate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Account.PrimaryEmailUpdateStatus")]
+    [AWSCmdlet("Calls the AWS Account AcceptPrimaryEmailUpdate API operation.", Operation = new[] {"AcceptPrimaryEmailUpdate"}, SelectReturnType = typeof(Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse))]
+    [AWSCmdletOutput("Amazon.Account.PrimaryEmailUpdateStatus or Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse",
+        "This cmdlet returns an Amazon.Account.PrimaryEmailUpdateStatus object.",
+        "The service call response (type Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableACCTRegionCmdlet : AmazonAccountClientCmdlet, IExecutor
+    public partial class ApproveACCTPrimaryEmailUpdateCmdlet : AmazonAccountClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
@@ -51,31 +50,14 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// <summary>
         /// <para>
         /// <para>Specifies the 12-digit account ID number of the Amazon Web Services account that you
-        /// want to access or modify with this operation. If you don't specify this parameter,
-        /// it defaults to the Amazon Web Services account of the identity used to call the operation.
-        /// To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
+        /// want to access or modify with this operation. To use this parameter, the caller must
+        /// be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
         /// management account</a> or a delegated administrator account. The specified account
         /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
         /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
         /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
-        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, don't
-        /// specify this parameter. Instead, call the operation using an identity belonging to
-        /// the account whose contacts you wish to retrieve or modify.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
-        #endregion
-        
-        #region Parameter RegionName
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the Region-code for a given Region name (for example, <c>af-south-1</c>).
-        /// When you disable a Region, Amazon Web Services performs actions to deactivate that
-        /// Region in your account, such as destroying IAM resources in the Region. This process
-        /// takes a few minutes for most accounts, but this can take several hours. You cannot
-        /// enable the Region until the disabling process is fully completed.</para>
+        /// admin</a> account assigned.</para><para>This operation can only be called from the management account or the delegated administrator
+        /// account of an organization for a member account.</para><note><para>The management account can't specify its own <c>AccountId</c>.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,17 +68,54 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RegionName { get; set; }
+        public System.String AccountId { get; set; }
+        #endregion
+        
+        #region Parameter Otp
+        /// <summary>
+        /// <para>
+        /// <para>The OTP code sent to the <c>PrimaryEmail</c> specified on the <c>StartPrimaryEmailUpdate</c>
+        /// API call.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Otp { get; set; }
+        #endregion
+        
+        #region Parameter PrimaryEmail
+        /// <summary>
+        /// <para>
+        /// <para>The new primary email address for use with the specified account. This must match
+        /// the <c>PrimaryEmail</c> from the <c>StartPrimaryEmailUpdate</c> API call.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PrimaryEmail { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.DisableRegionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse).
+        /// Specifying the name of a property of type Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Status";
         #endregion
         
         #region Parameter Force
@@ -115,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-ACCTRegion (DisableRegion)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Approve-ACCTPrimaryEmailUpdate (AcceptPrimaryEmailUpdate)"))
             {
                 return;
             }
@@ -127,15 +146,28 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Account.Model.DisableRegionResponse, DisableACCTRegionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse, ApproveACCTPrimaryEmailUpdateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccountId = this.AccountId;
-            context.RegionName = this.RegionName;
             #if MODULAR
-            if (this.RegionName == null && ParameterWasBound(nameof(this.RegionName)))
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter RegionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Otp = this.Otp;
+            #if MODULAR
+            if (this.Otp == null && ParameterWasBound(nameof(this.Otp)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Otp which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.PrimaryEmail = this.PrimaryEmail;
+            #if MODULAR
+            if (this.PrimaryEmail == null && ParameterWasBound(nameof(this.PrimaryEmail)))
+            {
+                WriteWarning("You are passing $null as a value for parameter PrimaryEmail which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -152,15 +184,19 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Account.Model.DisableRegionRequest();
+            var request = new Amazon.Account.Model.AcceptPrimaryEmailUpdateRequest();
             
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
             }
-            if (cmdletContext.RegionName != null)
+            if (cmdletContext.Otp != null)
             {
-                request.RegionName = cmdletContext.RegionName;
+                request.Otp = cmdletContext.Otp;
+            }
+            if (cmdletContext.PrimaryEmail != null)
+            {
+                request.PrimaryEmail = cmdletContext.PrimaryEmail;
             }
             
             CmdletOutput output;
@@ -195,15 +231,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region AWS Service Operation Call
         
-        private Amazon.Account.Model.DisableRegionResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.DisableRegionRequest request)
+        private Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.AcceptPrimaryEmailUpdateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "DisableRegion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "AcceptPrimaryEmailUpdate");
             try
             {
                 #if DESKTOP
-                return client.DisableRegion(request);
+                return client.AcceptPrimaryEmailUpdate(request);
                 #elif CORECLR
-                return client.DisableRegionAsync(request).GetAwaiter().GetResult();
+                return client.AcceptPrimaryEmailUpdateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -224,9 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
-            public System.String RegionName { get; set; }
-            public System.Func<Amazon.Account.Model.DisableRegionResponse, DisableACCTRegionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Otp { get; set; }
+            public System.String PrimaryEmail { get; set; }
+            public System.Func<Amazon.Account.Model.AcceptPrimaryEmailUpdateResponse, ApproveACCTPrimaryEmailUpdateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Status;
         }
         
     }

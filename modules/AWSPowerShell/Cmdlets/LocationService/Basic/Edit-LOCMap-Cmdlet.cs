@@ -45,10 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         /// <summary>
         /// <para>
         /// <para>Specifies the custom layers for the style. Leave unset to not enable any custom layer,
-        /// or, for styles that support custom layers, you can enable layer(s), such as <c>POI</c>
-        /// layer for the VectorEsriNavigation style. Default is <c>unset</c>.</para><note><para>Currenlty only <c>VectorEsriNavigation</c> supports CustomLayers. For more information,
-        /// see <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers">Custom
-        /// Layers</a>.</para></note>
+        /// or, for styles that support custom layers, you can enable layer(s), such as POI layer
+        /// for the VectorEsriNavigation style. Default is <c>unset</c>.</para><note><para>Not all map resources or styles support custom layers. See Custom Layers for more
+        /// information.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

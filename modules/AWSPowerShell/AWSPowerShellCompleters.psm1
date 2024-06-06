@@ -329,15 +329,18 @@ $ACCT_SelectCompleters = {
 }
 
 $ACCT_SelectMap = @{
-    "Select"=@("Remove-ACCTAlternateContact",
+    "Select"=@("Approve-ACCTPrimaryEmailUpdate",
+               "Remove-ACCTAlternateContact",
                "Disable-ACCTRegion",
                "Enable-ACCTRegion",
                "Get-ACCTAlternateContact",
                "Get-ACCTContactInformation",
+               "Get-ACCTPrimaryEmail",
                "Get-ACCTRegionOptStatus",
                "Get-ACCTRegionList",
                "Write-ACCTAlternateContact",
-               "Write-ACCTContactInformation")
+               "Write-ACCTContactInformation",
+               "Start-ACCTPrimaryEmailUpdate")
 }
 
 _awsArgumentCompleterRegistration $ACCT_SelectCompleters $ACCT_SelectMap
@@ -30583,6 +30586,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.ViewUpdateAction
+        "Update-GLUETable/ViewUpdateAction"
+        {
+            $v = "ADD","ADD_OR_REPLACE","DROP","REPLACE"
+            break
+        }
+
         # Amazon.Glue.WorkerType
         {
             ($_ -eq "New-GLUEDevEndpoint/WorkerType") -Or
@@ -30636,6 +30646,7 @@ $GLUE_map = @{
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
+    "ViewUpdateAction"=@("Update-GLUETable")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
 }
 
@@ -40227,7 +40238,9 @@ $LOC_Completers = {
         # Amazon.LocationService.DistanceUnit
         {
             ($_ -eq "Get-LOCRoute/DistanceUnit") -Or
-            ($_ -eq "Get-LOCRouteMatrix/DistanceUnit")
+            ($_ -eq "Get-LOCRouteMatrix/DistanceUnit") -Or
+            ($_ -eq "Invoke-LOCForecastGeofenceEventsOperation/DistanceUnit") -Or
+            ($_ -eq "Invoke-LOCVerifyDevicePositionOperation/DistanceUnit")
         }
         {
             $v = "Kilometers","Miles"
@@ -40279,6 +40292,13 @@ $LOC_Completers = {
             break
         }
 
+        # Amazon.LocationService.SpeedUnit
+        "Invoke-LOCForecastGeofenceEventsOperation/SpeedUnit"
+        {
+            $v = "KilometersPerHour","MilesPerHour"
+            break
+        }
+
         # Amazon.LocationService.Status
         "Get-LOCKeyList/Filter_KeyStatus"
         {
@@ -40317,11 +40337,12 @@ $LOC_Completers = {
 $LOC_map = @{
     "DataSourceConfiguration_IntendedUse"=@("Edit-LOCPlaceIndex","New-LOCPlaceIndex")
     "Dimensions_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
-    "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
+    "DistanceUnit"=@("Get-LOCRoute","Get-LOCRouteMatrix","Invoke-LOCForecastGeofenceEventsOperation","Invoke-LOCVerifyDevicePositionOperation")
     "Filter_KeyStatus"=@("Get-LOCKeyList")
     "OptimizeFor"=@("Get-LOCRoute")
     "PositionFiltering"=@("Edit-LOCTracker","New-LOCTracker")
     "PricingPlan"=@("Edit-LOCGeofenceCollection","Edit-LOCMap","Edit-LOCPlaceIndex","Edit-LOCRouteCalculator","Edit-LOCTracker","New-LOCGeofenceCollection","New-LOCMap","New-LOCPlaceIndex","New-LOCRouteCalculator","New-LOCTracker")
+    "SpeedUnit"=@("Invoke-LOCForecastGeofenceEventsOperation")
     "TravelMode"=@("Get-LOCRoute","Get-LOCRouteMatrix")
     "Weight_Unit"=@("Get-LOCRoute","Get-LOCRouteMatrix")
 }
@@ -40404,6 +40425,7 @@ $LOC_SelectMap = @{
                "Get-LOCRouteCalculator",
                "Get-LOCTracker",
                "Unregister-LOCTrackerConsumer",
+               "Invoke-LOCForecastGeofenceEventsOperation",
                "Get-LOCDevicePosition",
                "Get-LOCDevicePositionHistory",
                "Get-LOCGeofence",
@@ -40433,7 +40455,8 @@ $LOC_SelectMap = @{
                "Edit-LOCMap",
                "Edit-LOCPlaceIndex",
                "Edit-LOCRouteCalculator",
-               "Edit-LOCTracker")
+               "Edit-LOCTracker",
+               "Invoke-LOCVerifyDevicePositionOperation")
 }
 
 _awsArgumentCompleterRegistration $LOC_SelectCompleters $LOC_SelectMap
@@ -65346,6 +65369,13 @@ $SG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.StorageGateway.AutomaticUpdatePolicy
+        "Update-SGMaintenanceStartTime/SoftwareUpdatePreferences_AutomaticUpdatePolicy"
+        {
+            $v = "ALL_VERSIONS","EMERGENCY_VERSIONS_ONLY"
+            break
+        }
+
         # Amazon.StorageGateway.CaseSensitivity
         {
             ($_ -eq "New-SGSMBFileShare/CaseSensitivity") -Or
@@ -65410,6 +65440,7 @@ $SG_map = @{
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "RetentionLockType"=@("New-SGTapePool")
     "SMBSecurityStrategy"=@("Update-SGSMBSecurityStrategy")
+    "SoftwareUpdatePreferences_AutomaticUpdatePolicy"=@("Update-SGMaintenanceStartTime")
     "StorageClass"=@("New-SGTapePool")
 }
 

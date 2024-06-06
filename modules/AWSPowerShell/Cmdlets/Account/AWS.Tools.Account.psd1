@@ -86,13 +86,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Approve-ACCTPrimaryEmailUpdate', 
         'Disable-ACCTRegion', 
         'Enable-ACCTRegion', 
         'Get-ACCTAlternateContact', 
         'Get-ACCTContactInformation', 
+        'Get-ACCTPrimaryEmail', 
         'Get-ACCTRegionList', 
         'Get-ACCTRegionOptStatus', 
         'Remove-ACCTAlternateContact', 
+        'Start-ACCTPrimaryEmailUpdate', 
         'Write-ACCTAlternateContact', 
         'Write-ACCTContactInformation')
 

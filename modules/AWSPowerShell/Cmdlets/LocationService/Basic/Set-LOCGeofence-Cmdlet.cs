@@ -73,6 +73,19 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         public System.String CollectionName { get; set; }
         #endregion
         
+        #region Parameter Geometry_Geobuf
+        /// <summary>
+        /// <para>
+        /// <para>Geobuf is a compact binary encoding for geographic data that provides lossless compression
+        /// of GeoJSON polygons. The Geobuf must be Base64-encoded.</para><para>A polygon in Geobuf format can have up to 100,000 vertices.</para>
+        /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
+        public byte[] Geometry_Geobuf { get; set; }
+        #endregion
+        
         #region Parameter GeofenceId
         /// <summary>
         /// <para>
@@ -233,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
                 context.Circle_Center = new List<System.Double>(this.Circle_Center);
             }
             context.Circle_Radius = this.Circle_Radius;
+            context.Geometry_Geobuf = this.Geometry_Geobuf;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -245,98 +259,121 @@ namespace Amazon.PowerShell.Cmdlets.LOC
         
         public object Execute(ExecutorContext context)
         {
-            var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.LocationService.Model.PutGeofenceRequest();
+            System.IO.MemoryStream _Geometry_GeobufStream = null;
             
-            if (cmdletContext.CollectionName != null)
-            {
-                request.CollectionName = cmdletContext.CollectionName;
-            }
-            if (cmdletContext.GeofenceId != null)
-            {
-                request.GeofenceId = cmdletContext.GeofenceId;
-            }
-            if (cmdletContext.GeofenceProperty != null)
-            {
-                request.GeofenceProperties = cmdletContext.GeofenceProperty;
-            }
-            
-             // populate Geometry
-            var requestGeometryIsNull = true;
-            request.Geometry = new Amazon.LocationService.Model.GeofenceGeometry();
-            List<List<List<System.Double>>> requestGeometry_geometry_Polygon = null;
-            if (cmdletContext.Geometry_Polygon != null)
-            {
-                requestGeometry_geometry_Polygon = cmdletContext.Geometry_Polygon;
-            }
-            if (requestGeometry_geometry_Polygon != null)
-            {
-                request.Geometry.Polygon = requestGeometry_geometry_Polygon;
-                requestGeometryIsNull = false;
-            }
-            Amazon.LocationService.Model.Circle requestGeometry_geometry_Circle = null;
-            
-             // populate Circle
-            var requestGeometry_geometry_CircleIsNull = true;
-            requestGeometry_geometry_Circle = new Amazon.LocationService.Model.Circle();
-            List<System.Double> requestGeometry_geometry_Circle_circle_Center = null;
-            if (cmdletContext.Circle_Center != null)
-            {
-                requestGeometry_geometry_Circle_circle_Center = cmdletContext.Circle_Center;
-            }
-            if (requestGeometry_geometry_Circle_circle_Center != null)
-            {
-                requestGeometry_geometry_Circle.Center = requestGeometry_geometry_Circle_circle_Center;
-                requestGeometry_geometry_CircleIsNull = false;
-            }
-            System.Double? requestGeometry_geometry_Circle_circle_Radius = null;
-            if (cmdletContext.Circle_Radius != null)
-            {
-                requestGeometry_geometry_Circle_circle_Radius = cmdletContext.Circle_Radius.Value;
-            }
-            if (requestGeometry_geometry_Circle_circle_Radius != null)
-            {
-                requestGeometry_geometry_Circle.Radius = requestGeometry_geometry_Circle_circle_Radius.Value;
-                requestGeometry_geometry_CircleIsNull = false;
-            }
-             // determine if requestGeometry_geometry_Circle should be set to null
-            if (requestGeometry_geometry_CircleIsNull)
-            {
-                requestGeometry_geometry_Circle = null;
-            }
-            if (requestGeometry_geometry_Circle != null)
-            {
-                request.Geometry.Circle = requestGeometry_geometry_Circle;
-                requestGeometryIsNull = false;
-            }
-             // determine if request.Geometry should be set to null
-            if (requestGeometryIsNull)
-            {
-                request.Geometry = null;
-            }
-            
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                var cmdletContext = context as CmdletContext;
+                // create request
+                var request = new Amazon.LocationService.Model.PutGeofenceRequest();
+                
+                if (cmdletContext.CollectionName != null)
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
+                    request.CollectionName = cmdletContext.CollectionName;
+                }
+                if (cmdletContext.GeofenceId != null)
+                {
+                    request.GeofenceId = cmdletContext.GeofenceId;
+                }
+                if (cmdletContext.GeofenceProperty != null)
+                {
+                    request.GeofenceProperties = cmdletContext.GeofenceProperty;
+                }
+                
+                 // populate Geometry
+                var requestGeometryIsNull = true;
+                request.Geometry = new Amazon.LocationService.Model.GeofenceGeometry();
+                List<List<List<System.Double>>> requestGeometry_geometry_Polygon = null;
+                if (cmdletContext.Geometry_Polygon != null)
+                {
+                    requestGeometry_geometry_Polygon = cmdletContext.Geometry_Polygon;
+                }
+                if (requestGeometry_geometry_Polygon != null)
+                {
+                    request.Geometry.Polygon = requestGeometry_geometry_Polygon;
+                    requestGeometryIsNull = false;
+                }
+                System.IO.MemoryStream requestGeometry_geometry_Geobuf = null;
+                if (cmdletContext.Geometry_Geobuf != null)
+                {
+                    _Geometry_GeobufStream = new System.IO.MemoryStream(cmdletContext.Geometry_Geobuf);
+                    requestGeometry_geometry_Geobuf = _Geometry_GeobufStream;
+                }
+                if (requestGeometry_geometry_Geobuf != null)
+                {
+                    request.Geometry.Geobuf = requestGeometry_geometry_Geobuf;
+                    requestGeometryIsNull = false;
+                }
+                Amazon.LocationService.Model.Circle requestGeometry_geometry_Circle = null;
+                
+                 // populate Circle
+                var requestGeometry_geometry_CircleIsNull = true;
+                requestGeometry_geometry_Circle = new Amazon.LocationService.Model.Circle();
+                List<System.Double> requestGeometry_geometry_Circle_circle_Center = null;
+                if (cmdletContext.Circle_Center != null)
+                {
+                    requestGeometry_geometry_Circle_circle_Center = cmdletContext.Circle_Center;
+                }
+                if (requestGeometry_geometry_Circle_circle_Center != null)
+                {
+                    requestGeometry_geometry_Circle.Center = requestGeometry_geometry_Circle_circle_Center;
+                    requestGeometry_geometry_CircleIsNull = false;
+                }
+                System.Double? requestGeometry_geometry_Circle_circle_Radius = null;
+                if (cmdletContext.Circle_Radius != null)
+                {
+                    requestGeometry_geometry_Circle_circle_Radius = cmdletContext.Circle_Radius.Value;
+                }
+                if (requestGeometry_geometry_Circle_circle_Radius != null)
+                {
+                    requestGeometry_geometry_Circle.Radius = requestGeometry_geometry_Circle_circle_Radius.Value;
+                    requestGeometry_geometry_CircleIsNull = false;
+                }
+                 // determine if requestGeometry_geometry_Circle should be set to null
+                if (requestGeometry_geometry_CircleIsNull)
+                {
+                    requestGeometry_geometry_Circle = null;
+                }
+                if (requestGeometry_geometry_Circle != null)
+                {
+                    request.Geometry.Circle = requestGeometry_geometry_Circle;
+                    requestGeometryIsNull = false;
+                }
+                 // determine if request.Geometry should be set to null
+                if (requestGeometryIsNull)
+                {
+                    request.Geometry = null;
+                }
+                
+                CmdletOutput output;
+                
+                // issue call
+                var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+                try
+                {
+                    var response = CallAWSServiceOperation(client, request);
+                    object pipelineOutput = null;
+                    pipelineOutput = cmdletContext.Select(response, this);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                return output;
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if( _Geometry_GeobufStream != null)
+                {
+                    _Geometry_GeobufStream.Dispose();
+                }
             }
-            
-            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -382,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.LOC
             public List<List<List<System.Double>>> Geometry_Polygon { get; set; }
             public List<System.Double> Circle_Center { get; set; }
             public System.Double? Circle_Radius { get; set; }
+            public byte[] Geometry_Geobuf { get; set; }
             public System.Func<Amazon.LocationService.Model.PutGeofenceResponse, SetLOCGeofenceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

@@ -130,6 +130,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ForecastGeofenceEvents" OutputProperty="*" Verb="Invoke" Noun="ForecastGeofenceEventsOperation" ShouldProcessTarget="CollectionName" PipelineParameter="CollectionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDevicePosition" OutputProperty="*" Verb="Get" Noun="DevicePosition" PipelineParameter="TrackerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -247,6 +251,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTracker" OutputProperty="*" Verb="Edit" Noun="Tracker" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyDevicePosition" OutputProperty="*" Verb="Invoke" Noun="VerifyDevicePositionOperation" ShouldProcessTarget="TrackerName" PipelineParameter="TrackerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

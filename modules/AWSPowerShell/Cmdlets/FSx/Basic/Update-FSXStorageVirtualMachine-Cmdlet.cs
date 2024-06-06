@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>A list of up to three DNS server or domain controller IP addresses in your self-managed
-        /// AD domain.</para>
+        /// Active Directory domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_DomainName
         /// <summary>
         /// <para>
-        /// <para>Specifies an updated fully qualified domain name of your self-managed AD configuration.</para>
+        /// <para>Specifies an updated fully qualified domain name of your self-managed Active Directory
+        /// configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_FileSystemAdministratorsGroup
         /// <summary>
         /// <para>
-        /// <para>Specifies the updated name of the self-managed AD domain group whose members are granted
-        /// administrative privileges for the Amazon FSx resource.</para>
+        /// <para>For FSx for ONTAP file systems only - Specifies the updated name of the self-managed
+        /// Active Directory domain group whose members are granted administrative privileges
+        /// for the Amazon FSx resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>Specifies an updated fully qualified distinguished name of the organization unit within
-        /// your self-managed AD.</para>
+        /// your self-managed Active Directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_Password
         /// <summary>
         /// <para>
-        /// <para>Specifies the updated password for the service account on your self-managed AD domain.
-        /// Amazon FSx uses this account to join to your self-managed AD domain.</para>
+        /// <para>Specifies the updated password for the service account on your self-managed Active
+        /// Directory domain. Amazon FSx uses this account to join to your self-managed Active
+        /// Directory domain.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -154,8 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter SelfManagedActiveDirectoryConfiguration_UserName
         /// <summary>
         /// <para>
-        /// <para>Specifies the updated user name for the service account on your self-managed AD domain.
-        /// Amazon FSx uses this account to join to your self-managed AD domain.</para><para>This account must have the permissions required to join computers to the domain in
+        /// <para>Specifies the updated user name for the service account on your self-managed Active
+        /// Directory domain. Amazon FSx uses this account to join to your self-managed Active
+        /// Directory domain.</para><para>This account must have the permissions required to join computers to the domain in
         /// the organizational unit provided in <c>OrganizationalUnitDistinguishedName</c>.</para>
         /// </para>
         /// </summary>

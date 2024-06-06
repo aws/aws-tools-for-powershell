@@ -32,11 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// 
     ///  <important><para>
     /// A message can include only XML, JSON, and unformatted text. The following Unicode
-    /// characters are allowed:
+    /// characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C
+    /// specification for characters</a>.
     /// </para><para><c>#x9</c> | <c>#xA</c> | <c>#xD</c> | <c>#x20</c> to <c>#xD7FF</c> | <c>#xE000</c>
     /// to <c>#xFFFD</c> | <c>#x10000</c> to <c>#x10FFFF</c></para><para>
-    /// Any characters not included in this list will be rejected. For more information, see
-    /// the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.
+    /// Amazon SQS does not throw an exception or completely reject the message if it contains
+    /// invalid characters. Instead, it replaces those invalid characters with <c>U+FFFD</c>
+    /// before storing the message in the queue, as long as the message body contains at least
+    /// one valid character.
     /// </para></important>
     /// </summary>
     [Cmdlet("Send", "SQSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,9 +85,12 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The message to send. The minimum size is one character. The maximum size is 256 KiB.</para><important><para>A message can include only XML, JSON, and unformatted text. The following Unicode
-        /// characters are allowed:</para><para><c>#x9</c> | <c>#xA</c> | <c>#xD</c> | <c>#x20</c> to <c>#xD7FF</c> | <c>#xE000</c>
-        /// to <c>#xFFFD</c> | <c>#x10000</c> to <c>#x10FFFF</c></para><para>Any characters not included in this list will be rejected. For more information, see
-        /// the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</para></important>
+        /// characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C
+        /// specification for characters</a>.</para><para><c>#x9</c> | <c>#xA</c> | <c>#xD</c> | <c>#x20</c> to <c>#xD7FF</c> | <c>#xE000</c>
+        /// to <c>#xFFFD</c> | <c>#x10000</c> to <c>#x10FFFF</c></para><para>Amazon SQS does not throw an exception or completely reject the message if it contains
+        /// invalid characters. Instead, it replaces those invalid characters with <c>U+FFFD</c>
+        /// before storing the message in the queue, as long as the message body contains at least
+        /// one valid character.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

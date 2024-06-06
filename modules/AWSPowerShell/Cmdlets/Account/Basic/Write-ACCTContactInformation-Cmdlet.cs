@@ -58,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// it defaults to the Amazon Web Services account of the identity used to call the operation.
         /// To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
         /// management account</a> or a delegated administrator account. The specified account
-        /// ID must also be a member account in the same organization. The organization must have
-        /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
+        /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
         /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
         /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
         /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
@@ -218,8 +217,11 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         #region Parameter ContactInformation_StateOrRegion
         /// <summary>
         /// <para>
-        /// <para>The state or region of the primary contact address. This field is required in selected
-        /// countries.</para>
+        /// <para>The state or region of the primary contact address. If the mailing address is within
+        /// the United States (US), the value in this field can be either a two character state
+        /// code (for example, <c>NJ</c>) or the full state name (for example, <c>New Jersey</c>).
+        /// This field is required in the following countries: <c>US</c>, <c>CA</c>, <c>GB</c>,
+        /// <c>DE</c>, <c>JP</c>, <c>IN</c>, and <c>BR</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

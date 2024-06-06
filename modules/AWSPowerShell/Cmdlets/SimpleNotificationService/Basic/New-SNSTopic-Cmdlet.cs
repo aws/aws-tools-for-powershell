@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
+        /// <para>A map of attributes with their corresponding values.</para><para>The following lists names, descriptions, and values of the special request parameters
         /// that the <c>CreateTopic</c> action uses:</para><ul><li><para><c>DeliveryPolicy</c> – The policy that defines how Amazon SNS retries failed deliveries
         /// to HTTP/S endpoints.</para></li><li><para><c>DisplayName</c> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><c>FifoTopic</c> – Set to true to create a FIFO topic.</para></li><li><para><c>Policy</c> – The policy that defines who can access your topic. By default, only
         /// the topic owner can publish or subscribe to the topic.</para></li><li><para><c>SignatureVersion</c> – The signature version corresponds to the hashing algorithm

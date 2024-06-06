@@ -28,22 +28,16 @@ using Amazon.Account.Model;
 namespace Amazon.PowerShell.Cmdlets.ACCT
 {
     /// <summary>
-    /// Retrieves the primary contact information of an Amazon Web Services account.
-    /// 
-    ///  
-    /// <para>
-    /// For complete details about how to use the primary contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Update
-    /// the primary and alternate contact information</a>.
-    /// </para>
+    /// Retrieves the primary email address for the specified account.
     /// </summary>
-    [Cmdlet("Get", "ACCTContactInformation")]
-    [OutputType("Amazon.Account.Model.ContactInformation")]
-    [AWSCmdlet("Calls the AWS Account GetContactInformation API operation.", Operation = new[] {"GetContactInformation"}, SelectReturnType = typeof(Amazon.Account.Model.GetContactInformationResponse))]
-    [AWSCmdletOutput("Amazon.Account.Model.ContactInformation or Amazon.Account.Model.GetContactInformationResponse",
-        "This cmdlet returns an Amazon.Account.Model.ContactInformation object.",
-        "The service call response (type Amazon.Account.Model.GetContactInformationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ACCTPrimaryEmail")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Account GetPrimaryEmail API operation.", Operation = new[] {"GetPrimaryEmail"}, SelectReturnType = typeof(Amazon.Account.Model.GetPrimaryEmailResponse))]
+    [AWSCmdletOutput("System.String or Amazon.Account.Model.GetPrimaryEmailResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.Account.Model.GetPrimaryEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetACCTContactInformationCmdlet : AmazonAccountClientCmdlet, IExecutor
+    public partial class GetACCTPrimaryEmailCmdlet : AmazonAccountClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
@@ -54,32 +48,36 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         /// <summary>
         /// <para>
         /// <para>Specifies the 12-digit account ID number of the Amazon Web Services account that you
-        /// want to access or modify with this operation. If you don't specify this parameter,
-        /// it defaults to the Amazon Web Services account of the identity used to call the operation.
-        /// To use this parameter, the caller must be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
+        /// want to access or modify with this operation. To use this parameter, the caller must
+        /// be an identity in the <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#account">organization's
         /// management account</a> or a delegated administrator account. The specified account
         /// ID must be a member account in the same organization. The organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">all
         /// features enabled</a>, and the organization must have <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-trusted-access.html">trusted
         /// access</a> enabled for the Account Management service, and optionally a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/using-orgs-delegated-admin.html">delegated
-        /// admin</a> account assigned.</para><note><para>The management account can't specify its own <c>AccountId</c>. It must call the operation
-        /// in standalone context by not including the <c>AccountId</c> parameter.</para></note><para>To call this operation on an account that is not a member of an organization, don't
-        /// specify this parameter. Instead, call the operation using an identity belonging to
-        /// the account whose contacts you wish to retrieve or modify.</para>
+        /// admin</a> account assigned.</para><para>This operation can only be called from the management account or the delegated administrator
+        /// account of an organization for a member account.</para><note><para>The management account can't specify its own <c>AccountId</c>.</para></note>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String AccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ContactInformation'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.GetContactInformationResponse).
-        /// Specifying the name of a property of type Amazon.Account.Model.GetContactInformationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PrimaryEmail'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Account.Model.GetPrimaryEmailResponse).
+        /// Specifying the name of a property of type Amazon.Account.Model.GetPrimaryEmailResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ContactInformation";
+        public string Select { get; set; } = "PrimaryEmail";
         #endregion
         
         protected override void ProcessRecord()
@@ -94,10 +92,16 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Account.Model.GetContactInformationResponse, GetACCTContactInformationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Account.Model.GetPrimaryEmailResponse, GetACCTPrimaryEmailCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.AccountId = this.AccountId;
+            #if MODULAR
+            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -112,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Account.Model.GetContactInformationRequest();
+            var request = new Amazon.Account.Model.GetPrimaryEmailRequest();
             
             if (cmdletContext.AccountId != null)
             {
@@ -151,15 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         
         #region AWS Service Operation Call
         
-        private Amazon.Account.Model.GetContactInformationResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.GetContactInformationRequest request)
+        private Amazon.Account.Model.GetPrimaryEmailResponse CallAWSServiceOperation(IAmazonAccount client, Amazon.Account.Model.GetPrimaryEmailRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "GetContactInformation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Account", "GetPrimaryEmail");
             try
             {
                 #if DESKTOP
-                return client.GetContactInformation(request);
+                return client.GetPrimaryEmail(request);
                 #elif CORECLR
-                return client.GetContactInformationAsync(request).GetAwaiter().GetResult();
+                return client.GetPrimaryEmailAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -180,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.ACCT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
-            public System.Func<Amazon.Account.Model.GetContactInformationResponse, GetACCTContactInformationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ContactInformation;
+            public System.Func<Amazon.Account.Model.GetPrimaryEmailResponse, GetACCTPrimaryEmailCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PrimaryEmail;
         }
         
     }
