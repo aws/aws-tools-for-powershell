@@ -32,6 +32,59 @@ param (
   [Parameter()]
   [string] $RunAsStagingBuild = "false"
 )
+function DownloadSdkArtifacts {
+  [CmdletBinding()]
+  param (
+    [string]
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    $SdkArtifactsUri,
+    [switch]$SkipAWSSDKCoreDlls
+  )
+  
+  if ($SdkArtifactsUri.Trim().EndsWith('_sdk-versions.json')) {
+    Write-Host "Downloading $SdkArtifactsUri"
+    $maxHttpGetAttempts = 10
+    for ($i = 1; $i -le $maxHttpGetAttempts; $i++) {
+      try {
+        Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk/_sdk-versions.json
+        break
+      }
+      catch {
+        if ($i -eq $maxHttpGetAttempts) {
+          throw "Error retrieving versions file. $_"
+        }
+        Write-Host "Error downloading versions file, waiting for retry. $_"
+        Start-Sleep -Seconds 30
+      }
+    }
+  }
+  elseif ($SdkArtifactsUri.Trim().EndsWith('.zip')) {
+    $s3Uri = $null
+    if (Test-Path -Path $SdkArtifactsUri -PathType Leaf) {
+      Write-Host "Copying $SdkArtifactsUri"
+      Copy-Item -literalPath $SdkArtifactsUri -Destination ./Include/sdk.zip -Force
+    }
+    elseif (-Not [Amazon.S3.Util.AmazonS3Uri]::TryParseAmazonS3Uri($SdkArtifactsUri, [ref] $s3Uri)) {
+      Write-Host "Downloading $SdkArtifactsUri"
+      Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk.zip
+    }
+    else {
+      Write-Host "Downloading $($s3Uri.Bucket) $($s3Uri.Key)"
+      Read-S3Object -BucketName $s3Uri.Bucket -Key $s3Uri.Key -File ./Include/sdk.zip
+    }
+    Write-Host "Extracting sdk.zip"
+    Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
+    if ($SkipAWSSDKCoreDlls) {
+      Remove-Item ./Include/sdktmp/assemblies/*/AWSSDK.Core.*
+    }
+    Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
+    Remove-Item ./Include/sdktmp -Recurse
+  }
+  else {
+    throw "ERROR: $SdkArtifactsUri is expected to end with _sdk-versions.json or .zip"
+  }
+}
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
@@ -54,26 +107,9 @@ try {
   $BuildResult = $null
 
   if ($BuildType -eq 'PREVIEW') {
+    # for Preview build, $SdkArtifactsUri will have s3 uri for the preview artifacts from .NET build. e.g https://bucketname.s3.us-west-2.amazonaws.com/{path to dotnet3.zip}
     if ($SdkArtifactsUri) {
-      $s3Uri = $null
-      if (Test-Path -Path $SdkArtifactsUri -PathType Leaf) {
-        Write-Host "Copying $SdkArtifactsUri"
-        Copy-Item -literalPath $SdkArtifactsUri -Destination ./Include/sdk.zip -Force
-      }
-      elseif (-Not [Amazon.S3.Util.AmazonS3Uri]::TryParseAmazonS3Uri($SdkArtifactsUri, [ref] $s3Uri)) {
-        Write-Host "Downloading $SdkArtifactsUri"
-        Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk.zip
-      }
-      else {
-        Write-Host "Downloading $($s3Uri.Bucket) $($s3Uri.Key)"
-        Read-S3Object -BucketName $s3Uri.Bucket -Key $s3Uri.Key -File ./Include/sdk.zip
-      }
-
-      Write-Host "Extracting sdk.zip"
-      Expand-Archive ./Include/sdk.zip -DestinationPath ./Include/sdktmp -Force
-      Remove-Item ./Include/sdktmp/assemblies/*/AWSSDK.Core.*
-      Move-Item ./Include/sdktmp/assemblies ./Include/sdk/assemblies
-      Remove-Item ./Include/sdktmp -Recurse
+      DownloadSdkArtifacts -SdkArtifactsUri $SdkArtifactsUri -SkipAWSSDKCoreDlls
     }
     elseif ($Environment -eq "DEV") {
       Write-Host "WARNING: running preview build without specific SDK artifacts."
@@ -90,24 +126,16 @@ try {
       /p:SignModules=$SignModules
     $BuildResult = $LASTEXITCODE
   }
-  elseif ($BuildType -in 'RELEASE','DRY_RUN') {
+  elseif ($BuildType -in 'RELEASE', 'DRY_RUN') {
+    # for Release, $SdkArtifactsUri is uri to _sdk-versions.json in github repo aws-sdk-net
+    #	https://raw.githubusercontent.com/aws/aws-sdk-net/{path to_sdk-versions.json}
+
+    # for Dry run, $SdkArtifactsUri can be _sdk-versions.json or dry run artifacts from .NET build.
+
     if ($SdkArtifactsUri) {
-      Write-Host "Downloading $SdkArtifactsUri"
-      $maxHttpGetAttempts = 10
-      for ($i = 1; $i -le $maxHttpGetAttempts; $i++) {
-        try {
-          Invoke-WebRequest -Uri $SdkArtifactsUri -OutFile ./Include/sdk/_sdk-versions.json
-          break
-        }
-        catch {
-          if ($i -eq $maxHttpGetAttempts) {
-            throw "Error retrieving versions file. $_"
-          }
-          Write-Host "Error downloading versions file, waiting for retry. $_"
-          Start-Sleep -Seconds 30
-        }
-      }
+      DownloadSdkArtifacts -SdkArtifactsUri $SdkArtifactsUri
     }
+
     elseif ($Environment -eq "DEV") {
       Write-Host "WARNING: running release build without specific SDK artifacts."
     }
