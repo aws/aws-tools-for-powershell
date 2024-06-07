@@ -1,4 +1,13 @@
-﻿### 4.1.595 (2024-06-06 21:01Z)
+﻿### 4.1.596 (2024-06-07 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.827.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Audit Manager
+    * Modified cmdlet Get-AUDMControlList: added parameter ControlCatalogId.
+    * [Breaking Change] Modified cmdlet Get-AUDMKeywordForDataSourceList: the type of parameter Source changed from Amazon.AuditManager.SourceType to Amazon.AuditManager.DataSourceType.
+  * Amazon Verified Permissions
+    * Modified cmdlet New-AVPIdentitySource: added parameters AccessTokenOnly_Audience, AccessTokenOnly_PrincipalIdClaim, IdentityTokenOnly_ClientId, IdentityTokenOnly_PrincipalIdClaim, OpenIdConnectConfiguration_EntityIdPrefix, OpenIdConnectConfiguration_GroupClaim, OpenIdConnectConfiguration_GroupEntityType and OpenIdConnectConfiguration_Issuer.
+    * Modified cmdlet Update-AVPIdentitySource: added parameters AccessTokenOnly_Audience, AccessTokenOnly_PrincipalIdClaim, IdentityTokenOnly_ClientId, IdentityTokenOnly_PrincipalIdClaim, OpenIdConnectConfiguration_EntityIdPrefix, OpenIdConnectConfiguration_GroupClaim, OpenIdConnectConfiguration_GroupEntityType and OpenIdConnectConfiguration_Issuer.
+
+### 4.1.595 (2024-06-06 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.826.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Account
     * Added cmdlet Approve-ACCTPrimaryEmailUpdate leveraging the AcceptPrimaryEmailUpdate service API.

@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
     /// <summary>
     /// Lists analytics data for control domains within a specified active assessment.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// Audit Manager supports the control domains that are provided by Amazon Web Services
+    /// Control Catalog. For information about how to find a list of available control domains,
+    /// see <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html"><c>ListDomains</c></a> in the Amazon Web Services Control Catalog API Reference.
+    /// </para><note><para>
     /// A control domain is listed only if at least one of the controls within that domain
     /// collected evidence on the <c>lastUpdated</c> date of <c>controlDomainInsights</c>.
     /// If this condition isn’t met, no data is listed for that domain.

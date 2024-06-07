@@ -42,10 +42,28 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ControlCatalogId
+        /// <summary>
+        /// <para>
+        /// <para>A filter that narrows the list of controls to a specific resource from the Amazon
+        /// Web Services Control Catalog. </para><para>To use this parameter, specify the ARN of the Control Catalog resource. You can specify
+        /// either a control domain, a control objective, or a common control. For information
+        /// about how to find the ARNs for these resources, see <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html"><c>ListDomains</c></a>, <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListObjectives.html"><c>ListObjectives</c></a>, and <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListCommonControls.html"><c>ListCommonControls</c></a>.</para><note><para>You can only filter by one Control Catalog resource at a time. Specifying multiple
+        /// resource ARNs isn’t currently supported. If you want to filter by more than one ARN,
+        /// we recommend that you run the <c>ListControls</c> operation separately for each ARN.
+        /// </para></note><para>Alternatively, specify <c>UNCATEGORIZED</c> to list controls that aren't mapped to
+        /// a Control Catalog resource. For example, this operation might return a list of custom
+        /// controls that don't belong to any control domain or control objective.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ControlCatalogId { get; set; }
+        #endregion
+        
         #region Parameter ControlType
         /// <summary>
         /// <para>
-        /// <para> The type of control, such as a standard control or a custom control. </para>
+        /// <para>A filter that narrows the list of controls to a specific type. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> Represents the maximum number of results on a page or for an API request call. </para>
+        /// <para>The maximum number of results on a page or for an API request call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para> The pagination token that's used to fetch the next set of results. </para>
+        /// <para>The pagination token that's used to fetch the next set of results. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
                 context.Select = (response, cmdlet) => this.ControlType;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ControlCatalogId = this.ControlCatalogId;
             context.ControlType = this.ControlType;
             #if MODULAR
             if (this.ControlType == null && ParameterWasBound(nameof(this.ControlType)))
@@ -151,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             // create request
             var request = new Amazon.AuditManager.Model.ListControlsRequest();
             
+            if (cmdletContext.ControlCatalogId != null)
+            {
+                request.ControlCatalogId = cmdletContext.ControlCatalogId;
+            }
             if (cmdletContext.ControlType != null)
             {
                 request.ControlType = cmdletContext.ControlType;
@@ -224,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ControlCatalogId { get; set; }
             public Amazon.AuditManager.ControlType ControlType { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

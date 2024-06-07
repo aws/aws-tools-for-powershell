@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         #region Parameter Source
         /// <summary>
         /// <para>
-        /// <para> The control mapping data source that the keywords apply to. </para>
+        /// <para>The control mapping data source that the keywords apply to. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.AuditManager.SourceType")]
-        public Amazon.AuditManager.SourceType Source { get; set; }
+        [AWSConstantClassSource("Amazon.AuditManager.DataSourceType")]
+        public Amazon.AuditManager.DataSourceType Source { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         {
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.AuditManager.SourceType Source { get; set; }
+            public Amazon.AuditManager.DataSourceType Source { get; set; }
             public System.Func<Amazon.AuditManager.Model.ListKeywordsForDataSourceResponse, GetAUDMKeywordForDataSourceListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Keywords;
         }

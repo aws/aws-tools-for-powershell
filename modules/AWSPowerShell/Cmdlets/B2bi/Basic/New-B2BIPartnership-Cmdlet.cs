@@ -53,7 +53,14 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         /// <para>Specifies a list of the capabilities associated with this partnership.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("Capabilities")]
         public System.String[] Capability { get; set; }
         #endregion
@@ -189,6 +196,12 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
             {
                 context.Capability = new List<System.String>(this.Capability);
             }
+            #if MODULAR
+            if (this.Capability == null && ParameterWasBound(nameof(this.Capability)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Capability which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.ClientToken = this.ClientToken;
             context.Email = this.Email;
             #if MODULAR

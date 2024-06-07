@@ -28,7 +28,13 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Gets a summary of the most recent executions for a pipeline.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Gets a summary of the most recent executions for a pipeline.
+    /// 
+    ///  <note><para>
+    /// When applying the filter for pipeline executions that have succeeded in the stage,
+    /// the operation returns all executions in the current pipeline version beginning on
+    /// February 1, 2024.
+    /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "CPPipelineExecutionSummary")]
     [OutputType("Amazon.CodePipeline.Model.PipelineExecutionSummary")]

@@ -95,18 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         public Amazon.AuditManager.Model.AWSAccount[] Scope_AwsAccount { get; set; }
         #endregion
         
-        #region Parameter Scope_AwsService
-        /// <summary>
-        /// <para>
-        /// <para> The Amazon Web Services services that are included in the scope of the assessment.
-        /// </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Scope_AwsServices")]
-        public Amazon.AuditManager.Model.AWSService[] Scope_AwsService { get; set; }
-        #endregion
-        
         #region Parameter AssessmentReportsDestination_Destination
         /// <summary>
         /// <para>
@@ -137,6 +125,22 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Roles")]
         public Amazon.AuditManager.Model.Role[] Role { get; set; }
+        #endregion
+        
+        #region Parameter Scope_AwsService
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Web Services services that are included in the scope of the assessment.
+        /// </para><important><para>This API parameter is no longer supported. If you use this parameter to specify one
+        /// or more Amazon Web Services, Audit Manager ignores this input. Instead, the value
+        /// for <c>awsServices</c> will show as empty.</para></important>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("You can\u0027t specify services in scope when creating/updating an assessment. If you use the parameter to specify one or more AWS services, Audit Manager ignores the input. Instead the value of the parameter will show as empty indicating that the services are defined and managed by Audit Manager.")]
+        [Alias("Scope_AwsServices")]
+        public Amazon.AuditManager.Model.AWSService[] Scope_AwsService { get; set; }
         #endregion
         
         #region Parameter Select
@@ -220,10 +224,12 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             {
                 context.Scope_AwsAccount = new List<Amazon.AuditManager.Model.AWSAccount>(this.Scope_AwsAccount);
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Scope_AwsService != null)
             {
                 context.Scope_AwsService = new List<Amazon.AuditManager.Model.AWSService>(this.Scope_AwsService);
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -299,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
                 request.Scope.AwsAccounts = requestScope_scope_AwsAccount;
                 requestScopeIsNull = false;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             List<Amazon.AuditManager.Model.AWSService> requestScope_scope_AwsService = null;
             if (cmdletContext.Scope_AwsService != null)
             {
@@ -309,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
                 request.Scope.AwsServices = requestScope_scope_AwsService;
                 requestScopeIsNull = false;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
              // determine if request.Scope should be set to null
             if (requestScopeIsNull)
             {
@@ -382,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.AUDM
             public Amazon.AuditManager.AssessmentReportDestinationType AssessmentReportsDestination_DestinationType { get; set; }
             public List<Amazon.AuditManager.Model.Role> Role { get; set; }
             public List<Amazon.AuditManager.Model.AWSAccount> Scope_AwsAccount { get; set; }
+            [System.ObsoleteAttribute]
             public List<Amazon.AuditManager.Model.AWSService> Scope_AwsService { get; set; }
             public System.Func<Amazon.AuditManager.Model.UpdateAssessmentResponse, EditAUDMAssessmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Assessment;

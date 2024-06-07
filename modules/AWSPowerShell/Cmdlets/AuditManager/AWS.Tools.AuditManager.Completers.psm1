@@ -118,7 +118,14 @@ $AUDM_Completers = {
         # Amazon.AuditManager.ControlType
         "Get-AUDMControlList/ControlType"
         {
-            $v = "Custom","Standard"
+            $v = "Core","Custom","Standard"
+            break
+        }
+
+        # Amazon.AuditManager.DataSourceType
+        "Get-AUDMKeywordForDataSourceList/Source"
+        {
+            $v = "AWS_API_Call","AWS_Cloudtrail","AWS_Config","AWS_Security_Hub","MANUAL"
             break
         }
 
@@ -165,13 +172,6 @@ $AUDM_Completers = {
         }
         {
             $v = "RECEIVED","SENT"
-            break
-        }
-
-        # Amazon.AuditManager.SourceType
-        "Get-AUDMKeywordForDataSourceList/Source"
-        {
-            $v = "AWS_API_Call","AWS_Cloudtrail","AWS_Config","AWS_Security_Hub","MANUAL"
             break
         }
 

@@ -27,7 +27,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIdentitySource" OutputProperty="*" Verb="New" Noun="IdentitySource" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" NewName="OpenIdConnectConfiguration_GroupEntityType" Alias="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" />
+                <Param Name="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" NewName="OpenIdConnectConfiguration_GroupClaim" Alias="Configuration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePolicy" OutputProperty="*" Verb="New" Noun="Policy" ShouldProcessTarget="PolicyStoreId" PipelineParameter="PolicyStoreId" NoPipelineParameter="false">
@@ -112,7 +115,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIdentitySource" OutputProperty="*" Verb="Update" Noun="IdentitySource" ShouldProcessTarget="IdentitySourceId" PipelineParameter="" NoPipelineParameter="true">
-            <Params />
+            <Params>
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" NewName="OpenIdConnectConfiguration_GroupEntityType" Alias="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupEntityType" />
+                <Param Name="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" NewName="OpenIdConnectConfiguration_GroupClaim" Alias="UpdateConfiguration_OpenIdConnectConfiguration_GroupConfiguration_GroupClaim" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePolicy" OutputProperty="*" Verb="Update" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="" NoPipelineParameter="true">

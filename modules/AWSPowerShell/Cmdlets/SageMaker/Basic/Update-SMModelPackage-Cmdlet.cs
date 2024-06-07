@@ -114,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ModelCard_ModelCardContent
         /// <summary>
         /// <para>
-        /// <para>The content of the model card.</para>
+        /// <para>The content of the model card. The content must follow the schema described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model
+        /// Package Model Card Schema</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
