@@ -2466,14 +2466,6 @@
             },
             "InPreview"               : false
         },
-        "BackupStorage"                       : {
-            "Version" : "3.7.300.104",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.304.15"
-            },
-            "InPreview"               : false
-        },
         "Private5G"                           : {
             "Version" : "3.7.300.104",
             "AssemblyVersionOverride" : "3.3",

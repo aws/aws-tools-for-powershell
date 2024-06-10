@@ -172,9 +172,6 @@
     <Reference Include="AWSSDK.BackupGateway">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BackupGateway.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.BackupStorage">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.BackupStorage.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Batch.dll</HintPath>
     </Reference>
@@ -1307,9 +1304,6 @@
     </Reference>
     <Reference Include="AWSSDK.BackupGateway">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BackupGateway.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.BackupStorage">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.BackupStorage.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Batch">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Batch.dll</HintPath>
