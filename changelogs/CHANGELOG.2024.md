@@ -1,4 +1,11 @@
-﻿### 4.1.596 (2024-06-07 20:47Z)
+﻿### 4.1.597 (2024-06-10 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.828.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Application Signals. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWAS and can be listed using the command 'Get-AWSCmdletName -Service CWAS'.
+  * Amazon EC2 Container Service
+    * Modified cmdlet New-ECSCluster: added parameters ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId and ManagedStorageConfiguration_KmsKeyId.
+    * Modified cmdlet Update-ECSCluster: added parameters ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId and ManagedStorageConfiguration_KmsKeyId.
+
+### 4.1.596 (2024-06-07 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.827.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Audit Manager
     * Modified cmdlet Get-AUDMControlList: added parameter ControlCatalogId.

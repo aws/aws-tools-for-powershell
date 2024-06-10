@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>application-signals</C2jFilename>
+    <AssemblyName>ApplicationSignals</AssemblyName>
+    <ServiceNounPrefix>CWAS</ServiceNounPrefix>
+    <ServiceName>Amazon CloudWatch Application Signals</ServiceName>
+    <ServiceClientInterface>IAmazonApplicationSignals</ServiceClientInterface>
+    <ServiceClient>AmazonApplicationSignalsClient</ServiceClient>
+    <ServiceModuleGuid>10c671d6-9570-40b8-b87d-ff9be495b4f6</ServiceModuleGuid>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetServiceLevelObjectiveBudgetReport" OutputProperty="*" Verb="Get" Noun="BatchServiceLevelObjectiveBudgetReport" PipelineParameter="Timestamp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateServiceLevelObjective" OutputProperty="Slo" Verb="New" Noun="ServiceLevelObjective" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServiceLevelObjective" Verb="Remove" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetService" OutputProperty="*" Verb="Get" Noun="Service" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceLevelObjective" OutputProperty="Slo" Verb="Get" Noun="ServiceLevelObjective" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceDependencies" OutputProperty="*" Verb="Get" Noun="ServiceDependencyList" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceDependents" OutputProperty="*" Verb="Get" Noun="ServiceDependentList" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceLevelObjectives" OutputProperty="SloSummaries" Verb="Get" Noun="ServiceLevelObjectiveList" PipelineParameter="OperationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServiceOperations" OutputProperty="*" Verb="Get" Noun="ServiceOperationList" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServices" OutputProperty="*" Verb="Get" Noun="ServiceList" PipelineParameter="StartTime" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDiscovery" Verb="Start" Noun="Discovery" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceLevelObjective" OutputProperty="Slo" Verb="Update" Noun="ServiceLevelObjective" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

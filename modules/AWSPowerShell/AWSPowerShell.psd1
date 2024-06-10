@@ -72,6 +72,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.ApplicationCostProfiler.dll',
         'AWSSDK.ApplicationDiscoveryService.dll',
         'AWSSDK.ApplicationInsights.dll',
+        'AWSSDK.ApplicationSignals.dll',
         'AWSSDK.AppMesh.dll',
         'AWSSDK.AppRegistry.dll',
         'AWSSDK.AppRunner.dll',

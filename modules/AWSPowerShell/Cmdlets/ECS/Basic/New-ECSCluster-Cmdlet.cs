@@ -127,6 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.CapacityProviderStrategyItem[] DefaultCapacityProviderStrategy { get; set; }
         #endregion
         
+        #region Parameter ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>Specify the Key Management Service key ID for the Fargate ephemeral storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId")]
+        public System.String ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter ExecuteCommandConfiguration_KmsKeyId
         /// <summary>
         /// <para>
@@ -137,6 +148,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Configuration_ExecuteCommandConfiguration_KmsKeyId")]
         public System.String ExecuteCommandConfiguration_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter ManagedStorageConfiguration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>Specify a Key Management Service key ID to encrypt the managed storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_ManagedStorageConfiguration_KmsKeyId")]
+        public System.String ManagedStorageConfiguration_KmsKeyId { get; set; }
         #endregion
         
         #region Parameter ExecuteCommandConfiguration_Logging
@@ -318,6 +340,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.LogConfiguration_S3EncryptionEnabled = this.LogConfiguration_S3EncryptionEnabled;
             context.LogConfiguration_S3KeyPrefix = this.LogConfiguration_S3KeyPrefix;
             context.ExecuteCommandConfiguration_Logging = this.ExecuteCommandConfiguration_Logging;
+            context.ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId = this.ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId;
+            context.ManagedStorageConfiguration_KmsKeyId = this.ManagedStorageConfiguration_KmsKeyId;
             if (this.DefaultCapacityProviderStrategy != null)
             {
                 context.DefaultCapacityProviderStrategy = new List<Amazon.ECS.Model.CapacityProviderStrategyItem>(this.DefaultCapacityProviderStrategy);
@@ -359,6 +383,41 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate Configuration
             var requestConfigurationIsNull = true;
             request.Configuration = new Amazon.ECS.Model.ClusterConfiguration();
+            Amazon.ECS.Model.ManagedStorageConfiguration requestConfiguration_configuration_ManagedStorageConfiguration = null;
+            
+             // populate ManagedStorageConfiguration
+            var requestConfiguration_configuration_ManagedStorageConfigurationIsNull = true;
+            requestConfiguration_configuration_ManagedStorageConfiguration = new Amazon.ECS.Model.ManagedStorageConfiguration();
+            System.String requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_FargateEphemeralStorageKmsKeyId = null;
+            if (cmdletContext.ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId != null)
+            {
+                requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_FargateEphemeralStorageKmsKeyId = cmdletContext.ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId;
+            }
+            if (requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_FargateEphemeralStorageKmsKeyId != null)
+            {
+                requestConfiguration_configuration_ManagedStorageConfiguration.FargateEphemeralStorageKmsKeyId = requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_FargateEphemeralStorageKmsKeyId;
+                requestConfiguration_configuration_ManagedStorageConfigurationIsNull = false;
+            }
+            System.String requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_KmsKeyId = null;
+            if (cmdletContext.ManagedStorageConfiguration_KmsKeyId != null)
+            {
+                requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_KmsKeyId = cmdletContext.ManagedStorageConfiguration_KmsKeyId;
+            }
+            if (requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_KmsKeyId != null)
+            {
+                requestConfiguration_configuration_ManagedStorageConfiguration.KmsKeyId = requestConfiguration_configuration_ManagedStorageConfiguration_managedStorageConfiguration_KmsKeyId;
+                requestConfiguration_configuration_ManagedStorageConfigurationIsNull = false;
+            }
+             // determine if requestConfiguration_configuration_ManagedStorageConfiguration should be set to null
+            if (requestConfiguration_configuration_ManagedStorageConfigurationIsNull)
+            {
+                requestConfiguration_configuration_ManagedStorageConfiguration = null;
+            }
+            if (requestConfiguration_configuration_ManagedStorageConfiguration != null)
+            {
+                request.Configuration.ManagedStorageConfiguration = requestConfiguration_configuration_ManagedStorageConfiguration;
+                requestConfigurationIsNull = false;
+            }
             Amazon.ECS.Model.ExecuteCommandConfiguration requestConfiguration_configuration_ExecuteCommandConfiguration = null;
             
              // populate ExecuteCommandConfiguration
@@ -565,6 +624,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Boolean? LogConfiguration_S3EncryptionEnabled { get; set; }
             public System.String LogConfiguration_S3KeyPrefix { get; set; }
             public Amazon.ECS.ExecuteCommandLogging ExecuteCommandConfiguration_Logging { get; set; }
+            public System.String ManagedStorageConfiguration_FargateEphemeralStorageKmsKeyId { get; set; }
+            public System.String ManagedStorageConfiguration_KmsKeyId { get; set; }
             public List<Amazon.ECS.Model.CapacityProviderStrategyItem> DefaultCapacityProviderStrategy { get; set; }
             public System.String ServiceConnectDefaults_Namespace { get; set; }
             public List<Amazon.ECS.Model.ClusterSetting> Setting { get; set; }

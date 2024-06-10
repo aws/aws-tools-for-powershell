@@ -112,6 +112,9 @@
     <Reference Include="AWSSDK.ApplicationInsights">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationInsights.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ApplicationSignals">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.ApplicationSignals.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AppMesh">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.AppMesh.dll</HintPath>
     </Reference>
@@ -1241,6 +1244,9 @@
     </Reference>
     <Reference Include="AWSSDK.ApplicationInsights">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.ApplicationSignals">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.ApplicationSignals.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppMesh">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.AppMesh.dll</HintPath>

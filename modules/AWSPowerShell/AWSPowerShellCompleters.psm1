@@ -2821,6 +2821,129 @@ $CWAI_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $CWAI_SelectCompleters $CWAI_SelectMap
+# Argument completions for service Amazon CloudWatch Application Signals
+
+
+$CWAS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ApplicationSignals.DurationUnit
+        {
+            ($_ -eq "New-CWASServiceLevelObjective/CalendarInterval_DurationUnit") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/CalendarInterval_DurationUnit") -Or
+            ($_ -eq "New-CWASServiceLevelObjective/RollingInterval_DurationUnit") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/RollingInterval_DurationUnit")
+        }
+        {
+            $v = "DAY","MONTH"
+            break
+        }
+
+        # Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator
+        {
+            ($_ -eq "New-CWASServiceLevelObjective/SliConfig_ComparisonOperator") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/SliConfig_ComparisonOperator")
+        }
+        {
+            $v = "GreaterThan","GreaterThanOrEqualTo","LessThan","LessThanOrEqualTo"
+            break
+        }
+
+        # Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType
+        {
+            ($_ -eq "New-CWASServiceLevelObjective/SliMetricConfig_MetricType") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/SliMetricConfig_MetricType")
+        }
+        {
+            $v = "AVAILABILITY","LATENCY"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWAS_map = @{
+    "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "SliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "SliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+}
+
+_awsArgumentCompleterRegistration $CWAS_Completers $CWAS_map
+
+$CWAS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.CWAS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWAS_SelectMap = @{
+    "Select"=@("Get-CWASBatchServiceLevelObjectiveBudgetReport",
+               "New-CWASServiceLevelObjective",
+               "Remove-CWASServiceLevelObjective",
+               "Get-CWASService",
+               "Get-CWASServiceLevelObjective",
+               "Get-CWASServiceDependencyList",
+               "Get-CWASServiceDependentList",
+               "Get-CWASServiceLevelObjectiveList",
+               "Get-CWASServiceOperationList",
+               "Get-CWASServiceList",
+               "Get-CWASResourceTag",
+               "Start-CWASDiscovery",
+               "Add-CWASResourceTag",
+               "Remove-CWASResourceTag",
+               "Update-CWASServiceLevelObjective")
+}
+
+_awsArgumentCompleterRegistration $CWAS_SelectCompleters $CWAS_SelectMap
 # Argument completions for service AWS App Mesh
 
 
