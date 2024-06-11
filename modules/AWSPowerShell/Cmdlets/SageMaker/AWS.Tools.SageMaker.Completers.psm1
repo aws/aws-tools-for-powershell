@@ -365,7 +365,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.CrossAccountFilterOption
-        "Search-SMResource/CrossAccountFilterOption"
+        {
+            ($_ -eq "Get-SMModelPackageGroupList/CrossAccountFilterOption") -Or
+            ($_ -eq "Search-SMResource/CrossAccountFilterOption")
+        }
         {
             $v = "CrossAccount","SameAccount"
             break
@@ -1507,7 +1510,7 @@ $SM_map = @{
     "ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition","New-SMProcessingJob")
     "ContainerConfig_SupportedEndpointType"=@("New-SMInferenceRecommendationsJob")
     "ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
-    "CrossAccountFilterOption"=@("Search-SMResource")
+    "CrossAccountFilterOption"=@("Get-SMModelPackageGroupList","Search-SMResource")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")

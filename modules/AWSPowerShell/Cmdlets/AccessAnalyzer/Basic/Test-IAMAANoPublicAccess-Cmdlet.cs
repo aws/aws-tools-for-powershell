@@ -28,47 +28,26 @@ using Amazon.AccessAnalyzer.Model;
 namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
-    /// Checks whether the specified access isn't allowed by a policy.
+    /// Checks whether a resource policy can grant public access to the specified resource
+    /// type.
     /// </summary>
-    [Cmdlet("Test", "IAMAAAccessNotGranted")]
-    [OutputType("Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse")]
-    [AWSCmdlet("Calls the AWS IAM Access Analyzer CheckAccessNotGranted API operation.", Operation = new[] {"CheckAccessNotGranted"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse))]
-    [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse",
-        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Test", "IAMAANoPublicAccess")]
+    [OutputType("Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse")]
+    [AWSCmdlet("Calls the AWS IAM Access Analyzer CheckNoPublicAccess API operation.", Operation = new[] {"CheckNoPublicAccess"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse))]
+    [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse",
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class TestIAMAAAccessNotGrantedCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
+    public partial class TestIAMAANoPublicAccessCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Access
-        /// <summary>
-        /// <para>
-        /// <para>An access object containing the permissions that shouldn't be granted by the specified
-        /// policy. If only actions are specified, IAM Access Analyzer checks for access of the
-        /// actions on all resources in the policy. If only resources are specified, then IAM
-        /// Access Analyzer checks which actions have access to the specified resources. If both
-        /// actions and resources are specified, then IAM Access Analyzer checks which of the
-        /// specified actions have access to the specified resources.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public Amazon.AccessAnalyzer.Model.Access[] Access { get; set; }
-        #endregion
-        
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>The JSON policy document to use as the content for the policy.</para>
+        /// <para>The JSON policy document to evaluate for public access.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,14 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         public System.String PolicyDocument { get; set; }
         #endregion
         
-        #region Parameter PolicyType
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of policy. Identity policies grant permissions to IAM principals. Identity
-        /// policies include managed and inline policies for IAM roles, users, and groups.</para><para>Resource policies grant permissions on Amazon Web Services resources. Resource policies
-        /// include trust policies for IAM roles and bucket policies for Amazon S3 buckets. You
-        /// can provide a generic input such as identity policy or resource policy or a specific
-        /// input such as managed policy or Amazon S3 bucket policy.</para>
+        /// <para>The type of resource to evaluate for public access. For example, to check for public
+        /// access to Amazon S3 buckets, you can choose <c>AWS::S3::Bucket</c> for the resource
+        /// type.</para><para>For resource types not supported as valid values, IAM Access Analyzer will return
+        /// an error.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,15 +77,15 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.AccessAnalyzer.AccessCheckPolicyType")]
-        public Amazon.AccessAnalyzer.AccessCheckPolicyType PolicyType { get; set; }
+        [AWSConstantClassSource("Amazon.AccessAnalyzer.AccessCheckResourceType")]
+        public Amazon.AccessAnalyzer.AccessCheckResourceType ResourceType { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse).
-        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse).
+        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse, TestIAMAAAccessNotGrantedCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse, TestIAMAANoPublicAccessCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,16 +127,6 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 context.Select = (response, cmdlet) => this.PolicyDocument;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Access != null)
-            {
-                context.Access = new List<Amazon.AccessAnalyzer.Model.Access>(this.Access);
-            }
-            #if MODULAR
-            if (this.Access == null && ParameterWasBound(nameof(this.Access)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Access which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.PolicyDocument = this.PolicyDocument;
             #if MODULAR
             if (this.PolicyDocument == null && ParameterWasBound(nameof(this.PolicyDocument)))
@@ -166,11 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
                 WriteWarning("You are passing $null as a value for parameter PolicyDocument which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.PolicyType = this.PolicyType;
+            context.ResourceType = this.ResourceType;
             #if MODULAR
-            if (this.PolicyType == null && ParameterWasBound(nameof(this.PolicyType)))
+            if (this.ResourceType == null && ParameterWasBound(nameof(this.ResourceType)))
             {
-                WriteWarning("You are passing $null as a value for parameter PolicyType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -187,19 +155,15 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedRequest();
+            var request = new Amazon.AccessAnalyzer.Model.CheckNoPublicAccessRequest();
             
-            if (cmdletContext.Access != null)
-            {
-                request.Access = cmdletContext.Access;
-            }
             if (cmdletContext.PolicyDocument != null)
             {
                 request.PolicyDocument = cmdletContext.PolicyDocument;
             }
-            if (cmdletContext.PolicyType != null)
+            if (cmdletContext.ResourceType != null)
             {
-                request.PolicyType = cmdletContext.PolicyType;
+                request.ResourceType = cmdletContext.ResourceType;
             }
             
             CmdletOutput output;
@@ -234,15 +198,15 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         #region AWS Service Operation Call
         
-        private Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedRequest request)
+        private Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.CheckNoPublicAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "CheckAccessNotGranted");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "CheckNoPublicAccess");
             try
             {
                 #if DESKTOP
-                return client.CheckAccessNotGranted(request);
+                return client.CheckNoPublicAccess(request);
                 #elif CORECLR
-                return client.CheckAccessNotGrantedAsync(request).GetAwaiter().GetResult();
+                return client.CheckNoPublicAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -262,10 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.AccessAnalyzer.Model.Access> Access { get; set; }
             public System.String PolicyDocument { get; set; }
-            public Amazon.AccessAnalyzer.AccessCheckPolicyType PolicyType { get; set; }
-            public System.Func<Amazon.AccessAnalyzer.Model.CheckAccessNotGrantedResponse, TestIAMAAAccessNotGrantedCmdlet, object> Select { get; set; } =
+            public Amazon.AccessAnalyzer.AccessCheckResourceType ResourceType { get; set; }
+            public System.Func<Amazon.AccessAnalyzer.Model.CheckNoPublicAccessResponse, TestIAMAANoPublicAccessCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

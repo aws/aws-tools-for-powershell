@@ -90,6 +90,13 @@ $IAMAA_Completers = {
             break
         }
 
+        # Amazon.AccessAnalyzer.AccessCheckResourceType
+        "Test-IAMAANoPublicAccess/ResourceType"
+        {
+            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EFS::FileSystem","AWS::IAM::AssumeRolePolicyDocument","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::OpenSearchService::Domain","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::Glacier","AWS::S3Express::DirectoryBucket","AWS::S3Outposts::AccessPoint","AWS::S3Outposts::Bucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            break
+        }
+
         # Amazon.AccessAnalyzer.FindingStatusUpdate
         "Update-IAMAAFinding/Status"
         {
@@ -156,7 +163,7 @@ $IAMAA_Completers = {
 $IAMAA_map = @{
     "Locale"=@("Use-IAMAAPolicyValidation")
     "PolicyType"=@("Test-IAMAAAccessNotGranted","Test-IAMAANoNewAccess","Use-IAMAAPolicyValidation")
-    "ResourceType"=@("Get-IAMAAAnalyzedResourceList")
+    "ResourceType"=@("Get-IAMAAAnalyzedResourceList","Test-IAMAANoPublicAccess")
     "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
     "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
@@ -217,16 +224,19 @@ $IAMAA_SelectMap = @{
                "Stop-IAMAAPolicyGeneration",
                "Test-IAMAAAccessNotGranted",
                "Test-IAMAANoNewAccess",
+               "Test-IAMAANoPublicAccess",
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
+               "Start-IAMAAFindingRecommendation",
                "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",
                "Get-IAMAAAnalyzer",
                "Get-IAMAAArchiveRule",
                "Get-IAMAAFinding",
+               "Get-IAMAAFindingRecommendation",
                "Get-IAMAAFindingV2",
                "Get-IAMAAGeneratedPolicy",
                "Get-IAMAAAccessPreviewFindingList",

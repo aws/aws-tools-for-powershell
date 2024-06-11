@@ -142,6 +142,16 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.MalwareProtectionPlanTaggingActionStatus
+        {
+            ($_ -eq "New-GDMalwareProtectionPlan/Tagging_Status") -Or
+            ($_ -eq "Update-GDMalwareProtectionPlan/Tagging_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.GuardDuty.OrderBy
         "Get-GDCoverageList/SortCriteria_OrderBy"
         {
@@ -181,6 +191,7 @@ $GD_map = @{
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
     "SortCriteria_AttributeName"=@("Get-GDCoverageList")
     "SortCriteria_OrderBy"=@("Get-GDCoverageList")
+    "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
 
@@ -240,6 +251,7 @@ $GD_SelectMap = @{
                "New-GDDetector",
                "New-GDFilter",
                "New-GDIPSet",
+               "New-GDMalwareProtectionPlan",
                "New-GDMember",
                "New-GDPublishingDestination",
                "New-GDSampleFinding",
@@ -249,6 +261,7 @@ $GD_SelectMap = @{
                "Remove-GDFilter",
                "Remove-GDInvitation",
                "Remove-GDIPSet",
+               "Remove-GDMalwareProtectionPlan",
                "Remove-GDMember",
                "Remove-GDPublishingDestination",
                "Remove-GDThreatIntelSet",
@@ -268,6 +281,7 @@ $GD_SelectMap = @{
                "Get-GDFindingStatistic",
                "Get-GDInvitationCount",
                "Get-GDIPSet",
+               "Get-GDMalwareProtectionPlan",
                "Get-GDMalwareScanSetting",
                "Get-GDMasterAccount",
                "Get-GDMemberDetector",
@@ -283,6 +297,7 @@ $GD_SelectMap = @{
                "Get-GDFindingList",
                "Get-GDInvitationList",
                "Get-GDIPSetList",
+               "Get-GDMalwareProtectionPlanList",
                "Get-GDMemberList",
                "Get-GDOrganizationAdminAccountList",
                "Get-GDPublishingDestinationList",
@@ -298,6 +313,7 @@ $GD_SelectMap = @{
                "Update-GDFilter",
                "Update-GDFindingFeedback",
                "Update-GDIPSet",
+               "Update-GDMalwareProtectionPlan",
                "Update-GDMalwareScanSetting",
                "Update-GDMemberDetector",
                "Update-GDOrganizationConfiguration",

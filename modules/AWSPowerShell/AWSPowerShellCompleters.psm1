@@ -90,6 +90,13 @@ $IAMAA_Completers = {
             break
         }
 
+        # Amazon.AccessAnalyzer.AccessCheckResourceType
+        "Test-IAMAANoPublicAccess/ResourceType"
+        {
+            $v = "AWS::DynamoDB::Stream","AWS::DynamoDB::Table","AWS::EFS::FileSystem","AWS::IAM::AssumeRolePolicyDocument","AWS::Kinesis::Stream","AWS::Kinesis::StreamConsumer","AWS::KMS::Key","AWS::Lambda::Function","AWS::OpenSearchService::Domain","AWS::S3::AccessPoint","AWS::S3::Bucket","AWS::S3::Glacier","AWS::S3Express::DirectoryBucket","AWS::S3Outposts::AccessPoint","AWS::S3Outposts::Bucket","AWS::SecretsManager::Secret","AWS::SNS::Topic","AWS::SQS::Queue"
+            break
+        }
+
         # Amazon.AccessAnalyzer.FindingStatusUpdate
         "Update-IAMAAFinding/Status"
         {
@@ -156,7 +163,7 @@ $IAMAA_Completers = {
 $IAMAA_map = @{
     "Locale"=@("Use-IAMAAPolicyValidation")
     "PolicyType"=@("Test-IAMAAAccessNotGranted","Test-IAMAANoNewAccess","Use-IAMAAPolicyValidation")
-    "ResourceType"=@("Get-IAMAAAnalyzedResourceList")
+    "ResourceType"=@("Get-IAMAAAnalyzedResourceList","Test-IAMAANoPublicAccess")
     "Sort_OrderBy"=@("Get-IAMAAFindingList","Get-IAMAAFindingsV2List")
     "Status"=@("Update-IAMAAFinding")
     "Type"=@("Get-IAMAAAnalyzerList","New-IAMAAAnalyzer")
@@ -217,16 +224,19 @@ $IAMAA_SelectMap = @{
                "Stop-IAMAAPolicyGeneration",
                "Test-IAMAAAccessNotGranted",
                "Test-IAMAANoNewAccess",
+               "Test-IAMAANoPublicAccess",
                "New-IAMAAAccessPreview",
                "New-IAMAAAnalyzer",
                "New-IAMAAArchiveRule",
                "Remove-IAMAAAnalyzer",
                "Remove-IAMAAArchiveRule",
+               "Start-IAMAAFindingRecommendation",
                "Get-IAMAAAccessPreview",
                "Get-IAMAAAnalyzedResource",
                "Get-IAMAAAnalyzer",
                "Get-IAMAAArchiveRule",
                "Get-IAMAAFinding",
+               "Get-IAMAAFindingRecommendation",
                "Get-IAMAAFindingV2",
                "Get-IAMAAGeneratedPolicy",
                "Get-IAMAAAccessPreviewFindingList",
@@ -31792,6 +31802,16 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.MalwareProtectionPlanTaggingActionStatus
+        {
+            ($_ -eq "New-GDMalwareProtectionPlan/Tagging_Status") -Or
+            ($_ -eq "Update-GDMalwareProtectionPlan/Tagging_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.GuardDuty.OrderBy
         "Get-GDCoverageList/SortCriteria_OrderBy"
         {
@@ -31831,6 +31851,7 @@ $GD_map = @{
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
     "SortCriteria_AttributeName"=@("Get-GDCoverageList")
     "SortCriteria_OrderBy"=@("Get-GDCoverageList")
+    "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")
     "UsageStatisticType"=@("Get-GDUsageStatistic")
 }
 
@@ -31890,6 +31911,7 @@ $GD_SelectMap = @{
                "New-GDDetector",
                "New-GDFilter",
                "New-GDIPSet",
+               "New-GDMalwareProtectionPlan",
                "New-GDMember",
                "New-GDPublishingDestination",
                "New-GDSampleFinding",
@@ -31899,6 +31921,7 @@ $GD_SelectMap = @{
                "Remove-GDFilter",
                "Remove-GDInvitation",
                "Remove-GDIPSet",
+               "Remove-GDMalwareProtectionPlan",
                "Remove-GDMember",
                "Remove-GDPublishingDestination",
                "Remove-GDThreatIntelSet",
@@ -31918,6 +31941,7 @@ $GD_SelectMap = @{
                "Get-GDFindingStatistic",
                "Get-GDInvitationCount",
                "Get-GDIPSet",
+               "Get-GDMalwareProtectionPlan",
                "Get-GDMalwareScanSetting",
                "Get-GDMasterAccount",
                "Get-GDMemberDetector",
@@ -31933,6 +31957,7 @@ $GD_SelectMap = @{
                "Get-GDFindingList",
                "Get-GDInvitationList",
                "Get-GDIPSetList",
+               "Get-GDMalwareProtectionPlanList",
                "Get-GDMemberList",
                "Get-GDOrganizationAdminAccountList",
                "Get-GDPublishingDestinationList",
@@ -31948,6 +31973,7 @@ $GD_SelectMap = @{
                "Update-GDFilter",
                "Update-GDFindingFeedback",
                "Update-GDIPSet",
+               "Update-GDMalwareProtectionPlan",
                "Update-GDMalwareScanSetting",
                "Update-GDMemberDetector",
                "Update-GDOrganizationConfiguration",
@@ -50774,6 +50800,72 @@ $PCAAD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PCAAD_SelectCompleters $PCAAD_SelectMap
+# Argument completions for service Private CA Connector for SCEP
+
+
+$PCASCEP_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PCASCEP.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCASCEP_SelectMap = @{
+    "Select"=@("New-PCASCEPChallenge",
+               "New-PCASCEPConnector",
+               "Remove-PCASCEPChallenge",
+               "Remove-PCASCEPConnector",
+               "Get-PCASCEPChallengeMetadata",
+               "Get-PCASCEPChallengePassword",
+               "Get-PCASCEPConnector",
+               "Get-PCASCEPChallengeMetadataList",
+               "Get-PCASCEPConnectorList",
+               "Get-PCASCEPResourceTag",
+               "Add-PCASCEPResourceTag",
+               "Remove-PCASCEPResourceTag")
+}
+
+_awsArgumentCompleterRegistration $PCASCEP_SelectCompleters $PCASCEP_SelectMap
 # Argument completions for service AWS Personalize
 
 
@@ -59156,7 +59248,10 @@ $SM_Completers = {
         }
 
         # Amazon.SageMaker.CrossAccountFilterOption
-        "Search-SMResource/CrossAccountFilterOption"
+        {
+            ($_ -eq "Get-SMModelPackageGroupList/CrossAccountFilterOption") -Or
+            ($_ -eq "Search-SMResource/CrossAccountFilterOption")
+        }
         {
             $v = "CrossAccount","SameAccount"
             break
@@ -60298,7 +60393,7 @@ $SM_map = @{
     "ClusterConfig_InstanceType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition","New-SMProcessingJob")
     "ContainerConfig_SupportedEndpointType"=@("New-SMInferenceRecommendationsJob")
     "ConvergenceDetected_CompleteOnConvergence"=@("New-SMHyperParameterTuningJob")
-    "CrossAccountFilterOption"=@("Search-SMResource")
+    "CrossAccountFilterOption"=@("Get-SMModelPackageGroupList","Search-SMResource")
     "DataProcessing_JoinSource"=@("New-SMTransformJob")
     "DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")
     "DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType"=@("New-SMDomain","Update-SMDomain")

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter CoreNetworkAddress
         /// <summary>
         /// <para>
-        /// <para>A Connect peer core network address.</para>
+        /// <para>A Connect peer core network address. This only applies only when the protocol is <c>GRE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter SubnetArn
         /// <summary>
         /// <para>
-        /// <para>The subnet ARN for the Connect peer.</para>
+        /// <para>The subnet ARN for the Connect peer. This only applies only when the protocol is NO_ENCAP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -22,60 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.NetworkManager;
-using Amazon.NetworkManager.Model;
+using Amazon.PcaConnectorScep;
+using Amazon.PcaConnectorScep.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NMGR
+namespace Amazon.PowerShell.Cmdlets.PCASCEP
 {
     /// <summary>
-    /// Gets the network telemetry of the specified global network.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves the challenge metadata for the specified ARN.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "NMGRNetworkTelemetry")]
-    [OutputType("Amazon.NetworkManager.Model.NetworkTelemetry")]
-    [AWSCmdlet("Calls the AWS Network Manager GetNetworkTelemetry API operation.", Operation = new[] {"GetNetworkTelemetry"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetNetworkTelemetryResponse))]
-    [AWSCmdletOutput("Amazon.NetworkManager.Model.NetworkTelemetry or Amazon.NetworkManager.Model.GetNetworkTelemetryResponse",
-        "This cmdlet returns a collection of Amazon.NetworkManager.Model.NetworkTelemetry objects.",
-        "The service call response (type Amazon.NetworkManager.Model.GetNetworkTelemetryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PCASCEPChallengeMetadataList")]
+    [OutputType("Amazon.PcaConnectorScep.Model.ChallengeMetadataSummary")]
+    [AWSCmdlet("Calls the Private CA Connector for SCEP ListChallengeMetadata API operation.", Operation = new[] {"ListChallengeMetadata"}, SelectReturnType = typeof(Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse))]
+    [AWSCmdletOutput("Amazon.PcaConnectorScep.Model.ChallengeMetadataSummary or Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse",
+        "This cmdlet returns a collection of Amazon.PcaConnectorScep.Model.ChallengeMetadataSummary objects.",
+        "The service call response (type Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetNMGRNetworkTelemetryCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
+    public partial class GetPCASCEPChallengeMetadataListCmdlet : AmazonPcaConnectorScepClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter ConnectorArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
-        #endregion
-        
-        #region Parameter AwsRegion
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Web Services Region.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AwsRegion { get; set; }
-        #endregion
-        
-        #region Parameter CoreNetworkId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of a core network.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CoreNetworkId { get; set; }
-        #endregion
-        
-        #region Parameter GlobalNetworkId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the global network.</para>
+        /// <para>The Amazon Resource Name (ARN) of the connector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,43 +56,16 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GlobalNetworkId { get; set; }
-        #endregion
-        
-        #region Parameter RegisteredGatewayArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the gateway.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RegisteredGatewayArn { get; set; }
-        #endregion
-        
-        #region Parameter ResourceArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The resource type. The following are the supported resource types:</para><ul><li><para><c>connect-peer</c></para></li><li><para><c>transit-gateway-connect-peer</c></para></li><li><para><c>vpn-connection</c></para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceType { get; set; }
+        public System.String ConnectorArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return.</para>
+        /// <para>The maximum number of objects that you want Connector for SCEP to return for this
+        /// request. If more objects are available, in the response, Connector for SCEP provides
+        /// a <c>NextToken</c> value that you can use in a subsequent call to get the next batch
+        /// of objects.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>When you request a list of objects with a <c>MaxResults</c> setting, if the number
+        /// of objects that are still available for retrieval exceeds the maximum you requested,
+        /// Connector for SCEP returns a <c>NextToken</c> value in the response. To retrieve the
+        /// next batch of objects, use the token returned from the prior request in your next
+        /// request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -146,21 +93,21 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NetworkTelemetry'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.GetNetworkTelemetryResponse).
-        /// Specifying the name of a property of type Amazon.NetworkManager.Model.GetNetworkTelemetryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Challenges'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse).
+        /// Specifying the name of a property of type Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NetworkTelemetry";
+        public string Select { get; set; } = "Challenges";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GlobalNetworkId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GlobalNetworkId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConnectorArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConnectorArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GlobalNetworkId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConnectorArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -188,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.GetNetworkTelemetryResponse, GetNMGRNetworkTelemetryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse, GetPCASCEPChallengeMetadataListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -197,24 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GlobalNetworkId;
+                context.Select = (response, cmdlet) => this.ConnectorArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
-            context.AwsRegion = this.AwsRegion;
-            context.CoreNetworkId = this.CoreNetworkId;
-            context.GlobalNetworkId = this.GlobalNetworkId;
+            context.ConnectorArn = this.ConnectorArn;
             #if MODULAR
-            if (this.GlobalNetworkId == null && ParameterWasBound(nameof(this.GlobalNetworkId)))
+            if (this.ConnectorArn == null && ParameterWasBound(nameof(this.ConnectorArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter GlobalNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConnectorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.RegisteredGatewayArn = this.RegisteredGatewayArn;
-            context.ResourceArn = this.ResourceArn;
-            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -233,39 +174,15 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.NetworkManager.Model.GetNetworkTelemetryRequest();
+            var request = new Amazon.PcaConnectorScep.Model.ListChallengeMetadataRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.ConnectorArn != null)
             {
-                request.AccountId = cmdletContext.AccountId;
-            }
-            if (cmdletContext.AwsRegion != null)
-            {
-                request.AwsRegion = cmdletContext.AwsRegion;
-            }
-            if (cmdletContext.CoreNetworkId != null)
-            {
-                request.CoreNetworkId = cmdletContext.CoreNetworkId;
-            }
-            if (cmdletContext.GlobalNetworkId != null)
-            {
-                request.GlobalNetworkId = cmdletContext.GlobalNetworkId;
+                request.ConnectorArn = cmdletContext.ConnectorArn;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.RegisteredGatewayArn != null)
-            {
-                request.RegisteredGatewayArn = cmdletContext.RegisteredGatewayArn;
-            }
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.ResourceType != null)
-            {
-                request.ResourceType = cmdletContext.ResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -324,15 +241,15 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkManager.Model.GetNetworkTelemetryResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.GetNetworkTelemetryRequest request)
+        private Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse CallAWSServiceOperation(IAmazonPcaConnectorScep client, Amazon.PcaConnectorScep.Model.ListChallengeMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "GetNetworkTelemetry");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Private CA Connector for SCEP", "ListChallengeMetadata");
             try
             {
                 #if DESKTOP
-                return client.GetNetworkTelemetry(request);
+                return client.ListChallengeMetadata(request);
                 #elif CORECLR
-                return client.GetNetworkTelemetryAsync(request).GetAwaiter().GetResult();
+                return client.ListChallengeMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -352,17 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.String AwsRegion { get; set; }
-            public System.String CoreNetworkId { get; set; }
-            public System.String GlobalNetworkId { get; set; }
+            public System.String ConnectorArn { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String RegisteredGatewayArn { get; set; }
-            public System.String ResourceArn { get; set; }
-            public System.String ResourceType { get; set; }
-            public System.Func<Amazon.NetworkManager.Model.GetNetworkTelemetryResponse, GetNMGRNetworkTelemetryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NetworkTelemetry;
+            public System.Func<Amazon.PcaConnectorScep.Model.ListChallengeMetadataResponse, GetPCASCEPChallengeMetadataListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Challenges;
         }
         
     }

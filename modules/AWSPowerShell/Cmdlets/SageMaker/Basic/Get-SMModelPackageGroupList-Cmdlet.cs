@@ -62,6 +62,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.DateTime? CreationTimeBefore { get; set; }
         #endregion
         
+        #region Parameter CrossAccountFilterOption
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns either model groups shared with you or model groups in your
+        /// own account. When the value is <c>CrossAccount</c>, the results show the resources
+        /// made discoverable to you from other accounts. When the value is <c>SameAccount</c>
+        /// or <c>null</c>, the results show resources from your account. The default is <c>SameAccount</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.CrossAccountFilterOption")]
+        public Amazon.SageMaker.CrossAccountFilterOption CrossAccountFilterOption { get; set; }
+        #endregion
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>
@@ -161,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.CreationTimeAfter = this.CreationTimeAfter;
             context.CreationTimeBefore = this.CreationTimeBefore;
+            context.CrossAccountFilterOption = this.CrossAccountFilterOption;
             context.MaxResult = this.MaxResult;
             context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
@@ -191,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.CreationTimeBefore != null)
             {
                 request.CreationTimeBefore = cmdletContext.CreationTimeBefore.Value;
+            }
+            if (cmdletContext.CrossAccountFilterOption != null)
+            {
+                request.CrossAccountFilterOption = cmdletContext.CrossAccountFilterOption;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -295,6 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.DateTime? CreationTimeAfter { get; set; }
             public System.DateTime? CreationTimeBefore { get; set; }
+            public Amazon.SageMaker.CrossAccountFilterOption CrossAccountFilterOption { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }

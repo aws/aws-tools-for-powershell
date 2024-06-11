@@ -1,4 +1,24 @@
-﻿### 4.1.597 (2024-06-10 21:00Z)
+﻿### 4.1.598 (2024-06-11 21:28Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.829.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon GuardDuty
+    * Added cmdlet Get-GDMalwareProtectionPlan leveraging the GetMalwareProtectionPlan service API.
+    * Added cmdlet Get-GDMalwareProtectionPlanList leveraging the ListMalwareProtectionPlans service API.
+    * Added cmdlet New-GDMalwareProtectionPlan leveraging the CreateMalwareProtectionPlan service API.
+    * Added cmdlet Remove-GDMalwareProtectionPlan leveraging the DeleteMalwareProtectionPlan service API.
+    * Added cmdlet Update-GDMalwareProtectionPlan leveraging the UpdateMalwareProtectionPlan service API.
+  * Amazon IAM Access Analyzer
+    * Added cmdlet Get-IAMAAFindingRecommendation leveraging the GetFindingRecommendation service API.
+    * Added cmdlet Start-IAMAAFindingRecommendation leveraging the GenerateFindingRecommendation service API.
+    * Added cmdlet Test-IAMAANoPublicAccess leveraging the CheckNoPublicAccess service API.
+  * Amazon Network Manager
+    * Modified cmdlet Get-NMGRNetworkRoute: added parameters CoreNetworkNetworkFunctionGroup_CoreNetworkId, CoreNetworkNetworkFunctionGroup_EdgeLocation and CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName.
+  * Amazon Private CA Connector for SCEP. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCASCEP and can be listed using the command 'Get-AWSCmdletName -Service PCASCEP'.
+  * Amazon SageMaker Service
+    * Modified cmdlet Get-SMModelPackageGroupList: added parameter CrossAccountFilterOption.
+    * Modified cmdlet New-SMWorkforce: added parameters OidcConfig_AuthenticationRequestExtraParam and OidcConfig_Scope.
+    * Modified cmdlet Update-SMWorkforce: added parameters OidcConfig_AuthenticationRequestExtraParam and OidcConfig_Scope.
+
+### 4.1.597 (2024-06-10 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.828.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Application Signals. Added cmdlets to support the service. Cmdlets for the service have the noun prefix CWAS and can be listed using the command 'Get-AWSCmdletName -Service CWAS'.
   * Amazon EC2 Container Service

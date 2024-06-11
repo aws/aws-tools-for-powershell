@@ -1,0 +1,3 @@
+﻿# PcaConnectorScep
+
+Export-ModuleMember -Alias *

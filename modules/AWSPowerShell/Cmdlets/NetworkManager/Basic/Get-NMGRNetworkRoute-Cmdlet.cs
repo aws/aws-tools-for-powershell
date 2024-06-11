@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter CoreNetworkNetworkFunctionGroup_CoreNetworkId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the core network.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RouteTableIdentifier_CoreNetworkNetworkFunctionGroup_CoreNetworkId")]
+        public System.String CoreNetworkNetworkFunctionGroup_CoreNetworkId { get; set; }
+        #endregion
+        
         #region Parameter CoreNetworkSegmentEdge_CoreNetworkId
         /// <summary>
         /// <para>
@@ -62,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DestinationFilters")]
         public System.Collections.Hashtable DestinationFilter { get; set; }
+        #endregion
+        
+        #region Parameter CoreNetworkNetworkFunctionGroup_EdgeLocation
+        /// <summary>
+        /// <para>
+        /// <para>The location for the core network edge.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RouteTableIdentifier_CoreNetworkNetworkFunctionGroup_EdgeLocation")]
+        public System.String CoreNetworkNetworkFunctionGroup_EdgeLocation { get; set; }
         #endregion
         
         #region Parameter CoreNetworkSegmentEdge_EdgeLocation
@@ -112,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("LongestPrefixMatches")]
         public System.String[] LongestPrefixMatch { get; set; }
+        #endregion
+        
+        #region Parameter CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName
+        /// <summary>
+        /// <para>
+        /// <para>The network function group name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RouteTableIdentifier_CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName")]
+        public System.String CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName { get; set; }
         #endregion
         
         #region Parameter PrefixListId
@@ -277,6 +310,9 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             {
                 context.PrefixListId = new List<System.String>(this.PrefixListId);
             }
+            context.CoreNetworkNetworkFunctionGroup_CoreNetworkId = this.CoreNetworkNetworkFunctionGroup_CoreNetworkId;
+            context.CoreNetworkNetworkFunctionGroup_EdgeLocation = this.CoreNetworkNetworkFunctionGroup_EdgeLocation;
+            context.CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName = this.CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName;
             context.CoreNetworkSegmentEdge_CoreNetworkId = this.CoreNetworkSegmentEdge_CoreNetworkId;
             context.CoreNetworkSegmentEdge_EdgeLocation = this.CoreNetworkSegmentEdge_EdgeLocation;
             context.CoreNetworkSegmentEdge_SegmentName = this.CoreNetworkSegmentEdge_SegmentName;
@@ -345,6 +381,51 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             if (requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn != null)
             {
                 request.RouteTableIdentifier.TransitGatewayRouteTableArn = requestRouteTableIdentifier_routeTableIdentifier_TransitGatewayRouteTableArn;
+                requestRouteTableIdentifierIsNull = false;
+            }
+            Amazon.NetworkManager.Model.CoreNetworkNetworkFunctionGroupIdentifier requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup = null;
+            
+             // populate CoreNetworkNetworkFunctionGroup
+            var requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroupIsNull = true;
+            requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup = new Amazon.NetworkManager.Model.CoreNetworkNetworkFunctionGroupIdentifier();
+            System.String requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_CoreNetworkId = null;
+            if (cmdletContext.CoreNetworkNetworkFunctionGroup_CoreNetworkId != null)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_CoreNetworkId = cmdletContext.CoreNetworkNetworkFunctionGroup_CoreNetworkId;
+            }
+            if (requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_CoreNetworkId != null)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup.CoreNetworkId = requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_CoreNetworkId;
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroupIsNull = false;
+            }
+            System.String requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_EdgeLocation = null;
+            if (cmdletContext.CoreNetworkNetworkFunctionGroup_EdgeLocation != null)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_EdgeLocation = cmdletContext.CoreNetworkNetworkFunctionGroup_EdgeLocation;
+            }
+            if (requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_EdgeLocation != null)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup.EdgeLocation = requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_EdgeLocation;
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroupIsNull = false;
+            }
+            System.String requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_NetworkFunctionGroupName = null;
+            if (cmdletContext.CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName != null)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_NetworkFunctionGroupName = cmdletContext.CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName;
+            }
+            if (requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_NetworkFunctionGroupName != null)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup.NetworkFunctionGroupName = requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup_coreNetworkNetworkFunctionGroup_NetworkFunctionGroupName;
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroupIsNull = false;
+            }
+             // determine if requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup should be set to null
+            if (requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroupIsNull)
+            {
+                requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup = null;
+            }
+            if (requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup != null)
+            {
+                request.RouteTableIdentifier.CoreNetworkNetworkFunctionGroup = requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkNetworkFunctionGroup;
                 requestRouteTableIdentifierIsNull = false;
             }
             Amazon.NetworkManager.Model.CoreNetworkSegmentEdgeIdentifier requestRouteTableIdentifier_routeTableIdentifier_CoreNetworkSegmentEdge = null;
@@ -479,6 +560,9 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             public System.String GlobalNetworkId { get; set; }
             public List<System.String> LongestPrefixMatch { get; set; }
             public List<System.String> PrefixListId { get; set; }
+            public System.String CoreNetworkNetworkFunctionGroup_CoreNetworkId { get; set; }
+            public System.String CoreNetworkNetworkFunctionGroup_EdgeLocation { get; set; }
+            public System.String CoreNetworkNetworkFunctionGroup_NetworkFunctionGroupName { get; set; }
             public System.String CoreNetworkSegmentEdge_CoreNetworkId { get; set; }
             public System.String CoreNetworkSegmentEdge_EdgeLocation { get; set; }
             public System.String CoreNetworkSegmentEdge_SegmentName { get; set; }

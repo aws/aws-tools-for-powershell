@@ -43,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMalwareProtectionPlan" OutputProperty="MalwareProtectionPlanId" Verb="New" Noun="MalwareProtectionPlan" ShouldProcessTarget="ProtectedResource_S3Bucket_BucketName" PipelineParameter="Role" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMembers" OutputProperty="UnprocessedAccounts" Verb="New" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountDetails" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -76,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteIPSet" Verb="Remove" Noun="IPSet" ShouldProcessTarget="IpSetId" PipelineParameter="IpSetId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMalwareProtectionPlan" Verb="Remove" Noun="MalwareProtectionPlan" ShouldProcessTarget="MalwareProtectionPlanId" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -155,6 +163,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetMalwareProtectionPlan" OutputProperty="*" Verb="Get" Noun="MalwareProtectionPlan" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetMalwareScanSettings" OutputProperty="*" Verb="Get" Noun="MalwareScanSetting" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -215,6 +227,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMalwareProtectionPlans" OutputProperty="MalwareProtectionPlans" Verb="Get" Noun="MalwareProtectionPlanList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMembers" OutputProperty="Members" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -272,6 +288,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIPSet" Verb="Update" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMalwareProtectionPlan" Verb="Update" Noun="MalwareProtectionPlan" ShouldProcessTarget="MalwareProtectionPlanId" PipelineParameter="MalwareProtectionPlanId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

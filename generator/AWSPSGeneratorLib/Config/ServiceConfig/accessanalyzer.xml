@@ -35,6 +35,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CheckNoPublicAccess" OutputProperty="*" Verb="Test" Noun="NoPublicAccess" AnonymousShouldProcessTarget="true" PipelineParameter="PolicyDocument" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAccessPreview" OutputProperty="Id" Verb="New" Noun="AccessPreview" ShouldProcessTarget="AnalyzerArn" PipelineParameter="AnalyzerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -55,6 +59,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GenerateFindingRecommendation" Verb="Start" Noun="FindingRecommendation" AnonymousShouldProcessTarget="true" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAccessPreview" OutputProperty="AccessPreview" Verb="Get" Noun="AccessPreview" PipelineParameter="AccessPreviewId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -72,6 +80,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetFinding" OutputProperty="Finding" Verb="Get" Noun="Finding" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFindingRecommendation" OutputProperty="*" Verb="Get" Noun="FindingRecommendation" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

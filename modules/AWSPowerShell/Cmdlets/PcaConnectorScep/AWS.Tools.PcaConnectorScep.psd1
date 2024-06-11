@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.GuardDuty'
+# Module manifest for module 'AWS.Tools.PcaConnectorScep'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.GuardDuty.dll'
+    RootModule = 'AWS.Tools.PcaConnectorScep.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '757e9863-6a21-4dc3-bfba-afc26a30473a'
+    GUID = 'e0444543-4f59-4957-855b-4f4c525ae10c'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The GuardDuty module of AWS Tools for PowerShell lets developers and administrators manage Amazon GuardDuty from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The PcaConnectorScep module of AWS Tools for PowerShell lets developers and administrators manage Private CA Connector for SCEP from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.GuardDuty.dll'
+        'AWSSDK.PcaConnectorScep.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.GuardDuty.Format.ps1xml'
+        'AWS.Tools.PcaConnectorScep.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.GuardDuty.Completers.psm1',
-        'AWS.Tools.GuardDuty.Aliases.psm1'
+        'AWS.Tools.PcaConnectorScep.Completers.psm1',
+        'AWS.Tools.PcaConnectorScep.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,80 +86,18 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-GDResourceTag', 
-        'Backup-GDFinding', 
-        'Confirm-GDInvitation', 
-        'Deny-GDInvitation', 
-        'Disable-GDOrganizationAdminAccount', 
-        'Enable-GDOrganizationAdminAccount', 
-        'Get-GDAdministratorAccount', 
-        'Get-GDCoverageList', 
-        'Get-GDCoverageStatistic', 
-        'Get-GDDetector', 
-        'Get-GDDetectorList', 
-        'Get-GDFilter', 
-        'Get-GDFilterList', 
-        'Get-GDFinding', 
-        'Get-GDFindingList', 
-        'Get-GDFindingStatistic', 
-        'Get-GDInvitationCount', 
-        'Get-GDInvitationList', 
-        'Get-GDIPSet', 
-        'Get-GDIPSetList', 
-        'Get-GDMalwareProtectionPlan', 
-        'Get-GDMalwareProtectionPlanList', 
-        'Get-GDMalwareScan', 
-        'Get-GDMalwareScanSetting', 
-        'Get-GDMasterAccount', 
-        'Get-GDMember', 
-        'Get-GDMemberDetector', 
-        'Get-GDMemberList', 
-        'Get-GDOrganizationAdminAccountList', 
-        'Get-GDOrganizationConfiguration', 
-        'Get-GDOrganizationStatistic', 
-        'Get-GDPublishingDestination', 
-        'Get-GDPublishingDestinationList', 
-        'Get-GDRemainingFreeTrialDay', 
-        'Get-GDResourceTag', 
-        'Get-GDThreatIntelSet', 
-        'Get-GDThreatIntelSetList', 
-        'Get-GDUsageStatistic', 
-        'New-GDDetector', 
-        'New-GDFilter', 
-        'New-GDIPSet', 
-        'New-GDMalwareProtectionPlan', 
-        'New-GDMember', 
-        'New-GDPublishingDestination', 
-        'New-GDSampleFinding', 
-        'New-GDThreatIntelSet', 
-        'Receive-GDAdministratorInvitation', 
-        'Remove-GDDetector', 
-        'Remove-GDFilter', 
-        'Remove-GDFromAdministratorAccount', 
-        'Remove-GDInvitation', 
-        'Remove-GDIPSet', 
-        'Remove-GDMalwareProtectionPlan', 
-        'Remove-GDMember', 
-        'Remove-GDPublishingDestination', 
-        'Remove-GDResourceTag', 
-        'Remove-GDThreatIntelSet', 
-        'Restore-GDFinding', 
-        'Send-GDMemberInvitation', 
-        'Start-GDMalwareScan', 
-        'Start-GDMonitoringMember', 
-        'Stop-GDMonitoringMember', 
-        'Unregister-GDFromMasterAccount', 
-        'Unregister-GDMember', 
-        'Update-GDDetector', 
-        'Update-GDFilter', 
-        'Update-GDFindingFeedback', 
-        'Update-GDIPSet', 
-        'Update-GDMalwareProtectionPlan', 
-        'Update-GDMalwareScanSetting', 
-        'Update-GDMemberDetector', 
-        'Update-GDOrganizationConfiguration', 
-        'Update-GDPublishingDestination', 
-        'Update-GDThreatIntelSet')
+        'Add-PCASCEPResourceTag', 
+        'Get-PCASCEPChallengeMetadata', 
+        'Get-PCASCEPChallengeMetadataList', 
+        'Get-PCASCEPChallengePassword', 
+        'Get-PCASCEPConnector', 
+        'Get-PCASCEPConnectorList', 
+        'Get-PCASCEPResourceTag', 
+        'New-PCASCEPChallenge', 
+        'New-PCASCEPConnector', 
+        'Remove-PCASCEPChallenge', 
+        'Remove-PCASCEPConnector', 
+        'Remove-PCASCEPResourceTag')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -172,7 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.GuardDuty.dll-Help.xml'
+        'AWS.Tools.PcaConnectorScep.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

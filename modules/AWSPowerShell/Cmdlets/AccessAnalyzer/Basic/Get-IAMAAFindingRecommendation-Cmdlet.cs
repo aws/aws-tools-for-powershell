@@ -22,60 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.NetworkManager;
-using Amazon.NetworkManager.Model;
+using Amazon.AccessAnalyzer;
+using Amazon.AccessAnalyzer.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NMGR
+namespace Amazon.PowerShell.Cmdlets.IAMAA
 {
     /// <summary>
-    /// Gets the network resource relationships for the specified global network.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves information about a finding recommendation for the specified analyzer.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "NMGRNetworkResourceRelationship")]
-    [OutputType("Amazon.NetworkManager.Model.Relationship")]
-    [AWSCmdlet("Calls the AWS Network Manager GetNetworkResourceRelationships API operation.", Operation = new[] {"GetNetworkResourceRelationships"}, SelectReturnType = typeof(Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse))]
-    [AWSCmdletOutput("Amazon.NetworkManager.Model.Relationship or Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse",
-        "This cmdlet returns a collection of Amazon.NetworkManager.Model.Relationship objects.",
-        "The service call response (type Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IAMAAFindingRecommendation")]
+    [OutputType("Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse")]
+    [AWSCmdlet("Calls the AWS IAM Access Analyzer GetFindingRecommendation API operation.", Operation = new[] {"GetFindingRecommendation"}, SelectReturnType = typeof(Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse))]
+    [AWSCmdletOutput("Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse",
+        "This cmdlet returns an Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetNMGRNetworkResourceRelationshipCmdlet : AmazonNetworkManagerClientCmdlet, IExecutor
+    public partial class GetIAMAAFindingRecommendationCmdlet : AmazonAccessAnalyzerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter AnalyzerArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID.</para>
+        /// <para>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN
+        /// of the analyzer</a> used to generate the finding recommendation.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AccountId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AnalyzerArn { get; set; }
         #endregion
         
-        #region Parameter AwsRegion
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services Region.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AwsRegion { get; set; }
-        #endregion
-        
-        #region Parameter CoreNetworkId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of a core network.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String CoreNetworkId { get; set; }
-        #endregion
-        
-        #region Parameter GlobalNetworkId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the global network.</para>
+        /// <para>The unique ID for the finding recommendation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,43 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String GlobalNetworkId { get; set; }
-        #endregion
-        
-        #region Parameter RegisteredGatewayArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the registered gateway.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RegisteredGatewayArn { get; set; }
-        #endregion
-        
-        #region Parameter ResourceArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the gateway.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The resource type.</para><para>The following are the supported resource types for Direct Connect:</para><ul><li><para><c>dxcon</c></para></li><li><para><c>dx-gateway</c></para></li><li><para><c>dx-vif</c></para></li></ul><para>The following are the supported resource types for Network Manager:</para><ul><li><para><c>attachment</c></para></li><li><para><c>connect-peer</c></para></li><li><para><c>connection</c></para></li><li><para><c>core-network</c></para></li><li><para><c>device</c></para></li><li><para><c>link</c></para></li><li><para><c>peering</c></para></li><li><para><c>site</c></para></li></ul><para>The following are the supported resource types for Amazon VPC:</para><ul><li><para><c>customer-gateway</c></para></li><li><para><c>transit-gateway</c></para></li><li><para><c>transit-gateway-attachment</c></para></li><li><para><c>transit-gateway-connect-peer</c></para></li><li><para><c>transit-gateway-route-table</c></para></li><li><para><c>vpn-connection</c></para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceType { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return.</para>
+        /// <para>The maximum number of results to return in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -133,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next page of results.</para>
+        /// <para>A token used for pagination of results returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -146,21 +103,21 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Relationships'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse).
-        /// Specifying the name of a property of type Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse).
+        /// Specifying the name of a property of type Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Relationships";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the GlobalNetworkId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^GlobalNetworkId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^GlobalNetworkId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -188,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse, GetNMGRNetworkResourceRelationshipCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse, GetIAMAAFindingRecommendationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -197,24 +154,25 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.GlobalNetworkId;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
-            context.AwsRegion = this.AwsRegion;
-            context.CoreNetworkId = this.CoreNetworkId;
-            context.GlobalNetworkId = this.GlobalNetworkId;
+            context.AnalyzerArn = this.AnalyzerArn;
             #if MODULAR
-            if (this.GlobalNetworkId == null && ParameterWasBound(nameof(this.GlobalNetworkId)))
+            if (this.AnalyzerArn == null && ParameterWasBound(nameof(this.AnalyzerArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter GlobalNetworkId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnalyzerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.Id = this.Id;
+            #if MODULAR
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.RegisteredGatewayArn = this.RegisteredGatewayArn;
-            context.ResourceArn = this.ResourceArn;
-            context.ResourceType = this.ResourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -233,39 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsRequest();
+            var request = new Amazon.AccessAnalyzer.Model.GetFindingRecommendationRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.AnalyzerArn != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.AnalyzerArn = cmdletContext.AnalyzerArn;
             }
-            if (cmdletContext.AwsRegion != null)
+            if (cmdletContext.Id != null)
             {
-                request.AwsRegion = cmdletContext.AwsRegion;
-            }
-            if (cmdletContext.CoreNetworkId != null)
-            {
-                request.CoreNetworkId = cmdletContext.CoreNetworkId;
-            }
-            if (cmdletContext.GlobalNetworkId != null)
-            {
-                request.GlobalNetworkId = cmdletContext.GlobalNetworkId;
+                request.Id = cmdletContext.Id;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.RegisteredGatewayArn != null)
-            {
-                request.RegisteredGatewayArn = cmdletContext.RegisteredGatewayArn;
-            }
-            if (cmdletContext.ResourceArn != null)
-            {
-                request.ResourceArn = cmdletContext.ResourceArn;
-            }
-            if (cmdletContext.ResourceType != null)
-            {
-                request.ResourceType = cmdletContext.ResourceType;
             }
             
             // Initialize loop variant and commence piping
@@ -324,15 +262,15 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         #region AWS Service Operation Call
         
-        private Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse CallAWSServiceOperation(IAmazonNetworkManager client, Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsRequest request)
+        private Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse CallAWSServiceOperation(IAmazonAccessAnalyzer client, Amazon.AccessAnalyzer.Model.GetFindingRecommendationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Network Manager", "GetNetworkResourceRelationships");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IAM Access Analyzer", "GetFindingRecommendation");
             try
             {
                 #if DESKTOP
-                return client.GetNetworkResourceRelationships(request);
+                return client.GetFindingRecommendation(request);
                 #elif CORECLR
-                return client.GetNetworkResourceRelationshipsAsync(request).GetAwaiter().GetResult();
+                return client.GetFindingRecommendationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -352,17 +290,12 @@ namespace Amazon.PowerShell.Cmdlets.NMGR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.String AwsRegion { get; set; }
-            public System.String CoreNetworkId { get; set; }
-            public System.String GlobalNetworkId { get; set; }
+            public System.String AnalyzerArn { get; set; }
+            public System.String Id { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.String RegisteredGatewayArn { get; set; }
-            public System.String ResourceArn { get; set; }
-            public System.String ResourceType { get; set; }
-            public System.Func<Amazon.NetworkManager.Model.GetNetworkResourceRelationshipsResponse, GetNMGRNetworkResourceRelationshipCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Relationships;
+            public System.Func<Amazon.AccessAnalyzer.Model.GetFindingRecommendationResponse, GetIAMAAFindingRecommendationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

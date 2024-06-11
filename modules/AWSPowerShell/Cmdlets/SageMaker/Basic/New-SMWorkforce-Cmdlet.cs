@@ -66,6 +66,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter OidcConfig_AuthenticationRequestExtraParam
+        /// <summary>
+        /// <para>
+        /// <para>A string to string map of identifiers specific to the custom identity provider (IdP)
+        /// being used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OidcConfig_AuthenticationRequestExtraParams")]
+        public System.Collections.Hashtable OidcConfig_AuthenticationRequestExtraParam { get; set; }
+        #endregion
+        
         #region Parameter OidcConfig_AuthorizationEndpoint
         /// <summary>
         /// <para>
@@ -147,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OidcConfig_LogoutEndpoint { get; set; }
+        #endregion
+        
+        #region Parameter OidcConfig_Scope
+        /// <summary>
+        /// <para>
+        /// <para>An array of string identifiers used to refer to the specific pieces of user data or
+        /// claims that the client application wants to access.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OidcConfig_Scope { get; set; }
         #endregion
         
         #region Parameter WorkforceVpcConfig_SecurityGroupId
@@ -309,12 +332,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.CognitoConfig_ClientId = this.CognitoConfig_ClientId;
             context.CognitoConfig_UserPool = this.CognitoConfig_UserPool;
+            if (this.OidcConfig_AuthenticationRequestExtraParam != null)
+            {
+                context.OidcConfig_AuthenticationRequestExtraParam = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.OidcConfig_AuthenticationRequestExtraParam.Keys)
+                {
+                    context.OidcConfig_AuthenticationRequestExtraParam.Add((String)hashKey, (System.String)(this.OidcConfig_AuthenticationRequestExtraParam[hashKey]));
+                }
+            }
             context.OidcConfig_AuthorizationEndpoint = this.OidcConfig_AuthorizationEndpoint;
             context.OidcConfig_ClientId = this.OidcConfig_ClientId;
             context.OidcConfig_ClientSecret = this.OidcConfig_ClientSecret;
             context.OidcConfig_Issuer = this.OidcConfig_Issuer;
             context.OidcConfig_JwksUri = this.OidcConfig_JwksUri;
             context.OidcConfig_LogoutEndpoint = this.OidcConfig_LogoutEndpoint;
+            context.OidcConfig_Scope = this.OidcConfig_Scope;
             context.OidcConfig_TokenEndpoint = this.OidcConfig_TokenEndpoint;
             context.OidcConfig_UserInfoEndpoint = this.OidcConfig_UserInfoEndpoint;
             if (this.SourceIpConfig_Cidr != null)
@@ -390,6 +422,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate OidcConfig
             var requestOidcConfigIsNull = true;
             request.OidcConfig = new Amazon.SageMaker.Model.OidcConfig();
+            Dictionary<System.String, System.String> requestOidcConfig_oidcConfig_AuthenticationRequestExtraParam = null;
+            if (cmdletContext.OidcConfig_AuthenticationRequestExtraParam != null)
+            {
+                requestOidcConfig_oidcConfig_AuthenticationRequestExtraParam = cmdletContext.OidcConfig_AuthenticationRequestExtraParam;
+            }
+            if (requestOidcConfig_oidcConfig_AuthenticationRequestExtraParam != null)
+            {
+                request.OidcConfig.AuthenticationRequestExtraParams = requestOidcConfig_oidcConfig_AuthenticationRequestExtraParam;
+                requestOidcConfigIsNull = false;
+            }
             System.String requestOidcConfig_oidcConfig_AuthorizationEndpoint = null;
             if (cmdletContext.OidcConfig_AuthorizationEndpoint != null)
             {
@@ -448,6 +490,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestOidcConfig_oidcConfig_LogoutEndpoint != null)
             {
                 request.OidcConfig.LogoutEndpoint = requestOidcConfig_oidcConfig_LogoutEndpoint;
+                requestOidcConfigIsNull = false;
+            }
+            System.String requestOidcConfig_oidcConfig_Scope = null;
+            if (cmdletContext.OidcConfig_Scope != null)
+            {
+                requestOidcConfig_oidcConfig_Scope = cmdletContext.OidcConfig_Scope;
+            }
+            if (requestOidcConfig_oidcConfig_Scope != null)
+            {
+                request.OidcConfig.Scope = requestOidcConfig_oidcConfig_Scope;
                 requestOidcConfigIsNull = false;
             }
             System.String requestOidcConfig_oidcConfig_TokenEndpoint = null;
@@ -604,12 +656,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String CognitoConfig_ClientId { get; set; }
             public System.String CognitoConfig_UserPool { get; set; }
+            public Dictionary<System.String, System.String> OidcConfig_AuthenticationRequestExtraParam { get; set; }
             public System.String OidcConfig_AuthorizationEndpoint { get; set; }
             public System.String OidcConfig_ClientId { get; set; }
             public System.String OidcConfig_ClientSecret { get; set; }
             public System.String OidcConfig_Issuer { get; set; }
             public System.String OidcConfig_JwksUri { get; set; }
             public System.String OidcConfig_LogoutEndpoint { get; set; }
+            public System.String OidcConfig_Scope { get; set; }
             public System.String OidcConfig_TokenEndpoint { get; set; }
             public System.String OidcConfig_UserInfoEndpoint { get; set; }
             public List<System.String> SourceIpConfig_Cidr { get; set; }
