@@ -1,3 +1,0 @@
-﻿# BackupStorage
-
-Export-ModuleMember -Alias *
