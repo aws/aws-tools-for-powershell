@@ -1473,6 +1473,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrafficMirrorFilterRules" OutputProperty="TrafficMirrorFilterRules" Verb="Get" Noun="TrafficMirrorFilterRule" PipelineParameter="TrafficMirrorFilterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeTrafficMirrorFilters" OutputProperty="TrafficMirrorFilters" Verb="Get" Noun="TrafficMirrorFilter" PipelineParameter="TrafficMirrorFilterIds" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

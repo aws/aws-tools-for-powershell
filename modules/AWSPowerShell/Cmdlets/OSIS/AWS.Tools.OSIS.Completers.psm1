@@ -75,6 +75,32 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon OpenSearch Ingestion
 
 
+$OSIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.OSIS.VpcEndpointManagement
+        "New-OSISPipeline/VpcOptions_VpcEndpointManagement"
+        {
+            $v = "CUSTOMER","SERVICE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OSIS_map = @{
+    "VpcOptions_VpcEndpointManagement"=@("New-OSISPipeline")
+}
+
+_awsArgumentCompleterRegistration $OSIS_Completers $OSIS_map
+
 $OSIS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 

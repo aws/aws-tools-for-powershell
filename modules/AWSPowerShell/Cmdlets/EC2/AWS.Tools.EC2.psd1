@@ -378,6 +378,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EC2Template', 
         'Get-EC2TemplateVersion', 
         'Get-EC2TrafficMirrorFilter', 
+        'Get-EC2TrafficMirrorFilterRule', 
         'Get-EC2TrafficMirrorSession', 
         'Get-EC2TrafficMirrorTarget', 
         'Get-EC2TransitGateway', 

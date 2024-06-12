@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter SecretId
         /// <summary>
         /// <para>
-        /// <para>The ARN or name of the secret to retrieve.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
+        /// <para>The ARN or name of the secret to retrieve. To retrieve a secret from another account,
+        /// you must use an ARN.</para><para>For an ARN, we recommend that you specify a complete ARN rather than a partial ARN.
         /// See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding
         /// a secret from a partial ARN</a>.</para>
         /// </para>

@@ -213,6 +213,18 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
         public Amazon.OSIS.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter VpcOptions_VpcEndpointManagement
+        /// <summary>
+        /// <para>
+        /// <para>Defines whether you or Amazon OpenSearch Ingestion service create and manage the VPC
+        /// endpoint configured for the pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.OSIS.VpcEndpointManagement")]
+        public Amazon.OSIS.VpcEndpointManagement VpcOptions_VpcEndpointManagement { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Pipeline'.
@@ -321,6 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             }
             context.VpcAttachmentOptions_AttachToVpc = this.VpcAttachmentOptions_AttachToVpc;
             context.VpcAttachmentOptions_CidrBlock = this.VpcAttachmentOptions_CidrBlock;
+            context.VpcOptions_VpcEndpointManagement = this.VpcOptions_VpcEndpointManagement;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -463,6 +476,16 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
                 request.VpcOptions.SubnetIds = requestVpcOptions_vpcOptions_SubnetId;
                 requestVpcOptionsIsNull = false;
             }
+            Amazon.OSIS.VpcEndpointManagement requestVpcOptions_vpcOptions_VpcEndpointManagement = null;
+            if (cmdletContext.VpcOptions_VpcEndpointManagement != null)
+            {
+                requestVpcOptions_vpcOptions_VpcEndpointManagement = cmdletContext.VpcOptions_VpcEndpointManagement;
+            }
+            if (requestVpcOptions_vpcOptions_VpcEndpointManagement != null)
+            {
+                request.VpcOptions.VpcEndpointManagement = requestVpcOptions_vpcOptions_VpcEndpointManagement;
+                requestVpcOptionsIsNull = false;
+            }
             Amazon.OSIS.Model.VpcAttachmentOptions requestVpcOptions_vpcOptions_VpcAttachmentOptions = null;
             
              // populate VpcAttachmentOptions
@@ -577,6 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.OSIS
             public List<System.String> VpcOptions_SubnetId { get; set; }
             public System.Boolean? VpcAttachmentOptions_AttachToVpc { get; set; }
             public System.String VpcAttachmentOptions_CidrBlock { get; set; }
+            public Amazon.OSIS.VpcEndpointManagement VpcOptions_VpcEndpointManagement { get; set; }
             public System.Func<Amazon.OSIS.Model.CreatePipelineResponse, NewOSISPipelineCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Pipeline;
         }

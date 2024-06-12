@@ -167,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN
-        /// protocol, see <a href="https://tools.ietf.org/html/rfc7348">RFC 7348</a>. If you do
-        /// not specify a <c>VirtualNetworkId</c>, an account-wide unique id is chosen at random.</para>
+        /// protocol, see <a href="https://datatracker.ietf.org/doc/html/rfc7348">RFC 7348</a>.
+        /// If you do not specify a <c>VirtualNetworkId</c>, an account-wide unique ID is chosen
+        /// at random.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -179,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How
         /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>

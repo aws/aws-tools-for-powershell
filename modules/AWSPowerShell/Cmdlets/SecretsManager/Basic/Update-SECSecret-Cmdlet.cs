@@ -146,7 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>The binary data to encrypt and store in the new version of the secret. We recommend
         /// that you store your binary data in a file and then pass the contents of the file as
-        /// a parameter. </para><para>Either <c>SecretBinary</c> or <c>SecretString</c> must have a value, but not both.</para><para>You can't access this parameter in the Secrets Manager console.</para>
+        /// a parameter. </para><para>Either <c>SecretBinary</c> or <c>SecretString</c> must have a value, but not both.</para><para>You can't access this parameter in the Secrets Manager console.</para><para>Sensitive: This field contains sensitive information, so the service does not include
+        /// it in CloudTrail log entries. If you create your own log entries, you must also avoid
+        /// logging the information in this field.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -179,7 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>
         /// <para>The text data to encrypt and store in the new version of the secret. We recommend
         /// you use a JSON structure of key/value pairs for your secret value. </para><para>Either <c>SecretBinary</c> or <c>SecretString</c> must have a value, but not both.
-        /// </para>
+        /// </para><para>Sensitive: This field contains sensitive information, so the service does not include
+        /// it in CloudTrail log entries. If you create your own log entries, you must also avoid
+        /// logging the information in this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -39,17 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </para><ul><li><para>
     /// You can only resize clusters of the following types:
     /// </para><ul><li><para>
-    /// dc1.large (if your cluster is in a VPC)
-    /// </para></li><li><para>
-    /// dc1.8xlarge (if your cluster is in a VPC)
-    /// </para></li><li><para>
     /// dc2.large
     /// </para></li><li><para>
     /// dc2.8xlarge
-    /// </para></li><li><para>
-    /// ds2.xlarge
-    /// </para></li><li><para>
-    /// ds2.8xlarge
     /// </para></li><li><para>
     /// ra3.xlplus
     /// </para></li><li><para>

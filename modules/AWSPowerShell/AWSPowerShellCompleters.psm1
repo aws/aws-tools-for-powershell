@@ -4044,6 +4044,84 @@ $ASYN_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $ASYN_SelectCompleters $ASYN_SelectMap
+# Argument completions for service AWS Mainframe Modernization Application Testing
+
+
+$AT_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.AT.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AT_SelectMap = @{
+    "Select"=@("New-ATTestCase",
+               "New-ATTestConfiguration",
+               "New-ATTestSuite",
+               "Remove-ATTestCase",
+               "Remove-ATTestConfiguration",
+               "Remove-ATTestRun",
+               "Remove-ATTestSuite",
+               "Get-ATTestCase",
+               "Get-ATTestConfiguration",
+               "Get-ATTestRunStep",
+               "Get-ATTestSuite",
+               "Get-ATResourceTag",
+               "Get-ATTestCaseList",
+               "Get-ATTestConfigurationList",
+               "Get-ATTestRunList",
+               "Get-ATTestRunStepList",
+               "Get-ATTestRunTestCaseList",
+               "Get-ATTestSuiteList",
+               "Start-ATTestRun",
+               "Add-ATResourceTag",
+               "Remove-ATResourceTag",
+               "Update-ATTestCase",
+               "Update-ATTestConfiguration",
+               "Update-ATTestSuite")
+}
+
+_awsArgumentCompleterRegistration $AT_SelectCompleters $AT_SelectMap
 # Argument completions for service Amazon Prometheus Service
 
 
@@ -23956,6 +24034,7 @@ $EC2_SelectMap = @{
                "Get-EC2StoreImageTask",
                "Get-EC2Subnet",
                "Get-EC2Tag",
+               "Get-EC2TrafficMirrorFilterRule",
                "Get-EC2TrafficMirrorFilter",
                "Get-EC2TrafficMirrorSession",
                "Get-EC2TrafficMirrorTarget",
@@ -49506,6 +49585,32 @@ $ORG_SelectMap = @{
 _awsArgumentCompleterRegistration $ORG_SelectCompleters $ORG_SelectMap
 # Argument completions for service Amazon OpenSearch Ingestion
 
+
+$OSIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.OSIS.VpcEndpointManagement
+        "New-OSISPipeline/VpcOptions_VpcEndpointManagement"
+        {
+            $v = "CUSTOMER","SERVICE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$OSIS_map = @{
+    "VpcOptions_VpcEndpointManagement"=@("New-OSISPipeline")
+}
+
+_awsArgumentCompleterRegistration $OSIS_Completers $OSIS_map
 
 $OSIS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

@@ -1705,6 +1705,7 @@ $EC2_SelectMap = @{
                "Get-EC2StoreImageTask",
                "Get-EC2Subnet",
                "Get-EC2Tag",
+               "Get-EC2TrafficMirrorFilterRule",
                "Get-EC2TrafficMirrorFilter",
                "Get-EC2TrafficMirrorSession",
                "Get-EC2TrafficMirrorTarget",

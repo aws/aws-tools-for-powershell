@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
     /// Create an event destination. <i>Events</i> include message sends, deliveries, opens,
     /// clicks, bounces, and complaints. <i>Event destinations</i> are places that you can
     /// send information about these events to. For example, you can send event data to Amazon
-    /// SNS to receive notifications when you receive bounces or complaints, or you can use
-    /// Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.
+    /// EventBridge and associate a rule to send the event to the specified target.
     /// 
     ///  
     /// <para>
@@ -114,6 +113,18 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? EventDestination_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter EventBridgeDestination_EventBusArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events
+        /// to. Only the default bus is supported. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EventDestination_EventBridgeDestination_EventBusArn")]
+        public System.String EventBridgeDestination_EventBusArn { get; set; }
         #endregion
         
         #region Parameter EventDestinationName
@@ -243,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.CloudWatchDestination_DimensionConfiguration = new List<Amazon.SimpleEmailV2.Model.CloudWatchDimensionConfiguration>(this.CloudWatchDestination_DimensionConfiguration);
             }
             context.EventDestination_Enabled = this.EventDestination_Enabled;
+            context.EventBridgeDestination_EventBusArn = this.EventBridgeDestination_EventBusArn;
             context.KinesisFirehoseDestination_DeliveryStreamArn = this.KinesisFirehoseDestination_DeliveryStreamArn;
             context.KinesisFirehoseDestination_IamRoleArn = this.KinesisFirehoseDestination_IamRoleArn;
             if (this.EventDestination_MatchingEventType != null)
@@ -325,6 +337,31 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (requestEventDestination_eventDestination_CloudWatchDestination != null)
             {
                 request.EventDestination.CloudWatchDestination = requestEventDestination_eventDestination_CloudWatchDestination;
+                requestEventDestinationIsNull = false;
+            }
+            Amazon.SimpleEmailV2.Model.EventBridgeDestination requestEventDestination_eventDestination_EventBridgeDestination = null;
+            
+             // populate EventBridgeDestination
+            var requestEventDestination_eventDestination_EventBridgeDestinationIsNull = true;
+            requestEventDestination_eventDestination_EventBridgeDestination = new Amazon.SimpleEmailV2.Model.EventBridgeDestination();
+            System.String requestEventDestination_eventDestination_EventBridgeDestination_eventBridgeDestination_EventBusArn = null;
+            if (cmdletContext.EventBridgeDestination_EventBusArn != null)
+            {
+                requestEventDestination_eventDestination_EventBridgeDestination_eventBridgeDestination_EventBusArn = cmdletContext.EventBridgeDestination_EventBusArn;
+            }
+            if (requestEventDestination_eventDestination_EventBridgeDestination_eventBridgeDestination_EventBusArn != null)
+            {
+                requestEventDestination_eventDestination_EventBridgeDestination.EventBusArn = requestEventDestination_eventDestination_EventBridgeDestination_eventBridgeDestination_EventBusArn;
+                requestEventDestination_eventDestination_EventBridgeDestinationIsNull = false;
+            }
+             // determine if requestEventDestination_eventDestination_EventBridgeDestination should be set to null
+            if (requestEventDestination_eventDestination_EventBridgeDestinationIsNull)
+            {
+                requestEventDestination_eventDestination_EventBridgeDestination = null;
+            }
+            if (requestEventDestination_eventDestination_EventBridgeDestination != null)
+            {
+                request.EventDestination.EventBridgeDestination = requestEventDestination_eventDestination_EventBridgeDestination;
                 requestEventDestinationIsNull = false;
             }
             Amazon.SimpleEmailV2.Model.PinpointDestination requestEventDestination_eventDestination_PinpointDestination = null;
@@ -485,6 +522,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public System.String ConfigurationSetName { get; set; }
             public List<Amazon.SimpleEmailV2.Model.CloudWatchDimensionConfiguration> CloudWatchDestination_DimensionConfiguration { get; set; }
             public System.Boolean? EventDestination_Enabled { get; set; }
+            public System.String EventBridgeDestination_EventBusArn { get; set; }
             public System.String KinesisFirehoseDestination_DeliveryStreamArn { get; set; }
             public System.String KinesisFirehoseDestination_IamRoleArn { get; set; }
             public List<System.String> EventDestination_MatchingEventType { get; set; }

@@ -159,6 +159,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SourceCidrBlock { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>Traffic Mirroring tags specifications.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter DestinationPortRange_ToPort
         /// <summary>
         /// <para>
@@ -217,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How
         /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>
@@ -322,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #endif
             context.SourcePortRange_FromPort = this.SourcePortRange_FromPort;
             context.SourcePortRange_ToPort = this.SourcePortRange_ToPort;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.TrafficDirection = this.TrafficDirection;
             #if MODULAR
             if (this.TrafficDirection == null && ParameterWasBound(nameof(this.TrafficDirection)))
@@ -438,6 +453,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.SourcePortRange = null;
             }
+            if (cmdletContext.TagSpecification != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecification;
+            }
             if (cmdletContext.TrafficDirection != null)
             {
                 request.TrafficDirection = cmdletContext.TrafficDirection;
@@ -518,6 +537,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String SourceCidrBlock { get; set; }
             public System.Int32? SourcePortRange_FromPort { get; set; }
             public System.Int32? SourcePortRange_ToPort { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.TrafficDirection TrafficDirection { get; set; }
             public System.String TrafficMirrorFilterId { get; set; }
             public System.Func<Amazon.EC2.Model.CreateTrafficMirrorFilterRuleResponse, NewEC2TrafficMirrorFilterRuleCmdlet, object> Select { get; set; } =

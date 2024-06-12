@@ -1,4 +1,19 @@
-﻿### 4.1.598 (2024-06-11 21:28Z)
+﻿### 4.1.599 (2024-06-12 20:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.830.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Backup Storage
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2TrafficMirrorFilterRule leveraging the DescribeTrafficMirrorFilterRules service API.
+    * Modified cmdlet New-EC2TrafficMirrorFilterRule: added parameter TagSpecification.
+  * Amazon Mainframe Modernization Application Testing. Added cmdlets to support the service. Cmdlets for the service have the noun prefix AT and can be listed using the command 'Get-AWSCmdletName -Service AT'.
+  * Amazon OpenSearch Ingestion
+    * Modified cmdlet New-OSISPipeline: added parameter VpcOptions_VpcEndpointManagement.
+  * Amazon Secrets Manager
+    * Modified cmdlet Write-SECSecretValue: added parameter RotationToken.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2ConfigurationSetEventDestination: added parameter EventBridgeDestination_EventBusArn.
+    * Modified cmdlet Update-SES2ConfigurationSetEventDestination: added parameter EventBridgeDestination_EventBusArn.
+
+### 4.1.598 (2024-06-11 21:28Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.829.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon GuardDuty
     * Added cmdlet Get-GDMalwareProtectionPlan leveraging the GetMalwareProtectionPlan service API.

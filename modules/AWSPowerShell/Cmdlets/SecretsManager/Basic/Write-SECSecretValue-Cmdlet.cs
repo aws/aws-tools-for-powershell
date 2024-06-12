@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// create new ones.
     /// </para><para>
     /// Secrets Manager generates a CloudTrail log entry when you call this action. Do not
-    /// include sensitive information in request parameters except <c>SecretBinary</c> or
-    /// <c>SecretString</c> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
+    /// include sensitive information in request parameters except <c>SecretBinary</c>, <c>SecretString</c>,
+    /// or <c>RotationToken</c> because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging
     /// Secrets Manager events with CloudTrail</a>.
     /// </para><para><b>Required permissions: </b><c>secretsmanager:PutSecretValue</c>. For more information,
     /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_iam-permissions.html#reference_iam-permissions_actions">
@@ -102,12 +102,31 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         public System.String ClientRequestToken { get; set; }
         #endregion
         
+        #region Parameter RotationToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier that indicates the source of the request. For cross-account rotation
+        /// (when you rotate a secret in one account by using a Lambda rotation function in another
+        /// account) and the Lambda rotation function assumes an IAM role to call Secrets Manager,
+        /// Secrets Manager validates the identity with the rotation token. For more information,
+        /// see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">How
+        /// rotation works</a>.</para><para>Sensitive: This field contains sensitive information, so the service does not include
+        /// it in CloudTrail log entries. If you create your own log entries, you must also avoid
+        /// logging the information in this field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RotationToken { get; set; }
+        #endregion
+        
         #region Parameter SecretBinary
         /// <summary>
         /// <para>
         /// <para>The binary data to encrypt and store in the new version of the secret. To use this
         /// parameter in the command-line tools, we recommend that you store your binary data
-        /// in a file and then pass the contents of the file as a parameter. </para><para>You must include <c>SecretBinary</c> or <c>SecretString</c>, but not both.</para><para>You can't access this value from the Secrets Manager console.</para>
+        /// in a file and then pass the contents of the file as a parameter. </para><para>You must include <c>SecretBinary</c> or <c>SecretString</c>, but not both.</para><para>You can't access this value from the Secrets Manager console.</para><para>Sensitive: This field contains sensitive information, so the service does not include
+        /// it in CloudTrail log entries. If you create your own log entries, you must also avoid
+        /// logging the information in this field.</para>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>
@@ -139,7 +158,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <summary>
         /// <para>
         /// <para>The text to encrypt and store in the new version of the secret. </para><para>You must include <c>SecretBinary</c> or <c>SecretString</c>, but not both.</para><para>We recommend you create the secret string as JSON key/value pairs, as shown in the
-        /// example.</para>
+        /// example.</para><para>Sensitive: This field contains sensitive information, so the service does not include
+        /// it in CloudTrail log entries. If you create your own log entries, you must also avoid
+        /// logging the information in this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -226,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientRequestToken = this.ClientRequestToken;
+            context.RotationToken = this.RotationToken;
             context.SecretBinary = this.SecretBinary;
             context.SecretId = this.SecretId;
             #if MODULAR
@@ -262,6 +284,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 if (cmdletContext.ClientRequestToken != null)
                 {
                     request.ClientRequestToken = cmdletContext.ClientRequestToken;
+                }
+                if (cmdletContext.RotationToken != null)
+                {
+                    request.RotationToken = cmdletContext.RotationToken;
                 }
                 if (cmdletContext.SecretBinary != null)
                 {
@@ -350,6 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String RotationToken { get; set; }
             public byte[] SecretBinary { get; set; }
             public System.String SecretId { get; set; }
             public System.String SecretString { get; set; }

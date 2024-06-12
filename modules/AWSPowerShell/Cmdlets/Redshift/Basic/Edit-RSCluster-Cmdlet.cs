@@ -354,9 +354,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The new node type of the cluster. If you specify a new node type, you must also specify
         /// the number of nodes parameter.</para><para> For more information about resizing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing
-        /// Clusters in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para>Valid Values: <c>ds2.xlarge</c> | <c>ds2.8xlarge</c> | <c>dc1.large</c> | <c>dc1.8xlarge</c>
-        /// | <c>dc2.large</c> | <c>dc2.8xlarge</c> | <c>ra3.xlplus</c> | <c>ra3.4xlarge</c> |
-        /// <c>ra3.16xlarge</c></para>
+        /// Clusters in Amazon Redshift</a> in the <i>Amazon Redshift Cluster Management Guide</i>.</para><para>Valid Values: <c>dc2.large</c> | <c>dc2.8xlarge</c> | <c>ra3.xlplus</c> | <c>ra3.4xlarge</c>
+        /// | <c>ra3.16xlarge</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -380,7 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The option to change the port of an Amazon Redshift cluster.</para><para>Valid Values: </para><ul><li><para>For clusters with ra3 nodes - Select a port within the ranges <c>5431-5455</c> or
         /// <c>8191-8215</c>. (If you have an existing cluster with ra3 nodes, it isn't required
-        /// that you change the port to these ranges.)</para></li><li><para>For clusters with ds2 or dc2 nodes - Select a port within the range <c>1150-65535</c>.</para></li></ul>
+        /// that you change the port to these ranges.)</para></li><li><para>For clusters with dc2 nodes - Select a port within the range <c>1150-65535</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
