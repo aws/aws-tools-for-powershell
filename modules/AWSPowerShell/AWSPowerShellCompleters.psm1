@@ -11217,6 +11217,13 @@ $HSM2_Completers = {
             break
         }
 
+        # Amazon.CloudHSMV2.ClusterMode
+        "New-HSM2Cluster/Mode"
+        {
+            $v = "FIPS","NON_FIPS"
+            break
+        }
+
 
     }
 
@@ -11227,6 +11234,7 @@ $HSM2_Completers = {
 
 $HSM2_map = @{
     "BackupRetentionPolicy_Type"=@("Edit-HSM2Cluster","New-HSM2Cluster")
+    "Mode"=@("New-HSM2Cluster")
 }
 
 _awsArgumentCompleterRegistration $HSM2_Completers $HSM2_map
@@ -30492,6 +30500,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DQCompositeRuleEvaluationMethod
+        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
+        {
+            $v = "COLUMN","ROW"
+            break
+        }
+
         # Amazon.Glue.EnableHybridValues
         "Set-GLUEResourcePolicy/EnableHybrid"
         {
@@ -30724,6 +30739,7 @@ $GLUE_Completers = {
 }
 
 $GLUE_map = @{
+    "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
@@ -38427,8 +38443,16 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.KeyAgreementAlgorithmSpec
+        "Get-KMSSharedSecret/KeyAgreementAlgorithm"
+        {
+            $v = "ECDH"
+            break
+        }
+
         # Amazon.KeyManagementService.KeyEncryptionMechanism
         {
+            ($_ -eq "Get-KMSSharedSecret/Recipient_KeyEncryptionAlgorithm") -Or
             ($_ -eq "Invoke-KMSDecrypt/Recipient_KeyEncryptionAlgorithm") -Or
             ($_ -eq "New-KMSDataKey/Recipient_KeyEncryptionAlgorithm") -Or
             ($_ -eq "New-KMSDataKeyPair/Recipient_KeyEncryptionAlgorithm") -Or
@@ -38449,7 +38473,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
-            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","SIGN_VERIFY"
+            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","KEY_AGREEMENT","SIGN_VERIFY"
             break
         }
 
@@ -38521,13 +38545,14 @@ $KMS_map = @{
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
+    "KeyAgreementAlgorithm"=@("Get-KMSSharedSecret")
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
     "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")
     "KeyUsage"=@("New-KMSKey")
     "MacAlgorithm"=@("New-KMSMac","Test-KMSMac")
     "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")
-    "Recipient_KeyEncryptionAlgorithm"=@("Invoke-KMSDecrypt","New-KMSDataKey","New-KMSDataKeyPair","New-KMSRandom")
+    "Recipient_KeyEncryptionAlgorithm"=@("Get-KMSSharedSecret","Invoke-KMSDecrypt","New-KMSDataKey","New-KMSDataKeyPair","New-KMSRandom")
     "SigningAlgorithm"=@("Invoke-KMSSigning","Test-KMSSignature")
     "SourceEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "WrappingAlgorithm"=@("Get-KMSParametersForImport")
@@ -38595,6 +38620,7 @@ $KMS_SelectMap = @{
                "Remove-KMSAlias",
                "Remove-KMSCustomKeyStore",
                "Remove-KMSImportedKeyMaterial",
+               "Get-KMSSharedSecret",
                "Get-KMSCustomKeyStore",
                "Get-KMSKey",
                "Disable-KMSKey",
@@ -43840,6 +43866,13 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.InputType
+        "New-MPV2Channel/InputType"
+        {
+            $v = "CMAF","HLS"
+            break
+        }
+
         # Amazon.MediaPackageV2.PresetSpeke20Audio
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Audio") -Or
@@ -43884,6 +43917,7 @@ $MPV2_map = @{
     "EncryptionContractConfiguration_PresetSpeke20Video"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_CmafEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "InputType"=@("New-MPV2Channel")
 }
 
 _awsArgumentCompleterRegistration $MPV2_Completers $MPV2_map

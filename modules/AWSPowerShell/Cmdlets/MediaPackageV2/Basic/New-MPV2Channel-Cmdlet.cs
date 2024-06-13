@@ -94,6 +94,21 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter InputType
+        /// <summary>
+        /// <para>
+        /// <para>The input type will be an immutable field which will be used to define whether the
+        /// channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS
+        /// to preserve current behavior.</para><para>The allowed values are:</para><ul><li><para><c>HLS</c> - The HLS streaming specification (which defines M3U8 manifests and TS
+        /// segments).</para></li><li><para><c>CMAF</c> - The DASH-IF CMAF Ingest specification (which defines CMAF segments
+        /// with optional DASH manifests).</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaPackageV2.InputType")]
+        public Amazon.MediaPackageV2.InputType InputType { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -193,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             #endif
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.InputType = this.InputType;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -232,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.InputType != null)
+            {
+                request.InputType = cmdletContext.InputType;
             }
             if (cmdletContext.Tag != null)
             {
@@ -302,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public System.String ChannelName { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public Amazon.MediaPackageV2.InputType InputType { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.MediaPackageV2.Model.CreateChannelResponse, NewMPV2ChannelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

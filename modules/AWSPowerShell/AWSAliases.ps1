@@ -16348,6 +16348,8 @@ Set-Alias -Name Delete-KMSCustomKeyStore -Value Remove-KMSCustomKeyStore
 Set-Alias -Name KMS-DeleteCustomKeyStore -Value Remove-KMSCustomKeyStore
 Set-Alias -Name Delete-KMSImportedKeyMaterial -Value Remove-KMSImportedKeyMaterial
 Set-Alias -Name KMS-DeleteImportedKeyMaterial -Value Remove-KMSImportedKeyMaterial
+Set-Alias -Name Derive-KMSSharedSecret -Value Get-KMSSharedSecret
+Set-Alias -Name KMS-DeriveSharedSecret -Value Get-KMSSharedSecret
 Set-Alias -Name Describe-KMSCustomKeyStores -Value Get-KMSCustomKeyStore
 Set-Alias -Name Describe-KMSCustomKeyStore -Value Get-KMSCustomKeyStore
 Set-Alias -Name KMS-DescribeCustomKeyStores -Value Get-KMSCustomKeyStore

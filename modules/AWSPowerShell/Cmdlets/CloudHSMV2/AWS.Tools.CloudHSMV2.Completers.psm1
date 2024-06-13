@@ -90,6 +90,13 @@ $HSM2_Completers = {
             break
         }
 
+        # Amazon.CloudHSMV2.ClusterMode
+        "New-HSM2Cluster/Mode"
+        {
+            $v = "FIPS","NON_FIPS"
+            break
+        }
+
 
     }
 
@@ -100,6 +107,7 @@ $HSM2_Completers = {
 
 $HSM2_map = @{
     "BackupRetentionPolicy_Type"=@("Edit-HSM2Cluster","New-HSM2Cluster")
+    "Mode"=@("New-HSM2Cluster")
 }
 
 _awsArgumentCompleterRegistration $HSM2_Completers $HSM2_map

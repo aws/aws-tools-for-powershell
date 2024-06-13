@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter HsmType
         /// <summary>
         /// <para>
-        /// <para>The type of HSM to use in the cluster. Currently the only allowed value is <c>hsm1.medium</c>.</para>
+        /// <para>The type of HSM to use in the cluster. The allowed values are <c>hsm1.medium</c> and
+        /// <c>hsm2m.medium</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,6 +58,17 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HsmType { get; set; }
+        #endregion
+        
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>The mode to use in the cluster. The allowed values are <c>FIPS</c> and <c>NON_FIPS</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CloudHSMV2.ClusterMode")]
+        public Amazon.CloudHSMV2.ClusterMode Mode { get; set; }
         #endregion
         
         #region Parameter SourceBackupId
@@ -174,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 WriteWarning("You are passing $null as a value for parameter HsmType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Mode = this.Mode;
             context.SourceBackupId = this.SourceBackupId;
             if (this.SubnetId != null)
             {
@@ -237,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (cmdletContext.HsmType != null)
             {
                 request.HsmType = cmdletContext.HsmType;
+            }
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
             }
             if (cmdletContext.SourceBackupId != null)
             {
@@ -314,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             public Amazon.CloudHSMV2.BackupRetentionType BackupRetentionPolicy_Type { get; set; }
             public System.String BackupRetentionPolicy_Value { get; set; }
             public System.String HsmType { get; set; }
+            public Amazon.CloudHSMV2.ClusterMode Mode { get; set; }
             public System.String SourceBackupId { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.CloudHSMV2.Model.Tag> TagList { get; set; }

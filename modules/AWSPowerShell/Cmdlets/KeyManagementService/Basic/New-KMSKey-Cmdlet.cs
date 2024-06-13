@@ -72,10 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an
     /// SM2 key pair (China Regions only). The private key in an asymmetric KMS key never
     /// leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to
-    /// download the public key so it can be used outside of KMS. KMS keys with RSA or SM2
-    /// key pairs can be used to encrypt or decrypt data or sign and verify messages (but
-    /// not both). KMS keys with ECC key pairs can be used only to sign and verify messages.
-    /// For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
+    /// download the public key so it can be used outside of KMS. Each KMS key can have only
+    /// one key usage. KMS keys with RSA key pairs can be used to encrypt and decrypt data
+    /// or sign and verify messages (but not both). KMS keys with NIST-recommended ECC key
+    /// pairs can be used to sign and verify messages or derive shared secrets (but not both).
+    /// KMS keys with <c>ECC_SECG_P256K1</c> can be used only to sign and verify messages.
+    /// KMS keys with SM2 key pairs (China Regions only) can be used to either encrypt and
+    /// decrypt data, sign and verify messages, or derive shared secrets (you must choose
+    /// one key usage type). For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
     /// KMS keys</a> in the <i>Key Management Service Developer Guide</i>.
     /// </para><para></para></dd><dt>HMAC KMS key</dt><dd><para>
     /// To create an HMAC KMS key, set the <c>KeySpec</c> parameter to a key spec value for
@@ -249,7 +253,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// Algorithm</a> in the <i><i>Key Management Service Developer Guide</i></i>.</para><important><para><a href="http://aws.amazon.com/kms/features/#AWS_Service_Integration">Amazon Web
         /// Services services that are integrated with KMS</a> use symmetric encryption KMS keys
         /// to protect your data. These services do not support asymmetric KMS keys or HMAC KMS
-        /// keys.</para></important><para>KMS supports the following key specs for KMS keys:</para><ul><li><para>Symmetric encryption key (default)</para><ul><li><para><c>SYMMETRIC_DEFAULT</c></para></li></ul></li><li><para>HMAC keys (symmetric)</para><ul><li><para><c>HMAC_224</c></para></li><li><para><c>HMAC_256</c></para></li><li><para><c>HMAC_384</c></para></li><li><para><c>HMAC_512</c></para></li></ul></li><li><para>Asymmetric RSA key pairs</para><ul><li><para><c>RSA_2048</c></para></li><li><para><c>RSA_3072</c></para></li><li><para><c>RSA_4096</c></para></li></ul></li><li><para>Asymmetric NIST-recommended elliptic curve key pairs</para><ul><li><para><c>ECC_NIST_P256</c> (secp256r1)</para></li><li><para><c>ECC_NIST_P384</c> (secp384r1)</para></li><li><para><c>ECC_NIST_P521</c> (secp521r1)</para></li></ul></li><li><para>Other asymmetric elliptic curve key pairs</para><ul><li><para><c>ECC_SECG_P256K1</c> (secp256k1), commonly used for cryptocurrencies.</para></li></ul></li><li><para>SM2 key pairs (China Regions only)</para><ul><li><para><c>SM2</c></para></li></ul></li></ul>
+        /// keys.</para></important><para>KMS supports the following key specs for KMS keys:</para><ul><li><para>Symmetric encryption key (default)</para><ul><li><para><c>SYMMETRIC_DEFAULT</c></para></li></ul></li><li><para>HMAC keys (symmetric)</para><ul><li><para><c>HMAC_224</c></para></li><li><para><c>HMAC_256</c></para></li><li><para><c>HMAC_384</c></para></li><li><para><c>HMAC_512</c></para></li></ul></li><li><para>Asymmetric RSA key pairs (encryption and decryption -or- signing and verification)</para><ul><li><para><c>RSA_2048</c></para></li><li><para><c>RSA_3072</c></para></li><li><para><c>RSA_4096</c></para></li></ul></li><li><para>Asymmetric NIST-recommended elliptic curve key pairs (signing and verification -or-
+        /// deriving shared secrets)</para><ul><li><para><c>ECC_NIST_P256</c> (secp256r1)</para></li><li><para><c>ECC_NIST_P384</c> (secp384r1)</para></li><li><para><c>ECC_NIST_P521</c> (secp521r1)</para></li></ul></li><li><para>Other asymmetric elliptic curve key pairs (signing and verification)</para><ul><li><para><c>ECC_SECG_P256K1</c> (secp256k1), commonly used for cryptocurrencies.</para></li></ul></li><li><para>SM2 key pairs (encryption and decryption -or- signing and verification -or- deriving
+        /// shared secrets)</para><ul><li><para><c>SM2</c> (China Regions only)</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -263,8 +269,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <para>Determines the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic
         /// operations</a> for which you can use the KMS key. The default value is <c>ENCRYPT_DECRYPT</c>.
         /// This parameter is optional when you are creating a symmetric encryption KMS key; otherwise,
-        /// it is required. You can't change the <c>KeyUsage</c> value after the KMS key is created.</para><para>Select only one valid value.</para><ul><li><para>For symmetric encryption KMS keys, omit the parameter or specify <c>ENCRYPT_DECRYPT</c>.</para></li><li><para>For HMAC KMS keys (symmetric), specify <c>GENERATE_VERIFY_MAC</c>.</para></li><li><para>For asymmetric KMS keys with RSA key material, specify <c>ENCRYPT_DECRYPT</c> or <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with ECC key material, specify <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with SM2 key material (China Regions only), specify <c>ENCRYPT_DECRYPT</c>
-        /// or <c>SIGN_VERIFY</c>.</para></li></ul>
+        /// it is required. You can't change the <c>KeyUsage</c> value after the KMS key is created.</para><para>Select only one valid value.</para><ul><li><para>For symmetric encryption KMS keys, omit the parameter or specify <c>ENCRYPT_DECRYPT</c>.</para></li><li><para>For HMAC KMS keys (symmetric), specify <c>GENERATE_VERIFY_MAC</c>.</para></li><li><para>For asymmetric KMS keys with RSA key pairs, specify <c>ENCRYPT_DECRYPT</c> or <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with NIST-recommended elliptic curve key pairs, specify <c>SIGN_VERIFY</c>
+        /// or <c>KEY_AGREEMENT</c>.</para></li><li><para>For asymmetric KMS keys with <c>ECC_SECG_P256K1</c> key pairs specify <c>SIGN_VERIFY</c>.</para></li><li><para>For asymmetric KMS keys with SM2 key pairs (China Regions only), specify <c>ENCRYPT_DECRYPT</c>,
+        /// <c>SIGN_VERIFY</c>, or <c>KEY_AGREEMENT</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

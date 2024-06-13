@@ -140,8 +140,16 @@ $KMS_Completers = {
             break
         }
 
+        # Amazon.KeyManagementService.KeyAgreementAlgorithmSpec
+        "Get-KMSSharedSecret/KeyAgreementAlgorithm"
+        {
+            $v = "ECDH"
+            break
+        }
+
         # Amazon.KeyManagementService.KeyEncryptionMechanism
         {
+            ($_ -eq "Get-KMSSharedSecret/Recipient_KeyEncryptionAlgorithm") -Or
             ($_ -eq "Invoke-KMSDecrypt/Recipient_KeyEncryptionAlgorithm") -Or
             ($_ -eq "New-KMSDataKey/Recipient_KeyEncryptionAlgorithm") -Or
             ($_ -eq "New-KMSDataKeyPair/Recipient_KeyEncryptionAlgorithm") -Or
@@ -162,7 +170,7 @@ $KMS_Completers = {
         # Amazon.KeyManagementService.KeyUsageType
         "New-KMSKey/KeyUsage"
         {
-            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","SIGN_VERIFY"
+            $v = "ENCRYPT_DECRYPT","GENERATE_VERIFY_MAC","KEY_AGREEMENT","SIGN_VERIFY"
             break
         }
 
@@ -234,13 +242,14 @@ $KMS_map = @{
     "DestinationEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "EncryptionAlgorithm"=@("Invoke-KMSDecrypt","Invoke-KMSEncrypt")
     "ExpirationModel"=@("Import-KMSKeyMaterial")
+    "KeyAgreementAlgorithm"=@("Get-KMSSharedSecret")
     "KeyPairSpec"=@("New-KMSDataKeyPair","New-KMSDataKeyPairWithoutPlaintext")
     "KeySpec"=@("New-KMSDataKey","New-KMSDataKeyWithoutPlaintext","New-KMSKey")
     "KeyUsage"=@("New-KMSKey")
     "MacAlgorithm"=@("New-KMSMac","Test-KMSMac")
     "MessageType"=@("Invoke-KMSSigning","Test-KMSSignature")
     "Origin"=@("New-KMSKey")
-    "Recipient_KeyEncryptionAlgorithm"=@("Invoke-KMSDecrypt","New-KMSDataKey","New-KMSDataKeyPair","New-KMSRandom")
+    "Recipient_KeyEncryptionAlgorithm"=@("Get-KMSSharedSecret","Invoke-KMSDecrypt","New-KMSDataKey","New-KMSDataKeyPair","New-KMSRandom")
     "SigningAlgorithm"=@("Invoke-KMSSigning","Test-KMSSignature")
     "SourceEncryptionAlgorithm"=@("Invoke-KMSReEncrypt")
     "WrappingAlgorithm"=@("Get-KMSParametersForImport")
@@ -308,6 +317,7 @@ $KMS_SelectMap = @{
                "Remove-KMSAlias",
                "Remove-KMSCustomKeyStore",
                "Remove-KMSImportedKeyMaterial",
+               "Get-KMSSharedSecret",
                "Get-KMSCustomKeyStore",
                "Get-KMSKey",
                "Disable-KMSKey",

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.830.0",
+    "ProductVersion"    : "3.7.831.0",
     "CoreVersion"       : "3.7.304.16",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -252,7 +252,7 @@
             "InPreview"               : false
         },
         "KeyManagementService" : {
-            "Version" : "3.7.303.11",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -828,7 +828,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.314.4",
+            "Version" : "3.7.315.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -836,7 +836,7 @@
             "InPreview"               : false
         },
         "CloudHSMV2"                      : {
-            "Version" : "3.7.300.105",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -1996,7 +1996,7 @@
             "InPreview"               : false
         },
         "IoTWireless"                     : {
-            "Version" : "3.7.303.4",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -2716,7 +2716,7 @@
             "InPreview"               : false
         },
         "MediaPackageV2"                      : {
-            "Version" : "3.7.302.30",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"

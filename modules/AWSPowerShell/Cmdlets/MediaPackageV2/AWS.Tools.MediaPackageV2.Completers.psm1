@@ -100,6 +100,13 @@ $MPV2_Completers = {
             break
         }
 
+        # Amazon.MediaPackageV2.InputType
+        "New-MPV2Channel/InputType"
+        {
+            $v = "CMAF","HLS"
+            break
+        }
+
         # Amazon.MediaPackageV2.PresetSpeke20Audio
         {
             ($_ -eq "New-MPV2OriginEndpoint/EncryptionContractConfiguration_PresetSpeke20Audio") -Or
@@ -144,6 +151,7 @@ $MPV2_map = @{
     "EncryptionContractConfiguration_PresetSpeke20Video"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_CmafEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
     "EncryptionMethod_TsEncryptionMethod"=@("New-MPV2OriginEndpoint","Update-MPV2OriginEndpoint")
+    "InputType"=@("New-MPV2Channel")
 }
 
 _awsArgumentCompleterRegistration $MPV2_Completers $MPV2_map

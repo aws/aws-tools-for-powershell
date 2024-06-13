@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeySpec">KeySpec</a>:
     /// The type of key material in the public key, such as <c>RSA_4096</c> or <c>ECC_NIST_P521</c>.
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeyUsage">KeyUsage</a>:
-    /// Whether the key is used for encryption or signing.
+    /// Whether the key is used for encryption, signing, or deriving a shared secret.
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-EncryptionAlgorithms">EncryptionAlgorithms</a>
     /// or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-SigningAlgorithms">SigningAlgorithms</a>:
     /// A list of the encryption algorithms or the signing algorithms for the key.

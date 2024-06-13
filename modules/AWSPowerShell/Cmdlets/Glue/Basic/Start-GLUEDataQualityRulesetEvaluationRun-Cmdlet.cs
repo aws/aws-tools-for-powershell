@@ -90,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.Boolean? AdditionalRunOptions_CloudWatchMetricsEnabled { get; set; }
         #endregion
         
+        #region Parameter AdditionalRunOptions_CompositeRuleEvaluationMethod
+        /// <summary>
+        /// <para>
+        /// <para>Set the evaluation method for composite rules in the ruleset to ROW/COLUMN</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Glue.DQCompositeRuleEvaluationMethod")]
+        public Amazon.Glue.DQCompositeRuleEvaluationMethod AdditionalRunOptions_CompositeRuleEvaluationMethod { get; set; }
+        #endregion
+        
         #region Parameter GlueTable_ConnectionName
         /// <summary>
         /// <para>
@@ -287,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 }
             }
             context.AdditionalRunOptions_CloudWatchMetricsEnabled = this.AdditionalRunOptions_CloudWatchMetricsEnabled;
+            context.AdditionalRunOptions_CompositeRuleEvaluationMethod = this.AdditionalRunOptions_CompositeRuleEvaluationMethod;
             context.AdditionalRunOptions_ResultsS3Prefix = this.AdditionalRunOptions_ResultsS3Prefix;
             context.ClientToken = this.ClientToken;
             if (this.GlueTable_AdditionalOption != null)
@@ -364,6 +376,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestAdditionalRunOptions_additionalRunOptions_CloudWatchMetricsEnabled != null)
             {
                 request.AdditionalRunOptions.CloudWatchMetricsEnabled = requestAdditionalRunOptions_additionalRunOptions_CloudWatchMetricsEnabled.Value;
+                requestAdditionalRunOptionsIsNull = false;
+            }
+            Amazon.Glue.DQCompositeRuleEvaluationMethod requestAdditionalRunOptions_additionalRunOptions_CompositeRuleEvaluationMethod = null;
+            if (cmdletContext.AdditionalRunOptions_CompositeRuleEvaluationMethod != null)
+            {
+                requestAdditionalRunOptions_additionalRunOptions_CompositeRuleEvaluationMethod = cmdletContext.AdditionalRunOptions_CompositeRuleEvaluationMethod;
+            }
+            if (requestAdditionalRunOptions_additionalRunOptions_CompositeRuleEvaluationMethod != null)
+            {
+                request.AdditionalRunOptions.CompositeRuleEvaluationMethod = requestAdditionalRunOptions_additionalRunOptions_CompositeRuleEvaluationMethod;
                 requestAdditionalRunOptionsIsNull = false;
             }
             System.String requestAdditionalRunOptions_additionalRunOptions_ResultsS3Prefix = null;
@@ -538,6 +560,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public Dictionary<System.String, Amazon.Glue.Model.DataSource> AdditionalDataSource { get; set; }
             public System.Boolean? AdditionalRunOptions_CloudWatchMetricsEnabled { get; set; }
+            public Amazon.Glue.DQCompositeRuleEvaluationMethod AdditionalRunOptions_CompositeRuleEvaluationMethod { get; set; }
             public System.String AdditionalRunOptions_ResultsS3Prefix { get; set; }
             public System.String ClientToken { get; set; }
             public Dictionary<System.String, System.String> GlueTable_AdditionalOption { get; set; }

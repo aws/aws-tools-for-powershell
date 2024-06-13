@@ -1,4 +1,17 @@
-﻿### 4.1.599 (2024-06-12 20:57Z)
+﻿### 4.1.600 (2024-06-13 20:45Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.831.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudHSM V2
+    * Modified cmdlet New-HSM2Cluster: added parameter Mode.
+  * Amazon Elemental MediaPackage v2
+    * Modified cmdlet New-MPV2Channel: added parameter InputType.
+    * Modified cmdlet New-MPV2OriginEndpoint: added parameter ForceEndpointErrorConfiguration_EndpointErrorCondition.
+    * Modified cmdlet Update-MPV2OriginEndpoint: added parameter ForceEndpointErrorConfiguration_EndpointErrorCondition.
+  * Amazon Glue
+    * Modified cmdlet Start-GLUEDataQualityRulesetEvaluationRun: added parameter AdditionalRunOptions_CompositeRuleEvaluationMethod.
+  * Amazon Key Management Service
+    * Added cmdlet Get-KMSSharedSecret leveraging the DeriveSharedSecret service API.
+
+### 4.1.599 (2024-06-12 20:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.830.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Backup Storage
   * Amazon Elastic Compute Cloud (EC2)

@@ -157,6 +157,19 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
         public System.String[] SpekeKeyProvider_DrmSystem { get; set; }
         #endregion
         
+        #region Parameter ForceEndpointErrorConfiguration_EndpointErrorCondition
+        /// <summary>
+        /// <para>
+        /// <para>The failover conditions for the endpoint. The options are:</para><ul><li><para><c>STALE_MANIFEST</c> - The manifest stalled and there are no new segments or parts.</para></li><li><para><c>INCOMPLETE_MANIFEST</c> - There is a gap in the manifest.</para></li><li><para><c>MISSING_DRM_KEY</c> - Key rotation is enabled but we're unable to fetch the key
+        /// for the current key period.</para></li><li><para><c>SLATE_INPUT</c> - The segments which contain slate content are considered to be
+        /// missing content.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ForceEndpointErrorConfiguration_EndpointErrorConditions")]
+        public System.String[] ForceEndpointErrorConfiguration_EndpointErrorCondition { get; set; }
+        #endregion
+        
         #region Parameter HlsManifest
         /// <summary>
         /// <para>
@@ -507,6 +520,10 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
                 context.DashManifest = new List<Amazon.MediaPackageV2.Model.CreateDashManifestConfiguration>(this.DashManifest);
             }
             context.Description = this.Description;
+            if (this.ForceEndpointErrorConfiguration_EndpointErrorCondition != null)
+            {
+                context.ForceEndpointErrorConfiguration_EndpointErrorCondition = new List<System.String>(this.ForceEndpointErrorConfiguration_EndpointErrorCondition);
+            }
             if (this.HlsManifest != null)
             {
                 context.HlsManifest = new List<Amazon.MediaPackageV2.Model.CreateHlsManifestConfiguration>(this.HlsManifest);
@@ -592,6 +609,25 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate ForceEndpointErrorConfiguration
+            var requestForceEndpointErrorConfigurationIsNull = true;
+            request.ForceEndpointErrorConfiguration = new Amazon.MediaPackageV2.Model.ForceEndpointErrorConfiguration();
+            List<System.String> requestForceEndpointErrorConfiguration_forceEndpointErrorConfiguration_EndpointErrorCondition = null;
+            if (cmdletContext.ForceEndpointErrorConfiguration_EndpointErrorCondition != null)
+            {
+                requestForceEndpointErrorConfiguration_forceEndpointErrorConfiguration_EndpointErrorCondition = cmdletContext.ForceEndpointErrorConfiguration_EndpointErrorCondition;
+            }
+            if (requestForceEndpointErrorConfiguration_forceEndpointErrorConfiguration_EndpointErrorCondition != null)
+            {
+                request.ForceEndpointErrorConfiguration.EndpointErrorConditions = requestForceEndpointErrorConfiguration_forceEndpointErrorConfiguration_EndpointErrorCondition;
+                requestForceEndpointErrorConfigurationIsNull = false;
+            }
+             // determine if request.ForceEndpointErrorConfiguration should be set to null
+            if (requestForceEndpointErrorConfigurationIsNull)
+            {
+                request.ForceEndpointErrorConfiguration = null;
             }
             if (cmdletContext.HlsManifest != null)
             {
@@ -924,6 +960,7 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             public Amazon.MediaPackageV2.ContainerType ContainerType { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateDashManifestConfiguration> DashManifest { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> ForceEndpointErrorConfiguration_EndpointErrorCondition { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateHlsManifestConfiguration> HlsManifest { get; set; }
             public List<Amazon.MediaPackageV2.Model.CreateLowLatencyHlsManifestConfiguration> LowLatencyHlsManifest { get; set; }
             public System.String OriginEndpointName { get; set; }

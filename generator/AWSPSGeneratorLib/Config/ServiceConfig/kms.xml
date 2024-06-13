@@ -65,6 +65,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeriveSharedSecret" OutputProperty="*" Verb="Get" Noun="SharedSecret" PipelineParameter="KeyId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCustomKeyStores" OutputProperty="CustomKeyStores" Verb="Get" Noun="CustomKeyStore" PipelineParameter="CustomKeyStoreId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

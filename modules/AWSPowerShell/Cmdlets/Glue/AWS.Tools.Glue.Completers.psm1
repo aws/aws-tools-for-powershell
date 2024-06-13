@@ -144,6 +144,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.DQCompositeRuleEvaluationMethod
+        "Start-GLUEDataQualityRulesetEvaluationRun/AdditionalRunOptions_CompositeRuleEvaluationMethod"
+        {
+            $v = "COLUMN","ROW"
+            break
+        }
+
         # Amazon.Glue.EnableHybridValues
         "Set-GLUEResourcePolicy/EnableHybrid"
         {
@@ -376,6 +383,7 @@ $GLUE_Completers = {
 }
 
 $GLUE_map = @{
+    "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
