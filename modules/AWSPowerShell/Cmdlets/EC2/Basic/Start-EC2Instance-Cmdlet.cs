@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// credit option to <c>standard</c>, or change its tenancy to <c>default</c> or <c>dedicated</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop
-    /// and start your instance</a> in the <i>Amazon EC2 User Guide</i>.
+    /// and start Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

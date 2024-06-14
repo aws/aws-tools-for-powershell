@@ -30,12 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// <note><para>
     /// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that
-    /// require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or
-    /// G5 instances.
+    /// require graphics acceleration, we recommend that you use Amazon EC2 G4, G5, or G6
+    /// instances.
     /// </para></note><para>
-    /// Describes the Elastic Graphics accelerator associated with your instances. For more
-    /// information about Elastic Graphics, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon
-    /// Elastic Graphics</a>.
+    /// Describes the Elastic Graphics accelerator associated with your instances.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2ElasticGpu")]

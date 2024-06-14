@@ -27,6 +27,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateEnvironmentRole" Verb="Set" Noun="EnvironmentRole" ShouldProcessTarget="EnvironmentRoleArn" PipelineParameter="EnvironmentRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelMetadataGenerationRun" Verb="Stop" Noun="MetadataGenerationRun" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -56,6 +60,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironment" OutputProperty="*" Verb="New" Noun="Environment" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentAction" OutputProperty="*" Verb="New" Noun="EnvironmentAction" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -127,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentAction" Verb="Remove" Noun="EnvironmentAction" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteEnvironmentBlueprintConfiguration" Verb="Remove" Noun="EnvironmentBlueprintConfiguration" ShouldProcessTarget="EnvironmentBlueprintIdentifier" PipelineParameter="EnvironmentBlueprintIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -175,6 +187,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateEnvironmentRole" Verb="Reset" Noun="EnvironmentRole" ShouldProcessTarget="EnvironmentIdentifier" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetAsset" OutputProperty="*" Verb="Get" Noun="Asset" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -196,6 +212,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEnvironment" OutputProperty="*" Verb="Get" Noun="Environment" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentAction" OutputProperty="*" Verb="Get" Noun="EnvironmentAction" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -284,6 +304,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDomains" OutputProperty="*" Verb="Get" Noun="DomainList" PipelineParameter="Status" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironmentActions" OutputProperty="Items" Verb="Get" Noun="EnvironmentActionList" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -412,6 +436,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateEnvironment" OutputProperty="*" Verb="Update" Noun="Environment" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentAction" OutputProperty="*" Verb="Update" Noun="EnvironmentAction" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

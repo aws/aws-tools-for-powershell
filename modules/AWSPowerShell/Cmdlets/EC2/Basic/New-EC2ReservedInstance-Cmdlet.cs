@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// not specify a purchase time, the default is the current time.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html">Reserved
-    /// Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
-    /// Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
+    /// Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell
+    /// in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2ReservedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

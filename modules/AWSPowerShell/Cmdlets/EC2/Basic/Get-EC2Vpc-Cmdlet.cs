@@ -28,7 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your VPCs.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes your VPCs. The default is to describe all your VPCs. Alternatively, you
+    /// can specify specific VPC IDs or filter the results to include only the VPCs that match
+    /// specific criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2Vpc")]
     [OutputType("Amazon.EC2.Model.Vpc")]
@@ -69,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the VPCs.</para><para>Default: Describes all your VPCs.</para>
+        /// <para>The IDs of the VPCs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

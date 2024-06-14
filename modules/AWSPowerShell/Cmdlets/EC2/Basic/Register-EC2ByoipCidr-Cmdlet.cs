@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// advertise it. You must ensure that the address range is registered to you and that
     /// you created an RPKI ROA to authorize Amazon ASNs 16509 and 14618 to advertise the
     /// address range. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
-    /// your own IP addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// your own IP addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// Provisioning an address range is an asynchronous operation, so the call returns immediately,
     /// but the address range is not ready to use until its status changes from <c>pending-provision</c>

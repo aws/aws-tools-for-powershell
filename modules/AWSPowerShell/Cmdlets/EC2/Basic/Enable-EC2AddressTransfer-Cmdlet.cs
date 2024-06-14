@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Enables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer
-    /// Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
     [Cmdlet("Enable", "EC2AddressTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AddressTransfer")]

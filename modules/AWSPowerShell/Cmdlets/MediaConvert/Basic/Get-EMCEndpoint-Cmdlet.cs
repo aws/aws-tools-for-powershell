@@ -28,8 +28,9 @@ using Amazon.MediaConvert.Model;
 namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
-    /// Send an request with an empty body to the regional API endpoint to get your account
-    /// API endpoint.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
+    /// Send a request with an empty body to the regional API endpoint to get your account
+    /// API endpoint. Note that DescribeEndpoints is no longer required. We recommend that
+    /// you send your requests directly to the regional endpoint instead.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "EMCEndpoint")]
     [OutputType("Amazon.MediaConvert.Model.Endpoint")]

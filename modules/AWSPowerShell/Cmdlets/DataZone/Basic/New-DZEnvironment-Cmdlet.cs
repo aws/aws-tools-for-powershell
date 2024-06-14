@@ -70,6 +70,36 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter EnvironmentAccountIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the account in which the environment is being created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentAccountIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter EnvironmentAccountRegion
+        /// <summary>
+        /// <para>
+        /// <para>The region of the account in which the environment is being created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentAccountRegion { get; set; }
+        #endregion
+        
+        #region Parameter EnvironmentBlueprintIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the blueprint with which the environment is being created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EnvironmentBlueprintIdentifier { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentProfileIdentifier
         /// <summary>
         /// <para>
@@ -214,6 +244,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.EnvironmentAccountIdentifier = this.EnvironmentAccountIdentifier;
+            context.EnvironmentAccountRegion = this.EnvironmentAccountRegion;
+            context.EnvironmentBlueprintIdentifier = this.EnvironmentBlueprintIdentifier;
             context.EnvironmentProfileIdentifier = this.EnvironmentProfileIdentifier;
             #if MODULAR
             if (this.EnvironmentProfileIdentifier == null && ParameterWasBound(nameof(this.EnvironmentProfileIdentifier)))
@@ -266,6 +299,18 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.EnvironmentAccountIdentifier != null)
+            {
+                request.EnvironmentAccountIdentifier = cmdletContext.EnvironmentAccountIdentifier;
+            }
+            if (cmdletContext.EnvironmentAccountRegion != null)
+            {
+                request.EnvironmentAccountRegion = cmdletContext.EnvironmentAccountRegion;
+            }
+            if (cmdletContext.EnvironmentBlueprintIdentifier != null)
+            {
+                request.EnvironmentBlueprintIdentifier = cmdletContext.EnvironmentBlueprintIdentifier;
             }
             if (cmdletContext.EnvironmentProfileIdentifier != null)
             {
@@ -350,6 +395,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public System.String EnvironmentAccountIdentifier { get; set; }
+            public System.String EnvironmentAccountRegion { get; set; }
+            public System.String EnvironmentBlueprintIdentifier { get; set; }
             public System.String EnvironmentProfileIdentifier { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Name { get; set; }

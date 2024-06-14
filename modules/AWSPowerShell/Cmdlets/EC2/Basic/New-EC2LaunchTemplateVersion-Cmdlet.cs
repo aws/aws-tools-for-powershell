@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// changes that you require.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify
-    /// a launch template (manage launch template versions)</a> in the <i>Amazon Elastic Compute
-    /// Cloud User Guide</i>.
+    /// a launch template (manage launch template versions)</a> in the <i>Amazon EC2 User
+    /// Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2LaunchTemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -106,8 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>If <c>true</c>, and if a Systems Manager parameter is specified for <c>ImageId</c>,
         /// the AMI ID is displayed in the response for <c>imageID</c>. For more information,
         /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#use-an-ssm-parameter-instead-of-an-ami-id">Use
-        /// a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon Elastic Compute
-        /// Cloud User Guide</i>.</para><para>Default: <c>false</c></para>
+        /// a Systems Manager parameter instead of an AMI ID</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

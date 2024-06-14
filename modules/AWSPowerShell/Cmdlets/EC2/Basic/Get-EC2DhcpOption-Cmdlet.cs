@@ -28,12 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your DHCP options sets.
+    /// Describes your DHCP option sets. The default is to describe all your DHCP option sets.
+    /// Alternatively, you can specify specific DHCP option set IDs or filter the results
+    /// to include only the DHCP option sets that match specific criteria.
     /// 
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-    /// options sets</a> in the <i>Amazon VPC User Guide</i>.
+    /// option sets</a> in the <i>Amazon VPC User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2DhcpOption")]
@@ -51,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DhcpOptionsId
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more DHCP options sets.</para><para>Default: Describes all your DHCP options sets.</para>
+        /// <para>The IDs of DHCP option sets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

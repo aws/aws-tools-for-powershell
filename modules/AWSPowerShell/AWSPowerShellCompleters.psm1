@@ -18863,6 +18863,7 @@ $DZ_SelectCompleters = {
 $DZ_SelectMap = @{
     "Select"=@("Approve-DZPrediction",
                "Approve-DZSubscriptionRequest",
+               "Set-DZEnvironmentRole",
                "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
                "New-DZAsset",
@@ -18871,6 +18872,7 @@ $DZ_SelectMap = @{
                "New-DZDataSource",
                "New-DZDomain",
                "New-DZEnvironment",
+               "New-DZEnvironmentAction",
                "New-DZEnvironmentProfile",
                "New-DZFormType",
                "New-DZGlossary",
@@ -18888,6 +18890,7 @@ $DZ_SelectMap = @{
                "Remove-DZDataSource",
                "Remove-DZDomain",
                "Remove-DZEnvironment",
+               "Remove-DZEnvironmentAction",
                "Remove-DZEnvironmentBlueprintConfiguration",
                "Remove-DZEnvironmentProfile",
                "Remove-DZFormType",
@@ -18900,12 +18903,14 @@ $DZ_SelectMap = @{
                "Remove-DZSubscriptionRequest",
                "Remove-DZSubscriptionTarget",
                "Remove-DZTimeSeriesDataPoint",
+               "Reset-DZEnvironmentRole",
                "Get-DZAsset",
                "Get-DZAssetType",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
                "Get-DZDomain",
                "Get-DZEnvironment",
+               "Get-DZEnvironmentAction",
                "Get-DZEnvironmentBlueprint",
                "Get-DZEnvironmentBlueprintConfiguration",
                "Get-DZEnvironmentProfile",
@@ -18928,6 +18933,7 @@ $DZ_SelectMap = @{
                "Get-DZDataSourceRunList",
                "Get-DZDataSourceList",
                "Get-DZDomainList",
+               "Get-DZEnvironmentActionList",
                "Get-DZEnvironmentBlueprintConfigurationList",
                "Get-DZEnvironmentBlueprintList",
                "Get-DZEnvironmentProfileList",
@@ -18959,6 +18965,7 @@ $DZ_SelectMap = @{
                "Update-DZDataSource",
                "Update-DZDomain",
                "Update-DZEnvironment",
+               "Update-DZEnvironmentAction",
                "Update-DZEnvironmentProfile",
                "Update-DZGlossary",
                "Update-DZGlossaryTerm",
@@ -41662,6 +41669,13 @@ $MAC2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Macie2.AutoEnableMode
+        "Update-MAC2AutomatedDiscoveryConfiguration/AutoEnableOrganizationMember"
+        {
+            $v = "ALL","NEW","NONE"
+            break
+        }
+
         # Amazon.Macie2.AutomatedDiscoveryStatus
         "Update-MAC2AutomatedDiscoveryConfiguration/Status"
         {
@@ -41816,6 +41830,7 @@ $MAC2_Completers = {
 
 $MAC2_map = @{
     "Action"=@("New-MAC2FindingsFilter","Update-MAC2FindingsFilter")
+    "AutoEnableOrganizationMember"=@("Update-MAC2AutomatedDiscoveryConfiguration")
     "Configuration_Status"=@("Update-MAC2RevealConfiguration")
     "Excludes_Operation"=@("Update-MAC2ClassificationScope")
     "FindingPublishingFrequency"=@("Enable-MAC2Macie","Update-MAC2MacieSession")
@@ -41885,6 +41900,7 @@ $MAC2_SelectCompleters = {
 $MAC2_SelectMap = @{
     "Select"=@("Approve-MAC2Invitation",
                "Get-MAC2GetCustomDataIdentifier",
+               "Update-MAC2UpdateAutomatedDiscoveryAccount",
                "New-MAC2AllowList",
                "New-MAC2ClassificationJob",
                "New-MAC2CustomDataIdentifier",
@@ -41931,6 +41947,7 @@ $MAC2_SelectMap = @{
                "Get-MAC2UsageStatistic",
                "Get-MAC2UsageTotal",
                "Get-MAC2AllowListList",
+               "Get-MAC2AutomatedDiscoveryAccountList",
                "Get-MAC2ClassificationJobList",
                "Get-MAC2ClassificationScopeList",
                "Get-MAC2CustomDataIdentifierList",
@@ -43136,7 +43153,10 @@ $EMC_Completers = {
         }
 
         # Amazon.MediaConvert.JobStatus
-        "Get-EMCJobList/Status"
+        {
+            ($_ -eq "Get-EMCJobList/Status") -Or
+            ($_ -eq "Search-EMCJob/Status")
+        }
         {
             $v = "CANCELED","COMPLETE","ERROR","PROGRESSING","SUBMITTED"
             break
@@ -43154,7 +43174,8 @@ $EMC_Completers = {
             ($_ -eq "Get-EMCJobList/Order") -Or
             ($_ -eq "Get-EMCJobTemplateList/Order") -Or
             ($_ -eq "Get-EMCPresetList/Order") -Or
-            ($_ -eq "Get-EMCQueueList/Order")
+            ($_ -eq "Get-EMCQueueList/Order") -Or
+            ($_ -eq "Search-EMCJob/Order")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -43233,7 +43254,7 @@ $EMC_map = @{
     "BillingTagsSource"=@("New-EMCJob")
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Mode"=@("Get-EMCEndpoint")
-    "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
+    "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList","Search-EMCJob")
     "Policy_HttpInput"=@("Write-EMCPolicy")
     "Policy_HttpsInput"=@("Write-EMCPolicy")
     "Policy_S3Input"=@("Write-EMCPolicy")
@@ -43241,7 +43262,7 @@ $EMC_map = @{
     "ReservationPlanSettings_Commitment"=@("New-EMCQueue","Update-EMCQueue")
     "ReservationPlanSettings_RenewalType"=@("New-EMCQueue","Update-EMCQueue")
     "SimulateReservedQueue"=@("New-EMCJob")
-    "Status"=@("Get-EMCJobList","New-EMCQueue","Update-EMCQueue")
+    "Status"=@("Get-EMCJobList","New-EMCQueue","Search-EMCJob","Update-EMCQueue")
     "StatusUpdateInterval"=@("New-EMCJob","New-EMCJobTemplate","Update-EMCJobTemplate")
 }
 
@@ -43318,6 +43339,7 @@ $EMC_SelectMap = @{
                "Get-EMCQueueList",
                "Get-EMCResourceTag",
                "Write-EMCPolicy",
+               "Search-EMCJob",
                "Add-EMCResourceTag",
                "Remove-EMCResourceTag",
                "Update-EMCJobTemplate",

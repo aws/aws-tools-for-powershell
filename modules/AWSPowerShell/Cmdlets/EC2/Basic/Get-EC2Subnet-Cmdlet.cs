@@ -28,7 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your subnets.
+    /// Describes your subnets. The default is to describe all your subnets. Alternatively,
+    /// you can specify specific subnet IDs or filter the results to include only the subnets
+    /// that match specific criteria.
     /// 
     ///  
     /// <para>

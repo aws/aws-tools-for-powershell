@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the Spot price history. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html">Spot
-    /// Instance pricing history</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// Instance pricing history</a> in the <i>Amazon EC2 User Guide</i>.
     /// 
     ///  
     /// <para>

@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdateAutomatedDiscoveryAccounts" OutputProperty="Errors" Verb="Update" Noun="UpdateAutomatedDiscoveryAccount" ShouldProcessTarget="Accounts" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateAllowList" OutputProperty="*" Verb="New" Noun="AllowList" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -210,6 +214,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAllowLists" OutputProperty="AllowLists" Verb="Get" Noun="AllowListList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAutomatedDiscoveryAccounts" OutputProperty="Items" Verb="Get" Noun="AutomatedDiscoveryAccountList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

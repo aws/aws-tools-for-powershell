@@ -28,7 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your internet gateways.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes your internet gateways. The default is to describe all your internet gateways.
+    /// Alternatively, you can specify specific internet gateway IDs or filter the results
+    /// to include only the internet gateways that match specific criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2InternetGateway")]
     [OutputType("Amazon.EC2.Model.InternetGateway")]

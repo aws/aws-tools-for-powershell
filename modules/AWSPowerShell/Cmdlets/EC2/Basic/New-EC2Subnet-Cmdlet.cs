@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The Availability Zone or Local Zone for the subnet.</para><para>Default: Amazon Web Services selects one for you. If you create more than one subnet
         /// in your VPC, we do not necessarily select a different zone for each subnet.</para><para>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
         /// <c>us-west-2-lax-1a</c>. For information about the Regions that support Local Zones,
-        /// see <a href="http://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/">Local
-        /// Zones locations</a>.</para><para>To create a subnet in an Outpost, set this value to the Availability Zone for the
+        /// see <a href="https://docs.aws.amazon.com/local-zones/latest/ug/available-local-zones.html">Available
+        /// Local Zones</a>.</para><para>To create a subnet in an Outpost, set this value to the Availability Zone for the
         /// Outpost and specify the Outpost ARN.</para>
         /// </para>
         /// </summary>

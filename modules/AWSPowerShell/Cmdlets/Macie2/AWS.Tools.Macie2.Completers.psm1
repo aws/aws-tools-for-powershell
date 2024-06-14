@@ -80,6 +80,13 @@ $MAC2_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Macie2.AutoEnableMode
+        "Update-MAC2AutomatedDiscoveryConfiguration/AutoEnableOrganizationMember"
+        {
+            $v = "ALL","NEW","NONE"
+            break
+        }
+
         # Amazon.Macie2.AutomatedDiscoveryStatus
         "Update-MAC2AutomatedDiscoveryConfiguration/Status"
         {
@@ -234,6 +241,7 @@ $MAC2_Completers = {
 
 $MAC2_map = @{
     "Action"=@("New-MAC2FindingsFilter","Update-MAC2FindingsFilter")
+    "AutoEnableOrganizationMember"=@("Update-MAC2AutomatedDiscoveryConfiguration")
     "Configuration_Status"=@("Update-MAC2RevealConfiguration")
     "Excludes_Operation"=@("Update-MAC2ClassificationScope")
     "FindingPublishingFrequency"=@("Enable-MAC2Macie","Update-MAC2MacieSession")
@@ -303,6 +311,7 @@ $MAC2_SelectCompleters = {
 $MAC2_SelectMap = @{
     "Select"=@("Approve-MAC2Invitation",
                "Get-MAC2GetCustomDataIdentifier",
+               "Update-MAC2UpdateAutomatedDiscoveryAccount",
                "New-MAC2AllowList",
                "New-MAC2ClassificationJob",
                "New-MAC2CustomDataIdentifier",
@@ -349,6 +358,7 @@ $MAC2_SelectMap = @{
                "Get-MAC2UsageStatistic",
                "Get-MAC2UsageTotal",
                "Get-MAC2AllowListList",
+               "Get-MAC2AutomatedDiscoveryAccountList",
                "Get-MAC2ClassificationJobList",
                "Get-MAC2ClassificationScopeList",
                "Get-MAC2CustomDataIdentifierList",

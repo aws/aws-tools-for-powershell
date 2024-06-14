@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// or you can specify the instance types by using <c>InstanceTypes</c>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
-    /// placement score</a> in the Amazon EC2 User Guide.
+    /// placement score</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2SpotPlacementScore")]

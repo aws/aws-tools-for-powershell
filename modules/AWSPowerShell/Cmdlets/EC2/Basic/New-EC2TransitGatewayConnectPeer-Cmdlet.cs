@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// or IPv6).
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect
-    /// peers</a> in the <i>Transit Gateways Guide</i>.
+    /// peers</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2TransitGatewayConnectPeer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

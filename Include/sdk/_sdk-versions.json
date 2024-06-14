@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.831.0",
+    "ProductVersion"    : "3.7.832.0",
     "CoreVersion"       : "3.7.304.16",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.330.0",
+            "Version" : "3.7.330.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -308,7 +308,7 @@
             "InPreview"               : false
         },
         "Route53Domains"       : {
-            "Version" : "3.7.301.57",
+            "Version" : "3.7.302.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.304.33",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -1764,7 +1764,7 @@
             "InPreview"               : false
         },
         "Macie2"                          : {
-            "Version" : "3.7.302.68",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -2820,7 +2820,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.303.37",
+            "Version" : "3.7.304.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"

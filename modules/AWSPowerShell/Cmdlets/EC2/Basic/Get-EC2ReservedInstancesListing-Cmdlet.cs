@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Reserved Instance listings to you until your demand is met. You are charged based
     /// on the total price of all of the listings that you purchase.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
-    /// Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell
+    /// in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><note><para>
     /// The order of the elements in the response, including those within nested structures,
     /// might vary. Applications should not assume the elements appear in a particular order.

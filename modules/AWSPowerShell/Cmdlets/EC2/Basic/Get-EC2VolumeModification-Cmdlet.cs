@@ -36,10 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If a volume has been modified more than once, the output includes only the most recent
     /// modification request.
     /// </para><para>
-    /// You can also use CloudWatch Events to check the status of a modification to an EBS
-    /// volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
-    /// CloudWatch Events User Guide</a>. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor
-    /// the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">
+    /// Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VolumeModification")]
@@ -101,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token returned by a previous paginated request. Pagination continues from the
+        /// <para>The token returned from a previous paginated request. Pagination continues from the
         /// end of the items returned by the previous request.</para>
         /// </para>
         /// <para>

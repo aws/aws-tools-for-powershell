@@ -32,9 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// one or more specific IPv6 addresses, or you can specify the number of IPv6 addresses
     /// to be automatically assigned from within the subnet's IPv6 CIDR block range. You can
     /// assign as many IPv6 addresses to a network interface as you can assign private IPv4
-    /// addresses, and the limit varies per instance type. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
-    /// Addresses Per Network Interface Per Instance Type</a> in the <i>Amazon Elastic Compute
-    /// Cloud User Guide</i>.
+    /// addresses, and the limit varies per instance type.
     /// 
     ///  
     /// <para>
@@ -44,8 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can optionally use Prefix Delegation on the network interface. You must specify
     /// either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
     /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
-    /// Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute
-    /// Cloud User Guide</i>.
+    /// Assigning prefixes to network interfaces</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

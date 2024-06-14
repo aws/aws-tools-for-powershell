@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Indicates whether the host accepts any untargeted instance launches that match its
         /// instance type configuration, or if it only accepts Host tenancy instance launches
         /// that specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding">
-        /// Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Default: <c>on</c></para>
+        /// Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Default: <c>off</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

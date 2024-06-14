@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter RetainPermissionsOnRevokeFailure
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that the granted permissions are retained in case of a self-subscribe functionality
+        /// failure for a data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetainPermissionsOnRevokeFailure { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -165,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RetainPermissionsOnRevokeFailure = this.RetainPermissionsOnRevokeFailure;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -192,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.Identifier != null)
             {
                 request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.RetainPermissionsOnRevokeFailure != null)
+            {
+                request.RetainPermissionsOnRevokeFailure = cmdletContext.RetainPermissionsOnRevokeFailure.Value;
             }
             
             CmdletOutput output;
@@ -257,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String ClientToken { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
+            public System.Boolean? RetainPermissionsOnRevokeFailure { get; set; }
             public System.Func<Amazon.DataZone.Model.DeleteDataSourceResponse, RemoveDZDataSourceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

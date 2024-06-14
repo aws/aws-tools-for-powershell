@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Creates a Capacity Reservation Fleet. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-cr-fleets.html#create-crfleet">Create
-    /// a Capacity Reservation Fleet</a> in the Amazon EC2 User Guide.
+    /// a Capacity Reservation Fleet</a> in the <i>Amazon EC2 User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EC2CapacityReservationFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateCapacityReservationFleetResponse")]
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The strategy used by the Capacity Reservation Fleet to determine which of the specified
         /// instance types to use. Currently, only the <c>prioritized</c> allocation strategy
         /// is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
-        /// Allocation strategy</a> in the Amazon EC2 User Guide.</para><para>Valid values: <c>prioritized</c></para>
+        /// Allocation strategy</a> in the <i>Amazon EC2 User Guide</i>.</para><para>Valid values: <c>prioritized</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,8 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// This value, together with the instance type weights that you assign to each instance
         /// type used by the Fleet determine the number of instances for which the Fleet reserves
         /// capacity. Both values are based on units that make sense for your workload. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">
-        /// Total target capacity</a> in the Amazon EC2 User Guide.</para>
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total
+        /// target capacity</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

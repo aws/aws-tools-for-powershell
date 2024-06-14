@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Creates or updates the configuration settings for storing data classification results.
+    /// Adds or updates the configuration settings for storing data classification results.
     /// </summary>
     [Cmdlet("Write", "MAC2ClassificationExportConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Macie2.Model.ClassificationExportConfiguration")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
         #region Parameter S3Destination_BucketName
         /// <summary>
         /// <para>
-        /// <para>The name of the bucket.</para>
+        /// <para>The name of the bucket. This must be the name of an existing general purpose bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

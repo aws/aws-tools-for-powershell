@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// The following are the individual DHCP options you can specify. For more information,
     /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP
-    /// options sets</a> in the <i>Amazon VPC User Guide</i>.
+    /// option sets</a> in the <i>Amazon VPC User Guide</i>.
     /// </para><ul><li><para><c>domain-name</c> - If you're using AmazonProvidedDNS in <c>us-east-1</c>, specify
     /// <c>ec2.internal</c>. If you're using AmazonProvidedDNS in any other Region, specify
     /// <c>region.compute.internal</c>. Otherwise, specify a custom domain name. This value
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></li><li><para><c>netbios-name-servers</c> - The IP addresses of up to four NetBIOS name servers.
     /// </para></li><li><para><c>netbios-node-type</c> - The NetBIOS node type (1, 2, 4, or 8). We recommend that
     /// you specify 2. Broadcast and multicast are not supported. For more information about
-    /// NetBIOS node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.
+    /// NetBIOS node types, see <a href="https://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.
     /// </para></li><li><para><c>ipv6-address-preferred-lease-time</c> - A value (in seconds, minutes, hours, or
     /// years) for how frequently a running instance with an IPv6 assigned to it goes through
     /// DHCPv6 lease renewal. Acceptable values are between 140 and 2147483647 seconds (approximately

@@ -28,7 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your route tables.
+    /// Describes your route tables. The default is to describe all your route tables. Alternatively,
+    /// you can specify specific route table IDs or filter the results to include only the
+    /// route tables that match specific criteria.
     /// 
     ///  
     /// <para>
@@ -85,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RouteTableId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the route tables.</para><para>Default: Describes all your route tables.</para>
+        /// <para>The IDs of the route tables.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

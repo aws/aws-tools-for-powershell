@@ -32,13 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
-    /// Instance requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Work
+    /// with Spot Instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><important><para>
     /// We strongly discourage using the RequestSpotInstances API because it is a legacy API
     /// with no planned investment. For options for requesting Spot Instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
-    /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide for Linux
-    /// Instances</i>.
+    /// is the best Spot request method to use?</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para></important>
     /// </summary>
     [Cmdlet("Request", "EC2SpotInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -399,8 +398,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
-        /// to Ensure Idempotency</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring
+        /// idempotency in Amazon EC2 API requests</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

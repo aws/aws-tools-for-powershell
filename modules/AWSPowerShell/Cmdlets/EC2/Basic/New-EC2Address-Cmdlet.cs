@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// or from an address pool created from a public IPv4 address range that you have brought
     /// to Amazon Web Services for use with your Amazon Web Services resources using bring
     /// your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
-    /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// If you release an Elastic IP address, you might be able to recover it. You cannot
     /// recover an Elastic IP address that you released after it is allocated to another Amazon
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// specify it in this operation.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-    /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// IP Addresses</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// You can allocate a carrier IP address which is a public IP address from a telecommunication
     /// carrier, to a network interface which resides in a subnet in a Wavelength Zone (for
@@ -103,8 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which Amazon
         /// Web Services advertises IP addresses. Use this parameter to limit the IP address to
-        /// this location. IP addresses cannot move between network border groups.</para><para>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a>
-        /// to view the network border groups.</para>
+        /// this location. IP addresses cannot move between network border groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

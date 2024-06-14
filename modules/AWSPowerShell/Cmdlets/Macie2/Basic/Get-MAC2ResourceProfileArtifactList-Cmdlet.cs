@@ -28,8 +28,8 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Retrieves information about objects that were selected from an S3 bucket for automated
-    /// sensitive data discovery.
+    /// Retrieves information about objects that Amazon Macie selected from an S3 bucket for
+    /// automated sensitive data discovery.
     /// </summary>
     [Cmdlet("Get", "MAC2ResourceProfileArtifactList")]
     [OutputType("Amazon.Macie2.Model.ResourceProfileArtifact")]

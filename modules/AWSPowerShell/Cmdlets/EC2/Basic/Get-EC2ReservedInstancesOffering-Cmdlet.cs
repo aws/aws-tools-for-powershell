@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// they will be excluded from these results. This is to ensure that you do not purchase
     /// your own Reserved Instances.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved
-    /// Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell
+    /// in the Reserved Instance Marketplace</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><note><para>
     /// The order of the elements in the response, including those within nested structures,
     /// might vary. Applications should not assume the elements appear in a particular order.
@@ -116,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The instance type that the reservation will cover (for example, <c>m1.small</c>).
-        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-        /// types</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon
+        /// EC2 instance types</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

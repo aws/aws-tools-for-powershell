@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
     /// types</a>.
     /// </para></li><li><para>
-    /// If you don't specify a security group ID, we use the default security group. For more
-    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security
+    /// If you don't specify a security group ID, we use the default security group for the
+    /// VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security
     /// groups</a>.
     /// </para></li><li><para>
     /// If any of the AMIs have a product code attached for which the user has not subscribed,
@@ -59,6 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// To ensure faster instance launches, break up large requests into smaller batches.
     /// For example, create five separate launch requests for 100 instances each instead of
     /// one launch request for 500 instances.
+    /// </para><para><c>RunInstances</c> is subject to both request rate limiting and resource rate limiting.
+    /// For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-throttling.html">Request
+    /// throttling</a>.
     /// </para><para>
     /// An instance is ready for you to use when it's in the <c>running</c> state. You can
     /// check the state of your instance using <a>DescribeInstances</a>. You can tag instances
@@ -511,8 +514,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
-        /// types</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// <para>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Amazon
+        /// EC2 instance types</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -596,12 +599,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instances to launch. If you specify more instances than Amazon
-        /// EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible
-        /// number of instances above <c>MinCount</c>.</para><para>Constraints: Between 1 and the maximum number you're allowed for the specified instance
-        /// type. For more information about the default limits, and how to request an increase,
-        /// see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How
-        /// many instances can I run in Amazon EC2</a> in the Amazon EC2 FAQ.</para>
+        /// <para>The maximum number of instances to launch. If you specify a value that is more capacity
+        /// than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the
+        /// largest possible number of instances above the specified minimum count.</para><para>Constraints: Between 1 and the quota for the specified instance type for your account
+        /// for this Region. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-quotas.html">Amazon
+        /// EC2 instance type quotas</a>.</para>
         /// </para>
         /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>1</b>'.</para>
         /// </summary>
@@ -612,12 +614,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MinCount
         /// <summary>
         /// <para>
-        /// <para>The minimum number of instances to launch. If you specify a minimum that is more instances
-        /// than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no
-        /// instances.</para><para>Constraints: Between 1 and the maximum number you're allowed for the specified instance
-        /// type. For more information about the default limits, and how to request an increase,
-        /// see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How
-        /// many instances can I run in Amazon EC2</a> in the Amazon EC2 General FAQ.</para>
+        /// <para>The minimum number of instances to launch. If you specify a value that is more capacity
+        /// than Amazon EC2 can provide in the target Availability Zone, Amazon EC2 does not launch
+        /// any instances.</para><para>Constraints: Between 1 and the quota for the specified instance type for your account
+        /// for this Region. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-quotas.html">Amazon
+        /// EC2 instance type quotas</a>.</para>
         /// </para>
         /// <para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>1</b>'.</para>
         /// </summary>

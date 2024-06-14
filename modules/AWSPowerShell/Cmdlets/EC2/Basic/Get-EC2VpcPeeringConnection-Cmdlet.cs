@@ -28,7 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your VPC peering connections.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes your VPC peering connections. The default is to describe all your VPC peering
+    /// connections. Alternatively, you can specify specific VPC peering connection IDs or
+    /// filter the results to include only the VPC peering connections that match specific
+    /// criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VpcPeeringConnection")]
     [OutputType("Amazon.EC2.Model.VpcPeeringConnection")]

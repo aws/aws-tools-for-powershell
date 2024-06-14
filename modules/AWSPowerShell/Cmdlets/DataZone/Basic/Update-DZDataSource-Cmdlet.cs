@@ -213,6 +213,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public Amazon.DataZone.Model.RelationalFilterConfiguration[] RedshiftRunConfiguration_RelationalFilterConfiguration { get; set; }
         #endregion
         
+        #region Parameter RetainPermissionsOnRevokeFailure
+        /// <summary>
+        /// <para>
+        /// <para>Specifies that the granted permissions are retained in case of a self-subscribe functionality
+        /// failure for a data source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? RetainPermissionsOnRevokeFailure { get; set; }
+        #endregion
+        
         #region Parameter Schedule_Schedule
         /// <summary>
         /// <para>
@@ -355,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.Name = this.Name;
             context.PublishOnImport = this.PublishOnImport;
             context.Recommendation_EnableBusinessNameGeneration = this.Recommendation_EnableBusinessNameGeneration;
+            context.RetainPermissionsOnRevokeFailure = this.RetainPermissionsOnRevokeFailure;
             context.Schedule_Schedule = this.Schedule_Schedule;
             context.Schedule_Timezone = this.Schedule_Timezone;
             
@@ -599,6 +611,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Recommendation = null;
             }
+            if (cmdletContext.RetainPermissionsOnRevokeFailure != null)
+            {
+                request.RetainPermissionsOnRevokeFailure = cmdletContext.RetainPermissionsOnRevokeFailure.Value;
+            }
             
              // populate Schedule
             var requestScheduleIsNull = true;
@@ -705,6 +721,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String Name { get; set; }
             public System.Boolean? PublishOnImport { get; set; }
             public System.Boolean? Recommendation_EnableBusinessNameGeneration { get; set; }
+            public System.Boolean? RetainPermissionsOnRevokeFailure { get; set; }
             public System.String Schedule_Schedule { get; set; }
             public Amazon.DataZone.Timezone Schedule_Timezone { get; set; }
             public System.Func<Amazon.DataZone.Model.UpdateDataSourceResponse, UpdateDZDataSourceCmdlet, object> Select { get; set; } =

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// the launch template and all of its versions.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-launch-template-versions.html#delete-launch-template-version">Delete
-    /// a launch template version</a> in the <i>EC2 User Guide</i>.
+    /// a launch template version</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2TemplateVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

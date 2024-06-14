@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Stops an Amazon EBS-backed instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html">Stop
-    /// and start your instance</a> in the <i>Amazon EC2 User Guide</i>.
+    /// and start Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide</i>.
     /// 
     ///  
     /// <para>
     /// You can use the Stop action to hibernate an instance if the instance is <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enabling-hibernation.html">enabled
     /// for hibernation</a> and it meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
     /// prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
-    /// your instance</a> in the <i>Amazon EC2 User Guide</i>.
+    /// your Amazon EC2 instance</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// We don't charge usage for a stopped instance, or data transfer fees; however, your
     /// root partition Amazon EBS volume remains and continues to persist your data, and you

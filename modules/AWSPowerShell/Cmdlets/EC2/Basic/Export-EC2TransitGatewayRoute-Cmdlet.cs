@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// The routes are saved to the specified bucket in a JSON file. For more information,
     /// see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export
-    /// Route Tables to Amazon S3</a> in <i>Transit Gateways</i>.
+    /// route tables to Amazon S3</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Export", "EC2TransitGatewayRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

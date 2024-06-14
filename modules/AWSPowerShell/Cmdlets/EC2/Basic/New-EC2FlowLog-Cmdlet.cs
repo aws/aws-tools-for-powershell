@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Flow log data for a monitored network interface is recorded as flow log records, which
     /// are log events consisting of fields that describe the traffic flow. For more information,
     /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow
-    /// log records</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// log records</a> in the <i>Amazon VPC User Guide</i>.
     /// </para><para>
     /// When publishing to CloudWatch Logs, flow log records are published to a log group,
     /// and each network interface has a unique log stream in the log group. When publishing
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// to a single log file object that is stored in the specified bucket.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html">VPC
-    /// Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// Flow Logs</a> in the <i>Amazon VPC User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2FlowLog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The maximum interval of time during which a flow of packets is captured and aggregated
         /// into a flow log record. The possible values are 60 seconds (1 minute) or 600 seconds
-        /// (10 minutes). This parameter must be 60 seconds for transit gateway resource types.</para><para>When a network interface is attached to a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// (10 minutes). This parameter must be 60 seconds for transit gateway resource types.</para><para>When a network interface is attached to a <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Nitro-based
         /// instance</a>, the aggregation interval is always 60 seconds or less, regardless of
         /// the value that you specify.</para><para>Default: 600</para>
         /// </para>
@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How
         /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>

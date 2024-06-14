@@ -144,11 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of snapshots to return for this request. This value can be between
-        /// 5 and 1,000; if this value is larger than 1,000, only 1,000 results are returned.
-        /// If this parameter is not used, then the request returns all snapshots. You cannot
-        /// specify this parameter and the snapshot IDs parameter in the same request. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
+        /// <para>The maximum number of items to return for this request. To get the next page of items,
+        /// make another request with the token returned in the output. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

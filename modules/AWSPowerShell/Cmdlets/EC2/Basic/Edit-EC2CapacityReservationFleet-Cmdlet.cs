@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// type used by the Fleet determine the number of instances for which the Fleet reserves
         /// capacity. Both values are based on units that make sense for your workload. For more
         /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total
-        /// target capacity</a> in the Amazon EC2 User Guide.</para>
+        /// target capacity</a> in the <i>Amazon EC2 User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

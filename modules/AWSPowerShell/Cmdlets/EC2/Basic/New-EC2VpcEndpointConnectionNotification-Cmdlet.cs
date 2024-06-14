@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a connection notification for a specified VPC endpoint or VPC endpoint service.
     /// A connection notification notifies you of specific endpoint events. You must create
-    /// an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create
-    /// a Topic</a> in the <i>Amazon Simple Notification Service Developer Guide</i>.
+    /// an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Creating
+    /// an Amazon SNS topic</a> in the <i>Amazon SNS Developer Guide</i>.
     /// 
     ///  
     /// <para>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How
         /// to ensure idempotency</a>.</para>
         /// </para>
         /// </summary>

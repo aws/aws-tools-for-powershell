@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// When copying snapshots to a Region, copies of encrypted EBS snapshots remain encrypted.
     /// Copies of unencrypted snapshots remain unencrypted, unless you enable encryption for
     /// the snapshot copy operation. By default, encrypted snapshot copies use the default
-    /// Key Management Service (KMS) KMS key; however, you can specify a different KMS key.
-    /// To copy an encrypted snapshot that has been shared from another account, you must
-    /// have permissions for the KMS key used to encrypt the snapshot.
+    /// KMS key; however, you can specify a different KMS key. To copy an encrypted snapshot
+    /// that has been shared from another account, you must have permissions for the KMS key
+    /// used to encrypt the snapshot.
     /// </para><para>
     /// Snapshots copied to an Outpost are encrypted by default using the default encryption
     /// key for the Region, or a different key that you specify in the request using <b>KmsKeyId</b>.
@@ -127,9 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
-        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <c>KmsKeyId</c>
-        /// is specified, the encrypted state must be <c>true</c>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
+        /// <para>The identifier of the KMS key to use for Amazon EBS encryption. If this parameter
+        /// is not specified, your KMS key for Amazon EBS is used. If <c>KmsKeyId</c> is specified,
+        /// the encrypted state must be <c>true</c>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
         /// an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually
         /// fails.</para>
         /// </para>

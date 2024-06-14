@@ -7089,6 +7089,8 @@ Set-Alias -Name Accept-DZPrediction -Value Approve-DZPrediction
 Set-Alias -Name DZ-AcceptPredictions -Value Approve-DZPrediction
 Set-Alias -Name Accept-DZSubscriptionRequest -Value Approve-DZSubscriptionRequest
 Set-Alias -Name DZ-AcceptSubscriptionRequest -Value Approve-DZSubscriptionRequest
+Set-Alias -Name Associate-DZEnvironmentRole -Value Set-DZEnvironmentRole
+Set-Alias -Name DZ-AssociateEnvironmentRole -Value Set-DZEnvironmentRole
 Set-Alias -Name Cancel-DZMetadataGenerationRun -Value Stop-DZMetadataGenerationRun
 Set-Alias -Name DZ-CancelMetadataGenerationRun -Value Stop-DZMetadataGenerationRun
 Set-Alias -Name Cancel-DZSubscription -Value Stop-DZSubscription
@@ -7103,6 +7105,8 @@ Set-Alias -Name Create-DZDataSource -Value New-DZDataSource
 Set-Alias -Name DZ-CreateDataSource -Value New-DZDataSource
 Set-Alias -Name Create-DZDomain -Value New-DZDomain
 Set-Alias -Name DZ-CreateDomain -Value New-DZDomain
+Set-Alias -Name Create-DZEnvironmentAction -Value New-DZEnvironmentAction
+Set-Alias -Name DZ-CreateEnvironmentAction -Value New-DZEnvironmentAction
 Set-Alias -Name Create-DZEnvironment -Value New-DZEnvironment
 Set-Alias -Name DZ-CreateEnvironment -Value New-DZEnvironment
 Set-Alias -Name Create-DZEnvironmentProfile -Value New-DZEnvironmentProfile
@@ -7137,6 +7141,8 @@ Set-Alias -Name Delete-DZDataSource -Value Remove-DZDataSource
 Set-Alias -Name DZ-DeleteDataSource -Value Remove-DZDataSource
 Set-Alias -Name Delete-DZDomain -Value Remove-DZDomain
 Set-Alias -Name DZ-DeleteDomain -Value Remove-DZDomain
+Set-Alias -Name Delete-DZEnvironmentAction -Value Remove-DZEnvironmentAction
+Set-Alias -Name DZ-DeleteEnvironmentAction -Value Remove-DZEnvironmentAction
 Set-Alias -Name Delete-DZEnvironment -Value Remove-DZEnvironment
 Set-Alias -Name DZ-DeleteEnvironment -Value Remove-DZEnvironment
 Set-Alias -Name Delete-DZEnvironmentBlueprintConfiguration -Value Remove-DZEnvironmentBlueprintConfiguration
@@ -7164,11 +7170,14 @@ Set-Alias -Name DZ-DeleteSubscriptionTarget -Value Remove-DZSubscriptionTarget
 Set-Alias -Name Delete-DZTimeSeriesDataPoints -Value Remove-DZTimeSeriesDataPoint
 Set-Alias -Name Delete-DZTimeSeriesDataPoint -Value Remove-DZTimeSeriesDataPoint
 Set-Alias -Name DZ-DeleteTimeSeriesDataPoints -Value Remove-DZTimeSeriesDataPoint
+Set-Alias -Name Disassociate-DZEnvironmentRole -Value Reset-DZEnvironmentRole
+Set-Alias -Name DZ-DisassociateEnvironmentRole -Value Reset-DZEnvironmentRole
 Set-Alias -Name DZ-GetAsset -Value Get-DZAsset
 Set-Alias -Name DZ-GetAssetType -Value Get-DZAssetType
 Set-Alias -Name DZ-GetDataSource -Value Get-DZDataSource
 Set-Alias -Name DZ-GetDataSourceRun -Value Get-DZDataSourceRun
 Set-Alias -Name DZ-GetDomain -Value Get-DZDomain
+Set-Alias -Name DZ-GetEnvironmentAction -Value Get-DZEnvironmentAction
 Set-Alias -Name DZ-GetEnvironment -Value Get-DZEnvironment
 Set-Alias -Name DZ-GetEnvironmentBlueprint -Value Get-DZEnvironmentBlueprint
 Set-Alias -Name DZ-GetEnvironmentBlueprintConfiguration -Value Get-DZEnvironmentBlueprintConfiguration
@@ -7203,6 +7212,9 @@ Set-Alias -Name DZ-ListDataSources -Value Get-DZDataSourceList
 Set-Alias -Name List-DZDomains -Value Get-DZDomainList
 Set-Alias -Name List-DZDomainList -Value Get-DZDomainList
 Set-Alias -Name DZ-ListDomains -Value Get-DZDomainList
+Set-Alias -Name List-DZEnvironmentActions -Value Get-DZEnvironmentActionList
+Set-Alias -Name List-DZEnvironmentActionList -Value Get-DZEnvironmentActionList
+Set-Alias -Name DZ-ListEnvironmentActions -Value Get-DZEnvironmentActionList
 Set-Alias -Name List-DZEnvironmentBlueprintConfigurations -Value Get-DZEnvironmentBlueprintConfigurationList
 Set-Alias -Name List-DZEnvironmentBlueprintConfigurationList -Value Get-DZEnvironmentBlueprintConfigurationList
 Set-Alias -Name DZ-ListEnvironmentBlueprintConfigurations -Value Get-DZEnvironmentBlueprintConfigurationList
@@ -7270,6 +7282,7 @@ Set-Alias -Name DZ-TagResource -Value Add-DZResourceTag
 Set-Alias -Name DZ-UntagResource -Value Remove-DZResourceTag
 Set-Alias -Name DZ-UpdateDataSource -Value Update-DZDataSource
 Set-Alias -Name DZ-UpdateDomain -Value Update-DZDomain
+Set-Alias -Name DZ-UpdateEnvironmentAction -Value Update-DZEnvironmentAction
 Set-Alias -Name DZ-UpdateEnvironment -Value Update-DZEnvironment
 Set-Alias -Name DZ-UpdateEnvironmentProfile -Value Update-DZEnvironmentProfile
 Set-Alias -Name DZ-UpdateGlossary -Value Update-DZGlossary
@@ -17759,6 +17772,9 @@ Set-Alias -Name MAC2-AcceptInvitation -Value Approve-MAC2Invitation
 Set-Alias -Name Batch-MAC2GetCustomDataIdentifiers -Value Get-MAC2GetCustomDataIdentifier
 Set-Alias -Name Batch-MAC2GetCustomDataIdentifier -Value Get-MAC2GetCustomDataIdentifier
 Set-Alias -Name MAC2-BatchGetCustomDataIdentifiers -Value Get-MAC2GetCustomDataIdentifier
+Set-Alias -Name Batch-MAC2UpdateAutomatedDiscoveryAccounts -Value Update-MAC2UpdateAutomatedDiscoveryAccount
+Set-Alias -Name Batch-MAC2UpdateAutomatedDiscoveryAccount -Value Update-MAC2UpdateAutomatedDiscoveryAccount
+Set-Alias -Name MAC2-BatchUpdateAutomatedDiscoveryAccounts -Value Update-MAC2UpdateAutomatedDiscoveryAccount
 Set-Alias -Name Create-MAC2AllowList -Value New-MAC2AllowList
 Set-Alias -Name MAC2-CreateAllowList -Value New-MAC2AllowList
 Set-Alias -Name Create-MAC2ClassificationJob -Value New-MAC2ClassificationJob
@@ -17837,6 +17853,9 @@ Set-Alias -Name MAC2-GetUsageTotals -Value Get-MAC2UsageTotal
 Set-Alias -Name List-MAC2AllowLists -Value Get-MAC2AllowListList
 Set-Alias -Name List-MAC2AllowListList -Value Get-MAC2AllowListList
 Set-Alias -Name MAC2-ListAllowLists -Value Get-MAC2AllowListList
+Set-Alias -Name List-MAC2AutomatedDiscoveryAccounts -Value Get-MAC2AutomatedDiscoveryAccountList
+Set-Alias -Name List-MAC2AutomatedDiscoveryAccountList -Value Get-MAC2AutomatedDiscoveryAccountList
+Set-Alias -Name MAC2-ListAutomatedDiscoveryAccounts -Value Get-MAC2AutomatedDiscoveryAccountList
 Set-Alias -Name List-MAC2ClassificationJobs -Value Get-MAC2ClassificationJobList
 Set-Alias -Name List-MAC2ClassificationJobList -Value Get-MAC2ClassificationJobList
 Set-Alias -Name MAC2-ListClassificationJobs -Value Get-MAC2ClassificationJobList
@@ -18219,6 +18238,8 @@ Set-Alias -Name EMC-ListQueues -Value Get-EMCQueueList
 Set-Alias -Name EMC-ListTagsForResource -Value Get-EMCResourceTag
 Set-Alias -Name Put-EMCPolicy -Value Write-EMCPolicy
 Set-Alias -Name EMC-PutPolicy -Value Write-EMCPolicy
+Set-Alias -Name Search-EMCJobs -Value Search-EMCJob
+Set-Alias -Name EMC-SearchJobs -Value Search-EMCJob
 Set-Alias -Name EMC-TagResource -Value Add-EMCResourceTag
 Set-Alias -Name EMC-UntagResource -Value Remove-EMCResourceTag
 Set-Alias -Name EMC-UpdateJobTemplate -Value Update-EMCJobTemplate

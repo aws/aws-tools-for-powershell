@@ -32,11 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html">
-    /// Amazon Elastic Compute Cloud endpoints and quotas</a>.
+    /// For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html">Amazon
+    /// EC2 service endpoints</a>.
     /// </para><para>
-    /// For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing
-    /// Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference</i>.
+    /// For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html">Specify
+    /// which Amazon Web Services Regions your account can use</a> in the <i>Amazon Web Services
+    /// Account Management Reference Guide</i>.
     /// </para><note><para>
     /// The order of the elements in the response, including those within nested structures,
     /// might vary. Applications should not assume the elements appear in a particular order.

@@ -28,7 +28,7 @@ using Amazon.Macie2.Model;
 namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
-    /// Tests a custom data identifier.
+    /// Tests criteria for a custom data identifier.
     /// </summary>
     [Cmdlet("Test", "MAC2CustomDataIdentifier")]
     [OutputType("System.Int32")]

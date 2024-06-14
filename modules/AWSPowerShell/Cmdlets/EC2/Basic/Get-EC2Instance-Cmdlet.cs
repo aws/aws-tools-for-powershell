@@ -154,7 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// indicates whether to respond to DNS queries for instance hostnames with DNS A records.</para></li><li><para><c>private-dns-name-options.enable-resource-name-dns-aaaa-record</c> - A Boolean
         /// that indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
         /// records.</para></li><li><para><c>private-dns-name-options.hostname-type</c> - The type of hostname (<c>ip-name</c>
-        /// | <c>resource-name</c>).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address of the instance.</para></li><li><para><c>product-code</c> - The product code associated with the AMI used to launch the
+        /// | <c>resource-name</c>).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address of the instance. This can only
+        /// be used to filter by the primary IP address of the network interface attached to the
+        /// instance. To filter by additional IP addresses assigned to the network interface,
+        /// use the filter <c>network-interface.addresses.private-ip-address</c>.</para></li><li><para><c>product-code</c> - The product code associated with the AMI used to launch the
         /// instance.</para></li><li><para><c>product-code.type</c> - The type of product code (<c>devpay</c> | <c>marketplace</c>).</para></li><li><para><c>ramdisk-id</c> - The RAM disk ID.</para></li><li><para><c>reason</c> - The reason for the current state of the instance (for example, shows
         /// "User Initiated [date]" when you stop or terminate the instance). Similar to the state-reason-code
         /// filter.</para></li><li><para><c>requester-id</c> - The ID of the entity that launched the instance on your behalf

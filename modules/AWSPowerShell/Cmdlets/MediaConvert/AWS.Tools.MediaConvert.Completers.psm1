@@ -127,7 +127,10 @@ $EMC_Completers = {
         }
 
         # Amazon.MediaConvert.JobStatus
-        "Get-EMCJobList/Status"
+        {
+            ($_ -eq "Get-EMCJobList/Status") -Or
+            ($_ -eq "Search-EMCJob/Status")
+        }
         {
             $v = "CANCELED","COMPLETE","ERROR","PROGRESSING","SUBMITTED"
             break
@@ -145,7 +148,8 @@ $EMC_Completers = {
             ($_ -eq "Get-EMCJobList/Order") -Or
             ($_ -eq "Get-EMCJobTemplateList/Order") -Or
             ($_ -eq "Get-EMCPresetList/Order") -Or
-            ($_ -eq "Get-EMCQueueList/Order")
+            ($_ -eq "Get-EMCQueueList/Order") -Or
+            ($_ -eq "Search-EMCJob/Order")
         }
         {
             $v = "ASCENDING","DESCENDING"
@@ -224,7 +228,7 @@ $EMC_map = @{
     "BillingTagsSource"=@("New-EMCJob")
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Mode"=@("Get-EMCEndpoint")
-    "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
+    "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList","Search-EMCJob")
     "Policy_HttpInput"=@("Write-EMCPolicy")
     "Policy_HttpsInput"=@("Write-EMCPolicy")
     "Policy_S3Input"=@("Write-EMCPolicy")
@@ -232,7 +236,7 @@ $EMC_map = @{
     "ReservationPlanSettings_Commitment"=@("New-EMCQueue","Update-EMCQueue")
     "ReservationPlanSettings_RenewalType"=@("New-EMCQueue","Update-EMCQueue")
     "SimulateReservedQueue"=@("New-EMCJob")
-    "Status"=@("Get-EMCJobList","New-EMCQueue","Update-EMCQueue")
+    "Status"=@("Get-EMCJobList","New-EMCQueue","Search-EMCJob","Update-EMCQueue")
     "StatusUpdateInterval"=@("New-EMCJob","New-EMCJobTemplate","Update-EMCJobTemplate")
 }
 
@@ -309,6 +313,7 @@ $EMC_SelectMap = @{
                "Get-EMCQueueList",
                "Get-EMCResourceTag",
                "Write-EMCPolicy",
+               "Search-EMCJob",
                "Add-EMCResourceTag",
                "Remove-EMCResourceTag",
                "Update-EMCJobTemplate",

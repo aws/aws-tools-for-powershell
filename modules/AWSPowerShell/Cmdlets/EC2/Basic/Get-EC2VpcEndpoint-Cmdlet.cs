@@ -28,7 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes your VPC endpoints.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes your VPC endpoints. The default is to describe all your VPC endpoints. Alternatively,
+    /// you can specify specific VPC endpoint IDs or filter the results to include only the
+    /// VPC endpoints that match specific criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2VpcEndpoint")]
     [OutputType("Amazon.EC2.Model.VpcEndpoint")]

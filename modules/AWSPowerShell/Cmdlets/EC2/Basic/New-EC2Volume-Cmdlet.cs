@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EBS encryption</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><para>
     /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag
-    /// your Amazon EC2 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// your Amazon EC2 resources</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html">Create
     /// an Amazon EBS volume</a> in the <i>Amazon EBS User Guide</i>.
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The number of I/O operations per second (IOPS). For <c>gp3</c>, <c>io1</c>, and <c>io2</c>
         /// volumes, this represents the number of IOPS that are provisioned for the volume. For
         /// <c>gp2</c> volumes, this represents the baseline performance of the volume and the
-        /// rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+        /// rate at which the volume accumulates I/O credits for bursting.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
         /// built on the Nitro System</a>. On other instances, you can achieve performance up
         /// to 32,000 IOPS.</para><para>This parameter is required for <c>io1</c> and <c>io2</c> volumes. The default for
         /// <c>gp3</c> volumes is 3,000 IOPS. This parameter is not supported for <c>gp2</c>,
@@ -113,9 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Key Management Service (KMS) KMS key to use for Amazon EBS encryption.
-        /// If this parameter is not specified, your KMS key for Amazon EBS is used. If <c>KmsKeyId</c>
-        /// is specified, the encrypted state must be <c>true</c>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
+        /// <para>The identifier of the KMS key to use for Amazon EBS encryption. If this parameter
+        /// is not specified, your KMS key for Amazon EBS is used. If <c>KmsKeyId</c> is specified,
+        /// the encrypted state must be <c>true</c>.</para><para>You can specify the KMS key using any of the following:</para><ul><li><para>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Key alias. For example, alias/ExampleAlias.</para></li><li><para>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</para></li><li><para>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</para></li></ul><para>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify
         /// an ID, alias, or ARN that is not valid, the action can appear to complete, but eventually
         /// fails.</para>
         /// </para>
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
-        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances
+        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Instances
         /// built on the Nitro System</a> in the same Availability Zone. This parameter is supported
         /// with <c>io1</c> and <c>io2</c> volumes only. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
         /// Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</para>
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensure
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure
         /// Idempotency</a>.</para>
         /// </para>
         /// </summary>

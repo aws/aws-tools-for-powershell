@@ -1,4 +1,24 @@
-﻿### 4.1.600 (2024-06-13 20:45Z)
+﻿### 4.1.601 (2024-06-14 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.832.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Added cmdlet Get-DZEnvironmentAction leveraging the GetEnvironmentAction service API.
+    * Added cmdlet Get-DZEnvironmentActionList leveraging the ListEnvironmentActions service API.
+    * Added cmdlet New-DZEnvironmentAction leveraging the CreateEnvironmentAction service API.
+    * Added cmdlet Remove-DZEnvironmentAction leveraging the DeleteEnvironmentAction service API.
+    * Added cmdlet Reset-DZEnvironmentRole leveraging the DisassociateEnvironmentRole service API.
+    * Added cmdlet Set-DZEnvironmentRole leveraging the AssociateEnvironmentRole service API.
+    * Added cmdlet Update-DZEnvironmentAction leveraging the UpdateEnvironmentAction service API.
+    * Modified cmdlet New-DZEnvironment: added parameters EnvironmentAccountIdentifier, EnvironmentAccountRegion and EnvironmentBlueprintIdentifier.
+    * Modified cmdlet Remove-DZDataSource: added parameter RetainPermissionsOnRevokeFailure.
+    * Modified cmdlet Update-DZDataSource: added parameter RetainPermissionsOnRevokeFailure.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet Search-EMCJob leveraging the SearchJobs service API.
+  * Amazon Macie 2
+    * Added cmdlet Get-MAC2AutomatedDiscoveryAccountList leveraging the ListAutomatedDiscoveryAccounts service API.
+    * Added cmdlet Update-MAC2UpdateAutomatedDiscoveryAccount leveraging the BatchUpdateAutomatedDiscoveryAccounts service API.
+    * Modified cmdlet Update-MAC2AutomatedDiscoveryConfiguration: added parameter AutoEnableOrganizationMember.
+
+### 4.1.600 (2024-06-13 20:45Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.831.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudHSM V2
     * Modified cmdlet New-HSM2Cluster: added parameter Mode.

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
 {
     /// <summary>
     /// Retrieves the configuration settings and status of automated sensitive data discovery
-    /// for an account.
+    /// for an organization or standalone account.
     /// </summary>
     [Cmdlet("Get", "MAC2AutomatedDiscoveryConfiguration")]
     [OutputType("Amazon.Macie2.Model.GetAutomatedDiscoveryConfigurationResponse")]

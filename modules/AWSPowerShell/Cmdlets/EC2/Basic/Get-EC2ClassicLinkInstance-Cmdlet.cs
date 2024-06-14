@@ -31,9 +31,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <note><para>
     /// This action is deprecated.
     /// </para></note><para>
-    /// Describes one or more of your linked EC2-Classic instances. This request only returns
-    /// information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
-    /// use this request to return information about other instances.
+    /// Describes your linked EC2-Classic instances. This request only returns information
+    /// about EC2-Classic instances linked to a VPC through ClassicLink. You cannot use this
+    /// request to return information about other instances.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2ClassicLinkInstance")]

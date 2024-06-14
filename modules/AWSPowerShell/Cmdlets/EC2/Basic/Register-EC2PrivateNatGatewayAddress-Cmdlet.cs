@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Assigns one or more private IPv4 addresses to a private NAT gateway. For more information,
-    /// see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work
+    /// Assigns private IPv4 addresses to a private NAT gateway. For more information, see
+    /// <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work
     /// with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.
     /// </summary>
     [Cmdlet("Register", "EC2PrivateNatGatewayAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You must launch a Scheduled Instance during its scheduled time period. You can't stop
     /// or reboot a Scheduled Instance, but you can terminate it as needed. If you terminate
     /// a Scheduled Instance before the current scheduled time period ends, you can launch
-    /// it again after a few minutes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-scheduled-instances.html">Scheduled
-    /// Instances</a> in the <i>Amazon EC2 User Guide</i>.
+    /// it again after a few minutes.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2ScheduledInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

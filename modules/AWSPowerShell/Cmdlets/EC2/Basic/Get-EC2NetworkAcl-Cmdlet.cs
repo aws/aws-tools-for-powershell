@@ -28,7 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your network ACLs.
+    /// Describes your network ACLs. The default is to describe all your network ACLs. Alternatively,
+    /// you can specify specific network ACL IDs or filter the results to include only the
+    /// network ACLs that match specific criteria.
     /// 
     ///  
     /// <para>
@@ -72,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetworkAclId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the network ACLs.</para><para>Default: Describes all your network ACLs.</para>
+        /// <para>The IDs of the network ACLs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

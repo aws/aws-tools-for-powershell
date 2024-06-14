@@ -42,12 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html">Extend
     /// the file system</a>.
     /// </para><para>
-    ///  You can use CloudWatch Events to check the status of a modification to an EBS volume.
-    /// For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
-    /// CloudWatch Events User Guide</a>. You can also track the status of a modification
-    /// using <a>DescribeVolumesModifications</a>. For information about tracking status changes
-    /// using either method, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor
-    /// the progress of volume modifications</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor
+    /// the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><para>
     /// With previous-generation instance types, resizing an EBS volume might require detaching
     /// and reattaching the volume or stopping and restarting the instance.
@@ -73,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target IOPS rate of the volume. This parameter is valid only for <c>gp3</c>, <c>io1</c>,
-        /// and <c>io2</c> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+        /// and <c>io2</c> volumes.</para><para>The following are the supported values for each volume type:</para><ul><li><para><c>gp3</c>: 3,000 - 16,000 IOPS</para></li><li><para><c>io1</c>: 100 - 64,000 IOPS</para></li><li><para><c>io2</c>: 100 - 256,000 IOPS</para></li></ul><para>For <c>io2</c> volumes, you can achieve up to 256,000 IOPS on <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">instances
         /// built on the Nitro System</a>. On other instances, you can achieve performance up
         /// to 32,000 IOPS.</para><para>Default: The existing value is retained if you keep the same volume type. If you change
         /// the volume type to <c>io1</c>, <c>io2</c>, or <c>gp3</c>, the default is 3,000.</para>
@@ -87,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you
-        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
+        /// can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">
         /// Nitro-based instances</a> in the same Availability Zone. This parameter is supported
         /// with <c>io1</c> and <c>io2</c> volumes only. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
         /// Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</para>
