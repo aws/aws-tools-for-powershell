@@ -12904,6 +12904,8 @@ Set-Alias -Name Create-GLUETableOptimizer -Value New-GLUETableOptimizer
 Set-Alias -Name GLUE-CreateTableOptimizer -Value New-GLUETableOptimizer
 Set-Alias -Name Create-GLUETrigger -Value New-GLUETrigger
 Set-Alias -Name GLUE-CreateTrigger -Value New-GLUETrigger
+Set-Alias -Name Create-GLUEUsageProfile -Value New-GLUEUsageProfile
+Set-Alias -Name GLUE-CreateUsageProfile -Value New-GLUEUsageProfile
 Set-Alias -Name Create-GLUEUserDefinedFunction -Value New-GLUEUserDefinedFunction
 Set-Alias -Name GLUE-CreateUserDefinedFunction -Value New-GLUEUserDefinedFunction
 Set-Alias -Name Create-GLUEWorkflow -Value New-GLUEWorkflow
@@ -12957,6 +12959,8 @@ Set-Alias -Name Delete-GLUETableVersion -Value Remove-GLUETableVersion
 Set-Alias -Name GLUE-DeleteTableVersion -Value Remove-GLUETableVersion
 Set-Alias -Name Delete-GLUETrigger -Value Remove-GLUETrigger
 Set-Alias -Name GLUE-DeleteTrigger -Value Remove-GLUETrigger
+Set-Alias -Name Delete-GLUEUsageProfile -Value Remove-GLUEUsageProfile
+Set-Alias -Name GLUE-DeleteUsageProfile -Value Remove-GLUEUsageProfile
 Set-Alias -Name Delete-GLUEUserDefinedFunction -Value Remove-GLUEUserDefinedFunction
 Set-Alias -Name GLUE-DeleteUserDefinedFunction -Value Remove-GLUEUserDefinedFunction
 Set-Alias -Name Delete-GLUEWorkflow -Value Remove-GLUEWorkflow
@@ -13044,6 +13048,7 @@ Set-Alias -Name GLUE-GetTriggers -Value Get-GLUETriggerList
 Set-Alias -Name GLUE-GetUnfilteredPartitionMetadata -Value Get-GLUEUnfilteredPartitionMetadata
 Set-Alias -Name GLUE-GetUnfilteredPartitionsMetadata -Value Get-GLUEUnfilteredPartitionsMetadata
 Set-Alias -Name GLUE-GetUnfilteredTableMetadata -Value Get-GLUEUnfilteredTableMetadata
+Set-Alias -Name GLUE-GetUsageProfile -Value Get-GLUEUsageProfile
 Set-Alias -Name GLUE-GetUserDefinedFunction -Value Get-GLUEUserDefinedFunction
 Set-Alias -Name Get-GLUEUserDefinedFunctions -Value Get-GLUEUserDefinedFunctionList
 Set-Alias -Name GLUE-GetUserDefinedFunctions -Value Get-GLUEUserDefinedFunctionList
@@ -13112,6 +13117,9 @@ Set-Alias -Name GLUE-ListTableOptimizerRuns -Value Get-GLUETableOptimizerRunList
 Set-Alias -Name List-GLUETriggers -Value Get-GLUETriggerNameList
 Set-Alias -Name List-GLUETriggerNameList -Value Get-GLUETriggerNameList
 Set-Alias -Name GLUE-ListTriggers -Value Get-GLUETriggerNameList
+Set-Alias -Name List-GLUEUsageProfiles -Value Get-GLUEUsageProfileList
+Set-Alias -Name List-GLUEUsageProfileList -Value Get-GLUEUsageProfileList
+Set-Alias -Name GLUE-ListUsageProfiles -Value Get-GLUEUsageProfileList
 Set-Alias -Name List-GLUEWorkflows -Value Get-GLUEWorkflowList
 Set-Alias -Name List-GLUEWorkflowList -Value Get-GLUEWorkflowList
 Set-Alias -Name GLUE-ListWorkflows -Value Get-GLUEWorkflowList
@@ -13177,6 +13185,7 @@ Set-Alias -Name GLUE-UpdateSourceControlFromJob -Value Update-GLUESourceControlF
 Set-Alias -Name GLUE-UpdateTable -Value Update-GLUETable
 Set-Alias -Name GLUE-UpdateTableOptimizer -Value Update-GLUETableOptimizer
 Set-Alias -Name GLUE-UpdateTrigger -Value Update-GLUETrigger
+Set-Alias -Name GLUE-UpdateUsageProfile -Value Update-GLUEUsageProfile
 Set-Alias -Name GLUE-UpdateUserDefinedFunction -Value Update-GLUEUserDefinedFunction
 Set-Alias -Name GLUE-UpdateWorkflow -Value Update-GLUEWorkflow
 Set-Alias -Name Associate-MGRFLicense -Value Add-MGRFLicense

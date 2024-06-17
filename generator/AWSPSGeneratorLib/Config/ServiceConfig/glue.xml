@@ -191,6 +191,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateUsageProfile" OutputProperty="Name" Verb="New" Noun="UsageProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUserDefinedFunction" Verb="New" Noun="UserDefinedFunction" ShouldProcessTarget="DatabaseName" PipelineParameter="FunctionInput" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -292,6 +296,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTrigger" OutputProperty="Name" Verb="Remove" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUsageProfile" Verb="Remove" Noun="UsageProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -557,6 +565,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetUsageProfile" OutputProperty="*" Verb="Get" Noun="UsageProfile" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUserDefinedFunction" OutputProperty="UserDefinedFunction" Verb="Get" Noun="UserDefinedFunction" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -658,6 +670,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTriggers" OutputProperty="TriggerNames" Verb="Get" Noun="TriggerNameList" PipelineParameter="DependentJobName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsageProfiles" OutputProperty="Profiles" Verb="Get" Noun="UsageProfileList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -872,6 +888,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateTrigger" OutputProperty="Trigger" Verb="Update" Noun="Trigger" ShouldProcessTarget="Name" PipelineParameter="TriggerUpdate" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUsageProfile" OutputProperty="Name" Verb="Update" Noun="UsageProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

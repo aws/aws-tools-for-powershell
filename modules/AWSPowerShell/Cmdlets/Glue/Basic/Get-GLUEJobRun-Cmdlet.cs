@@ -28,7 +28,8 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves the metadata for a given job run.
+    /// Retrieves the metadata for a given job run. Job run history is accessible for 90 days
+    /// for your workflow and job run.
     /// </summary>
     [Cmdlet("Get", "GLUEJobRun")]
     [OutputType("Amazon.Glue.Model.JobRun")]

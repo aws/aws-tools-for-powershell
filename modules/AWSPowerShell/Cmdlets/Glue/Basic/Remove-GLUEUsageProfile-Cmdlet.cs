@@ -28,52 +28,24 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves the metadata for a given workflow run. Job run history is accessible for
-    /// 90 days for your workflow and job run.
+    /// Deletes the Glue specified usage profile.
     /// </summary>
-    [Cmdlet("Get", "GLUEWorkflowRun")]
-    [OutputType("Amazon.Glue.Model.WorkflowRun")]
-    [AWSCmdlet("Calls the AWS Glue GetWorkflowRun API operation.", Operation = new[] {"GetWorkflowRun"}, SelectReturnType = typeof(Amazon.Glue.Model.GetWorkflowRunResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.WorkflowRun or Amazon.Glue.Model.GetWorkflowRunResponse",
-        "This cmdlet returns an Amazon.Glue.Model.WorkflowRun object.",
-        "The service call response (type Amazon.Glue.Model.GetWorkflowRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "GLUEUsageProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Glue DeleteUsageProfile API operation.", Operation = new[] {"DeleteUsageProfile"}, SelectReturnType = typeof(Amazon.Glue.Model.DeleteUsageProfileResponse))]
+    [AWSCmdletOutput("None or Amazon.Glue.Model.DeleteUsageProfileResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Glue.Model.DeleteUsageProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGLUEWorkflowRunCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class RemoveGLUEUsageProfileCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter IncludeGraph
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether to include the workflow graph in response or not.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? IncludeGraph { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the workflow being run.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter RunId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the workflow run.</para>
+        /// <para>The name of the usage profile to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -84,34 +56,49 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RunId { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Run'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetWorkflowRunResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.GetWorkflowRunResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.DeleteUsageProfileResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Run";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RunId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RunId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RunId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GLUEUsageProfile (DeleteUsageProfile)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -121,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetWorkflowRunResponse, GetGLUEWorkflowRunCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.DeleteUsageProfileResponse, RemoveGLUEUsageProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -130,22 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RunId;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IncludeGraph = this.IncludeGraph;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.RunId = this.RunId;
-            #if MODULAR
-            if (this.RunId == null && ParameterWasBound(nameof(this.RunId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RunId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -162,19 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.GetWorkflowRunRequest();
+            var request = new Amazon.Glue.Model.DeleteUsageProfileRequest();
             
-            if (cmdletContext.IncludeGraph != null)
-            {
-                request.IncludeGraph = cmdletContext.IncludeGraph.Value;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.RunId != null)
-            {
-                request.RunId = cmdletContext.RunId;
             }
             
             CmdletOutput output;
@@ -209,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.GetWorkflowRunResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetWorkflowRunRequest request)
+        private Amazon.Glue.Model.DeleteUsageProfileResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.DeleteUsageProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetWorkflowRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "DeleteUsageProfile");
             try
             {
                 #if DESKTOP
-                return client.GetWorkflowRun(request);
+                return client.DeleteUsageProfile(request);
                 #elif CORECLR
-                return client.GetWorkflowRunAsync(request).GetAwaiter().GetResult();
+                return client.DeleteUsageProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -237,11 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? IncludeGraph { get; set; }
             public System.String Name { get; set; }
-            public System.String RunId { get; set; }
-            public System.Func<Amazon.Glue.Model.GetWorkflowRunResponse, GetGLUEWorkflowRunCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Run;
+            public System.Func<Amazon.Glue.Model.DeleteUsageProfileResponse, RemoveGLUEUsageProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

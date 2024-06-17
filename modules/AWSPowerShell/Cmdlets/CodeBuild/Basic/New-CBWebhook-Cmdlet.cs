@@ -78,6 +78,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.WebhookBuildType BuildType { get; set; }
         #endregion
         
+        #region Parameter ScopeConfiguration_Domain
+        /// <summary>
+        /// <para>
+        /// <para>The domain of the GitHub Enterprise organization. Note that this parameter is only
+        /// required if your project's source type is GITHUB_ENTERPRISE</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ScopeConfiguration_Domain { get; set; }
+        #endregion
+        
         #region Parameter FilterGroup
         /// <summary>
         /// <para>
@@ -105,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Boolean? ManualCreation { get; set; }
         #endregion
         
+        #region Parameter ScopeConfiguration_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of either the enterprise or organization that will send webhook events to
+        /// CodeBuild, depending on if the webhook is a global or organization webhook respectively.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ScopeConfiguration_Name { get; set; }
+        #endregion
+        
         #region Parameter ProjectName
         /// <summary>
         /// <para>
@@ -120,6 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ProjectName { get; set; }
+        #endregion
+        
+        #region Parameter ScopeConfiguration_Scope
+        /// <summary>
+        /// <para>
+        /// <para>The type of scope for a GitHub webhook.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeBuild.WebhookScopeType")]
+        public Amazon.CodeBuild.WebhookScopeType ScopeConfiguration_Scope { get; set; }
         #endregion
         
         #region Parameter Select
@@ -202,6 +235,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 WriteWarning("You are passing $null as a value for parameter ProjectName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ScopeConfiguration_Domain = this.ScopeConfiguration_Domain;
+            context.ScopeConfiguration_Name = this.ScopeConfiguration_Name;
+            context.ScopeConfiguration_Scope = this.ScopeConfiguration_Scope;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -237,6 +273,45 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.ProjectName != null)
             {
                 request.ProjectName = cmdletContext.ProjectName;
+            }
+            
+             // populate ScopeConfiguration
+            var requestScopeConfigurationIsNull = true;
+            request.ScopeConfiguration = new Amazon.CodeBuild.Model.ScopeConfiguration();
+            System.String requestScopeConfiguration_scopeConfiguration_Domain = null;
+            if (cmdletContext.ScopeConfiguration_Domain != null)
+            {
+                requestScopeConfiguration_scopeConfiguration_Domain = cmdletContext.ScopeConfiguration_Domain;
+            }
+            if (requestScopeConfiguration_scopeConfiguration_Domain != null)
+            {
+                request.ScopeConfiguration.Domain = requestScopeConfiguration_scopeConfiguration_Domain;
+                requestScopeConfigurationIsNull = false;
+            }
+            System.String requestScopeConfiguration_scopeConfiguration_Name = null;
+            if (cmdletContext.ScopeConfiguration_Name != null)
+            {
+                requestScopeConfiguration_scopeConfiguration_Name = cmdletContext.ScopeConfiguration_Name;
+            }
+            if (requestScopeConfiguration_scopeConfiguration_Name != null)
+            {
+                request.ScopeConfiguration.Name = requestScopeConfiguration_scopeConfiguration_Name;
+                requestScopeConfigurationIsNull = false;
+            }
+            Amazon.CodeBuild.WebhookScopeType requestScopeConfiguration_scopeConfiguration_Scope = null;
+            if (cmdletContext.ScopeConfiguration_Scope != null)
+            {
+                requestScopeConfiguration_scopeConfiguration_Scope = cmdletContext.ScopeConfiguration_Scope;
+            }
+            if (requestScopeConfiguration_scopeConfiguration_Scope != null)
+            {
+                request.ScopeConfiguration.Scope = requestScopeConfiguration_scopeConfiguration_Scope;
+                requestScopeConfigurationIsNull = false;
+            }
+             // determine if request.ScopeConfiguration should be set to null
+            if (requestScopeConfigurationIsNull)
+            {
+                request.ScopeConfiguration = null;
             }
             
             CmdletOutput output;
@@ -304,6 +379,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public List<List<Amazon.CodeBuild.Model.WebhookFilter>> FilterGroup { get; set; }
             public System.Boolean? ManualCreation { get; set; }
             public System.String ProjectName { get; set; }
+            public System.String ScopeConfiguration_Domain { get; set; }
+            public System.String ScopeConfiguration_Name { get; set; }
+            public Amazon.CodeBuild.WebhookScopeType ScopeConfiguration_Scope { get; set; }
             public System.Func<Amazon.CodeBuild.Model.CreateWebhookResponse, NewCBWebhookCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Webhook;
         }

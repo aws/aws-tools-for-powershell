@@ -1,4 +1,15 @@
-﻿### 4.1.601 (2024-06-14 21:00Z)
+﻿### 4.1.602 (2024-06-17 21:20Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.833.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBWebhook: added parameters ScopeConfiguration_Domain, ScopeConfiguration_Name and ScopeConfiguration_Scope.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEUsageProfile leveraging the GetUsageProfile service API.
+    * Added cmdlet Get-GLUEUsageProfileList leveraging the ListUsageProfiles service API.
+    * Added cmdlet New-GLUEUsageProfile leveraging the CreateUsageProfile service API.
+    * Added cmdlet Remove-GLUEUsageProfile leveraging the DeleteUsageProfile service API.
+    * Added cmdlet Update-GLUEUsageProfile leveraging the UpdateUsageProfile service API.
+
+### 4.1.601 (2024-06-14 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.832.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Added cmdlet Get-DZEnvironmentAction leveraging the GetEnvironmentAction service API.

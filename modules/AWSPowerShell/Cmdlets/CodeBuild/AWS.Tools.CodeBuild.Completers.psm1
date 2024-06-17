@@ -417,6 +417,13 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.WebhookScopeType
+        "New-CBWebhook/ScopeConfiguration_Scope"
+        {
+            $v = "GITHUB_GLOBAL","GITHUB_ORGANIZATION"
+            break
+        }
+
 
     }
 
@@ -461,6 +468,7 @@ $CB_map = @{
     "S3Logs_BucketOwnerAccess"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
     "S3Logs_Status"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
     "ScalingConfiguration_ScalingType"=@("New-CBFleet","Update-CBFleet")
+    "ScopeConfiguration_Scope"=@("New-CBWebhook")
     "ServerType"=@("Import-CBSourceCredential")
     "SortBy"=@("Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
     "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")

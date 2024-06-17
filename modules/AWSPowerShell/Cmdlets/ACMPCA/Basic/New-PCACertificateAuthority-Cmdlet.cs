@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// policies for CRLs in Amazon S3</a>.
     /// </para></note><para>
     /// Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected
-    /// with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting
+    /// with encryption. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#crl-encryption">Encrypting
     /// Your CRLs</a>.
     /// </para>
     /// </summary>

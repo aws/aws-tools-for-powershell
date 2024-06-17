@@ -12324,6 +12324,13 @@ $CB_Completers = {
             break
         }
 
+        # Amazon.CodeBuild.WebhookScopeType
+        "New-CBWebhook/ScopeConfiguration_Scope"
+        {
+            $v = "GITHUB_GLOBAL","GITHUB_ORGANIZATION"
+            break
+        }
+
 
     }
 
@@ -12368,6 +12375,7 @@ $CB_map = @{
     "S3Logs_BucketOwnerAccess"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
     "S3Logs_Status"=@("New-CBProject","Start-CBBatch","Start-CBBuild","Update-CBProject")
     "ScalingConfiguration_ScalingType"=@("New-CBFleet","Update-CBFleet")
+    "ScopeConfiguration_Scope"=@("New-CBWebhook")
     "ServerType"=@("Import-CBSourceCredential")
     "SortBy"=@("Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
     "SortOrder"=@("Get-CBBatchIdList","Get-CBBatchIdListForProject","Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBCodeCoverage","Get-CBFleetList","Get-CBProjectList","Get-CBReportGroupList","Get-CBReportList","Get-CBReportsForReportGroupList","Get-CBSharedProjectList","Get-CBSharedReportGroupList")
@@ -30873,6 +30881,7 @@ $GLUE_SelectMap = @{
                "New-GLUETable",
                "New-GLUETableOptimizer",
                "New-GLUETrigger",
+               "New-GLUEUsageProfile",
                "New-GLUEUserDefinedFunction",
                "New-GLUEWorkflow",
                "Remove-GLUEBlueprint",
@@ -30899,6 +30908,7 @@ $GLUE_SelectMap = @{
                "Remove-GLUETableOptimizer",
                "Remove-GLUETableVersion",
                "Remove-GLUETrigger",
+               "Remove-GLUEUsageProfile",
                "Remove-GLUEUserDefinedFunction",
                "Remove-GLUEWorkflow",
                "Get-GLUEBlueprint",
@@ -30963,6 +30973,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEUnfilteredPartitionMetadata",
                "Get-GLUEUnfilteredPartitionsMetadata",
                "Get-GLUEUnfilteredTableMetadata",
+               "Get-GLUEUsageProfile",
                "Get-GLUEUserDefinedFunction",
                "Get-GLUEUserDefinedFunctionList",
                "Get-GLUEWorkflow",
@@ -30989,6 +31000,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEStatementList",
                "Get-GLUETableOptimizerRunList",
                "Get-GLUETriggerNameList",
+               "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
                "Set-GLUEDataCatalogEncryptionSetting",
                "Set-GLUEResourcePolicy",
@@ -31042,6 +31054,7 @@ $GLUE_SelectMap = @{
                "Update-GLUETable",
                "Update-GLUETableOptimizer",
                "Update-GLUETrigger",
+               "Update-GLUEUsageProfile",
                "Update-GLUEUserDefinedFunction",
                "Update-GLUEWorkflow")
 }

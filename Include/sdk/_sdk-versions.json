@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.832.0",
+    "ProductVersion"    : "3.7.833.0",
     "CoreVersion"       : "3.7.304.16",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -252,7 +252,7 @@
             "InPreview"               : false
         },
         "KeyManagementService" : {
-            "Version" : "3.7.304.0",
+            "Version" : "3.7.304.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -396,7 +396,7 @@
             "InPreview"               : false
         },
         "DirectoryService"          : {
-            "Version" : "3.7.300.105",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -404,7 +404,7 @@
             "InPreview"               : false
         },
         "ElasticFileSystem"         : {
-            "Version" : "3.7.302.96",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -436,7 +436,7 @@
             "InPreview"               : false
         },
         "WAF"                       : {
-            "Version" : "3.7.300.105",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -540,7 +540,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "3.7.305.18",
+            "Version" : "3.7.306.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -660,7 +660,7 @@
             "InPreview"               : false
         },
         "CodeBuild"                       : {
-            "Version" : "3.7.309.9",
+            "Version" : "3.7.310.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -708,7 +708,7 @@
             "InPreview"               : false
         },
         "Batch"                           : {
-            "Version" : "3.7.306.6",
+            "Version" : "3.7.307.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -828,7 +828,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.315.0",
+            "Version" : "3.7.316.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.305.0",
+            "Version" : "3.7.306.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -1068,7 +1068,7 @@
             "InPreview"               : false
         },
         "SecretsManager"                  : {
-            "Version" : "3.7.304.0",
+            "Version" : "3.7.304.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
@@ -1076,7 +1076,7 @@
             "InPreview"               : false
         },
         "ACMPCA"                          : {
-            "Version" : "3.7.302.13",
+            "Version" : "3.7.302.14",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.16"
