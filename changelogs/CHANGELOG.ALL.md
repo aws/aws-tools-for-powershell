@@ -1,4 +1,19 @@
-﻿### 4.1.602 (2024-06-17 21:20Z)
+﻿### 4.1.603 (2024-06-18 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.834.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock Runtime
+    * Modified cmdlet Invoke-BDRRConverse: added parameters GuardrailConfig_GuardrailIdentifier, GuardrailConfig_GuardrailVersion and GuardrailConfig_Trace.
+    * Modified cmdlet Invoke-BDRRConverseStream: added parameters GuardrailConfig_GuardrailIdentifier, GuardrailConfig_GuardrailVersion, GuardrailConfig_StreamProcessingMode and GuardrailConfig_Trace.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMMlflowTrackingServer leveraging the DescribeMlflowTrackingServer service API.
+    * Added cmdlet Get-SMMlflowTrackingServerList leveraging the ListMlflowTrackingServers service API.
+    * Added cmdlet New-SMMlflowTrackingServer leveraging the CreateMlflowTrackingServer service API.
+    * Added cmdlet New-SMPresignedMlflowTrackingServerUrl leveraging the CreatePresignedMlflowTrackingServerUrl service API.
+    * Added cmdlet Remove-SMMlflowTrackingServer leveraging the DeleteMlflowTrackingServer service API.
+    * Added cmdlet Start-SMMlflowTrackingServer leveraging the StartMlflowTrackingServer service API.
+    * Added cmdlet Stop-SMMlflowTrackingServer leveraging the StopMlflowTrackingServer service API.
+    * Added cmdlet Update-SMMlflowTrackingServer leveraging the UpdateMlflowTrackingServer service API.
+
+### 4.1.602 (2024-06-17 21:20Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.833.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeBuild
     * Modified cmdlet New-CBWebhook: added parameters ScopeConfiguration_Domain, ScopeConfiguration_Name and ScopeConfiguration_Scope.

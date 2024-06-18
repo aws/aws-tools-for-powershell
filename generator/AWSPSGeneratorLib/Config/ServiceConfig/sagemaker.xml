@@ -200,6 +200,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateMlflowTrackingServer" OutputProperty="TrackingServerArn" Verb="New" Noun="MlflowTrackingServer" ShouldProcessTarget="TrackingServerName" PipelineParameter="TrackingServerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateModel" OutputProperty="ModelArn" Verb="New" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="PrimaryContainer" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -289,6 +293,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePresignedDomainUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedDomainUrl" ShouldProcessTarget="DomainId" PipelineParameter="DomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePresignedMlflowTrackingServerUrl" OutputProperty="AuthorizedUrl" Verb="New" Noun="PresignedMlflowTrackingServerUrl" ShouldProcessTarget="TrackingServerName" PipelineParameter="TrackingServerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -470,6 +478,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Remove" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMlflowTrackingServer" OutputProperty="TrackingServerArn" Verb="Remove" Noun="MlflowTrackingServer" ShouldProcessTarget="TrackingServerName" PipelineParameter="TrackingServerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -698,6 +710,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeLineageGroup" OutputProperty="*" Verb="Get" Noun="LineageGroup" PipelineParameter="LineageGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMlflowTrackingServer" OutputProperty="*" Verb="Get" Noun="MlflowTrackingServer" PipelineParameter="TrackingServerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1001,6 +1017,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListMlflowTrackingServers" OutputProperty="TrackingServerSummaries" Verb="Get" Noun="MlflowTrackingServerList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListModelBiasJobDefinitions" OutputProperty="JobDefinitionSummaries" Verb="Get" Noun="ModelBiasJobDefinitionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -1185,6 +1205,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartMlflowTrackingServer" OutputProperty="TrackingServerArn" Verb="Start" Noun="MlflowTrackingServer" ShouldProcessTarget="TrackingServerName" PipelineParameter="TrackingServerName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StartMonitoringSchedule" Verb="Start" Noun="MonitoringSchedule" ShouldProcessTarget="MonitoringScheduleName" PipelineParameter="MonitoringScheduleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1226,6 +1250,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopLabelingJob" Verb="Stop" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopMlflowTrackingServer" OutputProperty="TrackingServerArn" Verb="Stop" Noun="MlflowTrackingServer" ShouldProcessTarget="TrackingServerName" PipelineParameter="TrackingServerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1360,6 +1388,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateInferenceExperiment" OutputProperty="InferenceExperimentArn" Verb="Update" Noun="InferenceExperiment" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMlflowTrackingServer" OutputProperty="TrackingServerArn" Verb="Update" Noun="MlflowTrackingServer" ShouldProcessTarget="TrackingServerName" PipelineParameter="TrackingServerName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

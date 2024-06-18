@@ -32,16 +32,19 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// stream. <c>ConverseStream</c> provides a consistent API that works with all Amazon
     /// Bedrock models that support messages. This allows you to write code once and use it
     /// with different models. Should a model have unique inference parameters, you can also
-    /// pass those unique parameters to the model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run
-    /// inference</a> in the Bedrock User Guide.
+    /// pass those unique parameters to the model. 
     /// 
     ///  
     /// <para>
     /// To find out if a model supports streaming, call <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html">GetFoundationModel</a>
     /// and check the <c>responseStreamingSupported</c> field in the response.
     /// </para><para>
-    /// For example code, see <i>Invoke model with streaming code example</i> in the <i>Amazon
-    /// Bedrock User Guide</i>. 
+    /// For information about the Converse API, see <i>Use the Converse API</i> in the <i>Amazon
+    /// Bedrock User Guide</i>. To use a guardrail, see <i>Use a guardrail with the Converse
+    /// API</i> in the <i>Amazon Bedrock User Guide</i>. To use a tool with a model, see <i>Tool
+    /// use (Function calling)</i> in the <i>Amazon Bedrock User Guide</i></para><para>
+    /// For example code, see <i>Conversation streaming example</i> in the <i>Amazon Bedrock
+    /// User Guide</i>. 
     /// </para><para>
     /// This operation requires permission for the <c>bedrock:InvokeModelWithResponseStream</c>
     /// action.
@@ -75,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <summary>
         /// <para>
         /// <para>Additional model parameters field paths to return in the response. <c>ConverseStream</c>
-        /// returns the requested fields as a JSON Pointer object in the <c>additionalModelResultFields</c>
+        /// returns the requested fields as a JSON Pointer object in the <c>additionalModelResponseFields</c>
         /// field. The following is example JSON for <c>additionalModelResponseFieldPaths</c>.</para><para><c>[ "/stop_sequence" ]</c></para><para>For information about the JSON Pointer syntax, see the <a href="https://datatracker.ietf.org/doc/html/rfc6901">Internet
         /// Engineering Task Force (IETF)</a> documentation.</para><para><c>ConverseStream</c> rejects an empty JSON Pointer or incorrectly structured JSON
         /// Pointer with a <c>400</c> error code. if the JSON Pointer is valid, but the requested
@@ -101,13 +104,33 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter ToolChoice_Auto
         /// <summary>
         /// <para>
-        /// <para>The Model automatically decides if a tool should be called or to whether to generate
-        /// text instead.</para>
+        /// <para>(Default). The Model automatically decides if a tool should be called or whether to
+        /// generate text instead. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ToolConfig_ToolChoice_Auto")]
         public Amazon.BedrockRuntime.Model.AutoToolChoice ToolChoice_Auto { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailConfig_GuardrailIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier for the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GuardrailConfig_GuardrailIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailConfig_GuardrailVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GuardrailConfig_GuardrailVersion { get; set; }
         #endregion
         
         #region Parameter InferenceConfig_MaxToken
@@ -116,17 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <para>The maximum number of tokens to allow in the generated response. The default value
         /// is the maximum allowed value for the model that you are using. For more information,
         /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference
-        /// parameters for foundatio{ "messages": [ { "role": "user", "content": [ { "text": "what's
-        /// the weather in Queens, NY and Austin, TX?" } ] }, { "role": "assistant", "content":
-        /// [ { "toolUse": { "toolUseId": "1", "name": "get_weather", "input": { "city": "Queens",
-        /// "state": "NY" } } }, { "toolUse": { "toolUseId": "2", "name": "get_weather", "input":
-        /// { "city": "Austin", "state": "TX" } } } ] }, { "role": "user", "content": [ { "toolResult":
-        /// { "toolUseId": "2", "content": [ { "json": { "weather": "40" } } ] } }, { "text":
-        /// "..." }, { "toolResult": { "toolUseId": "1", "content": [ { "text": "result text"
-        /// } ] } } ] } ], "toolConfig": { "tools": [ { "name": "get_weather", "description":
-        /// "Get weather", "inputSchema": { "type": "object", "properties": { "city": { "type":
-        /// "string", "description": "City of location" }, "state": { "type": "string", "description":
-        /// "State of location" } }, "required": ["city", "state"] } } ] } } n models</a>. </para>
+        /// parameters for foundation models</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -198,6 +211,18 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         public System.String[] InferenceConfig_StopSequence { get; set; }
         #endregion
         
+        #region Parameter GuardrailConfig_StreamProcessingMode
+        /// <summary>
+        /// <para>
+        /// <para>The processing mode. </para><para>The processing mode. For more information, see <i>Configure streaming response behavior</i>
+        /// in the <i>Amazon Bedrock User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockRuntime.GuardrailStreamProcessingMode")]
+        public Amazon.BedrockRuntime.GuardrailStreamProcessingMode GuardrailConfig_StreamProcessingMode { get; set; }
+        #endregion
+        
         #region Parameter System
         /// <summary>
         /// <para>
@@ -246,6 +271,17 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Single? InferenceConfig_TopP { get; set; }
+        #endregion
+        
+        #region Parameter GuardrailConfig_Trace
+        /// <summary>
+        /// <para>
+        /// <para>The trace behavior for the guardrail.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.BedrockRuntime.GuardrailTrace")]
+        public Amazon.BedrockRuntime.GuardrailTrace GuardrailConfig_Trace { get; set; }
         #endregion
         
         #region Parameter Select
@@ -315,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             {
                 context.AdditionalModelResponseFieldPath = new List<System.String>(this.AdditionalModelResponseFieldPath);
             }
+            context.GuardrailConfig_GuardrailIdentifier = this.GuardrailConfig_GuardrailIdentifier;
+            context.GuardrailConfig_GuardrailVersion = this.GuardrailConfig_GuardrailVersion;
+            context.GuardrailConfig_StreamProcessingMode = this.GuardrailConfig_StreamProcessingMode;
+            context.GuardrailConfig_Trace = this.GuardrailConfig_Trace;
             context.InferenceConfig_MaxToken = this.InferenceConfig_MaxToken;
             if (this.InferenceConfig_StopSequence != null)
             {
@@ -373,6 +413,55 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
             if (cmdletContext.AdditionalModelResponseFieldPath != null)
             {
                 request.AdditionalModelResponseFieldPaths = cmdletContext.AdditionalModelResponseFieldPath;
+            }
+            
+             // populate GuardrailConfig
+            var requestGuardrailConfigIsNull = true;
+            request.GuardrailConfig = new Amazon.BedrockRuntime.Model.GuardrailStreamConfiguration();
+            System.String requestGuardrailConfig_guardrailConfig_GuardrailIdentifier = null;
+            if (cmdletContext.GuardrailConfig_GuardrailIdentifier != null)
+            {
+                requestGuardrailConfig_guardrailConfig_GuardrailIdentifier = cmdletContext.GuardrailConfig_GuardrailIdentifier;
+            }
+            if (requestGuardrailConfig_guardrailConfig_GuardrailIdentifier != null)
+            {
+                request.GuardrailConfig.GuardrailIdentifier = requestGuardrailConfig_guardrailConfig_GuardrailIdentifier;
+                requestGuardrailConfigIsNull = false;
+            }
+            System.String requestGuardrailConfig_guardrailConfig_GuardrailVersion = null;
+            if (cmdletContext.GuardrailConfig_GuardrailVersion != null)
+            {
+                requestGuardrailConfig_guardrailConfig_GuardrailVersion = cmdletContext.GuardrailConfig_GuardrailVersion;
+            }
+            if (requestGuardrailConfig_guardrailConfig_GuardrailVersion != null)
+            {
+                request.GuardrailConfig.GuardrailVersion = requestGuardrailConfig_guardrailConfig_GuardrailVersion;
+                requestGuardrailConfigIsNull = false;
+            }
+            Amazon.BedrockRuntime.GuardrailStreamProcessingMode requestGuardrailConfig_guardrailConfig_StreamProcessingMode = null;
+            if (cmdletContext.GuardrailConfig_StreamProcessingMode != null)
+            {
+                requestGuardrailConfig_guardrailConfig_StreamProcessingMode = cmdletContext.GuardrailConfig_StreamProcessingMode;
+            }
+            if (requestGuardrailConfig_guardrailConfig_StreamProcessingMode != null)
+            {
+                request.GuardrailConfig.StreamProcessingMode = requestGuardrailConfig_guardrailConfig_StreamProcessingMode;
+                requestGuardrailConfigIsNull = false;
+            }
+            Amazon.BedrockRuntime.GuardrailTrace requestGuardrailConfig_guardrailConfig_Trace = null;
+            if (cmdletContext.GuardrailConfig_Trace != null)
+            {
+                requestGuardrailConfig_guardrailConfig_Trace = cmdletContext.GuardrailConfig_Trace;
+            }
+            if (requestGuardrailConfig_guardrailConfig_Trace != null)
+            {
+                request.GuardrailConfig.Trace = requestGuardrailConfig_guardrailConfig_Trace;
+                requestGuardrailConfigIsNull = false;
+            }
+             // determine if request.GuardrailConfig should be set to null
+            if (requestGuardrailConfigIsNull)
+            {
+                request.GuardrailConfig = null;
             }
             
              // populate InferenceConfig
@@ -577,6 +666,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         {
             public System.Management.Automation.PSObject AdditionalModelRequestField { get; set; }
             public List<System.String> AdditionalModelResponseFieldPath { get; set; }
+            public System.String GuardrailConfig_GuardrailIdentifier { get; set; }
+            public System.String GuardrailConfig_GuardrailVersion { get; set; }
+            public Amazon.BedrockRuntime.GuardrailStreamProcessingMode GuardrailConfig_StreamProcessingMode { get; set; }
+            public Amazon.BedrockRuntime.GuardrailTrace GuardrailConfig_Trace { get; set; }
             public System.Int32? InferenceConfig_MaxToken { get; set; }
             public List<System.String> InferenceConfig_StopSequence { get; set; }
             public System.Single? InferenceConfig_Temperature { get; set; }

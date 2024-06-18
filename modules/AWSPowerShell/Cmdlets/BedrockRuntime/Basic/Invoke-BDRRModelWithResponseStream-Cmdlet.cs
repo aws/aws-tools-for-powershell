@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// <summary>
         /// <para>
         /// <para>The prompt and inference parameters in the format specified in the <c>contentType</c>
-        /// in the header. To see the format and content of the request and response bodies for
-        /// different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference
+        /// in the header. You must provide the body in JSON format. To see the format and content
+        /// of the request and response bodies for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference
         /// parameters</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html">Run
         /// inference</a> in the Bedrock User Guide.</para>
         /// </para>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para>The MIME type of the input data in the request. The default value is <c>application/json</c>.</para>
+        /// <para>The MIME type of the input data in the request. You must specify <c>application/json</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

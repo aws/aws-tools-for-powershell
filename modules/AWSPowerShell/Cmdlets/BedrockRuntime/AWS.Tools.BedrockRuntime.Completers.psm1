@@ -80,6 +80,23 @@ $BDRR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockRuntime.GuardrailStreamProcessingMode
+        "Invoke-BDRRConverseStream/GuardrailConfig_StreamProcessingMode"
+        {
+            $v = "async","sync"
+            break
+        }
+
+        # Amazon.BedrockRuntime.GuardrailTrace
+        {
+            ($_ -eq "Invoke-BDRRConverse/GuardrailConfig_Trace") -Or
+            ($_ -eq "Invoke-BDRRConverseStream/GuardrailConfig_Trace")
+        }
+        {
+            $v = "disabled","enabled"
+            break
+        }
+
         # Amazon.BedrockRuntime.Trace
         {
             ($_ -eq "Invoke-BDRRModel/Trace") -Or
@@ -99,6 +116,8 @@ $BDRR_Completers = {
 }
 
 $BDRR_map = @{
+    "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
+    "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
     "Trace"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
 }
 

@@ -24821,6 +24821,8 @@ Set-Alias -Name Create-SMInferenceRecommendationsJob -Value New-SMInferenceRecom
 Set-Alias -Name SM-CreateInferenceRecommendationsJob -Value New-SMInferenceRecommendationsJob
 Set-Alias -Name Create-SMLabelingJob -Value New-SMLabelingJob
 Set-Alias -Name SM-CreateLabelingJob -Value New-SMLabelingJob
+Set-Alias -Name Create-SMMlflowTrackingServer -Value New-SMMlflowTrackingServer
+Set-Alias -Name SM-CreateMlflowTrackingServer -Value New-SMMlflowTrackingServer
 Set-Alias -Name Create-SMModel -Value New-SMModel
 Set-Alias -Name SM-CreateModel -Value New-SMModel
 Set-Alias -Name Create-SMModelBiasJobDefinition -Value New-SMModelBiasJobDefinition
@@ -24847,6 +24849,8 @@ Set-Alias -Name Create-SMPipeline -Value New-SMPipeline
 Set-Alias -Name SM-CreatePipeline -Value New-SMPipeline
 Set-Alias -Name Create-SMPresignedDomainUrl -Value New-SMPresignedDomainUrl
 Set-Alias -Name SM-CreatePresignedDomainUrl -Value New-SMPresignedDomainUrl
+Set-Alias -Name Create-SMPresignedMlflowTrackingServerUrl -Value New-SMPresignedMlflowTrackingServerUrl
+Set-Alias -Name SM-CreatePresignedMlflowTrackingServerUrl -Value New-SMPresignedMlflowTrackingServerUrl
 Set-Alias -Name Create-SMPresignedNotebookInstanceUrl -Value New-SMPresignedNotebookInstanceUrl
 Set-Alias -Name SM-CreatePresignedNotebookInstanceUrl -Value New-SMPresignedNotebookInstanceUrl
 Set-Alias -Name Create-SMProcessingJob -Value New-SMProcessingJob
@@ -24927,6 +24931,8 @@ Set-Alias -Name Delete-SMInferenceComponent -Value Remove-SMInferenceComponent
 Set-Alias -Name SM-DeleteInferenceComponent -Value Remove-SMInferenceComponent
 Set-Alias -Name Delete-SMInferenceExperiment -Value Remove-SMInferenceExperiment
 Set-Alias -Name SM-DeleteInferenceExperiment -Value Remove-SMInferenceExperiment
+Set-Alias -Name Delete-SMMlflowTrackingServer -Value Remove-SMMlflowTrackingServer
+Set-Alias -Name SM-DeleteMlflowTrackingServer -Value Remove-SMMlflowTrackingServer
 Set-Alias -Name Delete-SMModel -Value Remove-SMModel
 Set-Alias -Name SM-DeleteModel -Value Remove-SMModel
 Set-Alias -Name Delete-SMModelBiasJobDefinition -Value Remove-SMModelBiasJobDefinition
@@ -25043,6 +25049,8 @@ Set-Alias -Name Describe-SMLabelingJob -Value Get-SMLabelingJob
 Set-Alias -Name SM-DescribeLabelingJob -Value Get-SMLabelingJob
 Set-Alias -Name Describe-SMLineageGroup -Value Get-SMLineageGroup
 Set-Alias -Name SM-DescribeLineageGroup -Value Get-SMLineageGroup
+Set-Alias -Name Describe-SMMlflowTrackingServer -Value Get-SMMlflowTrackingServer
+Set-Alias -Name SM-DescribeMlflowTrackingServer -Value Get-SMMlflowTrackingServer
 Set-Alias -Name Describe-SMModel -Value Get-SMModel
 Set-Alias -Name SM-DescribeModel -Value Get-SMModel
 Set-Alias -Name Describe-SMModelBiasJobDefinition -Value Get-SMModelBiasJobDefinition
@@ -25224,6 +25232,9 @@ Set-Alias -Name SM-ListLabelingJobsForWorkteam -Value Get-SMLabelingJobListForWo
 Set-Alias -Name List-SMLineageGroups -Value Get-SMLineageGroupList
 Set-Alias -Name List-SMLineageGroupList -Value Get-SMLineageGroupList
 Set-Alias -Name SM-ListLineageGroups -Value Get-SMLineageGroupList
+Set-Alias -Name List-SMMlflowTrackingServers -Value Get-SMMlflowTrackingServerList
+Set-Alias -Name List-SMMlflowTrackingServerList -Value Get-SMMlflowTrackingServerList
+Set-Alias -Name SM-ListMlflowTrackingServers -Value Get-SMMlflowTrackingServerList
 Set-Alias -Name List-SMModelBiasJobDefinitions -Value Get-SMModelBiasJobDefinitionList
 Set-Alias -Name List-SMModelBiasJobDefinitionList -Value Get-SMModelBiasJobDefinitionList
 Set-Alias -Name SM-ListModelBiasJobDefinitions -Value Get-SMModelBiasJobDefinitionList
@@ -25348,6 +25359,7 @@ Set-Alias -Name SM-SendPipelineExecutionStepFailure -Value Send-SMPipelineExecut
 Set-Alias -Name SM-SendPipelineExecutionStepSuccess -Value Send-SMPipelineExecutionStepSuccess
 Set-Alias -Name SM-StartEdgeDeploymentStage -Value Start-SMEdgeDeploymentStage
 Set-Alias -Name SM-StartInferenceExperiment -Value Start-SMInferenceExperiment
+Set-Alias -Name SM-StartMlflowTrackingServer -Value Start-SMMlflowTrackingServer
 Set-Alias -Name SM-StartMonitoringSchedule -Value Start-SMMonitoringSchedule
 Set-Alias -Name SM-StartNotebookInstance -Value Start-SMNotebookInstance
 Set-Alias -Name SM-StartPipelineExecution -Value Start-SMPipelineExecution
@@ -25359,6 +25371,7 @@ Set-Alias -Name SM-StopHyperParameterTuningJob -Value Stop-SMHyperParameterTunin
 Set-Alias -Name SM-StopInferenceExperiment -Value Stop-SMInferenceExperiment
 Set-Alias -Name SM-StopInferenceRecommendationsJob -Value Stop-SMInferenceRecommendationsJob
 Set-Alias -Name SM-StopLabelingJob -Value Stop-SMLabelingJob
+Set-Alias -Name SM-StopMlflowTrackingServer -Value Stop-SMMlflowTrackingServer
 Set-Alias -Name SM-StopMonitoringSchedule -Value Stop-SMMonitoringSchedule
 Set-Alias -Name SM-StopNotebookInstance -Value Stop-SMNotebookInstance
 Set-Alias -Name SM-StopPipelineExecution -Value Stop-SMPipelineExecution
@@ -25388,6 +25401,7 @@ Set-Alias -Name SM-UpdateImageVersion -Value Update-SMImageVersion
 Set-Alias -Name SM-UpdateInferenceComponent -Value Update-SMInferenceComponent
 Set-Alias -Name SM-UpdateInferenceComponentRuntimeConfig -Value Update-SMInferenceComponentRuntimeConfig
 Set-Alias -Name SM-UpdateInferenceExperiment -Value Update-SMInferenceExperiment
+Set-Alias -Name SM-UpdateMlflowTrackingServer -Value Update-SMMlflowTrackingServer
 Set-Alias -Name SM-UpdateModelCard -Value Update-SMModelCard
 Set-Alias -Name SM-UpdateModelPackage -Value Update-SMModelPackage
 Set-Alias -Name SM-UpdateMonitoringAlert -Value Update-SMMonitoringAlert

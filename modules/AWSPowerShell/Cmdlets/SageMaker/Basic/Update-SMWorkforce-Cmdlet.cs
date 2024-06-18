@@ -176,8 +176,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter WorkforceVpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for
-        /// the same VPC as specified in the subnet.</para>
+        /// <para>The VPC security group IDs, in the form <c>sg-xxxxxxxx</c>. The security groups must
+        /// be for the same VPC as specified in the subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

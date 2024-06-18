@@ -28,36 +28,23 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Use this operation to delete a workforce.
-    /// 
-    ///  
-    /// <para>
-    /// If you want to create a new workforce in an Amazon Web Services Region where a workforce
-    /// already exists, use this operation to delete the existing workforce and then use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateWorkforce.html">CreateWorkforce</a>
-    /// to create a new workforce.
-    /// </para><important><para>
-    /// If a private workforce contains one or more work teams, you must use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a>
-    /// operation to delete all work teams before you delete the workforce. If you try to
-    /// delete a workforce that contains one or more work teams, you will receive a <c>ResourceInUse</c>
-    /// error.
-    /// </para></important>
+    /// Returns information about an MLflow Tracking Server.
     /// </summary>
-    [Cmdlet("Remove", "SMWorkforce", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteWorkforce API operation.", Operation = new[] {"DeleteWorkforce"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteWorkforceResponse))]
-    [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteWorkforceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteWorkforceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMMlflowTrackingServer")]
+    [OutputType("Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DescribeMlflowTrackingServer API operation.", Operation = new[] {"DescribeMlflowTrackingServer"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSMWorkforceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class GetSMMlflowTrackingServerCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter WorkforceName
+        #region Parameter TrackingServerName
         /// <summary>
         /// <para>
-        /// <para>The name of the workforce.</para>
+        /// <para>The name of the MLflow Tracking Server to describe.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,13 +55,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String WorkforceName { get; set; }
+        public System.String TrackingServerName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DeleteWorkforceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,34 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the WorkforceName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^WorkforceName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TrackingServerName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TrackingServerName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^WorkforceName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrackingServerName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.WorkforceName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMWorkforce (DeleteWorkforce)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -120,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteWorkforceResponse, RemoveSMWorkforceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse, GetSMMlflowTrackingServerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -129,14 +101,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.WorkforceName;
+                context.Select = (response, cmdlet) => this.TrackingServerName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.WorkforceName = this.WorkforceName;
+            context.TrackingServerName = this.TrackingServerName;
             #if MODULAR
-            if (this.WorkforceName == null && ParameterWasBound(nameof(this.WorkforceName)))
+            if (this.TrackingServerName == null && ParameterWasBound(nameof(this.TrackingServerName)))
             {
-                WriteWarning("You are passing $null as a value for parameter WorkforceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TrackingServerName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -153,11 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.DeleteWorkforceRequest();
+            var request = new Amazon.SageMaker.Model.DescribeMlflowTrackingServerRequest();
             
-            if (cmdletContext.WorkforceName != null)
+            if (cmdletContext.TrackingServerName != null)
             {
-                request.WorkforceName = cmdletContext.WorkforceName;
+                request.TrackingServerName = cmdletContext.TrackingServerName;
             }
             
             CmdletOutput output;
@@ -192,15 +164,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DeleteWorkforceResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteWorkforceRequest request)
+        private Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DescribeMlflowTrackingServerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteWorkforce");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DescribeMlflowTrackingServer");
             try
             {
                 #if DESKTOP
-                return client.DeleteWorkforce(request);
+                return client.DescribeMlflowTrackingServer(request);
                 #elif CORECLR
-                return client.DeleteWorkforceAsync(request).GetAwaiter().GetResult();
+                return client.DescribeMlflowTrackingServerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -220,9 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String WorkforceName { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DeleteWorkforceResponse, RemoveSMWorkforceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String TrackingServerName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DescribeMlflowTrackingServerResponse, GetSMMlflowTrackingServerCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
