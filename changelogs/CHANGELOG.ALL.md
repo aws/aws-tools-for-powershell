@@ -1,4 +1,10 @@
-﻿### 4.1.603 (2024-06-18 21:02Z)
+﻿### 4.1.604 (2024-06-19 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.835.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameters JWTOptions_Enabled, JWTOptions_PublicKey, JWTOptions_RolesKey and JWTOptions_SubjectKey.
+    * Modified cmdlet Update-OSDomainConfig: added parameters JWTOptions_Enabled, JWTOptions_PublicKey, JWTOptions_RolesKey and JWTOptions_SubjectKey.
+
+### 4.1.603 (2024-06-18 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.834.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock Runtime
     * Modified cmdlet Invoke-BDRRConverse: added parameters GuardrailConfig_GuardrailIdentifier, GuardrailConfig_GuardrailVersion and GuardrailConfig_Trace.

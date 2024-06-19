@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.OS
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the data source update request.</para>
+        /// <para>The status of the data source update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

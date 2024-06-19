@@ -242,6 +242,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
         #endregion
         
+        #region Parameter JWTOptions_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>True to enable JWT authentication and authorization for a domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_JWTOptions_Enabled")]
+        public System.Boolean? JWTOptions_Enabled { get; set; }
+        #endregion
+        
         #region Parameter SAMLOptions_Enabled
         /// <summary>
         /// <para>
@@ -548,6 +559,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public System.Boolean? ClusterConfig_MultiAZWithStandbyEnabled { get; set; }
         #endregion
         
+        #region Parameter JWTOptions_PublicKey
+        /// <summary>
+        /// <para>
+        /// <para>Element of the JWT assertion used by the cluster to verify JWT signatures.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_JWTOptions_PublicKey")]
+        public System.String JWTOptions_PublicKey { get; set; }
+        #endregion
+        
         #region Parameter CognitoOptions_RoleArn
         /// <summary>
         /// <para>
@@ -557,6 +579,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CognitoOptions_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter JWTOptions_RolesKey
+        /// <summary>
+        /// <para>
+        /// <para>Element of the JWT assertion to use for roles.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_JWTOptions_RolesKey")]
+        public System.String JWTOptions_RolesKey { get; set; }
         #endregion
         
         #region Parameter SAMLOptions_RolesKey
@@ -593,6 +626,17 @@ namespace Amazon.PowerShell.Cmdlets.OS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AdvancedSecurityOptions_SAMLOptions_SessionTimeoutMinutes")]
         public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
+        #endregion
+        
+        #region Parameter JWTOptions_SubjectKey
+        /// <summary>
+        /// <para>
+        /// <para>Element of the JWT assertion to use for the user name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AdvancedSecurityOptions_JWTOptions_SubjectKey")]
+        public System.String JWTOptions_SubjectKey { get; set; }
         #endregion
         
         #region Parameter SAMLOptions_SubjectKey
@@ -795,6 +839,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.AdvancedSecurityOptions_AnonymousAuthEnabled = this.AdvancedSecurityOptions_AnonymousAuthEnabled;
             context.AdvancedSecurityOptions_Enabled = this.AdvancedSecurityOptions_Enabled;
             context.AdvancedSecurityOptions_InternalUserDatabaseEnabled = this.AdvancedSecurityOptions_InternalUserDatabaseEnabled;
+            context.JWTOptions_Enabled = this.JWTOptions_Enabled;
+            context.JWTOptions_PublicKey = this.JWTOptions_PublicKey;
+            context.JWTOptions_RolesKey = this.JWTOptions_RolesKey;
+            context.JWTOptions_SubjectKey = this.JWTOptions_SubjectKey;
             context.MasterUserOptions_MasterUserARN = this.MasterUserOptions_MasterUserARN;
             context.MasterUserOptions_MasterUserName = this.MasterUserOptions_MasterUserName;
             context.MasterUserOptions_MasterUserPassword = this.MasterUserOptions_MasterUserPassword;
@@ -976,6 +1024,61 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions != null)
             {
                 request.AdvancedSecurityOptions.MasterUserOptions = requestAdvancedSecurityOptions_advancedSecurityOptions_MasterUserOptions;
+                requestAdvancedSecurityOptionsIsNull = false;
+            }
+            Amazon.OpenSearchService.Model.JWTOptionsInput requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions = null;
+            
+             // populate JWTOptions
+            var requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull = true;
+            requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions = new Amazon.OpenSearchService.Model.JWTOptionsInput();
+            System.Boolean? requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_Enabled = null;
+            if (cmdletContext.JWTOptions_Enabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_Enabled = cmdletContext.JWTOptions_Enabled.Value;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_Enabled != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions.Enabled = requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_Enabled.Value;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_PublicKey = null;
+            if (cmdletContext.JWTOptions_PublicKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_PublicKey = cmdletContext.JWTOptions_PublicKey;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_PublicKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions.PublicKey = requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_PublicKey;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_RolesKey = null;
+            if (cmdletContext.JWTOptions_RolesKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_RolesKey = cmdletContext.JWTOptions_RolesKey;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_RolesKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions.RolesKey = requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_RolesKey;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull = false;
+            }
+            System.String requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_SubjectKey = null;
+            if (cmdletContext.JWTOptions_SubjectKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_SubjectKey = cmdletContext.JWTOptions_SubjectKey;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_SubjectKey != null)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions.SubjectKey = requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions_jWTOptions_SubjectKey;
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull = false;
+            }
+             // determine if requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions should be set to null
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptionsIsNull)
+            {
+                requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions = null;
+            }
+            if (requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions != null)
+            {
+                request.AdvancedSecurityOptions.JWTOptions = requestAdvancedSecurityOptions_advancedSecurityOptions_JWTOptions;
                 requestAdvancedSecurityOptionsIsNull = false;
             }
             Amazon.OpenSearchService.Model.SAMLOptionsInput requestAdvancedSecurityOptions_advancedSecurityOptions_SAMLOptions = null;
@@ -1728,6 +1831,10 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.Boolean? AdvancedSecurityOptions_AnonymousAuthEnabled { get; set; }
             public System.Boolean? AdvancedSecurityOptions_Enabled { get; set; }
             public System.Boolean? AdvancedSecurityOptions_InternalUserDatabaseEnabled { get; set; }
+            public System.Boolean? JWTOptions_Enabled { get; set; }
+            public System.String JWTOptions_PublicKey { get; set; }
+            public System.String JWTOptions_RolesKey { get; set; }
+            public System.String JWTOptions_SubjectKey { get; set; }
             public System.String MasterUserOptions_MasterUserARN { get; set; }
             public System.String MasterUserOptions_MasterUserName { get; set; }
             public System.String MasterUserOptions_MasterUserPassword { get; set; }
