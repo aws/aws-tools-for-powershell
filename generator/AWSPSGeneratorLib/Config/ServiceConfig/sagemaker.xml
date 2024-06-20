@@ -168,6 +168,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateHubContentReference" OutputProperty="*" Verb="New" Noun="HubContentReference" ShouldProcessTarget="HubName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateHumanTaskUi" OutputProperty="HumanTaskUiArn" Verb="New" Noun="HumanTaskUi" ShouldProcessTarget="HumanTaskUiName" PipelineParameter="HumanTaskUiName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -454,6 +458,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteHubContent" Verb="Remove" Noun="HubContent" ShouldProcessTarget="HubName" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHubContentReference" Verb="Remove" Noun="HubContentReference" ShouldProcessTarget="HubName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

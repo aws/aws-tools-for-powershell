@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Create a hub.
-    /// 
-    ///  <note><para>
-    /// Hub APIs are only callable through SageMaker Studio.
-    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SMHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

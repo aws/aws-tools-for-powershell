@@ -28,23 +28,22 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Returns Amazon EC2 instance recommendations.
+    /// Returns Amazon RDS recommendations. 
     /// 
     ///  
     /// <para>
-    /// Compute Optimizer generates recommendations for Amazon Elastic Compute Cloud (Amazon
-    /// EC2) instances that meet a specific set of requirements. For more information, see
-    /// the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
+    /// Compute Optimizer generates recommendations for Amazon RDS that meet a specific set
+    /// of requirements. For more information, see the <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html">Supported
     /// resources and requirements</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "COEC2InstanceRecommendation")]
-    [OutputType("Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse")]
-    [AWSCmdlet("Calls the AWS Compute Optimizer GetEC2InstanceRecommendations API operation.", Operation = new[] {"GetEC2InstanceRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse))]
-    [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CORDSDatabaseRecommendation")]
+    [OutputType("Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse")]
+    [AWSCmdlet("Calls the AWS Compute Optimizer GetRDSDatabaseRecommendations API operation.", Operation = new[] {"GetRDSDatabaseRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse))]
+    [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse",
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCOEC2InstanceRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
+    public partial class GetCORDSDatabaseRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -52,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account for which to return instance recommendations.</para><para>If your account is the management account of an organization, use this parameter to
-        /// specify the member account for which you want to return instance recommendations.</para><para>Only one account ID can be specified per request.</para>
+        /// <para> Return the Amazon RDS recommendations to the specified Amazon Web Services account
+        /// IDs. </para><para>If your account is the management account or the delegated administrator of an organization,
+        /// use this parameter to return the Amazon RDS recommendations to specific member accounts.</para><para>You can only specify one account ID per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -81,30 +81,30 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of objects to specify a filter that returns a more specific list of instance
-        /// recommendations.</para>
+        /// <para> An array of objects to specify a filter that returns a more specific list of Amazon
+        /// RDS recommendations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
-        public Amazon.ComputeOptimizer.Model.Filter[] Filter { get; set; }
+        public Amazon.ComputeOptimizer.Model.RDSDBRecommendationFilter[] Filter { get; set; }
         #endregion
         
-        #region Parameter InstanceArn
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the instances for which to return recommendations.</para>
+        /// <para> The ARN that identifies the Amazon RDS. </para><para> The following is the format of the ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:db:{resourceName}</c></para><para> The following is the format of a DB Cluster ARN: </para><para><c>arn:aws:rds:{region}:{accountId}:cluster:{resourceName}</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("InstanceArns")]
-        public System.String[] InstanceArn { get; set; }
+        [Alias("ResourceArns")]
+        public System.String[] ResourceArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of instance recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
+        /// <para>The maximum number of Amazon RDS recommendations to return with a single request.</para><para>To retrieve the remaining results, make another request with the returned <c>nextToken</c>
         /// value.</para>
         /// </para>
         /// </summary>
@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to advance to the next page of instance recommendations.</para>
+        /// <para> The token to advance to the next page of Amazon RDS recommendations. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse).
-        /// Specifying the name of a property of type Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse).
+        /// Specifying the name of a property of type Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse, GetCOEC2InstanceRecommendationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse, GetCORDSDatabaseRecommendationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             if (this.AccountId != null)
@@ -169,17 +169,17 @@ namespace Amazon.PowerShell.Cmdlets.CO
             }
             if (this.Filter != null)
             {
-                context.Filter = new List<Amazon.ComputeOptimizer.Model.Filter>(this.Filter);
-            }
-            if (this.InstanceArn != null)
-            {
-                context.InstanceArn = new List<System.String>(this.InstanceArn);
+                context.Filter = new List<Amazon.ComputeOptimizer.Model.RDSDBRecommendationFilter>(this.Filter);
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             if (this.RecommendationPreferences_CpuVendorArchitecture != null)
             {
                 context.RecommendationPreferences_CpuVendorArchitecture = new List<System.String>(this.RecommendationPreferences_CpuVendorArchitecture);
+            }
+            if (this.ResourceArn != null)
+            {
+                context.ResourceArn = new List<System.String>(this.ResourceArn);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsRequest();
+            var request = new Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsRequest();
             
             if (cmdletContext.AccountId != null)
             {
@@ -206,10 +206,6 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
-            }
-            if (cmdletContext.InstanceArn != null)
-            {
-                request.InstanceArns = cmdletContext.InstanceArn;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -233,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.CO
             if (requestRecommendationPreferencesIsNull)
             {
                 request.RecommendationPreferences = null;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArns = cmdletContext.ResourceArn;
             }
             
             // Initialize loop variant and commence piping
@@ -291,15 +291,15 @@ namespace Amazon.PowerShell.Cmdlets.CO
         
         #region AWS Service Operation Call
         
-        private Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse CallAWSServiceOperation(IAmazonComputeOptimizer client, Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsRequest request)
+        private Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse CallAWSServiceOperation(IAmazonComputeOptimizer client, Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Compute Optimizer", "GetEC2InstanceRecommendations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Compute Optimizer", "GetRDSDatabaseRecommendations");
             try
             {
                 #if DESKTOP
-                return client.GetEC2InstanceRecommendations(request);
+                return client.GetRDSDatabaseRecommendations(request);
                 #elif CORECLR
-                return client.GetEC2InstanceRecommendationsAsync(request).GetAwaiter().GetResult();
+                return client.GetRDSDatabaseRecommendationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -320,12 +320,12 @@ namespace Amazon.PowerShell.Cmdlets.CO
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AccountId { get; set; }
-            public List<Amazon.ComputeOptimizer.Model.Filter> Filter { get; set; }
-            public List<System.String> InstanceArn { get; set; }
+            public List<Amazon.ComputeOptimizer.Model.RDSDBRecommendationFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> RecommendationPreferences_CpuVendorArchitecture { get; set; }
-            public System.Func<Amazon.ComputeOptimizer.Model.GetEC2InstanceRecommendationsResponse, GetCOEC2InstanceRecommendationCmdlet, object> Select { get; set; } =
+            public List<System.String> ResourceArn { get; set; }
+            public System.Func<Amazon.ComputeOptimizer.Model.GetRDSDatabaseRecommendationsResponse, GetCORDSDatabaseRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

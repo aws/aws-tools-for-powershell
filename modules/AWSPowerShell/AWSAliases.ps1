@@ -5810,6 +5810,8 @@ Set-Alias -Name Export-COLambdaFunctionRecommendations -Value Export-COLambdaFun
 Set-Alias -Name CO-ExportLambdaFunctionRecommendations -Value Export-COLambdaFunctionRecommendation
 Set-Alias -Name Export-COLicenseRecommendations -Value Export-COLicenseRecommendation
 Set-Alias -Name CO-ExportLicenseRecommendations -Value Export-COLicenseRecommendation
+Set-Alias -Name Export-CORDSDatabaseRecommendations -Value Export-CORDSDatabaseRecommendation
+Set-Alias -Name CO-ExportRDSDatabaseRecommendations -Value Export-CORDSDatabaseRecommendation
 Set-Alias -Name Get-COAutoScalingGroupRecommendations -Value Get-COAutoScalingGroupRecommendation
 Set-Alias -Name CO-GetAutoScalingGroupRecommendations -Value Get-COAutoScalingGroupRecommendation
 Set-Alias -Name Get-COEBSVolumeRecommendations -Value Get-COEBSVolumeRecommendation
@@ -5830,6 +5832,10 @@ Set-Alias -Name Get-COLambdaFunctionRecommendations -Value Get-COLambdaFunctionR
 Set-Alias -Name CO-GetLambdaFunctionRecommendations -Value Get-COLambdaFunctionRecommendation
 Set-Alias -Name Get-COLicenseRecommendations -Value Get-COLicenseRecommendation
 Set-Alias -Name CO-GetLicenseRecommendations -Value Get-COLicenseRecommendation
+Set-Alias -Name Get-CORDSDatabaseRecommendationProjectedMetrics -Value Get-CORDSDatabaseRecommendationProjectedMetric
+Set-Alias -Name CO-GetRDSDatabaseRecommendationProjectedMetrics -Value Get-CORDSDatabaseRecommendationProjectedMetric
+Set-Alias -Name Get-CORDSDatabaseRecommendations -Value Get-CORDSDatabaseRecommendation
+Set-Alias -Name CO-GetRDSDatabaseRecommendations -Value Get-CORDSDatabaseRecommendation
 Set-Alias -Name Get-CORecommendationPreferences -Value Get-CORecommendationPreference
 Set-Alias -Name CO-GetRecommendationPreferences -Value Get-CORecommendationPreference
 Set-Alias -Name Get-CORecommendationSummaries -Value Get-CORecommendationSummary
@@ -24805,6 +24811,8 @@ Set-Alias -Name Create-SMFlowDefinition -Value New-SMFlowDefinition
 Set-Alias -Name SM-CreateFlowDefinition -Value New-SMFlowDefinition
 Set-Alias -Name Create-SMHub -Value New-SMHub
 Set-Alias -Name SM-CreateHub -Value New-SMHub
+Set-Alias -Name Create-SMHubContentReference -Value New-SMHubContentReference
+Set-Alias -Name SM-CreateHubContentReference -Value New-SMHubContentReference
 Set-Alias -Name Create-SMHumanTaskUi -Value New-SMHumanTaskUi
 Set-Alias -Name SM-CreateHumanTaskUi -Value New-SMHumanTaskUi
 Set-Alias -Name Create-SMHyperParameterTuningJob -Value New-SMHyperParameterTuningJob
@@ -24919,6 +24927,8 @@ Set-Alias -Name Delete-SMHub -Value Remove-SMHub
 Set-Alias -Name SM-DeleteHub -Value Remove-SMHub
 Set-Alias -Name Delete-SMHubContent -Value Remove-SMHubContent
 Set-Alias -Name SM-DeleteHubContent -Value Remove-SMHubContent
+Set-Alias -Name Delete-SMHubContentReference -Value Remove-SMHubContentReference
+Set-Alias -Name SM-DeleteHubContentReference -Value Remove-SMHubContentReference
 Set-Alias -Name Delete-SMHumanTaskUi -Value Remove-SMHumanTaskUi
 Set-Alias -Name SM-DeleteHumanTaskUi -Value Remove-SMHumanTaskUi
 Set-Alias -Name Delete-SMHyperParameterTuningJob -Value Remove-SMHyperParameterTuningJob

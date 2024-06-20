@@ -28,26 +28,26 @@ using Amazon.ComputeOptimizer.Model;
 namespace Amazon.PowerShell.Cmdlets.CO
 {
     /// <summary>
-    /// Exports optimization recommendations for Auto Scaling groups.
+    /// Export optimization recommendations for your Amazon Relational Database Service (Amazon
+    /// RDS). 
     /// 
     ///  
     /// <para>
-    /// Recommendations are exported in a comma-separated values (.csv) file, and its metadata
-    /// in a JavaScript Object Notation (JSON) (.json) file, to an existing Amazon Simple
-    /// Storage Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
+    /// Recommendations are exported in a comma-separated values (CSV) file, and its metadata
+    /// in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage
+    /// Service (Amazon S3) bucket that you specify. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html">Exporting
     /// Recommendations</a> in the <i>Compute Optimizer User Guide</i>.
     /// </para><para>
-    /// You can have only one Auto Scaling group export job in progress per Amazon Web Services
-    /// Region.
+    /// You can have only one Amazon RDS export job in progress per Amazon Web Services Region.
     /// </para>
     /// </summary>
-    [Cmdlet("Export", "COAutoScalingGroupRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse")]
-    [AWSCmdlet("Calls the AWS Compute Optimizer ExportAutoScalingGroupRecommendations API operation.", Operation = new[] {"ExportAutoScalingGroupRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse))]
-    [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse",
-        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Export", "CORDSDatabaseRecommendation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse")]
+    [AWSCmdlet("Calls the AWS Compute Optimizer ExportRDSDatabaseRecommendations API operation.", Operation = new[] {"ExportRDSDatabaseRecommendations"}, SelectReturnType = typeof(Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse))]
+    [AWSCmdletOutput("Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse",
+        "This cmdlet returns an Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ExportCOAutoScalingGroupRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
+    public partial class ExportCORDSDatabaseRecommendationCmdlet : AmazonComputeOptimizerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -55,11 +55,11 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Amazon Web Services accounts for which to export Auto Scaling group
-        /// recommendations.</para><para>If your account is the management account of an organization, use this parameter to
-        /// specify the member account for which you want to export recommendations.</para><para>This parameter cannot be specified together with the include member accounts parameter.
-        /// The parameters are mutually exclusive.</para><para>Recommendations for member accounts are not included in the export if this parameter,
-        /// or the include member accounts parameter, is omitted.</para><para>You can specify multiple account IDs per request.</para>
+        /// <para> The Amazon Web Services account IDs for the export Amazon RDS recommendations. </para><para>If your account is the management account or the delegated administrator of an organization,
+        /// use this parameter to specify the member account you want to export recommendations
+        /// to.</para><para>This parameter can't be specified together with the include member accounts parameter.
+        /// The parameters are mutually exclusive.</para><para>If this parameter or the include member accounts parameter is omitted, the recommendations
+        /// for member accounts aren't included in the export.</para><para>You can specify multiple account IDs per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter FileFormat
         /// <summary>
         /// <para>
-        /// <para>The format of the export file.</para><para>The only export file format currently supported is <c>Csv</c>.</para>
+        /// <para> The format of the export file. </para><para>The CSV file is the only export file format currently supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,27 +120,27 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of objects to specify a filter that exports a more specific set of Auto Scaling
-        /// group recommendations.</para>
+        /// <para> An array of objects to specify a filter that exports a more specific set of Amazon
+        /// RDS recommendations. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
-        public Amazon.ComputeOptimizer.Model.Filter[] Filter { get; set; }
+        public Amazon.ComputeOptimizer.Model.RDSDBRecommendationFilter[] Filter { get; set; }
         #endregion
         
         #region Parameter IncludeMemberAccount
         /// <summary>
         /// <para>
-        /// <para>Indicates whether to include recommendations for resources in all member accounts
-        /// of the organization if your account is the management account of an organization.</para><para>The member accounts must also be opted in to Compute Optimizer, and trusted access
+        /// <para>If your account is the management account or the delegated administrator of an organization,
+        /// this parameter indicates whether to include recommendations for resources in all member
+        /// accounts of the organization.</para><para>The member accounts must also be opted in to Compute Optimizer, and trusted access
         /// for Compute Optimizer must be enabled in the organization account. For more information,
         /// see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute
         /// Optimizer and Amazon Web Services Organizations trusted access</a> in the <i>Compute
-        /// Optimizer User Guide</i>.</para><para>Recommendations for member accounts of the organization are not included in the export
-        /// file if this parameter is omitted.</para><para>This parameter cannot be specified together with the account IDs parameter. The parameters
-        /// are mutually exclusive.</para><para>Recommendations for member accounts are not included in the export if this parameter,
-        /// or the account IDs parameter, is omitted.</para>
+        /// Optimizer User Guide</i>.</para><para>If this parameter is omitted, recommendations for member accounts of the organization
+        /// aren't included in the export file.</para><para>If this parameter or the account ID parameter is omitted, recommendations for member
+        /// accounts aren't included in the export.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.CO
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse).
-        /// Specifying the name of a property of type Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse).
+        /// Specifying the name of a property of type Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             base.ProcessRecord();
             
             var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Export-COAutoScalingGroupRecommendation (ExportAutoScalingGroupRecommendations)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Export-CORDSDatabaseRecommendation (ExportRDSDatabaseRecommendations)"))
             {
                 return;
             }
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse, ExportCOAutoScalingGroupRecommendationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse, ExportCORDSDatabaseRecommendationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             if (this.AccountId != null)
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
             context.FileFormat = this.FileFormat;
             if (this.Filter != null)
             {
-                context.Filter = new List<Amazon.ComputeOptimizer.Model.Filter>(this.Filter);
+                context.Filter = new List<Amazon.ComputeOptimizer.Model.RDSDBRecommendationFilter>(this.Filter);
             }
             context.IncludeMemberAccount = this.IncludeMemberAccount;
             if (this.RecommendationPreferences_CpuVendorArchitecture != null)
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsRequest();
+            var request = new Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsRequest();
             
             if (cmdletContext.AccountId != null)
             {
@@ -337,15 +337,15 @@ namespace Amazon.PowerShell.Cmdlets.CO
         
         #region AWS Service Operation Call
         
-        private Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse CallAWSServiceOperation(IAmazonComputeOptimizer client, Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsRequest request)
+        private Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse CallAWSServiceOperation(IAmazonComputeOptimizer client, Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Compute Optimizer", "ExportAutoScalingGroupRecommendations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Compute Optimizer", "ExportRDSDatabaseRecommendations");
             try
             {
                 #if DESKTOP
-                return client.ExportAutoScalingGroupRecommendations(request);
+                return client.ExportRDSDatabaseRecommendations(request);
                 #elif CORECLR
-                return client.ExportAutoScalingGroupRecommendationsAsync(request).GetAwaiter().GetResult();
+                return client.ExportRDSDatabaseRecommendationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -368,12 +368,12 @@ namespace Amazon.PowerShell.Cmdlets.CO
             public List<System.String> AccountId { get; set; }
             public List<System.String> FieldsToExport { get; set; }
             public Amazon.ComputeOptimizer.FileFormat FileFormat { get; set; }
-            public List<Amazon.ComputeOptimizer.Model.Filter> Filter { get; set; }
+            public List<Amazon.ComputeOptimizer.Model.RDSDBRecommendationFilter> Filter { get; set; }
             public System.Boolean? IncludeMemberAccount { get; set; }
             public List<System.String> RecommendationPreferences_CpuVendorArchitecture { get; set; }
             public System.String S3DestinationConfig_Bucket { get; set; }
             public System.String S3DestinationConfig_KeyPrefix { get; set; }
-            public System.Func<Amazon.ComputeOptimizer.Model.ExportAutoScalingGroupRecommendationsResponse, ExportCOAutoScalingGroupRecommendationCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ComputeOptimizer.Model.ExportRDSDatabaseRecommendationsResponse, ExportCORDSDatabaseRecommendationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

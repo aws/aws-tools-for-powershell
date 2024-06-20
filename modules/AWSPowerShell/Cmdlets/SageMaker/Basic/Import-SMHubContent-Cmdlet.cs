@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Import hub content.
-    /// 
-    ///  <note><para>
-    /// Hub APIs are only callable through SageMaker Studio.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Import", "SMHubContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMaker.Model.ImportHubContentResponse")]

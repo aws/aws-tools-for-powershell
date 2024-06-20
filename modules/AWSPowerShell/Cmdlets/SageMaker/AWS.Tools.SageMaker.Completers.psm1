@@ -517,10 +517,11 @@ $SM_Completers = {
             ($_ -eq "Get-SMHubContentList/HubContentType") -Or
             ($_ -eq "Get-SMHubContentVersionList/HubContentType") -Or
             ($_ -eq "Import-SMHubContent/HubContentType") -Or
-            ($_ -eq "Remove-SMHubContent/HubContentType")
+            ($_ -eq "Remove-SMHubContent/HubContentType") -Or
+            ($_ -eq "Remove-SMHubContentReference/HubContentType")
         }
         {
-            $v = "Model","Notebook"
+            $v = "Model","ModelReference","Notebook"
             break
         }
 
@@ -1550,7 +1551,7 @@ $SM_map = @{
     "EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "FeatureGroupStatusEqual"=@("Get-SMFeatureGroupList")
-    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent")
+    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent","Remove-SMHubContentReference")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
@@ -1701,6 +1702,7 @@ $SM_SelectMap = @{
                "New-SMFeatureGroup",
                "New-SMFlowDefinition",
                "New-SMHub",
+               "New-SMHubContentReference",
                "New-SMHumanTaskUi",
                "New-SMHyperParameterTuningJob",
                "New-SMImage",
@@ -1758,6 +1760,7 @@ $SM_SelectMap = @{
                "Remove-SMFlowDefinition",
                "Remove-SMHub",
                "Remove-SMHubContent",
+               "Remove-SMHubContentReference",
                "Remove-SMHumanTaskUi",
                "Remove-SMHyperParameterTuningJob",
                "Remove-SMImage",

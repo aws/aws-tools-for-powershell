@@ -11837,7 +11837,7 @@ $CA_Completers = {
             ($_ -eq "Write-CAPackageOriginConfiguration/Format")
         }
         {
-            $v = "generic","maven","npm","nuget","pypi","ruby","swift"
+            $v = "cargo","generic","maven","npm","nuget","pypi","ruby","swift"
             break
         }
 
@@ -15317,7 +15317,8 @@ $CO_Completers = {
             ($_ -eq "Export-COEC2InstanceRecommendation/FileFormat") -Or
             ($_ -eq "Export-COECSServiceRecommendation/FileFormat") -Or
             ($_ -eq "Export-COLambdaFunctionRecommendation/FileFormat") -Or
-            ($_ -eq "Export-COLicenseRecommendation/FileFormat")
+            ($_ -eq "Export-COLicenseRecommendation/FileFormat") -Or
+            ($_ -eq "Export-CORDSDatabaseRecommendation/FileFormat")
         }
         {
             $v = "Csv"
@@ -15341,7 +15342,8 @@ $CO_Completers = {
         # Amazon.ComputeOptimizer.MetricStatistic
         {
             ($_ -eq "Get-COEC2RecommendationProjectedMetric/Stat") -Or
-            ($_ -eq "Get-COECSServiceRecommendationProjectedMetric/Stat")
+            ($_ -eq "Get-COECSServiceRecommendationProjectedMetric/Stat") -Or
+            ($_ -eq "Get-CORDSDatabaseRecommendationProjectedMetric/Stat")
         }
         {
             $v = "Average","Maximum"
@@ -15355,7 +15357,7 @@ $CO_Completers = {
             ($_ -eq "Write-CORecommendationPreference/ResourceType")
         }
         {
-            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","License","NotApplicable"
+            $v = "AutoScalingGroup","EbsVolume","Ec2Instance","EcsService","LambdaFunction","License","NotApplicable","RdsDBInstance"
             break
         }
 
@@ -15395,13 +15397,13 @@ $CO_Completers = {
 $CO_map = @{
     "EnhancedInfrastructureMetric"=@("Write-CORecommendationPreference")
     "ExternalMetricsPreference_Source"=@("Write-CORecommendationPreference")
-    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation")
+    "FileFormat"=@("Export-COAutoScalingGroupRecommendation","Export-COEBSVolumeRecommendation","Export-COEC2InstanceRecommendation","Export-COECSServiceRecommendation","Export-COLambdaFunctionRecommendation","Export-COLicenseRecommendation","Export-CORDSDatabaseRecommendation")
     "InferredWorkloadType"=@("Write-CORecommendationPreference")
     "LookBackPeriod"=@("Write-CORecommendationPreference")
     "ResourceType"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
     "SavingsEstimationMode"=@("Write-CORecommendationPreference")
     "Scope_Name"=@("Get-CORecommendationPreference","Remove-CORecommendationPreference","Write-CORecommendationPreference")
-    "Stat"=@("Get-COEC2RecommendationProjectedMetric","Get-COECSServiceRecommendationProjectedMetric")
+    "Stat"=@("Get-COEC2RecommendationProjectedMetric","Get-COECSServiceRecommendationProjectedMetric","Get-CORDSDatabaseRecommendationProjectedMetric")
     "Status"=@("Update-COEnrollmentStatus")
 }
 
@@ -15463,6 +15465,7 @@ $CO_SelectMap = @{
                "Export-COECSServiceRecommendation",
                "Export-COLambdaFunctionRecommendation",
                "Export-COLicenseRecommendation",
+               "Export-CORDSDatabaseRecommendation",
                "Get-COAutoScalingGroupRecommendation",
                "Get-COEBSVolumeRecommendation",
                "Get-COEC2InstanceRecommendation",
@@ -15474,6 +15477,8 @@ $CO_SelectMap = @{
                "Get-COEnrollmentStatusesForOrganization",
                "Get-COLambdaFunctionRecommendation",
                "Get-COLicenseRecommendation",
+               "Get-CORDSDatabaseRecommendationProjectedMetric",
+               "Get-CORDSDatabaseRecommendation",
                "Get-CORecommendationPreference",
                "Get-CORecommendationSummary",
                "Write-CORecommendationPreference",
@@ -36733,6 +36738,13 @@ $IVSRT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IVSRealTime.ParticipantRecordingFilterByRecordingState
+        "Get-IVSRTParticipantList/FilterByRecordingState"
+        {
+            $v = "ACTIVE","FAILED","STARTING","STOPPED","STOPPING"
+            break
+        }
+
         # Amazon.IVSRealTime.ParticipantState
         "Get-IVSRTParticipantList/FilterByState"
         {
@@ -36780,6 +36792,7 @@ $IVSRT_Completers = {
 }
 
 $IVSRT_map = @{
+    "FilterByRecordingState"=@("Get-IVSRTParticipantList")
     "FilterByState"=@("Get-IVSRTParticipantList")
     "Grid_VideoAspectRatio"=@("Start-IVSRTComposition")
     "Grid_VideoFillMode"=@("Start-IVSRTComposition")
@@ -59489,10 +59502,11 @@ $SM_Completers = {
             ($_ -eq "Get-SMHubContentList/HubContentType") -Or
             ($_ -eq "Get-SMHubContentVersionList/HubContentType") -Or
             ($_ -eq "Import-SMHubContent/HubContentType") -Or
-            ($_ -eq "Remove-SMHubContent/HubContentType")
+            ($_ -eq "Remove-SMHubContent/HubContentType") -Or
+            ($_ -eq "Remove-SMHubContentReference/HubContentType")
         }
         {
-            $v = "Model","Notebook"
+            $v = "Model","ModelReference","Notebook"
             break
         }
 
@@ -60522,7 +60536,7 @@ $SM_map = @{
     "EndpointInput_S3DataDistributionType"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "EndpointInput_S3InputMode"=@("New-SMDataQualityJobDefinition","New-SMModelBiasJobDefinition","New-SMModelExplainabilityJobDefinition","New-SMModelQualityJobDefinition")
     "FeatureGroupStatusEqual"=@("Get-SMFeatureGroupList")
-    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent")
+    "HubContentType"=@("Get-SMHubContent","Get-SMHubContentList","Get-SMHubContentVersionList","Import-SMHubContent","Remove-SMHubContent","Remove-SMHubContentReference")
     "HumanLoopRequestSource_AwsManagedHumanLoopRequestSource"=@("New-SMFlowDefinition")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
@@ -60673,6 +60687,7 @@ $SM_SelectMap = @{
                "New-SMFeatureGroup",
                "New-SMFlowDefinition",
                "New-SMHub",
+               "New-SMHubContentReference",
                "New-SMHumanTaskUi",
                "New-SMHyperParameterTuningJob",
                "New-SMImage",
@@ -60730,6 +60745,7 @@ $SM_SelectMap = @{
                "Remove-SMFlowDefinition",
                "Remove-SMHub",
                "Remove-SMHubContent",
+               "Remove-SMHubContentReference",
                "Remove-SMHumanTaskUi",
                "Remove-SMHyperParameterTuningJob",
                "Remove-SMImage",

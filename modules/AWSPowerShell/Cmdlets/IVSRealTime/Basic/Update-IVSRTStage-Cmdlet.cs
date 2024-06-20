@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter AutoParticipantRecordingConfiguration_MediaType
+        /// <summary>
+        /// <para>
+        /// <para>Types of media to be recorded. Default: <c>AUDIO_VIDEO</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoParticipantRecordingConfiguration_MediaTypes")]
+        public System.String[] AutoParticipantRecordingConfiguration_MediaType { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -67,6 +78,19 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter AutoParticipantRecordingConfiguration_StorageConfigurationArn
+        /// <summary>
+        /// <para>
+        /// <para>ARN of the <a>StorageConfiguration</a> resource to use for auto participant recording.
+        /// Default: "" (empty string, no storage configuration is specified). Individual participant
+        /// recording cannot be started unless a storage configuration is specified, when a <a>Stage</a>
+        /// is created or updated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
         #endregion
         
         #region Parameter Select
@@ -138,6 +162,11 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                 WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.AutoParticipantRecordingConfiguration_MediaType != null)
+            {
+                context.AutoParticipantRecordingConfiguration_MediaType = new List<System.String>(this.AutoParticipantRecordingConfiguration_MediaType);
+            }
+            context.AutoParticipantRecordingConfiguration_StorageConfigurationArn = this.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -158,6 +187,35 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (cmdletContext.Arn != null)
             {
                 request.Arn = cmdletContext.Arn;
+            }
+            
+             // populate AutoParticipantRecordingConfiguration
+            var requestAutoParticipantRecordingConfigurationIsNull = true;
+            request.AutoParticipantRecordingConfiguration = new Amazon.IVSRealTime.Model.AutoParticipantRecordingConfiguration();
+            List<System.String> requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType = null;
+            if (cmdletContext.AutoParticipantRecordingConfiguration_MediaType != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType = cmdletContext.AutoParticipantRecordingConfiguration_MediaType;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType != null)
+            {
+                request.AutoParticipantRecordingConfiguration.MediaTypes = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
+            System.String requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = null;
+            if (cmdletContext.AutoParticipantRecordingConfiguration_StorageConfigurationArn != null)
+            {
+                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = cmdletContext.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
+            }
+            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn != null)
+            {
+                request.AutoParticipantRecordingConfiguration.StorageConfigurationArn = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn;
+                requestAutoParticipantRecordingConfigurationIsNull = false;
+            }
+             // determine if request.AutoParticipantRecordingConfiguration should be set to null
+            if (requestAutoParticipantRecordingConfigurationIsNull)
+            {
+                request.AutoParticipantRecordingConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -225,6 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public List<System.String> AutoParticipantRecordingConfiguration_MediaType { get; set; }
+            public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.IVSRealTime.Model.UpdateStageResponse, UpdateIVSRTStageCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Stage;

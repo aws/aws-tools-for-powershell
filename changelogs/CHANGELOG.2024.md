@@ -1,4 +1,18 @@
-﻿### 4.1.604 (2024-06-19 21:09Z)
+﻿### 4.1.605 (2024-06-20 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.836.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Compute Optimizer
+    * Added cmdlet Export-CORDSDatabaseRecommendation leveraging the ExportRDSDatabaseRecommendations service API.
+    * Added cmdlet Get-CORDSDatabaseRecommendation leveraging the GetRDSDatabaseRecommendations service API.
+    * Added cmdlet Get-CORDSDatabaseRecommendationProjectedMetric leveraging the GetRDSDatabaseRecommendationProjectedMetrics service API.
+  * Amazon Interactive Video Service RealTime
+    * Modified cmdlet Get-IVSRTParticipantList: added parameter FilterByRecordingState.
+    * Modified cmdlet New-IVSRTStage: added parameters AutoParticipantRecordingConfiguration_MediaType and AutoParticipantRecordingConfiguration_StorageConfigurationArn.
+    * Modified cmdlet Update-IVSRTStage: added parameters AutoParticipantRecordingConfiguration_MediaType and AutoParticipantRecordingConfiguration_StorageConfigurationArn.
+  * Amazon SageMaker Service
+    * Added cmdlet New-SMHubContentReference leveraging the CreateHubContentReference service API.
+    * Added cmdlet Remove-SMHubContentReference leveraging the DeleteHubContentReference service API.
+
+### 4.1.604 (2024-06-19 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.835.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon OpenSearch Service
     * Modified cmdlet New-OSDomain: added parameters JWTOptions_Enabled, JWTOptions_PublicKey, JWTOptions_RolesKey and JWTOptions_SubjectKey.

@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.CO
         /// <para>
         /// <para>The target resource type of the recommendation preference to create.</para><para>The <c>Ec2Instance</c> option encompasses standalone instances and instances that
         /// are part of Auto Scaling groups. The <c>AutoScalingGroup</c> option encompasses only
-        /// instances that are part of an Auto Scaling group.</para><note><para>The valid values for this parameter are <c>Ec2Instance</c> and <c>AutoScalingGroup</c>.</para></note>
+        /// instances that are part of an Auto Scaling group.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,50 +28,40 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Update a hub.
+    /// Create a hub content reference in order to add a model in the JumpStart public hub
+    /// to a private hub.
     /// </summary>
-    [Cmdlet("Update", "SMHub", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service UpdateHub API operation.", Operation = new[] {"UpdateHub"}, SelectReturnType = typeof(Amazon.SageMaker.Model.UpdateHubResponse))]
-    [AWSCmdletOutput("System.String or Amazon.SageMaker.Model.UpdateHubResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.SageMaker.Model.UpdateHubResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "SMHubContentReference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SageMaker.Model.CreateHubContentReferenceResponse")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service CreateHubContentReference API operation.", Operation = new[] {"CreateHubContentReference"}, SelectReturnType = typeof(Amazon.SageMaker.Model.CreateHubContentReferenceResponse))]
+    [AWSCmdletOutput("Amazon.SageMaker.Model.CreateHubContentReferenceResponse",
+        "This cmdlet returns an Amazon.SageMaker.Model.CreateHubContentReferenceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSMHubCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class NewSMHubContentReferenceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter HubDescription
+        #region Parameter HubContentName
         /// <summary>
         /// <para>
-        /// <para>A description of the updated hub.</para>
+        /// <para>The name of the hub content to reference.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String HubDescription { get; set; }
-        #endregion
-        
-        #region Parameter HubDisplayName
-        /// <summary>
-        /// <para>
-        /// <para>The display name of the hub.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String HubDisplayName { get; set; }
+        public System.String HubContentName { get; set; }
         #endregion
         
         #region Parameter HubName
         /// <summary>
         /// <para>
-        /// <para>The name of the hub to update.</para>
+        /// <para>The name of the hub to add the hub content reference to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -79,36 +69,53 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String HubName { get; set; }
         #endregion
         
-        #region Parameter HubSearchKeyword
+        #region Parameter MinVersion
         /// <summary>
         /// <para>
-        /// <para>The searchable keywords for the hub.</para>
+        /// <para>The minimum version of the hub content to reference.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("HubSearchKeywords")]
-        public System.String[] HubSearchKeyword { get; set; }
+        public System.String MinVersion { get; set; }
+        #endregion
+        
+        #region Parameter SageMakerPublicHubContentArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the public hub content to reference.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SageMakerPublicHubContentArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Any tags associated with the hub content to reference.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'HubArn'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.UpdateHubResponse).
-        /// Specifying the name of a property of type Amazon.SageMaker.Model.UpdateHubResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.CreateHubContentReferenceResponse).
+        /// Specifying the name of a property of type Amazon.SageMaker.Model.CreateHubContentReferenceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "HubArn";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the HubName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^HubName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^HubName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter Force
@@ -127,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HubName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SMHub (UpdateHub)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SMHubContentReference (CreateHubContentReference)"))
             {
                 return;
             }
@@ -137,23 +144,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.UpdateHubResponse, UpdateSMHubCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.CreateHubContentReferenceResponse, NewSMHubContentReferenceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.HubName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.HubDescription = this.HubDescription;
-            context.HubDisplayName = this.HubDisplayName;
+            context.HubContentName = this.HubContentName;
             context.HubName = this.HubName;
             #if MODULAR
             if (this.HubName == null && ParameterWasBound(nameof(this.HubName)))
@@ -161,9 +157,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter HubName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.HubSearchKeyword != null)
+            context.MinVersion = this.MinVersion;
+            context.SageMakerPublicHubContentArn = this.SageMakerPublicHubContentArn;
+            #if MODULAR
+            if (this.SageMakerPublicHubContentArn == null && ParameterWasBound(nameof(this.SageMakerPublicHubContentArn)))
             {
-                context.HubSearchKeyword = new List<System.String>(this.HubSearchKeyword);
+                WriteWarning("You are passing $null as a value for parameter SageMakerPublicHubContentArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -179,23 +183,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.UpdateHubRequest();
+            var request = new Amazon.SageMaker.Model.CreateHubContentReferenceRequest();
             
-            if (cmdletContext.HubDescription != null)
+            if (cmdletContext.HubContentName != null)
             {
-                request.HubDescription = cmdletContext.HubDescription;
-            }
-            if (cmdletContext.HubDisplayName != null)
-            {
-                request.HubDisplayName = cmdletContext.HubDisplayName;
+                request.HubContentName = cmdletContext.HubContentName;
             }
             if (cmdletContext.HubName != null)
             {
                 request.HubName = cmdletContext.HubName;
             }
-            if (cmdletContext.HubSearchKeyword != null)
+            if (cmdletContext.MinVersion != null)
             {
-                request.HubSearchKeywords = cmdletContext.HubSearchKeyword;
+                request.MinVersion = cmdletContext.MinVersion;
+            }
+            if (cmdletContext.SageMakerPublicHubContentArn != null)
+            {
+                request.SageMakerPublicHubContentArn = cmdletContext.SageMakerPublicHubContentArn;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -230,15 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.UpdateHubResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.UpdateHubRequest request)
+        private Amazon.SageMaker.Model.CreateHubContentReferenceResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.CreateHubContentReferenceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "UpdateHub");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "CreateHubContentReference");
             try
             {
                 #if DESKTOP
-                return client.UpdateHub(request);
+                return client.CreateHubContentReference(request);
                 #elif CORECLR
-                return client.UpdateHubAsync(request).GetAwaiter().GetResult();
+                return client.CreateHubContentReferenceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -258,12 +266,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String HubDescription { get; set; }
-            public System.String HubDisplayName { get; set; }
+            public System.String HubContentName { get; set; }
             public System.String HubName { get; set; }
-            public List<System.String> HubSearchKeyword { get; set; }
-            public System.Func<Amazon.SageMaker.Model.UpdateHubResponse, UpdateSMHubCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.HubArn;
+            public System.String MinVersion { get; set; }
+            public System.String SageMakerPublicHubContentArn { get; set; }
+            public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
+            public System.Func<Amazon.SageMaker.Model.CreateHubContentReferenceResponse, NewSMHubContentReferenceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -80,6 +80,13 @@ $IVSRT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IVSRealTime.ParticipantRecordingFilterByRecordingState
+        "Get-IVSRTParticipantList/FilterByRecordingState"
+        {
+            $v = "ACTIVE","FAILED","STARTING","STOPPED","STOPPING"
+            break
+        }
+
         # Amazon.IVSRealTime.ParticipantState
         "Get-IVSRTParticipantList/FilterByState"
         {
@@ -127,6 +134,7 @@ $IVSRT_Completers = {
 }
 
 $IVSRT_map = @{
+    "FilterByRecordingState"=@("Get-IVSRTParticipantList")
     "FilterByState"=@("Get-IVSRTParticipantList")
     "Grid_VideoAspectRatio"=@("Start-IVSRTComposition")
     "Grid_VideoFillMode"=@("Start-IVSRTComposition")

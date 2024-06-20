@@ -46,20 +46,33 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <summary>
         /// <para>
         /// <para>Filters the response list to only show participants who published during the stage
-        /// session. Only one of <c>filterByUserId</c>, <c>filterByPublished</c>, or <c>filterByState</c>
-        /// can be provided per request.</para>
+        /// session. Only one of <c>filterByUserId</c>, <c>filterByPublished</c>, <c>filterByState</c>,
+        /// or <c>filterByRecordingState</c> can be provided per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? FilterByPublished { get; set; }
         #endregion
         
+        #region Parameter FilterByRecordingState
+        /// <summary>
+        /// <para>
+        /// <para>Filters the response list to only show participants with the specified recording state.
+        /// Only one of <c>filterByUserId</c>, <c>filterByPublished</c>, <c>filterByState</c>,
+        /// or <c>filterByRecordingState</c> can be provided per request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IVSRealTime.ParticipantRecordingFilterByRecordingState")]
+        public Amazon.IVSRealTime.ParticipantRecordingFilterByRecordingState FilterByRecordingState { get; set; }
+        #endregion
+        
         #region Parameter FilterByState
         /// <summary>
         /// <para>
         /// <para>Filters the response list to only show participants in the specified state. Only one
-        /// of <c>filterByUserId</c>, <c>filterByPublished</c>, or <c>filterByState</c> can be
-        /// provided per request.</para>
+        /// of <c>filterByUserId</c>, <c>filterByPublished</c>, <c>filterByState</c>, or <c>filterByRecordingState</c>
+        /// can be provided per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,9 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <summary>
         /// <para>
         /// <para>Filters the response list to match the specified user ID. Only one of <c>filterByUserId</c>,
-        /// <c>filterByPublished</c>, or <c>filterByState</c> can be provided per request. A <c>userId</c>
-        /// is a customer-assigned name to help identify the token; this can be used to link a
-        /// participant to a user in the customer’s own systems.</para>
+        /// <c>filterByPublished</c>, <c>filterByState</c>, or <c>filterByRecordingState</c> can
+        /// be provided per request. A <c>userId</c> is a customer-assigned name to help identify
+        /// the token; this can be used to link a participant to a user in the customer’s own
+        /// systems.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,6 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.FilterByPublished = this.FilterByPublished;
+            context.FilterByRecordingState = this.FilterByRecordingState;
             context.FilterByState = this.FilterByState;
             context.FilterByUserId = this.FilterByUserId;
             context.MaxResult = this.MaxResult;
@@ -200,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             if (cmdletContext.FilterByPublished != null)
             {
                 request.FilterByPublished = cmdletContext.FilterByPublished.Value;
+            }
+            if (cmdletContext.FilterByRecordingState != null)
+            {
+                request.FilterByRecordingState = cmdletContext.FilterByRecordingState;
             }
             if (cmdletContext.FilterByState != null)
             {
@@ -287,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? FilterByPublished { get; set; }
+            public Amazon.IVSRealTime.ParticipantRecordingFilterByRecordingState FilterByRecordingState { get; set; }
             public Amazon.IVSRealTime.ParticipantState FilterByState { get; set; }
             public System.String FilterByUserId { get; set; }
             public System.Int32? MaxResult { get; set; }

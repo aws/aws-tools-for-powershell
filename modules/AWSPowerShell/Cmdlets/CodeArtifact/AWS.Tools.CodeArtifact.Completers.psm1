@@ -121,7 +121,7 @@ $CA_Completers = {
             ($_ -eq "Write-CAPackageOriginConfiguration/Format")
         }
         {
-            $v = "generic","maven","npm","nuget","pypi","ruby","swift"
+            $v = "cargo","generic","maven","npm","nuget","pypi","ruby","swift"
             break
         }
 

@@ -22,33 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeArtifact;
-using Amazon.CodeArtifact.Model;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CA
+namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns the endpoint of a repository for a specific package format. A repository
-    /// has one endpoint for each package format: 
-    /// 
-    ///  <ul><li><para><c>cargo</c></para></li><li><para><c>generic</c></para></li><li><para><c>maven</c></para></li><li><para><c>npm</c></para></li><li><para><c>nuget</c></para></li><li><para><c>pypi</c></para></li><li><para><c>ruby</c></para></li><li><para><c>swift</c></para></li></ul>
+    /// Delete a hub content reference in order to remove a model from a private hub.
     /// </summary>
-    [Cmdlet("Get", "CARepositoryEndpoint")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS CodeArtifact GetRepositoryEndpoint API operation.", Operation = new[] {"GetRepositoryEndpoint"}, SelectReturnType = typeof(Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse))]
-    [AWSCmdletOutput("System.String or Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SMHubContentReference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteHubContentReference API operation.", Operation = new[] {"DeleteHubContentReference"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteHubContentReferenceResponse))]
+    [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteHubContentReferenceResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.SageMaker.Model.DeleteHubContentReferenceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCARepositoryEndpointCmdlet : AmazonCodeArtifactClientCmdlet, IExecutor
+    public partial class RemoveSMHubContentReferenceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Domain
+        #region Parameter HubContentName
         /// <summary>
         /// <para>
-        /// <para> The name of the domain that contains the repository. </para>
+        /// <para>The name of the hub content to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,25 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.CA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Domain { get; set; }
+        public System.String HubContentName { get; set; }
         #endregion
         
-        #region Parameter DomainOwner
+        #region Parameter HubContentType
         /// <summary>
         /// <para>
-        /// <para> The 12-digit account number of the Amazon Web Services account that owns the domain
-        /// that contains the repository. It does not include dashes or spaces. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DomainOwner { get; set; }
-        #endregion
-        
-        #region Parameter Format
-        /// <summary>
-        /// <para>
-        /// <para> Returns which endpoint of a repository to return. A repository has one endpoint for
-        /// each package format. </para>
+        /// <para>The type of hub content to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,14 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.CA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.CodeArtifact.PackageFormat")]
-        public Amazon.CodeArtifact.PackageFormat Format { get; set; }
+        [AWSConstantClassSource("Amazon.SageMaker.HubContentType")]
+        public Amazon.SageMaker.HubContentType HubContentType { get; set; }
         #endregion
         
-        #region Parameter Repository
+        #region Parameter HubName
         /// <summary>
         /// <para>
-        /// <para> The name of the repository. </para>
+        /// <para>The name of the hub to delete the hub content reference from.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -105,24 +90,39 @@ namespace Amazon.PowerShell.Cmdlets.CA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Repository { get; set; }
+        public System.String HubName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'RepositoryEndpoint'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse).
-        /// Specifying the name of a property of type Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DeleteHubContentReferenceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "RepositoryEndpoint";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HubName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMHubContentReference (DeleteHubContentReference)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -131,29 +131,28 @@ namespace Amazon.PowerShell.Cmdlets.CA
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse, GetCARepositoryEndpointCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteHubContentReferenceResponse, RemoveSMHubContentReferenceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.Domain = this.Domain;
+            context.HubContentName = this.HubContentName;
             #if MODULAR
-            if (this.Domain == null && ParameterWasBound(nameof(this.Domain)))
+            if (this.HubContentName == null && ParameterWasBound(nameof(this.HubContentName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Domain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter HubContentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DomainOwner = this.DomainOwner;
-            context.Format = this.Format;
+            context.HubContentType = this.HubContentType;
             #if MODULAR
-            if (this.Format == null && ParameterWasBound(nameof(this.Format)))
+            if (this.HubContentType == null && ParameterWasBound(nameof(this.HubContentType)))
             {
-                WriteWarning("You are passing $null as a value for parameter Format which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter HubContentType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Repository = this.Repository;
+            context.HubName = this.HubName;
             #if MODULAR
-            if (this.Repository == null && ParameterWasBound(nameof(this.Repository)))
+            if (this.HubName == null && ParameterWasBound(nameof(this.HubName)))
             {
-                WriteWarning("You are passing $null as a value for parameter Repository which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter HubName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,23 +169,19 @@ namespace Amazon.PowerShell.Cmdlets.CA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeArtifact.Model.GetRepositoryEndpointRequest();
+            var request = new Amazon.SageMaker.Model.DeleteHubContentReferenceRequest();
             
-            if (cmdletContext.Domain != null)
+            if (cmdletContext.HubContentName != null)
             {
-                request.Domain = cmdletContext.Domain;
+                request.HubContentName = cmdletContext.HubContentName;
             }
-            if (cmdletContext.DomainOwner != null)
+            if (cmdletContext.HubContentType != null)
             {
-                request.DomainOwner = cmdletContext.DomainOwner;
+                request.HubContentType = cmdletContext.HubContentType;
             }
-            if (cmdletContext.Format != null)
+            if (cmdletContext.HubName != null)
             {
-                request.Format = cmdletContext.Format;
-            }
-            if (cmdletContext.Repository != null)
-            {
-                request.Repository = cmdletContext.Repository;
+                request.HubName = cmdletContext.HubName;
             }
             
             CmdletOutput output;
@@ -221,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.CA
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse CallAWSServiceOperation(IAmazonCodeArtifact client, Amazon.CodeArtifact.Model.GetRepositoryEndpointRequest request)
+        private Amazon.SageMaker.Model.DeleteHubContentReferenceResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteHubContentReferenceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeArtifact", "GetRepositoryEndpoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteHubContentReference");
             try
             {
                 #if DESKTOP
-                return client.GetRepositoryEndpoint(request);
+                return client.DeleteHubContentReference(request);
                 #elif CORECLR
-                return client.GetRepositoryEndpointAsync(request).GetAwaiter().GetResult();
+                return client.DeleteHubContentReferenceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,12 +244,11 @@ namespace Amazon.PowerShell.Cmdlets.CA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Domain { get; set; }
-            public System.String DomainOwner { get; set; }
-            public Amazon.CodeArtifact.PackageFormat Format { get; set; }
-            public System.String Repository { get; set; }
-            public System.Func<Amazon.CodeArtifact.Model.GetRepositoryEndpointResponse, GetCARepositoryEndpointCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.RepositoryEndpoint;
+            public System.String HubContentName { get; set; }
+            public Amazon.SageMaker.HubContentType HubContentType { get; set; }
+            public System.String HubName { get; set; }
+            public System.Func<Amazon.SageMaker.Model.DeleteHubContentReferenceResponse, RemoveSMHubContentReferenceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }
