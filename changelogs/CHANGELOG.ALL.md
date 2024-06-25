@@ -1,4 +1,10 @@
-﻿### 4.1.606 (2024-06-25 00:10Z)
+﻿### 4.1.607 (2024-06-25 20:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.838.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon WorkSpaces Thin Client
+    * Modified cmdlet New-WSTCEnvironment: added parameter DeviceCreationTag.
+    * Modified cmdlet Update-WSTCEnvironment: added parameter DeviceCreationTag.
+
+### 4.1.606 (2024-06-25 00:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.837.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Customer Profiles
     * Modified cmdlet Write-CPFProfileObjectType: added parameter MaxProfileObjectCount.

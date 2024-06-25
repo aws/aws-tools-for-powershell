@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A cooldown period, in seconds, that applies to a specific simple scaling policy. When
-        /// a cooldown period is specified here, it overrides the default cooldown.</para><para>Valid only if the policy type is <c>SimpleScaling</c>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// a cooldown period is specified here, it overrides the default cooldown.</para><para>Valid only if the policy type is <c>SimpleScaling</c>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html">Scaling
         /// cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Default: None</para>
         /// </para>
         /// </summary>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>Indicates whether the scaling policy is enabled or disabled. The default is enabled.
-        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html">Disabling
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enable-disable-scaling-policy.html">Disable
         /// a scaling policy for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User
         /// Guide</i>.</para>
         /// </para>
@@ -158,11 +158,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Defines the behavior that should be applied if the forecast capacity approaches or
         /// exceeds the maximum capacity of the Auto Scaling group. Defaults to <c>HonorMaxCapacity</c>
-        /// if not specified.</para><para>The following are possible values:</para><ul><li><para><c>HonorMaxCapacity</c> - Amazon EC2 Auto Scaling cannot scale out capacity higher
-        /// than the maximum capacity. The maximum capacity is enforced as a hard limit. </para></li><li><para><c>IncreaseMaxCapacity</c> - Amazon EC2 Auto Scaling can scale out capacity higher
-        /// than the maximum capacity when the forecast capacity is close to or exceeds the maximum
-        /// capacity. The upper limit is determined by the forecasted capacity and the value for
-        /// <c>MaxCapacityBuffer</c>.</para></li></ul>
+        /// if not specified.</para><para>The following are possible values:</para><ul><li><para><c>HonorMaxCapacity</c> - Amazon EC2 Auto Scaling can't increase the maximum capacity
+        /// of the group when the forecast capacity is close to or exceeds the maximum capacity.</para></li><li><para><c>IncreaseMaxCapacity</c> - Amazon EC2 Auto Scaling can increase the maximum capacity
+        /// of the group when the forecast capacity is close to or exceeds the maximum capacity.
+        /// The upper limit is determined by the forecasted capacity and the value for <c>MaxCapacityBuffer</c>.</para></li></ul><important><para>Use caution when allowing the maximum capacity to be automatically increased. This
+        /// can lead to more instances being launched than intended if the increased maximum capacity
+        /// is not monitored and managed. The increased maximum capacity then becomes the new
+        /// normal maximum capacity for the Auto Scaling group until you manually update it. The
+        /// maximum capacity does not automatically decrease back to the original maximum.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

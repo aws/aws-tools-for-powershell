@@ -41,9 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// are also registered with the load balancer. If there are target groups attached to
     /// your Auto Scaling group, the instances are also registered with the target groups.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach
-    /// EC2 instances to your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User
-    /// Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach
+    /// or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Mount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// This configuration overwrites any existing configuration.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting
-    /// Amazon SNS notifications when your Auto Scaling group scales</a> in the <i>Amazon
-    /// EC2 Auto Scaling User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html">Amazon
+    /// SNS notification options for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto
+    /// Scaling User Guide</i>.
     /// </para><para>
     /// If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group,
     /// the call fails.

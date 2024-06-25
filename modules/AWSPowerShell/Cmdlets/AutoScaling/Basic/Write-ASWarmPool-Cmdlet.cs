@@ -31,19 +31,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Creates or updates a warm pool for the specified Auto Scaling group. A warm pool is
     /// a pool of pre-initialized EC2 instances that sits alongside the Auto Scaling group.
     /// Whenever your application needs to scale out, the Auto Scaling group can draw on the
-    /// warm pool to meet its new desired capacity. For more information and example configurations,
-    /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
-    /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// warm pool to meet its new desired capacity.
     /// 
     ///  
     /// <para>
     /// This operation must be called from the Region in which the Auto Scaling group was
-    /// created. This operation cannot be called on an Auto Scaling group that has a mixed
-    /// instances policy or a launch template or launch configuration that requests Spot Instances.
+    /// created.
     /// </para><para>
     /// You can view the instances in the warm pool using the <a>DescribeWarmPool</a> API
     /// call. If you are no longer using a warm pool, you can delete it by calling the <a>DeleteWarmPool</a>
     /// API.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html">Warm
+    /// pools for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASWarmPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

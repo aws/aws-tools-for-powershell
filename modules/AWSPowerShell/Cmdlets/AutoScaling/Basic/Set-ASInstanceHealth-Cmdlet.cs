@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-    /// checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health
+    /// checks for instances in an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
+    /// User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASInstanceHealth", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -90,8 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>If the Auto Scaling group of the specified instance has a <c>HealthCheckGracePeriod</c>
         /// specified for the group, by default, this call respects the grace period. Set this
         /// to <c>False</c>, to have the call not respect the grace period associated with the
-        /// group.</para><para>For more information about the health check grace period, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CreateAutoScalingGroup.html">CreateAutoScalingGroup</a>
-        /// in the <i>Amazon EC2 Auto Scaling API Reference</i>.</para>
+        /// group.</para><para>For more information about the health check grace period, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html">Set
+        /// the health check grace period for an Auto Scaling group</a> in the <i>Amazon EC2 Auto
+        /// Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

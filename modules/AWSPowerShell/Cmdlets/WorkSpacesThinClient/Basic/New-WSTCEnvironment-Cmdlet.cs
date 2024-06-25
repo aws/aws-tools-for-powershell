@@ -107,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
         public System.String DesktopEndpoint { get; set; }
         #endregion
         
+        #region Parameter DeviceCreationTag
+        /// <summary>
+        /// <para>
+        /// <para>A map of the key-value pairs of the tag or tags to assign to the newly created devices
+        /// for this environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DeviceCreationTags")]
+        public System.Collections.Hashtable DeviceCreationTag { get; set; }
+        #endregion
+        
         #region Parameter MaintenanceWindow_EndTimeHour
         /// <summary>
         /// <para>
@@ -301,6 +313,14 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
             }
             #endif
             context.DesktopEndpoint = this.DesktopEndpoint;
+            if (this.DeviceCreationTag != null)
+            {
+                context.DeviceCreationTag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.DeviceCreationTag.Keys)
+                {
+                    context.DeviceCreationTag.Add((String)hashKey, (System.String)(this.DeviceCreationTag[hashKey]));
+                }
+            }
             context.KmsKeyArn = this.KmsKeyArn;
             context.MaintenanceWindow_ApplyTimeOf = this.MaintenanceWindow_ApplyTimeOf;
             if (this.MaintenanceWindow_DaysOfTheWeek != null)
@@ -354,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
             if (cmdletContext.DesktopEndpoint != null)
             {
                 request.DesktopEndpoint = cmdletContext.DesktopEndpoint;
+            }
+            if (cmdletContext.DeviceCreationTag != null)
+            {
+                request.DeviceCreationTags = cmdletContext.DeviceCreationTag;
             }
             if (cmdletContext.KmsKeyArn != null)
             {
@@ -519,6 +543,7 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
             public System.String DesiredSoftwareSetId { get; set; }
             public System.String DesktopArn { get; set; }
             public System.String DesktopEndpoint { get; set; }
+            public Dictionary<System.String, System.String> DeviceCreationTag { get; set; }
             public System.String KmsKeyArn { get; set; }
             public Amazon.WorkSpacesThinClient.ApplyTimeOf MaintenanceWindow_ApplyTimeOf { get; set; }
             public List<System.String> MaintenanceWindow_DaysOfTheWeek { get; set; }

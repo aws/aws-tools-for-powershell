@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// When scaling events occur, you see a record of the scaling activity in the scaling
-    /// activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying
+    /// activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verify
     /// a scaling activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.
     /// </para><para>

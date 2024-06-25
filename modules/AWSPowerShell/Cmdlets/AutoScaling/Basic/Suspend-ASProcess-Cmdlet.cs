@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// If you suspend either the <c>Launch</c> or <c>Terminate</c> process types, it can
-    /// prevent other process types from functioning properly. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending
-    /// and resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// prevent other process types from functioning properly. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend
+    /// and resume Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling
+    /// User Guide</i>.
     /// </para><para>
     /// To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.
     /// </para>

@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para><i>Only needed if you use simple scaling policies.</i></para><para>The amount of time, in seconds, between one scaling activity ending and another one
-        /// starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// starting due to simple scaling policies. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-cooldowns.html">Scaling
         /// cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -184,8 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The unit of measurement for the value specified for desired capacity. Amazon EC2 Auto
         /// Scaling supports <c>DesiredCapacityType</c> for attribute-based instance type selection
-        /// only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html">Creating
-        /// an Auto Scaling group using attribute-based instance type selection</a> in the <i>Amazon
+        /// only. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html">Create
+        /// a mixed instances group using attribute-based instance type selection</a> in the <i>Amazon
         /// EC2 Auto Scaling User Guide</i>.</para><para>By default, Amazon EC2 Auto Scaling specifies <c>units</c>, which translates into
         /// number of instances.</para><para>Valid values: <c>units</c> | <c>vcpu</c> | <c>memory-mib</c></para>
         /// </para>
@@ -214,8 +214,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A comma-separated value string of one or more health check types.</para><para>The valid values are <c>EC2</c>, <c>ELB</c>, and <c>VPC_LATTICE</c>. <c>EC2</c> is
-        /// the default health check and cannot be disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-        /// checks for Auto Scaling instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Only specify <c>EC2</c> if you must clear a value that was previously set.</para>
+        /// the default health check and cannot be disabled. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health
+        /// checks for instances in an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
+        /// User Guide</i>.</para><para>Only specify <c>EC2</c> if you must clear a value that was previously set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -341,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Indicates whether newly launched instances are protected from termination by Amazon
         /// EC2 Auto Scaling when scaling in. For more information about preventing instances
-        /// from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+        /// from terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use
         /// instance scale-in protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -380,8 +381,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>A policy or a list of policies that are used to select the instances to terminate.
         /// The policies are executed in the order that you list them. For more information, see
-        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Work
-        /// with Amazon EC2 Auto Scaling termination policies</a> in the <i>Amazon EC2 Auto Scaling
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html">Configure
+        /// termination policies for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.</para><para>Valid values: <c>Default</c> | <c>AllocationStrategy</c> | <c>ClosestToNextInstanceHour</c>
         /// | <c>NewestInstance</c> | <c>OldestInstance</c> | <c>OldestLaunchConfiguration</c>
         /// | <c>OldestLaunchTemplate</c> | <c>arn:aws:lambda:region:account-id:function:my-function:my-alias</c></para>

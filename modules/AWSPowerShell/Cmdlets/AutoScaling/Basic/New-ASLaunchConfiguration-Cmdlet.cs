@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas
     /// for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-configurations.html">Launch
     /// configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><note><para>
     /// Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group
@@ -69,8 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// If the instance is launched into a nondefault subnet, the default is not to assign
         /// a public IPv4 address, unless you enabled the option to assign a public IPv4 address
         /// on the subnet.</para><para>If you specify <c>true</c>, each instance in the Auto Scaling group receives a unique
-        /// public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
-        /// Auto Scaling instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify this property, you must specify at least one subnet for <c>VPCZoneIdentifier</c>
+        /// public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Provide
+        /// network connectivity for your Auto Scaling instances using Amazon VPC</a> in the <i>Amazon
+        /// EC2 Auto Scaling User Guide</i>.</para><para>If you specify this property, you must specify at least one subnet for <c>VPCZoneIdentifier</c>
         /// when you create your group.</para>
         /// </para>
         /// </summary>
@@ -121,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// and an optimized configuration stack to provide optimal I/O performance. This optimization
         /// is not available with all instance types. Additional fees are incurred when you enable
         /// EBS optimization for an instance type that is not EBS-optimized by default. For more
-        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
+        /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon
         /// EBS-optimized instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>The default value is <c>false</c>.</para>
         /// </para>
         /// </summary>
@@ -200,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find
         /// a Linux AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If you specify <c>InstanceId</c>, an <c>ImageId</c> is not required.</para>
         /// </para>
         /// </summary>
@@ -213,9 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of the instance to use to create the launch configuration. The new launch configuration
         /// derives attributes from the instance, except for the block device mapping.</para><para>To create a launch configuration with a block device mapping or override any other
-        /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Creating
-        /// a launch configuration using an EC2 instance</a> in the <i>Amazon EC2 Auto Scaling
-        /// User Guide</i>.</para>
+        /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html">Create
+        /// a launch configuration</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-        /// EC2 key pairs and Linux instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// EC2 key pairs and Amazon EC2 instances</a> in the <i>Amazon EC2 User Guide for Linux
+        /// Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -281,9 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// with <c>dedicated</c> tenancy runs on isolated, single-tenant hardware and can only
         /// be launched into a VPC. To launch dedicated instances into a shared tenancy VPC (a
         /// VPC with the instance placement tenancy attribute set to <c>default</c>), you must
-        /// set the value of this property to <c>dedicated</c>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
-        /// instance tenancy with Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling
-        /// User Guide</i>.</para><para>If you specify <c>PlacementTenancy</c>, you must specify at least one subnet for <c>VPCZoneIdentifier</c>
+        /// set the value of this property to <c>dedicated</c>.</para><para>If you specify <c>PlacementTenancy</c>, you must specify at least one subnet for <c>VPCZoneIdentifier</c>
         /// when you create your group.</para><para>Valid values: <c>default</c> | <c>dedicated</c></para>
         /// </para>
         /// </summary>
@@ -307,9 +306,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A list that contains the security group IDs to assign to the instances in the Auto
-        /// Scaling group. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Control
-        /// traffic to resources using security groups</a> in the <i>Amazon Virtual Private Cloud
-        /// User Guide</i>.</para>
+        /// Scaling group. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html">Control
+        /// traffic to your Amazon Web Services resources using security groups</a> in the <i>Amazon
+        /// Virtual Private Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

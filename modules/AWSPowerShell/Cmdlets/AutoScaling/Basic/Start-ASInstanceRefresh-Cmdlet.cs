@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>(Optional) Threshold values for each checkpoint in ascending order. Each number must
         /// be unique. To replace all instances in the Auto Scaling group, the last number in
-        /// the array must be <c>100</c>.</para><para>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Adding
+        /// the array must be <c>100</c>.</para><para>For usage examples, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-adding-checkpoints-instance-refresh.html">Add
         /// checkpoints to an instance refresh</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>

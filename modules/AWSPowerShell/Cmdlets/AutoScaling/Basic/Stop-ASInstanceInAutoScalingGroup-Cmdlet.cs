@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// If you decrement the desired capacity, your Auto Scaling group can become unbalanced
     /// between Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group,
     /// and rebalancing might terminate instances in other zones. For more information, see
-    /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing
-    /// activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual
+    /// scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "ASInstanceInAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
