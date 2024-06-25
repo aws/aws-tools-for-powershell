@@ -143,6 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.Collections.Hashtable Key { get; set; }
         #endregion
         
+        #region Parameter MaxProfileObjectCount
+        /// <summary>
+        /// <para>
+        /// <para>The amount of profile object max count assigned to the object type</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? MaxProfileObjectCount { get; set; }
+        #endregion
+        
         #region Parameter ObjectTypeName
         /// <summary>
         /// <para>
@@ -303,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                     context.Key.Add((String)hashKey, valueSet);
                 }
             }
+            context.MaxProfileObjectCount = this.MaxProfileObjectCount;
             context.ObjectTypeName = this.ObjectTypeName;
             #if MODULAR
             if (this.ObjectTypeName == null && ParameterWasBound(nameof(this.ObjectTypeName)))
@@ -363,6 +374,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             if (cmdletContext.Key != null)
             {
                 request.Keys = cmdletContext.Key;
+            }
+            if (cmdletContext.MaxProfileObjectCount != null)
+            {
+                request.MaxProfileObjectCount = cmdletContext.MaxProfileObjectCount.Value;
             }
             if (cmdletContext.ObjectTypeName != null)
             {
@@ -448,6 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public System.Int32? ExpirationDay { get; set; }
             public Dictionary<System.String, Amazon.CustomerProfiles.Model.ObjectTypeField> Field { get; set; }
             public Dictionary<System.String, List<Amazon.CustomerProfiles.Model.ObjectTypeKey>> Key { get; set; }
+            public System.Int32? MaxProfileObjectCount { get; set; }
             public System.String ObjectTypeName { get; set; }
             public System.String SourceLastUpdatedTimestampFormat { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

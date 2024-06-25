@@ -79,6 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         public Amazon.WorkSpacesWeb.EnabledType CopyAllowed { get; set; }
         #endregion
         
+        #region Parameter DeepLinkAllowed
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the user can use deep links that open automatically when connecting
+        /// to a session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.WorkSpacesWeb.EnabledType")]
+        public Amazon.WorkSpacesWeb.EnabledType DeepLinkAllowed { get; set; }
+        #endregion
+        
         #region Parameter DisconnectTimeoutInMinute
         /// <summary>
         /// <para>
@@ -252,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
                 context.CookieSynchronizationConfiguration_Blocklist = new List<Amazon.WorkSpacesWeb.Model.CookieSpecification>(this.CookieSynchronizationConfiguration_Blocklist);
             }
             context.CopyAllowed = this.CopyAllowed;
+            context.DeepLinkAllowed = this.DeepLinkAllowed;
             context.DisconnectTimeoutInMinute = this.DisconnectTimeoutInMinute;
             context.DownloadAllowed = this.DownloadAllowed;
             context.IdleDisconnectTimeoutInMinute = this.IdleDisconnectTimeoutInMinute;
@@ -317,6 +330,10 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             if (cmdletContext.CopyAllowed != null)
             {
                 request.CopyAllowed = cmdletContext.CopyAllowed;
+            }
+            if (cmdletContext.DeepLinkAllowed != null)
+            {
+                request.DeepLinkAllowed = cmdletContext.DeepLinkAllowed;
             }
             if (cmdletContext.DisconnectTimeoutInMinute != null)
             {
@@ -411,6 +428,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             public List<Amazon.WorkSpacesWeb.Model.CookieSpecification> CookieSynchronizationConfiguration_Allowlist { get; set; }
             public List<Amazon.WorkSpacesWeb.Model.CookieSpecification> CookieSynchronizationConfiguration_Blocklist { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType CopyAllowed { get; set; }
+            public Amazon.WorkSpacesWeb.EnabledType DeepLinkAllowed { get; set; }
             public System.Int32? DisconnectTimeoutInMinute { get; set; }
             public Amazon.WorkSpacesWeb.EnabledType DownloadAllowed { get; set; }
             public System.Int32? IdleDisconnectTimeoutInMinute { get; set; }

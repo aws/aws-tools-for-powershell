@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
     ///  <note><para>
     /// There are new tiers for Amazon Q Business. Not all features in Amazon Q Business Pro
     /// are also available in Amazon Q Business Lite. For information on what's included in
-    /// Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/what-is.html#tiers">Amazon
+    /// Amazon Q Business Lite and what's included in Amazon Q Business Pro, see <a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#user-sub-tiers">Amazon
     /// Q Business tiers</a>. You must use the Amazon Q Business console to assign subscription
     /// tiers to users.
     /// </para></note>
@@ -109,6 +109,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter QAppsConfiguration_QAppsControlMode
+        /// <summary>
+        /// <para>
+        /// <para>Status information about whether end users can create and use Amazon Q Apps in the
+        /// web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.QAppsControlMode")]
+        public Amazon.QBusiness.QAppsControlMode QAppsConfiguration_QAppsControlMode { get; set; }
         #endregion
         
         #region Parameter RoleArn
@@ -221,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             #endif
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
             context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
+            context.QAppsConfiguration_QAppsControlMode = this.QAppsConfiguration_QAppsControlMode;
             context.RoleArn = this.RoleArn;
             if (this.Tag != null)
             {
@@ -295,6 +308,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.IdentityCenterInstanceArn != null)
             {
                 request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+            }
+            
+             // populate QAppsConfiguration
+            var requestQAppsConfigurationIsNull = true;
+            request.QAppsConfiguration = new Amazon.QBusiness.Model.QAppsConfiguration();
+            Amazon.QBusiness.QAppsControlMode requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode = null;
+            if (cmdletContext.QAppsConfiguration_QAppsControlMode != null)
+            {
+                requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode = cmdletContext.QAppsConfiguration_QAppsControlMode;
+            }
+            if (requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode != null)
+            {
+                request.QAppsConfiguration.QAppsControlMode = requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode;
+                requestQAppsConfigurationIsNull = false;
+            }
+             // determine if request.QAppsConfiguration should be set to null
+            if (requestQAppsConfigurationIsNull)
+            {
+                request.QAppsConfiguration = null;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -371,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String DisplayName { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
             public System.String IdentityCenterInstanceArn { get; set; }
+            public Amazon.QBusiness.QAppsControlMode QAppsConfiguration_QAppsControlMode { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.QBusiness.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.QBusiness.Model.CreateApplicationResponse, NewQBUSApplicationCmdlet, object> Select { get; set; } =

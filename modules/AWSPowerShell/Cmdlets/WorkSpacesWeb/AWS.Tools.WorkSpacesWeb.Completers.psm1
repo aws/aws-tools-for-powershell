@@ -94,6 +94,8 @@ $WSW_Completers = {
         {
             ($_ -eq "New-WSWUserSetting/CopyAllowed") -Or
             ($_ -eq "Update-WSWUserSetting/CopyAllowed") -Or
+            ($_ -eq "New-WSWUserSetting/DeepLinkAllowed") -Or
+            ($_ -eq "Update-WSWUserSetting/DeepLinkAllowed") -Or
             ($_ -eq "New-WSWUserSetting/DownloadAllowed") -Or
             ($_ -eq "Update-WSWUserSetting/DownloadAllowed") -Or
             ($_ -eq "New-WSWUserSetting/PasteAllowed") -Or
@@ -139,6 +141,7 @@ $WSW_Completers = {
 $WSW_map = @{
     "AuthenticationType"=@("New-WSWPortal","Update-WSWPortal")
     "CopyAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "DeepLinkAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DownloadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "IdentityProviderType"=@("New-WSWIdentityProvider","Update-WSWIdentityProvider")
     "InstanceType"=@("New-WSWPortal","Update-WSWPortal")

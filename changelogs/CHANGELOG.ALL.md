@@ -1,4 +1,16 @@
-﻿### 4.1.605 (2024-06-20 21:01Z)
+﻿### 4.1.606 (2024-06-25 00:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.837.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet Write-CPFProfileObjectType: added parameter MaxProfileObjectCount.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSApplication: added parameter QAppsConfiguration_QAppsControlMode.
+    * Modified cmdlet Update-QBUSApplication: added parameter QAppsConfiguration_QAppsControlMode.
+  * Amazon WorkSpaces Web
+    * Modified cmdlet New-WSWIdentityProvider: added parameter Tag.
+    * Modified cmdlet New-WSWUserSetting: added parameter DeepLinkAllowed.
+    * Modified cmdlet Update-WSWUserSetting: added parameter DeepLinkAllowed.
+
+### 4.1.605 (2024-06-20 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.836.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Compute Optimizer
     * Added cmdlet Export-CORDSDatabaseRecommendation leveraging the ExportRDSDatabaseRecommendations service API.

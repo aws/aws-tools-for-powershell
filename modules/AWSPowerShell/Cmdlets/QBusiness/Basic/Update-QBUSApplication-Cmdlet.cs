@@ -102,6 +102,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String IdentityCenterInstanceArn { get; set; }
         #endregion
         
+        #region Parameter QAppsConfiguration_QAppsControlMode
+        /// <summary>
+        /// <para>
+        /// <para>Status information about whether end users can create and use Amazon Q Apps in the
+        /// web experience.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.QAppsControlMode")]
+        public Amazon.QBusiness.QAppsControlMode QAppsConfiguration_QAppsControlMode { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -185,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
+            context.QAppsConfiguration_QAppsControlMode = this.QAppsConfiguration_QAppsControlMode;
             context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -236,6 +249,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.IdentityCenterInstanceArn != null)
             {
                 request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+            }
+            
+             // populate QAppsConfiguration
+            var requestQAppsConfigurationIsNull = true;
+            request.QAppsConfiguration = new Amazon.QBusiness.Model.QAppsConfiguration();
+            Amazon.QBusiness.QAppsControlMode requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode = null;
+            if (cmdletContext.QAppsConfiguration_QAppsControlMode != null)
+            {
+                requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode = cmdletContext.QAppsConfiguration_QAppsControlMode;
+            }
+            if (requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode != null)
+            {
+                request.QAppsConfiguration.QAppsControlMode = requestQAppsConfiguration_qAppsConfiguration_QAppsControlMode;
+                requestQAppsConfigurationIsNull = false;
+            }
+             // determine if request.QAppsConfiguration should be set to null
+            if (requestQAppsConfigurationIsNull)
+            {
+                request.QAppsConfiguration = null;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -307,6 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String IdentityCenterInstanceArn { get; set; }
+            public Amazon.QBusiness.QAppsControlMode QAppsConfiguration_QAppsControlMode { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.QBusiness.Model.UpdateApplicationResponse, UpdateQBUSApplicationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

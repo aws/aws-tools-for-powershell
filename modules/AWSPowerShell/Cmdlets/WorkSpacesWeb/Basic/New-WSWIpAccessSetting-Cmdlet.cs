@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the browser settings resource. A tag is a key-value pair.</para>
+        /// <para>The tags to add to the IP access settings resource. A tag is a key-value pair.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

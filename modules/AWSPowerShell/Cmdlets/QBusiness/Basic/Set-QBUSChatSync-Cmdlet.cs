@@ -113,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter ParentMessageId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the previous end user text input message in a conversation.</para>
+        /// <para>The identifier of the previous system message in a conversation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

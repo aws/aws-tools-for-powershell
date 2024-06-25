@@ -53227,6 +53227,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.QAppsControlMode
+        {
+            ($_ -eq "New-QBUSApplication/QAppsConfiguration_QAppsControlMode") -Or
+            ($_ -eq "Update-QBUSApplication/QAppsConfiguration_QAppsControlMode")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.ResponseScope
         "Update-QBUSChatControlsConfiguration/ResponseScope"
         {
@@ -53268,6 +53278,7 @@ $QBUS_map = @{
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
+    "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "ResponseScope"=@("Update-QBUSChatControlsConfiguration")
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
     "State"=@("Update-QBUSPlugin")
@@ -70941,6 +70952,8 @@ $WSW_Completers = {
         {
             ($_ -eq "New-WSWUserSetting/CopyAllowed") -Or
             ($_ -eq "Update-WSWUserSetting/CopyAllowed") -Or
+            ($_ -eq "New-WSWUserSetting/DeepLinkAllowed") -Or
+            ($_ -eq "Update-WSWUserSetting/DeepLinkAllowed") -Or
             ($_ -eq "New-WSWUserSetting/DownloadAllowed") -Or
             ($_ -eq "Update-WSWUserSetting/DownloadAllowed") -Or
             ($_ -eq "New-WSWUserSetting/PasteAllowed") -Or
@@ -70986,6 +70999,7 @@ $WSW_Completers = {
 $WSW_map = @{
     "AuthenticationType"=@("New-WSWPortal","Update-WSWPortal")
     "CopyAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "DeepLinkAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "DownloadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "IdentityProviderType"=@("New-WSWIdentityProvider","Update-WSWIdentityProvider")
     "InstanceType"=@("New-WSWPortal","Update-WSWPortal")

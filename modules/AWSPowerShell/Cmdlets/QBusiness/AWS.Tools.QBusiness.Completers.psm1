@@ -175,6 +175,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.QAppsControlMode
+        {
+            ($_ -eq "New-QBUSApplication/QAppsConfiguration_QAppsControlMode") -Or
+            ($_ -eq "Update-QBUSApplication/QAppsConfiguration_QAppsControlMode")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.ResponseScope
         "Update-QBUSChatControlsConfiguration/ResponseScope"
         {
@@ -216,6 +226,7 @@ $QBUS_map = @{
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
+    "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "ResponseScope"=@("Update-QBUSChatControlsConfiguration")
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")
     "State"=@("Update-QBUSPlugin")
