@@ -109,6 +109,19 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public System.Boolean? AccessConfig_BootstrapClusterCreatorAdminPermission { get; set; }
         #endregion
         
+        #region Parameter BootstrapSelfManagedAddon
+        /// <summary>
+        /// <para>
+        /// <para>If you set this value to <c>False</c> when creating a cluster, the default networking
+        /// add-ons will not be installed.</para><para>The default networking addons include vpc-cni, coredns, and kube-proxy.</para><para>Use this option when you plan to install third-party alternative add-ons or self-manage
+        /// the default networking add-ons.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BootstrapSelfManagedAddons")]
+        public System.Boolean? BootstrapSelfManagedAddon { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
@@ -366,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AccessConfig_AuthenticationMode = this.AccessConfig_AuthenticationMode;
             context.AccessConfig_BootstrapClusterCreatorAdminPermission = this.AccessConfig_BootstrapClusterCreatorAdminPermission;
+            context.BootstrapSelfManagedAddon = this.BootstrapSelfManagedAddon;
             context.ClientRequestToken = this.ClientRequestToken;
             if (this.EncryptionConfig != null)
             {
@@ -457,6 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (requestAccessConfigIsNull)
             {
                 request.AccessConfig = null;
+            }
+            if (cmdletContext.BootstrapSelfManagedAddon != null)
+            {
+                request.BootstrapSelfManagedAddons = cmdletContext.BootstrapSelfManagedAddon.Value;
             }
             if (cmdletContext.ClientRequestToken != null)
             {
@@ -651,6 +669,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         {
             public Amazon.EKS.AuthenticationMode AccessConfig_AuthenticationMode { get; set; }
             public System.Boolean? AccessConfig_BootstrapClusterCreatorAdminPermission { get; set; }
+            public System.Boolean? BootstrapSelfManagedAddon { get; set; }
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.EKS.Model.EncryptionConfig> EncryptionConfig { get; set; }
             public Amazon.EKS.IpFamily KubernetesNetworkConfig_IpFamily { get; set; }

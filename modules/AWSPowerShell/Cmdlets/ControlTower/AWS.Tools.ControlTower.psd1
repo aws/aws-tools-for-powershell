@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ACTLandingZone', 
         'Get-ACTLandingZoneList', 
         'Get-ACTLandingZoneOperation', 
+        'Get-ACTLandingZoneOperationList', 
         'Get-ACTResourceTag', 
         'New-ACTLandingZone', 
         'Remove-ACTLandingZone', 

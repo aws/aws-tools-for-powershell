@@ -87,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationOperation" OutputProperty="ApplicationOperationInfoDetails" Verb="Get" Noun="ApplicationOperation" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeApplicationSnapshot" OutputProperty="SnapshotDetails" Verb="Get" Noun="ApplicationSnapshot" PipelineParameter="SnapshotName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -96,6 +100,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DiscoverInputSchema" OutputProperty="*" Verb="Find" Noun="InputSchema" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationOperations" OutputProperty="ApplicationOperationInfoList" Verb="Get" Noun="ApplicationOperationList" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,11 +127,11 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartApplication" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="RunConfiguration" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StartApplication" OutputProperty="*" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="RunConfiguration" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopApplication" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="StopApplication" OutputProperty="*" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="ForceStop" AutoApplyAlias="false" />
             </Params>

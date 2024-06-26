@@ -1,4 +1,22 @@
-﻿### 4.1.607 (2024-06-25 20:55Z)
+﻿### 4.1.608 (2024-06-26 22:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.839.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Control Tower
+    * Added cmdlet Get-ACTLandingZoneOperationList leveraging the ListLandingZoneOperations service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter BootstrapSelfManagedAddon.
+  * Amazon Interactive Video Service RealTime
+    * Added cmdlet Get-IVSRTPublicKey leveraging the GetPublicKey service API.
+    * Added cmdlet Get-IVSRTPublicKeyList leveraging the ListPublicKeys service API.
+    * Added cmdlet Import-IVSRTPublicKey leveraging the ImportPublicKey service API.
+    * Added cmdlet Remove-IVSRTPublicKey leveraging the DeletePublicKey service API.
+  * Amazon Kinesis Analytics V2
+    * Added cmdlet Get-KINA2ApplicationOperation leveraging the DescribeApplicationOperation service API.
+    * Added cmdlet Get-KINA2ApplicationOperationList leveraging the ListApplicationOperations service API.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter NaturalLanguageQueryGenerationOptions_DesiredState.
+    * Modified cmdlet Update-OSDomainConfig: added parameter NaturalLanguageQueryGenerationOptions_DesiredState.
+
+### 4.1.607 (2024-06-25 20:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.838.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon WorkSpaces Thin Client
     * Modified cmdlet New-WSTCEnvironment: added parameter DeviceCreationTag.

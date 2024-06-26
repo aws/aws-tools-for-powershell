@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.838.0",
+    "ProductVersion"    : "3.7.839.0",
     "CoreVersion"       : "3.7.304.20",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -1132,7 +1132,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.307.3",
+            "Version" : "3.7.308.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.20"
@@ -1268,7 +1268,7 @@
             "InPreview"               : false
         },
         "KinesisAnalyticsV2"              : {
-            "Version" : "3.7.302.51",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.20"
@@ -2204,7 +2204,7 @@
             "InPreview"               : false
         },
         "OpenSearchService"               : {
-            "Version" : "3.7.308.2",
+            "Version" : "3.7.309.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.20"
@@ -2484,7 +2484,7 @@
             "InPreview"               : false
         },
         "ControlTower"                        : {
-            "Version" : "3.7.305.16",
+            "Version" : "3.7.306.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.20"
@@ -2692,7 +2692,7 @@
             "InPreview"               : false
         },
         "IVSRealTime"                         : {
-            "Version" : "3.7.304.1",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.20"

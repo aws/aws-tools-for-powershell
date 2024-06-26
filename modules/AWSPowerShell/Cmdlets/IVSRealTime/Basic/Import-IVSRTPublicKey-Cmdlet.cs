@@ -22,41 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KinesisAnalyticsV2;
-using Amazon.KinesisAnalyticsV2.Model;
+using Amazon.IVSRealTime;
+using Amazon.IVSRealTime.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KINA2
+namespace Amazon.PowerShell.Cmdlets.IVSRT
 {
     /// <summary>
-    /// Reverts the application to the previous running version. You can roll back an application
-    /// if you suspect it is stuck in a transient status or in the running status. 
-    /// 
-    ///  
-    /// <para>
-    /// You can roll back an application only if it is in the <c>UPDATING</c>, <c>AUTOSCALING</c>,
-    /// or <c>RUNNING</c> statuses.
-    /// </para><para>
-    /// When you rollback an application, it loads state data from the last successful snapshot.
-    /// If the application has no snapshots, Managed Service for Apache Flink rejects the
-    /// rollback request.
-    /// </para>
+    /// Import a public key to be used for signing stage participant tokens.
     /// </summary>
-    [Cmdlet("Undo", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 RollbackApplication API operation.", Operation = new[] {"RollbackApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse))]
-    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail or Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse",
-        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.ApplicationDetail object.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Import", "IVSRTPublicKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IVSRealTime.Model.PublicKey")]
+    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime ImportPublicKey API operation.", Operation = new[] {"ImportPublicKey"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.ImportPublicKeyResponse))]
+    [AWSCmdletOutput("Amazon.IVSRealTime.Model.PublicKey or Amazon.IVSRealTime.Model.ImportPublicKeyResponse",
+        "This cmdlet returns an Amazon.IVSRealTime.Model.PublicKey object.",
+        "The service call response (type Amazon.IVSRealTime.Model.ImportPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UndoKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
+    public partial class ImportIVSRTPublicKeyCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationName
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the application.</para>
+        /// <para>Name of the public key to be imported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter PublicKeyMaterial
+        /// <summary>
+        /// <para>
+        /// <para>The content of the public key to be imported.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,43 +66,41 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationName { get; set; }
+        public System.String PublicKeyMaterial { get; set; }
         #endregion
         
-        #region Parameter CurrentApplicationVersionId
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The current application version ID. You can retrieve the application version ID using
-        /// <a>DescribeApplication</a>.</para>
+        /// <para>Tags attached to the resource. Array of maps, each of the form <c>string:string (key:value)</c>.
+        /// See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
+        /// AWS Resources</a> for details, including restrictions that apply to tags and "Tag
+        /// naming limits and requirements"; Amazon IVS has no constraints on tags beyond what
+        /// is documented there.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int64? CurrentApplicationVersionId { get; set; }
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationDetail'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse).
-        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PublicKey'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.ImportPublicKeyResponse).
+        /// Specifying the name of a property of type Amazon.IVSRealTime.Model.ImportPublicKeyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationDetail";
+        public string Select { get; set; } = "PublicKey";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ApplicationName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PublicKeyMaterial parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PublicKeyMaterial' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PublicKeyMaterial' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -123,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Undo-KINA2Application (RollbackApplication)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-IVSRTPublicKey (ImportPublicKey)"))
             {
                 return;
             }
@@ -137,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse, UndoKINA2ApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.ImportPublicKeyResponse, ImportIVSRTPublicKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -146,23 +143,25 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ApplicationName;
+                context.Select = (response, cmdlet) => this.PublicKeyMaterial;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationName = this.ApplicationName;
+            context.Name = this.Name;
+            context.PublicKeyMaterial = this.PublicKeyMaterial;
             #if MODULAR
-            if (this.ApplicationName == null && ParameterWasBound(nameof(this.ApplicationName)))
+            if (this.PublicKeyMaterial == null && ParameterWasBound(nameof(this.PublicKeyMaterial)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PublicKeyMaterial which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
-            #if MODULAR
-            if (this.CurrentApplicationVersionId == null && ParameterWasBound(nameof(this.CurrentApplicationVersionId)))
+            if (this.Tag != null)
             {
-                WriteWarning("You are passing $null as a value for parameter CurrentApplicationVersionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -177,15 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisAnalyticsV2.Model.RollbackApplicationRequest();
+            var request = new Amazon.IVSRealTime.Model.ImportPublicKeyRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.Name != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.CurrentApplicationVersionId != null)
+            if (cmdletContext.PublicKeyMaterial != null)
             {
-                request.CurrentApplicationVersionId = cmdletContext.CurrentApplicationVersionId.Value;
+                request.PublicKeyMaterial = cmdletContext.PublicKeyMaterial;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -220,15 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.RollbackApplicationRequest request)
+        private Amazon.IVSRealTime.Model.ImportPublicKeyResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.ImportPublicKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "RollbackApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "ImportPublicKey");
             try
             {
                 #if DESKTOP
-                return client.RollbackApplication(request);
+                return client.ImportPublicKey(request);
                 #elif CORECLR
-                return client.RollbackApplicationAsync(request).GetAwaiter().GetResult();
+                return client.ImportPublicKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,10 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public System.Int64? CurrentApplicationVersionId { get; set; }
-            public System.Func<Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse, UndoKINA2ApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationDetail;
+            public System.String Name { get; set; }
+            public System.String PublicKeyMaterial { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Func<Amazon.IVSRealTime.Model.ImportPublicKeyResponse, ImportIVSRTPublicKeyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PublicKey;
         }
         
     }

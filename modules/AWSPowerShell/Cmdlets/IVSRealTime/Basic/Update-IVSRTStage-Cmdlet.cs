@@ -83,10 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter AutoParticipantRecordingConfiguration_StorageConfigurationArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the <a>StorageConfiguration</a> resource to use for auto participant recording.
-        /// Default: "" (empty string, no storage configuration is specified). Individual participant
-        /// recording cannot be started unless a storage configuration is specified, when a <a>Stage</a>
-        /// is created or updated.</para>
+        /// <para>ARN of the <a>StorageConfiguration</a> resource to use for individual participant
+        /// recording. Default: <c>""</c> (empty string, no storage configuration is specified).
+        /// Individual participant recording cannot be started unless a storage configuration
+        /// is specified, when a <a>Stage</a> is created or updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

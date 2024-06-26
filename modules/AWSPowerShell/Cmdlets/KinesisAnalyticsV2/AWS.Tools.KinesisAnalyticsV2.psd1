@@ -96,6 +96,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Find-KINA2InputSchema', 
         'Get-KINA2Application', 
         'Get-KINA2ApplicationList', 
+        'Get-KINA2ApplicationOperation', 
+        'Get-KINA2ApplicationOperationList', 
         'Get-KINA2ApplicationSnapshot', 
         'Get-KINA2ApplicationSnapshotList', 
         'Get-KINA2ApplicationVersion', 

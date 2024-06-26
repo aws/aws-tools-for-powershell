@@ -140,6 +140,7 @@ $ACT_SelectMap = @{
                "Get-ACTControlOperationList",
                "Get-ACTEnabledBaselineList",
                "Get-ACTEnabledControlList",
+               "Get-ACTLandingZoneOperationList",
                "Get-ACTLandingZoneList",
                "Get-ACTResourceTag",
                "Reset-ACTEnabledBaseline",

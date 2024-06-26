@@ -32,11 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     /// an application, you must exclusively call this operation to start your application.
     /// </summary>
     [Cmdlet("Start", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 StartApplication API operation.", Operation = new[] {"StartApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse))]
-    [AWSCmdletOutput("None or Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse",
+        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class StartKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {
@@ -73,8 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse).
+        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             public System.String ApplicationName { get; set; }
             public Amazon.KinesisAnalyticsV2.Model.RunConfiguration RunConfiguration { get; set; }
             public System.Func<Amazon.KinesisAnalyticsV2.Model.StartApplicationResponse, StartKINA2ApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

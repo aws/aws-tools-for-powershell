@@ -28,7 +28,8 @@ using Amazon.ControlTower.Model;
 namespace Amazon.PowerShell.Cmdlets.ACT
 {
     /// <summary>
-    /// Provides a list of operations in progress or queued.
+    /// Provides a list of operations in progress or queued. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html#list-control-operations-api-examples">ListControlOperation
+    /// examples</a>.
     /// </summary>
     [Cmdlet("Get", "ACTControlOperationList")]
     [OutputType("Amazon.ControlTower.Model.ControlOperationSummary")]

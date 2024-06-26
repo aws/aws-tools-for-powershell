@@ -86,6 +86,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLandingZoneOperations" OutputProperty="LandingZoneOperations" Verb="Get" Noun="LandingZoneOperationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListLandingZones" OutputProperty="LandingZones" Verb="Get" Noun="LandingZoneList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

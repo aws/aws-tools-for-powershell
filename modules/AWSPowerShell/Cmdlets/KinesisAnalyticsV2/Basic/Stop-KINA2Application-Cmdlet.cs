@@ -41,11 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
     /// </para>
     /// </summary>
     [Cmdlet("Stop", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse")]
     [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 StopApplication API operation.", Operation = new[] {"StopApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse))]
-    [AWSCmdletOutput("None or Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse",
+        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class StopKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {
@@ -87,8 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse).
+        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             public System.String ApplicationName { get; set; }
             public System.Boolean? ForceStop { get; set; }
             public System.Func<Amazon.KinesisAnalyticsV2.Model.StopApplicationResponse, StopKINA2ApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response;
         }
         
     }

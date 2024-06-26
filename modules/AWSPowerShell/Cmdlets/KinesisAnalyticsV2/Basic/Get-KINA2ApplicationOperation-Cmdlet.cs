@@ -28,27 +28,17 @@ using Amazon.KinesisAnalyticsV2.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA2
 {
     /// <summary>
-    /// Reverts the application to the previous running version. You can roll back an application
-    /// if you suspect it is stuck in a transient status or in the running status. 
-    /// 
-    ///  
-    /// <para>
-    /// You can roll back an application only if it is in the <c>UPDATING</c>, <c>AUTOSCALING</c>,
-    /// or <c>RUNNING</c> statuses.
-    /// </para><para>
-    /// When you rollback an application, it loads state data from the last successful snapshot.
-    /// If the application has no snapshots, Managed Service for Apache Flink rejects the
-    /// rollback request.
-    /// </para>
+    /// Returns information about a specific operation performed on a Managed Service for
+    /// Apache Flink application
     /// </summary>
-    [Cmdlet("Undo", "KINA2Application", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 RollbackApplication API operation.", Operation = new[] {"RollbackApplication"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse))]
-    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationDetail or Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse",
-        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.ApplicationDetail object.",
-        "The service call response (type Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KINA2ApplicationOperation")]
+    [OutputType("Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfoDetails")]
+    [AWSCmdlet("Calls the Amazon Kinesis Analytics V2 DescribeApplicationOperation API operation.", Operation = new[] {"DescribeApplicationOperation"}, SelectReturnType = typeof(Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse))]
+    [AWSCmdletOutput("Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfoDetails or Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse",
+        "This cmdlet returns an Amazon.KinesisAnalyticsV2.Model.ApplicationOperationInfoDetails object.",
+        "The service call response (type Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UndoKINA2ApplicationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
+    public partial class GetKINA2ApplicationOperationCmdlet : AmazonKinesisAnalyticsV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -56,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of the application.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,32 +60,32 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         public System.String ApplicationName { get; set; }
         #endregion
         
-        #region Parameter CurrentApplicationVersionId
+        #region Parameter OperationId
         /// <summary>
         /// <para>
-        /// <para>The current application version ID. You can retrieve the application version ID using
-        /// <a>DescribeApplication</a>.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.Int64? CurrentApplicationVersionId { get; set; }
+        public System.String OperationId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationDetail'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse).
-        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'ApplicationOperationInfoDetails'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse).
+        /// Specifying the name of a property of type Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "ApplicationDetail";
+        public string Select { get; set; } = "ApplicationOperationInfoDetails";
         #endregion
         
         #region Parameter PassThru
@@ -108,26 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Undo-KINA2Application (RollbackApplication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -137,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse, UndoKINA2ApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse, GetKINA2ApplicationOperationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -156,11 +130,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
                 WriteWarning("You are passing $null as a value for parameter ApplicationName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
+            context.OperationId = this.OperationId;
             #if MODULAR
-            if (this.CurrentApplicationVersionId == null && ParameterWasBound(nameof(this.CurrentApplicationVersionId)))
+            if (this.OperationId == null && ParameterWasBound(nameof(this.OperationId)))
             {
-                WriteWarning("You are passing $null as a value for parameter CurrentApplicationVersionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter OperationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -177,15 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisAnalyticsV2.Model.RollbackApplicationRequest();
+            var request = new Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationRequest();
             
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
             }
-            if (cmdletContext.CurrentApplicationVersionId != null)
+            if (cmdletContext.OperationId != null)
             {
-                request.CurrentApplicationVersionId = cmdletContext.CurrentApplicationVersionId.Value;
+                request.OperationId = cmdletContext.OperationId;
             }
             
             CmdletOutput output;
@@ -220,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.RollbackApplicationRequest request)
+        private Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse CallAWSServiceOperation(IAmazonKinesisAnalyticsV2 client, Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "RollbackApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics V2", "DescribeApplicationOperation");
             try
             {
                 #if DESKTOP
-                return client.RollbackApplication(request);
+                return client.DescribeApplicationOperation(request);
                 #elif CORECLR
-                return client.RollbackApplicationAsync(request).GetAwaiter().GetResult();
+                return client.DescribeApplicationOperationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,9 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
-            public System.Int64? CurrentApplicationVersionId { get; set; }
-            public System.Func<Amazon.KinesisAnalyticsV2.Model.RollbackApplicationResponse, UndoKINA2ApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.ApplicationDetail;
+            public System.String OperationId { get; set; }
+            public System.Func<Amazon.KinesisAnalyticsV2.Model.DescribeApplicationOperationResponse, GetKINA2ApplicationOperationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.ApplicationOperationInfoDetails;
         }
         
     }

@@ -22,30 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ControlTower;
-using Amazon.ControlTower.Model;
+using Amazon.IVSRealTime;
+using Amazon.IVSRealTime.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ACT
+namespace Amazon.PowerShell.Cmdlets.IVSRT
 {
     /// <summary>
-    /// Retrieves details about an enabled control. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"><i>Controls Reference Guide</i></a>.
+    /// Deletes the specified public key used to sign stage participant tokens. This invalidates
+    /// future participant tokens generated using the key pair’s private key.
     /// </summary>
-    [Cmdlet("Get", "ACTEnabledControl")]
-    [OutputType("Amazon.ControlTower.Model.EnabledControlDetails")]
-    [AWSCmdlet("Calls the AWS Control Tower GetEnabledControl API operation.", Operation = new[] {"GetEnabledControl"}, SelectReturnType = typeof(Amazon.ControlTower.Model.GetEnabledControlResponse))]
-    [AWSCmdletOutput("Amazon.ControlTower.Model.EnabledControlDetails or Amazon.ControlTower.Model.GetEnabledControlResponse",
-        "This cmdlet returns an Amazon.ControlTower.Model.EnabledControlDetails object.",
-        "The service call response (type Amazon.ControlTower.Model.GetEnabledControlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "IVSRTPublicKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime DeletePublicKey API operation.", Operation = new[] {"DeletePublicKey"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.DeletePublicKeyResponse))]
+    [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.DeletePublicKeyResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.IVSRealTime.Model.DeletePublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetACTEnabledControlCmdlet : AmazonControlTowerClientCmdlet, IExecutor
+    public partial class RemoveIVSRTPublicKeyCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EnabledControlIdentifier
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The <c>controlIdentifier</c> of the enabled control.</para>
+        /// <para>ARN of the public key to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,34 +57,49 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnabledControlIdentifier { get; set; }
+        public System.String Arn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'EnabledControlDetails'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ControlTower.Model.GetEnabledControlResponse).
-        /// Specifying the name of a property of type Amazon.ControlTower.Model.GetEnabledControlResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.DeletePublicKeyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "EnabledControlDetails";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnabledControlIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnabledControlIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnabledControlIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IVSRTPublicKey (DeletePublicKey)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -93,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ControlTower.Model.GetEnabledControlResponse, GetACTEnabledControlCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.DeletePublicKeyResponse, RemoveIVSRTPublicKeyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -102,14 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.ACT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnabledControlIdentifier;
+                context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EnabledControlIdentifier = this.EnabledControlIdentifier;
+            context.Arn = this.Arn;
             #if MODULAR
-            if (this.EnabledControlIdentifier == null && ParameterWasBound(nameof(this.EnabledControlIdentifier)))
+            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnabledControlIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -126,11 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ControlTower.Model.GetEnabledControlRequest();
+            var request = new Amazon.IVSRealTime.Model.DeletePublicKeyRequest();
             
-            if (cmdletContext.EnabledControlIdentifier != null)
+            if (cmdletContext.Arn != null)
             {
-                request.EnabledControlIdentifier = cmdletContext.EnabledControlIdentifier;
+                request.Arn = cmdletContext.Arn;
             }
             
             CmdletOutput output;
@@ -165,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         #region AWS Service Operation Call
         
-        private Amazon.ControlTower.Model.GetEnabledControlResponse CallAWSServiceOperation(IAmazonControlTower client, Amazon.ControlTower.Model.GetEnabledControlRequest request)
+        private Amazon.IVSRealTime.Model.DeletePublicKeyResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.DeletePublicKeyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Control Tower", "GetEnabledControl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "DeletePublicKey");
             try
             {
                 #if DESKTOP
-                return client.GetEnabledControl(request);
+                return client.DeletePublicKey(request);
                 #elif CORECLR
-                return client.GetEnabledControlAsync(request).GetAwaiter().GetResult();
+                return client.DeletePublicKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -193,9 +209,9 @@ namespace Amazon.PowerShell.Cmdlets.ACT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String EnabledControlIdentifier { get; set; }
-            public System.Func<Amazon.ControlTower.Model.GetEnabledControlResponse, GetACTEnabledControlCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.EnabledControlDetails;
+            public System.String Arn { get; set; }
+            public System.Func<Amazon.IVSRealTime.Model.DeletePublicKeyResponse, RemoveIVSRTPublicKeyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

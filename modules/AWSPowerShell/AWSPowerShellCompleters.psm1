@@ -17145,6 +17145,7 @@ $ACT_SelectMap = @{
                "Get-ACTControlOperationList",
                "Get-ACTEnabledBaselineList",
                "Get-ACTEnabledControlList",
+               "Get-ACTLandingZoneOperationList",
                "Get-ACTLandingZoneList",
                "Get-ACTResourceTag",
                "Reset-ACTEnabledBaseline",
@@ -36856,19 +36857,23 @@ $IVSRT_SelectMap = @{
                "New-IVSRTStage",
                "New-IVSRTStorageConfiguration",
                "Remove-IVSRTEncoderConfiguration",
+               "Remove-IVSRTPublicKey",
                "Remove-IVSRTStage",
                "Remove-IVSRTStorageConfiguration",
                "Disconnect-IVSRTParticipant",
                "Get-IVSRTComposition",
                "Get-IVSRTEncoderConfiguration",
                "Get-IVSRTParticipant",
+               "Get-IVSRTPublicKey",
                "Get-IVSRTStage",
                "Get-IVSRTStageSession",
                "Get-IVSRTStorageConfiguration",
+               "Import-IVSRTPublicKey",
                "Get-IVSRTCompositionList",
                "Get-IVSRTEncoderConfigurationList",
                "Get-IVSRTParticipantEventList",
                "Get-IVSRTParticipantList",
+               "Get-IVSRTPublicKeyList",
                "Get-IVSRTStageList",
                "Get-IVSRTStageSessionList",
                "Get-IVSRTStorageConfigurationList",
@@ -37925,6 +37930,13 @@ $KINA2_Completers = {
             break
         }
 
+        # Amazon.KinesisAnalyticsV2.OperationStatus
+        "Get-KINA2ApplicationOperationList/OperationStatus"
+        {
+            $v = "CANCELLED","FAILED","IN_PROGRESS","SUCCESSFUL"
+            break
+        }
+
         # Amazon.KinesisAnalyticsV2.RuntimeEnvironment
         {
             ($_ -eq "New-KINA2Application/RuntimeEnvironment") -Or
@@ -37952,6 +37964,7 @@ $KINA2_Completers = {
 
 $KINA2_map = @{
     "ApplicationMode"=@("New-KINA2Application")
+    "OperationStatus"=@("Get-KINA2ApplicationOperationList")
     "RuntimeEnvironment"=@("New-KINA2Application")
     "RuntimeEnvironmentUpdate"=@("Update-KINA2Application")
     "UrlType"=@("New-KINA2ApplicationPresignedUrl")
@@ -38024,9 +38037,11 @@ $KINA2_SelectMap = @{
                "Remove-KINA2ApplicationSnapshot",
                "Remove-KINA2ApplicationVpcConfiguration",
                "Get-KINA2Application",
+               "Get-KINA2ApplicationOperation",
                "Get-KINA2ApplicationSnapshot",
                "Get-KINA2ApplicationVersion",
                "Find-KINA2InputSchema",
+               "Get-KINA2ApplicationOperationList",
                "Get-KINA2ApplicationList",
                "Get-KINA2ApplicationSnapshotList",
                "Get-KINA2ApplicationVersionList",
@@ -48776,6 +48791,16 @@ $OS_Completers = {
             break
         }
 
+        # Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState
+        {
+            ($_ -eq "New-OSDomain/NaturalLanguageQueryGenerationOptions_DesiredState") -Or
+            ($_ -eq "Update-OSDomainConfig/NaturalLanguageQueryGenerationOptions_DesiredState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.OpenSearchService.OpenSearchPartitionInstanceType
         {
             ($_ -eq "New-OSDomain/ClusterConfig_DedicatedMasterType") -Or
@@ -48874,6 +48899,7 @@ $OS_map = @{
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
+    "NaturalLanguageQueryGenerationOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
