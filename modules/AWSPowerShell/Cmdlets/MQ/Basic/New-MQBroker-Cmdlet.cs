@@ -106,19 +106,13 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Enables automatic upgrades to new minor versions for brokers, as new versions are
-        /// released and supported by Amazon MQ. Automatic upgrades occur during the scheduled
-        /// maintenance window of the broker or after a manual broker reboot. Set to true by default,
-        /// if no value is specified.</para>
+        /// <para>Enables automatic upgrades to new patch versions for brokers as new versions are released
+        /// and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance
+        /// window or after a manual broker reboot. Set to true by default, if no value is specified.</para><note><para>Must be set to true for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers
+        /// version 3.13 and above.</para></note>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Boolean? AutoMinorVersionUpgrade { get; set; }
         #endregion
         
@@ -226,19 +220,13 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>Required. The broker engine's version. For a list of supported engine versions, see
-        /// <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported
-        /// engines</a>.</para>
+        /// <para>The broker engine version. Defaults to the latest available version for the specified
+        /// broker engine type. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ
+        /// version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ
+        /// version management</a> sections in the Amazon MQ Developer Guide.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EngineVersion { get; set; }
         #endregion
         
@@ -593,12 +581,6 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AuthenticationStrategy = this.AuthenticationStrategy;
             context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
-            #if MODULAR
-            if (this.AutoMinorVersionUpgrade == null && ParameterWasBound(nameof(this.AutoMinorVersionUpgrade)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AutoMinorVersionUpgrade which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.BrokerName = this.BrokerName;
             #if MODULAR
             if (this.BrokerName == null && ParameterWasBound(nameof(this.BrokerName)))
@@ -627,12 +609,6 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             }
             #endif
             context.EngineVersion = this.EngineVersion;
-            #if MODULAR
-            if (this.EngineVersion == null && ParameterWasBound(nameof(this.EngineVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EngineVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.HostInstanceType = this.HostInstanceType;
             #if MODULAR
             if (this.HostInstanceType == null && ParameterWasBound(nameof(this.HostInstanceType)))

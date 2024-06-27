@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Updates an Kinesis video stream pool in a media pipeline.
+    /// Updates an Amazon Kinesis Video Stream pool in a media pipeline.
     /// </summary>
     [Cmdlet("Update", "CHMMPMediaPipelineKinesisVideoStreamPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration")]
@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the video stream pool.</para>
+        /// <para>The unique identifier of the requested resource. Valid values include the name and
+        /// ARN of the media pipeline Kinesis Video Stream pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

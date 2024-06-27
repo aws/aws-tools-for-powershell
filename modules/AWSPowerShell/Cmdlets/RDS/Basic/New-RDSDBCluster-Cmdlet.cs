@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB subnet group.</para></li><li><para>Must not be <c>default</c>.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
+        /// <para>A DB subnet group to associate with this DB cluster.</para><para>This setting is required to create a Multi-AZ DB cluster.</para><para>Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB subnet group.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

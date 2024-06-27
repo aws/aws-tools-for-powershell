@@ -22,30 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SageMaker;
-using Amazon.SageMaker.Model;
+using Amazon.QConnect;
+using Amazon.QConnect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SM
+namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Delete a hub content reference in order to remove a model from a private hub.
+    /// Deletes the content association. 
+    /// 
+    ///  
+    /// <para>
+    /// For more information about content associations--what they are and when they are used--see
+    /// <a href="https://docs.aws.amazon.com/connect/latest/adminguide/integrate-q-with-guides.html">Integrate
+    /// Amazon Q in Connect with step-by-step guides</a> in the <i>Amazon Connect Administrator
+    /// Guide</i>. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "SMHubContentReference", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "QCContentAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon SageMaker Service DeleteHubContentReference API operation.", Operation = new[] {"DeleteHubContentReference"}, SelectReturnType = typeof(Amazon.SageMaker.Model.DeleteHubContentReferenceResponse))]
-    [AWSCmdletOutput("None or Amazon.SageMaker.Model.DeleteHubContentReferenceResponse",
+    [AWSCmdlet("Calls the Amazon Q Connect DeleteContentAssociation API operation.", Operation = new[] {"DeleteContentAssociation"}, SelectReturnType = typeof(Amazon.QConnect.Model.DeleteContentAssociationResponse))]
+    [AWSCmdletOutput("None or Amazon.QConnect.Model.DeleteContentAssociationResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SageMaker.Model.DeleteHubContentReferenceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.QConnect.Model.DeleteContentAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSMHubContentReferenceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    public partial class RemoveQCContentAssociationCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter HubContentName
+        #region Parameter ContentAssociationId
         /// <summary>
         /// <para>
-        /// <para>The name of the hub content to delete.</para>
+        /// <para>The identifier of the content association. Can be either the ID or the ARN. URLs cannot
+        /// contain the ARN.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ContentAssociationId { get; set; }
+        #endregion
+        
+        #region Parameter ContentId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the content.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,31 +82,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String HubContentName { get; set; }
+        public System.String ContentId { get; set; }
         #endregion
         
-        #region Parameter HubContentType
+        #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The type of hub content reference to delete. The only supported type of hub content
-        /// reference to delete is <c>ModelReference</c>.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.SageMaker.HubContentType")]
-        public Amazon.SageMaker.HubContentType HubContentType { get; set; }
-        #endregion
-        
-        #region Parameter HubName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the hub to delete the hub content reference from.</para>
+        /// <para>The identifier of the knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -91,17 +99,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String HubName { get; set; }
+        public System.String KnowledgeBaseId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SageMaker.Model.DeleteHubContentReferenceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.DeleteContentAssociationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the ContentAssociationId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ContentAssociationId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ContentAssociationId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -119,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.HubName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMHubContentReference (DeleteHubContentReference)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ContentId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QCContentAssociation (DeleteContentAssociation)"))
             {
                 return;
             }
@@ -130,30 +148,40 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SageMaker.Model.DeleteHubContentReferenceResponse, RemoveSMHubContentReferenceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.DeleteContentAssociationResponse, RemoveQCContentAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.HubContentName = this.HubContentName;
-            #if MODULAR
-            if (this.HubContentName == null && ParameterWasBound(nameof(this.HubContentName)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter HubContentName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.ContentAssociationId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ContentAssociationId = this.ContentAssociationId;
+            #if MODULAR
+            if (this.ContentAssociationId == null && ParameterWasBound(nameof(this.ContentAssociationId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ContentAssociationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.HubContentType = this.HubContentType;
+            context.ContentId = this.ContentId;
             #if MODULAR
-            if (this.HubContentType == null && ParameterWasBound(nameof(this.HubContentType)))
+            if (this.ContentId == null && ParameterWasBound(nameof(this.ContentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter HubContentType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ContentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.HubName = this.HubName;
+            context.KnowledgeBaseId = this.KnowledgeBaseId;
             #if MODULAR
-            if (this.HubName == null && ParameterWasBound(nameof(this.HubName)))
+            if (this.KnowledgeBaseId == null && ParameterWasBound(nameof(this.KnowledgeBaseId)))
             {
-                WriteWarning("You are passing $null as a value for parameter HubName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter KnowledgeBaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,19 +198,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SageMaker.Model.DeleteHubContentReferenceRequest();
+            var request = new Amazon.QConnect.Model.DeleteContentAssociationRequest();
             
-            if (cmdletContext.HubContentName != null)
+            if (cmdletContext.ContentAssociationId != null)
             {
-                request.HubContentName = cmdletContext.HubContentName;
+                request.ContentAssociationId = cmdletContext.ContentAssociationId;
             }
-            if (cmdletContext.HubContentType != null)
+            if (cmdletContext.ContentId != null)
             {
-                request.HubContentType = cmdletContext.HubContentType;
+                request.ContentId = cmdletContext.ContentId;
             }
-            if (cmdletContext.HubName != null)
+            if (cmdletContext.KnowledgeBaseId != null)
             {
-                request.HubName = cmdletContext.HubName;
+                request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
             }
             
             CmdletOutput output;
@@ -217,15 +245,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         #region AWS Service Operation Call
         
-        private Amazon.SageMaker.Model.DeleteHubContentReferenceResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.DeleteHubContentReferenceRequest request)
+        private Amazon.QConnect.Model.DeleteContentAssociationResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.DeleteContentAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "DeleteHubContentReference");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "DeleteContentAssociation");
             try
             {
                 #if DESKTOP
-                return client.DeleteHubContentReference(request);
+                return client.DeleteContentAssociation(request);
                 #elif CORECLR
-                return client.DeleteHubContentReferenceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteContentAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -245,10 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String HubContentName { get; set; }
-            public Amazon.SageMaker.HubContentType HubContentType { get; set; }
-            public System.String HubName { get; set; }
-            public System.Func<Amazon.SageMaker.Model.DeleteHubContentReferenceResponse, RemoveSMHubContentReferenceCmdlet, object> Select { get; set; } =
+            public System.String ContentAssociationId { get; set; }
+            public System.String ContentId { get; set; }
+            public System.String KnowledgeBaseId { get; set; }
+            public System.Func<Amazon.QConnect.Model.DeleteContentAssociationResponse, RemoveQCContentAssociationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

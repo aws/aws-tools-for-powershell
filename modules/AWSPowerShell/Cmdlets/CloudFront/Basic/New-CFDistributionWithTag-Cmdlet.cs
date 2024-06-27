@@ -395,7 +395,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <summary>
         /// <para>
         /// <para>A complex type that contains the HTTP methods that you want CloudFront to cache responses
-        /// to.</para>
+        /// to. Valid values for <c>CachedMethods</c> include <c>GET</c>, <c>HEAD</c>, and <c>OPTIONS</c>,
+        /// depending on which caching option you choose. For more information, see the preceding
+        /// section.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -87,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateWorkspacesPool" OutputProperty="WorkspacesPool" Verb="New" Noun="WorkspacesPool" AnonymousShouldProcessTarget="true" PipelineParameter="PoolName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountLinkInvitation" OutputProperty="AccountLink" Verb="Remove" Noun="AccountLinkInvitation" ShouldProcessTarget="LinkId" PipelineParameter="LinkId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -216,6 +220,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspacesPools" OutputProperty="WorkspacesPools" Verb="Get" Noun="WorkspacesPool" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspacesPoolSessions" OutputProperty="Sessions" Verb="Get" Noun="WorkspacesPoolSession" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateConnectionAlias" Verb="Unregister" Noun="ConnectionAlias" ShouldProcessTarget="AliasId" PipelineParameter="AliasId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -272,6 +284,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyStreamingProperties" Verb="Edit" Noun="StreamingProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyWorkspaceAccessProperties" Verb="Edit" Noun="WorkspaceAccessProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -300,7 +316,7 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterWorkspaceDirectory" Verb="Register" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="RegisterWorkspaceDirectory" OutputProperty="*" Verb="Register" Noun="WorkspaceDirectory" ShouldProcessTarget="DirectoryId" PipelineParameter="DirectoryId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -322,16 +338,32 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartWorkspacesPool" Verb="Start" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopWorkspaces" OutputProperty="FailedRequests" Verb="Stop" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="StopWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="StopWorkspacesPool" Verb="Stop" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="TerminateWorkspaces" OutputProperty="FailedRequests" Verb="Remove" Noun="Workspace" AnonymousShouldProcessTarget="true" PipelineParameter="TerminateWorkspaceRequests" NoPipelineParameter="false" DefaultParameterSet="IdFromRequestObject">
             <Params>
                 <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" ParameterSetName="IdFromRequestObject" Mandatory="true" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateWorkspacesPool" Verb="Remove" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateWorkspacesPoolSession" Verb="Remove" Noun="WorkspacesPoolSession" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectClientAddIn" Verb="Update" Noun="ConnectClientAddIn" ShouldProcessTarget="AddInId" PipelineParameter="ResourceId" NoPipelineParameter="false">
@@ -351,6 +383,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateWorkspaceImagePermission" Verb="Update" Noun="WorkspaceImagePermission" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWorkspacesPool" OutputProperty="WorkspacesPool" Verb="Update" Noun="WorkspacesPool" ShouldProcessTarget="PoolId" PipelineParameter="PoolId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

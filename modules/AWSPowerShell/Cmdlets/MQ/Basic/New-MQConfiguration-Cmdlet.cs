@@ -74,19 +74,13 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>Required. The broker engine's version. For a list of supported engine versions, see
-        /// <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported
-        /// engines</a>.</para>
+        /// <para>The broker engine version. Defaults to the latest available version for the specified
+        /// broker engine type. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ
+        /// version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ
+        /// version management</a> sections in the Amazon MQ Developer Guide.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String EngineVersion { get; set; }
         #endregion
         
@@ -191,12 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             }
             #endif
             context.EngineVersion = this.EngineVersion;
-            #if MODULAR
-            if (this.EngineVersion == null && ParameterWasBound(nameof(this.EngineVersion)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EngineVersion which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// it (<c>RegisterScalableTarget</c>).
     /// </para><para>
     /// For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-    /// Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.
+    /// your Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference</i>.
     /// </para><para>
     /// Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging
     /// support for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.
@@ -86,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// Services resource.</para><para>Each tag consists of a tag key and a tag value.</para><para>You cannot have more than one tag on an Application Auto Scaling scalable target with
         /// the same tag key. If you specify an existing tag key with a different tag value, Application
         /// Auto Scaling replaces the current tag value with the specified one.</para><para>For information about the rules that apply to tag keys and tag values, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-defined
-        /// tag restrictions</a> in the <i>Amazon Web Services Billing and Cost Management User
-        /// Guide</i>.</para>
+        /// tag restrictions</a> in the <i>Amazon Web Services Billing User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

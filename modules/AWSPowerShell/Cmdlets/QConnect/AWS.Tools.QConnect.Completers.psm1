@@ -94,6 +94,13 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.ContentAssociationType
+        "New-QCContentAssociation/AssociationType"
+        {
+            $v = "AMAZON_CONNECT_GUIDE"
+            break
+        }
+
         # Amazon.QConnect.ExternalSource
         "Start-QCImportJob/ExternalSourceConfiguration_Source"
         {
@@ -145,7 +152,7 @@ $QC_Completers = {
 }
 
 $QC_map = @{
-    "AssociationType"=@("New-QCAssistantAssociation")
+    "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
@@ -208,18 +215,21 @@ $QC_SelectMap = @{
     "Select"=@("New-QCAssistant",
                "New-QCAssistantAssociation",
                "New-QCContent",
+               "New-QCContentAssociation",
                "New-QCKnowledgeBase",
                "New-QCQuickResponse",
                "New-QCSession",
                "Remove-QCAssistant",
                "Remove-QCAssistantAssociation",
                "Remove-QCContent",
+               "Remove-QCContentAssociation",
                "Remove-QCImportJob",
                "Remove-QCKnowledgeBase",
                "Remove-QCQuickResponse",
                "Get-QCAssistant",
                "Get-QCAssistantAssociation",
                "Get-QCContent",
+               "Get-QCContentAssociation",
                "Get-QCContentSummary",
                "Get-QCImportJob",
                "Get-QCKnowledgeBase",
@@ -228,6 +238,7 @@ $QC_SelectMap = @{
                "Get-QCSession",
                "Get-QCAssistantAssociationList",
                "Get-QCAssistantList",
+               "Get-QCContentAssociationList",
                "Get-QCContentList",
                "Get-QCImportJobList",
                "Get-QCKnowledgeBasisList",

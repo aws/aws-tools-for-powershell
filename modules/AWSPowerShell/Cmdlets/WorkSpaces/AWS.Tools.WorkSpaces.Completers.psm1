@@ -96,6 +96,16 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.ApplicationSettingsStatusEnum
+        {
+            ($_ -eq "New-WKSWorkspacesPool/ApplicationSettings_Status") -Or
+            ($_ -eq "Update-WKSWorkspacesPool/ApplicationSettings_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WorkSpaces.CertificateBasedAuthStatusEnum
         "Edit-WKSCertificateBasedAuthProperty/CertificateBasedAuthProperties_Status"
         {
@@ -176,6 +186,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.StreamingExperiencePreferredProtocolEnum
+        "Edit-WKSStreamingProperty/StreamingProperties_StreamingExperiencePreferredProtocol"
+        {
+            $v = "TCP","UDP"
+            break
+        }
+
         # Amazon.WorkSpaces.TargetWorkspaceState
         "Edit-WKSWorkspaceState/WorkspaceState"
         {
@@ -187,6 +204,13 @@ $WKS_Completers = {
         "Register-WKSWorkspaceDirectory/Tenancy"
         {
             $v = "DEDICATED","SHARED"
+            break
+        }
+
+        # Amazon.WorkSpaces.UserIdentityType
+        "Register-WKSWorkspaceDirectory/UserIdentityType"
+        {
+            $v = "AWS_DIRECTORY_SERVICE","CUSTOMER_MANAGED"
             break
         }
 
@@ -204,6 +228,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.WorkspaceType
+        "Register-WKSWorkspaceDirectory/WorkspaceType"
+        {
+            $v = "PERSONAL","POOLS"
+            break
+        }
+
 
     }
 
@@ -213,6 +244,7 @@ $WKS_Completers = {
 }
 
 $WKS_map = @{
+    "ApplicationSettings_Status"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "CertificateBasedAuthProperties_Status"=@("Edit-WKSCertificateBasedAuthProperty")
     "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
@@ -228,7 +260,9 @@ $WKS_map = @{
     "SelfservicePermissions_RebuildWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_RestartWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_SwitchRunningMode"=@("Edit-WKSSelfservicePermission")
+    "StreamingProperties_StreamingExperiencePreferredProtocol"=@("Edit-WKSStreamingProperty")
     "Tenancy"=@("Register-WKSWorkspaceDirectory")
+    "UserIdentityType"=@("Register-WKSWorkspaceDirectory")
     "WorkspaceAccessProperties_DeviceTypeAndroid"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeChromeOs"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeIo"=@("Edit-WKSWorkspaceAccessProperty")
@@ -241,6 +275,7 @@ $WKS_map = @{
     "WorkspaceProperties_OperatingSystemName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceState"=@("Edit-WKSWorkspaceState")
+    "WorkspaceType"=@("Register-WKSWorkspaceDirectory")
 }
 
 _awsArgumentCompleterRegistration $WKS_Completers $WKS_map
@@ -309,6 +344,7 @@ $WKS_SelectMap = @{
                "New-WKSWorkspaceBundle",
                "New-WKSWorkspaceImage",
                "New-WKSWorkspace",
+               "New-WKSWorkspacesPool",
                "Remove-WKSAccountLinkInvitation",
                "Remove-WKSClientBranding",
                "Remove-WKSConnectClientAddIn",
@@ -340,6 +376,8 @@ $WKS_SelectMap = @{
                "Get-WKSWorkspace",
                "Get-WKSWorkspacesConnectionStatus",
                "Get-WKSWorkspaceSnapshot",
+               "Get-WKSWorkspacesPool",
+               "Get-WKSWorkspacesPoolSession",
                "Unregister-WKSConnectionAlias",
                "Unregister-WKSIpGroup",
                "Unregister-WKSWorkspaceApplication",
@@ -354,6 +392,7 @@ $WKS_SelectMap = @{
                "Edit-WKSClientProperty",
                "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",
+               "Edit-WKSStreamingProperty",
                "Edit-WKSWorkspaceAccessProperty",
                "Edit-WKSWorkspaceCreationProperty",
                "Edit-WKSWorkspaceProperty",
@@ -365,13 +404,18 @@ $WKS_SelectMap = @{
                "Restore-WKSWorkspace",
                "Revoke-WKSIpRule",
                "Start-WKSWorkspace",
+               "Start-WKSWorkspacesPool",
                "Stop-WKSWorkspace",
+               "Stop-WKSWorkspacesPool",
                "Remove-WKSWorkspace",
+               "Remove-WKSWorkspacesPool",
+               "Remove-WKSWorkspacesPoolSession",
                "Update-WKSConnectClientAddIn",
                "Update-WKSConnectionAliasPermission",
                "Update-WKSRulesOfIpGroup",
                "Update-WKSWorkspaceBundle",
-               "Update-WKSWorkspaceImagePermission")
+               "Update-WKSWorkspaceImagePermission",
+               "Update-WKSWorkspacesPool")
 }
 
 _awsArgumentCompleterRegistration $WKS_SelectCompleters $WKS_SelectMap

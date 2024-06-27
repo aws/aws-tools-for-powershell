@@ -104,7 +104,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization"
+            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
             break
         }
 
@@ -129,7 +129,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticache:replication-group:NodeGroups","elasticache:replication-group:Replicas","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","neptune:cluster:ReadReplicaCount","rds:cluster:ReadReplicaCount","sagemaker:inference-component:DesiredCopyCount","sagemaker:variant:DesiredInstanceCount","sagemaker:variant:DesiredProvisionedConcurrency"
+            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticache:replication-group:NodeGroups","elasticache:replication-group:Replicas","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","neptune:cluster:ReadReplicaCount","rds:cluster:ReadReplicaCount","sagemaker:inference-component:DesiredCopyCount","sagemaker:variant:DesiredInstanceCount","sagemaker:variant:DesiredProvisionedConcurrency","workspaces:workspacespool:DesiredUserSessions"
             break
         }
 
@@ -147,7 +147,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ServiceNamespace")
         }
         {
-            $v = "appstream","cassandra","comprehend","custom-resource","dynamodb","ec2","ecs","elasticache","elasticmapreduce","kafka","lambda","neptune","rds","sagemaker"
+            $v = "appstream","cassandra","comprehend","custom-resource","dynamodb","ec2","ecs","elasticache","elasticmapreduce","kafka","lambda","neptune","rds","sagemaker","workspaces"
             break
         }
 

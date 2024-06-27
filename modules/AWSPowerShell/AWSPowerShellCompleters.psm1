@@ -2430,7 +2430,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization"
+            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
             break
         }
 
@@ -2455,7 +2455,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticache:replication-group:NodeGroups","elasticache:replication-group:Replicas","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","neptune:cluster:ReadReplicaCount","rds:cluster:ReadReplicaCount","sagemaker:inference-component:DesiredCopyCount","sagemaker:variant:DesiredInstanceCount","sagemaker:variant:DesiredProvisionedConcurrency"
+            $v = "appstream:fleet:DesiredCapacity","cassandra:table:ReadCapacityUnits","cassandra:table:WriteCapacityUnits","comprehend:document-classifier-endpoint:DesiredInferenceUnits","comprehend:entity-recognizer-endpoint:DesiredInferenceUnits","custom-resource:ResourceType:Property","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticache:replication-group:NodeGroups","elasticache:replication-group:Replicas","elasticmapreduce:instancegroup:InstanceCount","kafka:broker-storage:VolumeSize","lambda:function:ProvisionedConcurrency","neptune:cluster:ReadReplicaCount","rds:cluster:ReadReplicaCount","sagemaker:inference-component:DesiredCopyCount","sagemaker:variant:DesiredInstanceCount","sagemaker:variant:DesiredProvisionedConcurrency","workspaces:workspacespool:DesiredUserSessions"
             break
         }
 
@@ -2473,7 +2473,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ServiceNamespace")
         }
         {
-            $v = "appstream","cassandra","comprehend","custom-resource","dynamodb","ec2","ecs","elasticache","elasticmapreduce","kafka","lambda","neptune","rds","sagemaker"
+            $v = "appstream","cassandra","comprehend","custom-resource","dynamodb","ec2","ecs","elasticache","elasticmapreduce","kafka","lambda","neptune","rds","sagemaker","workspaces"
             break
         }
 
@@ -18564,6 +18564,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.EdgeDirection
+        "Get-DZLineageNodeHistoryList/Direction"
+        {
+            $v = "DOWNSTREAM","UPSTREAM"
+            break
+        }
+
         # Amazon.DataZone.EnableSetting
         {
             ($_ -eq "New-DZDataSource/EnableSetting") -Or
@@ -18698,6 +18705,7 @@ $DZ_Completers = {
             ($_ -eq "Search-DZListing/Sort_Order") -Or
             ($_ -eq "Search-DZResource/Sort_Order") -Or
             ($_ -eq "Search-DZType/Sort_Order") -Or
+            ($_ -eq "Get-DZLineageNodeHistoryList/SortOrder") -Or
             ($_ -eq "Get-DZProjectMembershipList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionGrantList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionList/SortOrder") -Or
@@ -18762,7 +18770,7 @@ $DZ_Completers = {
         # Amazon.DataZone.TypesSearchScope
         "Search-DZType/SearchScope"
         {
-            $v = "ASSET_TYPE","FORM_TYPE"
+            $v = "ASSET_TYPE","FORM_TYPE","LINEAGE_NODE_TYPE"
             break
         }
 
@@ -18826,6 +18834,7 @@ $DZ_map = @{
     "AcceptRule_Rule"=@("Approve-DZPrediction")
     "Action"=@("New-DZListingChangeSet")
     "Designation"=@("New-DZProjectMembership")
+    "Direction"=@("Get-DZLineageNodeHistoryList")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
     "EntityType"=@("Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZTimeSeriesDataPoint")
     "GroupType"=@("Search-DZGroupProfile")
@@ -18836,7 +18845,7 @@ $DZ_map = @{
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "SortBy"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "SortOrder"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "SortOrder"=@("Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "Status"=@("Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TaskStatus"=@("Get-DZNotificationList")
@@ -18952,6 +18961,7 @@ $DZ_SelectMap = @{
                "Get-DZGlossaryTerm",
                "Get-DZGroupProfile",
                "Get-DZIamPortalLoginUrl",
+               "Get-DZLineageNode",
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
                "Get-DZProject",
@@ -18971,6 +18981,7 @@ $DZ_SelectMap = @{
                "Get-DZEnvironmentBlueprintList",
                "Get-DZEnvironmentProfileList",
                "Get-DZEnvironmentList",
+               "Get-DZLineageNodeHistoryList",
                "Get-DZMetadataGenerationRunList",
                "Get-DZNotificationList",
                "Get-DZProjectMembershipList",
@@ -18981,6 +18992,7 @@ $DZ_SelectMap = @{
                "Get-DZSubscriptionTargetList",
                "Get-DZResourceTag",
                "Get-DZTimeSeriesDataPointList",
+               "Submit-DZLineageEvent",
                "New-DZTimeSeriesDataPoint",
                "Write-DZEnvironmentBlueprintConfiguration",
                "Deny-DZPrediction",
@@ -53442,6 +53454,13 @@ $QC_Completers = {
             break
         }
 
+        # Amazon.QConnect.ContentAssociationType
+        "New-QCContentAssociation/AssociationType"
+        {
+            $v = "AMAZON_CONNECT_GUIDE"
+            break
+        }
+
         # Amazon.QConnect.ExternalSource
         "Start-QCImportJob/ExternalSourceConfiguration_Source"
         {
@@ -53493,7 +53512,7 @@ $QC_Completers = {
 }
 
 $QC_map = @{
-    "AssociationType"=@("New-QCAssistantAssociation")
+    "AssociationType"=@("New-QCAssistantAssociation","New-QCContentAssociation")
     "ExternalSourceConfiguration_Source"=@("Start-QCImportJob")
     "GenerativeContentFeedbackData_Relevance"=@("Write-QCFeedback")
     "ImportJobType"=@("Start-QCImportJob")
@@ -53556,18 +53575,21 @@ $QC_SelectMap = @{
     "Select"=@("New-QCAssistant",
                "New-QCAssistantAssociation",
                "New-QCContent",
+               "New-QCContentAssociation",
                "New-QCKnowledgeBase",
                "New-QCQuickResponse",
                "New-QCSession",
                "Remove-QCAssistant",
                "Remove-QCAssistantAssociation",
                "Remove-QCContent",
+               "Remove-QCContentAssociation",
                "Remove-QCImportJob",
                "Remove-QCKnowledgeBase",
                "Remove-QCQuickResponse",
                "Get-QCAssistant",
                "Get-QCAssistantAssociation",
                "Get-QCContent",
+               "Get-QCContentAssociation",
                "Get-QCContentSummary",
                "Get-QCImportJob",
                "Get-QCKnowledgeBase",
@@ -53576,6 +53598,7 @@ $QC_SelectMap = @{
                "Get-QCSession",
                "Get-QCAssistantAssociationList",
                "Get-QCAssistantList",
+               "Get-QCContentAssociationList",
                "Get-QCContentList",
                "Get-QCImportJobList",
                "Get-QCKnowledgeBasisList",
@@ -70528,6 +70551,16 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.ApplicationSettingsStatusEnum
+        {
+            ($_ -eq "New-WKSWorkspacesPool/ApplicationSettings_Status") -Or
+            ($_ -eq "Update-WKSWorkspacesPool/ApplicationSettings_Status")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.WorkSpaces.CertificateBasedAuthStatusEnum
         "Edit-WKSCertificateBasedAuthProperty/CertificateBasedAuthProperties_Status"
         {
@@ -70608,6 +70641,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.StreamingExperiencePreferredProtocolEnum
+        "Edit-WKSStreamingProperty/StreamingProperties_StreamingExperiencePreferredProtocol"
+        {
+            $v = "TCP","UDP"
+            break
+        }
+
         # Amazon.WorkSpaces.TargetWorkspaceState
         "Edit-WKSWorkspaceState/WorkspaceState"
         {
@@ -70619,6 +70659,13 @@ $WKS_Completers = {
         "Register-WKSWorkspaceDirectory/Tenancy"
         {
             $v = "DEDICATED","SHARED"
+            break
+        }
+
+        # Amazon.WorkSpaces.UserIdentityType
+        "Register-WKSWorkspaceDirectory/UserIdentityType"
+        {
+            $v = "AWS_DIRECTORY_SERVICE","CUSTOMER_MANAGED"
             break
         }
 
@@ -70636,6 +70683,13 @@ $WKS_Completers = {
             break
         }
 
+        # Amazon.WorkSpaces.WorkspaceType
+        "Register-WKSWorkspaceDirectory/WorkspaceType"
+        {
+            $v = "PERSONAL","POOLS"
+            break
+        }
+
 
     }
 
@@ -70645,6 +70699,7 @@ $WKS_Completers = {
 }
 
 $WKS_map = @{
+    "ApplicationSettings_Status"=@("New-WKSWorkspacesPool","Update-WKSWorkspacesPool")
     "CertificateBasedAuthProperties_Status"=@("Edit-WKSCertificateBasedAuthProperty")
     "ClientProperties_LogUploadEnabled"=@("Edit-WKSClientProperty")
     "ClientProperties_ReconnectEnabled"=@("Edit-WKSClientProperty")
@@ -70660,7 +70715,9 @@ $WKS_map = @{
     "SelfservicePermissions_RebuildWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_RestartWorkspace"=@("Edit-WKSSelfservicePermission")
     "SelfservicePermissions_SwitchRunningMode"=@("Edit-WKSSelfservicePermission")
+    "StreamingProperties_StreamingExperiencePreferredProtocol"=@("Edit-WKSStreamingProperty")
     "Tenancy"=@("Register-WKSWorkspaceDirectory")
+    "UserIdentityType"=@("Register-WKSWorkspaceDirectory")
     "WorkspaceAccessProperties_DeviceTypeAndroid"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeChromeOs"=@("Edit-WKSWorkspaceAccessProperty")
     "WorkspaceAccessProperties_DeviceTypeIo"=@("Edit-WKSWorkspaceAccessProperty")
@@ -70673,6 +70730,7 @@ $WKS_map = @{
     "WorkspaceProperties_OperatingSystemName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceState"=@("Edit-WKSWorkspaceState")
+    "WorkspaceType"=@("Register-WKSWorkspaceDirectory")
 }
 
 _awsArgumentCompleterRegistration $WKS_Completers $WKS_map
@@ -70741,6 +70799,7 @@ $WKS_SelectMap = @{
                "New-WKSWorkspaceBundle",
                "New-WKSWorkspaceImage",
                "New-WKSWorkspace",
+               "New-WKSWorkspacesPool",
                "Remove-WKSAccountLinkInvitation",
                "Remove-WKSClientBranding",
                "Remove-WKSConnectClientAddIn",
@@ -70772,6 +70831,8 @@ $WKS_SelectMap = @{
                "Get-WKSWorkspace",
                "Get-WKSWorkspacesConnectionStatus",
                "Get-WKSWorkspaceSnapshot",
+               "Get-WKSWorkspacesPool",
+               "Get-WKSWorkspacesPoolSession",
                "Unregister-WKSConnectionAlias",
                "Unregister-WKSIpGroup",
                "Unregister-WKSWorkspaceApplication",
@@ -70786,6 +70847,7 @@ $WKS_SelectMap = @{
                "Edit-WKSClientProperty",
                "Edit-WKSSamlProperty",
                "Edit-WKSSelfservicePermission",
+               "Edit-WKSStreamingProperty",
                "Edit-WKSWorkspaceAccessProperty",
                "Edit-WKSWorkspaceCreationProperty",
                "Edit-WKSWorkspaceProperty",
@@ -70797,13 +70859,18 @@ $WKS_SelectMap = @{
                "Restore-WKSWorkspace",
                "Revoke-WKSIpRule",
                "Start-WKSWorkspace",
+               "Start-WKSWorkspacesPool",
                "Stop-WKSWorkspace",
+               "Stop-WKSWorkspacesPool",
                "Remove-WKSWorkspace",
+               "Remove-WKSWorkspacesPool",
+               "Remove-WKSWorkspacesPoolSession",
                "Update-WKSConnectClientAddIn",
                "Update-WKSConnectionAliasPermission",
                "Update-WKSRulesOfIpGroup",
                "Update-WKSWorkspaceBundle",
-               "Update-WKSWorkspaceImagePermission")
+               "Update-WKSWorkspaceImagePermission",
+               "Update-WKSWorkspacesPool")
 }
 
 _awsArgumentCompleterRegistration $WKS_SelectCompleters $WKS_SelectMap

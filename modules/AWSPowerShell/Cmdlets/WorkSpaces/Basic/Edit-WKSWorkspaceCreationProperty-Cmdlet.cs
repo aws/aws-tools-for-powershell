@@ -111,6 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.Boolean? WorkspaceCreationProperties_EnableWorkDoc { get; set; }
         #endregion
         
+        #region Parameter WorkspaceCreationProperties_InstanceIamRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Indicates the IAM role ARN of the instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WorkspaceCreationProperties_InstanceIamRoleArn { get; set; }
+        #endregion
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>
@@ -211,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.WorkspaceCreationProperties_EnableInternetAccess = this.WorkspaceCreationProperties_EnableInternetAccess;
             context.WorkspaceCreationProperties_EnableMaintenanceMode = this.WorkspaceCreationProperties_EnableMaintenanceMode;
             context.WorkspaceCreationProperties_EnableWorkDoc = this.WorkspaceCreationProperties_EnableWorkDoc;
+            context.WorkspaceCreationProperties_InstanceIamRoleArn = this.WorkspaceCreationProperties_InstanceIamRoleArn;
             context.WorkspaceCreationProperties_UserEnabledAsLocalAdministrator = this.WorkspaceCreationProperties_UserEnabledAsLocalAdministrator;
             
             // allow further manipulation of loaded context prior to processing
@@ -284,6 +295,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceCreationProperties_workspaceCreationProperties_EnableWorkDoc != null)
             {
                 request.WorkspaceCreationProperties.EnableWorkDocs = requestWorkspaceCreationProperties_workspaceCreationProperties_EnableWorkDoc.Value;
+                requestWorkspaceCreationPropertiesIsNull = false;
+            }
+            System.String requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn = null;
+            if (cmdletContext.WorkspaceCreationProperties_InstanceIamRoleArn != null)
+            {
+                requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn = cmdletContext.WorkspaceCreationProperties_InstanceIamRoleArn;
+            }
+            if (requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn != null)
+            {
+                request.WorkspaceCreationProperties.InstanceIamRoleArn = requestWorkspaceCreationProperties_workspaceCreationProperties_InstanceIamRoleArn;
                 requestWorkspaceCreationPropertiesIsNull = false;
             }
             System.Boolean? requestWorkspaceCreationProperties_workspaceCreationProperties_UserEnabledAsLocalAdministrator = null;
@@ -368,6 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.Boolean? WorkspaceCreationProperties_EnableInternetAccess { get; set; }
             public System.Boolean? WorkspaceCreationProperties_EnableMaintenanceMode { get; set; }
             public System.Boolean? WorkspaceCreationProperties_EnableWorkDoc { get; set; }
+            public System.String WorkspaceCreationProperties_InstanceIamRoleArn { get; set; }
             public System.Boolean? WorkspaceCreationProperties_UserEnabledAsLocalAdministrator { get; set; }
             public System.Func<Amazon.WorkSpaces.Model.ModifyWorkspaceCreationPropertiesResponse, EditWKSWorkspaceCreationPropertyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

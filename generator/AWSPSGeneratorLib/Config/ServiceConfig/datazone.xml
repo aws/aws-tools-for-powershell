@@ -251,6 +251,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetLineageNode" OutputProperty="*" Verb="Get" Noun="LineageNode" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetListing" OutputProperty="*" Verb="Get" Noun="Listing" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -331,6 +335,10 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListLineageNodeHistory" OutputProperty="Nodes" Verb="Get" Noun="LineageNodeHistoryList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMetadataGenerationRuns" OutputProperty="Items" Verb="Get" Noun="MetadataGenerationRunList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -368,6 +376,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTimeSeriesDataPoints" OutputProperty="*" Verb="Get" Noun="TimeSeriesDataPointList" PipelineParameter="EntityIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostLineageEvent" Verb="Submit" Noun="LineageEvent" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

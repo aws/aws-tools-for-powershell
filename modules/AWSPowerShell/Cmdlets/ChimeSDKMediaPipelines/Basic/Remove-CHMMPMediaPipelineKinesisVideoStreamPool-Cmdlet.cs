@@ -28,7 +28,7 @@ using Amazon.ChimeSDKMediaPipelines.Model;
 namespace Amazon.PowerShell.Cmdlets.CHMMP
 {
     /// <summary>
-    /// Deletes an Kinesis video stream pool.
+    /// Deletes an Amazon Kinesis Video Stream pool.
     /// </summary>
     [Cmdlet("Remove", "CHMMPMediaPipelineKinesisVideoStreamPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the pool being deleted.</para>
+        /// <para>The unique identifier of the requested resource. Valid values include the name and
+        /// ARN of the media pipeline Kinesis Video Stream pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

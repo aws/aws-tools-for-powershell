@@ -132,6 +132,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.EdgeDirection
+        "Get-DZLineageNodeHistoryList/Direction"
+        {
+            $v = "DOWNSTREAM","UPSTREAM"
+            break
+        }
+
         # Amazon.DataZone.EnableSetting
         {
             ($_ -eq "New-DZDataSource/EnableSetting") -Or
@@ -266,6 +273,7 @@ $DZ_Completers = {
             ($_ -eq "Search-DZListing/Sort_Order") -Or
             ($_ -eq "Search-DZResource/Sort_Order") -Or
             ($_ -eq "Search-DZType/Sort_Order") -Or
+            ($_ -eq "Get-DZLineageNodeHistoryList/SortOrder") -Or
             ($_ -eq "Get-DZProjectMembershipList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionGrantList/SortOrder") -Or
             ($_ -eq "Get-DZSubscriptionList/SortOrder") -Or
@@ -330,7 +338,7 @@ $DZ_Completers = {
         # Amazon.DataZone.TypesSearchScope
         "Search-DZType/SearchScope"
         {
-            $v = "ASSET_TYPE","FORM_TYPE"
+            $v = "ASSET_TYPE","FORM_TYPE","LINEAGE_NODE_TYPE"
             break
         }
 
@@ -394,6 +402,7 @@ $DZ_map = @{
     "AcceptRule_Rule"=@("Approve-DZPrediction")
     "Action"=@("New-DZListingChangeSet")
     "Designation"=@("New-DZProjectMembership")
+    "Direction"=@("Get-DZLineageNodeHistoryList")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
     "EntityType"=@("Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZTimeSeriesDataPoint")
     "GroupType"=@("Search-DZGroupProfile")
@@ -404,7 +413,7 @@ $DZ_map = @{
     "SingleSignOn_UserAssignment"=@("New-DZDomain","Update-DZDomain")
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "SortBy"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "SortOrder"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
+    "SortOrder"=@("Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "Status"=@("Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TaskStatus"=@("Get-DZNotificationList")
@@ -520,6 +529,7 @@ $DZ_SelectMap = @{
                "Get-DZGlossaryTerm",
                "Get-DZGroupProfile",
                "Get-DZIamPortalLoginUrl",
+               "Get-DZLineageNode",
                "Get-DZListing",
                "Get-DZMetadataGenerationRun",
                "Get-DZProject",
@@ -539,6 +549,7 @@ $DZ_SelectMap = @{
                "Get-DZEnvironmentBlueprintList",
                "Get-DZEnvironmentProfileList",
                "Get-DZEnvironmentList",
+               "Get-DZLineageNodeHistoryList",
                "Get-DZMetadataGenerationRunList",
                "Get-DZNotificationList",
                "Get-DZProjectMembershipList",
@@ -549,6 +560,7 @@ $DZ_SelectMap = @{
                "Get-DZSubscriptionTargetList",
                "Get-DZResourceTag",
                "Get-DZTimeSeriesDataPointList",
+               "Submit-DZLineageEvent",
                "New-DZTimeSeriesDataPoint",
                "Write-DZEnvironmentBlueprintConfiguration",
                "Deny-DZPrediction",

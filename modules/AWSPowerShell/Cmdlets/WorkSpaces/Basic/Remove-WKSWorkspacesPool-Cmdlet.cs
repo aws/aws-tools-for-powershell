@@ -22,33 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ChimeSDKMediaPipelines;
-using Amazon.ChimeSDKMediaPipelines.Model;
+using Amazon.WorkSpaces;
+using Amazon.WorkSpaces.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHMMP
+namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Gets an Kinesis video stream pool.
+    /// Terminates the specified WorkSpaces pool.
     /// </summary>
-    [Cmdlet("Get", "CHMMPMediaPipelineKinesisVideoStreamPool")]
-    [OutputType("Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration")]
-    [AWSCmdlet("Calls the Amazon Chime SDK Media Pipelines GetMediaPipelineKinesisVideoStreamPool API operation.", Operation = new[] {"GetMediaPipelineKinesisVideoStreamPool"}, SelectReturnType = typeof(Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse))]
-    [AWSCmdletOutput("Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration or Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse",
-        "This cmdlet returns an Amazon.ChimeSDKMediaPipelines.Model.KinesisVideoStreamPoolConfiguration object.",
-        "The service call response (type Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "WKSWorkspacesPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon WorkSpaces TerminateWorkspacesPool API operation.", Operation = new[] {"TerminateWorkspacesPool"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet : AmazonChimeSDKMediaPipelinesClientCmdlet, IExecutor
+    public partial class RemoveWKSWorkspacesPoolCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Identifier
+        #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the requested resource. Valid values include the name and
-        /// ARN of the media pipeline Kinesis Video Stream pool.</para>
+        /// <para>The identifier of the WorkSpaces pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,34 +56,49 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String PoolId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'KinesisVideoStreamPoolConfiguration'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse).
-        /// Specifying the name of a property of type Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "KinesisVideoStreamPoolConfiguration";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PoolId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PoolId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PoolId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PoolId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSWorkspacesPool (TerminateWorkspacesPool)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -96,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse, GetCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse, RemoveWKSWorkspacesPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -105,14 +117,14 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.PoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Identifier = this.Identifier;
+            context.PoolId = this.PoolId;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.PoolId == null && ParameterWasBound(nameof(this.PoolId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PoolId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -129,11 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolRequest();
+            var request = new Amazon.WorkSpaces.Model.TerminateWorkspacesPoolRequest();
             
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.PoolId != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.PoolId = cmdletContext.PoolId;
             }
             
             CmdletOutput output;
@@ -168,15 +180,15 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         #region AWS Service Operation Call
         
-        private Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse CallAWSServiceOperation(IAmazonChimeSDKMediaPipelines client, Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolRequest request)
+        private Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.TerminateWorkspacesPoolRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Chime SDK Media Pipelines", "GetMediaPipelineKinesisVideoStreamPool");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "TerminateWorkspacesPool");
             try
             {
                 #if DESKTOP
-                return client.GetMediaPipelineKinesisVideoStreamPool(request);
+                return client.TerminateWorkspacesPool(request);
                 #elif CORECLR
-                return client.GetMediaPipelineKinesisVideoStreamPoolAsync(request).GetAwaiter().GetResult();
+                return client.TerminateWorkspacesPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -196,9 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.ChimeSDKMediaPipelines.Model.GetMediaPipelineKinesisVideoStreamPoolResponse, GetCHMMPMediaPipelineKinesisVideoStreamPoolCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.KinesisVideoStreamPoolConfiguration;
+            public System.String PoolId { get; set; }
+            public System.Func<Amazon.WorkSpaces.Model.TerminateWorkspacesPoolResponse, RemoveWKSWorkspacesPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -28,7 +28,8 @@ using Amazon.CloudFront.Model;
 namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
-    /// Remove tags from a CloudFront resource.
+    /// Remove tags from a CloudFront resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/tagging.html">Tagging
+    /// a distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "CFResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

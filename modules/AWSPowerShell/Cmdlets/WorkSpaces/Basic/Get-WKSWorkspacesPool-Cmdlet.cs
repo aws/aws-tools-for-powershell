@@ -28,46 +28,46 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes the available directories that are registered with Amazon WorkSpaces.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified WorkSpaces pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "WKSWorkspaceDirectory")]
-    [OutputType("Amazon.WorkSpaces.Model.WorkspaceDirectory")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DescribeWorkspaceDirectories API operation.", Operation = new[] {"DescribeWorkspaceDirectories"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse), LegacyAlias="Get-WKSWorkspaceDirectories")]
-    [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceDirectory or Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse",
-        "This cmdlet returns a collection of Amazon.WorkSpaces.Model.WorkspaceDirectory objects.",
-        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WKSWorkspacesPool")]
+    [OutputType("Amazon.WorkSpaces.Model.WorkspacesPool")]
+    [AWSCmdlet("Calls the Amazon WorkSpaces DescribeWorkspacesPools API operation.", Operation = new[] {"DescribeWorkspacesPools"}, SelectReturnType = typeof(Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse))]
+    [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspacesPool or Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse",
+        "This cmdlet returns a collection of Amazon.WorkSpaces.Model.WorkspacesPool objects.",
+        "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWKSWorkspaceDirectoryCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetWKSWorkspacesPoolCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DirectoryId
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The identifiers of the directories. If the value is null, all directories are retrieved.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [Alias("DirectoryIds")]
-        public System.String[] DirectoryId { get; set; }
-        #endregion
-        
-        #region Parameter WorkspaceDirectoryName
-        /// <summary>
-        /// <para>
-        /// <para>The names of the WorkSpace directories.</para>
+        /// <para>The filter conditions for the WorkSpaces pool to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("WorkspaceDirectoryNames")]
-        public System.String[] WorkspaceDirectoryName { get; set; }
+        [Alias("Filters")]
+        public Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsFilter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter PoolId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the WorkSpaces pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("PoolIds")]
+        public System.String[] PoolId { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of directories to return.</para>
+        /// <para>The maximum number of items to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,23 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Directories'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse).
-        /// Specifying the name of a property of type Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'WorkspacesPools'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse).
+        /// Specifying the name of a property of type Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Directories";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DirectoryId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "WorkspacesPools";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -130,30 +120,20 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse, GetWKSWorkspaceDirectoryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse, GetWKSWorkspacesPoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.Filter != null)
             {
-                context.Select = (response, cmdlet) => this.DirectoryId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.DirectoryId != null)
-            {
-                context.DirectoryId = new List<System.String>(this.DirectoryId);
+                context.Filter = new List<Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsFilter>(this.Filter);
             }
             context.Limit = this.Limit;
             context.NextToken = this.NextToken;
-            if (this.WorkspaceDirectoryName != null)
+            if (this.PoolId != null)
             {
-                context.WorkspaceDirectoryName = new List<System.String>(this.WorkspaceDirectoryName);
+                context.PoolId = new List<System.String>(this.PoolId);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -168,24 +148,22 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesRequest();
+            var request = new Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsRequest();
             
-            if (cmdletContext.DirectoryId != null)
+            if (cmdletContext.Filter != null)
             {
-                request.DirectoryIds = cmdletContext.DirectoryId;
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.Limit != null)
             {
                 request.Limit = cmdletContext.Limit.Value;
             }
-            if (cmdletContext.WorkspaceDirectoryName != null)
+            if (cmdletContext.PoolId != null)
             {
-                request.WorkspaceDirectoryNames = cmdletContext.WorkspaceDirectoryName;
+                request.PoolIds = cmdletContext.PoolId;
             }
             
             // Initialize loop variant and commence piping
@@ -244,15 +222,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesRequest request)
+        private Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DescribeWorkspaceDirectories");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DescribeWorkspacesPools");
             try
             {
                 #if DESKTOP
-                return client.DescribeWorkspaceDirectories(request);
+                return client.DescribeWorkspacesPools(request);
                 #elif CORECLR
-                return client.DescribeWorkspaceDirectoriesAsync(request).GetAwaiter().GetResult();
+                return client.DescribeWorkspacesPoolsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,12 +250,12 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> DirectoryId { get; set; }
+            public List<Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsFilter> Filter { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> WorkspaceDirectoryName { get; set; }
-            public System.Func<Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesResponse, GetWKSWorkspaceDirectoryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Directories;
+            public List<System.String> PoolId { get; set; }
+            public System.Func<Amazon.WorkSpaces.Model.DescribeWorkspacesPoolsResponse, GetWKSWorkspacesPoolCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.WorkspacesPools;
         }
         
     }

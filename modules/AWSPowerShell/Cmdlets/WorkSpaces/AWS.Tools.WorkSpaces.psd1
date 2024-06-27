@@ -95,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-WKSClientProperty', 
         'Edit-WKSSamlProperty', 
         'Edit-WKSSelfservicePermission', 
+        'Edit-WKSStreamingProperty', 
         'Edit-WKSWorkspaceAccessProperty', 
         'Edit-WKSWorkspaceCreationProperty', 
         'Edit-WKSWorkspaceProperty', 
@@ -123,6 +124,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-WKSWorkspaceImagePermission', 
         'Get-WKSWorkspacesConnectionStatus', 
         'Get-WKSWorkspaceSnapshot', 
+        'Get-WKSWorkspacesPool', 
+        'Get-WKSWorkspacesPoolSession', 
         'Import-WKSClientBranding', 
         'Import-WKSWorkspaceImage', 
         'New-WKSAccountLinkInvitation', 
@@ -135,6 +138,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-WKSWorkspace', 
         'New-WKSWorkspaceBundle', 
         'New-WKSWorkspaceImage', 
+        'New-WKSWorkspacesPool', 
         'Publish-WKSWorkspaceApplication', 
         'Register-WKSConnectionAlias', 
         'Register-WKSIpGroup', 
@@ -149,13 +153,17 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-WKSWorkspace', 
         'Remove-WKSWorkspaceBundle', 
         'Remove-WKSWorkspaceImage', 
+        'Remove-WKSWorkspacesPool', 
+        'Remove-WKSWorkspacesPoolSession', 
         'Reset-WKSWorkspace', 
         'Restart-WKSWorkspace', 
         'Restore-WKSWorkspace', 
         'Revoke-WKSIpRule', 
         'Start-WKSWorkspace', 
         'Start-WKSWorkspaceMigration', 
+        'Start-WKSWorkspacesPool', 
         'Stop-WKSWorkspace', 
+        'Stop-WKSWorkspacesPool', 
         'Unregister-WKSConnectionAlias', 
         'Unregister-WKSIpGroup', 
         'Unregister-WKSWorkspaceApplication', 
@@ -164,7 +172,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-WKSConnectionAliasPermission', 
         'Update-WKSRulesOfIpGroup', 
         'Update-WKSWorkspaceBundle', 
-        'Update-WKSWorkspaceImagePermission')
+        'Update-WKSWorkspaceImagePermission', 
+        'Update-WKSWorkspacesPool')
 
     # Variables to export from this module
     VariablesToExport = '*'

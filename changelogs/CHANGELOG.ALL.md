@@ -1,4 +1,29 @@
-﻿### 4.1.608 (2024-06-26 22:13Z)
+﻿### 4.1.609 (2024-06-27 20:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.840.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Added cmdlet Get-DZLineageNode leveraging the GetLineageNode service API.
+    * Added cmdlet Get-DZLineageNodeHistoryList leveraging the ListLineageNodeHistory service API.
+    * Added cmdlet Submit-DZLineageEvent leveraging the PostLineageEvent service API.
+  * Amazon Q Connect
+    * Added cmdlet Get-QCContentAssociation leveraging the GetContentAssociation service API.
+    * Added cmdlet Get-QCContentAssociationList leveraging the ListContentAssociations service API.
+    * Added cmdlet New-QCContentAssociation leveraging the CreateContentAssociation service API.
+    * Added cmdlet Remove-QCContentAssociation leveraging the DeleteContentAssociation service API.
+  * Amazon WorkSpaces
+    * Added cmdlet Edit-WKSStreamingProperty leveraging the ModifyStreamingProperties service API.
+    * Added cmdlet Get-WKSWorkspacesPool leveraging the DescribeWorkspacesPools service API.
+    * Added cmdlet Get-WKSWorkspacesPoolSession leveraging the DescribeWorkspacesPoolSessions service API.
+    * Added cmdlet New-WKSWorkspacesPool leveraging the CreateWorkspacesPool service API.
+    * Added cmdlet Remove-WKSWorkspacesPool leveraging the TerminateWorkspacesPool service API.
+    * Added cmdlet Remove-WKSWorkspacesPoolSession leveraging the TerminateWorkspacesPoolSession service API.
+    * Added cmdlet Start-WKSWorkspacesPool leveraging the StartWorkspacesPool service API.
+    * Added cmdlet Stop-WKSWorkspacesPool leveraging the StopWorkspacesPool service API.
+    * Added cmdlet Update-WKSWorkspacesPool leveraging the UpdateWorkspacesPool service API.
+    * Modified cmdlet Edit-WKSWorkspaceCreationProperty: added parameter WorkspaceCreationProperties_InstanceIamRoleArn.
+    * Modified cmdlet Get-WKSWorkspaceDirectory: added parameter WorkspaceDirectoryName.
+    * Modified cmdlet Register-WKSWorkspaceDirectory: added parameters ActiveDirectoryConfig_DomainName, ActiveDirectoryConfig_ServiceAccountSecretArn, UserIdentityType, WorkspaceDirectoryDescription, WorkspaceDirectoryName and WorkspaceType.
+
+### 4.1.608 (2024-06-26 22:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.839.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Control Tower
     * Added cmdlet Get-ACTLandingZoneOperationList leveraging the ListLandingZoneOperations service API.

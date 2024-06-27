@@ -30,6 +30,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateContentAssociation" OutputProperty="ContentAssociation" Verb="New" Noun="ContentAssociation" ShouldProcessTarget="ContentId" PipelineParameter="ContentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateKnowledgeBase" OutputProperty="KnowledgeBase" Verb="New" Noun="KnowledgeBase" ShouldProcessTarget="Name" PipelineParameter="KnowledgeBaseType" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -54,6 +58,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContentAssociation" Verb="Remove" Noun="ContentAssociation" ShouldProcessTarget="ContentId" PipelineParameter="ContentAssociationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteImportJob" Verb="Remove" Noun="ImportJob" ShouldProcessTarget="ImportJobId" PipelineParameter="ImportJobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -75,6 +83,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetContent" OutputProperty="Content" Verb="Get" Noun="Content" PipelineParameter="ContentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContentAssociation" OutputProperty="ContentAssociation" Verb="Get" Noun="ContentAssociation" PipelineParameter="ContentAssociationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -107,6 +119,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssistants" OutputProperty="AssistantSummaries" Verb="Get" Noun="AssistantList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContentAssociations" OutputProperty="ContentAssociationSummaries" Verb="Get" Noun="ContentAssociationList" PipelineParameter="ContentId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
