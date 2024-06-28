@@ -28,7 +28,12 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Removes the specified tag or tags from the specified AWS CloudHSM cluster.
+    /// Removes the specified tag or tags from the specified CloudHSM cluster.
+    /// 
+    ///  
+    /// <para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource
+    /// in a different Amazon Web Services account.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "HSM2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

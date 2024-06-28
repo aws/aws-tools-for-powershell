@@ -92,6 +92,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Edit-HSM2Cluster', 
         'Get-HSM2Backup', 
         'Get-HSM2Cluster', 
+        'Get-HSM2ResourcePolicy', 
         'Get-HSM2ResourceTag', 
         'Initialize-HSM2Cluster', 
         'New-HSM2Cluster', 
@@ -99,8 +100,10 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-HSM2Backup', 
         'Remove-HSM2Cluster', 
         'Remove-HSM2Hsm', 
+        'Remove-HSM2ResourcePolicy', 
         'Remove-HSM2ResourceTag', 
-        'Restore-HSM2Backup')
+        'Restore-HSM2Backup', 
+        'Write-HSM2ResourcePolicy')
 
     # Variables to export from this module
     VariablesToExport = '*'

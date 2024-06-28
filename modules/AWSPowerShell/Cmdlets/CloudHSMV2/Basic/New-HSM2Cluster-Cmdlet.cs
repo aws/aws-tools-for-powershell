@@ -28,7 +28,13 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Creates a new AWS CloudHSM cluster.
+    /// Creates a new CloudHSM cluster.
+    /// 
+    ///  
+    /// <para><b>Cross-account use:</b> Yes. To perform this operation with an CloudHSM backup
+    /// in a different AWS account, specify the full backup ARN in the value of the SourceBackupId
+    /// parameter.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "HSM2Cluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudHSMV2.Model.Cluster")]
@@ -74,9 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         #region Parameter SourceBackupId
         /// <summary>
         /// <para>
-        /// <para>The identifier (ID) of the cluster backup to restore. Use this value to restore the
-        /// cluster from a backup instead of creating a new cluster. To find the backup ID, use
-        /// <a>DescribeBackups</a>.</para>
+        /// <para>The identifier (ID) or the Amazon Resource Name (ARN) of the cluster backup to restore.
+        /// Use this value to restore the cluster from a backup instead of creating a new cluster.
+        /// To find the backup ID or ARN, use <a>DescribeBackups</a>. <i>If using a backup in
+        /// another account, the full ARN must be supplied.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -28,7 +28,7 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Gets a list of tags for the specified AWS CloudHSM cluster.
+    /// Gets a list of tags for the specified CloudHSM cluster.
     /// 
     ///  
     /// <para>
@@ -37,6 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// a <c>NextToken</c> value. Use this value in a subsequent <c>ListTags</c> request to
     /// get more tags. When you receive a response with no <c>NextToken</c> (or an empty or
     /// null value), that means there are no more tags to get.
+    /// </para><para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource
+    /// in a different Amazon Web Services account.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HSM2ResourceTag")]

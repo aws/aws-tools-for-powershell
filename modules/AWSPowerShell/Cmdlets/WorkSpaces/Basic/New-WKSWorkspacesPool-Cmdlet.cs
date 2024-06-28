@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter BundleId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the bundle for the WorkSpaces pool.</para>
+        /// <para>The identifier of the bundle for the pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The WorkSpaces pool description.</para>
+        /// <para>The pool description.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory for the WorkSpaces pool.</para>
+        /// <para>The identifier of the directory for the pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PoolName
         /// <summary>
         /// <para>
-        /// <para>The name of the WorkSpaces pool.</para>
+        /// <para>The name of the pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags for the WorkSpaces pool.</para>
+        /// <para>The tags for the pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

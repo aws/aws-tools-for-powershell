@@ -187,19 +187,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
         public Amazon.OpenSearchService.OpenSearchPartitionInstanceType ClusterConfig_DedicatedMasterType { get; set; }
         #endregion
         
-        #region Parameter NaturalLanguageQueryGenerationOptions_DesiredState
-        /// <summary>
-        /// <para>
-        /// <para>The desired state of the natural language query generation feature. Valid values are
-        /// ENABLED and DISABLED.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AIMLOptions_NaturalLanguageQueryGenerationOptions_DesiredState")]
-        [AWSConstantClassSource("Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState")]
-        public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
-        #endregion
-        
         #region Parameter AutoTuneOptions_DesiredState
         /// <summary>
         /// <para>
@@ -878,7 +865,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             context.SAMLOptions_RolesKey = this.SAMLOptions_RolesKey;
             context.SAMLOptions_SessionTimeoutMinute = this.SAMLOptions_SessionTimeoutMinute;
             context.SAMLOptions_SubjectKey = this.SAMLOptions_SubjectKey;
-            context.NaturalLanguageQueryGenerationOptions_DesiredState = this.NaturalLanguageQueryGenerationOptions_DesiredState;
             context.AutoTuneOptions_DesiredState = this.AutoTuneOptions_DesiredState;
             if (this.AutoTuneOptions_MaintenanceSchedule != null)
             {
@@ -1218,40 +1204,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             if (requestAdvancedSecurityOptionsIsNull)
             {
                 request.AdvancedSecurityOptions = null;
-            }
-            
-             // populate AIMLOptions
-            var requestAIMLOptionsIsNull = true;
-            request.AIMLOptions = new Amazon.OpenSearchService.Model.AIMLOptionsInput();
-            Amazon.OpenSearchService.Model.NaturalLanguageQueryGenerationOptionsInput requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = null;
-            
-             // populate NaturalLanguageQueryGenerationOptions
-            var requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull = true;
-            requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = new Amazon.OpenSearchService.Model.NaturalLanguageQueryGenerationOptionsInput();
-            Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState = null;
-            if (cmdletContext.NaturalLanguageQueryGenerationOptions_DesiredState != null)
-            {
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState = cmdletContext.NaturalLanguageQueryGenerationOptions_DesiredState;
-            }
-            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState != null)
-            {
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions.DesiredState = requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions_naturalLanguageQueryGenerationOptions_DesiredState;
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull = false;
-            }
-             // determine if requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions should be set to null
-            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptionsIsNull)
-            {
-                requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions = null;
-            }
-            if (requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions != null)
-            {
-                request.AIMLOptions.NaturalLanguageQueryGenerationOptions = requestAIMLOptions_aIMLOptions_NaturalLanguageQueryGenerationOptions;
-                requestAIMLOptionsIsNull = false;
-            }
-             // determine if request.AIMLOptions should be set to null
-            if (requestAIMLOptionsIsNull)
-            {
-                request.AIMLOptions = null;
             }
             
              // populate AutoTuneOptions
@@ -1913,7 +1865,6 @@ namespace Amazon.PowerShell.Cmdlets.OS
             public System.String SAMLOptions_RolesKey { get; set; }
             public System.Int32? SAMLOptions_SessionTimeoutMinute { get; set; }
             public System.String SAMLOptions_SubjectKey { get; set; }
-            public Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState NaturalLanguageQueryGenerationOptions_DesiredState { get; set; }
             public Amazon.OpenSearchService.AutoTuneDesiredState AutoTuneOptions_DesiredState { get; set; }
             public List<Amazon.OpenSearchService.Model.AutoTuneMaintenanceSchedule> AutoTuneOptions_MaintenanceSchedule { get; set; }
             public Amazon.OpenSearchService.RollbackOnDisable AutoTuneOptions_RollbackOnDisable { get; set; }

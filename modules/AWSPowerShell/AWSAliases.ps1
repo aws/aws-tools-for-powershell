@@ -4259,12 +4259,15 @@ Set-Alias -Name Delete-HSM2Cluster -Value Remove-HSM2Cluster
 Set-Alias -Name HSM2-DeleteCluster -Value Remove-HSM2Cluster
 Set-Alias -Name Delete-HSM2Hsm -Value Remove-HSM2Hsm
 Set-Alias -Name HSM2-DeleteHsm -Value Remove-HSM2Hsm
+Set-Alias -Name Delete-HSM2ResourcePolicy -Value Remove-HSM2ResourcePolicy
+Set-Alias -Name HSM2-DeleteResourcePolicy -Value Remove-HSM2ResourcePolicy
 Set-Alias -Name Describe-HSM2Backups -Value Get-HSM2Backup
 Set-Alias -Name Describe-HSM2Backup -Value Get-HSM2Backup
 Set-Alias -Name HSM2-DescribeBackups -Value Get-HSM2Backup
 Set-Alias -Name Describe-HSM2Clusters -Value Get-HSM2Cluster
 Set-Alias -Name Describe-HSM2Cluster -Value Get-HSM2Cluster
 Set-Alias -Name HSM2-DescribeClusters -Value Get-HSM2Cluster
+Set-Alias -Name HSM2-GetResourcePolicy -Value Get-HSM2ResourcePolicy
 Set-Alias -Name HSM2-InitializeCluster -Value Initialize-HSM2Cluster
 Set-Alias -Name Get-HSM2Tag -Value Get-HSM2ResourceTag
 Set-Alias -Name HSM2-ListTags -Value Get-HSM2ResourceTag
@@ -4273,6 +4276,8 @@ Set-Alias -Name Modify-HSM2BackupAttribute -Value Edit-HSM2BackupAttribute
 Set-Alias -Name HSM2-ModifyBackupAttributes -Value Edit-HSM2BackupAttribute
 Set-Alias -Name Modify-HSM2Cluster -Value Edit-HSM2Cluster
 Set-Alias -Name HSM2-ModifyCluster -Value Edit-HSM2Cluster
+Set-Alias -Name Put-HSM2ResourcePolicy -Value Write-HSM2ResourcePolicy
+Set-Alias -Name HSM2-PutResourcePolicy -Value Write-HSM2ResourcePolicy
 Set-Alias -Name HSM2-RestoreBackup -Value Restore-HSM2Backup
 Set-Alias -Name HSM2-TagResource -Value Add-HSM2ResourceTag
 Set-Alias -Name HSM2-UntagResource -Value Remove-HSM2ResourceTag

@@ -28,8 +28,13 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Restores a specified AWS CloudHSM backup that is in the <c>PENDING_DELETION</c> state.
-    /// For mor information on deleting a backup, see <a>DeleteBackup</a>.
+    /// Restores a specified CloudHSM backup that is in the <c>PENDING_DELETION</c> state.
+    /// For more information on deleting a backup, see <a>DeleteBackup</a>.
+    /// 
+    ///  
+    /// <para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup
+    /// in a different Amazon Web Services account.
+    /// </para>
     /// </summary>
     [Cmdlet("Restore", "HSM2Backup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudHSMV2.Model.Backup")]

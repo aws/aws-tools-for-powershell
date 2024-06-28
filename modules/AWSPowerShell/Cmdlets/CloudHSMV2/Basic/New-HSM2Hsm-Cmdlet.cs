@@ -28,7 +28,12 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Creates a new hardware security module (HSM) in the specified AWS CloudHSM cluster.
+    /// Creates a new hardware security module (HSM) in the specified CloudHSM cluster.
+    /// 
+    ///  
+    /// <para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster
+    /// in a different Amazon Web Service account.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "HSM2Hsm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudHSMV2.Model.Hsm")]

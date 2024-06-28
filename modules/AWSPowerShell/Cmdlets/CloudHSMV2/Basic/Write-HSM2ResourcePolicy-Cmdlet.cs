@@ -28,61 +28,77 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Deletes a specified CloudHSM backup. A backup can be restored up to 7 days after the
-    /// DeleteBackup request is made. For more information on restoring a backup, see <a>RestoreBackup</a>.
+    /// Creates or updates an CloudHSM resource policy. A resource policy helps you to define
+    /// the IAM entity (for example, an Amazon Web Services account) that can manage your
+    /// CloudHSM resources. The following resources support CloudHSM resource policies: 
     /// 
-    ///  
-    /// <para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup
+    ///  <ul><li><para>
+    ///  Backup - The resource policy allows you to describe the backup and restore a cluster
+    /// from the backup in another Amazon Web Services account.
+    /// </para></li></ul><para>
+    /// In order to share a backup, it must be in a 'READY' state and you must own it.
+    /// </para><important><para>
+    /// While you can share a backup using the CloudHSM PutResourcePolicy operation, we recommend
+    /// using Resource Access Manager (RAM) instead. Using RAM provides multiple benefits
+    /// as it creates the policy for you, allows multiple resources to be shared at one time,
+    /// and increases the discoverability of shared resources. If you use PutResourcePolicy
+    /// and want consumers to be able to describe the backups you share with them, you must
+    /// promote the backup to a standard RAM Resource Share using the RAM PromoteResourceShareCreatedFromPolicy
+    /// API operation. For more information, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html">
+    /// Working with shared backups</a> in the CloudHSM User Guide
+    /// </para></important><para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource
     /// in a different Amazon Web Services account.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "HSM2Backup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.CloudHSMV2.Model.Backup")]
-    [AWSCmdlet("Calls the AWS CloudHSM V2 DeleteBackup API operation.", Operation = new[] {"DeleteBackup"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.DeleteBackupResponse))]
-    [AWSCmdletOutput("Amazon.CloudHSMV2.Model.Backup or Amazon.CloudHSMV2.Model.DeleteBackupResponse",
-        "This cmdlet returns an Amazon.CloudHSMV2.Model.Backup object.",
-        "The service call response (type Amazon.CloudHSMV2.Model.DeleteBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "HSM2ResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CloudHSMV2.Model.PutResourcePolicyResponse")]
+    [AWSCmdlet("Calls the AWS CloudHSM V2 PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.CloudHSMV2.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.CloudHSMV2.Model.PutResourcePolicyResponse",
+        "This cmdlet returns an Amazon.CloudHSMV2.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveHSM2BackupCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
+    public partial class WriteHSM2ResourcePolicyCmdlet : AmazonCloudHSMV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BackupId
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The ID of the backup to be deleted. To find the ID of a backup, use the <a>DescribeBackups</a>
-        /// operation.</para>
+        /// <para>The policy you want to associate with a resource. </para><para>For an example policy, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html">
+        /// Working with shared backups</a> in the CloudHSM User Guide</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Policy { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of the resource to which you want to attach a policy. </para>
+        /// </para>
+        /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupId { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Backup'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudHSMV2.Model.DeleteBackupResponse).
-        /// Specifying the name of a property of type Amazon.CloudHSMV2.Model.DeleteBackupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudHSMV2.Model.PutResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.CloudHSMV2.Model.PutResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Backup";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -102,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BackupId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-HSM2Backup (DeleteBackup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-HSM2ResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -116,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudHSMV2.Model.DeleteBackupResponse, RemoveHSM2BackupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudHSMV2.Model.PutResourcePolicyResponse, WriteHSM2ResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,16 +141,11 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupId = this.BackupId;
-            #if MODULAR
-            if (this.BackupId == null && ParameterWasBound(nameof(this.BackupId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter BackupId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            context.Policy = this.Policy;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,11 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudHSMV2.Model.DeleteBackupRequest();
+            var request = new Amazon.CloudHSMV2.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.BackupId != null)
+            if (cmdletContext.Policy != null)
             {
-                request.BackupId = cmdletContext.BackupId;
+                request.Policy = cmdletContext.Policy;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -188,15 +203,15 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudHSMV2.Model.DeleteBackupResponse CallAWSServiceOperation(IAmazonCloudHSMV2 client, Amazon.CloudHSMV2.Model.DeleteBackupRequest request)
+        private Amazon.CloudHSMV2.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonCloudHSMV2 client, Amazon.CloudHSMV2.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudHSM V2", "DeleteBackup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudHSM V2", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DeleteBackup(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.DeleteBackupAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -216,9 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupId { get; set; }
-            public System.Func<Amazon.CloudHSMV2.Model.DeleteBackupResponse, RemoveHSM2BackupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Backup;
+            public System.String Policy { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.CloudHSMV2.Model.PutResourcePolicyResponse, WriteHSM2ResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

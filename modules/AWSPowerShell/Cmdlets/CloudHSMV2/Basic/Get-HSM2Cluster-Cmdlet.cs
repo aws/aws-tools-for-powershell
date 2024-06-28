@@ -28,7 +28,7 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Gets information about AWS CloudHSM clusters.
+    /// Gets information about CloudHSM clusters.
     /// 
     ///  
     /// <para>
@@ -37,6 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// it includes a <c>NextToken</c> value. Use this value in a subsequent <c>DescribeClusters</c>
     /// request to get more clusters. When you receive a response with no <c>NextToken</c>
     /// (or an empty or null value), that means there are no more clusters to get.
+    /// </para><para><b>Cross-account use:</b> No. You cannot perform this operation on CloudHSM clusters
+    /// in a different Amazon Web Services account.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HSM2Cluster")]

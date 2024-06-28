@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// <summary>
         /// <para>
         /// <para>One or more filters to apply in the request. Restrictions:</para><ul><li><para>Any number of filters by the same dimension, as specified in the <c>GroupBy</c> or
-        /// <c>Partition</c> parameters.</para></li><li><para>A single filter for any other dimension in this dimension group.</para></li></ul>
+        /// <c>Partition</c> parameters.</para></li><li><para>A single filter for any other dimension in this dimension group.</para></li></ul><note><para>The <c>db.sql.db_id</c> filter isn't available for RDS for SQL Server DB instances.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

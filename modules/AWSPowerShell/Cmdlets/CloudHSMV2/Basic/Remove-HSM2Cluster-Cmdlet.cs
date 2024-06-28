@@ -28,9 +28,14 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must
+    /// Deletes the specified CloudHSM cluster. Before you can delete a cluster, you must
     /// delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>.
     /// To delete an HSM, use <a>DeleteHsm</a>.
+    /// 
+    ///  
+    /// <para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster
+    /// in a different Amazon Web Services account.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "HSM2Cluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CloudHSMV2.Model.Cluster")]

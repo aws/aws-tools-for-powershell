@@ -523,7 +523,7 @@ $PCA_Completers = {
         # Amazon.ACMPCA.KeyStorageSecurityStandard
         "New-PCACertificateAuthority/KeyStorageSecurityStandard"
         {
-            $v = "FIPS_140_2_LEVEL_2_OR_HIGHER","FIPS_140_2_LEVEL_3_OR_HIGHER"
+            $v = "CCPC_LEVEL_1_OR_HIGHER","FIPS_140_2_LEVEL_2_OR_HIGHER","FIPS_140_2_LEVEL_3_OR_HIGHER"
             break
         }
 
@@ -544,7 +544,7 @@ $PCA_Completers = {
         # Amazon.ACMPCA.SigningAlgorithm
         "New-PCACertificate/SigningAlgorithm"
         {
-            $v = "SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA"
+            $v = "SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA","SM3WITHSM2"
             break
         }
 
@@ -11312,12 +11312,15 @@ $HSM2_SelectMap = @{
                "Remove-HSM2Backup",
                "Remove-HSM2Cluster",
                "Remove-HSM2Hsm",
+               "Remove-HSM2ResourcePolicy",
                "Get-HSM2Backup",
                "Get-HSM2Cluster",
+               "Get-HSM2ResourcePolicy",
                "Initialize-HSM2Cluster",
                "Get-HSM2ResourceTag",
                "Edit-HSM2BackupAttribute",
                "Edit-HSM2Cluster",
+               "Write-HSM2ResourcePolicy",
                "Restore-HSM2Backup",
                "Add-HSM2ResourceTag",
                "Remove-HSM2ResourceTag")
@@ -26313,7 +26316,7 @@ $EMR_Completers = {
         # Amazon.ElasticMapReduce.OnDemandProvisioningAllocationStrategy
         "Add-EMRInstanceFleet/OnDemandSpecification_AllocationStrategy"
         {
-            $v = "lowest-price"
+            $v = "lowest-price","prioritized"
             break
         }
 
@@ -26341,7 +26344,7 @@ $EMR_Completers = {
         # Amazon.ElasticMapReduce.SpotProvisioningAllocationStrategy
         "Add-EMRInstanceFleet/SpotSpecification_AllocationStrategy"
         {
-            $v = "capacity-optimized","diversified","lowest-price","price-capacity-optimized"
+            $v = "capacity-optimized","capacity-optimized-prioritized","diversified","lowest-price","price-capacity-optimized"
             break
         }
 
@@ -37955,7 +37958,7 @@ $KINA2_Completers = {
             ($_ -eq "Update-KINA2Application/RuntimeEnvironmentUpdate")
         }
         {
-            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
+            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
             break
         }
 
@@ -48803,16 +48806,6 @@ $OS_Completers = {
             break
         }
 
-        # Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState
-        {
-            ($_ -eq "New-OSDomain/NaturalLanguageQueryGenerationOptions_DesiredState") -Or
-            ($_ -eq "Update-OSDomainConfig/NaturalLanguageQueryGenerationOptions_DesiredState")
-        }
-        {
-            $v = "DISABLED","ENABLED"
-            break
-        }
-
         # Amazon.OpenSearchService.OpenSearchPartitionInstanceType
         {
             ($_ -eq "New-OSDomain/ClusterConfig_DedicatedMasterType") -Or
@@ -48911,7 +48904,6 @@ $OS_map = @{
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
-    "NaturalLanguageQueryGenerationOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")
@@ -70609,7 +70601,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.OperatingSystemName
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_OperatingSystemName"
         {
-            $v = "AMAZON_LINUX_2","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX_2","RHEL_8","UBUNTU_18_04","UBUNTU_20_04","UBUNTU_22_04","UNKNOWN","WINDOWS_10","WINDOWS_11","WINDOWS_7","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
             break
         }
 

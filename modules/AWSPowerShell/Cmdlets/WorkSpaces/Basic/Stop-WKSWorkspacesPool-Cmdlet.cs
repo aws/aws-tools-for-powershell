@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Stops the specifiedWorkSpaces pool.
+    /// Stops the specified pool.
     /// 
     ///  
     /// <para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the WorkSpaces pool.</para>
+        /// <para>The identifier of the pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

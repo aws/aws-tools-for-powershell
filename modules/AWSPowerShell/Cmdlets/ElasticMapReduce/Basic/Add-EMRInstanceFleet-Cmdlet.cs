@@ -49,9 +49,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter OnDemandSpecification_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para>Specifies the strategy to use in launching On-Demand instance fleets. Currently, the
-        /// only option is <c>lowest-price</c> (the default), which launches the lowest price
-        /// first.</para>
+        /// <para>Specifies the strategy to use in launching On-Demand instance fleets. Available options
+        /// are <c>lowest-price</c> and <c>prioritized</c>. <c>lowest-price</c> specifies to launch
+        /// the instances with the lowest price first, and <c>prioritized</c> specifies that Amazon
+        /// EMR should launch the instances with the highest priority first. The default is <c>lowest-price</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SpotSpecification_AllocationStrategy
         /// <summary>
         /// <para>
-        /// <para>Specifies one of the following strategies to launch Spot Instance fleets: <c>price-capacity-optimized</c>,
-        /// <c>capacity-optimized</c>, <c>lowest-price</c>, or <c>diversified</c>. For more information
-        /// on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation
+        /// <para>Specifies one of the following strategies to launch Spot Instance fleets: <c>capacity-optimized</c>,
+        /// <c>price-capacity-optimized</c>, <c>lowest-price</c>, or <c>diversified</c>, and <c>capacity-optimized-prioritized</c>.
+        /// For more information on the provisioning strategies, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation
         /// strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><note><para>When you launch a Spot Instance fleet with the old console, it automatically launches
         /// with the <c>capacity-optimized</c> strategy. You can't change the allocation strategy
         /// from the old console.</para></note>

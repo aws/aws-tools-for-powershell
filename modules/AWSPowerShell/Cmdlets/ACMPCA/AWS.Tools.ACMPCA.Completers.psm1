@@ -111,7 +111,7 @@ $PCA_Completers = {
         # Amazon.ACMPCA.KeyStorageSecurityStandard
         "New-PCACertificateAuthority/KeyStorageSecurityStandard"
         {
-            $v = "FIPS_140_2_LEVEL_2_OR_HIGHER","FIPS_140_2_LEVEL_3_OR_HIGHER"
+            $v = "CCPC_LEVEL_1_OR_HIGHER","FIPS_140_2_LEVEL_2_OR_HIGHER","FIPS_140_2_LEVEL_3_OR_HIGHER"
             break
         }
 
@@ -132,7 +132,7 @@ $PCA_Completers = {
         # Amazon.ACMPCA.SigningAlgorithm
         "New-PCACertificate/SigningAlgorithm"
         {
-            $v = "SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA"
+            $v = "SHA256WITHECDSA","SHA256WITHRSA","SHA384WITHECDSA","SHA384WITHRSA","SHA512WITHECDSA","SHA512WITHRSA","SM3WITHSM2"
             break
         }
 

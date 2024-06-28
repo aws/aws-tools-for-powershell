@@ -1,4 +1,17 @@
-﻿### 4.1.609 (2024-06-27 20:48Z)
+﻿### 4.1.610 (2024-06-28 22:03Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.841.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudHSM V2
+    * Added cmdlet Get-HSM2ResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-HSM2ResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-HSM2ResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Get-HSM2Backup: added parameter Shared.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUEDatabaseList: added parameter AttributesToGet.
+  * Amazon OpenSearch Service
+    * [Breaking Change] Modified cmdlet New-OSDomain: removed parameter NaturalLanguageQueryGenerationOptions_DesiredState.
+    * [Breaking Change] Modified cmdlet Update-OSDomainConfig: removed parameter NaturalLanguageQueryGenerationOptions_DesiredState.
+
+### 4.1.609 (2024-06-27 20:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.840.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Added cmdlet Get-DZLineageNode leveraging the GetLineageNode service API.

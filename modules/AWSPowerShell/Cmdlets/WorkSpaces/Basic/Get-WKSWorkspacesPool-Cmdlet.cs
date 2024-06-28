@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes the specified WorkSpaces pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the specified WorkSpaces Pools.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspacesPool")]
     [OutputType("Amazon.WorkSpaces.Model.WorkspacesPool")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter conditions for the WorkSpaces pool to return.</para>
+        /// <para>The filter conditions for the WorkSpaces Pool to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the WorkSpaces pool.</para>
+        /// <para>The identifier of the WorkSpaces Pools.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

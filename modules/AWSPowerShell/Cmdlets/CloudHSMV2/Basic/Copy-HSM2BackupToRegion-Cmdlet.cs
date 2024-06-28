@@ -28,7 +28,12 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Copy an AWS CloudHSM cluster backup to a different region.
+    /// Copy an CloudHSM cluster backup to a different region.
+    /// 
+    ///  
+    /// <para><b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup
+    /// in a different Amazon Web Services account.
+    /// </para>
     /// </summary>
     [Cmdlet("Copy", "HSM2BackupToRegion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudHSMV2.Model.DestinationBackup")]

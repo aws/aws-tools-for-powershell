@@ -28,7 +28,8 @@ using Amazon.CloudHSMV2.Model;
 namespace Amazon.PowerShell.Cmdlets.HSM2
 {
     /// <summary>
-    /// Gets information about backups of AWS CloudHSM clusters.
+    /// Gets information about backups of CloudHSM clusters. Lists either the backups you
+    /// own or the backups shared with you when the Shared parameter is true.
     /// 
     ///  
     /// <para>
@@ -37,6 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// includes a <c>NextToken</c> value. Use this value in a subsequent <c>DescribeBackups</c>
     /// request to get more backups. When you receive a response with no <c>NextToken</c>
     /// (or an empty or null value), that means there are no more backups to get.
+    /// </para><para><b>Cross-account use:</b> Yes. Customers can describe backups in other Amazon Web
+    /// Services accounts that are shared with them.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "HSM2Backup")]
@@ -67,6 +70,21 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Filters")]
         public System.Collections.Hashtable Filter { get; set; }
+        #endregion
+        
+        #region Parameter Shared
+        /// <summary>
+        /// <para>
+        /// <para>Describe backups that are shared with you.</para><note><para>By default when using this option, the command returns backups that have been shared
+        /// using a standard Resource Access Manager resource share. In order for a backup that
+        /// was shared using the PutResourcePolicy command to be returned, the share must be promoted
+        /// to a standard resource share using the RAM <a href="https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html">PromoteResourceShareCreatedFromPolicy</a>
+        /// API operation. For more information about sharing backups, see <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html">
+        /// Working with shared backups</a> in the CloudHSM User Guide.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? Shared { get; set; }
         #endregion
         
         #region Parameter SortAscending
@@ -179,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             }
             #endif
             context.NextToken = this.NextToken;
+            context.Shared = this.Shared;
             context.SortAscending = this.SortAscending;
             
             // allow further manipulation of loaded context prior to processing
@@ -206,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResult.Value);
+            }
+            if (cmdletContext.Shared != null)
+            {
+                request.Shared = cmdletContext.Shared.Value;
             }
             if (cmdletContext.SortAscending != null)
             {
@@ -269,6 +292,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.Shared != null)
+            {
+                request.Shared = cmdletContext.Shared.Value;
             }
             if (cmdletContext.SortAscending != null)
             {
@@ -396,6 +423,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
             public Dictionary<System.String, List<System.String>> Filter { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? Shared { get; set; }
             public System.Boolean? SortAscending { get; set; }
             public System.Func<Amazon.CloudHSMV2.Model.DescribeBackupsResponse, GetHSM2BackupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Backups;

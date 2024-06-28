@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Updates the specified WorkSpaces pool.
+    /// Updates the specified pool.
     /// </summary>
     [Cmdlet("Update", "WKSWorkspacesPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkSpaces.Model.WorkspacesPool")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Describes the specified WorkSpaces pool to update.</para>
+        /// <para>Describes the specified pool to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the specified WorkSpaces pool to update.</para>
+        /// <para>The identifier of the specified pool to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

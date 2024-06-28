@@ -28,12 +28,12 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Starts the specified WorkSpaces pool.
+    /// Starts the specified pool.
     /// 
     ///  
     /// <para>
-    /// You cannot start a WorkSpace pool unless it has a running mode of <c>AutoStop</c>
-    /// and a state of <c>STOPPED</c>.
+    /// You cannot start a pool unless it has a running mode of <c>AutoStop</c> and a state
+    /// of <c>STOPPED</c>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "WKSWorkspacesPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the WorkSpaces pool.</para>
+        /// <para>The identifier of the pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

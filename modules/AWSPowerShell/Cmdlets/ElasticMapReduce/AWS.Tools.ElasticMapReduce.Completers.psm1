@@ -158,7 +158,7 @@ $EMR_Completers = {
         # Amazon.ElasticMapReduce.OnDemandProvisioningAllocationStrategy
         "Add-EMRInstanceFleet/OnDemandSpecification_AllocationStrategy"
         {
-            $v = "lowest-price"
+            $v = "lowest-price","prioritized"
             break
         }
 
@@ -186,7 +186,7 @@ $EMR_Completers = {
         # Amazon.ElasticMapReduce.SpotProvisioningAllocationStrategy
         "Add-EMRInstanceFleet/SpotSpecification_AllocationStrategy"
         {
-            $v = "capacity-optimized","diversified","lowest-price","price-capacity-optimized"
+            $v = "capacity-optimized","capacity-optimized-prioritized","diversified","lowest-price","price-capacity-optimized"
             break
         }
 

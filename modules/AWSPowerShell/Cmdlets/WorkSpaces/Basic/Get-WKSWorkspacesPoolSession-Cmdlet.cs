@@ -28,8 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Retrieves a list that describes the streaming sessions for a specified WorkSpaces
-    /// pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Retrieves a list that describes the streaming sessions for a specified pool.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspacesPoolSession")]
     [OutputType("Amazon.WorkSpaces.Model.WorkspacesPoolSession")]
@@ -46,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the WorkSpaces pool.</para>
+        /// <para>The identifier of the pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

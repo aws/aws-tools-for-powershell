@@ -152,16 +152,6 @@ $OS_Completers = {
             break
         }
 
-        # Amazon.OpenSearchService.NaturalLanguageQueryGenerationDesiredState
-        {
-            ($_ -eq "New-OSDomain/NaturalLanguageQueryGenerationOptions_DesiredState") -Or
-            ($_ -eq "Update-OSDomainConfig/NaturalLanguageQueryGenerationOptions_DesiredState")
-        }
-        {
-            $v = "DISABLED","ENABLED"
-            break
-        }
-
         # Amazon.OpenSearchService.OpenSearchPartitionInstanceType
         {
             ($_ -eq "New-OSDomain/ClusterConfig_DedicatedMasterType") -Or
@@ -260,7 +250,6 @@ $OS_map = @{
     "EngineType"=@("Get-OSDomainNameList")
     "InstanceType"=@("Get-OSInstanceTypeLimit")
     "IPAddressType"=@("New-OSDomain","Update-OSDomainConfig")
-    "NaturalLanguageQueryGenerationOptions_DesiredState"=@("New-OSDomain","Update-OSDomainConfig")
     "PackageType"=@("New-OSPackage")
     "ScheduleAt"=@("Start-OSServiceSoftwareUpdate","Update-OSScheduledAction")
     "Status"=@("Get-OSDomainMaintenanceList","Update-OSDataSource")

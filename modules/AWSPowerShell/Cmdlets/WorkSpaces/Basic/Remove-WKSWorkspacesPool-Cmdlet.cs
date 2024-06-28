@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Terminates the specified WorkSpaces pool.
+    /// Terminates the specified pool.
     /// </summary>
     [Cmdlet("Remove", "WKSWorkspacesPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the WorkSpaces pool.</para>
+        /// <para>The identifier of the pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
