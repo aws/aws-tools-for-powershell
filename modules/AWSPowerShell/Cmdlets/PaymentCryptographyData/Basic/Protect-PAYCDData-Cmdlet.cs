@@ -144,11 +144,27 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String Symmetric_InitializationVector { get; set; }
         #endregion
         
+        #region Parameter WrappedKey_KeyCheckValueAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the
+        /// key check value (KCV). It is used to validate the key integrity.</para><para>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero,
+        /// with the key to be checked and retaining the 3 highest order bytes of the encrypted
+        /// result. For AES keys, the KCV is computed using a CMAC algorithm where the input data
+        /// is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm")]
+        public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm WrappedKey_KeyCheckValueAlgorithm { get; set; }
+        #endregion
+        
         #region Parameter KeyIdentifier
         /// <summary>
         /// <para>
         /// <para>The <c>keyARN</c> of the encryption key that Amazon Web Services Payment Cryptography
-        /// uses for plaintext encryption.</para>
+        /// uses for plaintext encryption.</para><para>When a WrappedKeyBlock is provided, this value will be the identifier to the key wrapping
+        /// key. Otherwise, it is the key identifier used to perform the operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -305,6 +321,17 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String Emv_SessionDerivationData { get; set; }
         #endregion
         
+        #region Parameter WrappedKeyMaterial_Tr31KeyBlock
+        /// <summary>
+        /// <para>
+        /// <para>The TR-31 wrapped key block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("WrappedKey_WrappedKeyMaterial_Tr31KeyBlock")]
+        public System.String WrappedKeyMaterial_Tr31KeyBlock { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -396,6 +423,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 WriteWarning("You are passing $null as a value for parameter PlainText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.WrappedKey_KeyCheckValueAlgorithm = this.WrappedKey_KeyCheckValueAlgorithm;
+            context.WrappedKeyMaterial_Tr31KeyBlock = this.WrappedKeyMaterial_Tr31KeyBlock;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -640,6 +669,50 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 request.PlainText = cmdletContext.PlainText;
             }
             
+             // populate WrappedKey
+            var requestWrappedKeyIsNull = true;
+            request.WrappedKey = new Amazon.PaymentCryptographyData.Model.WrappedKey();
+            Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm requestWrappedKey_wrappedKey_KeyCheckValueAlgorithm = null;
+            if (cmdletContext.WrappedKey_KeyCheckValueAlgorithm != null)
+            {
+                requestWrappedKey_wrappedKey_KeyCheckValueAlgorithm = cmdletContext.WrappedKey_KeyCheckValueAlgorithm;
+            }
+            if (requestWrappedKey_wrappedKey_KeyCheckValueAlgorithm != null)
+            {
+                request.WrappedKey.KeyCheckValueAlgorithm = requestWrappedKey_wrappedKey_KeyCheckValueAlgorithm;
+                requestWrappedKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestWrappedKey_wrappedKey_WrappedKeyMaterial = null;
+            
+             // populate WrappedKeyMaterial
+            var requestWrappedKey_wrappedKey_WrappedKeyMaterialIsNull = true;
+            requestWrappedKey_wrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
+            System.String requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock = null;
+            if (cmdletContext.WrappedKeyMaterial_Tr31KeyBlock != null)
+            {
+                requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock = cmdletContext.WrappedKeyMaterial_Tr31KeyBlock;
+            }
+            if (requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock != null)
+            {
+                requestWrappedKey_wrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestWrappedKey_wrappedKey_WrappedKeyMaterial_wrappedKeyMaterial_Tr31KeyBlock;
+                requestWrappedKey_wrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestWrappedKey_wrappedKey_WrappedKeyMaterial should be set to null
+            if (requestWrappedKey_wrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestWrappedKey_wrappedKey_WrappedKeyMaterial = null;
+            }
+            if (requestWrappedKey_wrappedKey_WrappedKeyMaterial != null)
+            {
+                request.WrappedKey.WrappedKeyMaterial = requestWrappedKey_wrappedKey_WrappedKeyMaterial;
+                requestWrappedKeyIsNull = false;
+            }
+             // determine if request.WrappedKey should be set to null
+            if (requestWrappedKeyIsNull)
+            {
+                request.WrappedKey = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -717,6 +790,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public Amazon.PaymentCryptographyData.PaddingType Symmetric_PaddingType { get; set; }
             public System.String KeyIdentifier { get; set; }
             public System.String PlainText { get; set; }
+            public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm WrappedKey_KeyCheckValueAlgorithm { get; set; }
+            public System.String WrappedKeyMaterial_Tr31KeyBlock { get; set; }
             public System.Func<Amazon.PaymentCryptographyData.Model.EncryptDataResponse, ProtectPAYCDDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

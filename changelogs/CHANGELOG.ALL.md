@@ -1,4 +1,16 @@
-﻿### 4.1.610 (2024-06-28 22:03Z)
+﻿### 4.1.611 (2024-07-01 22:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.842.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Get-CONNAuthenticationProfile leveraging the DescribeAuthenticationProfile service API.
+    * Added cmdlet Get-CONNAuthenticationProfileList leveraging the ListAuthenticationProfiles service API.
+    * Added cmdlet Update-CONNAuthenticationProfile leveraging the UpdateAuthenticationProfile service API.
+  * Amazon Payment Cryptography Data
+    * Modified cmdlet Convert-PAYCDPinData: added parameters IncomingWrappedKey_KeyCheckValueAlgorithm, IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock, OutgoingWrappedKey_KeyCheckValueAlgorithm and OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock.
+    * Modified cmdlet Protect-PAYCDData: added parameters WrappedKey_KeyCheckValueAlgorithm and WrappedKeyMaterial_Tr31KeyBlock.
+    * Modified cmdlet Unprotect-PAYCDData: added parameters WrappedKey_KeyCheckValueAlgorithm and WrappedKeyMaterial_Tr31KeyBlock.
+    * Modified cmdlet Update-PAYCDEncryptData: added parameters IncomingWrappedKey_KeyCheckValueAlgorithm, IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock, OutgoingWrappedKey_KeyCheckValueAlgorithm and OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock.
+
+### 4.1.610 (2024-06-28 22:03Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.841.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudHSM V2
     * Added cmdlet Get-HSM2ResourcePolicy leveraging the GetResourcePolicy service API.

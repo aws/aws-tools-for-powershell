@@ -107,7 +107,7 @@ $EKS_Completers = {
         # Amazon.EKS.CapacityTypes
         "New-EKSNodegroup/CapacityType"
         {
-            $v = "ON_DEMAND","SPOT"
+            $v = "CAPACITY_BLOCK","ON_DEMAND","SPOT"
             break
         }
 

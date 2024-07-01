@@ -6185,6 +6185,8 @@ Set-Alias -Name Delete-CONNVocabulary -Value Remove-CONNVocabulary
 Set-Alias -Name CONN-DeleteVocabulary -Value Remove-CONNVocabulary
 Set-Alias -Name Describe-CONNAgentStatus -Value Get-CONNAgentStatus
 Set-Alias -Name CONN-DescribeAgentStatus -Value Get-CONNAgentStatus
+Set-Alias -Name Describe-CONNAuthenticationProfile -Value Get-CONNAuthenticationProfile
+Set-Alias -Name CONN-DescribeAuthenticationProfile -Value Get-CONNAuthenticationProfile
 Set-Alias -Name Describe-CONNContact -Value Get-CONNContact
 Set-Alias -Name CONN-DescribeContact -Value Get-CONNContact
 Set-Alias -Name Describe-CONNContactEvaluation -Value Get-CONNContactEvaluation
@@ -6284,6 +6286,9 @@ Set-Alias -Name CONN-ListAnalyticsDataAssociations -Value Get-CONNAnalyticsDataA
 Set-Alias -Name List-CONNApprovedOrigins -Value Get-CONNApprovedOriginList
 Set-Alias -Name List-CONNApprovedOriginList -Value Get-CONNApprovedOriginList
 Set-Alias -Name CONN-ListApprovedOrigins -Value Get-CONNApprovedOriginList
+Set-Alias -Name List-CONNAuthenticationProfiles -Value Get-CONNAuthenticationProfileList
+Set-Alias -Name List-CONNAuthenticationProfileList -Value Get-CONNAuthenticationProfileList
+Set-Alias -Name CONN-ListAuthenticationProfiles -Value Get-CONNAuthenticationProfileList
 Set-Alias -Name List-CONNBots -Value Get-CONNBotList
 Set-Alias -Name List-CONNBotList -Value Get-CONNBotList
 Set-Alias -Name CONN-ListBots -Value Get-CONNBotList
@@ -6474,6 +6479,7 @@ Set-Alias -Name Untag-CONNContactTag -Value Remove-CONNContactTag
 Set-Alias -Name CONN-UntagContact -Value Remove-CONNContactTag
 Set-Alias -Name CONN-UntagResource -Value Remove-CONNResourceTag
 Set-Alias -Name CONN-UpdateAgentStatus -Value Update-CONNAgentStatus
+Set-Alias -Name CONN-UpdateAuthenticationProfile -Value Update-CONNAuthenticationProfile
 Set-Alias -Name CONN-UpdateContact -Value Update-CONNContact
 Set-Alias -Name Update-CONNContactAttributes -Value Update-CONNContactAttribute
 Set-Alias -Name CONN-UpdateContactAttributes -Value Update-CONNContactAttribute

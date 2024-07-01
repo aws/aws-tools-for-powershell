@@ -165,6 +165,20 @@ $PAYCD_Completers = {
             break
         }
 
+        # Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm
+        {
+            ($_ -eq "Convert-PAYCDPinData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Update-PAYCDEncryptData/IncomingWrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Convert-PAYCDPinData/OutgoingWrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Update-PAYCDEncryptData/OutgoingWrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Protect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm") -Or
+            ($_ -eq "Unprotect-PAYCDData/WrappedKey_KeyCheckValueAlgorithm")
+        }
+        {
+            $v = "ANSI_X9_24","CMAC"
+            break
+        }
+
         # Amazon.PaymentCryptographyData.MacAlgorithm
         {
             ($_ -eq "New-PAYCDMac/GenerationAttributes_Algorithm") -Or
@@ -252,6 +266,7 @@ $PAYCD_map = @{
     "IncomingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Symmetric_Mode"=@("Update-PAYCDEncryptData")
     "IncomingEncryptionAttributes_Symmetric_PaddingType"=@("Update-PAYCDEncryptData")
+    "IncomingWrappedKey_KeyCheckValueAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "MajorKeyDerivationMode"=@("Test-PAYCDAuthRequestCryptogram")
     "OutgoingDukptAttributes_DukptKeyDerivationType"=@("Convert-PAYCDPinData")
     "OutgoingDukptAttributes_DukptKeyVariant"=@("Convert-PAYCDPinData")
@@ -260,10 +275,12 @@ $PAYCD_map = @{
     "OutgoingEncryptionAttributes_Dukpt_Mode"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Symmetric_Mode"=@("Update-PAYCDEncryptData")
     "OutgoingEncryptionAttributes_Symmetric_PaddingType"=@("Update-PAYCDEncryptData")
+    "OutgoingWrappedKey_KeyCheckValueAlgorithm"=@("Convert-PAYCDPinData","Update-PAYCDEncryptData")
     "PinBlockFormat"=@("New-PAYCDPinData","Test-PAYCDPinData")
     "Symmetric_Mode"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "Symmetric_PaddingType"=@("Protect-PAYCDData","Unprotect-PAYCDData")
     "VerificationAttributes_Algorithm"=@("Test-PAYCDMac")
+    "WrappedKey_KeyCheckValueAlgorithm"=@("Protect-PAYCDData","Unprotect-PAYCDData")
 }
 
 _awsArgumentCompleterRegistration $PAYCD_Completers $PAYCD_map

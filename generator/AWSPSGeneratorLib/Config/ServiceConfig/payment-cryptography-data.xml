@@ -56,6 +56,8 @@
                 <Param Name="OutgoingEncryptionAttributes_Symmetric_Mode" NewName="OutgoingEncryptionAttributes_Symmetric_Mode" />
                 <Param Name="IncomingEncryptionAttributes_Symmetric_PaddingType" NewName="IncomingEncryptionAttributes_Symmetric_PaddingType" />
                 <Param Name="OutgoingEncryptionAttributes_Symmetric_PaddingType" NewName="OutgoingEncryptionAttributes_Symmetric_PaddingType" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,6 +69,8 @@
                 <Param Name="OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber" />
                 <Param Name="IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" NewName="IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" />
                 <Param Name="OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" NewName="OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber" />
+                <Param Name="IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" />
+                <Param Name="OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" NewName="OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

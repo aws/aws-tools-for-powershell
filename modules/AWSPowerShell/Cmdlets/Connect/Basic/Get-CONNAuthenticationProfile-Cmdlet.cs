@@ -28,26 +28,30 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Allows you to confirm that the attached file has been uploaded using the pre-signed
-    /// URL provided in the StartAttachedFileUpload API.
+    /// This API is in preview release for Amazon Connect and is subject to change. To request
+    /// access to this API, contact Amazon Web Services Support.
+    /// 
+    ///  
+    /// <para>
+    /// Describes the target authentication profile.
+    /// </para>
     /// </summary>
-    [Cmdlet("Complete", "CONNAttachedFileUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Connect Service CompleteAttachedFileUpload API operation.", Operation = new[] {"CompleteAttachedFileUpload"}, SelectReturnType = typeof(Amazon.Connect.Model.CompleteAttachedFileUploadResponse))]
-    [AWSCmdletOutput("None or Amazon.Connect.Model.CompleteAttachedFileUploadResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Connect.Model.CompleteAttachedFileUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CONNAuthenticationProfile")]
+    [OutputType("Amazon.Connect.Model.AuthenticationProfile")]
+    [AWSCmdlet("Calls the Amazon Connect Service DescribeAuthenticationProfile API operation.", Operation = new[] {"DescribeAuthenticationProfile"}, SelectReturnType = typeof(Amazon.Connect.Model.DescribeAuthenticationProfileResponse))]
+    [AWSCmdletOutput("Amazon.Connect.Model.AuthenticationProfile or Amazon.Connect.Model.DescribeAuthenticationProfileResponse",
+        "This cmdlet returns an Amazon.Connect.Model.AuthenticationProfile object.",
+        "The service call response (type Amazon.Connect.Model.DescribeAuthenticationProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class CompleteCONNAttachedFileUploadCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetCONNAuthenticationProfileCmdlet : AmazonConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AssociatedResourceArn
+        #region Parameter AuthenticationProfileId
         /// <summary>
         /// <para>
-        /// <para>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a>
-        /// are the only current supported resource.</para><note><para>This value must be a valid ARN.</para></note>
+        /// <para>A unique identifier for the authentication profile. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,30 +62,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AssociatedResourceArn { get; set; }
-        #endregion
-        
-        #region Parameter FileId
-        /// <summary>
-        /// <para>
-        /// <para>The unique identifier of the attached file resource.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FileId { get; set; }
+        public System.String AuthenticationProfileId { get; set; }
         #endregion
         
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the Amazon Connect instance.</para>
+        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
+        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,44 +85,29 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.CompleteAttachedFileUploadResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AuthenticationProfile'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.DescribeAuthenticationProfileResponse).
+        /// Specifying the name of a property of type Amazon.Connect.Model.DescribeAuthenticationProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "AuthenticationProfile";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AssociatedResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AssociatedResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AuthenticationProfileId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AuthenticationProfileId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssociatedResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AuthenticationProfileId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FileId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Complete-CONNAttachedFileUpload (CompleteAttachedFileUpload)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -144,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.CompleteAttachedFileUploadResponse, CompleteCONNAttachedFileUploadCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Connect.Model.DescribeAuthenticationProfileResponse, GetCONNAuthenticationProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -153,21 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AssociatedResourceArn;
+                context.Select = (response, cmdlet) => this.AuthenticationProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AssociatedResourceArn = this.AssociatedResourceArn;
+            context.AuthenticationProfileId = this.AuthenticationProfileId;
             #if MODULAR
-            if (this.AssociatedResourceArn == null && ParameterWasBound(nameof(this.AssociatedResourceArn)))
+            if (this.AuthenticationProfileId == null && ParameterWasBound(nameof(this.AuthenticationProfileId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AssociatedResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.FileId = this.FileId;
-            #if MODULAR
-            if (this.FileId == null && ParameterWasBound(nameof(this.FileId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter FileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AuthenticationProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.InstanceId = this.InstanceId;
@@ -191,15 +157,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Connect.Model.CompleteAttachedFileUploadRequest();
+            var request = new Amazon.Connect.Model.DescribeAuthenticationProfileRequest();
             
-            if (cmdletContext.AssociatedResourceArn != null)
+            if (cmdletContext.AuthenticationProfileId != null)
             {
-                request.AssociatedResourceArn = cmdletContext.AssociatedResourceArn;
-            }
-            if (cmdletContext.FileId != null)
-            {
-                request.FileId = cmdletContext.FileId;
+                request.AuthenticationProfileId = cmdletContext.AuthenticationProfileId;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -238,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.CompleteAttachedFileUploadResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.CompleteAttachedFileUploadRequest request)
+        private Amazon.Connect.Model.DescribeAuthenticationProfileResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.DescribeAuthenticationProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "CompleteAttachedFileUpload");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "DescribeAuthenticationProfile");
             try
             {
                 #if DESKTOP
-                return client.CompleteAttachedFileUpload(request);
+                return client.DescribeAuthenticationProfile(request);
                 #elif CORECLR
-                return client.CompleteAttachedFileUploadAsync(request).GetAwaiter().GetResult();
+                return client.DescribeAuthenticationProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -266,11 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AssociatedResourceArn { get; set; }
-            public System.String FileId { get; set; }
+            public System.String AuthenticationProfileId { get; set; }
             public System.String InstanceId { get; set; }
-            public System.Func<Amazon.Connect.Model.CompleteAttachedFileUploadResponse, CompleteCONNAttachedFileUploadCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.Connect.Model.DescribeAuthenticationProfileResponse, GetCONNAuthenticationProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AuthenticationProfile;
         }
         
     }

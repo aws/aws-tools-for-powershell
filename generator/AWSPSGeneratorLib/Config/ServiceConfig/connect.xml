@@ -308,6 +308,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAuthenticationProfile" OutputProperty="AuthenticationProfile" Verb="Get" Noun="AuthenticationProfile" PipelineParameter="AuthenticationProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeContact" OutputProperty="Contact" Verb="Get" Noun="Contact" PipelineParameter="ContactId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -513,6 +517,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApprovedOrigins" OutputProperty="Origins" Verb="Get" Noun="ApprovedOriginList" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAuthenticationProfiles" OutputProperty="AuthenticationProfileSummaryList" Verb="Get" Noun="AuthenticationProfileList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -896,6 +904,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAgentStatus" Verb="Update" Noun="AgentStatus" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAuthenticationProfile" Verb="Update" Noun="AuthenticationProfile" ShouldProcessTarget="AuthenticationProfileId" PipelineParameter="AuthenticationProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

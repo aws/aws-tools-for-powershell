@@ -143,7 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// <summary>
         /// <para>
         /// <para>The <c>keyARN</c> of the encryption key under which incoming PIN block data is encrypted.
-        /// This key type can be PEK or BDK.</para>
+        /// This key type can be PEK or BDK.</para><para>When a WrappedKeyBlock is provided, this value will be the identifier to the key wrapping
+        /// key for PIN block. Otherwise, it is the key identifier used to perform the operation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -175,6 +176,36 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat1 OutgoingTranslationAttributes_IsoFormat1 { get; set; }
+        #endregion
+        
+        #region Parameter IncomingWrappedKey_KeyCheckValueAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the
+        /// key check value (KCV). It is used to validate the key integrity.</para><para>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero,
+        /// with the key to be checked and retaining the 3 highest order bytes of the encrypted
+        /// result. For AES keys, the KCV is computed using a CMAC algorithm where the input data
+        /// is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm")]
+        public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm IncomingWrappedKey_KeyCheckValueAlgorithm { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_KeyCheckValueAlgorithm
+        /// <summary>
+        /// <para>
+        /// <para>The algorithm that Amazon Web Services Payment Cryptography uses to calculate the
+        /// key check value (KCV). It is used to validate the key integrity.</para><para>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero,
+        /// with the key to be checked and retaining the 3 highest order bytes of the encrypted
+        /// result. For AES keys, the KCV is computed using a CMAC algorithm where the input data
+        /// is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm")]
+        public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm OutgoingWrappedKey_KeyCheckValueAlgorithm { get; set; }
         #endregion
         
         #region Parameter IncomingDukptAttributes_KeySerialNumber
@@ -285,6 +316,26 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
         public System.String OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber { get; set; }
         #endregion
         
+        #region Parameter IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock
+        /// <summary>
+        /// <para>
+        /// <para>The TR-31 wrapped key block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock { get; set; }
+        #endregion
+        
+        #region Parameter OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock
+        /// <summary>
+        /// <para>
+        /// <para>The TR-31 wrapped key block.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -348,6 +399,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             context.IncomingTranslationAttributes_IsoFormat1 = this.IncomingTranslationAttributes_IsoFormat1;
             context.IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber = this.IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber;
             context.IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber = this.IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber;
+            context.IncomingWrappedKey_KeyCheckValueAlgorithm = this.IncomingWrappedKey_KeyCheckValueAlgorithm;
+            context.IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = this.IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
             context.OutgoingDukptAttributes_DukptKeyDerivationType = this.OutgoingDukptAttributes_DukptKeyDerivationType;
             context.OutgoingDukptAttributes_DukptKeyVariant = this.OutgoingDukptAttributes_DukptKeyVariant;
             context.OutgoingDukptAttributes_KeySerialNumber = this.OutgoingDukptAttributes_KeySerialNumber;
@@ -362,6 +415,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             context.OutgoingTranslationAttributes_IsoFormat1 = this.OutgoingTranslationAttributes_IsoFormat1;
             context.OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber = this.OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber;
             context.OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber = this.OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber;
+            context.OutgoingWrappedKey_KeyCheckValueAlgorithm = this.OutgoingWrappedKey_KeyCheckValueAlgorithm;
+            context.OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = this.OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -520,6 +575,50 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 request.IncomingTranslationAttributes = null;
             }
             
+             // populate IncomingWrappedKey
+            var requestIncomingWrappedKeyIsNull = true;
+            request.IncomingWrappedKey = new Amazon.PaymentCryptographyData.Model.WrappedKey();
+            Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm requestIncomingWrappedKey_incomingWrappedKey_KeyCheckValueAlgorithm = null;
+            if (cmdletContext.IncomingWrappedKey_KeyCheckValueAlgorithm != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_KeyCheckValueAlgorithm = cmdletContext.IncomingWrappedKey_KeyCheckValueAlgorithm;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_KeyCheckValueAlgorithm != null)
+            {
+                request.IncomingWrappedKey.KeyCheckValueAlgorithm = requestIncomingWrappedKey_incomingWrappedKey_KeyCheckValueAlgorithm;
+                requestIncomingWrappedKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial = null;
+            
+             // populate WrappedKeyMaterial
+            var requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull = true;
+            requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
+            System.String requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = null;
+            if (cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = cmdletContext.IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial_incomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial should be set to null
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial = null;
+            }
+            if (requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial != null)
+            {
+                request.IncomingWrappedKey.WrappedKeyMaterial = requestIncomingWrappedKey_incomingWrappedKey_WrappedKeyMaterial;
+                requestIncomingWrappedKeyIsNull = false;
+            }
+             // determine if request.IncomingWrappedKey should be set to null
+            if (requestIncomingWrappedKeyIsNull)
+            {
+                request.IncomingWrappedKey = null;
+            }
+            
              // populate OutgoingDukptAttributes
             var requestOutgoingDukptAttributesIsNull = true;
             request.OutgoingDukptAttributes = new Amazon.PaymentCryptographyData.Model.DukptDerivationAttributes();
@@ -657,6 +756,50 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
                 request.OutgoingTranslationAttributes = null;
             }
             
+             // populate OutgoingWrappedKey
+            var requestOutgoingWrappedKeyIsNull = true;
+            request.OutgoingWrappedKey = new Amazon.PaymentCryptographyData.Model.WrappedKey();
+            Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm requestOutgoingWrappedKey_outgoingWrappedKey_KeyCheckValueAlgorithm = null;
+            if (cmdletContext.OutgoingWrappedKey_KeyCheckValueAlgorithm != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_KeyCheckValueAlgorithm = cmdletContext.OutgoingWrappedKey_KeyCheckValueAlgorithm;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_KeyCheckValueAlgorithm != null)
+            {
+                request.OutgoingWrappedKey.KeyCheckValueAlgorithm = requestOutgoingWrappedKey_outgoingWrappedKey_KeyCheckValueAlgorithm;
+                requestOutgoingWrappedKeyIsNull = false;
+            }
+            Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial = null;
+            
+             // populate WrappedKeyMaterial
+            var requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull = true;
+            requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial = new Amazon.PaymentCryptographyData.Model.WrappedKeyMaterial();
+            System.String requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = null;
+            if (cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock = cmdletContext.OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock != null)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial.Tr31KeyBlock = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial_outgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock;
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull = false;
+            }
+             // determine if requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial should be set to null
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterialIsNull)
+            {
+                requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial = null;
+            }
+            if (requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial != null)
+            {
+                request.OutgoingWrappedKey.WrappedKeyMaterial = requestOutgoingWrappedKey_outgoingWrappedKey_WrappedKeyMaterial;
+                requestOutgoingWrappedKeyIsNull = false;
+            }
+             // determine if request.OutgoingWrappedKey should be set to null
+            if (requestOutgoingWrappedKeyIsNull)
+            {
+                request.OutgoingWrappedKey = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -726,6 +869,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat1 IncomingTranslationAttributes_IsoFormat1 { get; set; }
             public System.String IncomingTranslationAttributes_IsoFormat3_PrimaryAccountNumber { get; set; }
             public System.String IncomingTranslationAttributes_IsoFormat4_PrimaryAccountNumber { get; set; }
+            public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm IncomingWrappedKey_KeyCheckValueAlgorithm { get; set; }
+            public System.String IncomingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock { get; set; }
             public Amazon.PaymentCryptographyData.DukptDerivationType OutgoingDukptAttributes_DukptKeyDerivationType { get; set; }
             public Amazon.PaymentCryptographyData.DukptKeyVariant OutgoingDukptAttributes_DukptKeyVariant { get; set; }
             public System.String OutgoingDukptAttributes_KeySerialNumber { get; set; }
@@ -734,6 +879,8 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             public Amazon.PaymentCryptographyData.Model.TranslationPinDataIsoFormat1 OutgoingTranslationAttributes_IsoFormat1 { get; set; }
             public System.String OutgoingTranslationAttributes_IsoFormat3_PrimaryAccountNumber { get; set; }
             public System.String OutgoingTranslationAttributes_IsoFormat4_PrimaryAccountNumber { get; set; }
+            public Amazon.PaymentCryptographyData.KeyCheckValueAlgorithm OutgoingWrappedKey_KeyCheckValueAlgorithm { get; set; }
+            public System.String OutgoingWrappedKey_WrappedKeyMaterial_Tr31KeyBlock { get; set; }
             public System.Func<Amazon.PaymentCryptographyData.Model.TranslatePinDataResponse, ConvertPAYCDPinDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
