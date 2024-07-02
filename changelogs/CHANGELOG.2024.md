@@ -1,4 +1,9 @@
-﻿### 4.1.611 (2024-07-01 22:48Z)
+﻿### 4.1.612 (2024-07-02 20:39Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.843.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Get-S3ObjectMetadata: added parameters ResponseCacheControl, ResponseContentDisposition, ResponseContentEncoding, ResponseContentLanguage, ResponseContentType and ResponseExpire.
+
+### 4.1.611 (2024-07-01 22:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.842.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Get-CONNAuthenticationProfile leveraging the DescribeAuthenticationProfile service API.

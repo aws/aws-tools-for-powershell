@@ -242,6 +242,67 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.RequestPayer RequestPayer { get; set; }
         #endregion
         
+        #region Parameter ResponseCacheControl
+        /// <summary>
+        /// <para>
+        /// <para>Sets the <c>Cache-Control</c> header of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResponseCacheControl { get; set; }
+        #endregion
+        
+        #region Parameter ResponseContentDisposition
+        /// <summary>
+        /// <para>
+        /// <para>Sets the <c>Content-Disposition</c> header of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResponseContentDisposition { get; set; }
+        #endregion
+        
+        #region Parameter ResponseContentEncoding
+        /// <summary>
+        /// <para>
+        /// <para>Sets the <c>Content-Encoding</c> header of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResponseContentEncoding { get; set; }
+        #endregion
+        
+        #region Parameter ResponseContentLanguage
+        /// <summary>
+        /// <para>
+        /// <para>Sets the <c>Content-Language</c> header of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResponseContentLanguage { get; set; }
+        #endregion
+        
+        #region Parameter ResponseContentType
+        /// <summary>
+        /// <para>
+        /// <para>Sets the <c>Content-Type</c> header of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResponseContentType { get; set; }
+        #endregion
+        
+        #region Parameter ResponseExpire
+        /// <summary>
+        /// <para>
+        /// <para>Sets the <c>Expires</c> header of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResponseExpires")]
+        public System.DateTime? ResponseExpire { get; set; }
+        #endregion
+        
         #region Parameter ServerSideEncryptionCustomerMethod
         /// <summary>
         /// <para>
@@ -406,6 +467,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.PartNumber = this.PartNumber;
             context.RequestPayer = this.RequestPayer;
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.ResponseCacheControl = this.ResponseCacheControl;
+            context.ResponseContentDisposition = this.ResponseContentDisposition;
+            context.ResponseContentEncoding = this.ResponseContentEncoding;
+            context.ResponseContentLanguage = this.ResponseContentLanguage;
+            context.ResponseContentType = this.ResponseContentType;
+            context.ResponseExpire = this.ResponseExpire;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -498,6 +565,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
             }
+            if (cmdletContext.ResponseCacheControl != null)
+            {
+                request.ResponseCacheControl = cmdletContext.ResponseCacheControl;
+            }
+            if (cmdletContext.ResponseContentDisposition != null)
+            {
+                request.ResponseContentDisposition = cmdletContext.ResponseContentDisposition;
+            }
+            if (cmdletContext.ResponseContentEncoding != null)
+            {
+                request.ResponseContentEncoding = cmdletContext.ResponseContentEncoding;
+            }
+            if (cmdletContext.ResponseContentLanguage != null)
+            {
+                request.ResponseContentLanguage = cmdletContext.ResponseContentLanguage;
+            }
+            if (cmdletContext.ResponseContentType != null)
+            {
+                request.ResponseContentType = cmdletContext.ResponseContentType;
+            }
+            if (cmdletContext.ResponseExpire != null)
+            {
+                request.ResponseExpires = cmdletContext.ResponseExpire.Value;
+            }
             
             CmdletOutput output;
             
@@ -577,6 +668,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.Int32? PartNumber { get; set; }
             public Amazon.S3.RequestPayer RequestPayer { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public System.String ResponseCacheControl { get; set; }
+            public System.String ResponseContentDisposition { get; set; }
+            public System.String ResponseContentEncoding { get; set; }
+            public System.String ResponseContentLanguage { get; set; }
+            public System.String ResponseContentType { get; set; }
+            public System.DateTime? ResponseExpire { get; set; }
             public System.Func<Amazon.S3.Model.GetObjectMetadataResponse, GetS3ObjectMetadataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

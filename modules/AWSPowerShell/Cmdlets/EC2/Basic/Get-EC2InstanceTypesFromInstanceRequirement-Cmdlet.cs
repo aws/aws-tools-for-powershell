@@ -331,9 +331,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// identified price is from the lowest priced current generation instance types, and
         /// failing that, from the lowest priced previous generation instance types that match
         /// your attributes. When Amazon EC2 selects instance types with your attributes, it will
-        /// exclude instance types whose price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>If you set <c>DesiredCapacityType</c> to <c>vcpu</c> or <c>memory-mib</c>, the price
-        /// protection threshold is based on the per vCPU or per memory price instead of the per
-        /// instance price.</para><note><para>Only one of <c>SpotMaxPricePercentageOverLowestPrice</c> or <c>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</c>
+        /// exclude instance types whose price exceeds your specified threshold.</para><para>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</para><para>If you set <c>TargetCapacityUnitType</c> to <c>vcpu</c> or <c>memory-mib</c>, the
+        /// price protection threshold is based on the per vCPU or per memory price instead of
+        /// the per instance price.</para><note><para>Only one of <c>SpotMaxPricePercentageOverLowestPrice</c> or <c>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</c>
         /// can be specified. If you don't specify either, Amazon EC2 will automatically apply
         /// optimal price protection to consistently select from a wide range of instance types.
         /// To indicate no price protection threshold for Spot Instances, meaning you want to

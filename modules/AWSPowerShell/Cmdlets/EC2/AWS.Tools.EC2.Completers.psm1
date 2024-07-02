@@ -518,7 +518,7 @@ $EC2_Completers = {
         # Amazon.EC2.HostTenancy
         "Edit-EC2InstancePlacement/Tenancy"
         {
-            $v = "dedicated","host"
+            $v = "dedicated","default","host"
             break
         }
 

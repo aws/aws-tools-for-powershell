@@ -141,7 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OutpostArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Outpost.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Outpost on which to create the volume.</para><para>If you intend to use a volume with an instance running on an outpost, then you must
+        /// create the volume on the same outpost as the instance. You can't use a volume created
+        /// in an Amazon Web Services Region with an instance on an Amazon Web Services outpost,
+        /// or the other way around.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

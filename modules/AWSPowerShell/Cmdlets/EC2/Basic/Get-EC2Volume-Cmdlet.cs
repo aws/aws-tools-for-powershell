@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>The volume IDs.</para>
+        /// <para>The volume IDs. If not specified, then all volumes are included in the response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = "ByID")]

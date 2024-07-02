@@ -53,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PreserveClientIp
         /// <summary>
         /// <para>
-        /// <para>Indicates whether your client's IP address is preserved as the source. The value is
-        /// <c>true</c> or <c>false</c>.</para><ul><li><para>If <c>true</c>, your client's IP address is used when you connect to a resource.</para></li><li><para>If <c>false</c>, the elastic network interface IP address is used when you connect
-        /// to a resource.</para></li></ul><para>Default: <c>true</c></para>
+        /// <para>Indicates whether the client IP address is preserved as the source. The following
+        /// are the possible values.</para><ul><li><para><c>true</c> - Use the client IP address as the source.</para></li><li><para><c>false</c> - Use the network interface IP address as the source.</para></li></ul><para>Default: <c>false</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
