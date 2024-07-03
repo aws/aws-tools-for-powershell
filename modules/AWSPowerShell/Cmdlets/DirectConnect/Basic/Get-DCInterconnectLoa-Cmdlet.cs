@@ -28,10 +28,9 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
+    /// <note><para>
     /// Deprecated. Use <a>DescribeLoa</a> instead.
-    /// 
-    ///  
-    /// <para>
+    /// </para></note><para>
     /// Gets the LOA-CFA for the specified interconnect.
     /// </para><para>
     /// The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document

@@ -65,10 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><important><ul><li><para>
     /// When you create an account in an organization using the Organizations console, API,
     /// or CLI commands, the information required for the account to operate as a standalone
-    /// account, such as a payment method and signing the end user license agreement (EULA)
-    /// is <i>not</i> automatically collected. If you must remove an account from your organization
-    /// later, you can do so only after you provide the missing information. For more information,
-    /// see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations
+    /// account, such as a payment method is <i>not</i> automatically collected. If you must
+    /// remove an account from your organization later, you can do so only after you provide
+    /// the missing information. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations
     /// before removing an account from an organization</a> in the <i>Organizations User Guide</i>.
     /// </para></li><li><para>
     /// If you get an exception that indicates that you exceeded your account limits for the

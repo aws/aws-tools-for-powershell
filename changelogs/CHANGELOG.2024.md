@@ -1,4 +1,10 @@
-﻿### 4.1.612 (2024-07-02 20:39Z)
+﻿### 4.1.613 (2024-07-03 20:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.844.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Rekognition
+    * Modified cmdlet New-REKDataset: added parameter Tag.
+    * Modified cmdlet New-REKProject: added parameter Tag.
+
+### 4.1.612 (2024-07-02 20:39Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.843.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Simple Storage Service (S3)
     * Modified cmdlet Get-S3ObjectMetadata: added parameters ResponseCacheControl, ResponseContentDisposition, ResponseContentEncoding, ResponseContentLanguage, ResponseContentType and ResponseExpire.

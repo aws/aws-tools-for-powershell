@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>The port bandwidth, in Gbps. The possible values are 1 and 10.</para>
+        /// <para>The port bandwidth, in Gbps. The possible values are 1, 10, and 100.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

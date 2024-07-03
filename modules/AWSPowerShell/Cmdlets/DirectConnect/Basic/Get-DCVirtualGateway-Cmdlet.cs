@@ -28,10 +28,12 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
+    /// <note><para>
+    /// Deprecated. Use <c>DescribeVpnGateways</c> instead. See <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html">DescribeVPNGateways</a>
+    /// in the <i>Amazon Elastic Compute Cloud API Reference</i>.
+    /// </para></note><para>
     /// Lists the virtual private gateways owned by the Amazon Web Services account.
-    /// 
-    ///  
-    /// <para>
+    /// </para><para>
     /// You can create one or more Direct Connect private virtual interfaces linked to a virtual
     /// private gateway.
     /// </para>

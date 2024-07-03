@@ -28,10 +28,9 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
+    /// <note><para>
     /// Deprecated. Use <a>AllocateHostedConnection</a> instead.
-    /// 
-    ///  
-    /// <para>
+    /// </para></note><para>
     /// Creates a hosted connection on an interconnect.
     /// </para><para>
     /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection

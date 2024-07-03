@@ -138,6 +138,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String ProjectArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A set of tags (key-value pairs) that you want to attach to the dataset.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter S3Object_Version
         /// <summary>
         /// <para>
@@ -229,6 +240,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 WriteWarning("You are passing $null as a value for parameter ProjectArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -332,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
             {
                 request.ProjectArn = cmdletContext.ProjectArn;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             
             CmdletOutput output;
             
@@ -399,6 +422,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
             public System.String S3Object_Version { get; set; }
             public Amazon.Rekognition.DatasetType DatasetType { get; set; }
             public System.String ProjectArn { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Rekognition.Model.CreateDatasetResponse, NewREKDatasetCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DatasetArn;
         }

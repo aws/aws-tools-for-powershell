@@ -35,12 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// 
     ///  
     /// <para>
-    /// All connections in a LAG must use the same bandwidth (either 1Gbps or 10Gbps) and
-    /// must terminate at the same Direct Connect endpoint.
+    /// All connections in a LAG must use the same bandwidth (either 1Gbps, 10Gbps, 100Gbps,
+    /// or 400Gbps) and must terminate at the same Direct Connect endpoint.
     /// </para><para>
-    /// You can have up to 10 dedicated connections per LAG. Regardless of this limit, if
-    /// you request more connections for the LAG than Direct Connect can allocate on a single
-    /// endpoint, no LAG is created.
+    /// You can have up to 10 dedicated connections per location. Regardless of this limit,
+    /// if you request more connections for the LAG than Direct Connect can allocate on a
+    /// single endpoint, no LAG is created..
     /// </para><para>
     /// You can specify an existing physical dedicated connection or interconnect to include
     /// in the LAG (which counts towards the total number of connections). Doing so interrupts
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The bandwidth of the individual physical dedicated connections bundled by the LAG.
-        /// The possible values are 1Gbps and 10Gbps. </para>
+        /// The possible values are 1Gbps,10Gbps, 100Gbps, and 400Gbps. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -143,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The number of physical dedicated connections initially provisioned and bundled by
-        /// the LAG. You can have a maximum of four connections when the port speed is 1G or 10G,
-        /// or two when the port speed is 100G. </para>
+        /// the LAG. You can have a maximum of four connections when the port speed is 1Gbps or
+        /// 10Gbps, or two when the port speed is 100Gbps or 400Gbps.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
