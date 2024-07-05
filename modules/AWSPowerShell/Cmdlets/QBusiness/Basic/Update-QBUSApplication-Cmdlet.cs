@@ -102,6 +102,18 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String IdentityCenterInstanceArn { get; set; }
         #endregion
         
+        #region Parameter PersonalizationConfiguration_PersonalizationControlMode
+        /// <summary>
+        /// <para>
+        /// <para>An option to allow Amazon Q Business to customize chat responses using user specific
+        /// metadata—specifically, location and job information—in your IAM Identity Center instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.PersonalizationControlMode")]
+        public Amazon.QBusiness.PersonalizationControlMode PersonalizationConfiguration_PersonalizationControlMode { get; set; }
+        #endregion
+        
         #region Parameter QAppsConfiguration_QAppsControlMode
         /// <summary>
         /// <para>
@@ -197,6 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
+            context.PersonalizationConfiguration_PersonalizationControlMode = this.PersonalizationConfiguration_PersonalizationControlMode;
             context.QAppsConfiguration_QAppsControlMode = this.QAppsConfiguration_QAppsControlMode;
             context.RoleArn = this.RoleArn;
             
@@ -249,6 +262,25 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.IdentityCenterInstanceArn != null)
             {
                 request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+            }
+            
+             // populate PersonalizationConfiguration
+            var requestPersonalizationConfigurationIsNull = true;
+            request.PersonalizationConfiguration = new Amazon.QBusiness.Model.PersonalizationConfiguration();
+            Amazon.QBusiness.PersonalizationControlMode requestPersonalizationConfiguration_personalizationConfiguration_PersonalizationControlMode = null;
+            if (cmdletContext.PersonalizationConfiguration_PersonalizationControlMode != null)
+            {
+                requestPersonalizationConfiguration_personalizationConfiguration_PersonalizationControlMode = cmdletContext.PersonalizationConfiguration_PersonalizationControlMode;
+            }
+            if (requestPersonalizationConfiguration_personalizationConfiguration_PersonalizationControlMode != null)
+            {
+                request.PersonalizationConfiguration.PersonalizationControlMode = requestPersonalizationConfiguration_personalizationConfiguration_PersonalizationControlMode;
+                requestPersonalizationConfigurationIsNull = false;
+            }
+             // determine if request.PersonalizationConfiguration should be set to null
+            if (requestPersonalizationConfigurationIsNull)
+            {
+                request.PersonalizationConfiguration = null;
             }
             
              // populate QAppsConfiguration
@@ -339,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String IdentityCenterInstanceArn { get; set; }
+            public Amazon.QBusiness.PersonalizationControlMode PersonalizationConfiguration_PersonalizationControlMode { get; set; }
             public Amazon.QBusiness.QAppsControlMode QAppsConfiguration_QAppsControlMode { get; set; }
             public System.String RoleArn { get; set; }
             public System.Func<Amazon.QBusiness.Model.UpdateApplicationResponse, UpdateQBUSApplicationCmdlet, object> Select { get; set; } =

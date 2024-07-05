@@ -1,4 +1,10 @@
-﻿### 4.1.613 (2024-07-03 20:55Z)
+﻿### 4.1.614 (2024-07-05 20:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.845.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSApplication: added parameter PersonalizationConfiguration_PersonalizationControlMode.
+    * Modified cmdlet Update-QBUSApplication: added parameter PersonalizationConfiguration_PersonalizationControlMode.
+
+### 4.1.613 (2024-07-03 20:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.844.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Rekognition
     * Modified cmdlet New-REKDataset: added parameter Tag.

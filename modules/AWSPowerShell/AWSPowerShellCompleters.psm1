@@ -53263,6 +53263,16 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.PersonalizationControlMode
+        {
+            ($_ -eq "New-QBUSApplication/PersonalizationConfiguration_PersonalizationControlMode") -Or
+            ($_ -eq "Update-QBUSApplication/PersonalizationConfiguration_PersonalizationControlMode")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.PluginState
         "Update-QBUSPlugin/State"
         {
@@ -53328,6 +53338,7 @@ $QBUS_map = @{
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
+    "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "QAppsConfiguration_QAppsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
     "ResponseScope"=@("Update-QBUSChatControlsConfiguration")
     "SamplePromptsControlMode"=@("New-QBUSWebExperience","Update-QBUSWebExperience")

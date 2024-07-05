@@ -49,12 +49,6 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </para></li><li><para>
     /// The private key must be no larger than 5 KB (5,120 bytes).
     /// </para></li><li><para>
-    /// If the certificate you are importing is not self-signed, you must enter its certificate
-    /// chain.
-    /// </para></li><li><para>
-    /// If a certificate chain is included, the issuer must be the subject of one of the certificates
-    /// in the chain.
-    /// </para></li><li><para>
     /// The certificate, private key, and certificate chain must be PEM-encoded.
     /// </para></li><li><para>
     /// The current time must be between the <c>Not Before</c> and <c>Not After</c> certificate
