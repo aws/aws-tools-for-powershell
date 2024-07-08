@@ -910,6 +910,9 @@
     <Reference Include="AWSSDK.Proton">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Proton.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.QApps">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QApps.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.QBusiness">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.QBusiness.dll</HintPath>
     </Reference>
@@ -2045,6 +2048,9 @@
     </Reference>
     <Reference Include="AWSSDK.Proton">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Proton.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.QApps">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QApps.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.QBusiness">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.QBusiness.dll</HintPath>

@@ -1,4 +1,8 @@
-﻿### 4.1.614 (2024-07-05 20:59Z)
+﻿### 4.1.615 (2024-07-08 21:17Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.846.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Q Apps. Added cmdlets to support the service. Cmdlets for the service have the noun prefix qapps and can be listed using the command 'Get-AWSCmdletName -Service qapps'.
+
+### 4.1.614 (2024-07-05 20:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.845.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QBusiness
     * Modified cmdlet New-QBUSApplication: added parameter PersonalizationConfiguration_PersonalizationControlMode.

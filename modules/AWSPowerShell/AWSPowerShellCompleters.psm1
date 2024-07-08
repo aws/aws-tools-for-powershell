@@ -53174,6 +53174,117 @@ $PRO_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PRO_SelectCompleters $PRO_SelectMap
+# Argument completions for service Amazon Q Apps
+
+
+$qapps_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.QApps.DocumentScope
+        "Import-qappsDocument/Scope"
+        {
+            $v = "APPLICATION","SESSION"
+            break
+        }
+
+        # Amazon.QApps.LibraryItemStatus
+        "Update-qappsLibraryItem/Status"
+        {
+            $v = "DISABLED","PUBLISHED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$qapps_map = @{
+    "Scope"=@("Import-qappsDocument")
+    "Status"=@("Update-qappsLibraryItem")
+}
+
+_awsArgumentCompleterRegistration $qapps_Completers $qapps_map
+
+$qapps_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.qapps.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$qapps_SelectMap = @{
+    "Select"=@("Register-qappsLibraryItemReview",
+               "Register-qappsQAppWithUser",
+               "New-qappsLibraryItem",
+               "New-qappsQApp",
+               "Remove-qappsLibraryItem",
+               "Remove-qappsQApp",
+               "Unregister-qappsLibraryItemReview",
+               "Unregister-qappsQAppFromUser",
+               "Get-qappsLibraryItem",
+               "Get-qappsQApp",
+               "Get-qappsQAppSession",
+               "Import-qappsDocument",
+               "Get-qappsLibraryItemList",
+               "Get-qappsQAppList",
+               "Get-qappsResourceTag",
+               "ConvertFrom-qappsQApp",
+               "Start-qappsQAppSession",
+               "Stop-qappsQAppSession",
+               "Add-qappsResourceTag",
+               "Remove-qappsResourceTag",
+               "Update-qappsLibraryItem",
+               "Update-qappsQApp",
+               "Update-qappsQAppSession")
+}
+
+_awsArgumentCompleterRegistration $qapps_SelectCompleters $qapps_SelectMap
 # Argument completions for service Amazon QBusiness
 
 

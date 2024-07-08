@@ -1,0 +1,275 @@
+/*******************************************************************************
+ *  Copyright 2012-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.QApps;
+using Amazon.QApps.Model;
+
+namespace Amazon.PowerShell.Cmdlets.qapps
+{
+    /// <summary>
+    /// Generates an Amazon Q App definition based on either a conversation or a problem statement
+    /// provided as input.The resulting app definition can be used to call <c>CreateQApp</c>.
+    /// This API doesn't create Amazon Q Apps directly.
+    /// </summary>
+    [Cmdlet("ConvertFrom", "qappsQApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.QApps.Model.PredictQAppResponse")]
+    [AWSCmdlet("Calls the Amazon Q Apps PredictQApp API operation.", Operation = new[] {"PredictQApp"}, SelectReturnType = typeof(Amazon.QApps.Model.PredictQAppResponse))]
+    [AWSCmdletOutput("Amazon.QApps.Model.PredictQAppResponse",
+        "This cmdlet returns an Amazon.QApps.Model.PredictQAppResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class ConvertFromqappsQAppCmdlet : AmazonQAppsClientCmdlet, IExecutor
+    {
+        
+        protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter Options_Conversation
+        /// <summary>
+        /// <para>
+        /// <para>A conversation to use as input for generating the Q App definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.QApps.Model.ConversationMessage[] Options_Conversation { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the Amazon Q Business application environment instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter Options_ProblemStatement
+        /// <summary>
+        /// <para>
+        /// <para>A problem statement to use as input for generating the Q App definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Options_ProblemStatement { get; set; }
+        #endregion
+        
+        #region Parameter Select
+        /// <summary>
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.PredictQAppResponse).
+        /// Specifying the name of a property of type Amazon.QApps.Model.PredictQAppResponse will result in that property being returned.
+        /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            this._AWSSignerType = "v4";
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "ConvertFrom-qappsQApp (PredictQApp)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext();
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (ParameterWasBound(nameof(this.Select)))
+            {
+                context.Select = CreateSelectDelegate<Amazon.QApps.Model.PredictQAppResponse, ConvertFromqappsQAppCmdlet>(Select) ??
+                    throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
+            }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.InstanceId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Options_Conversation != null)
+            {
+                context.Options_Conversation = new List<Amazon.QApps.Model.ConversationMessage>(this.Options_Conversation);
+            }
+            context.Options_ProblemStatement = this.Options_ProblemStatement;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.QApps.Model.PredictQAppRequest();
+            
+            if (cmdletContext.InstanceId != null)
+            {
+                request.InstanceId = cmdletContext.InstanceId;
+            }
+            
+             // populate Options
+            var requestOptionsIsNull = true;
+            request.Options = new Amazon.QApps.Model.PredictQAppInputOptions();
+            List<Amazon.QApps.Model.ConversationMessage> requestOptions_options_Conversation = null;
+            if (cmdletContext.Options_Conversation != null)
+            {
+                requestOptions_options_Conversation = cmdletContext.Options_Conversation;
+            }
+            if (requestOptions_options_Conversation != null)
+            {
+                request.Options.Conversation = requestOptions_options_Conversation;
+                requestOptionsIsNull = false;
+            }
+            System.String requestOptions_options_ProblemStatement = null;
+            if (cmdletContext.Options_ProblemStatement != null)
+            {
+                requestOptions_options_ProblemStatement = cmdletContext.Options_ProblemStatement;
+            }
+            if (requestOptions_options_ProblemStatement != null)
+            {
+                request.Options.ProblemStatement = requestOptions_options_ProblemStatement;
+                requestOptionsIsNull = false;
+            }
+             // determine if request.Options should be set to null
+            if (requestOptionsIsNull)
+            {
+                request.Options = null;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = null;
+                pipelineOutput = cmdletContext.Select(response, this);
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.QApps.Model.PredictQAppResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.PredictQAppRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "PredictQApp");
+            try
+            {
+                #if DESKTOP
+                return client.PredictQApp(request);
+                #elif CORECLR
+                return client.PredictQAppAsync(request).GetAwaiter().GetResult();
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String InstanceId { get; set; }
+            public List<Amazon.QApps.Model.ConversationMessage> Options_Conversation { get; set; }
+            public System.String Options_ProblemStatement { get; set; }
+            public System.Func<Amazon.QApps.Model.PredictQAppResponse, ConvertFromqappsQAppCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
+        }
+        
+    }
+}
