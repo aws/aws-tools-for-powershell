@@ -436,6 +436,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int32? DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb { get; set; }
         #endregion
         
+        #region Parameter AmazonQSettings_QProfileArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon Q profile used within the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_AmazonQSettings_QProfileArn")]
+        public System.String AmazonQSettings_QProfileArn { get; set; }
+        #endregion
+        
         #region Parameter RStudioServerProDomainSettings_RStudioConnectUrl
         /// <summary>
         /// <para>
@@ -606,6 +617,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DefaultSpaceSettings_SecurityGroups")]
         public System.String[] DefaultSpaceSettings_SecurityGroup { get; set; }
+        #endregion
+        
+        #region Parameter AmazonQSettings_Status
+        /// <summary>
+        /// <para>
+        /// <para>Whether Amazon Q has been enabled within the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DomainSettings_AmazonQSettings_Status")]
+        [AWSConstantClassSource("Amazon.SageMaker.FeatureStatus")]
+        public Amazon.SageMaker.FeatureStatus AmazonQSettings_Status { get; set; }
         #endregion
         
         #region Parameter SubnetId
@@ -832,6 +855,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter DomainName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AmazonQSettings_QProfileArn = this.AmazonQSettings_QProfileArn;
+            context.AmazonQSettings_Status = this.AmazonQSettings_Status;
             context.DockerSettings_EnableDockerAccess = this.DockerSettings_EnableDockerAccess;
             if (this.DockerSettings_VpcOnlyTrustedAccount != null)
             {
@@ -1369,6 +1394,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 request.DomainSettings.SecurityGroupIds = requestDomainSettings_domainSettings_SecurityGroupId;
                 requestDomainSettingsIsNull = false;
             }
+            Amazon.SageMaker.Model.AmazonQSettings requestDomainSettings_domainSettings_AmazonQSettings = null;
+            
+             // populate AmazonQSettings
+            var requestDomainSettings_domainSettings_AmazonQSettingsIsNull = true;
+            requestDomainSettings_domainSettings_AmazonQSettings = new Amazon.SageMaker.Model.AmazonQSettings();
+            System.String requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_QProfileArn = null;
+            if (cmdletContext.AmazonQSettings_QProfileArn != null)
+            {
+                requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_QProfileArn = cmdletContext.AmazonQSettings_QProfileArn;
+            }
+            if (requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_QProfileArn != null)
+            {
+                requestDomainSettings_domainSettings_AmazonQSettings.QProfileArn = requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_QProfileArn;
+                requestDomainSettings_domainSettings_AmazonQSettingsIsNull = false;
+            }
+            Amazon.SageMaker.FeatureStatus requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_Status = null;
+            if (cmdletContext.AmazonQSettings_Status != null)
+            {
+                requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_Status = cmdletContext.AmazonQSettings_Status;
+            }
+            if (requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_Status != null)
+            {
+                requestDomainSettings_domainSettings_AmazonQSettings.Status = requestDomainSettings_domainSettings_AmazonQSettings_amazonQSettings_Status;
+                requestDomainSettings_domainSettings_AmazonQSettingsIsNull = false;
+            }
+             // determine if requestDomainSettings_domainSettings_AmazonQSettings should be set to null
+            if (requestDomainSettings_domainSettings_AmazonQSettingsIsNull)
+            {
+                requestDomainSettings_domainSettings_AmazonQSettings = null;
+            }
+            if (requestDomainSettings_domainSettings_AmazonQSettings != null)
+            {
+                request.DomainSettings.AmazonQSettings = requestDomainSettings_domainSettings_AmazonQSettings;
+                requestDomainSettingsIsNull = false;
+            }
             Amazon.SageMaker.Model.DockerSettings requestDomainSettings_domainSettings_DockerSettings = null;
             
              // populate DockerSettings
@@ -1636,6 +1696,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb { get; set; }
             public Amazon.SageMaker.Model.UserSettings DefaultUserSetting { get; set; }
             public System.String DomainName { get; set; }
+            public System.String AmazonQSettings_QProfileArn { get; set; }
+            public Amazon.SageMaker.FeatureStatus AmazonQSettings_Status { get; set; }
             public Amazon.SageMaker.FeatureStatus DockerSettings_EnableDockerAccess { get; set; }
             public List<System.String> DockerSettings_VpcOnlyTrustedAccount { get; set; }
             public Amazon.SageMaker.ExecutionRoleIdentityConfig DomainSettings_ExecutionRoleIdentityConfig { get; set; }

@@ -1,4 +1,20 @@
-﻿### 4.1.615 (2024-07-08 21:17Z)
+﻿### 4.1.616 (2024-07-09 20:49Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.847.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon FSx
+    * Modified cmdlet Update-FSXFileSystem: added parameter OntapConfiguration_HAPair.
+  * Amazon OpenSearch Service
+    * Modified cmdlet New-OSDomain: added parameter NaturalLanguageQueryGenerationOptions_DesiredState.
+    * Modified cmdlet Update-OSDomainConfig: added parameter NaturalLanguageQueryGenerationOptions_DesiredState.
+  * Amazon SageMaker Service
+    * Added cmdlet Get-SMOptimizationJob leveraging the DescribeOptimizationJob service API.
+    * Added cmdlet Get-SMOptimizationJobList leveraging the ListOptimizationJobs service API.
+    * Added cmdlet New-SMOptimizationJob leveraging the CreateOptimizationJob service API.
+    * Added cmdlet Remove-SMOptimizationJob leveraging the DeleteOptimizationJob service API.
+    * Added cmdlet Stop-SMOptimizationJob leveraging the StopOptimizationJob service API.
+    * Modified cmdlet New-SMDomain: added parameters AmazonQSettings_QProfileArn and AmazonQSettings_Status.
+    * Modified cmdlet Update-SMDomain: added parameters AmazonQSettings_QProfileArn and AmazonQSettings_Status.
+
+### 4.1.615 (2024-07-08 21:17Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.846.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Q Apps. Added cmdlets to support the service. Cmdlets for the service have the noun prefix qapps and can be listed using the command 'Get-AWSCmdletName -Service qapps'.
 

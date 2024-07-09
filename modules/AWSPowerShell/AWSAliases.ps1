@@ -24929,6 +24929,8 @@ Set-Alias -Name Create-SMNotebookInstance -Value New-SMNotebookInstance
 Set-Alias -Name SM-CreateNotebookInstance -Value New-SMNotebookInstance
 Set-Alias -Name Create-SMNotebookInstanceLifecycleConfig -Value New-SMNotebookInstanceLifecycleConfig
 Set-Alias -Name SM-CreateNotebookInstanceLifecycleConfig -Value New-SMNotebookInstanceLifecycleConfig
+Set-Alias -Name Create-SMOptimizationJob -Value New-SMOptimizationJob
+Set-Alias -Name SM-CreateOptimizationJob -Value New-SMOptimizationJob
 Set-Alias -Name Create-SMPipeline -Value New-SMPipeline
 Set-Alias -Name SM-CreatePipeline -Value New-SMPipeline
 Set-Alias -Name Create-SMPresignedDomainUrl -Value New-SMPresignedDomainUrl
@@ -25041,6 +25043,8 @@ Set-Alias -Name Delete-SMNotebookInstance -Value Remove-SMNotebookInstance
 Set-Alias -Name SM-DeleteNotebookInstance -Value Remove-SMNotebookInstance
 Set-Alias -Name Delete-SMNotebookInstanceLifecycleConfig -Value Remove-SMNotebookInstanceLifecycleConfig
 Set-Alias -Name SM-DeleteNotebookInstanceLifecycleConfig -Value Remove-SMNotebookInstanceLifecycleConfig
+Set-Alias -Name Delete-SMOptimizationJob -Value Remove-SMOptimizationJob
+Set-Alias -Name SM-DeleteOptimizationJob -Value Remove-SMOptimizationJob
 Set-Alias -Name Delete-SMPipeline -Value Remove-SMPipeline
 Set-Alias -Name SM-DeletePipeline -Value Remove-SMPipeline
 Set-Alias -Name Delete-SMProject -Value Remove-SMProject
@@ -25159,6 +25163,8 @@ Set-Alias -Name Describe-SMNotebookInstance -Value Get-SMNotebookInstance
 Set-Alias -Name SM-DescribeNotebookInstance -Value Get-SMNotebookInstance
 Set-Alias -Name Describe-SMNotebookInstanceLifecycleConfig -Value Get-SMNotebookInstanceLifecycleConfig
 Set-Alias -Name SM-DescribeNotebookInstanceLifecycleConfig -Value Get-SMNotebookInstanceLifecycleConfig
+Set-Alias -Name Describe-SMOptimizationJob -Value Get-SMOptimizationJob
+Set-Alias -Name SM-DescribeOptimizationJob -Value Get-SMOptimizationJob
 Set-Alias -Name Describe-SMPipeline -Value Get-SMPipeline
 Set-Alias -Name SM-DescribePipeline -Value Get-SMPipeline
 Set-Alias -Name Describe-SMPipelineDefinitionForExecution -Value Get-SMPipelineDefinitionForExecution
@@ -25369,6 +25375,9 @@ Set-Alias -Name SM-ListNotebookInstanceLifecycleConfigs -Value Get-SMNotebookIns
 Set-Alias -Name List-SMNotebookInstances -Value Get-SMNotebookInstanceList
 Set-Alias -Name List-SMNotebookInstanceList -Value Get-SMNotebookInstanceList
 Set-Alias -Name SM-ListNotebookInstances -Value Get-SMNotebookInstanceList
+Set-Alias -Name List-SMOptimizationJobs -Value Get-SMOptimizationJobList
+Set-Alias -Name List-SMOptimizationJobList -Value Get-SMOptimizationJobList
+Set-Alias -Name SM-ListOptimizationJobs -Value Get-SMOptimizationJobList
 Set-Alias -Name List-SMPipelineExecutions -Value Get-SMPipelineExecutionList
 Set-Alias -Name List-SMPipelineExecutionList -Value Get-SMPipelineExecutionList
 Set-Alias -Name SM-ListPipelineExecutions -Value Get-SMPipelineExecutionList
@@ -25460,6 +25469,7 @@ Set-Alias -Name SM-StopLabelingJob -Value Stop-SMLabelingJob
 Set-Alias -Name SM-StopMlflowTrackingServer -Value Stop-SMMlflowTrackingServer
 Set-Alias -Name SM-StopMonitoringSchedule -Value Stop-SMMonitoringSchedule
 Set-Alias -Name SM-StopNotebookInstance -Value Stop-SMNotebookInstance
+Set-Alias -Name SM-StopOptimizationJob -Value Stop-SMOptimizationJob
 Set-Alias -Name SM-StopPipelineExecution -Value Stop-SMPipelineExecution
 Set-Alias -Name SM-StopProcessingJob -Value Stop-SMProcessingJob
 Set-Alias -Name SM-StopTrainingJob -Value Stop-SMTrainingJob

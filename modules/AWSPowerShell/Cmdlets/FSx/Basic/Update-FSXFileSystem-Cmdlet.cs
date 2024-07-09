@@ -199,6 +199,24 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         public System.String OntapConfiguration_FsxAdminPassword { get; set; }
         #endregion
         
+        #region Parameter OntapConfiguration_HAPair
+        /// <summary>
+        /// <para>
+        /// <para>Use to update the number of high-availability (HA) pairs for a second-generation single-AZ
+        /// file system. If you increase the number of HA pairs for your file system, you must
+        /// specify proportional increases for <c>StorageCapacity</c>, <c>Iops</c>, and <c>ThroughputCapacity</c>.
+        /// For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/administering-file-systems.html#HA-pairs">High-availability
+        /// (HA) pairs</a> in the FSx for ONTAP user guide. Block storage protocol support (iSCSI
+        /// and NVMe over TCP) is disabled on file systems with more than 6 HA pairs. For more
+        /// information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/supported-fsx-clients.html#using-block-storage">Using
+        /// block storage protocols</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OntapConfiguration_HAPairs")]
+        public System.Int32? OntapConfiguration_HAPair { get; set; }
+        #endregion
+        
         #region Parameter OntapConfiguration_DiskIopsConfiguration_Iops
         /// <summary>
         /// <para>
@@ -360,10 +378,10 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <para>Use to choose the throughput capacity per HA pair, rather than the total throughput
         /// for the file system. </para><para>This field and <c>ThroughputCapacity</c> cannot be defined in the same API call, but
         /// one is required.</para><para>This field and <c>ThroughputCapacity</c> are the same for file systems with one HA
-        /// pair.</para><ul><li><para>For <c>SINGLE_AZ_1</c> and <c>MULTI_AZ_1</c>, valid values are 128, 256, 512, 1024,
-        /// 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 3072 or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
+        /// pair.</para><ul><li><para>For <c>SINGLE_AZ_1</c> and <c>MULTI_AZ_1</c> file systems, valid values are 128, 256,
+        /// 512, 1024, 2048, or 4096 MBps.</para></li><li><para>For <c>SINGLE_AZ_2</c>, valid values are 1536, 3072, or 6144 MBps.</para></li><li><para>For <c>MULTI_AZ_2</c>, valid values are 384, 768, 1536, 3072, or 6144 MBps.</para></li></ul><para>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</para><ul><li><para>The value of <c>ThroughputCapacity</c> and <c>ThroughputCapacityPerHAPair</c> are
         /// not the same value for file systems with one HA pair.</para></li><li><para>The value of deployment type is <c>SINGLE_AZ_2</c> and <c>ThroughputCapacity</c> /
-        /// <c>ThroughputCapacityPerHAPair</c> is a valid HA pair (a value between 2 and 12).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
+        /// <c>ThroughputCapacityPerHAPair</c> is not a valid HA pair (a value between 1 and 12).</para></li><li><para>The value of <c>ThroughputCapacityPerHAPair</c> is not a valid value.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -480,6 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             context.OntapConfiguration_DiskIopsConfiguration_Iops = this.OntapConfiguration_DiskIopsConfiguration_Iops;
             context.OntapConfiguration_DiskIopsConfiguration_Mode = this.OntapConfiguration_DiskIopsConfiguration_Mode;
             context.OntapConfiguration_FsxAdminPassword = this.OntapConfiguration_FsxAdminPassword;
+            context.OntapConfiguration_HAPair = this.OntapConfiguration_HAPair;
             if (this.OntapConfiguration_RemoveRouteTableId != null)
             {
                 context.OntapConfiguration_RemoveRouteTableId = new List<System.String>(this.OntapConfiguration_RemoveRouteTableId);
@@ -576,6 +595,16 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (requestOntapConfiguration_ontapConfiguration_FsxAdminPassword != null)
             {
                 request.OntapConfiguration.FsxAdminPassword = requestOntapConfiguration_ontapConfiguration_FsxAdminPassword;
+                requestOntapConfigurationIsNull = false;
+            }
+            System.Int32? requestOntapConfiguration_ontapConfiguration_HAPair = null;
+            if (cmdletContext.OntapConfiguration_HAPair != null)
+            {
+                requestOntapConfiguration_ontapConfiguration_HAPair = cmdletContext.OntapConfiguration_HAPair.Value;
+            }
+            if (requestOntapConfiguration_ontapConfiguration_HAPair != null)
+            {
+                request.OntapConfiguration.HAPairs = requestOntapConfiguration_ontapConfiguration_HAPair.Value;
                 requestOntapConfigurationIsNull = false;
             }
             List<System.String> requestOntapConfiguration_ontapConfiguration_RemoveRouteTableId = null;
@@ -864,6 +893,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             public System.Int64? OntapConfiguration_DiskIopsConfiguration_Iops { get; set; }
             public Amazon.FSx.DiskIopsConfigurationMode OntapConfiguration_DiskIopsConfiguration_Mode { get; set; }
             public System.String OntapConfiguration_FsxAdminPassword { get; set; }
+            public System.Int32? OntapConfiguration_HAPair { get; set; }
             public List<System.String> OntapConfiguration_RemoveRouteTableId { get; set; }
             public System.Int32? OntapConfiguration_ThroughputCapacity { get; set; }
             public System.Int32? OntapConfiguration_ThroughputCapacityPerHAPair { get; set; }

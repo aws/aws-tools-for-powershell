@@ -145,7 +145,7 @@ $FSX_Completers = {
         # Amazon.FSx.OntapDeploymentType
         "New-FSXFileSystem/OntapConfiguration_DeploymentType"
         {
-            $v = "MULTI_AZ_1","SINGLE_AZ_1","SINGLE_AZ_2"
+            $v = "MULTI_AZ_1","MULTI_AZ_2","SINGLE_AZ_1","SINGLE_AZ_2"
             break
         }
 
@@ -177,7 +177,7 @@ $FSX_Completers = {
             ($_ -eq "New-FSXFileSystemFromBackup/OpenZFSConfiguration_DeploymentType")
         }
         {
-            $v = "MULTI_AZ_1","SINGLE_AZ_1","SINGLE_AZ_2"
+            $v = "MULTI_AZ_1","SINGLE_AZ_1","SINGLE_AZ_2","SINGLE_AZ_HA_1","SINGLE_AZ_HA_2"
             break
         }
 

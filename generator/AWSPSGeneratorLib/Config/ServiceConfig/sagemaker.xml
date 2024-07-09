@@ -292,6 +292,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateOptimizationJob" OutputProperty="OptimizationJobArn" Verb="New" Noun="OptimizationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePipeline" OutputProperty="PipelineArn" Verb="New" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -537,6 +541,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOptimizationJob" Verb="Remove" Noun="OptimizationJob" ShouldProcessTarget="OptimizationJobName" PipelineParameter="OptimizationJobName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeletePipeline" OutputProperty="PipelineArn" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -766,6 +774,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeNotebookInstanceLifecycleConfig" OutputProperty="*" Verb="Get" Noun="NotebookInstanceLifecycleConfig" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOptimizationJob" OutputProperty="*" Verb="Get" Noun="OptimizationJob" PipelineParameter="OptimizationJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1093,6 +1105,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOptimizationJobs" OutputProperty="OptimizationJobSummaries" Verb="Get" Noun="OptimizationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListPipelineExecutions" OutputProperty="PipelineExecutionSummaries" Verb="Get" Noun="PipelineExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1270,6 +1286,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopNotebookInstance" Verb="Stop" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopOptimizationJob" Verb="Stop" Noun="OptimizationJob" ShouldProcessTarget="OptimizationJobName" PipelineParameter="OptimizationJobName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
