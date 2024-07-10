@@ -46,10 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>An array of structures that you can use to filter the results to those that match
-        /// one or more sets of key-value pairs that you specify. For example, you can filter
-        /// by the name of <c>AmiID</c> with an optional operator to see subscriptions that match,
-        /// partially match, or don't match a certain Amazon Machine Image (AMI) ID.</para><para>The valid names for this filter are:</para><ul><li><para><c>AmiID</c></para></li><li><para><c>InstanceID</c></para></li><li><para><c>AccountID</c></para></li><li><para><c>Status</c></para></li><li><para><c>Region</c></para></li><li><para><c>UsageOperation</c></para></li><li><para><c>ProductCode</c></para></li><li><para><c>InstanceType</c></para></li></ul><para>The valid Operators for this filter are:</para><ul><li><para><c>contains</c></para></li><li><para><c>equals</c></para></li><li><para><c>Notequal</c></para></li></ul>
+        /// <para>An array of structures that you can use to filter the results by your specified criteria.
+        /// For example, you can specify <c>Region</c> in the <c>Name</c>, with the <c>contains</c>
+        /// operator to list all subscriptions that match a partial string in the <c>Value</c>,
+        /// such as <c>us-west</c>.</para><para>For each filter, you can specify one of the following values for the <c>Name</c> key
+        /// to streamline results:</para><ul><li><para><c>AccountID</c></para></li><li><para><c>AmiID</c></para></li><li><para><c>DualSubscription</c></para></li><li><para><c>InstanceID</c></para></li><li><para><c>InstanceType</c></para></li><li><para><c>ProductCode</c></para></li><li><para><c>Region</c></para></li><li><para><c>Status</c></para></li><li><para><c>UsageOperation</c></para></li></ul><para>For each filter, you can use one of the following <c>Operator</c> values to define
+        /// the behavior of the filter:</para><ul><li><para><c>contains</c></para></li><li><para><c>equals</c></para></li><li><para><c>Notequal</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call.</para>
+        /// <para>The maximum items to return in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for the next set of results.</para>
+        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
+        /// truncated response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

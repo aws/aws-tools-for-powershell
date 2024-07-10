@@ -1,4 +1,58 @@
-﻿### 4.1.616 (2024-07-09 20:49Z)
+﻿### 4.1.617 (2024-07-10 21:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.848.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Added cmdlet Get-AABFlow leveraging the GetFlow service API.
+    * Added cmdlet Get-AABFlowAlias leveraging the GetFlowAlias service API.
+    * Added cmdlet Get-AABFlowAliasList leveraging the ListFlowAliases service API.
+    * Added cmdlet Get-AABFlowList leveraging the ListFlows service API.
+    * Added cmdlet Get-AABFlowVersion leveraging the GetFlowVersion service API.
+    * Added cmdlet Get-AABFlowVersionList leveraging the ListFlowVersions service API.
+    * Added cmdlet Get-AABPrompt leveraging the GetPrompt service API.
+    * Added cmdlet Get-AABPromptList leveraging the ListPrompts service API.
+    * Added cmdlet Initialize-AABFlow leveraging the PrepareFlow service API.
+    * Added cmdlet New-AABFlow leveraging the CreateFlow service API.
+    * Added cmdlet New-AABFlowAlias leveraging the CreateFlowAlias service API.
+    * Added cmdlet New-AABFlowVersion leveraging the CreateFlowVersion service API.
+    * Added cmdlet New-AABPrompt leveraging the CreatePrompt service API.
+    * Added cmdlet New-AABPromptVersion leveraging the CreatePromptVersion service API.
+    * Added cmdlet Remove-AABFlow leveraging the DeleteFlow service API.
+    * Added cmdlet Remove-AABFlowAlias leveraging the DeleteFlowAlias service API.
+    * Added cmdlet Remove-AABFlowVersion leveraging the DeleteFlowVersion service API.
+    * Added cmdlet Remove-AABPrompt leveraging the DeletePrompt service API.
+    * Added cmdlet Update-AABFlow leveraging the UpdateFlow service API.
+    * Added cmdlet Update-AABFlowAlias leveraging the UpdateFlowAlias service API.
+    * Added cmdlet Update-AABPrompt leveraging the UpdatePrompt service API.
+    * Modified cmdlet New-AABAgent: added parameters MemoryConfiguration_EnabledMemoryType and MemoryConfiguration_StorageDay.
+    * Modified cmdlet New-AABDataSource: added parameters BedrockFoundationModelConfiguration_ModelArn, CrawlerConfiguration_ExclusionFilter, CrawlerConfiguration_InclusionFilter, CrawlerConfiguration_Scope, CrawlerLimits_RateLimit, CustomTransformationConfiguration_Transformation, DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters, DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_CredentialsSecretArn, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl, DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters, DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type, DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType, DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_CredentialsSecretArn, DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_HostUrl, DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters, DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type, DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType, DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_CredentialsSecretArn, DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType, HierarchicalChunkingConfiguration_LevelConfiguration, HierarchicalChunkingConfiguration_OverlapToken, ParsingConfiguration_ParsingStrategy, ParsingPrompt_ParsingPromptText, S3Location_Uri, SemanticChunkingConfiguration_BreakpointPercentileThreshold, SemanticChunkingConfiguration_BufferSize, SemanticChunkingConfiguration_MaxToken, SourceConfiguration_Domain, SourceConfiguration_SiteUrl, SourceConfiguration_TenantId and UrlConfiguration_SeedUrl.
+    * Modified cmdlet Update-AABAgent: added parameters MemoryConfiguration_EnabledMemoryType and MemoryConfiguration_StorageDay.
+    * Modified cmdlet Update-AABDataSource: added parameters BedrockFoundationModelConfiguration_ModelArn, CrawlerConfiguration_ExclusionFilter, CrawlerConfiguration_InclusionFilter, CrawlerConfiguration_Scope, CrawlerLimits_RateLimit, CustomTransformationConfiguration_Transformation, DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters, DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_CredentialsSecretArn, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType, DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostUrl, DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters, DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type, DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType, DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_CredentialsSecretArn, DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_HostUrl, DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_PatternObjectFilter_Filters, DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type, DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType, DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_CredentialsSecretArn, DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType, HierarchicalChunkingConfiguration_LevelConfiguration, HierarchicalChunkingConfiguration_OverlapToken, ParsingConfiguration_ParsingStrategy, ParsingPrompt_ParsingPromptText, S3Location_Uri, SemanticChunkingConfiguration_BreakpointPercentileThreshold, SemanticChunkingConfiguration_BufferSize, SemanticChunkingConfiguration_MaxToken, SourceConfiguration_Domain, SourceConfiguration_SiteUrl, SourceConfiguration_TenantId and UrlConfiguration_SeedUrl.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRGuardrail: added parameter ContextualGroundingPolicyConfig_FiltersConfig.
+    * Modified cmdlet Update-BDRGuardrail: added parameter ContextualGroundingPolicyConfig_FiltersConfig.
+  * Amazon Bedrock Agent Runtime
+    * Added cmdlet Get-BARAgentMemory leveraging the GetAgentMemory service API.
+    * Added cmdlet Invoke-BARFlow leveraging the InvokeFlow service API.
+    * Added cmdlet Remove-BARAgentMemory leveraging the DeleteAgentMemory service API.
+    * Modified cmdlet Invoke-BARAgent: added parameters MemoryId, SessionState_File and SessionState_KnowledgeBaseConfiguration.
+    * Modified cmdlet Invoke-BARRetrieveAndGenerate: added parameter QueryTransformationConfiguration_Type.
+  * Amazon Bedrock Runtime
+    * Added cmdlet Invoke-BDRRGuardrail leveraging the ApplyGuardrail service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2PublicIpv4Pool: added parameter NetworkBorderGroup.
+    * Modified cmdlet Register-EC2PublicIpv4PoolCidr: added parameter NetworkBorderGroup.
+    * Modified cmdlet Remove-EC2PublicIpv4Pool: added parameter NetworkBorderGroup.
+  * Amazon Elemental MediaConnect
+    * Modified cmdlet Update-EMCNFlowOutput: added parameter OutputStatus.
+  * Amazon License Manager - Linux Subscriptions
+    * Added cmdlet Add-LLMSResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-LLMSRegisteredSubscriptionProvider leveraging the GetRegisteredSubscriptionProvider service API.
+    * Added cmdlet Get-LLMSRegisteredSubscriptionProviderList leveraging the ListRegisteredSubscriptionProviders service API.
+    * Added cmdlet Get-LLMSResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Register-LLMSSubscriptionProvider leveraging the RegisterSubscriptionProvider service API.
+    * Added cmdlet Remove-LLMSResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-LLMSSubscriptionProvider leveraging the DeregisterSubscriptionProvider service API.
+
+### 4.1.616 (2024-07-09 20:49Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.847.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon FSx
     * Modified cmdlet Update-FSXFileSystem: added parameter OntapConfiguration_HAPair.

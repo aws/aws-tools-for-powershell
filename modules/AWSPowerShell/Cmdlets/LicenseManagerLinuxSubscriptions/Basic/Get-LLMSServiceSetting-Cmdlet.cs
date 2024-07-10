@@ -28,7 +28,7 @@ using Amazon.LicenseManagerLinuxSubscriptions.Model;
 namespace Amazon.PowerShell.Cmdlets.LLMS
 {
     /// <summary>
-    /// Lists the Linux subscriptions service settings.
+    /// Lists the Linux subscriptions service settings for your account.
     /// </summary>
     [Cmdlet("Get", "LLMSServiceSetting")]
     [OutputType("Amazon.LicenseManagerLinuxSubscriptions.Model.GetServiceSettingsResponse")]

@@ -45,6 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter NetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource
+        /// that the IP address is assigned to is in. Defaults to an AZ network border group.
+        /// For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local
+        /// Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkBorderGroup { get; set; }
+        #endregion
+        
         #region Parameter TagSpecification
         /// <summary>
         /// <para>
@@ -101,6 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.Select = CreateSelectDelegate<Amazon.EC2.Model.CreatePublicIpv4PoolResponse, NewEC2PublicIpv4PoolCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.NetworkBorderGroup = this.NetworkBorderGroup;
             if (this.TagSpecification != null)
             {
                 context.TagSpecification = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -121,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreatePublicIpv4PoolRequest();
             
+            if (cmdletContext.NetworkBorderGroup != null)
+            {
+                request.NetworkBorderGroup = cmdletContext.NetworkBorderGroup;
+            }
             if (cmdletContext.TagSpecification != null)
             {
                 request.TagSpecifications = cmdletContext.TagSpecification;
@@ -186,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String NetworkBorderGroup { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public System.Func<Amazon.EC2.Model.CreatePublicIpv4PoolResponse, NewEC2PublicIpv4PoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.PoolId;

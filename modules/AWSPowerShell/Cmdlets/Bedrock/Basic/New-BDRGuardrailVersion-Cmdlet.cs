@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter GuardrailIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the guardrail.</para>
+        /// <para>The unique identifier of the guardrail. This can be an ID or the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

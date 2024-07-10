@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     public partial class GetAABDataSourceCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DataSourceId

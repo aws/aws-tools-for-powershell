@@ -80,6 +80,20 @@ $BAR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentRuntime.MemoryType
+        "Get-BARAgentMemory/MemoryType"
+        {
+            $v = "SESSION_SUMMARY"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.QueryTransformationType
+        "Invoke-BARRetrieveAndGenerate/QueryTransformationConfiguration_Type"
+        {
+            $v = "QUERY_DECOMPOSITION"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.RetrieveAndGenerateType
         "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_Type"
         {
@@ -106,6 +120,8 @@ $BAR_Completers = {
 }
 
 $BAR_map = @{
+    "MemoryType"=@("Get-BARAgentMemory")
+    "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
     "VectorSearchConfiguration_OverrideSearchType"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate")
 }
@@ -160,7 +176,10 @@ $BAR_SelectCompleters = {
 }
 
 $BAR_SelectMap = @{
-    "Select"=@("Invoke-BARAgent",
+    "Select"=@("Remove-BARAgentMemory",
+               "Get-BARAgentMemory",
+               "Invoke-BARAgent",
+               "Invoke-BARFlow",
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate")
 }

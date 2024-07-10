@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in a single call.</para>
+        /// <para>The maximum items to return in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -71,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token for the next set of results.</para>
+        /// <para>A token to specify where to start paginating. This is the nextToken from a previously
+        /// truncated response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

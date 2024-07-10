@@ -466,7 +466,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePublicIpv4Pool" OutputProperty="PoolId" Verb="New" Noun="PublicIpv4Pool" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreatePublicIpv4Pool" OutputProperty="PoolId" Verb="New" Noun="PublicIpv4Pool" ShouldProcessTarget="TagSpecifications" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

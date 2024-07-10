@@ -18,6 +18,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="ApplyGuardrail" OutputProperty="*" Verb="Invoke" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="Converse" OutputProperty="*" Verb="Invoke" Noun="Converse" ShouldProcessTarget="ModelId" PipelineParameter="ModelId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

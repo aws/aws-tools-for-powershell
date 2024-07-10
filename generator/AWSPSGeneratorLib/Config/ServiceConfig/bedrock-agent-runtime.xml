@@ -18,7 +18,19 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="DeleteAgentMemory" Verb="Remove" Noun="AgentMemory" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAgentMemory" OutputProperty="MemoryContents" Verb="Get" Noun="AgentMemory" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="InvokeAgent" OutputProperty="*" Verb="Invoke" Noun="Agent" ShouldProcessTarget="AgentId" PipelineParameter="AgentId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InvokeFlow" OutputProperty="ResponseStream" Verb="Invoke" Noun="Flow" ShouldProcessTarget="FlowAliasIdentifier" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

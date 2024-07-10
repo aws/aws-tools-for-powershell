@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
     /// <note><para>
-    /// The CLI doesn't support <c>InvokeAgent</c>.
+    /// The CLI doesn't support streaming operations in Amazon Bedrock, including <c>InvokeAgent</c>.
     /// </para></note><para>
     /// Sends a prompt for the agent to process and respond to. Note the following fields
     /// for the request:
@@ -130,6 +130,17 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         public System.Boolean? EndSession { get; set; }
         #endregion
         
+        #region Parameter SessionState_File
+        /// <summary>
+        /// <para>
+        /// <para>Contains information about the files used by code interpreter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionState_Files")]
+        public Amazon.BedrockAgentRuntime.Model.InputFile[] SessionState_File { get; set; }
+        #endregion
+        
         #region Parameter InputText
         /// <summary>
         /// <para>
@@ -153,6 +164,28 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SessionState_InvocationId { get; set; }
+        #endregion
+        
+        #region Parameter SessionState_KnowledgeBaseConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>An array of configurations, each of which applies to a knowledge base attached to
+        /// the agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SessionState_KnowledgeBaseConfigurations")]
+        public Amazon.BedrockAgentRuntime.Model.KnowledgeBaseConfiguration[] SessionState_KnowledgeBaseConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter MemoryId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the agent memory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MemoryId { get; set; }
         #endregion
         
         #region Parameter SessionState_PromptSessionAttribute
@@ -291,6 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.EnableTrace = this.EnableTrace;
             context.EndSession = this.EndSession;
             context.InputText = this.InputText;
+            context.MemoryId = this.MemoryId;
             context.SessionId = this.SessionId;
             #if MODULAR
             if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
@@ -298,7 +332,15 @@ namespace Amazon.PowerShell.Cmdlets.BAR
                 WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.SessionState_File != null)
+            {
+                context.SessionState_File = new List<Amazon.BedrockAgentRuntime.Model.InputFile>(this.SessionState_File);
+            }
             context.SessionState_InvocationId = this.SessionState_InvocationId;
+            if (this.SessionState_KnowledgeBaseConfiguration != null)
+            {
+                context.SessionState_KnowledgeBaseConfiguration = new List<Amazon.BedrockAgentRuntime.Model.KnowledgeBaseConfiguration>(this.SessionState_KnowledgeBaseConfiguration);
+            }
             if (this.SessionState_PromptSessionAttribute != null)
             {
                 context.SessionState_PromptSessionAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -355,6 +397,10 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             {
                 request.InputText = cmdletContext.InputText;
             }
+            if (cmdletContext.MemoryId != null)
+            {
+                request.MemoryId = cmdletContext.MemoryId;
+            }
             if (cmdletContext.SessionId != null)
             {
                 request.SessionId = cmdletContext.SessionId;
@@ -363,6 +409,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
              // populate SessionState
             var requestSessionStateIsNull = true;
             request.SessionState = new Amazon.BedrockAgentRuntime.Model.SessionState();
+            List<Amazon.BedrockAgentRuntime.Model.InputFile> requestSessionState_sessionState_File = null;
+            if (cmdletContext.SessionState_File != null)
+            {
+                requestSessionState_sessionState_File = cmdletContext.SessionState_File;
+            }
+            if (requestSessionState_sessionState_File != null)
+            {
+                request.SessionState.Files = requestSessionState_sessionState_File;
+                requestSessionStateIsNull = false;
+            }
             System.String requestSessionState_sessionState_InvocationId = null;
             if (cmdletContext.SessionState_InvocationId != null)
             {
@@ -371,6 +427,16 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestSessionState_sessionState_InvocationId != null)
             {
                 request.SessionState.InvocationId = requestSessionState_sessionState_InvocationId;
+                requestSessionStateIsNull = false;
+            }
+            List<Amazon.BedrockAgentRuntime.Model.KnowledgeBaseConfiguration> requestSessionState_sessionState_KnowledgeBaseConfiguration = null;
+            if (cmdletContext.SessionState_KnowledgeBaseConfiguration != null)
+            {
+                requestSessionState_sessionState_KnowledgeBaseConfiguration = cmdletContext.SessionState_KnowledgeBaseConfiguration;
+            }
+            if (requestSessionState_sessionState_KnowledgeBaseConfiguration != null)
+            {
+                request.SessionState.KnowledgeBaseConfigurations = requestSessionState_sessionState_KnowledgeBaseConfiguration;
                 requestSessionStateIsNull = false;
             }
             Dictionary<System.String, System.String> requestSessionState_sessionState_PromptSessionAttribute = null;
@@ -474,8 +540,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.Boolean? EnableTrace { get; set; }
             public System.Boolean? EndSession { get; set; }
             public System.String InputText { get; set; }
+            public System.String MemoryId { get; set; }
             public System.String SessionId { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.InputFile> SessionState_File { get; set; }
             public System.String SessionState_InvocationId { get; set; }
+            public List<Amazon.BedrockAgentRuntime.Model.KnowledgeBaseConfiguration> SessionState_KnowledgeBaseConfiguration { get; set; }
             public Dictionary<System.String, System.String> SessionState_PromptSessionAttribute { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.InvocationResultMember> SessionState_ReturnControlInvocationResult { get; set; }
             public Dictionary<System.String, System.String> SessionState_SessionAttribute { get; set; }

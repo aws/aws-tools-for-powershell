@@ -213,7 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter S3_S3ObjectKey
         /// <summary>
         /// <para>
-        /// <para>The S3 object key containing the resource.</para>
+        /// <para>The S3 object key for the S3 resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

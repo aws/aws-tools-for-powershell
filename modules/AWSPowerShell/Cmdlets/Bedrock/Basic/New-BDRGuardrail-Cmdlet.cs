@@ -28,42 +28,32 @@ using Amazon.Bedrock.Model;
 namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Creates a guardrail to block topics and to filter out harmful content.
+    /// Creates a guardrail to block topics and to implement safeguards for your generative
+    /// AI applications.
     /// 
-    ///  <ul><li><para>
-    /// Specify a <c>name</c> and optional <c>description</c>.
-    /// </para></li><li><para>
-    /// Specify messages for when the guardrail successfully blocks a prompt or a model response
-    /// in the <c>blockedInputMessaging</c> and <c>blockedOutputsMessaging</c> fields.
-    /// </para></li><li><para>
-    /// Specify topics for the guardrail to deny in the <c>topicPolicyConfig</c> object. Each
-    /// <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailTopicConfig.html">GuardrailTopicConfig</a>
-    /// object in the <c>topicsConfig</c> list pertains to one topic.
-    /// </para><ul><li><para>
-    /// Give a <c>name</c> and <c>description</c> so that the guardrail can properly identify
-    /// the topic.
-    /// </para></li><li><para>
-    /// Specify <c>DENY</c> in the <c>type</c> field.
-    /// </para></li><li><para>
-    /// (Optional) Provide up to five prompts that you would categorize as belonging to the
-    /// topic in the <c>examples</c> list.
-    /// </para></li></ul></li><li><para>
-    /// Specify filter strengths for the harmful categories defined in Amazon Bedrock in the
-    /// <c>contentPolicyConfig</c> object. Each <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>
-    /// object in the <c>filtersConfig</c> list pertains to a harmful category. For more information,
-    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters">Content
-    /// filters</a>. For more information about the fields in a content filter, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.
-    /// </para><ul><li><para>
-    /// Specify the category in the <c>type</c> field.
-    /// </para></li><li><para>
-    /// Specify the strength of the filter for prompts in the <c>inputStrength</c> field and
-    /// for model responses in the <c>strength</c> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.
-    /// </para></li></ul></li><li><para>
-    /// (Optional) For security, include the ARN of a KMS key in the <c>kmsKeyId</c> field.
-    /// </para></li><li><para>
-    /// (Optional) Attach any tags to the guardrail in the <c>tags</c> object. For more information,
-    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging">Tag resources</a>.
-    /// </para></li></ul>
+    ///  
+    /// <para>
+    /// You can configure the following policies in a guardrail to avoid undesirable and harmful
+    /// content, filter out denied topics and words, and remove sensitive information for
+    /// privacy protection.
+    /// </para><ul><li><para><b>Content filters</b> - Adjust filter strengths to block input prompts or model
+    /// responses containing harmful content.
+    /// </para></li><li><para><b>Denied topics</b> - Define a set of topics that are undesirable in the context
+    /// of your application. These topics will be blocked if detected in user queries or model
+    /// responses.
+    /// </para></li><li><para><b>Word filters</b> - Configure filters to block undesirable words, phrases, and
+    /// profanity. Such words can include offensive terms, competitor names etc.
+    /// </para></li><li><para><b>Sensitive information filters</b> - Block or mask sensitive information such as
+    /// personally identifiable information (PII) or custom regex in user inputs and model
+    /// responses.
+    /// </para></li></ul><para>
+    /// In addition to the above policies, you can also configure the messages to be returned
+    /// to the user if a user input or model response is in violation of the policies defined
+    /// in the guardrail.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">Guardrails
+    /// for Amazon Bedrock</a> in the <i>Amazon Bedrock User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "BDRGuardrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Bedrock.Model.CreateGuardrailResponse")]
@@ -144,6 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.Bedrock.Model.GuardrailContentFilterConfig[] ContentPolicyConfig_FiltersConfig { get; set; }
+        #endregion
+        
+        #region Parameter ContextualGroundingPolicyConfig_FiltersConfig
+        /// <summary>
+        /// <para>
+        /// <para>The filter configuration details for the guardrails contextual grounding policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig[] ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -315,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.ContentPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContentFilterConfig>(this.ContentPolicyConfig_FiltersConfig);
             }
+            if (this.ContextualGroundingPolicyConfig_FiltersConfig != null)
+            {
+                context.ContextualGroundingPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig>(this.ContextualGroundingPolicyConfig_FiltersConfig);
+            }
             context.Description = this.Description;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
@@ -394,6 +398,25 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestContentPolicyConfigIsNull)
             {
                 request.ContentPolicyConfig = null;
+            }
+            
+             // populate ContextualGroundingPolicyConfig
+            var requestContextualGroundingPolicyConfigIsNull = true;
+            request.ContextualGroundingPolicyConfig = new Amazon.Bedrock.Model.GuardrailContextualGroundingPolicyConfig();
+            List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig> requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig = null;
+            if (cmdletContext.ContextualGroundingPolicyConfig_FiltersConfig != null)
+            {
+                requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig = cmdletContext.ContextualGroundingPolicyConfig_FiltersConfig;
+            }
+            if (requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig != null)
+            {
+                request.ContextualGroundingPolicyConfig.FiltersConfig = requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig;
+                requestContextualGroundingPolicyConfigIsNull = false;
+            }
+             // determine if request.ContextualGroundingPolicyConfig should be set to null
+            if (requestContextualGroundingPolicyConfigIsNull)
+            {
+                request.ContextualGroundingPolicyConfig = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -553,6 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String BlockedOutputsMessaging { get; set; }
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContentFilterConfig> ContentPolicyConfig_FiltersConfig { get; set; }
+            public List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig> ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
             public System.String Description { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// Specify filter strengths for the harmful categories defined in Amazon Bedrock in the
     /// <c>contentPolicyConfig</c> object. Each <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>
     /// object in the <c>filtersConfig</c> list pertains to a harmful category. For more information,
-    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-filters">Content
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters">Content
     /// filters</a>. For more information about the fields in a content filter, see <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.
     /// </para><ul><li><para>
     /// Specify the category in the <c>type</c> field.
@@ -60,9 +60,6 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// for model responses in the <c>strength</c> field of the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GuardrailContentFilterConfig.html">GuardrailContentFilterConfig</a>.
     /// </para></li></ul></li><li><para>
     /// (Optional) For security, include the ARN of a KMS key in the <c>kmsKeyId</c> field.
-    /// </para></li><li><para>
-    /// (Optional) Attach any tags to the guardrail in the <c>tags</c> object. For more information,
-    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging">Tag resources</a>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Update", "BDRGuardrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -133,10 +130,20 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public Amazon.Bedrock.Model.GuardrailContentFilterConfig[] ContentPolicyConfig_FiltersConfig { get; set; }
         #endregion
         
+        #region Parameter ContextualGroundingPolicyConfig_FiltersConfig
+        /// <summary>
+        /// <para>
+        /// <para>The filter configuration details for the guardrails contextual grounding policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig[] ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
+        #endregion
+        
         #region Parameter GuardrailIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the guardrail</para>
+        /// <para>The unique identifier of the guardrail. This can be an ID or the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -307,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             {
                 context.ContentPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContentFilterConfig>(this.ContentPolicyConfig_FiltersConfig);
             }
+            if (this.ContextualGroundingPolicyConfig_FiltersConfig != null)
+            {
+                context.ContextualGroundingPolicyConfig_FiltersConfig = new List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig>(this.ContextualGroundingPolicyConfig_FiltersConfig);
+            }
             context.Description = this.Description;
             context.GuardrailIdentifier = this.GuardrailIdentifier;
             #if MODULAR
@@ -385,6 +396,25 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (requestContentPolicyConfigIsNull)
             {
                 request.ContentPolicyConfig = null;
+            }
+            
+             // populate ContextualGroundingPolicyConfig
+            var requestContextualGroundingPolicyConfigIsNull = true;
+            request.ContextualGroundingPolicyConfig = new Amazon.Bedrock.Model.GuardrailContextualGroundingPolicyConfig();
+            List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig> requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig = null;
+            if (cmdletContext.ContextualGroundingPolicyConfig_FiltersConfig != null)
+            {
+                requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig = cmdletContext.ContextualGroundingPolicyConfig_FiltersConfig;
+            }
+            if (requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig != null)
+            {
+                request.ContextualGroundingPolicyConfig.FiltersConfig = requestContextualGroundingPolicyConfig_contextualGroundingPolicyConfig_FiltersConfig;
+                requestContextualGroundingPolicyConfigIsNull = false;
+            }
+             // determine if request.ContextualGroundingPolicyConfig should be set to null
+            if (requestContextualGroundingPolicyConfigIsNull)
+            {
+                request.ContextualGroundingPolicyConfig = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -543,6 +573,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.String BlockedInputMessaging { get; set; }
             public System.String BlockedOutputsMessaging { get; set; }
             public List<Amazon.Bedrock.Model.GuardrailContentFilterConfig> ContentPolicyConfig_FiltersConfig { get; set; }
+            public List<Amazon.Bedrock.Model.GuardrailContextualGroundingFilterConfig> ContextualGroundingPolicyConfig_FiltersConfig { get; set; }
             public System.String Description { get; set; }
             public System.String GuardrailIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }

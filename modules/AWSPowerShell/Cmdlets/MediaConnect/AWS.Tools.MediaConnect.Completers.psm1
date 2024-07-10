@@ -137,6 +137,13 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.OutputStatus
+        "Update-EMCNFlowOutput/OutputStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.MediaConnect.Protocol
         {
             ($_ -eq "Update-EMCNBridgeOutput/NetworkOutput_Protocol") -Or
@@ -202,6 +209,7 @@ $EMCN_map = @{
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")
     "NetworkSource_Protocol"=@("Update-EMCNBridgeSource")
+    "OutputStatus"=@("Update-EMCNFlowOutput")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")

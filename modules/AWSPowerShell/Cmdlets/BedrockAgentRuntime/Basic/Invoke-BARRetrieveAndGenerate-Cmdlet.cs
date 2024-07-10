@@ -358,8 +358,11 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the session. Reuse the same value to continue the same session
-        /// with the knowledge base.</para>
+        /// <para>The unique identifier of the session. When you first make a <c>RetrieveAndGenerate</c>
+        /// request, Amazon Bedrock automatically generates this value. You must reuse this value
+        /// for all subsequent requests in the same conversational session. This value allows
+        /// Amazon Bedrock to maintain context and knowledge from previous interactions. You can't
+        /// explicitly set the <c>sessionId</c> yourself.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -506,6 +509,18 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_GenerationConfiguration_InferenceConfig_TextInferenceConfig_TopP")]
         public System.Single? TextInferenceConfig_TopP { get; set; }
+        #endregion
+        
+        #region Parameter QueryTransformationConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of transformation to apply to the prompt.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RetrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration_Type")]
+        [AWSConstantClassSource("Amazon.BedrockAgentRuntime.QueryTransformationType")]
+        public Amazon.BedrockAgentRuntime.QueryTransformationType QueryTransformationConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter RetrieveAndGenerateConfiguration_Type
@@ -752,6 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             context.PromptTemplate_TextPromptTemplate = this.PromptTemplate_TextPromptTemplate;
             context.KnowledgeBaseConfiguration_KnowledgeBaseId = this.KnowledgeBaseConfiguration_KnowledgeBaseId;
             context.KnowledgeBaseConfiguration_ModelArn = this.KnowledgeBaseConfiguration_ModelArn;
+            context.QueryTransformationConfiguration_Type = this.QueryTransformationConfiguration_Type;
             if (this.Filter_AndAll != null)
             {
                 context.Filter_AndAll = new List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter>(this.Filter_AndAll);
@@ -1049,6 +1065,46 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_knowledgeBaseConfiguration_ModelArn != null)
             {
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.ModelArn = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_knowledgeBaseConfiguration_ModelArn;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
+            }
+            Amazon.BedrockAgentRuntime.Model.OrchestrationConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration = null;
+            
+             // populate OrchestrationConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration = new Amazon.BedrockAgentRuntime.Model.OrchestrationConfiguration();
+            Amazon.BedrockAgentRuntime.Model.QueryTransformationConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration = null;
+            
+             // populate QueryTransformationConfiguration
+            var requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfigurationIsNull = true;
+            requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration = new Amazon.BedrockAgentRuntime.Model.QueryTransformationConfiguration();
+            Amazon.BedrockAgentRuntime.QueryTransformationType requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration_queryTransformationConfiguration_Type = null;
+            if (cmdletContext.QueryTransformationConfiguration_Type != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration_queryTransformationConfiguration_Type = cmdletContext.QueryTransformationConfiguration_Type;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration_queryTransformationConfiguration_Type != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration.Type = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration_queryTransformationConfiguration_Type;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration.QueryTransformationConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration_QueryTransformationConfiguration;
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfigurationIsNull = false;
+            }
+             // determine if requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration should be set to null
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfigurationIsNull)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration = null;
+            }
+            if (requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration != null)
+            {
+                requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration.OrchestrationConfiguration = requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_OrchestrationConfiguration;
                 requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfigurationIsNull = false;
             }
             Amazon.BedrockAgentRuntime.Model.KnowledgeBaseRetrievalConfiguration requestRetrieveAndGenerateConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_retrieveAndGenerateConfiguration_KnowledgeBaseConfiguration_RetrievalConfiguration = null;
@@ -1796,6 +1852,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
             public System.String PromptTemplate_TextPromptTemplate { get; set; }
             public System.String KnowledgeBaseConfiguration_KnowledgeBaseId { get; set; }
             public System.String KnowledgeBaseConfiguration_ModelArn { get; set; }
+            public Amazon.BedrockAgentRuntime.QueryTransformationType QueryTransformationConfiguration_Type { get; set; }
             public List<Amazon.BedrockAgentRuntime.Model.RetrievalFilter> Filter_AndAll { get; set; }
             public System.String Equals_Key { get; set; }
             public System.Management.Automation.PSObject Equals_Value { get; set; }

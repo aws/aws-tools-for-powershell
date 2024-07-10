@@ -80,6 +80,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? NetmaskLength { get; set; }
         #endregion
         
+        #region Parameter NetworkBorderGroup
+        /// <summary>
+        /// <para>
+        /// <para>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource
+        /// that the IP address is assigned to is in. Defaults to an AZ network border group.
+        /// For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local
+        /// Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NetworkBorderGroup { get; set; }
+        #endregion
+        
         #region Parameter PoolId
         /// <summary>
         /// <para>
@@ -173,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 WriteWarning("You are passing $null as a value for parameter NetmaskLength which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NetworkBorderGroup = this.NetworkBorderGroup;
             context.PoolId = this.PoolId;
             #if MODULAR
             if (this.PoolId == null && ParameterWasBound(nameof(this.PoolId)))
@@ -203,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.NetmaskLength != null)
             {
                 request.NetmaskLength = cmdletContext.NetmaskLength.Value;
+            }
+            if (cmdletContext.NetworkBorderGroup != null)
+            {
+                request.NetworkBorderGroup = cmdletContext.NetworkBorderGroup;
             }
             if (cmdletContext.PoolId != null)
             {
@@ -271,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String IpamPoolId { get; set; }
             public System.Int32? NetmaskLength { get; set; }
+            public System.String NetworkBorderGroup { get; set; }
             public System.String PoolId { get; set; }
             public System.Func<Amazon.EC2.Model.ProvisionPublicIpv4PoolCidrResponse, RegisterEC2PublicIpv4PoolCidrCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

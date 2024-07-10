@@ -94,6 +94,13 @@ $LLMS_Completers = {
             break
         }
 
+        # Amazon.LicenseManagerLinuxSubscriptions.SubscriptionProviderSource
+        "Register-LLMSSubscriptionProvider/SubscriptionProviderSource"
+        {
+            $v = "RedHat"
+            break
+        }
+
 
     }
 
@@ -105,6 +112,7 @@ $LLMS_Completers = {
 $LLMS_map = @{
     "LinuxSubscriptionsDiscovery"=@("Update-LLMSServiceSetting")
     "LinuxSubscriptionsDiscoverySettings_OrganizationIntegration"=@("Update-LLMSServiceSetting")
+    "SubscriptionProviderSource"=@("Register-LLMSSubscriptionProvider")
 }
 
 _awsArgumentCompleterRegistration $LLMS_Completers $LLMS_map
@@ -157,9 +165,16 @@ $LLMS_SelectCompleters = {
 }
 
 $LLMS_SelectMap = @{
-    "Select"=@("Get-LLMSServiceSetting",
+    "Select"=@("Remove-LLMSSubscriptionProvider",
+               "Get-LLMSRegisteredSubscriptionProvider",
+               "Get-LLMSServiceSetting",
                "Get-LLMSLinuxSubscriptionInstanceList",
                "Get-LLMSLinuxSubscriptionList",
+               "Get-LLMSRegisteredSubscriptionProviderList",
+               "Get-LLMSResourceTag",
+               "Register-LLMSSubscriptionProvider",
+               "Add-LLMSResourceTag",
+               "Remove-LLMSResourceTag",
                "Update-LLMSServiceSetting")
 }
 

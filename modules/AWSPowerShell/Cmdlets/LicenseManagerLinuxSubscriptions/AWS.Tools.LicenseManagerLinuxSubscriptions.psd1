@@ -86,9 +86,16 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
+        'Add-LLMSResourceTag', 
         'Get-LLMSLinuxSubscriptionInstanceList', 
         'Get-LLMSLinuxSubscriptionList', 
+        'Get-LLMSRegisteredSubscriptionProvider', 
+        'Get-LLMSRegisteredSubscriptionProviderList', 
+        'Get-LLMSResourceTag', 
         'Get-LLMSServiceSetting', 
+        'Register-LLMSSubscriptionProvider', 
+        'Remove-LLMSResourceTag', 
+        'Remove-LLMSSubscriptionProvider', 
         'Update-LLMSServiceSetting')
 
     # Variables to export from this module

@@ -10,7 +10,9 @@
     <ServiceClient>AmazonLicenseManagerLinuxSubscriptionsClient</ServiceClient>
     <ServiceModuleGuid>8A8BC202-CD46-46C8-8E3E-F3503E171418</ServiceModuleGuid>
     <PipelineParameter />
-    <VerbMappings />
+    <VerbMappings>
+        <Map From="Deregister" To="Remove" />
+    </VerbMappings>
     <NounMappings />
     <Params />
     <CustomAliases />
@@ -18,6 +20,14 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="DeregisterSubscriptionProvider" Verb="Remove" Noun="SubscriptionProvider" ShouldProcessTarget="SubscriptionProviderArn" PipelineParameter="SubscriptionProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegisteredSubscriptionProvider" OutputProperty="*" Verb="Get" Noun="RegisteredSubscriptionProvider" PipelineParameter="SubscriptionProviderArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetServiceSettings" OutputProperty="*" Verb="Get" Noun="ServiceSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -27,6 +37,26 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListLinuxSubscriptions" OutputProperty="Subscriptions" Verb="Get" Noun="LinuxSubscriptionList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegisteredSubscriptionProviders" OutputProperty="RegisteredSubscriptionProviders" Verb="Get" Noun="RegisteredSubscriptionProviderList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterSubscriptionProvider" OutputProperty="*" Verb="Register" Noun="SubscriptionProvider" ShouldProcessTarget="SecretArn" PipelineParameter="SecretArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

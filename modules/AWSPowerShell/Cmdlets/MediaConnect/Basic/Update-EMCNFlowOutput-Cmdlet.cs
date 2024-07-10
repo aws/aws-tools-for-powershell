@@ -161,6 +161,19 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String OutputArn { get; set; }
         #endregion
         
+        #region Parameter OutputStatus
+        /// <summary>
+        /// <para>
+        /// An indication of whether the output should
+        /// transmit data or not. If you don't specify the outputStatus field in your request,
+        /// MediaConnect leaves the value unchanged.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.OutputStatus")]
+        public Amazon.MediaConnect.OutputStatus OutputStatus { get; set; }
+        #endregion
+        
         #region Parameter Port
         /// <summary>
         /// <para>
@@ -337,6 +350,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 WriteWarning("You are passing $null as a value for parameter OutputArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.OutputStatus = this.OutputStatus;
             context.Port = this.Port;
             context.Protocol = this.Protocol;
             context.RemoteId = this.RemoteId;
@@ -396,6 +410,10 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             if (cmdletContext.OutputArn != null)
             {
                 request.OutputArn = cmdletContext.OutputArn;
+            }
+            if (cmdletContext.OutputStatus != null)
+            {
+                request.OutputStatus = cmdletContext.OutputStatus;
             }
             if (cmdletContext.Port != null)
             {
@@ -514,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public List<Amazon.MediaConnect.Model.MediaStreamOutputConfigurationRequest> MediaStreamOutputConfiguration { get; set; }
             public System.Int32? MinLatency { get; set; }
             public System.String OutputArn { get; set; }
+            public Amazon.MediaConnect.OutputStatus OutputStatus { get; set; }
             public System.Int32? Port { get; set; }
             public Amazon.MediaConnect.Protocol Protocol { get; set; }
             public System.String RemoteId { get; set; }

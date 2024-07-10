@@ -43,6 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     /// the agent should maintain session information. After this time expires, the subsequent
     /// <c>InvokeAgent</c> request begins a new session.
     /// </para></li></ul></li><li><para>
+    /// To enable your agent to retain conversational context across multiple sessions, include
+    /// a <c>memoryConfiguration</c> object. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-configure-memory.html">Configure
+    /// memory</a>.
+    /// </para></li><li><para>
     /// To override the default prompt behavior for agent orchestration and to use advanced
     /// prompts, include a <c>promptOverrideConfiguration</c> object. For more information,
     /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
@@ -116,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter MemoryConfiguration_EnabledMemoryType
+        /// <summary>
+        /// <para>
+        /// <para>The type of memory that is stored. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemoryConfiguration_EnabledMemoryTypes")]
+        public System.String[] MemoryConfiguration_EnabledMemoryType { get; set; }
+        #endregion
+        
         #region Parameter FoundationModel
         /// <summary>
         /// <para>
@@ -129,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter GuardrailConfiguration_GuardrailIdentifier
         /// <summary>
         /// <para>
-        /// <para>The guardrails identifier assigned to the guardrails configuration.</para>
+        /// <para>The unique identifier of the guardrail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter GuardrailConfiguration_GuardrailVersion
         /// <summary>
         /// <para>
-        /// <para>The guardrails version assigned to the guardrails configuration.</para>
+        /// <para>The version of the guardrail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -196,6 +211,17 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("PromptOverrideConfiguration_PromptConfigurations")]
         public Amazon.BedrockAgent.Model.PromptConfiguration[] PromptOverrideConfiguration_PromptConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter MemoryConfiguration_StorageDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days the agent is configured to retain the conversational context.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MemoryConfiguration_StorageDays")]
+        public System.Int32? MemoryConfiguration_StorageDay { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -300,6 +326,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             context.GuardrailConfiguration_GuardrailVersion = this.GuardrailConfiguration_GuardrailVersion;
             context.IdleSessionTTLInSecond = this.IdleSessionTTLInSecond;
             context.Instruction = this.Instruction;
+            if (this.MemoryConfiguration_EnabledMemoryType != null)
+            {
+                context.MemoryConfiguration_EnabledMemoryType = new List<System.String>(this.MemoryConfiguration_EnabledMemoryType);
+            }
+            context.MemoryConfiguration_StorageDay = this.MemoryConfiguration_StorageDay;
             context.PromptOverrideConfiguration_OverrideLambda = this.PromptOverrideConfiguration_OverrideLambda;
             if (this.PromptOverrideConfiguration_PromptConfiguration != null)
             {
@@ -389,6 +420,35 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             if (cmdletContext.Instruction != null)
             {
                 request.Instruction = cmdletContext.Instruction;
+            }
+            
+             // populate MemoryConfiguration
+            var requestMemoryConfigurationIsNull = true;
+            request.MemoryConfiguration = new Amazon.BedrockAgent.Model.MemoryConfiguration();
+            List<System.String> requestMemoryConfiguration_memoryConfiguration_EnabledMemoryType = null;
+            if (cmdletContext.MemoryConfiguration_EnabledMemoryType != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_EnabledMemoryType = cmdletContext.MemoryConfiguration_EnabledMemoryType;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_EnabledMemoryType != null)
+            {
+                request.MemoryConfiguration.EnabledMemoryTypes = requestMemoryConfiguration_memoryConfiguration_EnabledMemoryType;
+                requestMemoryConfigurationIsNull = false;
+            }
+            System.Int32? requestMemoryConfiguration_memoryConfiguration_StorageDay = null;
+            if (cmdletContext.MemoryConfiguration_StorageDay != null)
+            {
+                requestMemoryConfiguration_memoryConfiguration_StorageDay = cmdletContext.MemoryConfiguration_StorageDay.Value;
+            }
+            if (requestMemoryConfiguration_memoryConfiguration_StorageDay != null)
+            {
+                request.MemoryConfiguration.StorageDays = requestMemoryConfiguration_memoryConfiguration_StorageDay.Value;
+                requestMemoryConfigurationIsNull = false;
+            }
+             // determine if request.MemoryConfiguration should be set to null
+            if (requestMemoryConfigurationIsNull)
+            {
+                request.MemoryConfiguration = null;
             }
             
              // populate PromptOverrideConfiguration
@@ -494,6 +554,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             public System.String GuardrailConfiguration_GuardrailVersion { get; set; }
             public System.Int32? IdleSessionTTLInSecond { get; set; }
             public System.String Instruction { get; set; }
+            public List<System.String> MemoryConfiguration_EnabledMemoryType { get; set; }
+            public System.Int32? MemoryConfiguration_StorageDay { get; set; }
             public System.String PromptOverrideConfiguration_OverrideLambda { get; set; }
             public List<Amazon.BedrockAgent.Model.PromptConfiguration> PromptOverrideConfiguration_PromptConfiguration { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

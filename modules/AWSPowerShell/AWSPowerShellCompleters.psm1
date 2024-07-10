@@ -6335,7 +6335,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABAgentActionGroup/ParentActionGroupSignature")
         }
         {
-            $v = "AMAZON.UserInput"
+            $v = "AMAZON.CodeInterpreter","AMAZON.UserInput"
             break
         }
 
@@ -6355,7 +6355,41 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/ChunkingConfiguration_ChunkingStrategy")
         }
         {
-            $v = "FIXED_SIZE","NONE"
+            $v = "FIXED_SIZE","HIERARCHICAL","NONE","SEMANTIC"
+            break
+        }
+
+        # Amazon.BedrockAgent.ConfluenceAuthType
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType")
+        }
+        {
+            $v = "BASIC","OAUTH2_CLIENT_CREDENTIALS"
+            break
+        }
+
+        # Amazon.BedrockAgent.ConfluenceHostType
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType")
+        }
+        {
+            $v = "SAAS"
+            break
+        }
+
+        # Amazon.BedrockAgent.CrawlFilterConfigurationType
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type") -Or
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type")
+        }
+        {
+            $v = "PATTERN"
             break
         }
 
@@ -6385,7 +6419,7 @@ $AAB_Completers = {
             ($_ -eq "Update-AABDataSource/DataSourceConfiguration_Type")
         }
         {
-            $v = "S3"
+            $v = "CONFLUENCE","S3","SALESFORCE","SHAREPOINT","WEB"
             break
         }
 
@@ -6426,10 +6460,60 @@ $AAB_Completers = {
             break
         }
 
+        # Amazon.BedrockAgent.ParsingStrategy
+        {
+            ($_ -eq "New-AABDataSource/ParsingConfiguration_ParsingStrategy") -Or
+            ($_ -eq "Update-AABDataSource/ParsingConfiguration_ParsingStrategy")
+        }
+        {
+            $v = "BEDROCK_FOUNDATION_MODEL"
+            break
+        }
+
+        # Amazon.BedrockAgent.SalesforceAuthType
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType")
+        }
+        {
+            $v = "OAUTH2_CLIENT_CREDENTIALS"
+            break
+        }
+
+        # Amazon.BedrockAgent.SharePointAuthType
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType")
+        }
+        {
+            $v = "OAUTH2_CLIENT_CREDENTIALS"
+            break
+        }
+
+        # Amazon.BedrockAgent.SharePointHostType
+        {
+            ($_ -eq "New-AABDataSource/DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType") -Or
+            ($_ -eq "Update-AABDataSource/DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType")
+        }
+        {
+            $v = "ONLINE"
+            break
+        }
+
         # Amazon.BedrockAgent.SortOrder
         "Get-AABIngestionJobList/SortBy_Order"
         {
             $v = "ASCENDING","DESCENDING"
+            break
+        }
+
+        # Amazon.BedrockAgent.WebScopeType
+        {
+            ($_ -eq "New-AABDataSource/CrawlerConfiguration_Scope") -Or
+            ($_ -eq "Update-AABDataSource/CrawlerConfiguration_Scope")
+        }
+        {
+            $v = "HOST_ONLY","SUBDOMAINS"
             break
         }
 
@@ -6445,11 +6529,21 @@ $AAB_map = @{
     "ActionGroupExecutor_CustomControl"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ActionGroupState"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
     "ChunkingConfiguration_ChunkingStrategy"=@("New-AABDataSource","Update-AABDataSource")
+    "CrawlerConfiguration_Scope"=@("New-AABDataSource","Update-AABDataSource")
     "DataDeletionPolicy"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ConfluenceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_ConfluenceConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_SalesforceConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_SalesforceConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_SharePointConfiguration_CrawlerConfiguration_FilterConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_AuthType"=@("New-AABDataSource","Update-AABDataSource")
+    "DataSourceConfiguration_SharePointConfiguration_SourceConfiguration_HostType"=@("New-AABDataSource","Update-AABDataSource")
     "DataSourceConfiguration_Type"=@("New-AABDataSource","Update-AABDataSource")
     "KnowledgeBaseConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
     "KnowledgeBaseState"=@("Register-AABAgentKnowledgeBase","Update-AABAgentKnowledgeBase")
     "ParentActionGroupSignature"=@("New-AABAgentActionGroup","Update-AABAgentActionGroup")
+    "ParsingConfiguration_ParsingStrategy"=@("New-AABDataSource","Update-AABDataSource")
     "SortBy_Attribute"=@("Get-AABIngestionJobList")
     "SortBy_Order"=@("Get-AABIngestionJobList")
     "StorageConfiguration_Type"=@("New-AABKnowledgeBase","Update-AABKnowledgeBase")
@@ -6510,13 +6604,22 @@ $AAB_SelectMap = @{
                "New-AABAgentActionGroup",
                "New-AABAgentAlias",
                "New-AABDataSource",
+               "New-AABFlow",
+               "New-AABFlowAlias",
+               "New-AABFlowVersion",
                "New-AABKnowledgeBase",
+               "New-AABPrompt",
+               "New-AABPromptVersion",
                "Remove-AABAgent",
                "Remove-AABAgentActionGroup",
                "Remove-AABAgentAlias",
                "Remove-AABAgentVersion",
                "Remove-AABDataSource",
+               "Remove-AABFlow",
+               "Remove-AABFlowAlias",
+               "Remove-AABFlowVersion",
                "Remove-AABKnowledgeBase",
+               "Remove-AABPrompt",
                "Unregister-AABAgentKnowledgeBase",
                "Get-AABAgent",
                "Get-AABAgentActionGroup",
@@ -6524,18 +6627,27 @@ $AAB_SelectMap = @{
                "Get-AABAgentKnowledgeBase",
                "Get-AABAgentVersion",
                "Get-AABDataSource",
+               "Get-AABFlow",
+               "Get-AABFlowAlias",
+               "Get-AABFlowVersion",
                "Get-AABIngestionJob",
                "Get-AABKnowledgeBase",
+               "Get-AABPrompt",
                "Get-AABAgentActionGroupList",
                "Get-AABAgentAliasList",
                "Get-AABAgentKnowledgeBasisList",
                "Get-AABAgentList",
                "Get-AABAgentVersionList",
                "Get-AABDataSourceList",
+               "Get-AABFlowAliasList",
+               "Get-AABFlowList",
+               "Get-AABFlowVersionList",
                "Get-AABIngestionJobList",
                "Get-AABKnowledgeBasisList",
+               "Get-AABPromptList",
                "Get-AABResourceTag",
                "Initialize-AABAgent",
+               "Initialize-AABFlow",
                "Start-AABIngestionJob",
                "Add-AABResourceTag",
                "Remove-AABResourceTag",
@@ -6544,7 +6656,10 @@ $AAB_SelectMap = @{
                "Update-AABAgentAlias",
                "Update-AABAgentKnowledgeBase",
                "Update-AABDataSource",
-               "Update-AABKnowledgeBase")
+               "Update-AABFlow",
+               "Update-AABFlowAlias",
+               "Update-AABKnowledgeBase",
+               "Update-AABPrompt")
 }
 
 _awsArgumentCompleterRegistration $AAB_SelectCompleters $AAB_SelectMap
@@ -6556,6 +6671,20 @@ $BAR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockAgentRuntime.MemoryType
+        "Get-BARAgentMemory/MemoryType"
+        {
+            $v = "SESSION_SUMMARY"
+            break
+        }
+
+        # Amazon.BedrockAgentRuntime.QueryTransformationType
+        "Invoke-BARRetrieveAndGenerate/QueryTransformationConfiguration_Type"
+        {
+            $v = "QUERY_DECOMPOSITION"
+            break
+        }
+
         # Amazon.BedrockAgentRuntime.RetrieveAndGenerateType
         "Invoke-BARRetrieveAndGenerate/RetrieveAndGenerateConfiguration_Type"
         {
@@ -6582,6 +6711,8 @@ $BAR_Completers = {
 }
 
 $BAR_map = @{
+    "MemoryType"=@("Get-BARAgentMemory")
+    "QueryTransformationConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
     "RetrieveAndGenerateConfiguration_Type"=@("Invoke-BARRetrieveAndGenerate")
     "VectorSearchConfiguration_OverrideSearchType"=@("Invoke-BARRetrieve","Invoke-BARRetrieveAndGenerate")
 }
@@ -6636,7 +6767,10 @@ $BAR_SelectCompleters = {
 }
 
 $BAR_SelectMap = @{
-    "Select"=@("Invoke-BARAgent",
+    "Select"=@("Remove-BARAgentMemory",
+               "Get-BARAgentMemory",
+               "Invoke-BARAgent",
+               "Invoke-BARFlow",
                "Invoke-BARRetrieve",
                "Invoke-BARRetrieveAndGenerate")
 }
@@ -6650,6 +6784,13 @@ $BDRR_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.BedrockRuntime.GuardrailContentSource
+        "Invoke-BDRRGuardrail/Source"
+        {
+            $v = "INPUT","OUTPUT"
+            break
+        }
+
         # Amazon.BedrockRuntime.GuardrailStreamProcessingMode
         "Invoke-BDRRConverseStream/GuardrailConfig_StreamProcessingMode"
         {
@@ -6688,6 +6829,7 @@ $BDRR_Completers = {
 $BDRR_map = @{
     "GuardrailConfig_StreamProcessingMode"=@("Invoke-BDRRConverseStream")
     "GuardrailConfig_Trace"=@("Invoke-BDRRConverse","Invoke-BDRRConverseStream")
+    "Source"=@("Invoke-BDRRGuardrail")
     "Trace"=@("Invoke-BDRRModel","Invoke-BDRRModelWithResponseStream")
 }
 
@@ -6741,7 +6883,8 @@ $BDRR_SelectCompleters = {
 }
 
 $BDRR_SelectMap = @{
-    "Select"=@("Invoke-BDRRConverse",
+    "Select"=@("Invoke-BDRRGuardrail",
+               "Invoke-BDRRConverse",
                "Invoke-BDRRConverseStream",
                "Invoke-BDRRModel",
                "Invoke-BDRRModelWithResponseStream")
@@ -39780,6 +39923,13 @@ $LLMS_Completers = {
             break
         }
 
+        # Amazon.LicenseManagerLinuxSubscriptions.SubscriptionProviderSource
+        "Register-LLMSSubscriptionProvider/SubscriptionProviderSource"
+        {
+            $v = "RedHat"
+            break
+        }
+
 
     }
 
@@ -39791,6 +39941,7 @@ $LLMS_Completers = {
 $LLMS_map = @{
     "LinuxSubscriptionsDiscovery"=@("Update-LLMSServiceSetting")
     "LinuxSubscriptionsDiscoverySettings_OrganizationIntegration"=@("Update-LLMSServiceSetting")
+    "SubscriptionProviderSource"=@("Register-LLMSSubscriptionProvider")
 }
 
 _awsArgumentCompleterRegistration $LLMS_Completers $LLMS_map
@@ -39843,9 +39994,16 @@ $LLMS_SelectCompleters = {
 }
 
 $LLMS_SelectMap = @{
-    "Select"=@("Get-LLMSServiceSetting",
+    "Select"=@("Remove-LLMSSubscriptionProvider",
+               "Get-LLMSRegisteredSubscriptionProvider",
+               "Get-LLMSServiceSetting",
                "Get-LLMSLinuxSubscriptionInstanceList",
                "Get-LLMSLinuxSubscriptionList",
+               "Get-LLMSRegisteredSubscriptionProviderList",
+               "Get-LLMSResourceTag",
+               "Register-LLMSSubscriptionProvider",
+               "Add-LLMSResourceTag",
+               "Remove-LLMSResourceTag",
                "Update-LLMSServiceSetting")
 }
 
@@ -43002,6 +43160,13 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.OutputStatus
+        "Update-EMCNFlowOutput/OutputStatus"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.MediaConnect.Protocol
         {
             ($_ -eq "Update-EMCNBridgeOutput/NetworkOutput_Protocol") -Or
@@ -43067,6 +43232,7 @@ $EMCN_map = @{
     "MediaStreamType"=@("Update-EMCNFlowMediaStream")
     "NetworkOutput_Protocol"=@("Update-EMCNBridgeOutput")
     "NetworkSource_Protocol"=@("Update-EMCNBridgeSource")
+    "OutputStatus"=@("Update-EMCNFlowOutput")
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
