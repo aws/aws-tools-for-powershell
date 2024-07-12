@@ -250,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 resourceIdentifiersText = context.Key;
 
                 context.Key = AmazonS3Helper.CleanKey(this.Key);
+                base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
                 context.VersionId = this.VersionId;
             }
             else

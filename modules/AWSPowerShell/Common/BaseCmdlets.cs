@@ -26,6 +26,7 @@ using System.Collections;
 using Amazon.Util.Internal;
 using Amazon.PowerShell.Common.Internal;
 using Amazon.Runtime.CredentialManagement;
+using Amazon.Util;
 
 namespace Amazon.PowerShell.Common
 {
@@ -41,6 +42,9 @@ namespace Amazon.PowerShell.Common
 
         // update user agent string for current process
         internal static bool AWSPowerShellUserAgentSet;
+
+        // update user agent string for current process
+        protected string UserAgentAddition = null;
 
         // the max number of items to use in a confirmation prompt, to avoid
         // a wall of text
@@ -458,7 +462,14 @@ namespace Amazon.PowerShell.Common
         protected void RequestEventHandler(object sender, RequestEventArgs args)
         {
             var wsrea = args as WebServiceRequestEventArgs;
-            if (wsrea == null) return;
+            if (wsrea == null)
+            {  
+                return; 
+            }
+            else
+            {
+                wsrea.Headers[AWSSDKUtils.UserAgentHeader] += $" {UserAgentAddition}";
+            }
 
             var request = wsrea.Request;
 

@@ -46,13 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (this.Key != null)
             {
-                this.Key = AmazonS3Helper.CleanKey(this.Key);
-                cmdletContext.Prefix = this.Key;
+                string key = AmazonS3Helper.CleanKey(this.Key);
+                base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, key);
+                this.Key = key;
+                cmdletContext.Prefix = key;
             }
             else
             {
                 cmdletContext.Prefix = rootIndicators.Contains<string>(this.Prefix, StringComparer.OrdinalIgnoreCase)
                     ? null : AmazonS3Helper.CleanKey(this.Prefix);
+                base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Prefix, cmdletContext.Prefix);
             }
         }
 

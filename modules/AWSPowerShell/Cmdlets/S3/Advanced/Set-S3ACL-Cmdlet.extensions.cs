@@ -52,6 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             var cmdletContext = context as CmdletContext;
 
             cmdletContext.Key = AmazonS3Helper.CleanKey(this.Key);
+            base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, cmdletContext.Key);
 
             if (string.IsNullOrEmpty(this.CannedACL))
             {

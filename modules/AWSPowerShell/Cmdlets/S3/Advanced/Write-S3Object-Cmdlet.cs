@@ -467,7 +467,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             };
 
             if (this.Key != null)
+            {
                 context.Key = AmazonS3Helper.CleanKey(this.Key);
+                base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
+            }
 
             if (this.ParameterSetName == ParamSet_FromLocalFile)
             {
@@ -489,7 +492,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Recurse = this.Recurse.IsPresent;
                 context.OriginalKeyPrefix = this.KeyPrefix;
                 if (!rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase))
+                {
                     context.KeyPrefix = AmazonS3Helper.CleanKey(this.KeyPrefix);
+                    base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.KeyPrefix, context.KeyPrefix);
+                }
                 if (!string.IsNullOrEmpty(this.SearchPattern))
                     context.SearchPattern = this.SearchPattern;
             }

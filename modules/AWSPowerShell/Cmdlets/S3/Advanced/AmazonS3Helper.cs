@@ -47,6 +47,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         /// <summary>
+        /// Returns the appropriate user agent addition string for tracking if an S3 object key was cleaned.
+        /// </summary>
+        /// <param name="OriginalKey">The original user key or key prefix</param>
+        /// /// <param name="RevisedKey">The revised user key or key prefix</param>
+        /// <returns>User agent addition string</returns>
+        public static string GetCleanKeyUserAgentAdditionString(string OriginalKey, string RevisedKey)
+        {
+            if (OriginalKey != RevisedKey)
+            {
+                return "ft/S3Key#cleaned";
+            }
+            else
+            {
+                return "ft/S3Key#unmodified";
+            }
+        }
+
+        /// <summary>
         /// Extracts a bucket name from a supplied parameter object, which should be
         /// a string or S3Bucket instance.
         /// </summary>

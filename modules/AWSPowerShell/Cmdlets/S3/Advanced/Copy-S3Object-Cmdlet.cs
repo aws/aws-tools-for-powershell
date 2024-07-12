@@ -597,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     context.OriginalKeyPrefix = this.KeyPrefix;
                     context.KeyPrefix = ReadS3ObjectCmdlet.rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase)
                         ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
+                    base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(context.OriginalKeyPrefix, context.KeyPrefix);
 
                     context.LocalFolder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.LocalFolder);
                     break;
@@ -691,6 +692,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 BucketName = bucketName,
                 Key = objectKey.TrimStart('/')
             };
+            base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(objectKey, request.Key);
 
             var response = CallAWSServiceOperation(sourceRegionClient, request);
             return response;
@@ -702,6 +704,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // The underlying S3 api does not like listing with prefixes starting with / so strip
             // (eg Copy-S3Object -BucketName test-bucket -Key /data/sample.txt -DestinationKey /data/sample-copy.txt)
             string key = objectKey.TrimStart('/');
+            base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(objectKey, key);
             var request = new ListObjectsRequest
             {
                 BucketName = bucketName,

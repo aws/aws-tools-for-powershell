@@ -302,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 case ParamSet_ToLocalFile:
                     {
                         context.Key = AmazonS3Helper.CleanKey(this.Key);
+                        base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.Key, context.Key);
                         context.File = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.File);
                         context.Version = this.Version;
                     }
@@ -312,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         context.OriginalKeyPrefix = this.KeyPrefix;
                         context.KeyPrefix = rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase) 
                             ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
+                        base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(this.KeyPrefix, context.KeyPrefix);
                         context.Folder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.Folder);
                         context.DisableSlashCorrection = this.DisableSlashCorrection;
                     }
