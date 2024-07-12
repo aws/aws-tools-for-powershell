@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                             WriteProgressRecord("Retrieving", $"Retrieved {_receivedThisCall} records starting from marker '{request.ExclusiveStartApplicationName}'");
                         }
 
-                        _nextToken = response.HasMoreApplications ? response.ApplicationSummaries[_receivedThisCall - 1].ApplicationName : null;
+                        _nextToken = response.HasMoreApplications.HasValue ? response.ApplicationSummaries[_receivedThisCall - 1].ApplicationName : null;
                         _retrievedSoFar += _receivedThisCall;
                         if (_emitLimit.HasValue)
                         {

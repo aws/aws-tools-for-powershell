@@ -145,7 +145,7 @@ namespace AWSPowerShellGenerator
                     return "netstandard2.0";
 
             if (Edition.Equals("desktop", StringComparison.OrdinalIgnoreCase))
-                    return "net45";
+                    return "net472";
 
                 throw new InvalidOperationException("Unknown edition - " + Edition);
             }

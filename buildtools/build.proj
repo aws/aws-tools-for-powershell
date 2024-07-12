@@ -53,7 +53,7 @@
         <NetCoreDeploymentArtifacts>$(Deployment)/AWSPowerShell.NetCore/</NetCoreDeploymentArtifacts>
         <ModularDeploymentArtifacts>$(Deployment)/AWS.Tools/</ModularDeploymentArtifacts>
         <AWSPowerShellSourceFolder>$(RootPath)/modules/AWSPowerShell</AWSPowerShellSourceFolder>
-        <DesktopBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/net45/</DesktopBuildFolder>
+        <DesktopBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/net472/</DesktopBuildFolder>
         <NetCoreBuildFolder>$(AWSPowerShellSourceFolder)/bin/$(Configuration)/netstandard2.0/</NetCoreBuildFolder>
 
         <DocDeployment Condition="'$(DocDeployment)'==''">$(RootPath)/DocDeployment</DocDeployment>
@@ -114,7 +114,7 @@
     <Target Name="build-desktop-module" DependsOnTargets="create-cmdlets;build-netcore-module">
         <Message Text="Building AWSPowerShell desktop module edition"/>
         <Exec Command="dotnet restore --disable-parallel ../solutions/AWSPowerShell.sln"/>
-        <Exec Command="dotnet build -c $(Configuration) -f net45 --force --no-incremental --no-restore ../solutions/AWSPowerShell.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) -f net472 --force --no-incremental --no-restore ../solutions/AWSPowerShell.sln"/>
     </Target>
 
     <Target Name="build-netcore-module" DependsOnTargets="create-cmdlets">
@@ -181,12 +181,12 @@
         <Message Text="Consolidating Desktop edition artifacts from $(DesktopBuildFolder) to $(DesktopDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <SDKAssemblies Include="$(SDKAssembliesFolder)/net45/AWSSDK.*.dll" />
+            <SDKAssemblies Include="$(SDKAssembliesFolder)/net472/AWSSDK.*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <CRTAssemblies Include="$(SDKAssembliesFolder)/net45/aws-crt*.dll" />
+            <CRTAssemblies Include="$(SDKAssembliesFolder)/net472/aws-crt*.dll" />
         </ItemGroup>
         <Copy SourceFiles="@(CRTAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
 

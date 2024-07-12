@@ -10,7 +10,7 @@ namespace AWSPSGeneratorLibTests
     public class GenerationSourcesTests
     {   
         /// <summary>
-        /// Verifies that two lists of AWSSDK.*.dll files, one in net45 and one in netstandard2.0 will properly 
+        /// Verifies that two lists of AWSSDK.*.dll files, one in net472 and one in netstandard2.0 will properly 
         /// union the two lists of files and return only the name of the service so that it may be matched against
         /// the configured PowerShell service list.
         /// </summary>

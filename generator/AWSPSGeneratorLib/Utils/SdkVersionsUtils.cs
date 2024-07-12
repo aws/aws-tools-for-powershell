@@ -74,7 +74,7 @@ namespace AWSPowerShellGenerator.Utils
         /// </summary>
         /// <param name="packageName">Name of the NuGet package</param>
         /// <param name="sdkAssembliesFolder">Path where the library should be extracted</param>
-        /// <param name="platformNames">Name of the platorm, for example "net45" or "netstandard2.0'</param>
+        /// <param name="platformNames">Name of the platorm, for example "net472" or "netstandard2.0'</param>
         /// <returns>A list of other SDK libraries this library depends on</returns>
         internal static void EnsureSdkLibraryIsAvailable(string packageName, string sdkAssembliesFolder, IEnumerable<string> platformNames)
         {

@@ -307,7 +307,7 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         /// <param name="sdkAssembliesFolder">location of the SDK assemblies to generate against</param>
         /// <param name="modelCollection">PowerShell configuration, assumes ConfigModels and IncludeLibrariesList have been fully instantiated</param>
-        /// <param name="allSdkAssemblyFilenames">A list of all the SDK assembly filenames in the net45 and netstandard2.0 folders</param>
+        /// <param name="allSdkAssemblyFilenames">A list of all the SDK assembly filenames in the net472 and netstandard2.0 folders</param>
         public static void VerifyAllAssembliesHaveConfiguration(JObject sdkVersionsJson, 
             ConfigModelCollection modelCollection, 
             IEnumerable<string> allSdkAssemblyFilenames)

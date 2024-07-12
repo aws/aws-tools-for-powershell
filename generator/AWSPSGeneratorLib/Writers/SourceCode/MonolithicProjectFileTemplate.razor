@@ -3,7 +3,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
     <RootNamespace>Amazon.PowerShell</RootNamespace>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -22,7 +22,7 @@
     <Company>Amazon.com, Inc</Company>
     <PackageProjectUrl>https://github.com/aws/aws-tools-for-powershell</PackageProjectUrl>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net472'">
     <AssemblyName>AWSPowerShell</AssemblyName>
     <DocumentationFile>$(OutputPath)\AWSPowerShell.XML</DocumentationFile>
     <DefineConstants>$(DefineConstants);DESKTOP</DefineConstants>
@@ -51,9 +51,9 @@
     <Compile Remove="Cmdlets/*/bin/**" />
     <Compile Remove="Cmdlets/*/obj/**" />
   </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.PowerShell.3.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+  <ItemGroup Condition="'$(TargetFramework)'=='net472'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net472" Version="1.0.3" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.PowerShell.5.1.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -63,12 +63,12 @@
 @foreach (var assembly in Assemblies)
 {
 @:    <Reference Include="@assembly">
-@:      <HintPath>../../Include/sdk/assemblies/net45/@(assembly).dll</HintPath>
+@:      <HintPath>../../Include/sdk/assemblies/net472/@(assembly).dll</HintPath>
 @:    </Reference>
 }
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <PackageReference Include="PowerShellStandard.Library" Version="3.0.0-preview-02" />
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.1" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
     <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
 @foreach (var assembly in Assemblies)

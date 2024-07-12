@@ -33,7 +33,7 @@ namespace AWSPowerShellGenerator.Utils
         public string SdkAssembliesFolder { get; }
 
         public const string SDKAssemblyNamePrefix = "AWSSDK.";
-        public const string DotNetPlatformNet45 = "net45";
+        public const string DotNetPlatform = "net472";
         public const string DotNetPlatformNetStandard20 = "netstandard2.0";
 
         private const string AWSPowerShellCommonGuid = "e5b05bf3-9eee-47b2-81f2-41ddc0501b86";
@@ -65,7 +65,7 @@ namespace AWSPowerShellGenerator.Utils
         // aliases file and is not loaded by default
         public const string AdditionalAliasesFilename = "AWSAliases.ps1";
 
-        private static string[] PlatformsToExtractLibrariesFor = new string[] { DotNetPlatformNet45, DotNetPlatformNetStandard20 };
+        private static string[] PlatformsToExtractLibrariesFor = new string[] { DotNetPlatform, DotNetPlatformNetStandard20 };
 
         public string ModuleVersionNumber { get; }
 
@@ -138,7 +138,7 @@ namespace AWSPowerShellGenerator.Utils
         }
 
         /// <summary>
-        /// Finds all the distinct net45 and netstandard2.0 SDK filenames from the assemblies folder.
+        /// Finds all the distinct net472 and netstandard2.0 SDK filenames from the assemblies folder.
         /// </summary>
         /// <param name="SdkAssembliesFolder">Location of the SDK assemblies to generate against.</param>
         /// <param name="EnumerateFiles">Function used to enumerate the files in the assemblies folder. This
@@ -148,9 +148,9 @@ namespace AWSPowerShellGenerator.Utils
         public static IEnumerable<string> SDKFindAssemblyFilenames(string SdkAssembliesFolder,
             Func<string, string, SearchOption, IEnumerable<string>> EnumerateFiles)
         {
-            //PowerShell works with netstandard2.0 and net45 so we will find those AWSSDK assembly filenames.
-            var foundNet45SdkFilenames = EnumerateFiles(
-                Path.Combine(SdkAssembliesFolder, DotNetPlatformNet45),
+            //PowerShell works with netstandard2.0 and net472 so we will find those AWSSDK assembly filenames.
+            var foundNetFrameworkSdkFilenames = EnumerateFiles(
+                Path.Combine(SdkAssembliesFolder, DotNetPlatform),
                 "AWSSDK.*.dll",
                 SearchOption.TopDirectoryOnly)
                 .Select(fullFilename => Path.GetFileNameWithoutExtension(fullFilename).Substring("AWSSDK.".Length));
@@ -159,7 +159,7 @@ namespace AWSPowerShellGenerator.Utils
                 "AWSSDK.*.dll",
                 SearchOption.TopDirectoryOnly)
                 .Select(fullFilename => Path.GetFileNameWithoutExtension(fullFilename).Substring("AWSSDK.".Length));
-            var distinctAssemblyFilenames = foundNet45SdkFilenames.Union(foundNetstandard20SdkFilenames)
+            var distinctAssemblyFilenames = foundNetFrameworkSdkFilenames.Union(foundNetstandard20SdkFilenames)
                 .Where(name => !name.StartsWith("Extensions.", StringComparison.OrdinalIgnoreCase)
                     && !name.Equals("Core", StringComparison.OrdinalIgnoreCase)
                     && !name.Equals("CodeStar", StringComparison.OrdinalIgnoreCase));
@@ -287,7 +287,7 @@ namespace AWSPowerShellGenerator.Utils
                     "This version of AWS Tools for Windows PowerShell is compatible with Windows PowerShell 2-5.1. An alternative module, AWSPowerShell.NetCore, provides support for Windows PowerShell 3+ and PowerShell Core 6+ on Windows, Linux and macOS." + Environment.NewLine +
                     "This product provides support for all AWS services in a single module. As an alternative, a modular variant is also available: separate smaller modules (e.g. AWS.Tools.EC2, AWS.Tools.S3...) allow managing each AWS Service.",
                 compatiblePowerShellVersion: 3,
-                compatibleFrameworkVersion: netStandard ? "4.7.2" : "4.5",
+                compatibleFrameworkVersion: "4.7.2",
                 netStandard: netStandard,
                 assemblies: Assemblies.Keys.ToArray().Concat(AdditionalCrtAssemblies),
                 typesToProcessFiles: new string[] { "AWSPowerShell.TypeExtensions.ps1xml" },
