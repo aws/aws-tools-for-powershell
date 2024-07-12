@@ -608,7 +608,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 BucketName = cmdletContext.BucketName,
                 Key = cmdletContext.Key,
-                ContentBody = cmdletContext.Content,
+                ContentBody = cmdletContext.Content
             };
 
             if (cmdletContext.CannedACL != null)
