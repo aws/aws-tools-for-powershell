@@ -449,7 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// If set, objects will be created if they do not exist or the request will fail.
         /// Defaults off [false].
         /// </summary>
-        [Parameter(Position = 4, ParameterSetName = ParamSet_FromLocalFile, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
         public SwitchParameter IfNoneMatch { get; set; }
         #endregion
 
@@ -632,7 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
             if (cmdletContext.ChecksumAlgorithm != null)
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
-            if (cmdletContext.IfNoneMatch != null)
+            if (cmdletContext.IfNoneMatch.IsPresent)
                 request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;

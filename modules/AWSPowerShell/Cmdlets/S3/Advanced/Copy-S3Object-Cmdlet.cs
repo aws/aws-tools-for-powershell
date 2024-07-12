@@ -533,7 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// If set, objects will be created if they do not exist or the request will fail.
         /// Defaults off [false].
         /// </summary>
-        [Parameter(Position = 4, ParameterSetName = CopySingleObjectToLocalFile, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
         public SwitchParameter IfNoneMatch { get; set; }
         #endregion
 
@@ -901,7 +901,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     PartETags = copyController.ETags
                 };
 
-                if (cmdletContext.IfNoneMatch != null)
+                if (cmdletContext.IfNoneMatch.IsPresent)
                     completeRequest.IfNoneMatch = cmdletContext.IfNoneMatch;
 
                 CallAWSServiceOperation(Client, completeRequest);
