@@ -390,7 +390,16 @@ namespace AWSPowerShellGenerator.Generators
         {
             BaseProperty = propertyInfo;
             Name = propertyInfo.Name;
-            PropertyType = propertyInfo.PropertyType;
+
+            if (propertyInfo.PropertyType.IsGenericType && propertyInfo.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                PropertyType = Nullable.GetUnderlyingType(propertyInfo.PropertyType);
+            }
+            else
+            {
+                PropertyType = propertyInfo.PropertyType;
+            }
+
             PropertyTypeName = propertyTypeName;
             DeclaringType = propertyInfo.DeclaringType;
             DeprecationMessage = propertyInfo.GetCustomAttributes(typeof(ObsoleteAttribute), false).Cast<ObsoleteAttribute>().FirstOrDefault()?.Message;

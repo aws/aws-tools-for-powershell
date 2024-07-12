@@ -34,6 +34,15 @@ namespace Amazon.PowerShell.Common
             this.Expiration = expiration;
         }
 
+        public AWSWebIdentityCredentials(string awsAccessKeyId, string awsSecretAccessKey, string token, DateTime? expiration)
+            : base(awsAccessKeyId, awsSecretAccessKey, token)
+        {
+            if (expiration.HasValue)
+            {
+                this.Expiration = expiration.Value;
+            }
+        }
+
         /// <summary>
         /// The time when the token will expire.
         /// </summary>
