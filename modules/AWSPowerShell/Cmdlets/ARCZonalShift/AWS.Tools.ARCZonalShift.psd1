@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Get-AZSAutoshiftList', 
+        'Get-AZSAutoshiftObserverNotificationStatus', 
         'Get-AZSManagedResource', 
         'Get-AZSManagedResourceList', 
         'Get-AZSZonalShiftList', 
@@ -94,6 +95,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AZSPracticeRunConfiguration', 
         'Start-AZSZonalShift', 
         'Stop-AZSZonalShift', 
+        'Update-AZSAutoshiftObserverNotificationStatus', 
         'Update-AZSPracticeRunConfiguration', 
         'Update-AZSZonalAutoshiftConfiguration', 
         'Update-AZSZonalShift')

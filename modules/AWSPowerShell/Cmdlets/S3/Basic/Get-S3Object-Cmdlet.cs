@@ -335,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 
                 try
                 {
+                    
                     var response = CallAWSServiceOperation(client, request);
                     
                     object pipelineOutput = null;

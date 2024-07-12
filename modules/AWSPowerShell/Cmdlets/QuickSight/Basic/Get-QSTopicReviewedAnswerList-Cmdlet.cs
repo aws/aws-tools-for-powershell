@@ -22,56 +22,50 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ACMPCA;
-using Amazon.ACMPCA.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PCA
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Retrieves the resource-based policy attached to a private CA. If either the private
-    /// CA resource or the policy cannot be found, this action returns a <c>ResourceNotFoundException</c>.
-    /// 
-    /// 
-    ///  
-    /// <para>
-    /// The policy can be attached or updated with <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_PutPolicy.html">PutPolicy</a>
-    /// and removed with <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_DeletePolicy.html">DeletePolicy</a>.
-    /// </para><para><b>About Policies</b></para><ul><li><para>
-    /// A policy grants access on a private CA to an Amazon Web Services customer account,
-    /// to Amazon Web Services Organizations, or to an Amazon Web Services Organizations unit.
-    /// Policies are under the control of a CA administrator. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-rbp.html">Using a
-    /// Resource Based Policy with Amazon Web Services Private CA</a>.
-    /// </para></li><li><para>
-    /// A policy permits a user of Certificate Manager (ACM) to issue ACM certificates signed
-    /// by a CA in another account.
-    /// </para></li><li><para>
-    /// For ACM to manage automatic renewal of these certificates, the ACM user must configure
-    /// a Service Linked Role (SLR). The SLR allows the ACM service to assume the identity
-    /// of the user, subject to confirmation against the Amazon Web Services Private CA policy.
-    /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-slr.html">Using
-    /// a Service Linked Role with ACM</a>.
-    /// </para></li><li><para>
-    /// Updates made in Amazon Web Services Resource Manager (RAM) are reflected in policies.
-    /// For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/pca-ram.html">Attach
-    /// a Policy for Cross-Account Access</a>.
-    /// </para></li></ul>
+    /// Lists all reviewed answers for a Q Topic.
     /// </summary>
-    [Cmdlet("Get", "PCAPolicy")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the AWS Certificate Manager Private Certificate Authority GetPolicy API operation.", Operation = new[] {"GetPolicy"}, SelectReturnType = typeof(Amazon.ACMPCA.Model.GetPolicyResponse))]
-    [AWSCmdletOutput("System.String or Amazon.ACMPCA.Model.GetPolicyResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.ACMPCA.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "QSTopicReviewedAnswerList")]
+    [OutputType("Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight ListTopicReviewedAnswers API operation.", Operation = new[] {"ListTopicReviewedAnswers"}, SelectReturnType = typeof(Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPCAPolicyCmdlet : AmazonACMPCAClientCmdlet, IExecutor
+    public partial class GetQSTopicReviewedAnswerListCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// Amazon.ACMPCA.Model.GetPolicyRequest.ResourceArn
+        /// <para>The ID of the Amazon Web Services account that containd the reviewed answers that
+        /// you want listed.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter TopicId
+        /// <summary>
+        /// <para>
+        /// <para>The ID for the topic that contains the reviewed answer that you want to list. This
+        /// ID is unique per Amazon Web Services Region for each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,26 +76,26 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String TopicId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Policy'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ACMPCA.Model.GetPolicyResponse).
-        /// Specifying the name of a property of type Amazon.ACMPCA.Model.GetPolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Policy";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TopicId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TopicId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TopicId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,7 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ACMPCA.Model.GetPolicyResponse, GetPCAPolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse, GetQSTopicReviewedAnswerListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -128,14 +122,21 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.TopicId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TopicId = this.TopicId;
+            #if MODULAR
+            if (this.TopicId == null && ParameterWasBound(nameof(this.TopicId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TopicId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -152,11 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ACMPCA.Model.GetPolicyRequest();
+            var request = new Amazon.QuickSight.Model.ListTopicReviewedAnswersRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.TopicId != null)
+            {
+                request.TopicId = cmdletContext.TopicId;
             }
             
             CmdletOutput output;
@@ -191,15 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         
         #region AWS Service Operation Call
         
-        private Amazon.ACMPCA.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonACMPCA client, Amazon.ACMPCA.Model.GetPolicyRequest request)
+        private Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.ListTopicReviewedAnswersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Certificate Manager Private Certificate Authority", "GetPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "ListTopicReviewedAnswers");
             try
             {
                 #if DESKTOP
-                return client.GetPolicy(request);
+                return client.ListTopicReviewedAnswers(request);
                 #elif CORECLR
-                return client.GetPolicyAsync(request).GetAwaiter().GetResult();
+                return client.ListTopicReviewedAnswersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -219,9 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.Func<Amazon.ACMPCA.Model.GetPolicyResponse, GetPCAPolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Policy;
+            public System.String AwsAccountId { get; set; }
+            public System.String TopicId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.ListTopicReviewedAnswersResponse, GetQSTopicReviewedAnswerListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -28,84 +28,64 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery
-    /// Controller in your Amazon Web Services account in this Amazon Web Services Region.
-    /// <c>ListZonalShifts</c> returns customer-initiated zonal shifts, as well as practice
-    /// run zonal shifts that Route 53 ARC started on your behalf for zonal autoshift.
+    /// Update the status of autoshift observer notification. Autoshift observer notification
+    /// enables you to be notified, through Amazon EventBridge, when there is an autoshift
+    /// event for zonal autoshift.
     /// 
     ///  
     /// <para>
-    /// The <c>ListZonalShifts</c> operation does not list autoshifts. For more information
-    /// about listing autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.
+    /// If the status is <c>ENABLED</c>, Route 53 ARC includes all autoshift events when you
+    /// use the EventBridge pattern <c>Autoshift In Progress</c>. When the status is <c>DISABLED</c>,
+    /// Route 53 ARC includes only autoshift events for autoshifts when one or more of your
+    /// resources is included in the autoshift.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.how-it-works.html#ZAShiftNotification">
+    /// Notifications for practice runs and autoshifts</a> in the Amazon Route 53 Application
+    /// Recovery Controller Developer Guide.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "AZSZonalShiftList")]
-    [OutputType("Amazon.ARCZonalShift.Model.ZonalShiftSummary")]
-    [AWSCmdlet("Calls the AWS ARC - Zonal Shift ListZonalShifts API operation.", Operation = new[] {"ListZonalShifts"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.ListZonalShiftsResponse))]
-    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.ZonalShiftSummary or Amazon.ARCZonalShift.Model.ListZonalShiftsResponse",
-        "This cmdlet returns a collection of Amazon.ARCZonalShift.Model.ZonalShiftSummary objects.",
-        "The service call response (type Amazon.ARCZonalShift.Model.ListZonalShiftsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "AZSAutoshiftObserverNotificationStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus")]
+    [AWSCmdlet("Calls the AWS ARC - Zonal Shift UpdateAutoshiftObserverNotificationStatus API operation.", Operation = new[] {"UpdateAutoshiftObserverNotificationStatus"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse))]
+    [AWSCmdletOutput("Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus or Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse",
+        "This cmdlet returns an Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus object.",
+        "The service call response (type Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAZSZonalShiftListCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
+    public partial class UpdateAZSAutoshiftObserverNotificationStatusCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier for the resource that you want to list zonal shifts for. The identifier
-        /// is the Amazon Resource Name (ARN) for the resource.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ResourceIdentifier { get; set; }
-        #endregion
-        
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>A status for a zonal shift.</para><para>The <c>Status</c> for a zonal shift can have one of the following values:</para><ul><li><para><b>ACTIVE</b>: The zonal shift has been started and active.</para></li><li><para><b>EXPIRED</b>: The zonal shift has expired (the expiry time was exceeded).</para></li><li><para><b>CANCELED</b>: The zonal shift was canceled.</para></li></ul>
+        /// <para>The status to set for autoshift observer notification. If the status is <c>ENABLED</c>,
+        /// Route 53 ARC includes all autoshift events when you use the Amazon EventBridge pattern
+        /// <c>Autoshift In Progress</c>. When the status is <c>DISABLED</c>, Route 53 ARC includes
+        /// only autoshift events for autoshifts when one or more of your resources is included
+        /// in the autoshift. </para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.ARCZonalShift.ZonalShiftStatus")]
-        public Amazon.ARCZonalShift.ZonalShiftStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The number of objects that you want to return with this call.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>Specifies that you want to receive the next page of results. Valid only if you received
-        /// a <c>NextToken</c> response in the previous request. If you did, it indicates that
-        /// more output is available. Set this parameter to the value provided by the previous
-        /// call's <c>NextToken</c> response to request the next page of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus")]
+        public Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus Status { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.ListZonalShiftsResponse).
-        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.ListZonalShiftsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Status'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse).
+        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Items";
+        public string Select { get; set; } = "Status";
         #endregion
         
         #region Parameter PassThru
@@ -118,10 +98,26 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Status), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-AZSAutoshiftObserverNotificationStatus (UpdateAutoshiftObserverNotificationStatus)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -131,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.ListZonalShiftsResponse, GetAZSZonalShiftListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse, UpdateAZSAutoshiftObserverNotificationStatusCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,10 +139,13 @@ namespace Amazon.PowerShell.Cmdlets.AZS
                 context.Select = (response, cmdlet) => this.Status;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.ResourceIdentifier = this.ResourceIdentifier;
             context.Status = this.Status;
+            #if MODULAR
+            if (this.Status == null && ParameterWasBound(nameof(this.Status)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Status which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -161,20 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ARCZonalShift.Model.ListZonalShiftsRequest();
+            var request = new Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusRequest();
             
-            if (cmdletContext.MaxResult != null)
-            {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.ResourceIdentifier != null)
-            {
-                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
-            }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
@@ -212,15 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region AWS Service Operation Call
         
-        private Amazon.ARCZonalShift.Model.ListZonalShiftsResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.ListZonalShiftsRequest request)
+        private Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "ListZonalShifts");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "UpdateAutoshiftObserverNotificationStatus");
             try
             {
                 #if DESKTOP
-                return client.ListZonalShifts(request);
+                return client.UpdateAutoshiftObserverNotificationStatus(request);
                 #elif CORECLR
-                return client.ListZonalShiftsAsync(request).GetAwaiter().GetResult();
+                return client.UpdateAutoshiftObserverNotificationStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,12 +227,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String ResourceIdentifier { get; set; }
-            public Amazon.ARCZonalShift.ZonalShiftStatus Status { get; set; }
-            public System.Func<Amazon.ARCZonalShift.Model.ListZonalShiftsResponse, GetAZSZonalShiftListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Items;
+            public Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus Status { get; set; }
+            public System.Func<Amazon.ARCZonalShift.Model.UpdateAutoshiftObserverNotificationStatusResponse, UpdateAZSAutoshiftObserverNotificationStatusCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Status;
         }
         
     }

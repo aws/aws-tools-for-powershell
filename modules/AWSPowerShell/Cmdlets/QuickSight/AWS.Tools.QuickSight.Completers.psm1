@@ -557,7 +557,9 @@ $QS_SelectCompleters = {
 }
 
 $QS_SelectMap = @{
-    "Select"=@("Stop-QSIngestion",
+    "Select"=@("Set-QSBatchCreateTopicReviewedAnswer",
+               "Set-QSBatchDeleteTopicReviewedAnswer",
+               "Stop-QSIngestion",
                "New-QSAccountCustomization",
                "New-QSAccountSubscription",
                "New-QSAnalysis",
@@ -679,6 +681,7 @@ $QS_SelectMap = @{
                "Get-QSThemeList",
                "Get-QSThemeVersionList",
                "Get-QSTopicRefreshScheduleList",
+               "Get-QSTopicReviewedAnswerList",
                "Get-QSTopicList",
                "Get-QSUserGroupList",
                "Get-QSUserList",

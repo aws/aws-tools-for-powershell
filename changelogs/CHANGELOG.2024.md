@@ -1,4 +1,14 @@
-﻿### 4.1.617 (2024-07-10 21:55Z)
+﻿### 4.1.618 (2024-07-12 21:48Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.849.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ARC - Zonal Shift
+    * Added cmdlet Get-AZSAutoshiftObserverNotificationStatus leveraging the GetAutoshiftObserverNotificationStatus service API.
+    * Added cmdlet Update-AZSAutoshiftObserverNotificationStatus leveraging the UpdateAutoshiftObserverNotificationStatus service API.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSTopicReviewedAnswerList leveraging the ListTopicReviewedAnswers service API.
+    * Added cmdlet Set-QSBatchCreateTopicReviewedAnswer leveraging the BatchCreateTopicReviewedAnswer service API.
+    * Added cmdlet Set-QSBatchDeleteTopicReviewedAnswer leveraging the BatchDeleteTopicReviewedAnswer service API.
+
+### 4.1.617 (2024-07-10 21:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.848.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Added cmdlet Get-AABFlow leveraging the GetFlow service API.

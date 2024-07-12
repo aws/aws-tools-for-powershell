@@ -1478,6 +1478,7 @@ Set-Alias -Name Create-AZSPracticeRunConfiguration -Value New-AZSPracticeRunConf
 Set-Alias -Name AZS-CreatePracticeRunConfiguration -Value New-AZSPracticeRunConfiguration
 Set-Alias -Name Delete-AZSPracticeRunConfiguration -Value Remove-AZSPracticeRunConfiguration
 Set-Alias -Name AZS-DeletePracticeRunConfiguration -Value Remove-AZSPracticeRunConfiguration
+Set-Alias -Name AZS-GetAutoshiftObserverNotificationStatus -Value Get-AZSAutoshiftObserverNotificationStatus
 Set-Alias -Name AZS-GetManagedResource -Value Get-AZSManagedResource
 Set-Alias -Name List-AZSAutoshifts -Value Get-AZSAutoshiftList
 Set-Alias -Name List-AZSAutoshiftList -Value Get-AZSAutoshiftList
@@ -1489,6 +1490,7 @@ Set-Alias -Name List-AZSZonalShifts -Value Get-AZSZonalShiftList
 Set-Alias -Name List-AZSZonalShiftList -Value Get-AZSZonalShiftList
 Set-Alias -Name AZS-ListZonalShifts -Value Get-AZSZonalShiftList
 Set-Alias -Name AZS-StartZonalShift -Value Start-AZSZonalShift
+Set-Alias -Name AZS-UpdateAutoshiftObserverNotificationStatus -Value Update-AZSAutoshiftObserverNotificationStatus
 Set-Alias -Name AZS-UpdatePracticeRunConfiguration -Value Update-AZSPracticeRunConfiguration
 Set-Alias -Name AZS-UpdateZonalAutoshiftConfiguration -Value Update-AZSZonalAutoshiftConfiguration
 Set-Alias -Name AZS-UpdateZonalShift -Value Update-AZSZonalShift
@@ -22363,6 +22365,12 @@ Set-Alias -Name QLDB-UntagResource -Value Remove-QLDBResourceTag
 Set-Alias -Name QLDB-UpdateLedger -Value Update-QLDBLedger
 Set-Alias -Name QLDB-UpdateLedgerPermissionsMode -Value Update-QLDBLedgerPermissionsMode
 Set-Alias -Name QLDBS-SendCommand -Value Send-QLDBSCommand
+Set-Alias -Name Batch-QSCreateTopicReviewedAnswer -Value Set-QSBatchCreateTopicReviewedAnswer
+Set-Alias -Name Batch-QSBatchCreateTopicReviewedAnswer -Value Set-QSBatchCreateTopicReviewedAnswer
+Set-Alias -Name QS-BatchCreateTopicReviewedAnswer -Value Set-QSBatchCreateTopicReviewedAnswer
+Set-Alias -Name Batch-QSDeleteTopicReviewedAnswer -Value Set-QSBatchDeleteTopicReviewedAnswer
+Set-Alias -Name Batch-QSBatchDeleteTopicReviewedAnswer -Value Set-QSBatchDeleteTopicReviewedAnswer
+Set-Alias -Name QS-BatchDeleteTopicReviewedAnswer -Value Set-QSBatchDeleteTopicReviewedAnswer
 Set-Alias -Name Cancel-QSIngestion -Value Stop-QSIngestion
 Set-Alias -Name QS-CancelIngestion -Value Stop-QSIngestion
 Set-Alias -Name Create-QSAccountCustomization -Value New-QSAccountCustomization
@@ -22641,6 +22649,9 @@ Set-Alias -Name QS-ListThemeVersions -Value Get-QSThemeVersionList
 Set-Alias -Name List-QSTopicRefreshSchedules -Value Get-QSTopicRefreshScheduleList
 Set-Alias -Name List-QSTopicRefreshScheduleList -Value Get-QSTopicRefreshScheduleList
 Set-Alias -Name QS-ListTopicRefreshSchedules -Value Get-QSTopicRefreshScheduleList
+Set-Alias -Name List-QSTopicReviewedAnswers -Value Get-QSTopicReviewedAnswerList
+Set-Alias -Name List-QSTopicReviewedAnswerList -Value Get-QSTopicReviewedAnswerList
+Set-Alias -Name QS-ListTopicReviewedAnswers -Value Get-QSTopicReviewedAnswerList
 Set-Alias -Name List-QSTopics -Value Get-QSTopicList
 Set-Alias -Name List-QSTopicList -Value Get-QSTopicList
 Set-Alias -Name QS-ListTopics -Value Get-QSTopicList

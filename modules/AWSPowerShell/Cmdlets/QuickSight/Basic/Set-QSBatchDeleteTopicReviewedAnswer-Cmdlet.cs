@@ -22,41 +22,59 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ARCZonalShift;
-using Amazon.ARCZonalShift.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.AZS
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Get information about a resource that's been registered for zonal shifts with Amazon
-    /// Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources
-    /// that are registered for zonal shifts are managed resources in Route 53 ARC. You can
-    /// start zonal shifts and configure zonal autoshift for managed resources.
-    /// 
-    ///  
-    /// <para>
-    /// At this time, you can only start a zonal shift or configure zonal autoshift for Network
-    /// Load Balancers and Application Load Balancers with cross-zone load balancing turned
-    /// off.
-    /// </para>
+    /// Deletes reviewed answers for Q Topic.
     /// </summary>
-    [Cmdlet("Get", "AZSManagedResource")]
-    [OutputType("Amazon.ARCZonalShift.Model.GetManagedResourceResponse")]
-    [AWSCmdlet("Calls the AWS ARC - Zonal Shift GetManagedResource API operation.", Operation = new[] {"GetManagedResource"}, SelectReturnType = typeof(Amazon.ARCZonalShift.Model.GetManagedResourceResponse))]
-    [AWSCmdletOutput("Amazon.ARCZonalShift.Model.GetManagedResourceResponse",
-        "This cmdlet returns an Amazon.ARCZonalShift.Model.GetManagedResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Set", "QSBatchDeleteTopicReviewedAnswer")]
+    [OutputType("Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse")]
+    [AWSCmdlet("Calls the Amazon QuickSight BatchDeleteTopicReviewedAnswer API operation.", Operation = new[] {"BatchDeleteTopicReviewedAnswer"}, SelectReturnType = typeof(Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse",
+        "This cmdlet returns an Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAZSManagedResourceCmdlet : AmazonARCZonalShiftClientCmdlet, IExecutor
+    public partial class SetQSBatchDeleteTopicReviewedAnswerCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceIdentifier
+        #region Parameter AnswerId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier
-        /// is the Amazon Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
-        /// Balancers with cross-zone load balancing turned off.</para>
+        /// <para>The Answer IDs of the Answers to be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AnswerIds")]
+        public System.String[] AnswerId { get; set; }
+        #endregion
+        
+        #region Parameter AwsAccountId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account that you want to delete a reviewed answers
+        /// in.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter TopicId
+        /// <summary>
+        /// <para>
+        /// <para>The ID for the topic reviewed answer that you want to delete. This ID is unique per
+        /// Amazon Web Services Region for each Amazon Web Services account.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,14 +85,14 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceIdentifier { get; set; }
+        public System.String TopicId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ARCZonalShift.Model.GetManagedResourceResponse).
-        /// Specifying the name of a property of type Amazon.ARCZonalShift.Model.GetManagedResourceResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -83,10 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TopicId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TopicId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TopicId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -104,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ARCZonalShift.Model.GetManagedResourceResponse, GetAZSManagedResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse, SetQSBatchDeleteTopicReviewedAnswerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -113,14 +131,25 @@ namespace Amazon.PowerShell.Cmdlets.AZS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceIdentifier;
+                context.Select = (response, cmdlet) => this.TopicId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceIdentifier = this.ResourceIdentifier;
-            #if MODULAR
-            if (this.ResourceIdentifier == null && ParameterWasBound(nameof(this.ResourceIdentifier)))
+            if (this.AnswerId != null)
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.AnswerId = new List<System.String>(this.AnswerId);
+            }
+            context.AwsAccountId = this.AwsAccountId;
+            #if MODULAR
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TopicId = this.TopicId;
+            #if MODULAR
+            if (this.TopicId == null && ParameterWasBound(nameof(this.TopicId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TopicId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -137,11 +166,19 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ARCZonalShift.Model.GetManagedResourceRequest();
+            var request = new Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerRequest();
             
-            if (cmdletContext.ResourceIdentifier != null)
+            if (cmdletContext.AnswerId != null)
             {
-                request.ResourceIdentifier = cmdletContext.ResourceIdentifier;
+                request.AnswerIds = cmdletContext.AnswerId;
+            }
+            if (cmdletContext.AwsAccountId != null)
+            {
+                request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.TopicId != null)
+            {
+                request.TopicId = cmdletContext.TopicId;
             }
             
             CmdletOutput output;
@@ -176,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         #region AWS Service Operation Call
         
-        private Amazon.ARCZonalShift.Model.GetManagedResourceResponse CallAWSServiceOperation(IAmazonARCZonalShift client, Amazon.ARCZonalShift.Model.GetManagedResourceRequest request)
+        private Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS ARC - Zonal Shift", "GetManagedResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "BatchDeleteTopicReviewedAnswer");
             try
             {
                 #if DESKTOP
-                return client.GetManagedResource(request);
+                return client.BatchDeleteTopicReviewedAnswer(request);
                 #elif CORECLR
-                return client.GetManagedResourceAsync(request).GetAwaiter().GetResult();
+                return client.BatchDeleteTopicReviewedAnswerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -204,8 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceIdentifier { get; set; }
-            public System.Func<Amazon.ARCZonalShift.Model.GetManagedResourceResponse, GetAZSManagedResourceCmdlet, object> Select { get; set; } =
+            public List<System.String> AnswerId { get; set; }
+            public System.String AwsAccountId { get; set; }
+            public System.String TopicId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.BatchDeleteTopicReviewedAnswerResponse, SetQSBatchDeleteTopicReviewedAnswerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

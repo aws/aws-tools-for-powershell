@@ -22,6 +22,14 @@
         <Property>Status</Property>
     </MetadataProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchCreateTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchCreateTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeleteTopicReviewedAnswer" OutputProperty="*" Verb="Set" Noun="BatchDeleteTopicReviewedAnswer" IgnoreSupportsShouldProcess="true" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelIngestion" OutputProperty="*" Verb="Stop" Noun="Ingestion" ShouldProcessTarget="IngestionId" PipelineParameter="IngestionId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -521,6 +529,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTopicRefreshSchedules" OutputProperty="*" Verb="Get" Noun="TopicRefreshScheduleList" PipelineParameter="TopicId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTopicReviewedAnswers" OutputProperty="*" Verb="Get" Noun="TopicReviewedAnswerList" PipelineParameter="TopicId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

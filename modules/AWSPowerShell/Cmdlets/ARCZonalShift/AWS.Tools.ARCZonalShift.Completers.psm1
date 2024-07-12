@@ -87,6 +87,13 @@ $AZS_Completers = {
             break
         }
 
+        # Amazon.ARCZonalShift.AutoshiftObserverNotificationStatus
+        "Update-AZSAutoshiftObserverNotificationStatus/Status"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.ARCZonalShift.ZonalAutoshiftStatus
         "Update-AZSZonalAutoshiftConfiguration/ZonalAutoshiftStatus"
         {
@@ -110,7 +117,7 @@ $AZS_Completers = {
 }
 
 $AZS_map = @{
-    "Status"=@("Get-AZSAutoshiftList","Get-AZSZonalShiftList")
+    "Status"=@("Get-AZSAutoshiftList","Get-AZSZonalShiftList","Update-AZSAutoshiftObserverNotificationStatus")
     "ZonalAutoshiftStatus"=@("Update-AZSZonalAutoshiftConfiguration")
 }
 
@@ -167,11 +174,13 @@ $AZS_SelectMap = @{
     "Select"=@("Stop-AZSZonalShift",
                "New-AZSPracticeRunConfiguration",
                "Remove-AZSPracticeRunConfiguration",
+               "Get-AZSAutoshiftObserverNotificationStatus",
                "Get-AZSManagedResource",
                "Get-AZSAutoshiftList",
                "Get-AZSManagedResourceList",
                "Get-AZSZonalShiftList",
                "Start-AZSZonalShift",
+               "Update-AZSAutoshiftObserverNotificationStatus",
                "Update-AZSPracticeRunConfiguration",
                "Update-AZSZonalAutoshiftConfiguration",
                "Update-AZSZonalShift")

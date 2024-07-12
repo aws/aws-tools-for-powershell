@@ -28,11 +28,21 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// You can update the zonal autoshift status for a resource, to enable or disable zonal
-    /// autoshift. When zonal autoshift is <c>ENABLED</c>, Amazon Web Services shifts away
-    /// resource traffic from an Availability Zone, on your behalf, when Amazon Web Services
-    /// determines that there's an issue in the Availability Zone that could potentially affect
-    /// customers.
+    /// The zonal autoshift configuration for a resource includes the practice run configuration
+    /// and the status for running autoshifts, zonal autoshift status. When a resource has
+    /// a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource,
+    /// to shift traffic away from an Availability Zone. Weekly practice runs help you to
+    /// make sure that your application can continue to operate normally with the loss of
+    /// one Availability Zone.
+    /// 
+    ///  
+    /// <para>
+    /// You can update the zonal autoshift autoshift status to enable or disable zonal autoshift.
+    /// When zonal autoshift is <c>ENABLED</c>, you authorize Amazon Web Services to shift
+    /// away resource traffic for an application from an Availability Zone during events,
+    /// on your behalf, to help reduce time to recovery. Traffic is also shifted away for
+    /// the required weekly practice runs.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "AZSZonalAutoshiftConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ARCZonalShift.Model.UpdateZonalAutoshiftConfigurationResponse")]
@@ -67,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         /// <summary>
         /// <para>
         /// <para>The zonal autoshift status for the resource that you want to update the zonal autoshift
-        /// configuration for.</para>
+        /// configuration for. Choose <c>ENABLED</c> to authorize Amazon Web Services to shift
+        /// away resource traffic for an application from an Availability Zone during events,
+        /// on your behalf, to help reduce time to recovery.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -64,9 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter AwayFrom
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone that traffic is moved away from for a resource when you start
-        /// a zonal shift. Until the zonal shift expires or you cancel it, traffic for the resource
-        /// is instead moved to other Availability Zones in the Amazon Web Services Region.</para>
+        /// <para>The Availability Zone (for example, <c>use1-az1</c>) that traffic is moved away from
+        /// for a resource when you start a zonal shift. Until the zonal shift expires or you
+        /// cancel it, traffic for the resource is instead moved to other Availability Zones in
+        /// the Amazon Web Services Region.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,8 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the resource to shift away traffic for. The identifier is the Amazon
-        /// Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
+        /// <para>The identifier for the resource that Amazon Web Services shifts traffic for. The identifier
+        /// is the Amazon Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
         /// Balancers with cross-zone load balancing turned off.</para>
         /// </para>
         /// </summary>

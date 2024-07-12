@@ -37,6 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.AZS
     /// 
     ///  
     /// <para>
+    /// When a resource has a practice run configuration, Route 53 ARC starts zonal shifts
+    /// for the resource weekly, to shift traffic for practice runs. Practice runs help you
+    /// to ensure that shifting away traffic from an Availability Zone during an autoshift
+    /// is safe for your application.
+    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html">
     /// Considerations when you configure zonal autoshift</a> in the Amazon Route 53 Application
     /// Recovery Controller Developer Guide.
@@ -125,8 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.AZS
         #region Parameter ResourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource to shift away traffic for when a practice run starts
-        /// a zonal shift. The identifier is the Amazon Resource Name (ARN) for the resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
+        /// <para>The identifier of the resource that Amazon Web Services shifts traffic for with a
+        /// practice run zonal shift. The identifier is the Amazon Resource Name (ARN) for the
+        /// resource.</para><para>At this time, supported resources are Network Load Balancers and Application Load
         /// Balancers with cross-zone load balancing turned off.</para>
         /// </para>
         /// </summary>

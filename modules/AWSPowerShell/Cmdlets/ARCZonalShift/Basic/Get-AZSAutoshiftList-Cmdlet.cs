@@ -28,7 +28,9 @@ using Amazon.ARCZonalShift.Model;
 namespace Amazon.PowerShell.Cmdlets.AZS
 {
     /// <summary>
-    /// Returns the active autoshifts for a specified resource.
+    /// Returns a list of autoshifts for an Amazon Web Services Region. By default, the call
+    /// returns only <c>ACTIVE</c> autoshifts. Optionally, you can specify the <c>status</c>
+    /// parameter to return <c>COMPLETED</c> autoshifts.
     /// </summary>
     [Cmdlet("Get", "AZSAutoshiftList")]
     [OutputType("Amazon.ARCZonalShift.Model.AutoshiftSummary")]
