@@ -1,5 +1,5 @@
 ---
-application-autoscaling_DescribeScalingPolicies:
+application-auto-scaling_DescribeScalingPolicies:
   title: Use Get-AASScalingPolicy
   title_abbrev: Get-AASScalingPolicy
   synopsis: use Get-AASScalingPolicy
@@ -42,6 +42,6 @@ application-autoscaling_DescribeScalingPolicies:
             StepScalingPolicyConfiguration           : Amazon.ApplicationAutoScaling.Model.StepScalingPolicyConfiguration
             TargetTrackingScalingPolicyConfiguration :</programlisting>
   services:
-    application-autoscaling:
+    application-auto-scaling:
       DescribeScalingPolicies:
 

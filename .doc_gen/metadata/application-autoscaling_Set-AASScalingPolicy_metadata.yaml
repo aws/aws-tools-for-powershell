@@ -1,5 +1,5 @@
 ---
-application-autoscaling_PutScalingPolicy:
+application-auto-scaling_PutScalingPolicy:
   title: Use Set-AASScalingPolicy
   title_abbrev: Set-AASScalingPolicy
   synopsis: use Set-AASScalingPolicy
@@ -22,6 +22,6 @@ application-autoscaling_PutScalingPolicy:
             ------    ---------
             {}        arn:aws:autoscaling:us-west-2:012345678912:scalingPolicy:4897ca24-3caa-4bf1-8484-851a089b243c:resource/appstream/fleet/MyFleet:policyName/ASFleetScaleInPolicy</programlisting>
   services:
-    application-autoscaling:
+    application-auto-scaling:
       PutScalingPolicy:
 

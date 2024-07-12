@@ -1,5 +1,5 @@
 ---
-application-autoscaling_DeregisterScalableTarget:
+application-auto-scaling_DeregisterScalableTarget:
   title: Use Remove-AASScalableTarget
   title_abbrev: Remove-AASScalableTarget
   synopsis: use Remove-AASScalableTarget
@@ -23,6 +23,6 @@ application-autoscaling_DeregisterScalableTarget:
             Performing the operation "Remove-AASScalableTarget (DeregisterScalableTarget)" on target "fleet/MyFleet".
             [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</programlisting>
   services:
-    application-autoscaling:
+    application-auto-scaling:
       DeregisterScalableTarget:
 

@@ -1,5 +1,5 @@
 ---
-application-autoscaling_DescribeScheduledActions:
+application-auto-scaling_DescribeScheduledActions:
   title: Use Get-AASScheduledAction
   title_abbrev: Get-AASScheduledAction
   synopsis: use Get-AASScheduledAction
@@ -30,6 +30,6 @@ application-autoscaling_DescribeScheduledActions:
             ServiceNamespace     : appstream
             StartTime            : 1/1/0001 12:00:00 AM</programlisting>
   services:
-    application-autoscaling:
+    application-auto-scaling:
       DescribeScheduledActions:
 
