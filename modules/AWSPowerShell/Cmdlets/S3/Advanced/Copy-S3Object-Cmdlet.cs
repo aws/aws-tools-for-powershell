@@ -528,6 +528,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public ChecksumMode ChecksumMode { get; set; }
         #endregion
 
+        #region Parameter IfNoneMatch
+        /// <summary>
+        /// If set, objects will be created if they do not exist or the request will fail.
+        /// Defaults off [false].
+        /// </summary>
+        [Parameter(Position = 4, ParameterSetName = CopySingleObjectToLocalFile, ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter IfNoneMatch { get; set; }
+        #endregion
+
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -891,6 +900,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     Key = cmdletContext.DestinationKey,
                     PartETags = copyController.ETags
                 };
+
+                if (cmdletContext.IfNoneMatch != null)
+                    completeRequest.IfNoneMatch = cmdletContext.IfNoneMatch;
 
                 CallAWSServiceOperation(Client, completeRequest);
                 uploadId = null;

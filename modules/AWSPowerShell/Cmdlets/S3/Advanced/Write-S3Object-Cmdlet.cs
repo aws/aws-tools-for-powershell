@@ -444,6 +444,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        #region Parameter IfNoneMatch
+        /// <summary>
+        /// If set, objects will be created if they do not exist or the request will fail.
+        /// Defaults off [false].
+        /// </summary>
+        [Parameter(Position = 4, ParameterSetName = ParamSet_FromLocalFile, ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter IfNoneMatch { get; set; }
+        #endregion
+
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -599,7 +608,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 BucketName = cmdletContext.BucketName,
                 Key = cmdletContext.Key,
-                ContentBody = cmdletContext.Content
+                ContentBody = cmdletContext.Content,
             };
 
             if (cmdletContext.CannedACL != null)
@@ -623,6 +632,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
             if (cmdletContext.ChecksumAlgorithm != null)
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+            if (cmdletContext.IfNoneMatch != null)
+                request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
