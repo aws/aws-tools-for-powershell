@@ -850,6 +850,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public bool CalculateContentMD5Header { get; set; }
 
             public long? PartSize { get; set; }
+
+            public Boolean IfNoneMatch { get; set; }
         }
 
         #region Progress Trackers

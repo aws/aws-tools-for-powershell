@@ -581,7 +581,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 ChecksumMode = this.ChecksumMode,
 
                 Metadata = this.Metadata,
-                Headers = this.HeaderCollection
+                Headers = this.HeaderCollection,
+
+                IfNoneMatch = this.IfNoneMatch
             };
 
             // this makes things simpler later
@@ -1272,6 +1274,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public ChecksumMode ChecksumMode { get; set; }
+
+            public Boolean IfNoneMatch { get; set; }
         }
 
         internal class MultiPartObjectCopyController
