@@ -851,7 +851,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public long? PartSize { get; set; }
 
-            public Boolean IfNoneMatch { get; set; }
+            public SwitchParameter IfNoneMatch { get; set; }
         }
 
         #region Progress Trackers

@@ -1275,7 +1275,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public ChecksumMode ChecksumMode { get; set; }
 
-            public Boolean IfNoneMatch { get; set; }
+            public SwitchParameter IfNoneMatch { get; set; }
         }
 
         internal class MultiPartObjectCopyController
