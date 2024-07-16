@@ -566,6 +566,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.PartSize = this.PartSize.FileSizeInBytes;
             }
 
+            if (!string.IsNullOrEmpty(this.IfNoneMatch))
+                context.IfNoneMatch = this.IfNoneMatch;
+
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
