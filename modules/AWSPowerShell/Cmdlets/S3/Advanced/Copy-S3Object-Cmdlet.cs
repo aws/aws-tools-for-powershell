@@ -800,8 +800,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
 #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
 
-            if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
-                request.IfNoneMatch = cmdletContext.IfNoneMatch;
             request.CopySourceServerSideEncryptionCustomerMethod = cmdletContext.CopySourceServerSideEncryptionCustomerMethod;
             request.CopySourceServerSideEncryptionCustomerProvidedKey = cmdletContext.CopySourceServerSideEncryptionCustomerProvidedKey;
             request.CopySourceServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.CopySourceServerSideEncryptionCustomerProvidedKeyMD5;
