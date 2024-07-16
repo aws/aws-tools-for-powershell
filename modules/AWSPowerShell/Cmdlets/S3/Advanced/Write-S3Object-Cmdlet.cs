@@ -450,7 +450,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Defaults off [false].
         /// </summary>
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public String IfNoneMatch { get; set; }
+        public System.String IfNoneMatch { get; set; }
         #endregion
 
         #region Parameter Force
