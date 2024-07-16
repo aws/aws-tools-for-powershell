@@ -530,11 +530,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter IfNoneMatch
         /// <summary>
-        /// If set, objects will be created if they do not exist or the request will fail.
+        /// If set to *, objects will be created if they do not exist or the request will fail.
         /// Defaults off [false].
         /// </summary>
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter IfNoneMatch { get; set; }
+        public String IfNoneMatch { get; set; }
         #endregion
 
         #region Parameter Force
@@ -903,7 +903,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     PartETags = copyController.ETags
                 };
 
-                if (cmdletContext.IfNoneMatch.IsPresent)
+                if (cmdletContext.IfNoneMatch != null)
                     completeRequest.IfNoneMatch = cmdletContext.IfNoneMatch;
 
                 CallAWSServiceOperation(Client, completeRequest);
@@ -1275,7 +1275,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public ChecksumMode ChecksumMode { get; set; }
 
-            public SwitchParameter IfNoneMatch { get; set; }
+            public String IfNoneMatch { get; set; }
         }
 
         internal class MultiPartObjectCopyController

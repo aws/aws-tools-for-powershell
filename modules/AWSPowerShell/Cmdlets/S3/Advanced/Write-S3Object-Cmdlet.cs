@@ -446,11 +446,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter IfNoneMatch
         /// <summary>
-        /// If set, objects will be created if they do not exist or the request will fail.
+        /// If set to *, objects will be created if they do not exist or the request will fail.
         /// Defaults off [false].
         /// </summary>
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter IfNoneMatch { get; set; }
+        public String IfNoneMatch { get; set; }
         #endregion
 
         #region Parameter Force
@@ -632,7 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
             if (cmdletContext.ChecksumAlgorithm != null)
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
-            if (cmdletContext.IfNoneMatch.IsPresent)
+            if (cmdletContext.IfNoneMatch != null)
                 request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
@@ -851,7 +851,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public long? PartSize { get; set; }
 
-            public SwitchParameter IfNoneMatch { get; set; }
+            public String IfNoneMatch { get; set; }
         }
 
         #region Progress Trackers
