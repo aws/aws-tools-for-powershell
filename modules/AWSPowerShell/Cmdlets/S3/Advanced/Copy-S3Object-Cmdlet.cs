@@ -531,7 +531,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter IfNoneMatch
         /// <summary>
         /// If set to *, objects will be created if they do not exist or the request will fail.
-        /// Defaults off [false].
         /// </summary>
         [Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
         public System.String IfNoneMatch { get; set; }
