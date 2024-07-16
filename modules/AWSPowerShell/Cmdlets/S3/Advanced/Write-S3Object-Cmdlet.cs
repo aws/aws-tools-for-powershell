@@ -697,6 +697,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     request.TagSet = new List<Tag>(cmdletContext.TagSet);
                 if (cmdletContext.ChecksumAlgorithm != null)
                     request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
+                if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
+                    request.IfNoneMatch = cmdletContext.IfNoneMatch;
 
                 request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
