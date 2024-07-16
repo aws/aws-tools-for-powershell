@@ -632,7 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ChecksumAlgorithm != null)
                 request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
             if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
-                request.IfNoneMatch = cmdletContext.IfNoneMatch;
+                request.IfNoneMatch = "test123";
 
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
@@ -698,7 +698,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (cmdletContext.ChecksumAlgorithm != null)
                     request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
                 if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
-                    request.IfNoneMatch = cmdletContext.IfNoneMatch;
+                    request.IfNoneMatch = "test234";
 
                 request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
