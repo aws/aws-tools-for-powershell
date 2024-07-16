@@ -448,7 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// If set to *, objects will be created if they do not exist or the request will fail.
         /// </summary>
-        [Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
+        [Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IfNoneMatch { get; set; }
         #endregion
 
