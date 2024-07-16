@@ -903,7 +903,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     PartETags = copyController.ETags
                 };
 
-                if (cmdletContext.IfNoneMatch != null)
+                if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                     completeRequest.IfNoneMatch = cmdletContext.IfNoneMatch;
 
                 CallAWSServiceOperation(Client, completeRequest);
