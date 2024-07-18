@@ -32,10 +32,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// If a volume has never been modified, some information in the output will be null.
-    /// If a volume has been modified more than once, the output includes only the most recent
-    /// modification request.
-    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">
     /// Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

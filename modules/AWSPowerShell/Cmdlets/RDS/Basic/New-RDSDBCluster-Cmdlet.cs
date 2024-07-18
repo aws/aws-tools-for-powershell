@@ -732,12 +732,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the DB cluster is publicly accessible.</para><para>When the DB cluster is publicly accessible, its Domain Name System (DNS) endpoint
-        /// resolves to the private IP address from within the DB cluster's virtual private cloud
-        /// (VPC). It resolves to the public IP address from outside of the DB cluster's VPC.
-        /// Access to the DB cluster is ultimately controlled by the security group it uses. That
-        /// public access isn't permitted if the security group assigned to the DB cluster doesn't
-        /// permit it.</para><para>When the DB cluster isn't publicly accessible, it is an internal DB cluster with a
+        /// <para>Specifies whether the DB cluster is publicly accessible.</para><para>When the DB cluster is publicly accessible and you connect from outside of the DB
+        /// cluster's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves
+        /// to the public IP address. When you connect from within the same VPC as the DB cluster,
+        /// the endpoint resolves to the private IP address. Access to the DB cluster is ultimately
+        /// controlled by the security group it uses. That public access isn't permitted if the
+        /// security group assigned to the DB cluster doesn't permit it.</para><para>When the DB cluster isn't publicly accessible, it is an internal DB cluster with a
         /// DNS name that resolves to a private IP address.</para><para>Valid for Cluster Type: Multi-AZ DB clusters only</para><para>Default: The default behavior varies depending on whether <c>DBSubnetGroupName</c>
         /// is specified.</para><para>If <c>DBSubnetGroupName</c> isn't specified, and <c>PubliclyAccessible</c> isn't specified,
         /// the following applies:</para><ul><li><para>If the default VPC in the target Region doesn’t have an internet gateway attached

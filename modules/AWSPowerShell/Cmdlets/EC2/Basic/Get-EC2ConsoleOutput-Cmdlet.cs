@@ -35,15 +35,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// By default, the console output returns buffered information that was posted shortly
-    /// after an instance transition state (start, stop, reboot, or terminate). This information
-    /// is available for at least one hour after the most recent post. Only the most recent
-    /// 64 KB of console output is available.
-    /// </para><para>
-    /// You can optionally retrieve the latest serial console output at any time during the
-    /// instance lifecycle. This option is supported on instance types that use the Nitro
-    /// hypervisor.
-    /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html#instance-console-console-output">Instance
     /// console output</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para>

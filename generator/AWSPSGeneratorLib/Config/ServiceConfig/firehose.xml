@@ -20,6 +20,14 @@
     <ServiceOperations>
         <ServiceOperation MethodName="CreateDeliveryStream" OutputProperty="DeliveryStreamARN" Verb="New" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
             <Params>
+                <Param Name="IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationConfiguration_BufferingHints_SizeInMBs" NewName="IcebergDestinationConfiguration_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationConfiguration_ProcessingConfiguration_Enabled" NewName="IcebergDestinationConfiguration_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationConfiguration_ProcessingConfiguration_Processors" NewName="IcebergDestinationConfiguration_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationConfiguration_RetryOptions_DurationInSeconds" NewName="IcebergDestinationConfiguration_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="HttpEndpointDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationConfiguration_BufferingHints_SizeInMBs" NewName="HttpEndpointDestinationConfiguration_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_Enabled" NewName="HttpEndpointDestinationConfiguration_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
@@ -71,6 +79,8 @@
                 <Param Name="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_Enabled" NewName="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_Enabled" />
                 <Param Name="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_RoleARN" NewName="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_RoleARN" />
                 <Param Name="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_SecretARN" NewName="SnowflakeDestinationConfiguration_SecretsManagerConfiguration_SecretARN" />
+                <Param Name="SnowflakeDestinationConfiguration_BufferingHints_IntervalInSeconds" NewName="SnowflakeDestinationConfiguration_BufferingHints_IntervalInSeconds" />
+                <Param Name="SnowflakeDestinationConfiguration_BufferingHints_SizeInMBs" NewName="SnowflakeDestinationConfiguration_BufferingHints_SizeInMBs" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -119,6 +129,14 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDestination" Verb="Update" Noun="Destination" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
             <Params>
+                <Param Name="IcebergDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled" />
+                <Param Name="IcebergDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationUpdate_BufferingHints_SizeInMBs" NewName="IcebergDestinationConfiguration_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationUpdate_CloudWatchLoggingOptions_LogGroupName" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationUpdate_CloudWatchLoggingOptions_LogStreamName" NewName="IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationUpdate_ProcessingConfiguration_Enabled" NewName="IcebergDestinationConfiguration_ProcessingConfiguration_Enabled" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationUpdate_ProcessingConfiguration_Processors" NewName="IcebergDestinationConfiguration_ProcessingConfiguration_Processors" AutoApplyAlias="false" />
+                <Param Name="IcebergDestinationUpdate_RetryOptions_DurationInSeconds" NewName="IcebergDestinationConfiguration_RetryOptions_DurationInSeconds" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="HttpEndpointDestinationUpdate_BufferingHints_IntervalInSeconds" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs" NewName="HttpEndpointDestinationUpdate_BufferingHints_SizeInMBs" AutoApplyAlias="false" />
                 <Param Name="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled" NewName="HttpEndpointDestinationUpdate_CloudWatchLoggingOptions_Enabled" AutoApplyAlias="false" />
@@ -164,6 +182,8 @@
                 <Param Name="SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled" NewName="SnowflakeDestinationUpdate_SecretsManagerConfiguration_Enabled" />
                 <Param Name="SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN" NewName="SnowflakeDestinationUpdate_SecretsManagerConfiguration_RoleARN" />
                 <Param Name="SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN" NewName="SnowflakeDestinationUpdate_SecretsManagerConfiguration_SecretARN" />
+                <Param Name="SnowflakeDestinationUpdate_BufferingHints_IntervalInSeconds" NewName="SnowflakeDestinationUpdate_BufferingHints_IntervalInSeconds" />
+                <Param Name="SnowflakeDestinationUpdate_BufferingHints_SizeInMBs" NewName="SnowflakeDestinationUpdate_BufferingHints_SizeInMBs" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

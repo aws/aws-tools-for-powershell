@@ -807,12 +807,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible, its Domain Name System (DNS) endpoint
-        /// resolves to the private IP address from within the DB instance's virtual private cloud
-        /// (VPC). It resolves to the public IP address from outside of the DB instance's VPC.
-        /// Access to the DB instance is ultimately controlled by the security group it uses.
-        /// That public access is not permitted if the security group assigned to the DB instance
-        /// doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
+        /// <para>Specifies whether the DB instance is publicly accessible.</para><para>When the DB instance is publicly accessible and you connect from outside of the DB
+        /// instance's virtual private cloud (VPC), its Domain Name System (DNS) endpoint resolves
+        /// to the public IP address. When you connect from within the same VPC as the DB instance,
+        /// the endpoint resolves to the private IP address. Access to the DB instance is ultimately
+        /// controlled by the security group it uses. That public access is not permitted if the
+        /// security group assigned to the DB instance doesn't permit it.</para><para>When the DB instance isn't publicly accessible, it is an internal DB instance with
         /// a DNS name that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether <c>DBSubnetGroupName</c>
         /// is specified.</para><para>If <c>DBSubnetGroupName</c> isn't specified, and <c>PubliclyAccessible</c> isn't specified,
         /// the following applies:</para><ul><li><para>If the default VPC in the target Region doesn’t have an internet gateway attached

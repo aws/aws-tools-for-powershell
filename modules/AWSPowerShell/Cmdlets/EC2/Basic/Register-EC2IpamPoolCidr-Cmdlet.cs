@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Cidr { get; set; }
         #endregion
         
+        #region Parameter IpamExternalResourceVerificationTokenId
+        /// <summary>
+        /// <para>
+        /// <para>Verification token ID. This option only applies to IPv4 and IPv6 pools in the public
+        /// scope.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IpamExternalResourceVerificationTokenId { get; set; }
+        #endregion
+        
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>
@@ -109,6 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String CidrAuthorizationContext_Signature { get; set; }
+        #endregion
+        
+        #region Parameter VerificationMethod
+        /// <summary>
+        /// <para>
+        /// <para>The method for verifying control of a public IP address range. Defaults to <c>remarks-x509</c>
+        /// if not specified. This option only applies to IPv4 and IPv6 pools in the public scope.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EC2.VerificationMethod")]
+        public Amazon.EC2.VerificationMethod VerificationMethod { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -189,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CidrAuthorizationContext_Message = this.CidrAuthorizationContext_Message;
             context.CidrAuthorizationContext_Signature = this.CidrAuthorizationContext_Signature;
             context.ClientToken = this.ClientToken;
+            context.IpamExternalResourceVerificationTokenId = this.IpamExternalResourceVerificationTokenId;
             context.IpamPoolId = this.IpamPoolId;
             #if MODULAR
             if (this.IpamPoolId == null && ParameterWasBound(nameof(this.IpamPoolId)))
@@ -197,6 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             #endif
             context.NetmaskLength = this.NetmaskLength;
+            context.VerificationMethod = this.VerificationMethod;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +275,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ClientToken = cmdletContext.ClientToken;
             }
+            if (cmdletContext.IpamExternalResourceVerificationTokenId != null)
+            {
+                request.IpamExternalResourceVerificationTokenId = cmdletContext.IpamExternalResourceVerificationTokenId;
+            }
             if (cmdletContext.IpamPoolId != null)
             {
                 request.IpamPoolId = cmdletContext.IpamPoolId;
@@ -257,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.NetmaskLength != null)
             {
                 request.NetmaskLength = cmdletContext.NetmaskLength.Value;
+            }
+            if (cmdletContext.VerificationMethod != null)
+            {
+                request.VerificationMethod = cmdletContext.VerificationMethod;
             }
             
             CmdletOutput output;
@@ -323,8 +356,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CidrAuthorizationContext_Message { get; set; }
             public System.String CidrAuthorizationContext_Signature { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String IpamExternalResourceVerificationTokenId { get; set; }
             public System.String IpamPoolId { get; set; }
             public System.Int32? NetmaskLength { get; set; }
+            public Amazon.EC2.VerificationMethod VerificationMethod { get; set; }
             public System.Func<Amazon.EC2.Model.ProvisionIpamPoolCidrResponse, RegisterEC2IpamPoolCidrCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.IpamPoolCidr;
         }

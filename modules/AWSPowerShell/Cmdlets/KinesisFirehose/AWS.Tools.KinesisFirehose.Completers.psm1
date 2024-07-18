@@ -170,6 +170,16 @@ $KINF_Completers = {
             break
         }
 
+        # Amazon.KinesisFirehose.IcebergS3BackupMode
+        {
+            ($_ -eq "New-KINFDeliveryStream/IcebergDestinationConfiguration_S3BackupMode") -Or
+            ($_ -eq "Update-KINFDestination/IcebergDestinationUpdate_S3BackupMode")
+        }
+        {
+            $v = "AllData","FailedDataOnly"
+            break
+        }
+
         # Amazon.KinesisFirehose.KeyType
         {
             ($_ -eq "New-KINFDeliveryStream/DeliveryStreamEncryptionConfigurationInput_KeyType") -Or
@@ -226,6 +236,8 @@ $KINF_map = @{
     "HttpEndpointDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "HttpEndpointDestinationUpdate_RequestConfiguration_ContentEncoding"=@("Update-KINFDestination")
     "HttpEndpointDestinationUpdate_S3BackupMode"=@("Update-KINFDestination")
+    "IcebergDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "IcebergDestinationUpdate_S3BackupMode"=@("Update-KINFDestination")
     "SnowflakeDestinationConfiguration_DataLoadingOption"=@("New-KINFDeliveryStream")
     "SnowflakeDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "SnowflakeDestinationUpdate_DataLoadingOption"=@("Update-KINFDestination")

@@ -149,6 +149,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.InputSourceRequest[] Source { get; set; }
         #endregion
         
+        #region Parameter SrtSettings_SrtCallerSource
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SrtSettings_SrtCallerSources")]
+        public Amazon.MediaLive.Model.SrtCallerSourceRequest[] SrtSettings_SrtCallerSource { get; set; }
+        #endregion
+        
         #region Parameter Vpc_SubnetId
         /// <summary>
         /// <para>
@@ -268,6 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.Source = new List<Amazon.MediaLive.Model.InputSourceRequest>(this.Source);
             }
+            if (this.SrtSettings_SrtCallerSource != null)
+            {
+                context.SrtSettings_SrtCallerSource = new List<Amazon.MediaLive.Model.SrtCallerSourceRequest>(this.SrtSettings_SrtCallerSource);
+            }
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -332,6 +347,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Source != null)
             {
                 request.Sources = cmdletContext.Source;
+            }
+            
+             // populate SrtSettings
+            var requestSrtSettingsIsNull = true;
+            request.SrtSettings = new Amazon.MediaLive.Model.SrtSettingsRequest();
+            List<Amazon.MediaLive.Model.SrtCallerSourceRequest> requestSrtSettings_srtSettings_SrtCallerSource = null;
+            if (cmdletContext.SrtSettings_SrtCallerSource != null)
+            {
+                requestSrtSettings_srtSettings_SrtCallerSource = cmdletContext.SrtSettings_SrtCallerSource;
+            }
+            if (requestSrtSettings_srtSettings_SrtCallerSource != null)
+            {
+                request.SrtSettings.SrtCallerSources = requestSrtSettings_srtSettings_SrtCallerSource;
+                requestSrtSettingsIsNull = false;
+            }
+             // determine if request.SrtSettings should be set to null
+            if (requestSrtSettingsIsNull)
+            {
+                request.SrtSettings = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -439,6 +473,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String RequestId { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Source { get; set; }
+            public List<Amazon.MediaLive.Model.SrtCallerSourceRequest> SrtSettings_SrtCallerSource { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public Amazon.MediaLive.InputType Type { get; set; }
             public List<System.String> Vpc_SecurityGroupId { get; set; }

@@ -378,6 +378,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIpamExternalResourceVerificationToken" OutputProperty="IpamExternalResourceVerificationToken" Verb="New" Noun="IpamExternalResourceVerificationToken" ShouldProcessTarget="IpamId" PipelineParameter="IpamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateIpamPool" OutputProperty="IpamPool" Verb="New" Noun="IpamPool" ShouldProcessTarget="IpamScopeId" PipelineParameter="IpamScopeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -703,6 +707,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteIpam" OutputProperty="Ipam" Verb="Remove" Noun="Ipam" ShouldProcessTarget="IpamId" PipelineParameter="IpamId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIpamExternalResourceVerificationToken" OutputProperty="IpamExternalResourceVerificationToken" Verb="Remove" Noun="IpamExternalResourceVerificationToken" ShouldProcessTarget="IpamExternalResourceVerificationTokenId" PipelineParameter="IpamExternalResourceVerificationTokenId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1214,6 +1222,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeIpamByoasn" OutputProperty="Byoasns" Verb="Get" Noun="IpamByoasn" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIpamExternalResourceVerificationTokens" OutputProperty="IpamExternalResourceVerificationTokens" Verb="Get" Noun="IpamExternalResourceVerificationToken" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

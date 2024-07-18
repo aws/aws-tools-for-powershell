@@ -181,11 +181,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Locale
         /// <summary>
         /// <para>
-        /// <para>In IPAM, the locale is the Amazon Web Services Region or, for IPAM IPv4 pools in the
-        /// public scope, the network border group for an Amazon Web Services Local Zone where
-        /// you want to make an IPAM pool available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported
-        /// Local Zones</a>). If you do not choose a locale, resources in Regions others than
-        /// the IPAM's home region cannot use CIDRs from this pool.</para><para>Possible values: Any Amazon Web Services Region, such as us-east-1.</para>
+        /// <para>The locale for the pool should be one of the following:</para><ul><li><para>An Amazon Web Services Region where you want this IPAM pool to be available for allocations.</para></li><li><para>The network border group for an Amazon Web Services Local Zone where you want this
+        /// IPAM pool to be available for allocations (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">supported
+        /// Local Zones</a>). This option is only available for IPAM IPv4 pools in the public
+        /// scope.</para></li></ul><para>If you do not choose a locale, resources in Regions others than the IPAM's home region
+        /// cannot use CIDRs from this pool.</para><para>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local
+        /// Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

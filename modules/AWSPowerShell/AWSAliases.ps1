@@ -6473,6 +6473,8 @@ Set-Alias -Name Resume-CONNContact -Value Invoke-CONNResumeContact
 Set-Alias -Name Resume-CONNResumeContact -Value Invoke-CONNResumeContact
 Set-Alias -Name CONN-ResumeContact -Value Invoke-CONNResumeContact
 Set-Alias -Name CONN-ResumeContactRecording -Value Resume-CONNContactRecording
+Set-Alias -Name Search-CONNAgentStatuses -Value Search-CONNAgentStatus
+Set-Alias -Name CONN-SearchAgentStatuses -Value Search-CONNAgentStatus
 Set-Alias -Name Search-CONNAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name CONN-SearchAvailablePhoneNumbers -Value Search-CONNAvailablePhoneNumber
 Set-Alias -Name Search-CONNContactFlowModules -Value Search-CONNContactFlowModule
@@ -6497,6 +6499,8 @@ Set-Alias -Name Search-CONNRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name CONN-SearchRoutingProfiles -Value Search-CONNRoutingProfile
 Set-Alias -Name Search-CONNSecurityProfiles -Value Search-CONNSecurityProfile
 Set-Alias -Name CONN-SearchSecurityProfiles -Value Search-CONNSecurityProfile
+Set-Alias -Name Search-CONNUserHierarchyGroups -Value Search-CONNUserHierarchyGroup
+Set-Alias -Name CONN-SearchUserHierarchyGroups -Value Search-CONNUserHierarchyGroup
 Set-Alias -Name Search-CONNUsers -Value Search-CONNUser
 Set-Alias -Name CONN-SearchUsers -Value Search-CONNUser
 Set-Alias -Name Search-CONNVocabularies -Value Search-CONNVocabulary
@@ -8969,6 +8973,8 @@ Set-Alias -Name Create-EC2InternetGateway -Value New-EC2InternetGateway
 Set-Alias -Name EC2-CreateInternetGateway -Value New-EC2InternetGateway
 Set-Alias -Name Create-EC2Ipam -Value New-EC2Ipam
 Set-Alias -Name EC2-CreateIpam -Value New-EC2Ipam
+Set-Alias -Name Create-EC2IpamExternalResourceVerificationToken -Value New-EC2IpamExternalResourceVerificationToken
+Set-Alias -Name EC2-CreateIpamExternalResourceVerificationToken -Value New-EC2IpamExternalResourceVerificationToken
 Set-Alias -Name Create-EC2IpamPool -Value New-EC2IpamPool
 Set-Alias -Name EC2-CreateIpamPool -Value New-EC2IpamPool
 Set-Alias -Name Create-EC2IpamResourceDiscovery -Value New-EC2IpamResourceDiscovery
@@ -9126,6 +9132,8 @@ Set-Alias -Name Delete-EC2InternetGateway -Value Remove-EC2InternetGateway
 Set-Alias -Name EC2-DeleteInternetGateway -Value Remove-EC2InternetGateway
 Set-Alias -Name Delete-EC2Ipam -Value Remove-EC2Ipam
 Set-Alias -Name EC2-DeleteIpam -Value Remove-EC2Ipam
+Set-Alias -Name Delete-EC2IpamExternalResourceVerificationToken -Value Remove-EC2IpamExternalResourceVerificationToken
+Set-Alias -Name EC2-DeleteIpamExternalResourceVerificationToken -Value Remove-EC2IpamExternalResourceVerificationToken
 Set-Alias -Name Delete-EC2IpamPool -Value Remove-EC2IpamPool
 Set-Alias -Name EC2-DeleteIpamPool -Value Remove-EC2IpamPool
 Set-Alias -Name Delete-EC2IpamResourceDiscovery -Value Remove-EC2IpamResourceDiscovery
@@ -9426,6 +9434,9 @@ Set-Alias -Name Describe-EC2InternetGateway -Value Get-EC2InternetGateway
 Set-Alias -Name EC2-DescribeInternetGateways -Value Get-EC2InternetGateway
 Set-Alias -Name Describe-EC2IpamByoasn -Value Get-EC2IpamByoasn
 Set-Alias -Name EC2-DescribeIpamByoasn -Value Get-EC2IpamByoasn
+Set-Alias -Name Describe-EC2IpamExternalResourceVerificationTokens -Value Get-EC2IpamExternalResourceVerificationToken
+Set-Alias -Name Describe-EC2IpamExternalResourceVerificationToken -Value Get-EC2IpamExternalResourceVerificationToken
+Set-Alias -Name EC2-DescribeIpamExternalResourceVerificationTokens -Value Get-EC2IpamExternalResourceVerificationToken
 Set-Alias -Name Describe-EC2IpamPools -Value Get-EC2IpamPool
 Set-Alias -Name Describe-EC2IpamPool -Value Get-EC2IpamPool
 Set-Alias -Name EC2-DescribeIpamPools -Value Get-EC2IpamPool

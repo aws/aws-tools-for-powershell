@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>The list of resource types to be used to search tags from. If not provided or if any
-        /// empty list is provided, this API will search from all supported resource types.</para>
+        /// empty list is provided, this API will search from all supported resource types.</para><para><b>Supported resource types</b></para><ul><li><para>AGENT</para></li><li><para>ROUTING_PROFILE</para></li><li><para>STANDARD_QUEUE</para></li><li><para>SECURITY_PROFILE</para></li><li><para>OPERATING_HOURS</para></li><li><para>PROMPT</para></li><li><para>CONTACT_FLOW</para></li><li><para>FLOW_MODULE</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

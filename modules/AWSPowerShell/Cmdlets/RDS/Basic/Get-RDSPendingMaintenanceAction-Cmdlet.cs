@@ -29,7 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Returns a list of resources (for example, DB instances) that have at least one pending
-    /// maintenance action.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// maintenance action.
+    /// 
+    ///  
+    /// <para>
+    /// This API follows an eventual consistency model. This means that the result of the
+    /// <c>DescribePendingMaintenanceActions</c> command might not be immediately visible
+    /// to all subsequent RDS commands. Keep this in mind when you use <c>DescribePendingMaintenanceActions</c>
+    /// immediately after using a previous API command such as <c>ApplyPendingMaintenanceActions</c>.
+    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "RDSPendingMaintenanceAction")]
     [OutputType("Amazon.RDS.Model.ResourcePendingMaintenanceActions")]

@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public Amazon.Connect.StringComparisonType StringCondition_ComparisonType { get; set; }
         #endregion
         
+        #region Parameter ListCondition_Condition
+        /// <summary>
+        /// <para>
+        /// <para>A list of Condition objects which would be applied together with an AND condition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_ListCondition_Conditions")]
+        public Amazon.Connect.Model.Condition[] ListCondition_Condition { get; set; }
+        #endregion
+        
         #region Parameter StringCondition_FieldName
         /// <summary>
         /// <para>
@@ -233,6 +244,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SearchFilter_UserAttributeFilter_TagCondition_TagValue")]
         public System.String TagCondition_TagValue { get; set; }
+        #endregion
+        
+        #region Parameter ListCondition_TargetListType
+        /// <summary>
+        /// <para>
+        /// <para>The type of target list that will be used to filter the users.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SearchCriteria_ListCondition_TargetListType")]
+        [AWSConstantClassSource("Amazon.Connect.TargetListType")]
+        public Amazon.Connect.TargetListType ListCondition_TargetListType { get; set; }
         #endregion
         
         #region Parameter HierarchyGroupCondition_Value
@@ -392,6 +415,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             context.HierarchyGroupCondition_HierarchyGroupMatchType = this.HierarchyGroupCondition_HierarchyGroupMatchType;
             context.HierarchyGroupCondition_Value = this.HierarchyGroupCondition_Value;
+            if (this.ListCondition_Condition != null)
+            {
+                context.ListCondition_Condition = new List<Amazon.Connect.Model.Condition>(this.ListCondition_Condition);
+            }
+            context.ListCondition_TargetListType = this.ListCondition_TargetListType;
             if (this.SearchCriteria_OrCondition != null)
             {
                 context.SearchCriteria_OrCondition = new List<Amazon.Connect.Model.UserSearchCriteria>(this.SearchCriteria_OrCondition);
@@ -512,6 +540,41 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (requestSearchCriteria_searchCriteria_HierarchyGroupCondition != null)
             {
                 request.SearchCriteria.HierarchyGroupCondition = requestSearchCriteria_searchCriteria_HierarchyGroupCondition;
+                requestSearchCriteriaIsNull = false;
+            }
+            Amazon.Connect.Model.ListCondition requestSearchCriteria_searchCriteria_ListCondition = null;
+            
+             // populate ListCondition
+            var requestSearchCriteria_searchCriteria_ListConditionIsNull = true;
+            requestSearchCriteria_searchCriteria_ListCondition = new Amazon.Connect.Model.ListCondition();
+            List<Amazon.Connect.Model.Condition> requestSearchCriteria_searchCriteria_ListCondition_listCondition_Condition = null;
+            if (cmdletContext.ListCondition_Condition != null)
+            {
+                requestSearchCriteria_searchCriteria_ListCondition_listCondition_Condition = cmdletContext.ListCondition_Condition;
+            }
+            if (requestSearchCriteria_searchCriteria_ListCondition_listCondition_Condition != null)
+            {
+                requestSearchCriteria_searchCriteria_ListCondition.Conditions = requestSearchCriteria_searchCriteria_ListCondition_listCondition_Condition;
+                requestSearchCriteria_searchCriteria_ListConditionIsNull = false;
+            }
+            Amazon.Connect.TargetListType requestSearchCriteria_searchCriteria_ListCondition_listCondition_TargetListType = null;
+            if (cmdletContext.ListCondition_TargetListType != null)
+            {
+                requestSearchCriteria_searchCriteria_ListCondition_listCondition_TargetListType = cmdletContext.ListCondition_TargetListType;
+            }
+            if (requestSearchCriteria_searchCriteria_ListCondition_listCondition_TargetListType != null)
+            {
+                requestSearchCriteria_searchCriteria_ListCondition.TargetListType = requestSearchCriteria_searchCriteria_ListCondition_listCondition_TargetListType;
+                requestSearchCriteria_searchCriteria_ListConditionIsNull = false;
+            }
+             // determine if requestSearchCriteria_searchCriteria_ListCondition should be set to null
+            if (requestSearchCriteria_searchCriteria_ListConditionIsNull)
+            {
+                requestSearchCriteria_searchCriteria_ListCondition = null;
+            }
+            if (requestSearchCriteria_searchCriteria_ListCondition != null)
+            {
+                request.SearchCriteria.ListCondition = requestSearchCriteria_searchCriteria_ListCondition;
                 requestSearchCriteriaIsNull = false;
             }
             Amazon.Connect.Model.StringCondition requestSearchCriteria_searchCriteria_StringCondition = null;
@@ -889,6 +952,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public List<Amazon.Connect.Model.UserSearchCriteria> SearchCriteria_AndCondition { get; set; }
             public Amazon.Connect.HierarchyGroupMatchType HierarchyGroupCondition_HierarchyGroupMatchType { get; set; }
             public System.String HierarchyGroupCondition_Value { get; set; }
+            public List<Amazon.Connect.Model.Condition> ListCondition_Condition { get; set; }
+            public Amazon.Connect.TargetListType ListCondition_TargetListType { get; set; }
             public List<Amazon.Connect.Model.UserSearchCriteria> SearchCriteria_OrCondition { get; set; }
             public Amazon.Connect.StringComparisonType StringCondition_ComparisonType { get; set; }
             public System.String StringCondition_FieldName { get; set; }

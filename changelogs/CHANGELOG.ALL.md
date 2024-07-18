@@ -1,4 +1,22 @@
-﻿### 4.1.618 (2024-07-12 21:48Z)
+﻿### 4.1.619 (2024-07-18 22:38Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.850.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Search-CONNAgentStatus leveraging the SearchAgentStatuses service API.
+    * Added cmdlet Search-CONNUserHierarchyGroup leveraging the SearchUserHierarchyGroups service API.
+    * Modified cmdlet Search-CONNUser: added parameters ListCondition_Condition and ListCondition_TargetListType.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Get-EC2IpamExternalResourceVerificationToken leveraging the DescribeIpamExternalResourceVerificationTokens service API.
+    * Added cmdlet New-EC2IpamExternalResourceVerificationToken leveraging the CreateIpamExternalResourceVerificationToken service API.
+    * Added cmdlet Remove-EC2IpamExternalResourceVerificationToken leveraging the DeleteIpamExternalResourceVerificationToken service API.
+    * Modified cmdlet Register-EC2IpamPoolCidr: added parameters IpamExternalResourceVerificationTokenId and VerificationMethod.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet New-EMLInput: added parameter SrtSettings_SrtCallerSource.
+    * Modified cmdlet Update-EMLInput: added parameter SrtSettings_SrtCallerSource.
+  * Amazon Kinesis Firehose
+    * Modified cmdlet New-KINFDeliveryStream: added parameters CatalogConfiguration_CatalogARN, IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds, IcebergDestinationConfiguration_BufferingHints_SizeInMBs, IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled, IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName, IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName, IcebergDestinationConfiguration_DestinationTableConfigurationList, IcebergDestinationConfiguration_ProcessingConfiguration_Enabled, IcebergDestinationConfiguration_ProcessingConfiguration_Processors, IcebergDestinationConfiguration_RetryOptions_DurationInSeconds, IcebergDestinationConfiguration_RoleARN, IcebergDestinationConfiguration_S3BackupMode, IcebergDestinationConfiguration_S3Configuration, MSKSourceConfiguration_ReadFromTimestamp, SnowflakeDestinationConfiguration_BufferingHints_IntervalInSeconds and SnowflakeDestinationConfiguration_BufferingHints_SizeInMBs.
+    * Modified cmdlet Update-KINFDestination: added parameters CatalogConfiguration_CatalogARN, IcebergDestinationConfiguration_BufferingHints_IntervalInSeconds, IcebergDestinationConfiguration_BufferingHints_SizeInMBs, IcebergDestinationConfiguration_CloudWatchLoggingOptions_Enabled, IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogGroupName, IcebergDestinationConfiguration_CloudWatchLoggingOptions_LogStreamName, IcebergDestinationConfiguration_ProcessingConfiguration_Enabled, IcebergDestinationConfiguration_ProcessingConfiguration_Processors, IcebergDestinationConfiguration_RetryOptions_DurationInSeconds, IcebergDestinationUpdate_DestinationTableConfigurationList, IcebergDestinationUpdate_RoleARN, IcebergDestinationUpdate_S3BackupMode, IcebergDestinationUpdate_S3Configuration, SnowflakeDestinationUpdate_BufferingHints_IntervalInSeconds and SnowflakeDestinationUpdate_BufferingHints_SizeInMBs.
+
+### 4.1.618 (2024-07-12 21:48Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.849.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ARC - Zonal Shift
     * Added cmdlet Get-AZSAutoshiftObserverNotificationStatus leveraging the GetAutoshiftObserverNotificationStatus service API.

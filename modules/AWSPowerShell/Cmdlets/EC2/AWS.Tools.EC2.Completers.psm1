@@ -1114,6 +1114,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.VerificationMethod
+        "Register-EC2IpamPoolCidr/VerificationMethod"
+        {
+            $v = "dns-token","remarks-x509"
+            break
+        }
+
         # Amazon.EC2.VerifiedAccessEndpointAttachmentType
         "New-EC2VerifiedAccessEndpoint/AttachmentType"
         {
@@ -1320,6 +1327,7 @@ $EC2_map = @{
     "TrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
     "UserTrustProviderType"=@("New-EC2VerifiedAccessTrustProvider")
+    "VerificationMethod"=@("Register-EC2IpamPoolCidr")
     "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
 }
@@ -1449,6 +1457,7 @@ $EC2_SelectMap = @{
                "New-EC2InstanceExportTask",
                "New-EC2InternetGateway",
                "New-EC2Ipam",
+               "New-EC2IpamExternalResourceVerificationToken",
                "New-EC2IpamPool",
                "New-EC2IpamResourceDiscovery",
                "New-EC2IpamScope",
@@ -1525,6 +1534,7 @@ $EC2_SelectMap = @{
                "Remove-EC2InstanceEventWindow",
                "Remove-EC2InternetGateway",
                "Remove-EC2Ipam",
+               "Remove-EC2IpamExternalResourceVerificationToken",
                "Remove-EC2IpamPool",
                "Remove-EC2IpamResourceDiscovery",
                "Remove-EC2IpamScope",
@@ -1648,6 +1658,7 @@ $EC2_SelectMap = @{
                "Get-EC2InstanceType",
                "Get-EC2InternetGateway",
                "Get-EC2IpamByoasn",
+               "Get-EC2IpamExternalResourceVerificationToken",
                "Get-EC2IpamPool",
                "Get-EC2IpamResourceDiscovery",
                "Get-EC2IpamResourceDiscoveryAssociation",

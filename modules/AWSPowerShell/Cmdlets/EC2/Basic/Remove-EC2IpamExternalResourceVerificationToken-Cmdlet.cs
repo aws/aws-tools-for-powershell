@@ -22,77 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.TimestreamQuery;
-using Amazon.TimestreamQuery.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TSQ
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Transitions your account to use TCUs for query pricing and modifies the maximum query
-    /// compute units that you've configured. If you reduce the value of <c>MaxQueryTCU</c>
-    /// to a desired configuration, the new value can take up to 24 hours to be effective.
-    /// 
-    ///  <note><para>
-    /// After you've transitioned your account to use TCUs for query pricing, you can't transition
-    /// to using bytes scanned for query pricing.
-    /// </para></note>
+    /// Delete a verification token. A verification token is an Amazon Web Services-generated
+    /// random value that you can use to prove ownership of an external resource. For example,
+    /// you can use a verification token to validate that you control a public IP address
+    /// range when you bring an IP address range to Amazon Web Services (BYOIP).
     /// </summary>
-    [Cmdlet("Update", "TSQAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse")]
-    [AWSCmdlet("Calls the Amazon Timestream Query UpdateAccountSettings API operation.", Operation = new[] {"UpdateAccountSettings"}, SelectReturnType = typeof(Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse))]
-    [AWSCmdletOutput("Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse",
-        "This cmdlet returns an Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EC2IpamExternalResourceVerificationToken", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.EC2.Model.IpamExternalResourceVerificationToken")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) DeleteIpamExternalResourceVerificationToken API operation.", Operation = new[] {"DeleteIpamExternalResourceVerificationToken"}, SelectReturnType = typeof(Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.IpamExternalResourceVerificationToken or Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse",
+        "This cmdlet returns an Amazon.EC2.Model.IpamExternalResourceVerificationToken object.",
+        "The service call response (type Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateTSQAccountSettingCmdlet : AmazonTimestreamQueryClientCmdlet, IExecutor
+    public partial class RemoveEC2IpamExternalResourceVerificationTokenCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter MaxQueryTCU
+        #region Parameter IpamExternalResourceVerificationTokenId
         /// <summary>
         /// <para>
-        /// <para>The maximum number of compute units the service will use at any point in time to serve
-        /// your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set
-        /// the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on.</para><para>The maximum value supported for <c>MaxQueryTCU</c> is 1000. To request an increase
-        /// to this soft limit, contact Amazon Web Services Support. For information about the
-        /// default quota for maxQueryTCU, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default
-        /// quotas</a>.</para>
+        /// <para>The token ID.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.Int32? MaxQueryTCU { get; set; }
-        #endregion
-        
-        #region Parameter QueryPricingModel
-        /// <summary>
-        /// <para>
-        /// <para>The pricing model for queries in an account.</para><note><para>The <c>QueryPricingModel</c> parameter is used by several Timestream operations; however,
-        /// the <c>UpdateAccountSettings</c> API operation doesn't recognize any values other
-        /// than <c>COMPUTE_UNITS</c>.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.TimestreamQuery.QueryPricingModel")]
-        public Amazon.TimestreamQuery.QueryPricingModel QueryPricingModel { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IpamExternalResourceVerificationTokenId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse).
-        /// Specifying the name of a property of type Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpamExternalResourceVerificationToken'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "IpamExternalResourceVerificationToken";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the MaxQueryTCU parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^MaxQueryTCU' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IpamExternalResourceVerificationTokenId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IpamExternalResourceVerificationTokenId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^MaxQueryTCU' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IpamExternalResourceVerificationTokenId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -112,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.MaxQueryTCU), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-TSQAccountSetting (UpdateAccountSettings)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IpamExternalResourceVerificationTokenId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2IpamExternalResourceVerificationToken (DeleteIpamExternalResourceVerificationToken)"))
             {
                 return;
             }
@@ -126,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse, UpdateTSQAccountSettingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse, RemoveEC2IpamExternalResourceVerificationTokenCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,11 +121,16 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.MaxQueryTCU;
+                context.Select = (response, cmdlet) => this.IpamExternalResourceVerificationTokenId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.MaxQueryTCU = this.MaxQueryTCU;
-            context.QueryPricingModel = this.QueryPricingModel;
+            context.IpamExternalResourceVerificationTokenId = this.IpamExternalResourceVerificationTokenId;
+            #if MODULAR
+            if (this.IpamExternalResourceVerificationTokenId == null && ParameterWasBound(nameof(this.IpamExternalResourceVerificationTokenId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IpamExternalResourceVerificationTokenId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -154,15 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.TimestreamQuery.Model.UpdateAccountSettingsRequest();
+            var request = new Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenRequest();
             
-            if (cmdletContext.MaxQueryTCU != null)
+            if (cmdletContext.IpamExternalResourceVerificationTokenId != null)
             {
-                request.MaxQueryTCU = cmdletContext.MaxQueryTCU.Value;
-            }
-            if (cmdletContext.QueryPricingModel != null)
-            {
-                request.QueryPricingModel = cmdletContext.QueryPricingModel;
+                request.IpamExternalResourceVerificationTokenId = cmdletContext.IpamExternalResourceVerificationTokenId;
             }
             
             CmdletOutput output;
@@ -197,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         
         #region AWS Service Operation Call
         
-        private Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse CallAWSServiceOperation(IAmazonTimestreamQuery client, Amazon.TimestreamQuery.Model.UpdateAccountSettingsRequest request)
+        private Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Timestream Query", "UpdateAccountSettings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "DeleteIpamExternalResourceVerificationToken");
             try
             {
                 #if DESKTOP
-                return client.UpdateAccountSettings(request);
+                return client.DeleteIpamExternalResourceVerificationToken(request);
                 #elif CORECLR
-                return client.UpdateAccountSettingsAsync(request).GetAwaiter().GetResult();
+                return client.DeleteIpamExternalResourceVerificationTokenAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,10 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.TSQ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxQueryTCU { get; set; }
-            public Amazon.TimestreamQuery.QueryPricingModel QueryPricingModel { get; set; }
-            public System.Func<Amazon.TimestreamQuery.Model.UpdateAccountSettingsResponse, UpdateTSQAccountSettingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String IpamExternalResourceVerificationTokenId { get; set; }
+            public System.Func<Amazon.EC2.Model.DeleteIpamExternalResourceVerificationTokenResponse, RemoveEC2IpamExternalResourceVerificationTokenCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IpamExternalResourceVerificationToken;
         }
         
     }

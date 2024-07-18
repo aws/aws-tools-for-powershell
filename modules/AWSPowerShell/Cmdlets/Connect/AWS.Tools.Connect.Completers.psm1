@@ -405,6 +405,7 @@ $CONN_Completers = {
 
         # Amazon.Connect.StringComparisonType
         {
+            ($_ -eq "Search-CONNAgentStatus/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlow/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNContactFlowModule/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNHoursOfOperation/StringCondition_ComparisonType") -Or
@@ -415,11 +416,19 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNRoutingProfile/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNSecurityProfile/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNUser/StringCondition_ComparisonType") -Or
+            ($_ -eq "Search-CONNUserHierarchyGroup/StringCondition_ComparisonType") -Or
             ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagKeyComparisonType") -Or
             ($_ -eq "Search-CONNResourceTag/TagSearchCondition_TagValueComparisonType")
         }
         {
             $v = "CONTAINS","EXACT","STARTS_WITH"
+            break
+        }
+
+        # Amazon.Connect.TargetListType
+        "Search-CONNUser/ListCondition_TargetListType"
+        {
+            $v = "PROFICIENCIES"
             break
         }
 
@@ -525,6 +534,7 @@ $CONN_map = @{
     "Interval_IntervalPeriod"=@("Get-CONNMetricDataV2")
     "LanguageCode"=@("Add-CONNDefaultVocabulary","Get-CONNDefaultVocabularyList","New-CONNVocabulary","Search-CONNVocabulary")
     "LexVersion"=@("Get-CONNBotList")
+    "ListCondition_TargetListType"=@("Search-CONNUser")
     "OutputType"=@("Get-CONNRealtimeContactAnalysisSegmentsV2List")
     "ParticipantDetails_ParticipantRole"=@("New-CONNParticipant")
     "PersistentChat_RehydrationType"=@("Start-CONNChatContact")
@@ -551,7 +561,7 @@ $CONN_map = @{
     "StorageConfig_StorageType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigKinesisVideoStreamConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
     "StorageConfigS3ConfigEncryptionConfigEncryptionType"=@("Add-CONNInstanceStorageConfig","Update-CONNInstanceStorageConfig")
-    "StringCondition_ComparisonType"=@("Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser")
+    "StringCondition_ComparisonType"=@("Search-CONNAgentStatus","Search-CONNContactFlow","Search-CONNContactFlowModule","Search-CONNHoursOfOperation","Search-CONNPredefinedAttribute","Search-CONNPrompt","Search-CONNQueue","Search-CONNQuickConnect","Search-CONNRoutingProfile","Search-CONNSecurityProfile","Search-CONNUser","Search-CONNUserHierarchyGroup")
     "TagSearchCondition_TagKeyComparisonType"=@("Search-CONNResourceTag")
     "TagSearchCondition_TagValueComparisonType"=@("Search-CONNResourceTag")
     "TimeRange_Type"=@("Search-CONNContact")
@@ -786,6 +796,7 @@ $CONN_SelectMap = @{
                "Copy-CONNInstance",
                "Invoke-CONNResumeContact",
                "Resume-CONNContactRecording",
+               "Search-CONNAgentStatus",
                "Search-CONNAvailablePhoneNumber",
                "Search-CONNContactFlowModule",
                "Search-CONNContactFlow",
@@ -798,6 +809,7 @@ $CONN_SelectMap = @{
                "Search-CONNResourceTag",
                "Search-CONNRoutingProfile",
                "Search-CONNSecurityProfile",
+               "Search-CONNUserHierarchyGroup",
                "Search-CONNUser",
                "Search-CONNVocabulary",
                "Send-CONNChatIntegrationEvent",
