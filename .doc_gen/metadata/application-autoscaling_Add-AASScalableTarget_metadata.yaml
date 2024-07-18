@@ -1,5 +1,5 @@
 ---
-application-autoscaling_RegisterScalableTarget:
+application-auto-scaling_RegisterScalableTarget:
   title: Use Add-AASScalableTarget
   title_abbrev: Add-AASScalableTarget
   synopsis: use Add-AASScalableTarget
@@ -15,6 +15,6 @@ application-autoscaling_RegisterScalableTarget:
           - .doc_gen/snippet_files/application-autoscaling_Add-AASScalableTarget.1.1.ps1
           description:
   services:
-    application-autoscaling:
+    application-auto-scaling:
       RegisterScalableTarget:
 

@@ -1,5 +1,5 @@
 ---
-application-autoscaling_DescribeScalingActivities:
+application-auto-scaling_DescribeScalingActivities:
   title: Use Get-AASScalingActivity
   title_abbrev: Get-AASScalingActivity
   synopsis: use Get-AASScalingActivity
@@ -30,6 +30,6 @@ application-autoscaling_DescribeScalingActivities:
             StatusCode        : Successful
             StatusMessage     : Successfully set desired capacity to 2. Change successfully fulfilled by appstream.</programlisting>
   services:
-    application-autoscaling:
+    application-auto-scaling:
       DescribeScalingActivities:
 

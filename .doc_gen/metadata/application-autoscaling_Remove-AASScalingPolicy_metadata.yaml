@@ -1,5 +1,5 @@
 ---
-application-autoscaling_DeleteScalingPolicy:
+application-auto-scaling_DeleteScalingPolicy:
   title: Use Remove-AASScalingPolicy
   title_abbrev: Remove-AASScalingPolicy
   synopsis: use Remove-AASScalingPolicy
@@ -15,6 +15,6 @@ application-autoscaling_DeleteScalingPolicy:
           - .doc_gen/snippet_files/application-autoscaling_Remove-AASScalingPolicy.1.1.ps1
           description:
   services:
-    application-autoscaling:
+    application-auto-scaling:
       DeleteScalingPolicy:
 

@@ -1,5 +1,5 @@
 ---
-application-autoscaling_DescribeScalableTargets:
+application-auto-scaling_DescribeScalableTargets:
   title: Use Get-AASScalableTarget
   title_abbrev: Get-AASScalableTarget
   synopsis: use Get-AASScalableTarget
@@ -27,6 +27,6 @@ application-autoscaling_DescribeScalableTargets:
             ServiceNamespace  : appstream
             SuspendedState    : Amazon.ApplicationAutoScaling.Model.SuspendedState</programlisting>
   services:
-    application-autoscaling:
+    application-auto-scaling:
       DescribeScalableTargets:
 

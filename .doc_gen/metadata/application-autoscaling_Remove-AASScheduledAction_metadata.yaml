@@ -1,5 +1,5 @@
 ---
-application-autoscaling_DeleteScheduledAction:
+application-auto-scaling_DeleteScheduledAction:
   title: Use Remove-AASScheduledAction
   title_abbrev: Remove-AASScheduledAction
   synopsis: use Remove-AASScheduledAction
@@ -23,6 +23,6 @@ application-autoscaling_DeleteScheduledAction:
             Performing the operation "Remove-AASScheduledAction (DeleteScheduledAction)" on target "WeekDaysFleetScaling".
             [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): Y</programlisting>
   services:
-    application-autoscaling:
+    application-auto-scaling:
       DeleteScheduledAction:
 

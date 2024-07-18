@@ -1,5 +1,5 @@
 ---
-application-autoscaling_PutScheduledAction:
+application-auto-scaling_PutScheduledAction:
   title: Use Set-AASScheduledAction
   title_abbrev: Set-AASScheduledAction
   synopsis: use Set-AASScheduledAction
@@ -15,6 +15,6 @@ application-autoscaling_PutScheduledAction:
           - .doc_gen/snippet_files/application-autoscaling_Set-AASScheduledAction.1.1.ps1
           description:
   services:
-    application-autoscaling:
+    application-auto-scaling:
       PutScheduledAction:
 
