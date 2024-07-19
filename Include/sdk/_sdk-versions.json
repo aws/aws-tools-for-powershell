@@ -843,14 +843,6 @@
             },
             "InPreview"               : false
         },
-        "Mobile"                          : {
-            "Version" : "3.7.300.119",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.304.30"
-            },
-            "InPreview"               : false
-        },
         "Pricing"                         : {
             "Version" : "3.7.302.59",
             "AssemblyVersionOverride" : "3.3",
