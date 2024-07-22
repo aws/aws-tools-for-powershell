@@ -163,6 +163,13 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.FilterStatus
+        "Get-DZAssetFilterList/Status"
+        {
+            $v = "INVALID","VALID"
+            break
+        }
+
         # Amazon.DataZone.FormTypeStatus
         "New-DZFormType/Status"
         {
@@ -414,7 +421,7 @@ $DZ_map = @{
     "Sort_Order"=@("Search-DZListing","Search-DZResource","Search-DZType")
     "SortBy"=@("Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
     "SortOrder"=@("Get-DZLineageNodeHistoryList","Get-DZProjectMembershipList","Get-DZSubscriptionGrantList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","Get-DZSubscriptionTargetList")
-    "Status"=@("Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
+    "Status"=@("Get-DZAssetFilterList","Get-DZDataSourceList","Get-DZDataSourceRunActivityList","Get-DZDataSourceRunList","Get-DZDomainList","Get-DZEnvironmentList","Get-DZMetadataGenerationRunList","Get-DZSubscriptionList","Get-DZSubscriptionRequestList","New-DZFormType","New-DZGlossary","New-DZGlossaryTerm","Update-DZGlossary","Update-DZGlossaryTerm","Update-DZGroupProfile","Update-DZSubscriptionGrantStatus","Update-DZUserProfile")
     "Target_Type"=@("Start-DZMetadataGenerationRun")
     "TaskStatus"=@("Get-DZNotificationList")
     "Type"=@("Get-DZMetadataGenerationRunList","Get-DZNotificationList","Get-DZUserProfile","Start-DZMetadataGenerationRun","Update-DZUserProfile")
@@ -477,6 +484,7 @@ $DZ_SelectMap = @{
                "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
                "New-DZAsset",
+               "New-DZAssetFilter",
                "New-DZAssetRevision",
                "New-DZAssetType",
                "New-DZDataSource",
@@ -496,6 +504,7 @@ $DZ_SelectMap = @{
                "New-DZSubscriptionTarget",
                "New-DZUserProfile",
                "Remove-DZAsset",
+               "Remove-DZAssetFilter",
                "Remove-DZAssetType",
                "Remove-DZDataSource",
                "Remove-DZDomain",
@@ -515,6 +524,7 @@ $DZ_SelectMap = @{
                "Remove-DZTimeSeriesDataPoint",
                "Reset-DZEnvironmentRole",
                "Get-DZAsset",
+               "Get-DZAssetFilter",
                "Get-DZAssetType",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
@@ -539,6 +549,7 @@ $DZ_SelectMap = @{
                "Get-DZSubscriptionTarget",
                "Get-DZTimeSeriesDataPoint",
                "Get-DZUserProfile",
+               "Get-DZAssetFilterList",
                "Get-DZAssetRevisionList",
                "Get-DZDataSourceRunActivityList",
                "Get-DZDataSourceRunList",
@@ -575,6 +586,7 @@ $DZ_SelectMap = @{
                "Start-DZMetadataGenerationRun",
                "Add-DZResourceTag",
                "Remove-DZResourceTag",
+               "Update-DZAssetFilter",
                "Update-DZDataSource",
                "Update-DZDomain",
                "Update-DZEnvironment",

@@ -81,6 +81,17 @@ namespace Amazon.PowerShell.Cmdlets.RSS
         public System.Boolean? EnhancedVpcRouting { get; set; }
         #endregion
         
+        #region Parameter IpAddressType
+        /// <summary>
+        /// <para>
+        /// <para>The IP address type that the workgroup supports. Possible values are <c>ipv4</c> and
+        /// <c>dualstack</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IpAddressType { get; set; }
+        #endregion
+        
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
@@ -221,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
                 context.ConfigParameter = new List<Amazon.RedshiftServerless.Model.ConfigParameter>(this.ConfigParameter);
             }
             context.EnhancedVpcRouting = this.EnhancedVpcRouting;
+            context.IpAddressType = this.IpAddressType;
             context.MaxCapacity = this.MaxCapacity;
             context.Port = this.Port;
             context.PubliclyAccessible = this.PubliclyAccessible;
@@ -266,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             if (cmdletContext.EnhancedVpcRouting != null)
             {
                 request.EnhancedVpcRouting = cmdletContext.EnhancedVpcRouting.Value;
+            }
+            if (cmdletContext.IpAddressType != null)
+            {
+                request.IpAddressType = cmdletContext.IpAddressType;
             }
             if (cmdletContext.MaxCapacity != null)
             {
@@ -355,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.RSS
             public System.Int32? BaseCapacity { get; set; }
             public List<Amazon.RedshiftServerless.Model.ConfigParameter> ConfigParameter { get; set; }
             public System.Boolean? EnhancedVpcRouting { get; set; }
+            public System.String IpAddressType { get; set; }
             public System.Int32? MaxCapacity { get; set; }
             public System.Int32? Port { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }

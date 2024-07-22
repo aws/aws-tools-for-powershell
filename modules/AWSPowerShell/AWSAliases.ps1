@@ -7168,6 +7168,8 @@ Set-Alias -Name Cancel-DZSubscription -Value Stop-DZSubscription
 Set-Alias -Name DZ-CancelSubscription -Value Stop-DZSubscription
 Set-Alias -Name Create-DZAsset -Value New-DZAsset
 Set-Alias -Name DZ-CreateAsset -Value New-DZAsset
+Set-Alias -Name Create-DZAssetFilter -Value New-DZAssetFilter
+Set-Alias -Name DZ-CreateAssetFilter -Value New-DZAssetFilter
 Set-Alias -Name Create-DZAssetRevision -Value New-DZAssetRevision
 Set-Alias -Name DZ-CreateAssetRevision -Value New-DZAssetRevision
 Set-Alias -Name Create-DZAssetType -Value New-DZAssetType
@@ -7206,6 +7208,8 @@ Set-Alias -Name Create-DZUserProfile -Value New-DZUserProfile
 Set-Alias -Name DZ-CreateUserProfile -Value New-DZUserProfile
 Set-Alias -Name Delete-DZAsset -Value Remove-DZAsset
 Set-Alias -Name DZ-DeleteAsset -Value Remove-DZAsset
+Set-Alias -Name Delete-DZAssetFilter -Value Remove-DZAssetFilter
+Set-Alias -Name DZ-DeleteAssetFilter -Value Remove-DZAssetFilter
 Set-Alias -Name Delete-DZAssetType -Value Remove-DZAssetType
 Set-Alias -Name DZ-DeleteAssetType -Value Remove-DZAssetType
 Set-Alias -Name Delete-DZDataSource -Value Remove-DZDataSource
@@ -7244,6 +7248,7 @@ Set-Alias -Name DZ-DeleteTimeSeriesDataPoints -Value Remove-DZTimeSeriesDataPoin
 Set-Alias -Name Disassociate-DZEnvironmentRole -Value Reset-DZEnvironmentRole
 Set-Alias -Name DZ-DisassociateEnvironmentRole -Value Reset-DZEnvironmentRole
 Set-Alias -Name DZ-GetAsset -Value Get-DZAsset
+Set-Alias -Name DZ-GetAssetFilter -Value Get-DZAssetFilter
 Set-Alias -Name DZ-GetAssetType -Value Get-DZAssetType
 Set-Alias -Name DZ-GetDataSource -Value Get-DZDataSource
 Set-Alias -Name DZ-GetDataSourceRun -Value Get-DZDataSourceRun
@@ -7269,6 +7274,9 @@ Set-Alias -Name DZ-GetSubscriptionRequestDetails -Value Get-DZSubscriptionReques
 Set-Alias -Name DZ-GetSubscriptionTarget -Value Get-DZSubscriptionTarget
 Set-Alias -Name DZ-GetTimeSeriesDataPoint -Value Get-DZTimeSeriesDataPoint
 Set-Alias -Name DZ-GetUserProfile -Value Get-DZUserProfile
+Set-Alias -Name List-DZAssetFilters -Value Get-DZAssetFilterList
+Set-Alias -Name List-DZAssetFilterList -Value Get-DZAssetFilterList
+Set-Alias -Name DZ-ListAssetFilters -Value Get-DZAssetFilterList
 Set-Alias -Name List-DZAssetRevisions -Value Get-DZAssetRevisionList
 Set-Alias -Name List-DZAssetRevisionList -Value Get-DZAssetRevisionList
 Set-Alias -Name DZ-ListAssetRevisions -Value Get-DZAssetRevisionList
@@ -7357,6 +7365,7 @@ Set-Alias -Name DZ-StartDataSourceRun -Value Start-DZDataSourceRun
 Set-Alias -Name DZ-StartMetadataGenerationRun -Value Start-DZMetadataGenerationRun
 Set-Alias -Name DZ-TagResource -Value Add-DZResourceTag
 Set-Alias -Name DZ-UntagResource -Value Remove-DZResourceTag
+Set-Alias -Name DZ-UpdateAssetFilter -Value Update-DZAssetFilter
 Set-Alias -Name DZ-UpdateDataSource -Value Update-DZDataSource
 Set-Alias -Name DZ-UpdateDomain -Value Update-DZDomain
 Set-Alias -Name DZ-UpdateEnvironmentAction -Value Update-DZEnvironmentAction

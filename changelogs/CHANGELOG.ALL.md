@@ -1,4 +1,18 @@
-﻿### 4.1.619 (2024-07-18 22:38Z)
+﻿### 4.1.620 (2024-07-22 22:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.851.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon Mobile
+  * Amazon DataZone
+    * Added cmdlet Get-DZAssetFilter leveraging the GetAssetFilter service API.
+    * Added cmdlet Get-DZAssetFilterList leveraging the ListAssetFilters service API.
+    * Added cmdlet New-DZAssetFilter leveraging the CreateAssetFilter service API.
+    * Added cmdlet Remove-DZAssetFilter leveraging the DeleteAssetFilter service API.
+    * Added cmdlet Update-DZAssetFilter leveraging the UpdateAssetFilter service API.
+    * Modified cmdlet Write-DZEnvironmentBlueprintConfiguration: added parameter ProvisioningConfiguration.
+  * Amazon Redshift Serverless
+    * Modified cmdlet New-RSSWorkgroup: added parameter IpAddressType.
+    * Modified cmdlet Update-RSSWorkgroup: added parameter IpAddressType.
+
+### 4.1.619 (2024-07-18 22:38Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.850.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Search-CONNAgentStatus leveraging the SearchAgentStatuses service API.

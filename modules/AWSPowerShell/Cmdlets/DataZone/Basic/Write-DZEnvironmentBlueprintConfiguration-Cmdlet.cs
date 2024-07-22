@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String ManageAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter ProvisioningConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The provisioning configuration of a blueprint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ProvisioningConfigurations")]
+        public Amazon.DataZone.Model.ProvisioningConfiguration[] ProvisioningConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ProvisioningRoleArn
         /// <summary>
         /// <para>
@@ -211,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             #endif
             context.ManageAccessRoleArn = this.ManageAccessRoleArn;
+            if (this.ProvisioningConfiguration != null)
+            {
+                context.ProvisioningConfiguration = new List<Amazon.DataZone.Model.ProvisioningConfiguration>(this.ProvisioningConfiguration);
+            }
             context.ProvisioningRoleArn = this.ProvisioningRoleArn;
             if (this.RegionalParameter != null)
             {
@@ -251,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.ManageAccessRoleArn != null)
             {
                 request.ManageAccessRoleArn = cmdletContext.ManageAccessRoleArn;
+            }
+            if (cmdletContext.ProvisioningConfiguration != null)
+            {
+                request.ProvisioningConfigurations = cmdletContext.ProvisioningConfiguration;
             }
             if (cmdletContext.ProvisioningRoleArn != null)
             {
@@ -325,6 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public List<System.String> EnabledRegion { get; set; }
             public System.String EnvironmentBlueprintIdentifier { get; set; }
             public System.String ManageAccessRoleArn { get; set; }
+            public List<Amazon.DataZone.Model.ProvisioningConfiguration> ProvisioningConfiguration { get; set; }
             public System.String ProvisioningRoleArn { get; set; }
             public Dictionary<System.String, Dictionary<System.String, System.String>> RegionalParameter { get; set; }
             public System.Func<Amazon.DataZone.Model.PutEnvironmentBlueprintConfigurationResponse, WriteDZEnvironmentBlueprintConfigurationCmdlet, object> Select { get; set; } =
