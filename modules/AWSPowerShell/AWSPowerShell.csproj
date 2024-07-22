@@ -796,9 +796,6 @@
     <Reference Include="AWSSDK.MigrationHubStrategyRecommendations">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.Mobile">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.Mobile.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.MQ">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MQ.dll</HintPath>
     </Reference>
@@ -1934,9 +1931,6 @@
     </Reference>
     <Reference Include="AWSSDK.MigrationHubStrategyRecommendations">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MigrationHubStrategyRecommendations.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.Mobile">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.Mobile.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MQ">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MQ.dll</HintPath>

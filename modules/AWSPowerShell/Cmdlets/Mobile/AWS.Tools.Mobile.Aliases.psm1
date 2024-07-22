@@ -1,3 +1,0 @@
-﻿# Mobile
-
-Export-ModuleMember -Alias *
