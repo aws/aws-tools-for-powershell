@@ -22,32 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CleanRoomsML;
-using Amazon.CleanRoomsML.Model;
+using Amazon.CleanRooms;
+using Amazon.CleanRooms.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CRML
+namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Returns information about an audience generation job.
+    /// Retrieves an ID namespace association.
     /// </summary>
-    [Cmdlet("Get", "CRMLAudienceGenerationJob")]
-    [OutputType("Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse")]
-    [AWSCmdlet("Calls the CleanRoomsML GetAudienceGenerationJob API operation.", Operation = new[] {"GetAudienceGenerationJob"}, SelectReturnType = typeof(Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse))]
-    [AWSCmdletOutput("Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse",
-        "This cmdlet returns an Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CRSIdNamespaceAssociation")]
+    [OutputType("Amazon.CleanRooms.Model.IdNamespaceAssociation")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service GetIdNamespaceAssociation API operation.", Operation = new[] {"GetIdNamespaceAssociation"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse))]
+    [AWSCmdletOutput("Amazon.CleanRooms.Model.IdNamespaceAssociation or Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse",
+        "This cmdlet returns an Amazon.CleanRooms.Model.IdNamespaceAssociation object.",
+        "The service call response (type Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCRMLAudienceGenerationJobCmdlet : AmazonCleanRoomsMLClientCmdlet, IExecutor
+    public partial class GetCRSIdNamespaceAssociationCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AudienceGenerationJobArn
+        #region Parameter IdNamespaceAssociationIdentifier
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the audience generation job that you are interested
-        /// in.</para>
+        /// <para>The unique identifier of the ID namespace association that you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,26 +56,44 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AudienceGenerationJobArn { get; set; }
+        public System.String IdNamespaceAssociationIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter MembershipIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the membership that contains the ID namespace association
+        /// that you want to retrieve.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MembershipIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse).
-        /// Specifying the name of a property of type Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IdNamespaceAssociation'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse).
+        /// Specifying the name of a property of type Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "IdNamespaceAssociation";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AudienceGenerationJobArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AudienceGenerationJobArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IdNamespaceAssociationIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IdNamespaceAssociationIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AudienceGenerationJobArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IdNamespaceAssociationIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -95,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse, GetCRMLAudienceGenerationJobCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse, GetCRSIdNamespaceAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -104,14 +120,21 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AudienceGenerationJobArn;
+                context.Select = (response, cmdlet) => this.IdNamespaceAssociationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AudienceGenerationJobArn = this.AudienceGenerationJobArn;
+            context.IdNamespaceAssociationIdentifier = this.IdNamespaceAssociationIdentifier;
             #if MODULAR
-            if (this.AudienceGenerationJobArn == null && ParameterWasBound(nameof(this.AudienceGenerationJobArn)))
+            if (this.IdNamespaceAssociationIdentifier == null && ParameterWasBound(nameof(this.IdNamespaceAssociationIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter AudienceGenerationJobArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IdNamespaceAssociationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MembershipIdentifier = this.MembershipIdentifier;
+            #if MODULAR
+            if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -128,11 +151,15 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRoomsML.Model.GetAudienceGenerationJobRequest();
+            var request = new Amazon.CleanRooms.Model.GetIdNamespaceAssociationRequest();
             
-            if (cmdletContext.AudienceGenerationJobArn != null)
+            if (cmdletContext.IdNamespaceAssociationIdentifier != null)
             {
-                request.AudienceGenerationJobArn = cmdletContext.AudienceGenerationJobArn;
+                request.IdNamespaceAssociationIdentifier = cmdletContext.IdNamespaceAssociationIdentifier;
+            }
+            if (cmdletContext.MembershipIdentifier != null)
+            {
+                request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
             }
             
             CmdletOutput output;
@@ -167,15 +194,15 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse CallAWSServiceOperation(IAmazonCleanRoomsML client, Amazon.CleanRoomsML.Model.GetAudienceGenerationJobRequest request)
+        private Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.GetIdNamespaceAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "CleanRoomsML", "GetAudienceGenerationJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "GetIdNamespaceAssociation");
             try
             {
                 #if DESKTOP
-                return client.GetAudienceGenerationJob(request);
+                return client.GetIdNamespaceAssociation(request);
                 #elif CORECLR
-                return client.GetAudienceGenerationJobAsync(request).GetAwaiter().GetResult();
+                return client.GetIdNamespaceAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -195,9 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.CRML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AudienceGenerationJobArn { get; set; }
-            public System.Func<Amazon.CleanRoomsML.Model.GetAudienceGenerationJobResponse, GetCRMLAudienceGenerationJobCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String IdNamespaceAssociationIdentifier { get; set; }
+            public System.String MembershipIdentifier { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.GetIdNamespaceAssociationResponse, GetCRSIdNamespaceAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IdNamespaceAssociation;
         }
         
     }

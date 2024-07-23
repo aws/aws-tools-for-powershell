@@ -28,37 +28,44 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Lists all memberships resources within the caller's account.
+    /// Returns a list of the ID namespace associations in a collaboration.
     /// </summary>
-    [Cmdlet("Get", "CRSMembershipList")]
-    [OutputType("Amazon.CleanRooms.Model.MembershipSummary")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service ListMemberships API operation.", Operation = new[] {"ListMemberships"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListMembershipsResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.MembershipSummary or Amazon.CleanRooms.Model.ListMembershipsResponse",
-        "This cmdlet returns a collection of Amazon.CleanRooms.Model.MembershipSummary objects.",
-        "The service call response (type Amazon.CleanRooms.Model.ListMembershipsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CRSCollaborationIdNamespaceAssociationList")]
+    [OutputType("Amazon.CleanRooms.Model.CollaborationIdNamespaceAssociationSummary")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service ListCollaborationIdNamespaceAssociations API operation.", Operation = new[] {"ListCollaborationIdNamespaceAssociations"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse))]
+    [AWSCmdletOutput("Amazon.CleanRooms.Model.CollaborationIdNamespaceAssociationSummary or Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse",
+        "This cmdlet returns a collection of Amazon.CleanRooms.Model.CollaborationIdNamespaceAssociationSummary objects.",
+        "The service call response (type Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCRSMembershipListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class GetCRSCollaborationIdNamespaceAssociationListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Status
+        #region Parameter CollaborationIdentifier
         /// <summary>
         /// <para>
-        /// <para>A filter which will return only memberships in the specified status.</para>
+        /// <para>The unique identifier of the collaboration that contains the ID namespace associations
+        /// that you want to retrieve.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.CleanRooms.MembershipStatus")]
-        public Amazon.CleanRooms.MembershipStatus Status { get; set; }
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String CollaborationIdentifier { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned for an API request call. The service
-        /// chooses a default number if you don't set one. The service might return a `nextToken`
-        /// even if the `maxResults` value has not been met.</para>
+        /// <para>The maximum size of the results that is returned per call. Service chooses a default
+        /// if it has not been set. Service may return a nextToken even if the maximum results
+        /// has not been met.&gt;</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -78,21 +85,21 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MembershipSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.ListMembershipsResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.ListMembershipsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CollaborationIdNamespaceAssociationSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse).
+        /// Specifying the name of a property of type Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MembershipSummaries";
+        public string Select { get; set; } = "CollaborationIdNamespaceAssociationSummaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Status parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the CollaborationIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Status' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -110,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.ListMembershipsResponse, GetCRSMembershipListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse, GetCRSCollaborationIdNamespaceAssociationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -119,12 +126,18 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Status;
+                context.Select = (response, cmdlet) => this.CollaborationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.CollaborationIdentifier = this.CollaborationIdentifier;
+            #if MODULAR
+            if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,8 +152,12 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.ListMembershipsRequest();
+            var request = new Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsRequest();
             
+            if (cmdletContext.CollaborationIdentifier != null)
+            {
+                request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -148,10 +165,6 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -186,15 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.ListMembershipsResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.ListMembershipsRequest request)
+        private Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "ListMemberships");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "ListCollaborationIdNamespaceAssociations");
             try
             {
                 #if DESKTOP
-                return client.ListMemberships(request);
+                return client.ListCollaborationIdNamespaceAssociations(request);
                 #elif CORECLR
-                return client.ListMembershipsAsync(request).GetAwaiter().GetResult();
+                return client.ListCollaborationIdNamespaceAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -214,11 +227,11 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CollaborationIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.CleanRooms.MembershipStatus Status { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.ListMembershipsResponse, GetCRSMembershipListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MembershipSummaries;
+            public System.Func<Amazon.CleanRooms.Model.ListCollaborationIdNamespaceAssociationsResponse, GetCRSCollaborationIdNamespaceAssociationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CollaborationIdNamespaceAssociationSummaries;
         }
         
     }

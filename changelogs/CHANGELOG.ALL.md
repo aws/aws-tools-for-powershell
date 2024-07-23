@@ -1,4 +1,28 @@
-﻿### 4.1.620 (2024-07-22 22:53Z)
+﻿### 4.1.621 (2024-07-23 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.852.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSCollaborationIdNamespaceAssociation leveraging the GetCollaborationIdNamespaceAssociation service API.
+    * Added cmdlet Get-CRSCollaborationIdNamespaceAssociationList leveraging the ListCollaborationIdNamespaceAssociations service API.
+    * Added cmdlet Get-CRSIdMappingTable leveraging the GetIdMappingTable service API.
+    * Added cmdlet Get-CRSIdMappingTableList leveraging the ListIdMappingTables service API.
+    * Added cmdlet Get-CRSIdNamespaceAssociation leveraging the GetIdNamespaceAssociation service API.
+    * Added cmdlet Get-CRSIdNamespaceAssociationList leveraging the ListIdNamespaceAssociations service API.
+    * Added cmdlet Invoke-CRSIdMappingTable leveraging the PopulateIdMappingTable service API.
+    * Added cmdlet New-CRSIdMappingTable leveraging the CreateIdMappingTable service API.
+    * Added cmdlet New-CRSIdNamespaceAssociation leveraging the CreateIdNamespaceAssociation service API.
+    * Added cmdlet Remove-CRSIdMappingTable leveraging the DeleteIdMappingTable service API.
+    * Added cmdlet Remove-CRSIdNamespaceAssociation leveraging the DeleteIdNamespaceAssociation service API.
+    * Added cmdlet Update-CRSIdMappingTable leveraging the UpdateIdMappingTable service API.
+    * Added cmdlet Update-CRSIdNamespaceAssociation leveraging the UpdateIdNamespaceAssociation service API.
+  * Amazon CleanRoomsML
+    * Modified cmdlet Start-CRMLAudienceGenerationJob: added parameters SqlParameters_AnalysisTemplateArn, SqlParameters_Parameter and SqlParameters_QueryString.
+  * Amazon EntityResolution
+    * Modified cmdlet New-ERESIdMappingWorkflow: added parameters RuleBasedProperties_AttributeMatchingModel, RuleBasedProperties_RecordMatchingModel, RuleBasedProperties_Rule and RuleBasedProperties_RuleDefinitionType.
+    * Modified cmdlet New-ERESMatchingWorkflow: added parameter RuleBasedProperties_MatchPurpose.
+    * Modified cmdlet Update-ERESIdMappingWorkflow: added parameters RuleBasedProperties_AttributeMatchingModel, RuleBasedProperties_RecordMatchingModel, RuleBasedProperties_Rule and RuleBasedProperties_RuleDefinitionType.
+    * Modified cmdlet Update-ERESMatchingWorkflow: added parameter RuleBasedProperties_MatchPurpose.
+
+### 4.1.620 (2024-07-22 22:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.851.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon Mobile
   * Amazon DataZone

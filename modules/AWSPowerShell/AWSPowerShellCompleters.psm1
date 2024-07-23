@@ -9580,7 +9580,7 @@ $CRS_Completers = {
         # Amazon.CleanRooms.AnalysisRuleType
         "Get-CRSSchemaAnalysisRule/Type"
         {
-            $v = "AGGREGATION","CUSTOM","LIST"
+            $v = "AGGREGATION","CUSTOM","ID_MAPPING_TABLE","LIST"
             break
         }
 
@@ -9684,7 +9684,7 @@ $CRS_Completers = {
         # Amazon.CleanRooms.SchemaType
         "Get-CRSSchemaList/SchemaType"
         {
-            $v = "TABLE"
+            $v = "ID_MAPPING_TABLE","TABLE"
             break
         }
 
@@ -9778,6 +9778,8 @@ $CRS_SelectMap = @{
                "New-CRSConfiguredTable",
                "New-CRSConfiguredTableAnalysisRule",
                "New-CRSConfiguredTableAssociation",
+               "New-CRSIdMappingTable",
+               "New-CRSIdNamespaceAssociation",
                "New-CRSMembership",
                "New-CRSPrivacyBudgetTemplate",
                "Remove-CRSAnalysisTemplate",
@@ -9786,6 +9788,8 @@ $CRS_SelectMap = @{
                "Remove-CRSConfiguredTable",
                "Remove-CRSConfiguredTableAnalysisRule",
                "Remove-CRSConfiguredTableAssociation",
+               "Remove-CRSIdMappingTable",
+               "Remove-CRSIdNamespaceAssociation",
                "Remove-CRSMember",
                "Remove-CRSMembership",
                "Remove-CRSPrivacyBudgetTemplate",
@@ -9793,11 +9797,14 @@ $CRS_SelectMap = @{
                "Get-CRSCollaboration",
                "Get-CRSCollaborationAnalysisTemplate",
                "Get-CRSCollaborationConfiguredAudienceModelAssociation",
+               "Get-CRSCollaborationIdNamespaceAssociation",
                "Get-CRSCollaborationPrivacyBudgetTemplate",
                "Get-CRSConfiguredAudienceModelAssociation",
                "Get-CRSConfiguredTable",
                "Get-CRSConfiguredTableAnalysisRule",
                "Get-CRSConfiguredTableAssociation",
+               "Get-CRSIdMappingTable",
+               "Get-CRSIdNamespaceAssociation",
                "Get-CRSMembership",
                "Get-CRSPrivacyBudgetTemplate",
                "Get-CRSProtectedQuery",
@@ -9806,12 +9813,15 @@ $CRS_SelectMap = @{
                "Get-CRSAnalysisTemplateList",
                "Get-CRSCollaborationAnalysisTemplateList",
                "Get-CRSCollaborationConfiguredAudienceModelAssociationList",
+               "Get-CRSCollaborationIdNamespaceAssociationList",
                "Get-CRSCollaborationPrivacyBudgetList",
                "Get-CRSCollaborationPrivacyBudgetTemplateList",
                "Get-CRSCollaborationList",
                "Get-CRSConfiguredAudienceModelAssociationList",
                "Get-CRSConfiguredTableAssociationList",
                "Get-CRSConfiguredTableList",
+               "Get-CRSIdMappingTableList",
+               "Get-CRSIdNamespaceAssociationList",
                "Get-CRSMemberList",
                "Get-CRSMembershipList",
                "Get-CRSPrivacyBudgetList",
@@ -9819,6 +9829,7 @@ $CRS_SelectMap = @{
                "Get-CRSProtectedQueryList",
                "Get-CRSSchemaList",
                "Get-CRSResourceTag",
+               "Invoke-CRSIdMappingTable",
                "Test-CRSPrivacyImpact",
                "Start-CRSProtectedQuery",
                "Add-CRSResourceTag",
@@ -9829,6 +9840,8 @@ $CRS_SelectMap = @{
                "Update-CRSConfiguredTable",
                "Update-CRSConfiguredTableAnalysisRule",
                "Update-CRSConfiguredTableAssociation",
+               "Update-CRSIdMappingTable",
+               "Update-CRSIdNamespaceAssociation",
                "Update-CRSMembership",
                "Update-CRSPrivacyBudgetTemplate",
                "Update-CRSProtectedQuery")
@@ -27252,7 +27265,9 @@ $ERES_Completers = {
     {
         # Amazon.EntityResolution.AttributeMatchingModel
         {
+            ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_AttributeMatchingModel") -Or
             ($_ -eq "New-ERESMatchingWorkflow/RuleBasedProperties_AttributeMatchingModel") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/RuleBasedProperties_AttributeMatchingModel") -Or
             ($_ -eq "Update-ERESMatchingWorkflow/RuleBasedProperties_AttributeMatchingModel")
         }
         {
@@ -27266,7 +27281,17 @@ $ERES_Completers = {
             ($_ -eq "Update-ERESIdMappingWorkflow/IdMappingTechniques_IdMappingType")
         }
         {
-            $v = "PROVIDER"
+            $v = "PROVIDER","RULE_BASED"
+            break
+        }
+
+        # Amazon.EntityResolution.IdMappingWorkflowRuleDefinitionType
+        {
+            ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_RuleDefinitionType") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/RuleBasedProperties_RuleDefinitionType")
+        }
+        {
+            $v = "SOURCE","TARGET"
             break
         }
 
@@ -27284,6 +27309,26 @@ $ERES_Completers = {
         }
         {
             $v = "IMMEDIATE"
+            break
+        }
+
+        # Amazon.EntityResolution.MatchPurpose
+        {
+            ($_ -eq "New-ERESMatchingWorkflow/RuleBasedProperties_MatchPurpose") -Or
+            ($_ -eq "Update-ERESMatchingWorkflow/RuleBasedProperties_MatchPurpose")
+        }
+        {
+            $v = "IDENTIFIER_GENERATION","INDEXING"
+            break
+        }
+
+        # Amazon.EntityResolution.RecordMatchingModel
+        {
+            ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_RecordMatchingModel") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/RuleBasedProperties_RecordMatchingModel")
+        }
+        {
+            $v = "MANY_SOURCE_TO_ONE_TARGET","ONE_SOURCE_TO_ONE_TARGET"
             break
         }
 
@@ -27317,7 +27362,10 @@ $ERES_map = @{
     "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
-    "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESIdMappingWorkflow","New-ERESMatchingWorkflow","Update-ERESIdMappingWorkflow","Update-ERESMatchingWorkflow")
+    "RuleBasedProperties_MatchPurpose"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "RuleBasedProperties_RecordMatchingModel"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
+    "RuleBasedProperties_RuleDefinitionType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "Type"=@("New-ERESIdNamespace")
 }
 

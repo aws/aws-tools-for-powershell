@@ -43,6 +43,25 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter RuleBasedProperties_AttributeMatchingModel
+        /// <summary>
+        /// <para>
+        /// <para>The comparison type. You can either choose <c>ONE_TO_ONE</c> or <c>MANY_TO_MANY</c>
+        /// as the <c>attributeMatchingModel</c>. </para><para>If you choose <c>MANY_TO_MANY</c>, the system can match attributes across the sub-types
+        /// of an attribute type. For example, if the value of the <c>Email</c> field of Profile
+        /// A matches the value of the <c>BusinessEmail</c> field of Profile B, the two profiles
+        /// are matched on the <c>Email</c> attribute type. </para><para>If you choose <c>ONE_TO_ONE</c>, the system can only match attributes if the sub-types
+        /// are an exact match. For example, for the <c>Email</c> attribute type, the system will
+        /// only consider it a match if the value of the <c>Email</c> field of Profile A matches
+        /// the value of the <c>Email</c> field of Profile B.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdMappingTechniques_RuleBasedProperties_AttributeMatchingModel")]
+        [AWSConstantClassSource("Amazon.EntityResolution.AttributeMatchingModel")]
+        public Amazon.EntityResolution.AttributeMatchingModel RuleBasedProperties_AttributeMatchingModel { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -132,6 +151,21 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         public System.String ProviderProperties_ProviderServiceArn { get; set; }
         #endregion
         
+        #region Parameter RuleBasedProperties_RecordMatchingModel
+        /// <summary>
+        /// <para>
+        /// <para> The type of matching record that is allowed to be used in an ID mapping workflow.
+        /// </para><para>If the value is set to <c>ONE_SOURCE_TO_ONE_TARGET</c>, only one record in the source
+        /// can be matched to the same record in the target.</para><para>If the value is set to <c>MANY_SOURCE_TO_ONE_TARGET</c>, multiple records in the source
+        /// can be matched to one record in the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdMappingTechniques_RuleBasedProperties_RecordMatchingModel")]
+        [AWSConstantClassSource("Amazon.EntityResolution.RecordMatchingModel")]
+        public Amazon.EntityResolution.RecordMatchingModel RuleBasedProperties_RecordMatchingModel { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -139,15 +173,32 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// to access Amazon Web Services resources on your behalf.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedProperties_RuleDefinitionType
+        /// <summary>
+        /// <para>
+        /// <para> The set of rules you can use in an ID mapping workflow. The limitations specified
+        /// for the source or target to define the match rules must be compatible.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdMappingTechniques_RuleBasedProperties_RuleDefinitionType")]
+        [AWSConstantClassSource("Amazon.EntityResolution.IdMappingWorkflowRuleDefinitionType")]
+        public Amazon.EntityResolution.IdMappingWorkflowRuleDefinitionType RuleBasedProperties_RuleDefinitionType { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedProperties_Rule
+        /// <summary>
+        /// <para>
+        /// <para> The rules that can be used for ID mapping.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdMappingTechniques_RuleBasedProperties_Rules")]
+        public Amazon.EntityResolution.Model.Rule[] RuleBasedProperties_Rule { get; set; }
         #endregion
         
         #region Parameter WorkflowName
@@ -240,6 +291,13 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             context.IntermediateSourceConfiguration_IntermediateS3Path = this.IntermediateSourceConfiguration_IntermediateS3Path;
             context.ProviderProperties_ProviderConfiguration = this.ProviderProperties_ProviderConfiguration;
             context.ProviderProperties_ProviderServiceArn = this.ProviderProperties_ProviderServiceArn;
+            context.RuleBasedProperties_AttributeMatchingModel = this.RuleBasedProperties_AttributeMatchingModel;
+            context.RuleBasedProperties_RecordMatchingModel = this.RuleBasedProperties_RecordMatchingModel;
+            context.RuleBasedProperties_RuleDefinitionType = this.RuleBasedProperties_RuleDefinitionType;
+            if (this.RuleBasedProperties_Rule != null)
+            {
+                context.RuleBasedProperties_Rule = new List<Amazon.EntityResolution.Model.Rule>(this.RuleBasedProperties_Rule);
+            }
             if (this.InputSourceConfig != null)
             {
                 context.InputSourceConfig = new List<Amazon.EntityResolution.Model.IdMappingWorkflowInputSource>(this.InputSourceConfig);
@@ -255,12 +313,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 context.OutputSourceConfig = new List<Amazon.EntityResolution.Model.IdMappingWorkflowOutputSource>(this.OutputSourceConfig);
             }
             context.RoleArn = this.RoleArn;
-            #if MODULAR
-            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.WorkflowName = this.WorkflowName;
             #if MODULAR
             if (this.WorkflowName == null && ParameterWasBound(nameof(this.WorkflowName)))
@@ -362,6 +414,61 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 request.IdMappingTechniques.ProviderProperties = requestIdMappingTechniques_idMappingTechniques_ProviderProperties;
                 requestIdMappingTechniquesIsNull = false;
             }
+            Amazon.EntityResolution.Model.IdMappingRuleBasedProperties requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties = null;
+            
+             // populate RuleBasedProperties
+            var requestIdMappingTechniques_idMappingTechniques_RuleBasedPropertiesIsNull = true;
+            requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties = new Amazon.EntityResolution.Model.IdMappingRuleBasedProperties();
+            Amazon.EntityResolution.AttributeMatchingModel requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel = null;
+            if (cmdletContext.RuleBasedProperties_AttributeMatchingModel != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel = cmdletContext.RuleBasedProperties_AttributeMatchingModel;
+            }
+            if (requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties.AttributeMatchingModel = requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel;
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedPropertiesIsNull = false;
+            }
+            Amazon.EntityResolution.RecordMatchingModel requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RecordMatchingModel = null;
+            if (cmdletContext.RuleBasedProperties_RecordMatchingModel != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RecordMatchingModel = cmdletContext.RuleBasedProperties_RecordMatchingModel;
+            }
+            if (requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RecordMatchingModel != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties.RecordMatchingModel = requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RecordMatchingModel;
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedPropertiesIsNull = false;
+            }
+            Amazon.EntityResolution.IdMappingWorkflowRuleDefinitionType requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RuleDefinitionType = null;
+            if (cmdletContext.RuleBasedProperties_RuleDefinitionType != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RuleDefinitionType = cmdletContext.RuleBasedProperties_RuleDefinitionType;
+            }
+            if (requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RuleDefinitionType != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties.RuleDefinitionType = requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_RuleDefinitionType;
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedPropertiesIsNull = false;
+            }
+            List<Amazon.EntityResolution.Model.Rule> requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_Rule = null;
+            if (cmdletContext.RuleBasedProperties_Rule != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_Rule = cmdletContext.RuleBasedProperties_Rule;
+            }
+            if (requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_Rule != null)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties.Rules = requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties_ruleBasedProperties_Rule;
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedPropertiesIsNull = false;
+            }
+             // determine if requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties should be set to null
+            if (requestIdMappingTechniques_idMappingTechniques_RuleBasedPropertiesIsNull)
+            {
+                requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties = null;
+            }
+            if (requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties != null)
+            {
+                request.IdMappingTechniques.RuleBasedProperties = requestIdMappingTechniques_idMappingTechniques_RuleBasedProperties;
+                requestIdMappingTechniquesIsNull = false;
+            }
              // determine if request.IdMappingTechniques should be set to null
             if (requestIdMappingTechniquesIsNull)
             {
@@ -449,6 +556,10 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public System.String IntermediateSourceConfiguration_IntermediateS3Path { get; set; }
             public System.Management.Automation.PSObject ProviderProperties_ProviderConfiguration { get; set; }
             public System.String ProviderProperties_ProviderServiceArn { get; set; }
+            public Amazon.EntityResolution.AttributeMatchingModel RuleBasedProperties_AttributeMatchingModel { get; set; }
+            public Amazon.EntityResolution.RecordMatchingModel RuleBasedProperties_RecordMatchingModel { get; set; }
+            public Amazon.EntityResolution.IdMappingWorkflowRuleDefinitionType RuleBasedProperties_RuleDefinitionType { get; set; }
+            public List<Amazon.EntityResolution.Model.Rule> RuleBasedProperties_Rule { get; set; }
             public List<Amazon.EntityResolution.Model.IdMappingWorkflowInputSource> InputSourceConfig { get; set; }
             public List<Amazon.EntityResolution.Model.IdMappingWorkflowOutputSource> OutputSourceConfig { get; set; }
             public System.String RoleArn { get; set; }

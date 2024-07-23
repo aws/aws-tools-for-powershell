@@ -48,14 +48,13 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         /// <summary>
         /// <para>
         /// <para>The comparison type. You can either choose <c>ONE_TO_ONE</c> or <c>MANY_TO_MANY</c>
-        /// as the AttributeMatchingModel. When choosing <c>MANY_TO_MANY</c>, the system can match
-        /// attributes across the sub-types of an attribute type. For example, if the value of
-        /// the <c>Email</c> field of Profile A and the value of <c>BusinessEmail</c> field of
-        /// Profile B matches, the two profiles are matched on the <c>Email</c> type. When choosing
-        /// <c>ONE_TO_ONE</c> ,the system can only match if the sub-types are exact matches. For
-        /// example, only when the value of the <c>Email</c> field of Profile A and the value
-        /// of the <c>Email</c> field of Profile B matches, the two profiles are matched on the
-        /// <c>Email</c> type.</para>
+        /// as the <c>attributeMatchingModel</c>. </para><para>If you choose <c>MANY_TO_MANY</c>, the system can match attributes across the sub-types
+        /// of an attribute type. For example, if the value of the <c>Email</c> field of Profile
+        /// A and the value of <c>BusinessEmail</c> field of Profile B matches, the two profiles
+        /// are matched on the <c>Email</c> attribute type. </para><para>If you choose <c>ONE_TO_ONE</c>, the system can only match attributes if the sub-types
+        /// are an exact match. For example, for the <c>Email</c> attribute type, the system will
+        /// only consider it a match if the value of the <c>Email</c> field of Profile A matches
+        /// the value of the <c>Email</c> field of Profile B.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -112,6 +111,19 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("ResolutionTechniques_ProviderProperties_IntermediateSourceConfiguration_IntermediateS3Path")]
         public System.String IntermediateSourceConfiguration_IntermediateS3Path { get; set; }
+        #endregion
+        
+        #region Parameter RuleBasedProperties_MatchPurpose
+        /// <summary>
+        /// <para>
+        /// <para> An indicator of whether to generate IDs and index the data or not.</para><para>If you choose <c>IDENTIFIER_GENERATION</c>, the process generates IDs and indexes
+        /// the data.</para><para>If you choose <c>INDEXING</c>, the process indexes the data without generating IDs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResolutionTechniques_RuleBasedProperties_MatchPurpose")]
+        [AWSConstantClassSource("Amazon.EntityResolution.MatchPurpose")]
+        public Amazon.EntityResolution.MatchPurpose RuleBasedProperties_MatchPurpose { get; set; }
         #endregion
         
         #region Parameter OutputSourceConfig
@@ -305,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             }
             #endif
             context.RuleBasedProperties_AttributeMatchingModel = this.RuleBasedProperties_AttributeMatchingModel;
+            context.RuleBasedProperties_MatchPurpose = this.RuleBasedProperties_MatchPurpose;
             if (this.RuleBasedProperties_Rule != null)
             {
                 context.RuleBasedProperties_Rule = new List<Amazon.EntityResolution.Model.Rule>(this.RuleBasedProperties_Rule);
@@ -392,41 +405,6 @@ namespace Amazon.PowerShell.Cmdlets.ERES
                 request.ResolutionTechniques.ResolutionType = requestResolutionTechniques_resolutionTechniques_ResolutionType;
                 requestResolutionTechniquesIsNull = false;
             }
-            Amazon.EntityResolution.Model.RuleBasedProperties requestResolutionTechniques_resolutionTechniques_RuleBasedProperties = null;
-            
-             // populate RuleBasedProperties
-            var requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull = true;
-            requestResolutionTechniques_resolutionTechniques_RuleBasedProperties = new Amazon.EntityResolution.Model.RuleBasedProperties();
-            Amazon.EntityResolution.AttributeMatchingModel requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel = null;
-            if (cmdletContext.RuleBasedProperties_AttributeMatchingModel != null)
-            {
-                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel = cmdletContext.RuleBasedProperties_AttributeMatchingModel;
-            }
-            if (requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel != null)
-            {
-                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties.AttributeMatchingModel = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel;
-                requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull = false;
-            }
-            List<Amazon.EntityResolution.Model.Rule> requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule = null;
-            if (cmdletContext.RuleBasedProperties_Rule != null)
-            {
-                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule = cmdletContext.RuleBasedProperties_Rule;
-            }
-            if (requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule != null)
-            {
-                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties.Rules = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule;
-                requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull = false;
-            }
-             // determine if requestResolutionTechniques_resolutionTechniques_RuleBasedProperties should be set to null
-            if (requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull)
-            {
-                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties = null;
-            }
-            if (requestResolutionTechniques_resolutionTechniques_RuleBasedProperties != null)
-            {
-                request.ResolutionTechniques.RuleBasedProperties = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties;
-                requestResolutionTechniquesIsNull = false;
-            }
             Amazon.EntityResolution.Model.ProviderProperties requestResolutionTechniques_resolutionTechniques_ProviderProperties = null;
             
              // populate ProviderProperties
@@ -485,6 +463,51 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             if (requestResolutionTechniques_resolutionTechniques_ProviderProperties != null)
             {
                 request.ResolutionTechniques.ProviderProperties = requestResolutionTechniques_resolutionTechniques_ProviderProperties;
+                requestResolutionTechniquesIsNull = false;
+            }
+            Amazon.EntityResolution.Model.RuleBasedProperties requestResolutionTechniques_resolutionTechniques_RuleBasedProperties = null;
+            
+             // populate RuleBasedProperties
+            var requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull = true;
+            requestResolutionTechniques_resolutionTechniques_RuleBasedProperties = new Amazon.EntityResolution.Model.RuleBasedProperties();
+            Amazon.EntityResolution.AttributeMatchingModel requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel = null;
+            if (cmdletContext.RuleBasedProperties_AttributeMatchingModel != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel = cmdletContext.RuleBasedProperties_AttributeMatchingModel;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties.AttributeMatchingModel = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_AttributeMatchingModel;
+                requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull = false;
+            }
+            Amazon.EntityResolution.MatchPurpose requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_MatchPurpose = null;
+            if (cmdletContext.RuleBasedProperties_MatchPurpose != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_MatchPurpose = cmdletContext.RuleBasedProperties_MatchPurpose;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_MatchPurpose != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties.MatchPurpose = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_MatchPurpose;
+                requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull = false;
+            }
+            List<Amazon.EntityResolution.Model.Rule> requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule = null;
+            if (cmdletContext.RuleBasedProperties_Rule != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule = cmdletContext.RuleBasedProperties_Rule;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule != null)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties.Rules = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties_ruleBasedProperties_Rule;
+                requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull = false;
+            }
+             // determine if requestResolutionTechniques_resolutionTechniques_RuleBasedProperties should be set to null
+            if (requestResolutionTechniques_resolutionTechniques_RuleBasedPropertiesIsNull)
+            {
+                requestResolutionTechniques_resolutionTechniques_RuleBasedProperties = null;
+            }
+            if (requestResolutionTechniques_resolutionTechniques_RuleBasedProperties != null)
+            {
+                request.ResolutionTechniques.RuleBasedProperties = requestResolutionTechniques_resolutionTechniques_RuleBasedProperties;
                 requestResolutionTechniquesIsNull = false;
             }
              // determine if request.ResolutionTechniques should be set to null
@@ -574,6 +597,7 @@ namespace Amazon.PowerShell.Cmdlets.ERES
             public System.String ProviderProperties_ProviderServiceArn { get; set; }
             public Amazon.EntityResolution.ResolutionType ResolutionTechniques_ResolutionType { get; set; }
             public Amazon.EntityResolution.AttributeMatchingModel RuleBasedProperties_AttributeMatchingModel { get; set; }
+            public Amazon.EntityResolution.MatchPurpose RuleBasedProperties_MatchPurpose { get; set; }
             public List<Amazon.EntityResolution.Model.Rule> RuleBasedProperties_Rule { get; set; }
             public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }

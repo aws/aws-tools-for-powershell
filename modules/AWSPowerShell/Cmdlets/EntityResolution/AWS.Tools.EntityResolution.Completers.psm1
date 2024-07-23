@@ -82,7 +82,9 @@ $ERES_Completers = {
     {
         # Amazon.EntityResolution.AttributeMatchingModel
         {
+            ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_AttributeMatchingModel") -Or
             ($_ -eq "New-ERESMatchingWorkflow/RuleBasedProperties_AttributeMatchingModel") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/RuleBasedProperties_AttributeMatchingModel") -Or
             ($_ -eq "Update-ERESMatchingWorkflow/RuleBasedProperties_AttributeMatchingModel")
         }
         {
@@ -96,7 +98,17 @@ $ERES_Completers = {
             ($_ -eq "Update-ERESIdMappingWorkflow/IdMappingTechniques_IdMappingType")
         }
         {
-            $v = "PROVIDER"
+            $v = "PROVIDER","RULE_BASED"
+            break
+        }
+
+        # Amazon.EntityResolution.IdMappingWorkflowRuleDefinitionType
+        {
+            ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_RuleDefinitionType") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/RuleBasedProperties_RuleDefinitionType")
+        }
+        {
+            $v = "SOURCE","TARGET"
             break
         }
 
@@ -114,6 +126,26 @@ $ERES_Completers = {
         }
         {
             $v = "IMMEDIATE"
+            break
+        }
+
+        # Amazon.EntityResolution.MatchPurpose
+        {
+            ($_ -eq "New-ERESMatchingWorkflow/RuleBasedProperties_MatchPurpose") -Or
+            ($_ -eq "Update-ERESMatchingWorkflow/RuleBasedProperties_MatchPurpose")
+        }
+        {
+            $v = "IDENTIFIER_GENERATION","INDEXING"
+            break
+        }
+
+        # Amazon.EntityResolution.RecordMatchingModel
+        {
+            ($_ -eq "New-ERESIdMappingWorkflow/RuleBasedProperties_RecordMatchingModel") -Or
+            ($_ -eq "Update-ERESIdMappingWorkflow/RuleBasedProperties_RecordMatchingModel")
+        }
+        {
+            $v = "MANY_SOURCE_TO_ONE_TARGET","ONE_SOURCE_TO_ONE_TARGET"
             break
         }
 
@@ -147,7 +179,10 @@ $ERES_map = @{
     "IdMappingTechniques_IdMappingType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "IncrementalRunConfig_IncrementalRunType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
     "ResolutionTechniques_ResolutionType"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
-    "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "RuleBasedProperties_AttributeMatchingModel"=@("New-ERESIdMappingWorkflow","New-ERESMatchingWorkflow","Update-ERESIdMappingWorkflow","Update-ERESMatchingWorkflow")
+    "RuleBasedProperties_MatchPurpose"=@("New-ERESMatchingWorkflow","Update-ERESMatchingWorkflow")
+    "RuleBasedProperties_RecordMatchingModel"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
+    "RuleBasedProperties_RuleDefinitionType"=@("New-ERESIdMappingWorkflow","Update-ERESIdMappingWorkflow")
     "Type"=@("New-ERESIdNamespace")
 }
 

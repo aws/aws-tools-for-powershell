@@ -28,24 +28,24 @@ using Amazon.CleanRooms.Model;
 namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Lists all members within a collaboration.
+    /// Deletes an ID mapping table.
     /// </summary>
-    [Cmdlet("Get", "CRSMemberList")]
-    [OutputType("Amazon.CleanRooms.Model.MemberSummary")]
-    [AWSCmdlet("Calls the AWS Clean Rooms Service ListMembers API operation.", Operation = new[] {"ListMembers"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.ListMembersResponse))]
-    [AWSCmdletOutput("Amazon.CleanRooms.Model.MemberSummary or Amazon.CleanRooms.Model.ListMembersResponse",
-        "This cmdlet returns a collection of Amazon.CleanRooms.Model.MemberSummary objects.",
-        "The service call response (type Amazon.CleanRooms.Model.ListMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CRSIdMappingTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Clean Rooms Service DeleteIdMappingTable API operation.", Operation = new[] {"DeleteIdMappingTable"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.DeleteIdMappingTableResponse))]
+    [AWSCmdletOutput("None or Amazon.CleanRooms.Model.DeleteIdMappingTableResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.CleanRooms.Model.DeleteIdMappingTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCRSMemberListCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
+    public partial class RemoveCRSIdMappingTableCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter CollaborationIdentifier
+        #region Parameter IdMappingTableIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the collaboration in which the members are listed.</para>
+        /// <para>The unique identifier of the ID mapping table that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,57 +56,67 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String CollaborationIdentifier { get; set; }
+        public System.String IdMappingTableIdentifier { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that are returned for an API request call. The service
-        /// chooses a default number if you don't set one. The service might return a `nextToken`
-        /// even if the `maxResults` value has not been met.</para>
+        /// <para>The unique identifier of the membership that contains the ID mapping table that you
+        /// want to delete.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The pagination token that's used to fetch the next set of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String MembershipIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'MemberSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.ListMembersResponse).
-        /// Specifying the name of a property of type Amazon.CleanRooms.Model.ListMembersResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.DeleteIdMappingTableResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "MemberSummaries";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the CollaborationIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IdMappingTableIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IdMappingTableIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^CollaborationIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IdMappingTableIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.IdMappingTableIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CRSIdMappingTable (DeleteIdMappingTable)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -116,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.ListMembersResponse, GetCRSMemberListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.DeleteIdMappingTableResponse, RemoveCRSIdMappingTableCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,18 +135,23 @@ namespace Amazon.PowerShell.Cmdlets.CRS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.CollaborationIdentifier;
+                context.Select = (response, cmdlet) => this.IdMappingTableIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.CollaborationIdentifier = this.CollaborationIdentifier;
+            context.IdMappingTableIdentifier = this.IdMappingTableIdentifier;
             #if MODULAR
-            if (this.CollaborationIdentifier == null && ParameterWasBound(nameof(this.CollaborationIdentifier)))
+            if (this.IdMappingTableIdentifier == null && ParameterWasBound(nameof(this.IdMappingTableIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter CollaborationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter IdMappingTableIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
+            context.MembershipIdentifier = this.MembershipIdentifier;
+            #if MODULAR
+            if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,19 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CleanRooms.Model.ListMembersRequest();
+            var request = new Amazon.CleanRooms.Model.DeleteIdMappingTableRequest();
             
-            if (cmdletContext.CollaborationIdentifier != null)
+            if (cmdletContext.IdMappingTableIdentifier != null)
             {
-                request.CollaborationIdentifier = cmdletContext.CollaborationIdentifier;
+                request.IdMappingTableIdentifier = cmdletContext.IdMappingTableIdentifier;
             }
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.MembershipIdentifier != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
+                request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
             }
             
             CmdletOutput output;
@@ -198,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         #region AWS Service Operation Call
         
-        private Amazon.CleanRooms.Model.ListMembersResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.ListMembersRequest request)
+        private Amazon.CleanRooms.Model.DeleteIdMappingTableResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.DeleteIdMappingTableRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "ListMembers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "DeleteIdMappingTable");
             try
             {
                 #if DESKTOP
-                return client.ListMembers(request);
+                return client.DeleteIdMappingTable(request);
                 #elif CORECLR
-                return client.ListMembersAsync(request).GetAwaiter().GetResult();
+                return client.DeleteIdMappingTableAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -226,11 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.CRS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CollaborationIdentifier { get; set; }
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.Func<Amazon.CleanRooms.Model.ListMembersResponse, GetCRSMemberListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.MemberSummaries;
+            public System.String IdMappingTableIdentifier { get; set; }
+            public System.String MembershipIdentifier { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.DeleteIdMappingTableResponse, RemoveCRSIdMappingTableCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -54,6 +54,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIdMappingTable" OutputProperty="IdMappingTable" Verb="New" Noun="IdMappingTable" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="New" Noun="IdNamespaceAssociation" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateMembership" OutputProperty="Membership" Verb="New" Noun="Membership" ShouldProcessTarget="CollaborationIdentifier" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -86,6 +94,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdMappingTable" Verb="Remove" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdNamespaceAssociation" Verb="Remove" Noun="IdNamespaceAssociation" ShouldProcessTarget="IdNamespaceAssociationIdentifier" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteMember" Verb="Remove" Noun="Member" ShouldProcessTarget="AccountId" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -114,6 +130,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetCollaborationIdNamespaceAssociation" OutputProperty="CollaborationIdNamespaceAssociation" Verb="Get" Noun="CollaborationIdNamespaceAssociation" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCollaborationPrivacyBudgetTemplate" OutputProperty="CollaborationPrivacyBudgetTemplate" Verb="Get" Noun="CollaborationPrivacyBudgetTemplate" PipelineParameter="PrivacyBudgetTemplateIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -131,6 +151,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Get" Noun="ConfiguredTableAssociation" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdMappingTable" OutputProperty="IdMappingTable" Verb="Get" Noun="IdMappingTable" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="Get" Noun="IdNamespaceAssociation" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -166,6 +194,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListCollaborationIdNamespaceAssociations" OutputProperty="CollaborationIdNamespaceAssociationSummaries" Verb="Get" Noun="CollaborationIdNamespaceAssociationList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCollaborationPrivacyBudgets" OutputProperty="CollaborationPrivacyBudgetSummaries" Verb="Get" Noun="CollaborationPrivacyBudgetList" PipelineParameter="CollaborationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -187,6 +219,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListConfiguredTables" OutputProperty="ConfiguredTableSummaries" Verb="Get" Noun="ConfiguredTableList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdMappingTables" OutputProperty="IdMappingTableSummaries" Verb="Get" Noun="IdMappingTableList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdNamespaceAssociations" OutputProperty="IdNamespaceAssociationSummaries" Verb="Get" Noun="IdNamespaceAssociationList" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,6 +255,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PopulateIdMappingTable" OutputProperty="IdMappingJobId" Verb="Invoke" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -255,6 +299,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Update" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdMappingTable" OutputProperty="IdMappingTable" Verb="Update" Noun="IdMappingTable" ShouldProcessTarget="IdMappingTableIdentifier" PipelineParameter="IdMappingTableIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="Update" Noun="IdNamespaceAssociation" ShouldProcessTarget="IdNamespaceAssociationIdentifier" PipelineParameter="IdNamespaceAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

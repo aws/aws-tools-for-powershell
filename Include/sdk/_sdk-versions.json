@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.300.0",
-    "ProductVersion"    : "3.7.851.0",
+    "ProductVersion"    : "3.7.852.0",
     "CoreVersion"       : "3.7.304.31",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -916,7 +916,7 @@
             "InPreview"               : false
         },
         "AppSync"                         : {
-            "Version" : "3.7.305.38",
+            "Version" : "3.7.306.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.31"
@@ -1044,7 +1044,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.323.1",
+            "Version" : "3.7.324.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.31"
@@ -1916,7 +1916,7 @@
             "InPreview"               : false
         },
         "ConnectContactLens"              : {
-            "Version" : "3.7.300.120",
+            "Version" : "3.7.301.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.31"
@@ -2652,7 +2652,7 @@
             "InPreview"               : false
         },
         "CleanRooms"                          : {
-            "Version" : "3.7.304.47",
+            "Version" : "3.7.305.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.31"
@@ -2764,7 +2764,7 @@
             "InPreview"               : false
         },
         "EntityResolution"                    : {
-            "Version" : "3.7.302.39",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.31"
@@ -2812,7 +2812,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.307.0",
+            "Version" : "3.7.308.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.31"
@@ -2940,7 +2940,7 @@
             "InPreview"               : false
         },
         "CleanRoomsML"                        : {
-            "Version" : "3.7.302.52",
+            "Version" : "3.7.303.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.304.31"

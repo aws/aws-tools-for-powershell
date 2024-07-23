@@ -61,7 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.ERES
         #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The resource-based policy.</para>
+        /// <para>The resource-based policy.</para><important><para>If you set the value of the <c>effect</c> parameter in the <c>policy</c> to <c>Deny</c>
+        /// for the <c>PutPolicy</c> operation, you must also set the value of the <c>effect</c>
+        /// parameter to <c>Deny</c> for the <c>AddPolicyStatement</c> operation.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

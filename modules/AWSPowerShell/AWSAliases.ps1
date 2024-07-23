@@ -3541,6 +3541,10 @@ Set-Alias -Name Create-CRSConfiguredTableAssociation -Value New-CRSConfiguredTab
 Set-Alias -Name CRS-CreateConfiguredTableAssociation -Value New-CRSConfiguredTableAssociation
 Set-Alias -Name Create-CRSConfiguredTable -Value New-CRSConfiguredTable
 Set-Alias -Name CRS-CreateConfiguredTable -Value New-CRSConfiguredTable
+Set-Alias -Name Create-CRSIdMappingTable -Value New-CRSIdMappingTable
+Set-Alias -Name CRS-CreateIdMappingTable -Value New-CRSIdMappingTable
+Set-Alias -Name Create-CRSIdNamespaceAssociation -Value New-CRSIdNamespaceAssociation
+Set-Alias -Name CRS-CreateIdNamespaceAssociation -Value New-CRSIdNamespaceAssociation
 Set-Alias -Name Create-CRSMembership -Value New-CRSMembership
 Set-Alias -Name CRS-CreateMembership -Value New-CRSMembership
 Set-Alias -Name Create-CRSPrivacyBudgetTemplate -Value New-CRSPrivacyBudgetTemplate
@@ -3557,6 +3561,10 @@ Set-Alias -Name Delete-CRSConfiguredTableAssociation -Value Remove-CRSConfigured
 Set-Alias -Name CRS-DeleteConfiguredTableAssociation -Value Remove-CRSConfiguredTableAssociation
 Set-Alias -Name Delete-CRSConfiguredTable -Value Remove-CRSConfiguredTable
 Set-Alias -Name CRS-DeleteConfiguredTable -Value Remove-CRSConfiguredTable
+Set-Alias -Name Delete-CRSIdMappingTable -Value Remove-CRSIdMappingTable
+Set-Alias -Name CRS-DeleteIdMappingTable -Value Remove-CRSIdMappingTable
+Set-Alias -Name Delete-CRSIdNamespaceAssociation -Value Remove-CRSIdNamespaceAssociation
+Set-Alias -Name CRS-DeleteIdNamespaceAssociation -Value Remove-CRSIdNamespaceAssociation
 Set-Alias -Name Delete-CRSMember -Value Remove-CRSMember
 Set-Alias -Name CRS-DeleteMember -Value Remove-CRSMember
 Set-Alias -Name Delete-CRSMembership -Value Remove-CRSMembership
@@ -3567,11 +3575,14 @@ Set-Alias -Name CRS-GetAnalysisTemplate -Value Get-CRSAnalysisTemplate
 Set-Alias -Name CRS-GetCollaborationAnalysisTemplate -Value Get-CRSCollaborationAnalysisTemplate
 Set-Alias -Name CRS-GetCollaboration -Value Get-CRSCollaboration
 Set-Alias -Name CRS-GetCollaborationConfiguredAudienceModelAssociation -Value Get-CRSCollaborationConfiguredAudienceModelAssociation
+Set-Alias -Name CRS-GetCollaborationIdNamespaceAssociation -Value Get-CRSCollaborationIdNamespaceAssociation
 Set-Alias -Name CRS-GetCollaborationPrivacyBudgetTemplate -Value Get-CRSCollaborationPrivacyBudgetTemplate
 Set-Alias -Name CRS-GetConfiguredAudienceModelAssociation -Value Get-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name CRS-GetConfiguredTableAnalysisRule -Value Get-CRSConfiguredTableAnalysisRule
 Set-Alias -Name CRS-GetConfiguredTableAssociation -Value Get-CRSConfiguredTableAssociation
 Set-Alias -Name CRS-GetConfiguredTable -Value Get-CRSConfiguredTable
+Set-Alias -Name CRS-GetIdMappingTable -Value Get-CRSIdMappingTable
+Set-Alias -Name CRS-GetIdNamespaceAssociation -Value Get-CRSIdNamespaceAssociation
 Set-Alias -Name CRS-GetMembership -Value Get-CRSMembership
 Set-Alias -Name CRS-GetPrivacyBudgetTemplate -Value Get-CRSPrivacyBudgetTemplate
 Set-Alias -Name CRS-GetProtectedQuery -Value Get-CRSProtectedQuery
@@ -3586,6 +3597,9 @@ Set-Alias -Name CRS-ListCollaborationAnalysisTemplates -Value Get-CRSCollaborati
 Set-Alias -Name List-CRSCollaborationConfiguredAudienceModelAssociations -Value Get-CRSCollaborationConfiguredAudienceModelAssociationList
 Set-Alias -Name List-CRSCollaborationConfiguredAudienceModelAssociationList -Value Get-CRSCollaborationConfiguredAudienceModelAssociationList
 Set-Alias -Name CRS-ListCollaborationConfiguredAudienceModelAssociations -Value Get-CRSCollaborationConfiguredAudienceModelAssociationList
+Set-Alias -Name List-CRSCollaborationIdNamespaceAssociations -Value Get-CRSCollaborationIdNamespaceAssociationList
+Set-Alias -Name List-CRSCollaborationIdNamespaceAssociationList -Value Get-CRSCollaborationIdNamespaceAssociationList
+Set-Alias -Name CRS-ListCollaborationIdNamespaceAssociations -Value Get-CRSCollaborationIdNamespaceAssociationList
 Set-Alias -Name List-CRSCollaborationPrivacyBudgets -Value Get-CRSCollaborationPrivacyBudgetList
 Set-Alias -Name List-CRSCollaborationPrivacyBudgetList -Value Get-CRSCollaborationPrivacyBudgetList
 Set-Alias -Name CRS-ListCollaborationPrivacyBudgets -Value Get-CRSCollaborationPrivacyBudgetList
@@ -3604,6 +3618,12 @@ Set-Alias -Name CRS-ListConfiguredTableAssociations -Value Get-CRSConfiguredTabl
 Set-Alias -Name List-CRSConfiguredTables -Value Get-CRSConfiguredTableList
 Set-Alias -Name List-CRSConfiguredTableList -Value Get-CRSConfiguredTableList
 Set-Alias -Name CRS-ListConfiguredTables -Value Get-CRSConfiguredTableList
+Set-Alias -Name List-CRSIdMappingTables -Value Get-CRSIdMappingTableList
+Set-Alias -Name List-CRSIdMappingTableList -Value Get-CRSIdMappingTableList
+Set-Alias -Name CRS-ListIdMappingTables -Value Get-CRSIdMappingTableList
+Set-Alias -Name List-CRSIdNamespaceAssociations -Value Get-CRSIdNamespaceAssociationList
+Set-Alias -Name List-CRSIdNamespaceAssociationList -Value Get-CRSIdNamespaceAssociationList
+Set-Alias -Name CRS-ListIdNamespaceAssociations -Value Get-CRSIdNamespaceAssociationList
 Set-Alias -Name List-CRSMembers -Value Get-CRSMemberList
 Set-Alias -Name List-CRSMemberList -Value Get-CRSMemberList
 Set-Alias -Name CRS-ListMembers -Value Get-CRSMemberList
@@ -3623,6 +3643,8 @@ Set-Alias -Name List-CRSSchemas -Value Get-CRSSchemaList
 Set-Alias -Name List-CRSSchemaList -Value Get-CRSSchemaList
 Set-Alias -Name CRS-ListSchemas -Value Get-CRSSchemaList
 Set-Alias -Name CRS-ListTagsForResource -Value Get-CRSResourceTag
+Set-Alias -Name Populate-CRSIdMappingTable -Value Invoke-CRSIdMappingTable
+Set-Alias -Name CRS-PopulateIdMappingTable -Value Invoke-CRSIdMappingTable
 Set-Alias -Name Preview-CRSPrivacyImpact -Value Test-CRSPrivacyImpact
 Set-Alias -Name CRS-PreviewPrivacyImpact -Value Test-CRSPrivacyImpact
 Set-Alias -Name CRS-StartProtectedQuery -Value Start-CRSProtectedQuery
@@ -3634,6 +3656,8 @@ Set-Alias -Name CRS-UpdateConfiguredAudienceModelAssociation -Value Update-CRSCo
 Set-Alias -Name CRS-UpdateConfiguredTableAnalysisRule -Value Update-CRSConfiguredTableAnalysisRule
 Set-Alias -Name CRS-UpdateConfiguredTableAssociation -Value Update-CRSConfiguredTableAssociation
 Set-Alias -Name CRS-UpdateConfiguredTable -Value Update-CRSConfiguredTable
+Set-Alias -Name CRS-UpdateIdMappingTable -Value Update-CRSIdMappingTable
+Set-Alias -Name CRS-UpdateIdNamespaceAssociation -Value Update-CRSIdNamespaceAssociation
 Set-Alias -Name CRS-UpdateMembership -Value Update-CRSMembership
 Set-Alias -Name CRS-UpdatePrivacyBudgetTemplate -Value Update-CRSPrivacyBudgetTemplate
 Set-Alias -Name CRS-UpdateProtectedQuery -Value Update-CRSProtectedQuery
