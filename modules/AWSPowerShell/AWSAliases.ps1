@@ -3537,6 +3537,8 @@ Set-Alias -Name Create-CRSConfiguredAudienceModelAssociation -Value New-CRSConfi
 Set-Alias -Name CRS-CreateConfiguredAudienceModelAssociation -Value New-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name Create-CRSConfiguredTableAnalysisRule -Value New-CRSConfiguredTableAnalysisRule
 Set-Alias -Name CRS-CreateConfiguredTableAnalysisRule -Value New-CRSConfiguredTableAnalysisRule
+Set-Alias -Name Create-CRSConfiguredTableAssociationAnalysisRule -Value New-CRSConfiguredTableAssociationAnalysisRule
+Set-Alias -Name CRS-CreateConfiguredTableAssociationAnalysisRule -Value New-CRSConfiguredTableAssociationAnalysisRule
 Set-Alias -Name Create-CRSConfiguredTableAssociation -Value New-CRSConfiguredTableAssociation
 Set-Alias -Name CRS-CreateConfiguredTableAssociation -Value New-CRSConfiguredTableAssociation
 Set-Alias -Name Create-CRSConfiguredTable -Value New-CRSConfiguredTable
@@ -3557,6 +3559,8 @@ Set-Alias -Name Delete-CRSConfiguredAudienceModelAssociation -Value Remove-CRSCo
 Set-Alias -Name CRS-DeleteConfiguredAudienceModelAssociation -Value Remove-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name Delete-CRSConfiguredTableAnalysisRule -Value Remove-CRSConfiguredTableAnalysisRule
 Set-Alias -Name CRS-DeleteConfiguredTableAnalysisRule -Value Remove-CRSConfiguredTableAnalysisRule
+Set-Alias -Name Delete-CRSConfiguredTableAssociationAnalysisRule -Value Remove-CRSConfiguredTableAssociationAnalysisRule
+Set-Alias -Name CRS-DeleteConfiguredTableAssociationAnalysisRule -Value Remove-CRSConfiguredTableAssociationAnalysisRule
 Set-Alias -Name Delete-CRSConfiguredTableAssociation -Value Remove-CRSConfiguredTableAssociation
 Set-Alias -Name CRS-DeleteConfiguredTableAssociation -Value Remove-CRSConfiguredTableAssociation
 Set-Alias -Name Delete-CRSConfiguredTable -Value Remove-CRSConfiguredTable
@@ -3579,6 +3583,7 @@ Set-Alias -Name CRS-GetCollaborationIdNamespaceAssociation -Value Get-CRSCollabo
 Set-Alias -Name CRS-GetCollaborationPrivacyBudgetTemplate -Value Get-CRSCollaborationPrivacyBudgetTemplate
 Set-Alias -Name CRS-GetConfiguredAudienceModelAssociation -Value Get-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name CRS-GetConfiguredTableAnalysisRule -Value Get-CRSConfiguredTableAnalysisRule
+Set-Alias -Name CRS-GetConfiguredTableAssociationAnalysisRule -Value Get-CRSConfiguredTableAssociationAnalysisRule
 Set-Alias -Name CRS-GetConfiguredTableAssociation -Value Get-CRSConfiguredTableAssociation
 Set-Alias -Name CRS-GetConfiguredTable -Value Get-CRSConfiguredTable
 Set-Alias -Name CRS-GetIdMappingTable -Value Get-CRSIdMappingTable
@@ -3654,6 +3659,7 @@ Set-Alias -Name CRS-UpdateAnalysisTemplate -Value Update-CRSAnalysisTemplate
 Set-Alias -Name CRS-UpdateCollaboration -Value Update-CRSCollaboration
 Set-Alias -Name CRS-UpdateConfiguredAudienceModelAssociation -Value Update-CRSConfiguredAudienceModelAssociation
 Set-Alias -Name CRS-UpdateConfiguredTableAnalysisRule -Value Update-CRSConfiguredTableAnalysisRule
+Set-Alias -Name CRS-UpdateConfiguredTableAssociationAnalysisRule -Value Update-CRSConfiguredTableAssociationAnalysisRule
 Set-Alias -Name CRS-UpdateConfiguredTableAssociation -Value Update-CRSConfiguredTableAssociation
 Set-Alias -Name CRS-UpdateConfiguredTable -Value Update-CRSConfiguredTable
 Set-Alias -Name CRS-UpdateIdMappingTable -Value Update-CRSIdMappingTable

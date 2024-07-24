@@ -54,11 +54,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdMappingTable" OutputProperty="IdMappingTable" Verb="New" Noun="IdMappingTable" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="New" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="New" Noun="IdNamespaceAssociation" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="CreateIdMappingTable" OutputProperty="IdMappingTable" Verb="New" Noun="IdMappingTable" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIdNamespaceAssociation" OutputProperty="IdNamespaceAssociation" Verb="New" Noun="IdNamespaceAssociation" ShouldProcessTarget="MembershipIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -91,6 +95,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteConfiguredTableAssociation" Verb="Remove" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfiguredTableAssociationAnalysisRule" Verb="Remove" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -151,6 +159,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Get" Noun="ConfiguredTableAssociation" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="Get" Noun="ConfiguredTableAssociationAnalysisRule" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -299,6 +311,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguredTableAssociation" OutputProperty="ConfiguredTableAssociation" Verb="Update" Noun="ConfiguredTableAssociation" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="MembershipIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfiguredTableAssociationAnalysisRule" OutputProperty="AnalysisRule" Verb="Update" Noun="ConfiguredTableAssociationAnalysisRule" ShouldProcessTarget="ConfiguredTableAssociationIdentifier" PipelineParameter="ConfiguredTableAssociationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

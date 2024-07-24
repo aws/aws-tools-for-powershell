@@ -29,14 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Updates an existing event destination in a configuration set. You can update the IAM
-    /// role ARN for CloudWatch Logs and Kinesis Data Firehose. You can also enable or disable
-    /// the event destination.
+    /// role ARN for CloudWatch Logs and Firehose. You can also enable or disable the event
+    /// destination.
     /// 
     ///  
     /// <para>
     /// You may want to update an event destination to change its matching event types or
     /// updating the destination resource ARN. You can't change an event destination's type
-    /// between CloudWatch Logs, Kinesis Data Firehose, and Amazon SNS.
+    /// between CloudWatch Logs, Firehose, and Amazon SNS.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SMSVEventDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The ARN of an Identity and Access Management role that is able to write event data
-        /// to an Amazon Kinesis Data Firehose destination.</para>
+        /// to an Amazon Data Firehose destination.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

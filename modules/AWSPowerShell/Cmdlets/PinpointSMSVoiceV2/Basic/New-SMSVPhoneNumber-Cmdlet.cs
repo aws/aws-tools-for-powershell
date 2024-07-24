@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
     /// Request an origination phone number for use in your account. For more information
-    /// on phone number request see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-request-number.html">
-    /// Requesting a number </a> in the <i>Amazon Pinpoint User Guide</i>.
+    /// on phone number request see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-request.html">Request
+    /// a phone number</a> in the <i>AWS End User Messaging SMS User Guide</i>.
     /// </summary>
     [Cmdlet("New", "SMSVPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.RequestPhoneNumberResponse")]

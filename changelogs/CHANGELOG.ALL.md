@@ -1,4 +1,22 @@
-﻿### 4.1.621 (2024-07-23 20:54Z)
+﻿### 4.1.622 (2024-07-24 20:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.853.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Clean Rooms Service
+    * Added cmdlet Get-CRSConfiguredTableAssociationAnalysisRule leveraging the GetConfiguredTableAssociationAnalysisRule service API.
+    * Added cmdlet New-CRSConfiguredTableAssociationAnalysisRule leveraging the CreateConfiguredTableAssociationAnalysisRule service API.
+    * Added cmdlet Remove-CRSConfiguredTableAssociationAnalysisRule leveraging the DeleteConfiguredTableAssociationAnalysisRule service API.
+    * Added cmdlet Update-CRSConfiguredTableAssociationAnalysisRule leveraging the UpdateConfiguredTableAssociationAnalysisRule service API.
+    * Modified cmdlet New-CRSConfiguredTableAnalysisRule: added parameters Aggregation_AdditionalAnalysis, Custom_AdditionalAnalysis, Custom_DisallowedOutputColumn and List_AdditionalAnalysis.
+    * Modified cmdlet New-CRSIdMappingTable: added parameter PassThru.
+    * Modified cmdlet New-CRSIdNamespaceAssociation: added parameter PassThru.
+    * Modified cmdlet Start-CRSProtectedQuery: added parameter Member_AccountId.
+    * Modified cmdlet Update-CRSConfiguredTableAnalysisRule: added parameters Aggregation_AdditionalAnalysis, Custom_AdditionalAnalysis, Custom_DisallowedOutputColumn and List_AdditionalAnalysis.
+  * Amazon IoT SiteWise
+    * Modified cmdlet New-IOTSWGateway: added parameter SiemensIE_IotCoreThingName.
+  * Amazon Medical Imaging Service
+    * Modified cmdlet Copy-MISImageSet: added parameters DICOMCopies_CopiableAttribute and ForceCopy.
+    * Modified cmdlet Update-MISImageSetMetadata: added parameters ForceUpdate and UpdateImageSetMetadataUpdates_RevertToVersionId.
+
+### 4.1.621 (2024-07-23 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.852.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Added cmdlet Get-CRSCollaborationIdNamespaceAssociation leveraging the GetCollaborationIdNamespaceAssociation service API.

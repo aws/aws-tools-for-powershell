@@ -28,9 +28,8 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Allows you to send a request that sends a voice message through Amazon Pinpoint. This
-    /// operation uses <a href="http://aws.amazon.com/polly/">Amazon Polly</a> to convert
-    /// a text script into a voice message.
+    /// Allows you to send a request that sends a voice message. This operation uses <a href="http://aws.amazon.com/polly/">Amazon
+    /// Polly</a> to convert a text script into a voice message.
     /// </summary>
     [Cmdlet("Send", "SMSVVoiceMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.PinpointSMSVoiceV2.Model.SendVoiceMessageResponse")]

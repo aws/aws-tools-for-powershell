@@ -28,16 +28,15 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Describes the current Amazon Pinpoint monthly spend limits for sending voice and text
-    /// messages.
+    /// Describes the current monthly spend limits for sending voice and text messages.
     /// 
     ///  
     /// <para>
     /// When you establish an Amazon Web Services account, the account has initial monthly
     /// spend limit in a given Region. For more information on increasing your monthly spend
-    /// limit, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-spend-threshold.html">
-    /// Requesting increases to your monthly SMS spending quota for Amazon Pinpoint </a> in
-    /// the <i>Amazon Pinpoint User Guide</i>.
+    /// limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html">
+    /// Requesting increases to your monthly SMS, MMS, or Voice spending quota </a> in the
+    /// <i>AWS End User Messaging SMS User Guide</i>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVSpendLimit")]

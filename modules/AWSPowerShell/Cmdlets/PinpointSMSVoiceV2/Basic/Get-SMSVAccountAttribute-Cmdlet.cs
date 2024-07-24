@@ -35,9 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
     /// 
     ///  
     /// <para>
-    /// New Amazon Pinpoint accounts are placed into an SMS or voice sandbox. The sandbox
-    /// protects both Amazon Web Services end recipients and SMS or voice recipients from
-    /// fraud and abuse. 
+    /// New accounts are placed into an SMS or voice sandbox. The sandbox protects both Amazon
+    /// Web Services end recipients and SMS or voice recipients from fraud and abuse. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SMSVAccountAttribute")]

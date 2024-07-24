@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter GatewayName
         /// <summary>
         /// <para>
-        /// <para>A unique, friendly name for the gateway.</para>
+        /// <para>A unique name for the gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

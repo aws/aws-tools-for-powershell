@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         public System.String DatastoreId { get; set; }
         #endregion
         
+        #region Parameter ForceUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Setting this flag will force the <c>UpdateImageSetMetadata</c> operation for the following
+        /// attributes:</para><ul><li><para><c>Tag.StudyInstanceUID</c>, <c>Tag.SeriesInstanceUID</c>, <c>Tag.SOPInstanceUID</c>,
+        /// and <c>Tag.StudyID</c></para></li><li><para>Adding, removing, or updating private tags for an individual SOP Instance</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceUpdate { get; set; }
+        #endregion
+        
         #region Parameter ImageSetId
         /// <summary>
         /// <para>
@@ -105,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         [Alias("UpdateImageSetMetadataUpdates_DICOMUpdates_RemovableAttributes")]
         [Amazon.PowerShell.Common.MemoryStreamParameterConverter]
         public byte[] DICOMUpdates_RemovableAttribute { get; set; }
+        #endregion
+        
+        #region Parameter UpdateImageSetMetadataUpdates_RevertToVersionId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the previous image set version ID to revert the current image set back to.</para><note><para>You must provide either <c>revertToVersionId</c> or <c>DICOMUpdates</c> in your request.
+        /// A <c>ValidationException</c> error is thrown if both parameters are provided at the
+        /// same time.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UpdateImageSetMetadataUpdates_RevertToVersionId { get; set; }
         #endregion
         
         #region Parameter DICOMUpdates_UpdatableAttribute
@@ -189,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 WriteWarning("You are passing $null as a value for parameter DatastoreId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceUpdate = this.ForceUpdate;
             context.ImageSetId = this.ImageSetId;
             #if MODULAR
             if (this.ImageSetId == null && ParameterWasBound(nameof(this.ImageSetId)))
@@ -205,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.MIS
             #endif
             context.DICOMUpdates_RemovableAttribute = this.DICOMUpdates_RemovableAttribute;
             context.DICOMUpdates_UpdatableAttribute = this.DICOMUpdates_UpdatableAttribute;
+            context.UpdateImageSetMetadataUpdates_RevertToVersionId = this.UpdateImageSetMetadataUpdates_RevertToVersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -230,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                 {
                     request.DatastoreId = cmdletContext.DatastoreId;
                 }
+                if (cmdletContext.ForceUpdate != null)
+                {
+                    request.Force = cmdletContext.ForceUpdate.Value;
+                }
                 if (cmdletContext.ImageSetId != null)
                 {
                     request.ImageSetId = cmdletContext.ImageSetId;
@@ -242,6 +272,16 @@ namespace Amazon.PowerShell.Cmdlets.MIS
                  // populate UpdateImageSetMetadataUpdates
                 var requestUpdateImageSetMetadataUpdatesIsNull = true;
                 request.UpdateImageSetMetadataUpdates = new Amazon.MedicalImaging.Model.MetadataUpdates();
+                System.String requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_RevertToVersionId = null;
+                if (cmdletContext.UpdateImageSetMetadataUpdates_RevertToVersionId != null)
+                {
+                    requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_RevertToVersionId = cmdletContext.UpdateImageSetMetadataUpdates_RevertToVersionId;
+                }
+                if (requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_RevertToVersionId != null)
+                {
+                    request.UpdateImageSetMetadataUpdates.RevertToVersionId = requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_RevertToVersionId;
+                    requestUpdateImageSetMetadataUpdatesIsNull = false;
+                }
                 Amazon.MedicalImaging.Model.DICOMUpdates requestUpdateImageSetMetadataUpdates_updateImageSetMetadataUpdates_DICOMUpdates = null;
                 
                  // populate DICOMUpdates
@@ -358,10 +398,12 @@ namespace Amazon.PowerShell.Cmdlets.MIS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DatastoreId { get; set; }
+            public System.Boolean? ForceUpdate { get; set; }
             public System.String ImageSetId { get; set; }
             public System.String LatestVersionId { get; set; }
             public byte[] DICOMUpdates_RemovableAttribute { get; set; }
             public byte[] DICOMUpdates_UpdatableAttribute { get; set; }
+            public System.String UpdateImageSetMetadataUpdates_RevertToVersionId { get; set; }
             public System.Func<Amazon.MedicalImaging.Model.UpdateImageSetMetadataResponse, UpdateMISImageSetMetadataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

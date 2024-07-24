@@ -63,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// model parts of your industrial equipment. Each composite model has a type that defines
         /// the properties that the composite model supports. Use composite models to define alarms
         /// on this asset model.</para><note><para>When creating custom composite models, you need to use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_CreateAssetModelCompositeModel.html">CreateAssetModelCompositeModel</a>.
-        /// For more information, see &lt;LINK&gt;.</para></note>
+        /// For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-custom-composite-models.html">Creating
+        /// custom composite models (Components)</a> in the <i>IoT SiteWise User Guide</i>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelName
         /// <summary>
         /// <para>
-        /// <para>A unique, friendly name for the asset model.</para>
+        /// <para>A unique name for the asset model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

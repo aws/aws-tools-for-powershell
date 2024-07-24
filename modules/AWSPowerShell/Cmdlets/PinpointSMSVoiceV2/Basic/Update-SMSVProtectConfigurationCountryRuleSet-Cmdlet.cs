@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <para>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details
         /// for the requested NumberCapability. The Key is the two-letter ISO country code. For
         /// a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported
-        /// countries and regions (SMS channel)</a> in the Amazon Pinpoint SMS user guide.</para>
+        /// countries and regions (SMS channel)</a> in the AWS End User Messaging SMS User Guide.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

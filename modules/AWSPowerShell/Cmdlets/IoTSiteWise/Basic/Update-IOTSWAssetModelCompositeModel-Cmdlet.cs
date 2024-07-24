@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelCompositeModelName
         /// <summary>
         /// <para>
-        /// <para>A unique, friendly name for the composite model.</para>
+        /// <para>A unique name for the composite model.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -118,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelCompositeModelProperty
         /// <summary>
         /// <para>
-        /// <para>The property definitions of the composite model. For more information, see &lt;LINK&gt;.</para><para>You can specify up to 200 properties per composite model. For more information, see
+        /// <para>The property definitions of the composite model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html#inline-composite-models">
+        /// Inline custom composite models</a> in the <i>IoT SiteWise User Guide</i>.</para><para>You can specify up to 200 properties per composite model. For more information, see
         /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a>
         /// in the <i>IoT SiteWise User Guide</i>.</para>
         /// </para>

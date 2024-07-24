@@ -22,32 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.PinpointSMSVoiceV2;
-using Amazon.PinpointSMSVoiceV2.Model;
+using Amazon.CleanRooms;
+using Amazon.CleanRooms.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SMSV
+namespace Amazon.PowerShell.Cmdlets.CRS
 {
     /// <summary>
-    /// Removes the association of the specified tags from a resource. For more information
-    /// on tags see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-tags.html">Tags
-    /// </a> in the <i>AWS End User Messaging SMS User Guide</i>.
+    /// Deletes an analysis rule for a configured table association.
     /// </summary>
-    [Cmdlet("Remove", "SMSVResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "CRSConfiguredTableAssociationAnalysisRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse",
+    [AWSCmdlet("Calls the AWS Clean Rooms Service DeleteConfiguredTableAssociationAnalysisRule API operation.", Operation = new[] {"DeleteConfiguredTableAssociationAnalysisRule"}, SelectReturnType = typeof(Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleResponse))]
+    [AWSCmdletOutput("None or Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSMSVResourceTagCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
+    public partial class RemoveCRSConfiguredTableAssociationAnalysisRuleCmdlet : AmazonCleanRoomsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter AnalysisRuleType
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// <para>The type of the analysis rule that you want to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.CleanRooms.ConfiguredTableAssociationAnalysisRuleType")]
+        public Amazon.CleanRooms.ConfiguredTableAssociationAnalysisRuleType AnalysisRuleType { get; set; }
+        #endregion
+        
+        #region Parameter ConfiguredTableAssociationIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identiﬁer for the conﬁgured table association that's related to the analysis rule
+        /// that you want to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -58,31 +74,31 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String ConfiguredTableAssociationIdentifier { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter MembershipIdentifier
         /// <summary>
         /// <para>
-        /// <para>An array of tag key values to unassociate with the resource.</para>
+        /// <para> A unique identifier for the membership that the configured table association belongs
+        /// to. Currently accepts the membership ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        public System.String MembershipIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ConfiguredTableAssociationIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ConfiguredTableAssociationIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ConfiguredTableAssociationIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMSVResourceTag (UntagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ConfiguredTableAssociationIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CRSConfiguredTableAssociationAnalysisRule (DeleteConfiguredTableAssociationAnalysisRule)"))
             {
                 return;
             }
@@ -128,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse, RemoveSMSVResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleResponse, RemoveCRSConfiguredTableAssociationAnalysisRuleCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -137,24 +153,28 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.ConfiguredTableAssociationIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.AnalysisRuleType = this.AnalysisRuleType;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.AnalysisRuleType == null && ParameterWasBound(nameof(this.AnalysisRuleType)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AnalysisRuleType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.ConfiguredTableAssociationIdentifier = this.ConfiguredTableAssociationIdentifier;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.ConfiguredTableAssociationIdentifier == null && ParameterWasBound(nameof(this.ConfiguredTableAssociationIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ConfiguredTableAssociationIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.MembershipIdentifier = this.MembershipIdentifier;
+            #if MODULAR
+            if (this.MembershipIdentifier == null && ParameterWasBound(nameof(this.MembershipIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter MembershipIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -171,15 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PinpointSMSVoiceV2.Model.UntagResourceRequest();
+            var request = new Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.AnalysisRuleType != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.AnalysisRuleType = cmdletContext.AnalysisRuleType;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.ConfiguredTableAssociationIdentifier != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.ConfiguredTableAssociationIdentifier = cmdletContext.ConfiguredTableAssociationIdentifier;
+            }
+            if (cmdletContext.MembershipIdentifier != null)
+            {
+                request.MembershipIdentifier = cmdletContext.MembershipIdentifier;
             }
             
             CmdletOutput output;
@@ -214,15 +238,15 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region AWS Service Operation Call
         
-        private Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.UntagResourceRequest request)
+        private Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleResponse CallAWSServiceOperation(IAmazonCleanRooms client, Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Clean Rooms Service", "DeleteConfiguredTableAssociationAnalysisRule");
             try
             {
                 #if DESKTOP
-                return client.UntagResource(request);
+                return client.DeleteConfiguredTableAssociationAnalysisRule(request);
                 #elif CORECLR
-                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
+                return client.DeleteConfiguredTableAssociationAnalysisRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,9 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.PinpointSMSVoiceV2.Model.UntagResourceResponse, RemoveSMSVResourceTagCmdlet, object> Select { get; set; } =
+            public Amazon.CleanRooms.ConfiguredTableAssociationAnalysisRuleType AnalysisRuleType { get; set; }
+            public System.String ConfiguredTableAssociationIdentifier { get; set; }
+            public System.String MembershipIdentifier { get; set; }
+            public System.Func<Amazon.CleanRooms.Model.DeleteConfiguredTableAssociationAnalysisRuleResponse, RemoveCRSConfiguredTableAssociationAnalysisRuleCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

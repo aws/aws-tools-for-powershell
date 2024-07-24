@@ -19,7 +19,9 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="CopyImageSet" OutputProperty="*" Verb="Copy" Noun="ImageSet" ShouldProcessTarget="DatastoreId" PipelineParameter="DatastoreId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="ForceCopy" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDatastore" OutputProperty="*" Verb="New" Noun="Datastore" ShouldProcessTarget="DatastoreName" PipelineParameter="DatastoreName" NoPipelineParameter="false">
@@ -87,7 +89,9 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateImageSetMetadata" OutputProperty="*" Verb="Update" Noun="ImageSetMetadata" ShouldProcessTarget="ImageSetId" PipelineParameter="ImageSetId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Force" NewName="ForceUpdate" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
     </ServiceOperations>

@@ -80,6 +80,20 @@ $CRS_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CleanRooms.AdditionalAnalyses
+        {
+            ($_ -eq "New-CRSConfiguredTableAnalysisRule/Aggregation_AdditionalAnalysis") -Or
+            ($_ -eq "Update-CRSConfiguredTableAnalysisRule/Aggregation_AdditionalAnalysis") -Or
+            ($_ -eq "New-CRSConfiguredTableAnalysisRule/Custom_AdditionalAnalysis") -Or
+            ($_ -eq "Update-CRSConfiguredTableAnalysisRule/Custom_AdditionalAnalysis") -Or
+            ($_ -eq "New-CRSConfiguredTableAnalysisRule/List_AdditionalAnalysis") -Or
+            ($_ -eq "Update-CRSConfiguredTableAnalysisRule/List_AdditionalAnalysis")
+        }
+        {
+            $v = "ALLOWED","NOT_ALLOWED","REQUIRED"
+            break
+        }
+
         # Amazon.CleanRooms.AnalysisFormat
         "New-CRSAnalysisTemplate/Format"
         {
@@ -114,6 +128,18 @@ $CRS_Completers = {
             ($_ -eq "New-CRSConfiguredTableAnalysisRule/AnalysisRuleType") -Or
             ($_ -eq "Remove-CRSConfiguredTableAnalysisRule/AnalysisRuleType") -Or
             ($_ -eq "Update-CRSConfiguredTableAnalysisRule/AnalysisRuleType")
+        }
+        {
+            $v = "AGGREGATION","CUSTOM","LIST"
+            break
+        }
+
+        # Amazon.CleanRooms.ConfiguredTableAssociationAnalysisRuleType
+        {
+            ($_ -eq "Get-CRSConfiguredTableAssociationAnalysisRule/AnalysisRuleType") -Or
+            ($_ -eq "New-CRSConfiguredTableAssociationAnalysisRule/AnalysisRuleType") -Or
+            ($_ -eq "Remove-CRSConfiguredTableAssociationAnalysisRule/AnalysisRuleType") -Or
+            ($_ -eq "Update-CRSConfiguredTableAssociationAnalysisRule/AnalysisRuleType")
         }
         {
             $v = "AGGREGATION","CUSTOM","LIST"
@@ -221,11 +247,14 @@ $CRS_Completers = {
 }
 
 $CRS_map = @{
+    "Aggregation_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Aggregation_JoinRequired"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "AnalysisMethod"=@("New-CRSConfiguredTable")
-    "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
+    "AnalysisRuleType"=@("Get-CRSConfiguredTableAnalysisRule","Get-CRSConfiguredTableAssociationAnalysisRule","New-CRSConfiguredTableAnalysisRule","New-CRSConfiguredTableAssociationAnalysisRule","Remove-CRSConfiguredTableAnalysisRule","Remove-CRSConfiguredTableAssociationAnalysisRule","Update-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAssociationAnalysisRule")
     "AutoRefresh"=@("New-CRSPrivacyBudgetTemplate")
+    "Custom_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "Format"=@("New-CRSAnalysisTemplate")
+    "List_AdditionalAnalysis"=@("New-CRSConfiguredTableAnalysisRule","Update-CRSConfiguredTableAnalysisRule")
     "MemberStatus"=@("Get-CRSCollaborationList")
     "PrivacyBudgetType"=@("Get-CRSCollaborationPrivacyBudgetList","Get-CRSPrivacyBudgetList","New-CRSPrivacyBudgetTemplate","Update-CRSPrivacyBudgetTemplate")
     "QueryLogStatus"=@("New-CRSCollaboration","New-CRSMembership","Update-CRSMembership")
@@ -295,6 +324,7 @@ $CRS_SelectMap = @{
                "New-CRSConfiguredTable",
                "New-CRSConfiguredTableAnalysisRule",
                "New-CRSConfiguredTableAssociation",
+               "New-CRSConfiguredTableAssociationAnalysisRule",
                "New-CRSIdMappingTable",
                "New-CRSIdNamespaceAssociation",
                "New-CRSMembership",
@@ -305,6 +335,7 @@ $CRS_SelectMap = @{
                "Remove-CRSConfiguredTable",
                "Remove-CRSConfiguredTableAnalysisRule",
                "Remove-CRSConfiguredTableAssociation",
+               "Remove-CRSConfiguredTableAssociationAnalysisRule",
                "Remove-CRSIdMappingTable",
                "Remove-CRSIdNamespaceAssociation",
                "Remove-CRSMember",
@@ -320,6 +351,7 @@ $CRS_SelectMap = @{
                "Get-CRSConfiguredTable",
                "Get-CRSConfiguredTableAnalysisRule",
                "Get-CRSConfiguredTableAssociation",
+               "Get-CRSConfiguredTableAssociationAnalysisRule",
                "Get-CRSIdMappingTable",
                "Get-CRSIdNamespaceAssociation",
                "Get-CRSMembership",
@@ -357,6 +389,7 @@ $CRS_SelectMap = @{
                "Update-CRSConfiguredTable",
                "Update-CRSConfiguredTableAnalysisRule",
                "Update-CRSConfiguredTableAssociation",
+               "Update-CRSConfiguredTableAssociationAnalysisRule",
                "Update-CRSIdMappingTable",
                "Update-CRSIdNamespaceAssociation",
                "Update-CRSMembership",

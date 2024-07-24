@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter GatewayName
         /// <summary>
         /// <para>
-        /// <para>A unique, friendly name for the gateway.</para>
+        /// <para>A unique name for the gateway.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -76,14 +76,25 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         /// <para>
         /// <para>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a>
         /// of the Greengrass group. For more information about how to find a group's ARN, see
-        /// <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/listgroups-get.html">ListGroups</a>
-        /// and <a href="https://docs.aws.amazon.com/greengrass/latest/apireference/getgroup-get.html">GetGroup</a>
-        /// in the <i>IoT Greengrass API Reference</i>.</para>
+        /// <a href="https://docs.aws.amazon.com/greengrass/v1/apireference/listgroups-get.html">ListGroups</a>
+        /// and <a href="https://docs.aws.amazon.com/greengrass/v1/apireference/getgroup-get.html">GetGroup</a>
+        /// in the <i>IoT Greengrass V1 API Reference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("GatewayPlatform_Greengrass_GroupArn")]
         public System.String Greengrass_GroupArn { get; set; }
+        #endregion
+        
+        #region Parameter SiemensIE_IotCoreThingName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the IoT Thing for your SiteWise Edge gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("GatewayPlatform_SiemensIE_IotCoreThingName")]
+        public System.String SiemensIE_IotCoreThingName { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -150,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             #endif
             context.Greengrass_GroupArn = this.Greengrass_GroupArn;
             context.GreengrassV2_CoreDeviceThingName = this.GreengrassV2_CoreDeviceThingName;
+            context.SiemensIE_IotCoreThingName = this.SiemensIE_IotCoreThingName;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -232,6 +244,31 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 request.GatewayPlatform.GreengrassV2 = requestGatewayPlatform_gatewayPlatform_GreengrassV2;
                 requestGatewayPlatformIsNull = false;
             }
+            Amazon.IoTSiteWise.Model.SiemensIE requestGatewayPlatform_gatewayPlatform_SiemensIE = null;
+            
+             // populate SiemensIE
+            var requestGatewayPlatform_gatewayPlatform_SiemensIEIsNull = true;
+            requestGatewayPlatform_gatewayPlatform_SiemensIE = new Amazon.IoTSiteWise.Model.SiemensIE();
+            System.String requestGatewayPlatform_gatewayPlatform_SiemensIE_siemensIE_IotCoreThingName = null;
+            if (cmdletContext.SiemensIE_IotCoreThingName != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_SiemensIE_siemensIE_IotCoreThingName = cmdletContext.SiemensIE_IotCoreThingName;
+            }
+            if (requestGatewayPlatform_gatewayPlatform_SiemensIE_siemensIE_IotCoreThingName != null)
+            {
+                requestGatewayPlatform_gatewayPlatform_SiemensIE.IotCoreThingName = requestGatewayPlatform_gatewayPlatform_SiemensIE_siemensIE_IotCoreThingName;
+                requestGatewayPlatform_gatewayPlatform_SiemensIEIsNull = false;
+            }
+             // determine if requestGatewayPlatform_gatewayPlatform_SiemensIE should be set to null
+            if (requestGatewayPlatform_gatewayPlatform_SiemensIEIsNull)
+            {
+                requestGatewayPlatform_gatewayPlatform_SiemensIE = null;
+            }
+            if (requestGatewayPlatform_gatewayPlatform_SiemensIE != null)
+            {
+                request.GatewayPlatform.SiemensIE = requestGatewayPlatform_gatewayPlatform_SiemensIE;
+                requestGatewayPlatformIsNull = false;
+            }
              // determine if request.GatewayPlatform should be set to null
             if (requestGatewayPlatformIsNull)
             {
@@ -305,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String GatewayName { get; set; }
             public System.String Greengrass_GroupArn { get; set; }
             public System.String GreengrassV2_CoreDeviceThingName { get; set; }
+            public System.String SiemensIE_IotCoreThingName { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.CreateGatewayResponse, NewIOTSWGatewayCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
