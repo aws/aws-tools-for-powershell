@@ -55,6 +55,31 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EncryptionConfiguration_KmsDataKeyReusePeriodSecond
+        /// <summary>
+        /// <para>
+        /// <para>Maximum duration that Step Functions will reuse data keys. When the period expires,
+        /// Step Functions will call <c>GenerateDataKey</c>. Only applies to customer managed
+        /// keys.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("EncryptionConfiguration_KmsDataKeyReusePeriodSeconds")]
+        public System.Int32? EncryptionConfiguration_KmsDataKeyReusePeriodSecond { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>An alias, alias ARN, key ID, or key ARN of a symmetric encryption KMS key to encrypt
+        /// data. To specify a KMS key in a different Amazon Web Services account, you must use
+        /// the key ARN or alias ARN.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -89,6 +114,17 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Tags")]
         public Amazon.StepFunctions.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter EncryptionConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>Encryption type</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StepFunctions.EncryptionType")]
+        public Amazon.StepFunctions.EncryptionType EncryptionConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter Select
@@ -153,6 +189,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EncryptionConfiguration_KmsDataKeyReusePeriodSecond = this.EncryptionConfiguration_KmsDataKeyReusePeriodSecond;
+            context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
+            context.EncryptionConfiguration_Type = this.EncryptionConfiguration_Type;
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -180,6 +219,45 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             // create request
             var request = new Amazon.StepFunctions.Model.CreateActivityRequest();
             
+            
+             // populate EncryptionConfiguration
+            var requestEncryptionConfigurationIsNull = true;
+            request.EncryptionConfiguration = new Amazon.StepFunctions.Model.EncryptionConfiguration();
+            System.Int32? requestEncryptionConfiguration_encryptionConfiguration_KmsDataKeyReusePeriodSecond = null;
+            if (cmdletContext.EncryptionConfiguration_KmsDataKeyReusePeriodSecond != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsDataKeyReusePeriodSecond = cmdletContext.EncryptionConfiguration_KmsDataKeyReusePeriodSecond.Value;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsDataKeyReusePeriodSecond != null)
+            {
+                request.EncryptionConfiguration.KmsDataKeyReusePeriodSeconds = requestEncryptionConfiguration_encryptionConfiguration_KmsDataKeyReusePeriodSecond.Value;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            System.String requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId = null;
+            if (cmdletContext.EncryptionConfiguration_KmsKeyId != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId = cmdletContext.EncryptionConfiguration_KmsKeyId;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId != null)
+            {
+                request.EncryptionConfiguration.KmsKeyId = requestEncryptionConfiguration_encryptionConfiguration_KmsKeyId;
+                requestEncryptionConfigurationIsNull = false;
+            }
+            Amazon.StepFunctions.EncryptionType requestEncryptionConfiguration_encryptionConfiguration_Type = null;
+            if (cmdletContext.EncryptionConfiguration_Type != null)
+            {
+                requestEncryptionConfiguration_encryptionConfiguration_Type = cmdletContext.EncryptionConfiguration_Type;
+            }
+            if (requestEncryptionConfiguration_encryptionConfiguration_Type != null)
+            {
+                request.EncryptionConfiguration.Type = requestEncryptionConfiguration_encryptionConfiguration_Type;
+                requestEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.EncryptionConfiguration should be set to null
+            if (requestEncryptionConfigurationIsNull)
+            {
+                request.EncryptionConfiguration = null;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -249,6 +327,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? EncryptionConfiguration_KmsDataKeyReusePeriodSecond { get; set; }
+            public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+            public Amazon.StepFunctions.EncryptionType EncryptionConfiguration_Type { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.StepFunctions.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.StepFunctions.Model.CreateActivityResponse, NewSFNActivityCmdlet, object> Select { get; set; } =

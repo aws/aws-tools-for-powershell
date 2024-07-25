@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
     /// To see if a model supports streaming, call <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html">GetFoundationModel</a>
     /// and check the <c>responseStreamingSupported</c> field in the response.
     /// </para><note><para>
-    /// The CLI doesn't support <c>InvokeModelWithResponseStream</c>.
+    /// The CLI doesn't support streaming operations in Amazon Bedrock, including <c>InvokeModelWithResponseStream</c>.
     /// </para></note><para>
     /// For example code, see <i>Invoke model with streaming code example</i> in the <i>Amazon
     /// Bedrock User Guide</i>. 

@@ -2430,7 +2430,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
+            $v = "ALBRequestCountPerTarget","AppStreamAverageCapacityUtilization","CassandraReadCapacityUtilization","CassandraWriteCapacityUtilization","ComprehendInferenceUtilization","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","ECSServiceAverageCPUUtilization","ECSServiceAverageMemoryUtilization","ElastiCacheDatabaseCapacityUsageCountedForEvictPercentage","ElastiCacheDatabaseMemoryUsageCountedForEvictPercentage","ElastiCachePrimaryEngineCPUUtilization","ElastiCacheReplicaEngineCPUUtilization","KafkaBrokerStorageUtilization","LambdaProvisionedConcurrencyUtilization","NeptuneReaderAverageCPUUtilization","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections","SageMakerInferenceComponentConcurrentRequestsPerCopyHighResolution","SageMakerInferenceComponentInvocationsPerCopy","SageMakerVariantConcurrentRequestsPerModelHighResolution","SageMakerVariantInvocationsPerInstance","SageMakerVariantProvisionedConcurrencyUtilization","WorkSpacesAverageUserSessionsCapacityUtilization"
             break
         }
 
@@ -19181,6 +19181,7 @@ $DZ_SelectMap = @{
                "Get-DZEnvironmentAction",
                "Get-DZEnvironmentBlueprint",
                "Get-DZEnvironmentBlueprintConfiguration",
+               "Get-DZEnvironmentCredential",
                "Get-DZEnvironmentProfile",
                "Get-DZFormType",
                "Get-DZGlossary",
@@ -24690,7 +24691,11 @@ $ECR_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.ECR.EncryptionType
-        "New-ECRRepository/EncryptionConfiguration_EncryptionType"
+        {
+            ($_ -eq "New-ECRRepository/EncryptionConfiguration_EncryptionType") -Or
+            ($_ -eq "New-ECRRepositoryCreationTemplate/EncryptionConfiguration_EncryptionType") -Or
+            ($_ -eq "Update-ECRRepositoryCreationTemplate/EncryptionConfiguration_EncryptionType")
+        }
         {
             $v = "AES256","KMS"
             break
@@ -24699,6 +24704,8 @@ $ECR_Completers = {
         # Amazon.ECR.ImageTagMutability
         {
             ($_ -eq "New-ECRRepository/ImageTagMutability") -Or
+            ($_ -eq "New-ECRRepositoryCreationTemplate/ImageTagMutability") -Or
+            ($_ -eq "Update-ECRRepositoryCreationTemplate/ImageTagMutability") -Or
             ($_ -eq "Write-ECRImageTagMutability/ImageTagMutability")
         }
         {
@@ -24740,9 +24747,9 @@ $ECR_Completers = {
 }
 
 $ECR_map = @{
-    "EncryptionConfiguration_EncryptionType"=@("New-ECRRepository")
+    "EncryptionConfiguration_EncryptionType"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate")
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
-    "ImageTagMutability"=@("New-ECRRepository","Write-ECRImageTagMutability")
+    "ImageTagMutability"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate","Write-ECRImageTagMutability")
     "ScanType"=@("Write-ECRRegistryScanningConfiguration")
     "UpstreamRegistry"=@("New-ECRPullThroughCacheRule")
 }
@@ -24804,10 +24811,12 @@ $ECR_SelectMap = @{
                "Complete-ECRLayerUpload",
                "New-ECRPullThroughCacheRule",
                "New-ECRRepository",
+               "New-ECRRepositoryCreationTemplate",
                "Remove-ECRLifecyclePolicy",
                "Remove-ECRPullThroughCacheRule",
                "Remove-ECRRegistryPolicy",
                "Remove-ECRRepository",
+               "Remove-ECRRepositoryCreationTemplate",
                "Remove-ECRRepositoryPolicy",
                "Get-ECRImageReplicationStatus",
                "Get-ECRImageMetadata",
@@ -24815,6 +24824,7 @@ $ECR_SelectMap = @{
                "Get-ECRPullThroughCacheRule",
                "Get-ECRRegistry",
                "Get-ECRRepository",
+               "Get-ECRRepositoryCreationTemplate",
                "Get-ECRAuthorizationToken",
                "Get-ECRDownloadUrlForLayer",
                "Get-ECRLifecyclePolicy",
@@ -24838,6 +24848,7 @@ $ECR_SelectMap = @{
                "Add-ECRResourceTag",
                "Remove-ECRResourceTag",
                "Update-ECRPullThroughCacheRule",
+               "Update-ECRRepositoryCreationTemplate",
                "Send-ECRLayerPart",
                "Test-ECRPullThroughCacheRule",
                "Get-ECRLoginCommand")
@@ -25358,6 +25369,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.SupportType
+        {
+            ($_ -eq "New-EKSCluster/UpgradePolicy_SupportType") -Or
+            ($_ -eq "Update-EKSClusterConfig/UpgradePolicy_SupportType")
+        }
+        {
+            $v = "EXTENDED","STANDARD"
+            break
+        }
+
 
     }
 
@@ -25376,6 +25397,7 @@ $EKS_map = @{
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
+    "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map
@@ -26350,6 +26372,16 @@ $ELB2_Completers = {
             break
         }
 
+        # Amazon.ElasticLoadBalancingV2.TrustStoreAssociationStatusEnum
+        {
+            ($_ -eq "Edit-ELB2Listener/MutualAuthentication_TrustStoreAssociationStatus") -Or
+            ($_ -eq "New-ELB2Listener/MutualAuthentication_TrustStoreAssociationStatus")
+        }
+        {
+            $v = "active","removed"
+            break
+        }
+
 
     }
 
@@ -26363,6 +26395,7 @@ $ELB2_map = @{
     "HealthCheckProtocol"=@("Edit-ELB2TargetGroup","New-ELB2TargetGroup")
     "IpAddressType"=@("New-ELB2LoadBalancer","New-ELB2TargetGroup","Set-ELB2IpAddressType","Set-ELB2Subnet")
     "LoadBalancerType"=@("Get-ELB2SSLPolicy")
+    "MutualAuthentication_TrustStoreAssociationStatus"=@("Edit-ELB2Listener","New-ELB2Listener")
     "Protocol"=@("Edit-ELB2Listener","New-ELB2Listener","New-ELB2TargetGroup")
     "Scheme"=@("New-ELB2LoadBalancer")
     "TargetType"=@("New-ELB2TargetGroup")
@@ -26430,6 +26463,7 @@ $ELB2_SelectMap = @{
                "Remove-ELB2Listener",
                "Remove-ELB2LoadBalancer",
                "Remove-ELB2Rule",
+               "Remove-ELB2SharedTrustStoreAssociation",
                "Remove-ELB2TargetGroup",
                "Remove-ELB2TrustStore",
                "Unregister-ELB2Target",
@@ -26447,6 +26481,7 @@ $ELB2_SelectMap = @{
                "Get-ELB2TrustStoreAssociation",
                "Get-ELB2TrustStoreRevocation",
                "Get-ELB2TrustStore",
+               "Get-ELB2ResourcePolicy",
                "Get-ELB2TrustStoreCaCertificatesBundle",
                "Get-ELB2TrustStoreRevocationContent",
                "Edit-ELB2Listener",
@@ -66025,6 +66060,17 @@ $SFN_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.StepFunctions.EncryptionType
+        {
+            ($_ -eq "New-SFNActivity/EncryptionConfiguration_Type") -Or
+            ($_ -eq "New-SFNStateMachine/EncryptionConfiguration_Type") -Or
+            ($_ -eq "Update-SFNStateMachine/EncryptionConfiguration_Type")
+        }
+        {
+            $v = "AWS_OWNED_KEY","CUSTOMER_MANAGED_KMS_KEY"
+            break
+        }
+
         # Amazon.StepFunctions.ExecutionRedriveFilter
         "Get-SFNExecutionList/RedriveFilter"
         {
@@ -66036,6 +66082,18 @@ $SFN_Completers = {
         "Get-SFNExecutionList/StatusFilter"
         {
             $v = "ABORTED","FAILED","PENDING_REDRIVE","RUNNING","SUCCEEDED","TIMED_OUT"
+            break
+        }
+
+        # Amazon.StepFunctions.IncludedData
+        {
+            ($_ -eq "Get-SFNExecution/IncludedData") -Or
+            ($_ -eq "Get-SFNStateMachine/IncludedData") -Or
+            ($_ -eq "Get-SFNStateMachineForExecution/IncludedData") -Or
+            ($_ -eq "Start-SFNSyncExecution/IncludedData")
+        }
+        {
+            $v = "ALL_DATA","METADATA_ONLY"
             break
         }
 
@@ -66075,6 +66133,8 @@ $SFN_Completers = {
 }
 
 $SFN_map = @{
+    "EncryptionConfiguration_Type"=@("New-SFNActivity","New-SFNStateMachine","Update-SFNStateMachine")
+    "IncludedData"=@("Get-SFNExecution","Get-SFNStateMachine","Get-SFNStateMachineForExecution","Start-SFNSyncExecution")
     "InspectionLevel"=@("Test-SFNState")
     "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
     "RedriveFilter"=@("Get-SFNExecutionList")

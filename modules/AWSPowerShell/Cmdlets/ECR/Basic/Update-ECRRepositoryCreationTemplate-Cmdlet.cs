@@ -28,20 +28,51 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Creates a repository. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html">Amazon
-    /// ECR repositories</a> in the <i>Amazon Elastic Container Registry User Guide</i>.
+    /// Updates an existing repository creation template.
     /// </summary>
-    [Cmdlet("New", "ECRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ECR.Model.Repository")]
-    [AWSCmdlet("Calls the Amazon EC2 Container Registry CreateRepository API operation.", Operation = new[] {"CreateRepository"}, SelectReturnType = typeof(Amazon.ECR.Model.CreateRepositoryResponse))]
-    [AWSCmdletOutput("Amazon.ECR.Model.Repository or Amazon.ECR.Model.CreateRepositoryResponse",
-        "This cmdlet returns an Amazon.ECR.Model.Repository object.",
-        "The service call response (type Amazon.ECR.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "ECRRepositoryCreationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse")]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry UpdateRepositoryCreationTemplate API operation.", Operation = new[] {"UpdateRepositoryCreationTemplate"}, SelectReturnType = typeof(Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse))]
+    [AWSCmdletOutput("Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse",
+        "This cmdlet returns an Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewECRRepositoryCmdlet : AmazonECRClientCmdlet, IExecutor
+    public partial class UpdateECRRepositoryCreationTemplateCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AppliedFor
+        /// <summary>
+        /// <para>
+        /// <para>Updates the list of enumerable strings representing the Amazon ECR repository creation
+        /// scenarios that this template will apply towards. The two supported scenarios are <c>PULL_THROUGH_CACHE</c>
+        /// and <c>REPLICATION</c></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AppliedFor { get; set; }
+        #endregion
+        
+        #region Parameter CustomRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account
+        /// as the registry that you are configuring.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String CustomRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>A description for the repository creation template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
         
         #region Parameter EncryptionConfiguration_EncryptionType
         /// <summary>
@@ -67,10 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter ImageTagMutability
         /// <summary>
         /// <para>
-        /// <para>The tag mutability setting for the repository. If this parameter is omitted, the default
-        /// setting of <c>MUTABLE</c> will be used which will allow image tags to be overwritten.
-        /// If <c>IMMUTABLE</c> is specified, all image tags within the repository will be immutable
-        /// which will prevent them from being overwritten.</para>
+        /// <para>Updates the tag mutability setting for the repository. If this parameter is omitted,
+        /// the default setting of <c>MUTABLE</c> will be used which will allow image tags to
+        /// be overwritten. If <c>IMMUTABLE</c> is specified, all image tags within the repository
+        /// will be immutable which will prevent them from being overwritten.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -82,33 +113,34 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>If you use the <c>KMS</c> encryption type, specify the KMS key to use for encryption.
-        /// The alias, key ID, or full ARN of the KMS key can be specified. The key must exist
-        /// in the same Region as the repository. If no key is specified, the default Amazon Web
-        /// Services managed KMS key for Amazon ECR will be used.</para>
+        /// The full ARN of the KMS key must be specified. The key must exist in the same Region
+        /// as the repository. If no key is specified, the default Amazon Web Services managed
+        /// KMS key for Amazon ECR will be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EncryptionConfiguration_KmsKey { get; set; }
         #endregion
         
-        #region Parameter RegistryId
+        #region Parameter LifecyclePolicy
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID associated with the registry to create the repository.
-        /// If you do not specify a registry, the default registry is assumed.</para>
+        /// <para>Updates the lifecycle policy associated with the specified repository creation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RegistryId { get; set; }
+        public System.String LifecyclePolicy { get; set; }
         #endregion
         
-        #region Parameter RepositoryName
+        #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// <para>The name to use for the repository. The repository name may be specified on its own
-        /// (such as <c>nginx-web-app</c>) or it can be prepended with a namespace to group the
-        /// repository into a category (such as <c>project-a/nginx-web-app</c>).</para><para>The repository name must start with a letter and can only contain lowercase letters,
-        /// numbers, hyphens, underscores, and forward slashes.</para>
+        /// <para>The repository namespace prefix that matches an existing repository creation template
+        /// in the registry. All repositories created using this namespace prefix will have the
+        /// settings defined in this template applied. For example, a prefix of <c>prod</c> would
+        /// apply to all repositories beginning with <c>prod/</c>. This includes a repository
+        /// named <c>prod/team1</c> as well as a repository named <c>prod/repository1</c>.</para><para>To apply a template to all repositories in your registry that don't have an associated
+        /// creation template, you can use <c>ROOT</c> as the prefix.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -119,54 +151,51 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RepositoryName { get; set; }
+        public System.String Prefix { get; set; }
         #endregion
         
-        #region Parameter ImageScanningConfiguration_ScanOnPush
+        #region Parameter RepositoryPolicy
         /// <summary>
         /// <para>
-        /// <para>The setting that determines whether images are scanned after being pushed to a repository.
-        /// If set to <c>true</c>, images will be scanned after being pushed. If this parameter
-        /// is not specified, it will default to <c>false</c> and images will not be scanned unless
-        /// a scan is manually started with the <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_StartImageScan.html">API_StartImageScan</a>
-        /// API.</para>
+        /// <para>Updates the repository policy created using the template. A repository policy is a
+        /// permissions policy associated with a repository to control access permissions. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ImageScanningConfiguration_ScanOnPush { get; set; }
+        public System.String RepositoryPolicy { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter ResourceTag
         /// <summary>
         /// <para>
-        /// <para>The metadata that you apply to the repository to help you categorize and organize
-        /// them. Each tag consists of a key and an optional value, both of which you define.
-        /// Tag keys can have a maximum character length of 128 characters, and tag values can
-        /// have a maximum length of 256 characters.</para>
+        /// <para>The metadata to apply to the repository to help you categorize and organize. Each
+        /// tag consists of a key and an optional value, both of which you define. Tag keys can
+        /// have a maximum character length of 128 characters, and tag values can have a maximum
+        /// length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public Amazon.ECR.Model.Tag[] Tag { get; set; }
+        [Alias("ResourceTags")]
+        public Amazon.ECR.Model.Tag[] ResourceTag { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Repository'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECR.Model.CreateRepositoryResponse).
-        /// Specifying the name of a property of type Amazon.ECR.Model.CreateRepositoryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse).
+        /// Specifying the name of a property of type Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Repository";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RepositoryName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RepositoryName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Prefix parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Prefix' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RepositoryName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Prefix' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -186,8 +215,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RepositoryName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ECRRepository (CreateRepository)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.CustomRoleArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ECRRepositoryCreationTemplate (UpdateRepositoryCreationTemplate)"))
             {
                 return;
             }
@@ -200,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ECR.Model.CreateRepositoryResponse, NewECRRepositoryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse, UpdateECRRepositoryCreationTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -209,24 +238,30 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RepositoryName;
+                context.Select = (response, cmdlet) => this.Prefix;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AppliedFor != null)
+            {
+                context.AppliedFor = new List<System.String>(this.AppliedFor);
+            }
+            context.CustomRoleArn = this.CustomRoleArn;
+            context.Description = this.Description;
             context.EncryptionConfiguration_EncryptionType = this.EncryptionConfiguration_EncryptionType;
             context.EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
-            context.ImageScanningConfiguration_ScanOnPush = this.ImageScanningConfiguration_ScanOnPush;
             context.ImageTagMutability = this.ImageTagMutability;
-            context.RegistryId = this.RegistryId;
-            context.RepositoryName = this.RepositoryName;
+            context.LifecyclePolicy = this.LifecyclePolicy;
+            context.Prefix = this.Prefix;
             #if MODULAR
-            if (this.RepositoryName == null && ParameterWasBound(nameof(this.RepositoryName)))
+            if (this.Prefix == null && ParameterWasBound(nameof(this.Prefix)))
             {
-                WriteWarning("You are passing $null as a value for parameter RepositoryName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Prefix which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
+            context.RepositoryPolicy = this.RepositoryPolicy;
+            if (this.ResourceTag != null)
             {
-                context.Tag = new List<Amazon.ECR.Model.Tag>(this.Tag);
+                context.ResourceTag = new List<Amazon.ECR.Model.Tag>(this.ResourceTag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -242,12 +277,24 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ECR.Model.CreateRepositoryRequest();
+            var request = new Amazon.ECR.Model.UpdateRepositoryCreationTemplateRequest();
             
+            if (cmdletContext.AppliedFor != null)
+            {
+                request.AppliedFor = cmdletContext.AppliedFor;
+            }
+            if (cmdletContext.CustomRoleArn != null)
+            {
+                request.CustomRoleArn = cmdletContext.CustomRoleArn;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
             
              // populate EncryptionConfiguration
             var requestEncryptionConfigurationIsNull = true;
-            request.EncryptionConfiguration = new Amazon.ECR.Model.EncryptionConfiguration();
+            request.EncryptionConfiguration = new Amazon.ECR.Model.EncryptionConfigurationForRepositoryCreationTemplate();
             Amazon.ECR.EncryptionType requestEncryptionConfiguration_encryptionConfiguration_EncryptionType = null;
             if (cmdletContext.EncryptionConfiguration_EncryptionType != null)
             {
@@ -273,40 +320,25 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             {
                 request.EncryptionConfiguration = null;
             }
-            
-             // populate ImageScanningConfiguration
-            var requestImageScanningConfigurationIsNull = true;
-            request.ImageScanningConfiguration = new Amazon.ECR.Model.ImageScanningConfiguration();
-            System.Boolean? requestImageScanningConfiguration_imageScanningConfiguration_ScanOnPush = null;
-            if (cmdletContext.ImageScanningConfiguration_ScanOnPush != null)
-            {
-                requestImageScanningConfiguration_imageScanningConfiguration_ScanOnPush = cmdletContext.ImageScanningConfiguration_ScanOnPush.Value;
-            }
-            if (requestImageScanningConfiguration_imageScanningConfiguration_ScanOnPush != null)
-            {
-                request.ImageScanningConfiguration.ScanOnPush = requestImageScanningConfiguration_imageScanningConfiguration_ScanOnPush.Value;
-                requestImageScanningConfigurationIsNull = false;
-            }
-             // determine if request.ImageScanningConfiguration should be set to null
-            if (requestImageScanningConfigurationIsNull)
-            {
-                request.ImageScanningConfiguration = null;
-            }
             if (cmdletContext.ImageTagMutability != null)
             {
                 request.ImageTagMutability = cmdletContext.ImageTagMutability;
             }
-            if (cmdletContext.RegistryId != null)
+            if (cmdletContext.LifecyclePolicy != null)
             {
-                request.RegistryId = cmdletContext.RegistryId;
+                request.LifecyclePolicy = cmdletContext.LifecyclePolicy;
             }
-            if (cmdletContext.RepositoryName != null)
+            if (cmdletContext.Prefix != null)
             {
-                request.RepositoryName = cmdletContext.RepositoryName;
+                request.Prefix = cmdletContext.Prefix;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.RepositoryPolicy != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.RepositoryPolicy = cmdletContext.RepositoryPolicy;
+            }
+            if (cmdletContext.ResourceTag != null)
+            {
+                request.ResourceTags = cmdletContext.ResourceTag;
             }
             
             CmdletOutput output;
@@ -341,15 +373,15 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #region AWS Service Operation Call
         
-        private Amazon.ECR.Model.CreateRepositoryResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.CreateRepositoryRequest request)
+        private Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.UpdateRepositoryCreationTemplateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "CreateRepository");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "UpdateRepositoryCreationTemplate");
             try
             {
                 #if DESKTOP
-                return client.CreateRepository(request);
+                return client.UpdateRepositoryCreationTemplate(request);
                 #elif CORECLR
-                return client.CreateRepositoryAsync(request).GetAwaiter().GetResult();
+                return client.UpdateRepositoryCreationTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -369,15 +401,18 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AppliedFor { get; set; }
+            public System.String CustomRoleArn { get; set; }
+            public System.String Description { get; set; }
             public Amazon.ECR.EncryptionType EncryptionConfiguration_EncryptionType { get; set; }
             public System.String EncryptionConfiguration_KmsKey { get; set; }
-            public System.Boolean? ImageScanningConfiguration_ScanOnPush { get; set; }
             public Amazon.ECR.ImageTagMutability ImageTagMutability { get; set; }
-            public System.String RegistryId { get; set; }
-            public System.String RepositoryName { get; set; }
-            public List<Amazon.ECR.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.ECR.Model.CreateRepositoryResponse, NewECRRepositoryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Repository;
+            public System.String LifecyclePolicy { get; set; }
+            public System.String Prefix { get; set; }
+            public System.String RepositoryPolicy { get; set; }
+            public List<Amazon.ECR.Model.Tag> ResourceTag { get; set; }
+            public System.Func<Amazon.ECR.Model.UpdateRepositoryCreationTemplateResponse, UpdateECRRepositoryCreationTemplateCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

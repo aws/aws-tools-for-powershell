@@ -28,49 +28,41 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Sets the type of IP addresses used by the subnets of the specified load balancer.
+    /// Deletes a shared trust store association.
     /// </summary>
-    [Cmdlet("Set", "ELB2IpAddressType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticLoadBalancingV2.IpAddressType")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 SetIpAddressType API operation.", Operation = new[] {"SetIpAddressType"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse))]
-    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.IpAddressType or Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse",
-        "This cmdlet returns an Amazon.ElasticLoadBalancingV2.IpAddressType object.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ELB2SharedTrustStoreAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteSharedTrustStoreAssociation API operation.", Operation = new[] {"DeleteSharedTrustStoreAssociation"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse))]
+    [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SetELB2IpAddressTypeCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class RemoveELB2SharedTrustStoreAssociationCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter IpAddressType
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Note: Internal load balancers must use the <c>ipv4</c> IP address type.</para><para>[Application Load Balancers] The IP address type. The possible values are <c>ipv4</c>
-        /// (for only IPv4 addresses), <c>dualstack</c> (for IPv4 and IPv6 addresses), and <c>dualstack-without-public-ipv4</c>
-        /// (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).</para><para>Note: Application Load Balancer authentication only supports IPv4 addresses when connecting
-        /// to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address
-        /// the load balancer cannot complete the authentication process, resulting in HTTP 500
-        /// errors.</para><para>[Network Load Balancers] The IP address type. The possible values are <c>ipv4</c>
-        /// (for only IPv4 addresses) and <c>dualstack</c> (for IPv4 and IPv6 addresses). You
-        /// can’t specify <c>dualstack</c> for a load balancer with a UDP or TCP_UDP listener.</para><para>[Gateway Load Balancers] The IP address type. The possible values are <c>ipv4</c>
-        /// (for only IPv4 addresses) and <c>dualstack</c> (for IPv4 and IPv6 addresses).</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.IpAddressType")]
-        public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter LoadBalancerArn
+        #region Parameter TrustStoreArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the load balancer.</para>
+        /// <para>The Amazon Resource Name (ARN) of the trust store.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,26 +73,25 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String LoadBalancerArn { get; set; }
+        public System.String TrustStoreArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'IpAddressType'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse).
-        /// Specifying the name of a property of type Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "IpAddressType";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the LoadBalancerArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^LoadBalancerArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the TrustStoreArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^TrustStoreArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^LoadBalancerArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TrustStoreArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -120,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LoadBalancerArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-ELB2IpAddressType (SetIpAddressType)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TrustStoreArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ELB2SharedTrustStoreAssociation (DeleteSharedTrustStoreAssociation)"))
             {
                 return;
             }
@@ -134,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse, SetELB2IpAddressTypeCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse, RemoveELB2SharedTrustStoreAssociationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -143,21 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.LoadBalancerArn;
+                context.Select = (response, cmdlet) => this.TrustStoreArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IpAddressType = this.IpAddressType;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.IpAddressType == null && ParameterWasBound(nameof(this.IpAddressType)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter IpAddressType which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LoadBalancerArn = this.LoadBalancerArn;
+            context.TrustStoreArn = this.TrustStoreArn;
             #if MODULAR
-            if (this.LoadBalancerArn == null && ParameterWasBound(nameof(this.LoadBalancerArn)))
+            if (this.TrustStoreArn == null && ParameterWasBound(nameof(this.TrustStoreArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter LoadBalancerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter TrustStoreArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -174,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeRequest();
+            var request = new Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationRequest();
             
-            if (cmdletContext.IpAddressType != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.IpAddressType = cmdletContext.IpAddressType;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.LoadBalancerArn != null)
+            if (cmdletContext.TrustStoreArn != null)
             {
-                request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
+                request.TrustStoreArn = cmdletContext.TrustStoreArn;
             }
             
             CmdletOutput output;
@@ -217,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetIpAddressType");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DeleteSharedTrustStoreAssociation");
             try
             {
                 #if DESKTOP
-                return client.SetIpAddressType(request);
+                return client.DeleteSharedTrustStoreAssociation(request);
                 #elif CORECLR
-                return client.SetIpAddressTypeAsync(request).GetAwaiter().GetResult();
+                return client.DeleteSharedTrustStoreAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -245,10 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
-            public System.String LoadBalancerArn { get; set; }
-            public System.Func<Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse, SetELB2IpAddressTypeCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.IpAddressType;
+            public System.String ResourceArn { get; set; }
+            public System.String TrustStoreArn { get; set; }
+            public System.Func<Amazon.ElasticLoadBalancingV2.Model.DeleteSharedTrustStoreAssociationResponse, RemoveELB2SharedTrustStoreAssociationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

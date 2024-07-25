@@ -239,6 +239,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetEnvironmentCredentials" OutputProperty="*" Verb="Get" Noun="EnvironmentCredential" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetEnvironmentProfile" OutputProperty="*" Verb="Get" Noun="EnvironmentProfile" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

@@ -81,7 +81,11 @@ $ECR_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.ECR.EncryptionType
-        "New-ECRRepository/EncryptionConfiguration_EncryptionType"
+        {
+            ($_ -eq "New-ECRRepository/EncryptionConfiguration_EncryptionType") -Or
+            ($_ -eq "New-ECRRepositoryCreationTemplate/EncryptionConfiguration_EncryptionType") -Or
+            ($_ -eq "Update-ECRRepositoryCreationTemplate/EncryptionConfiguration_EncryptionType")
+        }
         {
             $v = "AES256","KMS"
             break
@@ -90,6 +94,8 @@ $ECR_Completers = {
         # Amazon.ECR.ImageTagMutability
         {
             ($_ -eq "New-ECRRepository/ImageTagMutability") -Or
+            ($_ -eq "New-ECRRepositoryCreationTemplate/ImageTagMutability") -Or
+            ($_ -eq "Update-ECRRepositoryCreationTemplate/ImageTagMutability") -Or
             ($_ -eq "Write-ECRImageTagMutability/ImageTagMutability")
         }
         {
@@ -131,9 +137,9 @@ $ECR_Completers = {
 }
 
 $ECR_map = @{
-    "EncryptionConfiguration_EncryptionType"=@("New-ECRRepository")
+    "EncryptionConfiguration_EncryptionType"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate")
     "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
-    "ImageTagMutability"=@("New-ECRRepository","Write-ECRImageTagMutability")
+    "ImageTagMutability"=@("New-ECRRepository","New-ECRRepositoryCreationTemplate","Update-ECRRepositoryCreationTemplate","Write-ECRImageTagMutability")
     "ScanType"=@("Write-ECRRegistryScanningConfiguration")
     "UpstreamRegistry"=@("New-ECRPullThroughCacheRule")
 }
@@ -195,10 +201,12 @@ $ECR_SelectMap = @{
                "Complete-ECRLayerUpload",
                "New-ECRPullThroughCacheRule",
                "New-ECRRepository",
+               "New-ECRRepositoryCreationTemplate",
                "Remove-ECRLifecyclePolicy",
                "Remove-ECRPullThroughCacheRule",
                "Remove-ECRRegistryPolicy",
                "Remove-ECRRepository",
+               "Remove-ECRRepositoryCreationTemplate",
                "Remove-ECRRepositoryPolicy",
                "Get-ECRImageReplicationStatus",
                "Get-ECRImageMetadata",
@@ -206,6 +214,7 @@ $ECR_SelectMap = @{
                "Get-ECRPullThroughCacheRule",
                "Get-ECRRegistry",
                "Get-ECRRepository",
+               "Get-ECRRepositoryCreationTemplate",
                "Get-ECRAuthorizationToken",
                "Get-ECRDownloadUrlForLayer",
                "Get-ECRLifecyclePolicy",
@@ -229,6 +238,7 @@ $ECR_SelectMap = @{
                "Add-ECRResourceTag",
                "Remove-ECRResourceTag",
                "Update-ECRPullThroughCacheRule",
+               "Update-ECRRepositoryCreationTemplate",
                "Send-ECRLayerPart",
                "Test-ECRPullThroughCacheRule",
                "Get-ECRLoginCommand")

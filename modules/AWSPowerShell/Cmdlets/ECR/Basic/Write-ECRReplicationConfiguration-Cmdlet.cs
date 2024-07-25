@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// IAM role is created in your account for the replication process. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/using-service-linked-roles.html">Using
     /// service-linked roles for Amazon ECR</a> in the <i>Amazon Elastic Container Registry
-    /// User Guide</i>.
+    /// User Guide</i>. For more information on the custom role for replication, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/replication-creation-templates.html#roles-creatingrole-user-console">Creating
+    /// an IAM role for replication</a>.
     /// 
     ///  <note><para>
     /// When configuring cross-account replication, the destination account must grant the

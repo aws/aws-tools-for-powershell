@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes all trust stores for a given account by trust store arn’s or name.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes all trust stores for the specified account.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ELB2TrustStore")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TrustStore")]

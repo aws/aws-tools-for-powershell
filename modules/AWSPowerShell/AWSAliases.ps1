@@ -7287,6 +7287,8 @@ Set-Alias -Name DZ-GetEnvironmentAction -Value Get-DZEnvironmentAction
 Set-Alias -Name DZ-GetEnvironment -Value Get-DZEnvironment
 Set-Alias -Name DZ-GetEnvironmentBlueprint -Value Get-DZEnvironmentBlueprint
 Set-Alias -Name DZ-GetEnvironmentBlueprintConfiguration -Value Get-DZEnvironmentBlueprintConfiguration
+Set-Alias -Name Get-DZEnvironmentCredentials -Value Get-DZEnvironmentCredential
+Set-Alias -Name DZ-GetEnvironmentCredentials -Value Get-DZEnvironmentCredential
 Set-Alias -Name DZ-GetEnvironmentProfile -Value Get-DZEnvironmentProfile
 Set-Alias -Name DZ-GetFormType -Value Get-DZFormType
 Set-Alias -Name DZ-GetGlossary -Value Get-DZGlossary
@@ -10205,6 +10207,8 @@ Set-Alias -Name Create-ECRPullThroughCacheRule -Value New-ECRPullThroughCacheRul
 Set-Alias -Name ECR-CreatePullThroughCacheRule -Value New-ECRPullThroughCacheRule
 Set-Alias -Name Create-ECRRepository -Value New-ECRRepository
 Set-Alias -Name ECR-CreateRepository -Value New-ECRRepository
+Set-Alias -Name Create-ECRRepositoryCreationTemplate -Value New-ECRRepositoryCreationTemplate
+Set-Alias -Name ECR-CreateRepositoryCreationTemplate -Value New-ECRRepositoryCreationTemplate
 Set-Alias -Name Delete-ECRLifecyclePolicy -Value Remove-ECRLifecyclePolicy
 Set-Alias -Name ECR-DeleteLifecyclePolicy -Value Remove-ECRLifecyclePolicy
 Set-Alias -Name Delete-ECRPullThroughCacheRule -Value Remove-ECRPullThroughCacheRule
@@ -10213,6 +10217,8 @@ Set-Alias -Name Delete-ECRRegistryPolicy -Value Remove-ECRRegistryPolicy
 Set-Alias -Name ECR-DeleteRegistryPolicy -Value Remove-ECRRegistryPolicy
 Set-Alias -Name Delete-ECRRepository -Value Remove-ECRRepository
 Set-Alias -Name ECR-DeleteRepository -Value Remove-ECRRepository
+Set-Alias -Name Delete-ECRRepositoryCreationTemplate -Value Remove-ECRRepositoryCreationTemplate
+Set-Alias -Name ECR-DeleteRepositoryCreationTemplate -Value Remove-ECRRepositoryCreationTemplate
 Set-Alias -Name Delete-ECRRepositoryPolicy -Value Remove-ECRRepositoryPolicy
 Set-Alias -Name ECR-DeleteRepositoryPolicy -Value Remove-ECRRepositoryPolicy
 Set-Alias -Name Describe-ECRImageReplicationStatus -Value Get-ECRImageReplicationStatus
@@ -10231,6 +10237,9 @@ Set-Alias -Name ECR-DescribeRegistry -Value Get-ECRRegistry
 Set-Alias -Name Describe-ECRRepositories -Value Get-ECRRepository
 Set-Alias -Name Describe-ECRRepository -Value Get-ECRRepository
 Set-Alias -Name ECR-DescribeRepositories -Value Get-ECRRepository
+Set-Alias -Name Describe-ECRRepositoryCreationTemplates -Value Get-ECRRepositoryCreationTemplate
+Set-Alias -Name Describe-ECRRepositoryCreationTemplate -Value Get-ECRRepositoryCreationTemplate
+Set-Alias -Name ECR-DescribeRepositoryCreationTemplates -Value Get-ECRRepositoryCreationTemplate
 Set-Alias -Name ECR-GetAuthorizationToken -Value Get-ECRAuthorizationToken
 Set-Alias -Name ECR-GetDownloadUrlForLayer -Value Get-ECRDownloadUrlForLayer
 Set-Alias -Name ECR-GetLifecyclePolicy -Value Get-ECRLifecyclePolicy
@@ -10264,6 +10273,7 @@ Set-Alias -Name ECR-StartLifecyclePolicyPreview -Value Start-ECRLifecyclePolicyP
 Set-Alias -Name ECR-TagResource -Value Add-ECRResourceTag
 Set-Alias -Name ECR-UntagResource -Value Remove-ECRResourceTag
 Set-Alias -Name ECR-UpdatePullThroughCacheRule -Value Update-ECRPullThroughCacheRule
+Set-Alias -Name ECR-UpdateRepositoryCreationTemplate -Value Update-ECRRepositoryCreationTemplate
 Set-Alias -Name Upload-ECRLayerPart -Value Send-ECRLayerPart
 Set-Alias -Name ECR-UploadLayerPart -Value Send-ECRLayerPart
 Set-Alias -Name Validate-ECRPullThroughCacheRule -Value Test-ECRPullThroughCacheRule
@@ -10981,6 +10991,8 @@ Set-Alias -Name Delete-ELB2LoadBalancer -Value Remove-ELB2LoadBalancer
 Set-Alias -Name ELB2-DeleteLoadBalancer -Value Remove-ELB2LoadBalancer
 Set-Alias -Name Delete-ELB2Rule -Value Remove-ELB2Rule
 Set-Alias -Name ELB2-DeleteRule -Value Remove-ELB2Rule
+Set-Alias -Name Delete-ELB2SharedTrustStoreAssociation -Value Remove-ELB2SharedTrustStoreAssociation
+Set-Alias -Name ELB2-DeleteSharedTrustStoreAssociation -Value Remove-ELB2SharedTrustStoreAssociation
 Set-Alias -Name Delete-ELB2TargetGroup -Value Remove-ELB2TargetGroup
 Set-Alias -Name ELB2-DeleteTargetGroup -Value Remove-ELB2TargetGroup
 Set-Alias -Name Delete-ELB2TrustStore -Value Remove-ELB2TrustStore
@@ -11029,6 +11041,7 @@ Set-Alias -Name ELB2-DescribeTrustStoreRevocations -Value Get-ELB2TrustStoreRevo
 Set-Alias -Name Describe-ELB2TrustStores -Value Get-ELB2TrustStore
 Set-Alias -Name Describe-ELB2TrustStore -Value Get-ELB2TrustStore
 Set-Alias -Name ELB2-DescribeTrustStores -Value Get-ELB2TrustStore
+Set-Alias -Name ELB2-GetResourcePolicy -Value Get-ELB2ResourcePolicy
 Set-Alias -Name ELB2-GetTrustStoreCaCertificatesBundle -Value Get-ELB2TrustStoreCaCertificatesBundle
 Set-Alias -Name ELB2-GetTrustStoreRevocationContent -Value Get-ELB2TrustStoreRevocationContent
 Set-Alias -Name Modify-ELB2Listener -Value Edit-ELB2Listener

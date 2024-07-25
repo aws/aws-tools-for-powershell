@@ -195,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public System.String MutualAuthentication_TrustStoreArn { get; set; }
         #endregion
         
+        #region Parameter MutualAuthentication_TrustStoreAssociationStatus
+        /// <summary>
+        /// <para>
+        /// <para>Indicates a shared trust stores association status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.TrustStoreAssociationStatusEnum")]
+        public Amazon.ElasticLoadBalancingV2.TrustStoreAssociationStatusEnum MutualAuthentication_TrustStoreAssociationStatus { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Listeners'.
@@ -285,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             context.MutualAuthentication_IgnoreClientCertificateExpiry = this.MutualAuthentication_IgnoreClientCertificateExpiry;
             context.MutualAuthentication_Mode = this.MutualAuthentication_Mode;
             context.MutualAuthentication_TrustStoreArn = this.MutualAuthentication_TrustStoreArn;
+            context.MutualAuthentication_TrustStoreAssociationStatus = this.MutualAuthentication_TrustStoreAssociationStatus;
             context.Port = this.Port;
             context.Protocol = this.Protocol;
             context.SslPolicy = this.SslPolicy;
@@ -356,6 +368,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (requestMutualAuthentication_mutualAuthentication_TrustStoreArn != null)
             {
                 request.MutualAuthentication.TrustStoreArn = requestMutualAuthentication_mutualAuthentication_TrustStoreArn;
+                requestMutualAuthenticationIsNull = false;
+            }
+            Amazon.ElasticLoadBalancingV2.TrustStoreAssociationStatusEnum requestMutualAuthentication_mutualAuthentication_TrustStoreAssociationStatus = null;
+            if (cmdletContext.MutualAuthentication_TrustStoreAssociationStatus != null)
+            {
+                requestMutualAuthentication_mutualAuthentication_TrustStoreAssociationStatus = cmdletContext.MutualAuthentication_TrustStoreAssociationStatus;
+            }
+            if (requestMutualAuthentication_mutualAuthentication_TrustStoreAssociationStatus != null)
+            {
+                request.MutualAuthentication.TrustStoreAssociationStatus = requestMutualAuthentication_mutualAuthentication_TrustStoreAssociationStatus;
                 requestMutualAuthenticationIsNull = false;
             }
              // determine if request.MutualAuthentication should be set to null
@@ -447,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public System.Boolean? MutualAuthentication_IgnoreClientCertificateExpiry { get; set; }
             public System.String MutualAuthentication_Mode { get; set; }
             public System.String MutualAuthentication_TrustStoreArn { get; set; }
+            public Amazon.ElasticLoadBalancingV2.TrustStoreAssociationStatusEnum MutualAuthentication_TrustStoreAssociationStatus { get; set; }
             public System.Int32? Port { get; set; }
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
             public System.String SslPolicy { get; set; }

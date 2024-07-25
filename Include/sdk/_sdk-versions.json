@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.853.0",
+    "ProductVersion"    : "3.7.854.0",
     "CoreVersion"       : "3.7.400.0",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -48,7 +48,7 @@
             "InPreview"               : false
         },
         "CloudSearch"    : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.400.1",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -412,7 +412,7 @@
             "InPreview"               : false
         },
         "CodeCommit"                : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -492,7 +492,7 @@
             "InPreview"               : false
         },
         "ECR"                             : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -556,7 +556,7 @@
             "InPreview"               : false
         },
         "ApplicationAutoScaling"          : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -572,7 +572,7 @@
             "InPreview"               : false
         },
         "ElasticLoadBalancingV2"          : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -636,7 +636,7 @@
             "InPreview"               : false
         },
         "StepFunctions"                   : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -1124,7 +1124,7 @@
             "InPreview"               : false
         },
         "EKS"                             : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -1692,7 +1692,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -1860,7 +1860,7 @@
             "InPreview"               : false
         },
         "NetworkFirewall"                 : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -2796,7 +2796,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -2812,7 +2812,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"
@@ -3060,7 +3060,7 @@
             "InPreview"               : false
         },
         "ApplicationSignals"                  : {
-            "Version" : "3.7.400.0",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.0"

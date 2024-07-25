@@ -1,4 +1,30 @@
-﻿### 4.1.622 (2024-07-24 20:58Z)
+﻿### 4.1.623 (2024-07-25 22:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.854.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Added cmdlet Get-DZEnvironmentCredential leveraging the GetEnvironmentCredentials service API.
+  * Amazon EC2 Container Registry
+    * Added cmdlet Get-ECRRepositoryCreationTemplate leveraging the DescribeRepositoryCreationTemplates service API.
+    * Added cmdlet New-ECRRepositoryCreationTemplate leveraging the CreateRepositoryCreationTemplate service API.
+    * Added cmdlet Remove-ECRRepositoryCreationTemplate leveraging the DeleteRepositoryCreationTemplate service API.
+    * Added cmdlet Update-ECRRepositoryCreationTemplate leveraging the UpdateRepositoryCreationTemplate service API.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter UpgradePolicy_SupportType.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter UpgradePolicy_SupportType.
+  * Amazon Elastic Load Balancing V2
+    * Added cmdlet Get-ELB2ResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-ELB2SharedTrustStoreAssociation leveraging the DeleteSharedTrustStoreAssociation service API.
+    * Modified cmdlet Edit-ELB2Listener: added parameter MutualAuthentication_TrustStoreAssociationStatus.
+    * Modified cmdlet New-ELB2Listener: added parameter MutualAuthentication_TrustStoreAssociationStatus.
+  * Amazon Step Functions
+    * Modified cmdlet Get-SFNExecution: added parameter IncludedData.
+    * Modified cmdlet Get-SFNStateMachine: added parameter IncludedData.
+    * Modified cmdlet Get-SFNStateMachineForExecution: added parameter IncludedData.
+    * Modified cmdlet New-SFNActivity: added parameters EncryptionConfiguration_KmsDataKeyReusePeriodSecond, EncryptionConfiguration_KmsKeyId and EncryptionConfiguration_Type.
+    * Modified cmdlet New-SFNStateMachine: added parameters EncryptionConfiguration_KmsDataKeyReusePeriodSecond, EncryptionConfiguration_KmsKeyId and EncryptionConfiguration_Type.
+    * Modified cmdlet Start-SFNSyncExecution: added parameter IncludedData.
+    * Modified cmdlet Update-SFNStateMachine: added parameters EncryptionConfiguration_KmsDataKeyReusePeriodSecond, EncryptionConfiguration_KmsKeyId and EncryptionConfiguration_Type.
+
+### 4.1.622 (2024-07-24 20:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.853.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Clean Rooms Service
     * Added cmdlet Get-CRSConfiguredTableAssociationAnalysisRule leveraging the GetConfiguredTableAssociationAnalysisRule service API.

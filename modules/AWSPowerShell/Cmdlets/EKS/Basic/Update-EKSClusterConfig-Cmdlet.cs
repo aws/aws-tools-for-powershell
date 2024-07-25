@@ -132,6 +132,20 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
         #endregion
         
+        #region Parameter UpgradePolicy_SupportType
+        /// <summary>
+        /// <para>
+        /// <para>If the cluster is set to <c>EXTENDED</c>, it will enter extended support at the end
+        /// of standard support. If the cluster is set to <c>STANDARD</c>, it will be automatically
+        /// upgraded at the end of standard support.</para><para><a href="https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html">Learn
+        /// more about EKS Extended Support in the EKS User Guide.</a></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.EKS.SupportType")]
+        public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Update'.
@@ -208,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             }
             #endif
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
+            context.UpgradePolicy_SupportType = this.UpgradePolicy_SupportType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -275,6 +290,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 request.ResourcesVpcConfig = cmdletContext.ResourcesVpcConfig;
             }
             
+             // populate UpgradePolicy
+            var requestUpgradePolicyIsNull = true;
+            request.UpgradePolicy = new Amazon.EKS.Model.UpgradePolicyRequest();
+            Amazon.EKS.SupportType requestUpgradePolicy_upgradePolicy_SupportType = null;
+            if (cmdletContext.UpgradePolicy_SupportType != null)
+            {
+                requestUpgradePolicy_upgradePolicy_SupportType = cmdletContext.UpgradePolicy_SupportType;
+            }
+            if (requestUpgradePolicy_upgradePolicy_SupportType != null)
+            {
+                request.UpgradePolicy.SupportType = requestUpgradePolicy_upgradePolicy_SupportType;
+                requestUpgradePolicyIsNull = false;
+            }
+             // determine if request.UpgradePolicy should be set to null
+            if (requestUpgradePolicyIsNull)
+            {
+                request.UpgradePolicy = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -340,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
+            public Amazon.EKS.SupportType UpgradePolicy_SupportType { get; set; }
             public System.Func<Amazon.EKS.Model.UpdateClusterConfigResponse, UpdateEKSClusterConfigCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Update;
         }

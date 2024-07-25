@@ -110,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-DZEnvironmentBlueprintConfiguration', 
         'Get-DZEnvironmentBlueprintConfigurationList', 
         'Get-DZEnvironmentBlueprintList', 
+        'Get-DZEnvironmentCredential', 
         'Get-DZEnvironmentList', 
         'Get-DZEnvironmentProfile', 
         'Get-DZEnvironmentProfileList', 

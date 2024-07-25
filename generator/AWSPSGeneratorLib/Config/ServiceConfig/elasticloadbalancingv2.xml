@@ -72,6 +72,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSharedTrustStoreAssociation" Verb="Remove" Noun="SharedTrustStoreAssociation" ShouldProcessTarget="TrustStoreArn" PipelineParameter="TrustStoreArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteTargetGroup" Verb="Remove" Noun="TargetGroup" ShouldProcessTarget="TargetGroupArn" PipelineParameter="TargetGroupArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -137,6 +141,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTrustStores" OutputProperty="TrustStores" Verb="Get" Noun="TrustStore" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourcePolicy" OutputProperty="Policy" Verb="Get" Noun="ResourcePolicy" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

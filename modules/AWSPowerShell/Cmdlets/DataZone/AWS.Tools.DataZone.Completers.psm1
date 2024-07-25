@@ -533,6 +533,7 @@ $DZ_SelectMap = @{
                "Get-DZEnvironmentAction",
                "Get-DZEnvironmentBlueprint",
                "Get-DZEnvironmentBlueprintConfiguration",
+               "Get-DZEnvironmentCredential",
                "Get-DZEnvironmentProfile",
                "Get-DZFormType",
                "Get-DZGlossary",

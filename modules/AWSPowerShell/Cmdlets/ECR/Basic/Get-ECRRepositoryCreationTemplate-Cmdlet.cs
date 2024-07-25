@@ -22,66 +22,51 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ApplicationSignals;
-using Amazon.ApplicationSignals.Model;
+using Amazon.ECR;
+using Amazon.ECR.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CWAS
+namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Returns a list of services that have been discovered by Application Signals. A service
-    /// represents a minimum logical and transactional unit that completes a business function.
-    /// Services are discovered through Application Signals instrumentation.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns details about the repository creation templates in a registry. The <c>prefixes</c>
+    /// request parameter can be used to return the details for a specific repository creation
+    /// template.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CWASServiceList")]
-    [OutputType("Amazon.ApplicationSignals.Model.ListServicesResponse")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Application Signals ListServices API operation.", Operation = new[] {"ListServices"}, SelectReturnType = typeof(Amazon.ApplicationSignals.Model.ListServicesResponse))]
-    [AWSCmdletOutput("Amazon.ApplicationSignals.Model.ListServicesResponse",
-        "This cmdlet returns an Amazon.ApplicationSignals.Model.ListServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ECRRepositoryCreationTemplate")]
+    [OutputType("Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse")]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeRepositoryCreationTemplates API operation.", Operation = new[] {"DescribeRepositoryCreationTemplates"}, SelectReturnType = typeof(Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse))]
+    [AWSCmdletOutput("Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse",
+        "This cmdlet returns an Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCWASServiceListCmdlet : AmazonApplicationSignalsClientCmdlet, IExecutor
+    public partial class GetECRRepositoryCreationTemplateCmdlet : AmazonECRClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter EndTime
+        #region Parameter Prefix
         /// <summary>
         /// <para>
-        /// <para>The end of the time period to retrieve information about. When used in a raw HTTP
-        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para><para>Your requested start time will be rounded to the nearest hour.</para>
+        /// <para>The repository namespace prefixes associated with the repository creation templates
+        /// to describe. If this value is not specified, all repository creation templates are
+        /// returned.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? EndTime { get; set; }
-        #endregion
-        
-        #region Parameter StartTime
-        /// <summary>
-        /// <para>
-        /// <para>The start of the time period to retrieve information about. When used in a raw HTTP
-        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para><para>Your requested start time will be rounded to the nearest hour.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.DateTime? StartTime { get; set; }
+        [Alias("Prefixes")]
+        public System.String[] Prefix { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para> The maximum number of results to return in one operation. If you omit this parameter,
-        /// the default of 50 is used. </para>
+        /// <para>The maximum number of repository results returned by <c>DescribeRepositoryCreationTemplatesRequest</c>
+        /// in paginated output. When this parameter is used, <c>DescribeRepositoryCreationTemplatesRequest</c>
+        /// only returns <c>maxResults</c> results in a single page along with a <c>nextToken</c>
+        /// response element. The remaining results of the initial request can be seen by sending
+        /// another <c>DescribeRepositoryCreationTemplatesRequest</c> request with the returned
+        /// <c>nextToken</c> value. This value can be between 1 and 1000. If this parameter is
+        /// not used, then <c>DescribeRepositoryCreationTemplatesRequest</c> returns up to 100
+        /// results and a <c>nextToken</c> value, if applicable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,8 +77,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Include this value, if it was returned by the previous operation, to get the next
-        /// set of services.</para>
+        /// <para>The <c>nextToken</c> value returned from a previous paginated <c>DescribeRepositoryCreationTemplates</c>
+        /// request where <c>maxResults</c> was used and the results exceeded the value of that
+        /// parameter. Pagination continues from the end of the previous results that returned
+        /// the <c>nextToken</c> value. This value is <c>null</c> when there are no more results
+        /// to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -107,22 +96,12 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ApplicationSignals.Model.ListServicesResponse).
-        /// Specifying the name of a property of type Amazon.ApplicationSignals.Model.ListServicesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse).
+        /// Specifying the name of a property of type Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the StartTime parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^StartTime' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StartTime' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -145,37 +124,17 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ApplicationSignals.Model.ListServicesResponse, GetCWASServiceListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse, GetECRRepositoryCreationTemplateCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.StartTime;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.EndTime = this.EndTime;
-            #if MODULAR
-            if (this.EndTime == null && ParameterWasBound(nameof(this.EndTime)))
-            {
-                WriteWarning("You are passing $null as a value for parameter EndTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.StartTime = this.StartTime;
-            #if MODULAR
-            if (this.StartTime == null && ParameterWasBound(nameof(this.StartTime)))
+            if (this.Prefix != null)
             {
-                WriteWarning("You are passing $null as a value for parameter StartTime which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Prefix = new List<System.String>(this.Prefix);
             }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -189,24 +148,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.ApplicationSignals.Model.ListServicesRequest();
+            var request = new Amazon.ECR.Model.DescribeRepositoryCreationTemplatesRequest();
             
-            if (cmdletContext.EndTime != null)
-            {
-                request.EndTime = cmdletContext.EndTime.Value;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
-            if (cmdletContext.StartTime != null)
+            if (cmdletContext.Prefix != null)
             {
-                request.StartTime = cmdletContext.StartTime.Value;
+                request.Prefixes = cmdletContext.Prefix;
             }
             
             // Initialize loop variant and commence piping
@@ -265,15 +218,15 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationSignals.Model.ListServicesResponse CallAWSServiceOperation(IAmazonApplicationSignals client, Amazon.ApplicationSignals.Model.ListServicesRequest request)
+        private Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.DescribeRepositoryCreationTemplatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Application Signals", "ListServices");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "DescribeRepositoryCreationTemplates");
             try
             {
                 #if DESKTOP
-                return client.ListServices(request);
+                return client.DescribeRepositoryCreationTemplates(request);
                 #elif CORECLR
-                return client.ListServicesAsync(request).GetAwaiter().GetResult();
+                return client.DescribeRepositoryCreationTemplatesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -293,11 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.DateTime? EndTime { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.DateTime? StartTime { get; set; }
-            public System.Func<Amazon.ApplicationSignals.Model.ListServicesResponse, GetCWASServiceListCmdlet, object> Select { get; set; } =
+            public List<System.String> Prefix { get; set; }
+            public System.Func<Amazon.ECR.Model.DescribeRepositoryCreationTemplatesResponse, GetECRRepositoryCreationTemplateCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -47,6 +47,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateRepositoryCreationTemplate" OutputProperty="*" Verb="New" Noun="RepositoryCreationTemplate" ShouldProcessTarget="CustomRoleArn" PipelineParameter="Prefix" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLifecyclePolicy" OutputProperty="*" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -63,6 +67,10 @@
             <Params>
                 <Param Name="Force" NewName="IgnoreExistingImages" AutoApplyAlias="false" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRepositoryCreationTemplate" OutputProperty="*" Verb="Remove" Noun="RepositoryCreationTemplate" ShouldProcessTarget="Prefix" PipelineParameter="Prefix" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRepositoryPolicy" OutputProperty="*" Verb="Remove" Noun="RepositoryPolicy" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
@@ -93,6 +101,10 @@
             <Params>
                 <Param Name="MaxResults" NewName="MaxResult" Alias="MaxItems" />
             </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRepositoryCreationTemplates" OutputProperty="*" Verb="Get" Noun="RepositoryCreationTemplate" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAuthorizationToken" OutputProperty="AuthorizationData" Verb="Get" Noun="AuthorizationToken" PipelineParameter="RegistryIds" NoPipelineParameter="false">
@@ -186,6 +198,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePullThroughCacheRule" OutputProperty="*" Verb="Update" Noun="PullThroughCacheRule" ShouldProcessTarget="CredentialArn" PipelineParameter="CredentialArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRepositoryCreationTemplate" OutputProperty="*" Verb="Update" Noun="RepositoryCreationTemplate" ShouldProcessTarget="CustomRoleArn" PipelineParameter="Prefix" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

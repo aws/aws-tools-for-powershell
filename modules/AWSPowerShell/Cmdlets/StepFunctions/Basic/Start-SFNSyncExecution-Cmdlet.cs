@@ -55,6 +55,19 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para>If your state machine definition is encrypted with a KMS key, callers must have <c>kms:Decrypt</c>
+        /// permission to decrypt the definition. Alternatively, you can call the API with <c>includedData
+        /// = METADATA_ONLY</c> to get a successful response without the encrypted definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StepFunctions.IncludedData")]
+        public Amazon.StepFunctions.IncludedData IncludedData { get; set; }
+        #endregion
+        
         #region Parameter Input
         /// <summary>
         /// <para>
@@ -167,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 context.Select = (response, cmdlet) => this.StateMachineArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.IncludedData = this.IncludedData;
             context.Input = this.Input;
             context.Name = this.Name;
             context.StateMachineArn = this.StateMachineArn;
@@ -193,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             // create request
             var request = new Amazon.StepFunctions.Model.StartSyncExecutionRequest();
             
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
+            }
             if (cmdletContext.Input != null)
             {
                 request.Input = cmdletContext.Input;
@@ -270,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.StepFunctions.IncludedData IncludedData { get; set; }
             public System.String Input { get; set; }
             public System.String Name { get; set; }
             public System.String StateMachineArn { get; set; }

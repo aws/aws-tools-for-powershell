@@ -142,6 +142,16 @@ $ELB2_Completers = {
             break
         }
 
+        # Amazon.ElasticLoadBalancingV2.TrustStoreAssociationStatusEnum
+        {
+            ($_ -eq "Edit-ELB2Listener/MutualAuthentication_TrustStoreAssociationStatus") -Or
+            ($_ -eq "New-ELB2Listener/MutualAuthentication_TrustStoreAssociationStatus")
+        }
+        {
+            $v = "active","removed"
+            break
+        }
+
 
     }
 
@@ -155,6 +165,7 @@ $ELB2_map = @{
     "HealthCheckProtocol"=@("Edit-ELB2TargetGroup","New-ELB2TargetGroup")
     "IpAddressType"=@("New-ELB2LoadBalancer","New-ELB2TargetGroup","Set-ELB2IpAddressType","Set-ELB2Subnet")
     "LoadBalancerType"=@("Get-ELB2SSLPolicy")
+    "MutualAuthentication_TrustStoreAssociationStatus"=@("Edit-ELB2Listener","New-ELB2Listener")
     "Protocol"=@("Edit-ELB2Listener","New-ELB2Listener","New-ELB2TargetGroup")
     "Scheme"=@("New-ELB2LoadBalancer")
     "TargetType"=@("New-ELB2TargetGroup")
@@ -222,6 +233,7 @@ $ELB2_SelectMap = @{
                "Remove-ELB2Listener",
                "Remove-ELB2LoadBalancer",
                "Remove-ELB2Rule",
+               "Remove-ELB2SharedTrustStoreAssociation",
                "Remove-ELB2TargetGroup",
                "Remove-ELB2TrustStore",
                "Unregister-ELB2Target",
@@ -239,6 +251,7 @@ $ELB2_SelectMap = @{
                "Get-ELB2TrustStoreAssociation",
                "Get-ELB2TrustStoreRevocation",
                "Get-ELB2TrustStore",
+               "Get-ELB2ResourcePolicy",
                "Get-ELB2TrustStoreCaCertificatesBundle",
                "Get-ELB2TrustStoreRevocationContent",
                "Edit-ELB2Listener",

@@ -22,64 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.StepFunctions;
-using Amazon.StepFunctions.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SFN
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Stops an execution.
-    /// 
-    ///  
-    /// <para>
-    /// This API action is not supported by <c>EXPRESS</c> state machines.
-    /// </para><para>
-    /// For an execution with encryption enabled, Step Functions will encrypt the error and
-    /// cause fields using the KMS key for the execution role.
-    /// </para><para>
-    /// A caller can stop an execution without using any KMS permissions in the execution
-    /// role if the caller provides a null value for both <c>error</c> and <c>cause</c> fields
-    /// because no data needs to be encrypted.
-    /// </para>
+    /// Gets the credentials of an environment in Amazon DataZone.
     /// </summary>
-    [Cmdlet("Stop", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.DateTime")]
-    [AWSCmdlet("Calls the AWS Step Functions StopExecution API operation.", Operation = new[] {"StopExecution"}, SelectReturnType = typeof(Amazon.StepFunctions.Model.StopExecutionResponse))]
-    [AWSCmdletOutput("System.DateTime or Amazon.StepFunctions.Model.StopExecutionResponse",
-        "This cmdlet returns a System.DateTime object.",
-        "The service call response (type Amazon.StepFunctions.Model.StopExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DZEnvironmentCredential")]
+    [OutputType("Amazon.DataZone.Model.GetEnvironmentCredentialsResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone GetEnvironmentCredentials API operation.", Operation = new[] {"GetEnvironmentCredentials"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetEnvironmentCredentialsResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.GetEnvironmentCredentialsResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.GetEnvironmentCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopSFNExecutionCmdlet : AmazonStepFunctionsClientCmdlet, IExecutor
+    public partial class GetDZEnvironmentCredentialCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Cause
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>A more detailed explanation of the cause of the failure.</para>
+        /// <para>The ID of the Amazon DataZone domain in which this environment and its credentials
+        /// exist.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Cause { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter Error
+        #region Parameter EnvironmentIdentifier
         /// <summary>
         /// <para>
-        /// <para>The error code of the failure.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Error { get; set; }
-        #endregion
-        
-        #region Parameter ExecutionArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the execution to stop.</para>
+        /// <para>The ID of the environment whose credentials this operation gets.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,50 +73,34 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ExecutionArn { get; set; }
+        public System.String EnvironmentIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'StopDate'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.StepFunctions.Model.StopExecutionResponse).
-        /// Specifying the name of a property of type Amazon.StepFunctions.Model.StopExecutionResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetEnvironmentCredentialsResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.GetEnvironmentCredentialsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "StopDate";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ExecutionArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ExecutionArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the EnvironmentIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ExecutionArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ExecutionArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-SFNExecution (StopExecution)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -143,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.StepFunctions.Model.StopExecutionResponse, StopSFNExecutionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetEnvironmentCredentialsResponse, GetDZEnvironmentCredentialCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -152,16 +119,21 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ExecutionArn;
+                context.Select = (response, cmdlet) => this.EnvironmentIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Cause = this.Cause;
-            context.Error = this.Error;
-            context.ExecutionArn = this.ExecutionArn;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.ExecutionArn == null && ParameterWasBound(nameof(this.ExecutionArn)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ExecutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.EnvironmentIdentifier = this.EnvironmentIdentifier;
+            #if MODULAR
+            if (this.EnvironmentIdentifier == null && ParameterWasBound(nameof(this.EnvironmentIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter EnvironmentIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,19 +150,15 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StepFunctions.Model.StopExecutionRequest();
+            var request = new Amazon.DataZone.Model.GetEnvironmentCredentialsRequest();
             
-            if (cmdletContext.Cause != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.Cause = cmdletContext.Cause;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.Error != null)
+            if (cmdletContext.EnvironmentIdentifier != null)
             {
-                request.Error = cmdletContext.Error;
-            }
-            if (cmdletContext.ExecutionArn != null)
-            {
-                request.ExecutionArn = cmdletContext.ExecutionArn;
+                request.EnvironmentIdentifier = cmdletContext.EnvironmentIdentifier;
             }
             
             CmdletOutput output;
@@ -225,15 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #region AWS Service Operation Call
         
-        private Amazon.StepFunctions.Model.StopExecutionResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.StopExecutionRequest request)
+        private Amazon.DataZone.Model.GetEnvironmentCredentialsResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetEnvironmentCredentialsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "StopExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetEnvironmentCredentials");
             try
             {
                 #if DESKTOP
-                return client.StopExecution(request);
+                return client.GetEnvironmentCredentials(request);
                 #elif CORECLR
-                return client.StopExecutionAsync(request).GetAwaiter().GetResult();
+                return client.GetEnvironmentCredentialsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -253,11 +221,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Cause { get; set; }
-            public System.String Error { get; set; }
-            public System.String ExecutionArn { get; set; }
-            public System.Func<Amazon.StepFunctions.Model.StopExecutionResponse, StopSFNExecutionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.StopDate;
+            public System.String DomainIdentifier { get; set; }
+            public System.String EnvironmentIdentifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.GetEnvironmentCredentialsResponse, GetDZEnvironmentCredentialCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

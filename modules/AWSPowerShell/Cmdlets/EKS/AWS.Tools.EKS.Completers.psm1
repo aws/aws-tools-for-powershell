@@ -149,6 +149,16 @@ $EKS_Completers = {
             break
         }
 
+        # Amazon.EKS.SupportType
+        {
+            ($_ -eq "New-EKSCluster/UpgradePolicy_SupportType") -Or
+            ($_ -eq "Update-EKSClusterConfig/UpgradePolicy_SupportType")
+        }
+        {
+            $v = "EXTENDED","STANDARD"
+            break
+        }
+
 
     }
 
@@ -167,6 +177,7 @@ $EKS_map = @{
     "LicenseType"=@("New-EKSEksAnywhereSubscription")
     "ResolveConflict"=@("New-EKSAddon","Update-EKSAddon")
     "Term_Unit"=@("New-EKSEksAnywhereSubscription")
+    "UpgradePolicy_SupportType"=@("New-EKSCluster","Update-EKSClusterConfig")
 }
 
 _awsArgumentCompleterRegistration $EKS_Completers $EKS_map

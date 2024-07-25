@@ -28,8 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the revocation files in use by the specified trust store arn, or revocation
-    /// ID.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Describes the revocation files in use by the specified trust store or revocation files.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ELB2TrustStoreRevocation")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.DescribeTrustStoreRevocation")]

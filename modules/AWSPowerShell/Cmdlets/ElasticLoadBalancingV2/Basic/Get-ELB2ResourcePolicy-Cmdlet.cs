@@ -28,34 +28,24 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the health of the specified targets or all of your targets.
+    /// Retrieves the resource policy for a specified resource.
     /// </summary>
-    [Cmdlet("Get", "ELB2TargetHealth")]
-    [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeTargetHealth API operation.", Operation = new[] {"DescribeTargetHealth"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse))]
-    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription or Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse",
-        "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "ELB2ResourcePolicy")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse))]
+    [AWSCmdletOutput("System.String or Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse",
+        "This cmdlet returns a System.String object.",
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetELB2TargetHealthCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class GetELB2ResourcePolicyCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Include
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>Used to include anomaly detection information.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String[] Include { get; set; }
-        #endregion
-        
-        #region Parameter TargetGroupArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the target group.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,37 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TargetGroupArn { get; set; }
-        #endregion
-        
-        #region Parameter Target
-        /// <summary>
-        /// <para>
-        /// <para>The targets.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Targets")]
-        public Amazon.ElasticLoadBalancingV2.Model.TargetDescription[] Target { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'TargetHealthDescriptions'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse).
-        /// Specifying the name of a property of type Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Policy'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "TargetHealthDescriptions";
+        public string Select { get; set; } = "Policy";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the TargetGroupArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^TargetGroupArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^TargetGroupArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -114,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse, GetELB2TargetHealthCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse, GetELB2ResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,24 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.TargetGroupArn;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Include != null)
-            {
-                context.Include = new List<System.String>(this.Include);
-            }
-            context.TargetGroupArn = this.TargetGroupArn;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.TargetGroupArn == null && ParameterWasBound(nameof(this.TargetGroupArn)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter TargetGroupArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Target != null)
-            {
-                context.Target = new List<Amazon.ElasticLoadBalancingV2.Model.TargetDescription>(this.Target);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,19 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthRequest();
+            var request = new Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyRequest();
             
-            if (cmdletContext.Include != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Include = cmdletContext.Include;
-            }
-            if (cmdletContext.TargetGroupArn != null)
-            {
-                request.TargetGroupArn = cmdletContext.TargetGroupArn;
-            }
-            if (cmdletContext.Target != null)
-            {
-                request.Targets = cmdletContext.Target;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -202,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeTargetHealth");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "GetResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DescribeTargetHealth(request);
+                return client.GetResourcePolicy(request);
                 #elif CORECLR
-                return client.DescribeTargetHealthAsync(request).GetAwaiter().GetResult();
+                return client.GetResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -230,11 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Include { get; set; }
-            public System.String TargetGroupArn { get; set; }
-            public List<Amazon.ElasticLoadBalancingV2.Model.TargetDescription> Target { get; set; }
-            public System.Func<Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse, GetELB2TargetHealthCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.TargetHealthDescriptions;
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.ElasticLoadBalancingV2.Model.GetResourcePolicyResponse, GetELB2ResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Policy;
         }
         
     }

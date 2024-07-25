@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <summary>
         /// <para>
         /// <para>The end of the time period to retrieve information about. When used in a raw HTTP
-        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para>
+        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para><para>Your requested start time will be rounded to the nearest hour.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         /// <summary>
         /// <para>
         /// <para>The start of the time period to retrieve information about. When used in a raw HTTP
-        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para>
+        /// Query API, it is formatted as be epoch time in seconds. For example: <c>1698778057</c></para><para>Your requested start time will be rounded to the nearest hour.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

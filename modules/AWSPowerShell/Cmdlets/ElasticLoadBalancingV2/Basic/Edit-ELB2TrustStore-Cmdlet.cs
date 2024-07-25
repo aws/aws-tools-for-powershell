@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Update the ca certificate bundle for a given trust store.
+    /// Update the ca certificate bundle for the specified trust store.
     /// </summary>
     [Cmdlet("Edit", "ELB2TrustStore", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TrustStore")]

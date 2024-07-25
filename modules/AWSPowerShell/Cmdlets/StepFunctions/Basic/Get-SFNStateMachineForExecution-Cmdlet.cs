@@ -71,6 +71,19 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public System.String ExecutionArn { get; set; }
         #endregion
         
+        #region Parameter IncludedData
+        /// <summary>
+        /// <para>
+        /// <para>If your state machine definition is encrypted with a KMS key, callers must have <c>kms:Decrypt</c>
+        /// permission to decrypt the definition. Alternatively, you can call the API with <c>includedData
+        /// = METADATA_ONLY</c> to get a successful response without the encrypted definition.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StepFunctions.IncludedData")]
+        public Amazon.StepFunctions.IncludedData IncludedData { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -124,6 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 WriteWarning("You are passing $null as a value for parameter ExecutionArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IncludedData = this.IncludedData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.ExecutionArn != null)
             {
                 request.ExecutionArn = cmdletContext.ExecutionArn;
+            }
+            if (cmdletContext.IncludedData != null)
+            {
+                request.IncludedData = cmdletContext.IncludedData;
             }
             
             CmdletOutput output;
@@ -206,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ExecutionArn { get; set; }
+            public Amazon.StepFunctions.IncludedData IncludedData { get; set; }
             public System.Func<Amazon.StepFunctions.Model.DescribeStateMachineForExecutionResponse, GetSFNStateMachineForExecutionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
