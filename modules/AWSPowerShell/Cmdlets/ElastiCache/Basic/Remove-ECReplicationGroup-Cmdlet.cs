@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// When you receive a successful response from this operation, Amazon ElastiCache immediately
     /// begins deleting the selected resources; you cannot cancel or revert this operation.
     /// </para><note><para>
-    /// This operation is valid for Redis only.
+    /// This operation is valid for Redis OSS only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

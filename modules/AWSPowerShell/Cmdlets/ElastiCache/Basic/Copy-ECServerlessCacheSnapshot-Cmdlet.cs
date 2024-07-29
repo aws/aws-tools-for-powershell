@@ -28,7 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Creates a copy of an existing serverless cache’s snapshot. Available for Redis only.
+    /// Creates a copy of an existing serverless cache’s snapshot. Available for Redis OSS
+    /// and Serverless Memcached only.
     /// </summary>
     [Cmdlet("Copy", "ECServerlessCacheSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ServerlessCacheSnapshot")]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier of the KMS key used to encrypt the target snapshot. Available for Redis
-        /// only.</para>
+        /// OSS and Serverless Memcached only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -57,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier of the existing serverless cache’s snapshot to be copied. Available
-        /// for Redis only.</para>
+        /// for Redis OSS and Serverless Memcached only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of tags to be added to the target snapshot resource. A tag is a key-value pair.
-        /// Available for Redis only. Default: NULL</para>
+        /// Available for Redis OSS and Serverless Memcached only. Default: NULL</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -86,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter TargetServerlessCacheSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The identifier for the snapshot to be created. Available for Redis only.</para>
+        /// <para>The identifier for the snapshot to be created. Available for Redis OSS and Serverless
+        /// Memcached only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

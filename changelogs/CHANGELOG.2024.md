@@ -1,4 +1,7 @@
-﻿### 4.1.623 (2024-07-25 22:25Z)
+﻿### 4.1.624 (2024-07-29 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.854.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.623 (2024-07-25 22:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.854.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Added cmdlet Get-DZEnvironmentCredential leveraging the GetEnvironmentCredentials service API.

@@ -28,10 +28,10 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Dynamically decreases the number of replicas in a Redis (cluster mode disabled) replication
-    /// group or the number of replica nodes in one or more node groups (shards) of a Redis
-    /// (cluster mode enabled) replication group. This operation is performed with no cluster
-    /// down time.
+    /// Dynamically decreases the number of replicas in a Redis OSS (cluster mode disabled)
+    /// replication group or the number of replica nodes in one or more node groups (shards)
+    /// of a Redis OSS (cluster mode enabled) replication group. This operation is performed
+    /// with no cluster down time.
     /// </summary>
     [Cmdlet("Request", "ECReplicaCountDecrease", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
@@ -66,10 +66,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of read replica nodes you want at the completion of this operation. For
-        /// Redis (cluster mode disabled) replication groups, this is the number of replica nodes
-        /// in the replication group. For Redis (cluster mode enabled) replication groups, this
-        /// is the number of replica nodes in each of the replication group's node groups.</para><para>The minimum number of replicas in a shard or replication group is:</para><ul><li><para>Redis (cluster mode disabled)</para><ul><li><para>If Multi-AZ is enabled: 1</para></li><li><para>If Multi-AZ is not enabled: 0</para></li></ul></li><li><para>Redis (cluster mode enabled): 0 (though you will not be able to failover to a replica
-        /// if your primary node fails)</para></li></ul>
+        /// Redis OSS (cluster mode disabled) replication groups, this is the number of replica
+        /// nodes in the replication group. For Redis OSS (cluster mode enabled) replication groups,
+        /// this is the number of replica nodes in each of the replication group's node groups.</para><para>The minimum number of replicas in a shard or replication group is:</para><ul><li><para>Redis OSS (cluster mode disabled)</para><ul><li><para>If Multi-AZ is enabled: 1</para></li><li><para>If Multi-AZ is not enabled: 0</para></li></ul></li><li><para>Redis OSS (cluster mode enabled): 0 (though you will not be able to failover to a
+        /// replica if your primary node fails)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of <c>ConfigureShard</c> objects that can be used to configure each shard in
-        /// a Redis (cluster mode enabled) replication group. The <c>ConfigureShard</c> has three
-        /// members: <c>NewReplicaCount</c>, <c>NodeGroupId</c>, and <c>PreferredAvailabilityZones</c>.</para>
+        /// a Redis OSS (cluster mode enabled) replication group. The <c>ConfigureShard</c> has
+        /// three members: <c>NewReplicaCount</c>, <c>NodeGroupId</c>, and <c>PreferredAvailabilityZones</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// the snapshots associated with a particular cache cluster.
     /// 
     ///  <note><para>
-    /// This operation is valid for Redis only.
+    /// This operation is valid for Redis OSS only.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECSnapshot")]

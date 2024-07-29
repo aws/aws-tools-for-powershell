@@ -40,11 +40,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </para><para>
     /// When the reboot is complete, a cluster event is created.
     /// </para><para>
-    /// Rebooting a cluster is currently supported on Memcached and Redis (cluster mode disabled)
-    /// clusters. Rebooting is not supported on Redis (cluster mode enabled) clusters.
+    /// Rebooting a cluster is currently supported on Memcached and Redis OSS (cluster mode
+    /// disabled) clusters. Rebooting is not supported on Redis OSS (cluster mode enabled)
+    /// clusters.
     /// </para><para>
-    /// If you make changes to parameters that require a Redis (cluster mode enabled) cluster
-    /// reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html">Rebooting
+    /// If you make changes to parameters that require a Redis OSS (cluster mode enabled)
+    /// cluster reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes.rebooting.html">Rebooting
     /// a Cluster</a> for an alternate process.
     /// </para>
     /// </summary>

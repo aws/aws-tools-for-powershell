@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the Redis engine to be used for the cluster.</para>
+        /// <para>The version number of the Redis OSS engine to be used for the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

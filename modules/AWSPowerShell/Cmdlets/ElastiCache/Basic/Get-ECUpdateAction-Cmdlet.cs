@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The Elasticache engine to which the update applies. Either Redis or Memcached </para>
+        /// <para>The Elasticache engine to which the update applies. Either Redis OSS or Memcached.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

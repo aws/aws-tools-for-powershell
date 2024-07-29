@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Makes a copy of an existing snapshot.
     /// 
     ///  <note><para>
-    /// This operation is valid for Redis only.
+    /// This operation is valid for Redis OSS only.
     /// </para></note><important><para>
     /// Users or groups that have permissions to use the <c>CopySnapshot</c> operation can
     /// create their own Amazon S3 buckets and copy snapshots to it. To control access to

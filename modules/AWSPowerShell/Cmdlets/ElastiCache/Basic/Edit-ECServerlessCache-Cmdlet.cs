@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The daily time during which Elasticache begins taking a daily snapshot of the serverless
-        /// cache. Available for Redis only. The default is NULL, i.e. the existing snapshot time
-        /// configured for the cluster is not removed.</para>
+        /// cache. Available for Redis OSS and Serverless Memcached only. The default is NULL,
+        /// i.e. the existing snapshot time configured for the cluster is not removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter RemoveUserGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the UserGroup to be removed from association with the Redis serverless
-        /// cache. Available for Redis only. Default is NULL.</para>
+        /// <para>The identifier of the UserGroup to be removed from association with the Redis OSS
+        /// serverless cache. Available for Redis OSS only. Default is NULL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,8 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of days for which Elasticache retains automatic snapshots before deleting
-        /// them. Available for Redis only. Default = NULL, i.e. the existing snapshot-retention-limit
-        /// will not be removed or modified. The maximum value allowed is 35 days.</para>
+        /// them. Available for Redis OSS and Serverless Memcached only. Default = NULL, i.e.
+        /// the existing snapshot-retention-limit will not be removed or modified. The maximum
+        /// value allowed is 35 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier of the UserGroup to be associated with the serverless cache. Available
-        /// for Redis only. Default is NULL - the existing UserGroup is not removed.</para>
+        /// for Redis OSS only. Default is NULL - the existing UserGroup is not removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

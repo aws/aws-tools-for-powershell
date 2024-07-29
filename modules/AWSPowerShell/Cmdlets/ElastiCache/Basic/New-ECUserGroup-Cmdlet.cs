@@ -28,8 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// For Redis engine version 6.0 onwards: Creates a Redis user group. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
+    /// For Redis OSS engine version 6.0 onwards: Creates a Redis OSS user group. For more
+    /// information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using
     /// Role Based Access Control (RBAC)</a>
     /// </summary>
     [Cmdlet("New", "ECUserGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The current supported value is Redis. </para>
+        /// <para>The current supported value is Redis user. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>A list of tags to be added to this resource. A tag is a key-value pair. A tag key
         /// must be accompanied by a tag value, although null is accepted. Available for Redis
-        /// only.</para>
+        /// OSS only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

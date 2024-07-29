@@ -28,15 +28,16 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Modifies the settings for a replication group. This is limited to Redis 7 and newer.
+    /// Modifies the settings for a replication group. This is limited to Redis OSS 7 and
+    /// newer.
     /// 
     ///  <ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling
-    /// for Amazon ElastiCache for Redis (cluster mode enabled)</a> in the ElastiCache User
+    /// for Amazon ElastiCache (Redis OSS) (cluster mode enabled)</a> in the ElastiCache User
     /// Guide
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
     /// in the ElastiCache API Reference
     /// </para></li></ul><note><para>
-    /// This operation is valid for Redis only.
+    /// This operation is valid for Redis OSS only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the strategy to use to update the AUTH token. This parameter must be specified
         /// with the <c>auth-token</c> parameter. Possible values:</para><ul><li><para>ROTATE - default, if no update strategy is provided</para></li><li><para>SET - allowed only after ROTATE</para></li><li><para>DELETE - allowed only when transitioning to RBAC</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
-        /// Users with Redis AUTH</a></para>
+        /// Users with Redis OSS AUTH</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If you are running Redis engine version 6.0 or later, set this parameter to yes if
-        /// you want to opt-in to the next auto minor version upgrade campaign. This parameter
+        /// <para> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes
+        /// if you want to opt-in to the next auto minor version upgrade campaign. This parameter
         /// is disabled for previous versions.  </para>
         /// </para>
         /// </summary>
@@ -151,10 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
-        /// set the cluster mode to Compatible. Compatible mode allows your Redis clients to connect
-        /// using both cluster mode enabled and cluster mode disabled. After you migrate all Redis
-        /// clients to use cluster mode enabled, you can then complete cluster mode configuration
-        /// and set the cluster mode to Enabled.</para>
+        /// set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients
+        /// to connect using both cluster mode enabled and cluster mode disabled. After you migrate
+        /// all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode
+        /// configuration and set the cluster mode to Enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -180,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The network type you choose when modifying a cluster, either <c>ipv4</c> | <c>ipv6</c>.
-        /// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached
+        /// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached
         /// engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>.</para>
         /// </para>
@@ -325,7 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The cluster ID that is used as the daily snapshot source for the replication group.
-        /// This parameter cannot be set for Redis (cluster mode enabled) replication groups.</para>
+        /// This parameter cannot be set for Redis OSS (cluster mode enabled) replication groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -363,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// no downtime.</para><para>You must set <c>TransitEncryptionEnabled</c> to <c>true</c>, for your existing cluster,
         /// and set <c>TransitEncryptionMode</c> to <c>preferred</c> in the same request to allow
         /// both encrypted and unencrypted connections at the same time. Once you migrate all
-        /// your Redis clients to use encrypted connections you can set the value to <c>required</c>
+        /// your Redis OSS clients to use encrypted connections you can set the value to <c>required</c>
         /// to allow encrypted connections only.</para><para>Setting <c>TransitEncryptionMode</c> to <c>required</c> is a two-step process that
         /// requires you to first set the <c>TransitEncryptionMode</c> to <c>preferred</c>, after
         /// that you can set <c>TransitEncryptionMode</c> to <c>required</c>. </para>

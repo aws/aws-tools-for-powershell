@@ -28,7 +28,7 @@ using Amazon.MemoryDB.Model;
 namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
-    /// Returns a list of the available Redis engine versions.
+    /// Returns a list of the available Redis OSS engine versions.
     /// </summary>
     [Cmdlet("Get", "MDBEngineVersion")]
     [OutputType("Amazon.MemoryDB.Model.EngineVersionInfo")]
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The Redis engine version</para>
+        /// <para>The Redis OSS engine version</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

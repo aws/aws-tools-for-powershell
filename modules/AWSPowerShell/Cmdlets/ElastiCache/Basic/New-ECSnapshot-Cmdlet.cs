@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Creates a copy of an entire cluster or replication group at a specific moment in time.
     /// 
     ///  <note><para>
-    /// This operation is valid for Redis only.
+    /// This operation is valid for Redis OSS only.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

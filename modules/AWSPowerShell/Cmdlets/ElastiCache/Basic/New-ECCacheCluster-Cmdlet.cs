@@ -29,11 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
-    /// engine software, either Memcached or Redis.
+    /// engine software, either Memcached or Redis OSS.
     /// 
     ///  
     /// <para>
-    /// This operation is not supported for Redis (cluster mode enabled) clusters.
+    /// This operation is not supported for Redis OSS (cluster mode enabled) clusters.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If you are running Redis engine version 6.0 or later, set this parameter to yes if
-        /// you want to opt-in to the next auto minor version upgrade campaign. This parameter
+        /// <para> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes
+        /// if you want to opt-in to the next auto minor version upgrade campaign. This parameter
         /// is disabled for previous versions.  </para>
         /// </para>
         /// </summary>
@@ -109,27 +109,28 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// generation types provide more memory and computational power at lower cost when compared
         /// to their equivalent previous generation counterparts.</para><ul><li><para>General purpose:</para><ul><li><para>Current generation: </para><para><b>M7g node types</b>: <c>cache.m7g.large</c>, <c>cache.m7g.xlarge</c>, <c>cache.m7g.2xlarge</c>,
         /// <c>cache.m7g.4xlarge</c>, <c>cache.m7g.8xlarge</c>, <c>cache.m7g.12xlarge</c>, <c>cache.m7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
-        /// Node Types</a></para></note><para><b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward): <c>cache.m6g.large</c>, <c>cache.m6g.xlarge</c>,
+        /// Node Types</a></para></note><para><b>M6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and
+        /// for Memcached engine version 1.5.16 onward): <c>cache.m6g.large</c>, <c>cache.m6g.xlarge</c>,
         /// <c>cache.m6g.2xlarge</c>, <c>cache.m6g.4xlarge</c>, <c>cache.m6g.8xlarge</c>, <c>cache.m6g.12xlarge</c>,
         /// <c>cache.m6g.16xlarge</c></para><para><b>M5 node types:</b><c>cache.m5.large</c>, <c>cache.m5.xlarge</c>, <c>cache.m5.2xlarge</c>,
         /// <c>cache.m5.4xlarge</c>, <c>cache.m5.12xlarge</c>, <c>cache.m5.24xlarge</c></para><para><b>M4 node types:</b><c>cache.m4.large</c>, <c>cache.m4.xlarge</c>, <c>cache.m4.2xlarge</c>,
-        /// <c>cache.m4.4xlarge</c>, <c>cache.m4.10xlarge</c></para><para><b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached
-        /// engine version 1.5.16 onward): <c>cache.t4g.micro</c>, <c>cache.t4g.small</c>, <c>cache.t4g.medium</c></para><para><b>T3 node types:</b><c>cache.t3.micro</c>, <c>cache.t3.small</c>, <c>cache.t3.medium</c></para><para><b>T2 node types:</b><c>cache.t2.micro</c>, <c>cache.t2.small</c>, <c>cache.t2.medium</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
+        /// <c>cache.m4.4xlarge</c>, <c>cache.m4.10xlarge</c></para><para><b>T4g node types</b> (available only for Redis OSS engine version 5.0.6 onward and
+        /// Memcached engine version 1.5.16 onward): <c>cache.t4g.micro</c>, <c>cache.t4g.small</c>,
+        /// <c>cache.t4g.medium</c></para><para><b>T3 node types:</b><c>cache.t3.micro</c>, <c>cache.t3.small</c>, <c>cache.t3.medium</c></para><para><b>T2 node types:</b><c>cache.t2.micro</c>, <c>cache.t2.small</c>, <c>cache.t2.medium</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
         /// of new clusters is not supported for these types.)</para><para><b>T1 node types:</b><c>cache.t1.micro</c></para><para><b>M1 node types:</b><c>cache.m1.small</c>, <c>cache.m1.medium</c>, <c>cache.m1.large</c>,
         /// <c>cache.m1.xlarge</c></para><para><b>M3 node types:</b><c>cache.m3.medium</c>, <c>cache.m3.large</c>, <c>cache.m3.xlarge</c>,
         /// <c>cache.m3.2xlarge</c></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
         /// of new clusters is not supported for these types.)</para><para><b>C1 node types:</b><c>cache.c1.xlarge</c></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R7g node types</b>: <c>cache.r7g.large</c>, <c>cache.r7g.xlarge</c>, <c>cache.r7g.2xlarge</c>,
         /// <c>cache.r7g.4xlarge</c>, <c>cache.r7g.8xlarge</c>, <c>cache.r7g.12xlarge</c>, <c>cache.r7g.16xlarge</c></para><note><para>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported
-        /// Node Types</a></para></note><para><b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for
-        /// Memcached engine version 1.5.16 onward): <c>cache.r6g.large</c>, <c>cache.r6g.xlarge</c>,
+        /// Node Types</a></para></note><para><b>R6g node types</b> (available only for Redis OSS engine version 5.0.6 onward and
+        /// for Memcached engine version 1.5.16 onward): <c>cache.r6g.large</c>, <c>cache.r6g.xlarge</c>,
         /// <c>cache.r6g.2xlarge</c>, <c>cache.r6g.4xlarge</c>, <c>cache.r6g.8xlarge</c>, <c>cache.r6g.12xlarge</c>,
         /// <c>cache.r6g.16xlarge</c></para><para><b>R5 node types:</b><c>cache.r5.large</c>, <c>cache.r5.xlarge</c>, <c>cache.r5.2xlarge</c>,
         /// <c>cache.r5.4xlarge</c>, <c>cache.r5.12xlarge</c>, <c>cache.r5.24xlarge</c></para><para><b>R4 node types:</b><c>cache.r4.large</c>, <c>cache.r4.xlarge</c>, <c>cache.r4.2xlarge</c>,
         /// <c>cache.r4.4xlarge</c>, <c>cache.r4.8xlarge</c>, <c>cache.r4.16xlarge</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
         /// of new clusters is not supported for these types.)</para><para><b>M2 node types:</b><c>cache.m2.xlarge</c>, <c>cache.m2.2xlarge</c>, <c>cache.m2.4xlarge</c></para><para><b>R3 node types:</b><c>cache.r3.large</c>, <c>cache.r3.xlarge</c>, <c>cache.r3.2xlarge</c>,
-        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis configuration variables <c>appendonly</c> and <c>appendfsync</c> are not supported
-        /// on Redis version 2.8.22 and later.</para></li></ul>
+        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis OSS Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis OSS configuration variables <c>appendonly</c> and <c>appendfsync</c> are not
+        /// supported on Redis OSS version 2.8.22 and later.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -201,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The network type you choose when modifying a cluster, either <c>ipv4</c> | <c>ipv6</c>.
-        /// IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached
+        /// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached
         /// engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
         /// system</a>.</para>
         /// </para>
@@ -226,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Must be either <c>ipv4</c> | <c>ipv6</c> | <c>dual_stack</c>. IPv6 is supported for
-        /// workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6
+        /// workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6
         /// on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.
         /// </para>
         /// </para>
@@ -250,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NumCacheNode
         /// <summary>
         /// <para>
-        /// <para>The initial number of cache nodes that the cluster has.</para><para>For clusters running Redis, this value must be 1. For clusters running Memcached,
+        /// <para>The initial number of cache nodes that the cluster has.</para><para>For clusters running Redis OSS, this value must be 1. For clusters running Memcached,
         /// this value must be between 1 and 40.</para><para>If you need more than 40 nodes for your Memcached cluster, please fill out the ElastiCache
         /// Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</para>
         /// </para>
@@ -372,9 +373,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A single-element string list containing an Amazon Resource Name (ARN) that uniquely
-        /// identifies a Redis RDB snapshot file stored in Amazon S3. The snapshot file is used
-        /// to populate the node group (shard). The Amazon S3 object name in the ARN cannot contain
-        /// any commas.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
+        /// identifies a Redis OSS RDB snapshot file stored in Amazon S3. The snapshot file is
+        /// used to populate the node group (shard). The Amazon S3 object name in the ARN cannot
+        /// contain any commas.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -385,9 +386,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of a Redis snapshot from which to restore data into the new node group (shard).
-        /// The snapshot status changes to <c>restoring</c> while the new node group (shard) is
-        /// being created.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note>
+        /// <para>The name of a Redis OSS snapshot from which to restore data into the new node group
+        /// (shard). The snapshot status changes to <c>restoring</c> while the new node group
+        /// (shard) is being created.</para><note><para>This parameter is only valid if the <c>Engine</c> parameter is <c>redis</c>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// If calling this operation on shards in different clusters (called replication groups
     /// in the API and CLI), the calls can be made concurrently.
     /// </para><para></para></li><li><para>
-    /// If calling this operation multiple times on different shards in the same Redis (cluster
-    /// mode enabled) replication group, the first node replacement must complete before a
-    /// subsequent call can be made.
+    /// If calling this operation multiple times on different shards in the same Redis OSS
+    /// (cluster mode enabled) replication group, the first node replacement must complete
+    /// before a subsequent call can be made.
     /// </para></li><li><para>
     /// To determine whether the node replacement is complete you can check Events using the
     /// Amazon ElastiCache console, the Amazon CLI, or the ElastiCache API. Look for the following

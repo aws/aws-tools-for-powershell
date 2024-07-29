@@ -28,7 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Deletes an existing serverless cache snapshot. Available for Redis only.
+    /// Deletes an existing serverless cache snapshot. Available for Redis OSS and Serverless
+    /// Memcached only.
     /// </summary>
     [Cmdlet("Remove", "ECServerlessCacheSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.ServerlessCacheSnapshot")]
@@ -45,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ServerlessCacheSnapshotName
         /// <summary>
         /// <para>
-        /// <para>Idenfitier of the snapshot to be deleted. Available for Redis only.</para>
+        /// <para>Idenfitier of the snapshot to be deleted. Available for Redis OSS and Serverless Memcached
+        /// only.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
