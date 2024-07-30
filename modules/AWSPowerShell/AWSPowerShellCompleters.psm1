@@ -3476,7 +3476,7 @@ $APS_Completers = {
             ($_ -eq "Update-APSFleet/Platform")
         }
         {
-            $v = "AMAZON_LINUX2","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
+            $v = "AMAZON_LINUX2","RHEL8","WINDOWS","WINDOWS_SERVER_2016","WINDOWS_SERVER_2019","WINDOWS_SERVER_2022"
             break
         }
 
@@ -13966,6 +13966,13 @@ $CP_Completers = {
             break
         }
 
+        # Amazon.CodePipeline.ConditionType
+        "Skip-CPStageCondition/ConditionType"
+        {
+            $v = "BEFORE_ENTRY","ON_SUCCESS"
+            break
+        }
+
         # Amazon.CodePipeline.ExecutorType
         "Update-CPActionType/Executor_Type"
         {
@@ -13980,6 +13987,13 @@ $CP_Completers = {
         }
         {
             $v = "ConfigurationError","JobFailed","PermissionError","RevisionOutOfSync","RevisionUnavailable","SystemUnavailable"
+            break
+        }
+
+        # Amazon.CodePipeline.RuleOwner
+        "Get-CPRuleTypeList/RuleOwnerFilter"
+        {
+            $v = "AWS"
             break
         }
 
@@ -14001,7 +14015,10 @@ $CP_Completers = {
         }
 
         # Amazon.CodePipeline.StartTimeRange
-        "Get-CPActionExecutionList/LatestInPipelineExecution_StartTimeRange"
+        {
+            ($_ -eq "Get-CPActionExecutionList/LatestInPipelineExecution_StartTimeRange") -Or
+            ($_ -eq "Get-CPRuleExecutionList/LatestInPipelineExecution_StartTimeRange")
+        }
         {
             $v = "All","Latest"
             break
@@ -14027,12 +14044,14 @@ $CP_map = @{
     "ActionTypeId_Category"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "ActionTypeId_Owner"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "Category"=@("Get-CPActionTypeDeclaration","New-CPCustomActionType","Remove-CPCustomActionType")
+    "ConditionType"=@("Skip-CPStageCondition")
     "Executor_Type"=@("Update-CPActionType")
     "FailureDetails_Type"=@("Write-CPJobFailureResult","Write-CPThirdPartyJobFailureResult")
     "Id_Category"=@("Update-CPActionType")
-    "LatestInPipelineExecution_StartTimeRange"=@("Get-CPActionExecutionList")
+    "LatestInPipelineExecution_StartTimeRange"=@("Get-CPActionExecutionList","Get-CPRuleExecutionList")
     "Result_Status"=@("Write-CPApprovalResult")
     "RetryMode"=@("Redo-CPStageExecution")
+    "RuleOwnerFilter"=@("Get-CPRuleTypeList")
     "TransitionType"=@("Disable-CPStageTransition","Enable-CPStageTransition")
     "Webhook_Authentication"=@("Write-CPWebhook")
 }
@@ -14107,8 +14126,11 @@ $CP_SelectMap = @{
                "Get-CPActionType",
                "Get-CPPipelineExecutionSummary",
                "Get-CPPipelineList",
+               "Get-CPRuleExecutionList",
+               "Get-CPRuleTypeList",
                "Get-CPResourceTag",
                "Get-CPWebhookList",
+               "Skip-CPStageCondition",
                "Get-CPActionableJobList",
                "Get-CPActionableThirdPartyJobList",
                "Write-CPActionRevision",
@@ -46099,6 +46121,22 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.BedrockTraceStatus
+        {
+            ($_ -eq "New-LMBV2Intent/BedrockModelConfiguration_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2Intent/BedrockModelConfiguration_TraceStatus") -Or
+            ($_ -eq "New-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "New-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "New-LMBV2BotLocale/GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2BotLocale/GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.LexModelsV2.BotLocaleSortAttribute
         "Get-LMBV2BotLocaleList/SortBy_Attribute"
         {
@@ -46472,6 +46510,7 @@ $LMBV2_Completers = {
 $LMBV2_map = @{
     "AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ApiMode"=@("Start-LMBV2TestExecution")
+    "BedrockModelConfiguration_TraceStatus"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "BotType"=@("New-LMBV2Bot","Update-LMBV2Bot")
     "ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
@@ -46483,6 +46522,9 @@ $LMBV2_map = @{
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
+    "GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
+    "GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
@@ -67729,7 +67771,7 @@ $TNB_Completers = {
         # Amazon.Tnb.UpdateSolNetworkType
         "Update-TNBSolNetworkInstance/UpdateType"
         {
-            $v = "MODIFY_VNF_INFORMATION"
+            $v = "MODIFY_VNF_INFORMATION","UPDATE_NS"
             break
         }
 

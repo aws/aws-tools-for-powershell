@@ -121,6 +121,22 @@ $LMBV2_Completers = {
             break
         }
 
+        # Amazon.LexModelsV2.BedrockTraceStatus
+        {
+            ($_ -eq "New-LMBV2Intent/BedrockModelConfiguration_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2Intent/BedrockModelConfiguration_TraceStatus") -Or
+            ($_ -eq "New-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "New-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2BotLocale/GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "New-LMBV2BotLocale/GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus") -Or
+            ($_ -eq "Update-LMBV2BotLocale/GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.LexModelsV2.BotLocaleSortAttribute
         "Get-LMBV2BotLocaleList/SortBy_Attribute"
         {
@@ -494,6 +510,7 @@ $LMBV2_Completers = {
 $LMBV2_map = @{
     "AdvancedRecognitionSetting_AudioRecognitionStrategy"=@("New-LMBV2SlotType","Update-LMBV2SlotType")
     "ApiMode"=@("Start-LMBV2TestExecution")
+    "BedrockModelConfiguration_TraceStatus"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "BotType"=@("New-LMBV2Bot","Update-LMBV2Bot")
     "ConversationLevelTestResultsFilterBy_EndToEndResult"=@("Get-LMBV2TestExecutionResultItemList")
     "Effect"=@("New-LMBV2ResourcePolicyStatement")
@@ -505,6 +522,9 @@ $LMBV2_map = @{
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_SuccessNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "FulfillmentCodeHook_PostFulfillmentStatusSpecification_TimeoutNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
+    "GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
+    "GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
+    "GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus"=@("New-LMBV2BotLocale","Update-LMBV2BotLocale")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_FailureNextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")
     "InitialResponseSetting_CodeHook_PostCodeHookSpecification_SuccessConditional_DefaultBranch_NextStep_DialogAction_Type"=@("New-LMBV2Intent","Update-LMBV2Intent")

@@ -118,7 +118,7 @@ $TNB_Completers = {
         # Amazon.Tnb.UpdateSolNetworkType
         "Update-TNBSolNetworkInstance/UpdateType"
         {
-            $v = "MODIFY_VNF_INFORMATION"
+            $v = "MODIFY_VNF_INFORMATION","UPDATE_NS"
             break
         }
 

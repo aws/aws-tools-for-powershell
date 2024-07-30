@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AcceptRoleSessionName
+        /// <summary>
+        /// <para>
+        /// <para>Used to determine if a custom role session name will be accepted in a temporary credential
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AcceptRoleSessionName { get; set; }
+        #endregion
+        
         #region Parameter DurationSecond
         /// <summary>
         /// <para>
@@ -195,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                 context.Select = CreateSelectDelegate<Amazon.IAMRolesAnywhere.Model.CreateProfileResponse, NewIAMRAProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.AcceptRoleSessionName = this.AcceptRoleSessionName;
             context.DurationSecond = this.DurationSecond;
             context.Enabled = this.Enabled;
             if (this.ManagedPolicyArn != null)
@@ -240,6 +252,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             // create request
             var request = new Amazon.IAMRolesAnywhere.Model.CreateProfileRequest();
             
+            if (cmdletContext.AcceptRoleSessionName != null)
+            {
+                request.AcceptRoleSessionName = cmdletContext.AcceptRoleSessionName.Value;
+            }
             if (cmdletContext.DurationSecond != null)
             {
                 request.DurationSeconds = cmdletContext.DurationSecond.Value;
@@ -333,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AcceptRoleSessionName { get; set; }
             public System.Int32? DurationSecond { get; set; }
             public System.Boolean? Enabled { get; set; }
             public List<System.String> ManagedPolicyArn { get; set; }

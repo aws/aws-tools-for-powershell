@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
     /// Deletes a specified existing serverless cache.
+    /// 
+    ///  <note><para><c>CreateServerlessCacheSnapshot</c> permission is required to create a final snapshot.
+    /// Without this permission, the API call will fail with an <c>Access Denied</c> exception.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECServerlessCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.ServerlessCache")]

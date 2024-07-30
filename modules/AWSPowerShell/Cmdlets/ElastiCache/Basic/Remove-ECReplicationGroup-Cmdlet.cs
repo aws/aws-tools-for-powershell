@@ -37,9 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <para>
     /// When you receive a successful response from this operation, Amazon ElastiCache immediately
     /// begins deleting the selected resources; you cannot cancel or revert this operation.
-    /// </para><note><para>
+    /// </para><note><ul><li><para><c>CreateSnapshot</c> permission is required to create a final snapshot. Without
+    /// this permission, the API call will fail with an <c>Access Denied</c> exception.
+    /// </para></li><li><para>
     /// This operation is valid for Redis OSS only.
-    /// </para></note>
+    /// </para></li></ul></note>
     /// </summary>
     [Cmdlet("Remove", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     public partial class WriteTNBSolFunctionPackageContentCmdlet : AmazonTnbClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ContentType

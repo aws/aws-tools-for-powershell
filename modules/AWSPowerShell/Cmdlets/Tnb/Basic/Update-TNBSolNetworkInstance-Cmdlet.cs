@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.TNB
     /// A network instance is a single network created in Amazon Web Services TNB that can
     /// be deployed and on which life-cycle operations (like terminate, update, and delete)
     /// can be performed.
+    /// </para><para>
+    /// Choose the <i>updateType</i> parameter to target the necessary update of the network
+    /// instance.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "TNBSolNetworkInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,6 +55,26 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter UpdateNs_AdditionalParamsForNs
+        /// <summary>
+        /// <para>
+        /// <para>Values for the configurable properties declared in the network service descriptor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Management.Automation.PSObject UpdateNs_AdditionalParamsForNs { get; set; }
+        #endregion
+        
+        #region Parameter UpdateNs_NsdInfoId
+        /// <summary>
+        /// <para>
+        /// <para>ID of the network service descriptor.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UpdateNs_NsdInfoId { get; set; }
+        #endregion
         
         #region Parameter NsInstanceId
         /// <summary>
@@ -74,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         /// <summary>
         /// <para>
         /// <para>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists
-        /// of a key and an optional value. When you use this API, the tags are transferred to
-        /// the network operation that is created. Use tags to search and filter your resources
-        /// or track your Amazon Web Services costs.</para>
+        /// of a key and an optional value. When you use this API, the tags are only applied to
+        /// the network operation that is created. These tags are not applied to the network instance.
+        /// Use tags to search and filter your resources or track your Amazon Web Services costs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         #region Parameter UpdateType
         /// <summary>
         /// <para>
-        /// <para>The type of update.</para>
+        /// <para>The type of update.</para><ul><li><para>Use the <c>MODIFY_VNF_INFORMATION</c> update type, to update a specific network function
+        /// configuration, in the network instance.</para></li><li><para>Use the <c>UPDATE_NS</c> update type, to update the network instance to a new network
+        /// service descriptor.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -181,6 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.UpdateNs_AdditionalParamsForNs = this.UpdateNs_AdditionalParamsForNs;
+            context.UpdateNs_NsdInfoId = this.UpdateNs_NsdInfoId;
             context.UpdateType = this.UpdateType;
             #if MODULAR
             if (this.UpdateType == null && ParameterWasBound(nameof(this.UpdateType)))
@@ -240,6 +267,35 @@ namespace Amazon.PowerShell.Cmdlets.TNB
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            
+             // populate UpdateNs
+            var requestUpdateNsIsNull = true;
+            request.UpdateNs = new Amazon.Tnb.Model.UpdateSolNetworkServiceData();
+            Amazon.Runtime.Documents.Document? requestUpdateNs_updateNs_AdditionalParamsForNs = null;
+            if (cmdletContext.UpdateNs_AdditionalParamsForNs != null)
+            {
+                requestUpdateNs_updateNs_AdditionalParamsForNs = Amazon.PowerShell.Common.DocumentHelper.ToDocument(cmdletContext.UpdateNs_AdditionalParamsForNs);
+            }
+            if (requestUpdateNs_updateNs_AdditionalParamsForNs != null)
+            {
+                request.UpdateNs.AdditionalParamsForNs = requestUpdateNs_updateNs_AdditionalParamsForNs.Value;
+                requestUpdateNsIsNull = false;
+            }
+            System.String requestUpdateNs_updateNs_NsdInfoId = null;
+            if (cmdletContext.UpdateNs_NsdInfoId != null)
+            {
+                requestUpdateNs_updateNs_NsdInfoId = cmdletContext.UpdateNs_NsdInfoId;
+            }
+            if (requestUpdateNs_updateNs_NsdInfoId != null)
+            {
+                request.UpdateNs.NsdInfoId = requestUpdateNs_updateNs_NsdInfoId;
+                requestUpdateNsIsNull = false;
+            }
+             // determine if request.UpdateNs should be set to null
+            if (requestUpdateNsIsNull)
+            {
+                request.UpdateNs = null;
             }
             if (cmdletContext.UpdateType != null)
             {
@@ -310,6 +366,8 @@ namespace Amazon.PowerShell.Cmdlets.TNB
             public System.String ModifyVnfInfoData_VnfInstanceId { get; set; }
             public System.String NsInstanceId { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
+            public System.Management.Automation.PSObject UpdateNs_AdditionalParamsForNs { get; set; }
+            public System.String UpdateNs_NsdInfoId { get; set; }
             public Amazon.Tnb.UpdateSolNetworkType UpdateType { get; set; }
             public System.Func<Amazon.Tnb.Model.UpdateSolNetworkInstanceResponse, UpdateTNBSolNetworkInstanceCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.NsLcmOpOccId;

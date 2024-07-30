@@ -76,9 +76,9 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         /// <summary>
         /// <para>
         /// <para>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists
-        /// of a key and an optional value. When you use this API, the tags are transferred to
-        /// the network operation that is created. Use tags to search and filter your resources
-        /// or track your Amazon Web Services costs.</para>
+        /// of a key and an optional value. When you use this API, the tags are only applied to
+        /// the network operation that is created. These tags are not applied to the network instance.
+        /// Use tags to search and filter your resources or track your Amazon Web Services costs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

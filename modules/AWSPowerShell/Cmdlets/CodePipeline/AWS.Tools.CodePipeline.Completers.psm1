@@ -112,6 +112,13 @@ $CP_Completers = {
             break
         }
 
+        # Amazon.CodePipeline.ConditionType
+        "Skip-CPStageCondition/ConditionType"
+        {
+            $v = "BEFORE_ENTRY","ON_SUCCESS"
+            break
+        }
+
         # Amazon.CodePipeline.ExecutorType
         "Update-CPActionType/Executor_Type"
         {
@@ -126,6 +133,13 @@ $CP_Completers = {
         }
         {
             $v = "ConfigurationError","JobFailed","PermissionError","RevisionOutOfSync","RevisionUnavailable","SystemUnavailable"
+            break
+        }
+
+        # Amazon.CodePipeline.RuleOwner
+        "Get-CPRuleTypeList/RuleOwnerFilter"
+        {
+            $v = "AWS"
             break
         }
 
@@ -147,7 +161,10 @@ $CP_Completers = {
         }
 
         # Amazon.CodePipeline.StartTimeRange
-        "Get-CPActionExecutionList/LatestInPipelineExecution_StartTimeRange"
+        {
+            ($_ -eq "Get-CPActionExecutionList/LatestInPipelineExecution_StartTimeRange") -Or
+            ($_ -eq "Get-CPRuleExecutionList/LatestInPipelineExecution_StartTimeRange")
+        }
         {
             $v = "All","Latest"
             break
@@ -173,12 +190,14 @@ $CP_map = @{
     "ActionTypeId_Category"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "ActionTypeId_Owner"=@("Get-CPActionableJobList","Get-CPActionableThirdPartyJobList")
     "Category"=@("Get-CPActionTypeDeclaration","New-CPCustomActionType","Remove-CPCustomActionType")
+    "ConditionType"=@("Skip-CPStageCondition")
     "Executor_Type"=@("Update-CPActionType")
     "FailureDetails_Type"=@("Write-CPJobFailureResult","Write-CPThirdPartyJobFailureResult")
     "Id_Category"=@("Update-CPActionType")
-    "LatestInPipelineExecution_StartTimeRange"=@("Get-CPActionExecutionList")
+    "LatestInPipelineExecution_StartTimeRange"=@("Get-CPActionExecutionList","Get-CPRuleExecutionList")
     "Result_Status"=@("Write-CPApprovalResult")
     "RetryMode"=@("Redo-CPStageExecution")
+    "RuleOwnerFilter"=@("Get-CPRuleTypeList")
     "TransitionType"=@("Disable-CPStageTransition","Enable-CPStageTransition")
     "Webhook_Authentication"=@("Write-CPWebhook")
 }
@@ -253,8 +272,11 @@ $CP_SelectMap = @{
                "Get-CPActionType",
                "Get-CPPipelineExecutionSummary",
                "Get-CPPipelineList",
+               "Get-CPRuleExecutionList",
+               "Get-CPRuleTypeList",
                "Get-CPResourceTag",
                "Get-CPWebhookList",
+               "Skip-CPStageCondition",
                "Get-CPActionableJobList",
                "Get-CPActionableThirdPartyJobList",
                "Write-CPActionRevision",

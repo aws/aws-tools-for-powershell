@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The amount of time that a streaming session remains active after users disconnect.
         /// If users try to reconnect to the streaming session after a disconnection or network
         /// interruption within this time interval, they are connected to their previous session.
-        /// Otherwise, they are connected to a new session with a new streaming instance. </para><para>Specify a value between 60 and 360000.</para>
+        /// Otherwise, they are connected to a new session with a new streaming instance. </para><para>Specify a value between 60 and 36000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// and downloads, audio in, audio out, and pixels changing do not qualify as user activity.
         /// If users continue to be idle after the time interval in <c>IdleDisconnectTimeoutInSeconds</c>
         /// elapses, they are disconnected. </para><para>To prevent users from being disconnected due to inactivity, specify a value of 0.
-        /// Otherwise, specify a value between 60 and 3600. The default value is 0.</para><note><para>If you enable this feature, we recommend that you specify a value that corresponds
+        /// Otherwise, specify a value between 60 and 36000. The default value is 0.</para><note><para>If you enable this feature, we recommend that you specify a value that corresponds
         /// exactly to a whole number of minutes (for example, 60, 120, and 180). If you don't
         /// do this, the value is rounded to the nearest minute. For example, if you specify a
         /// value of 70, users are disconnected after 1 minute of inactivity. If you specify a

@@ -32,6 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     /// from a policy, the policy is deleted. If you specify a statement ID that doesn't exist
     /// in the policy, or if the bot or bot alias doesn't have a policy attached, Amazon Lex
     /// returns an exception.
+    /// 
+    ///  
+    /// <para>
+    /// You need to add the <c>DeleteResourcePolicy</c> or <c>UpdateResourcePolicy</c> action
+    /// to the bot role in order to call the API.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMBV2ResourcePolicyStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.LexModelsV2.Model.DeleteResourcePolicyStatementResponse")]

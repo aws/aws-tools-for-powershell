@@ -35,6 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
     ///  
     /// <para>
     /// You can't create a resource policy statement that allows cross-account access.
+    /// </para><para>
+    /// You need to add the <c>CreateResourcePolicy</c> or <c>UpdateResourcePolicy</c> action
+    /// to the bot role in order to call the API.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LMBV2ResourcePolicyStatement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

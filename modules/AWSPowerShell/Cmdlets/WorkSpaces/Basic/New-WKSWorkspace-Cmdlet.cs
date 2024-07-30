@@ -42,7 +42,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// is the default protocol for those bundles.
     /// </para></li><li><para>
     /// User-decoupled WorkSpaces are only supported by Amazon WorkSpaces Core.
-    /// </para></li></ul></note>
+    /// </para></li><li><para>
+    /// Review your running mode to ensure you are using one that is optimal for your needs
+    /// and budget. For more information on switching running modes, see <a href="http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F">
+    /// Can I switch between hourly and monthly billing?</a></para></li></ul></note>
     /// </summary>
     [Cmdlet("New", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkSpaces.Model.CreateWorkspacesResponse")]

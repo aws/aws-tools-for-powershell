@@ -28,7 +28,7 @@ using Amazon.Tnb.Model;
 namespace Amazon.PowerShell.Cmdlets.TNB
 {
     /// <summary>
-    /// Gets the details of a network function instance, including the instantation state
+    /// Gets the details of a network function instance, including the instantiation state
     /// and metadata from the function package descriptor in the network function package.
     /// 
     ///  

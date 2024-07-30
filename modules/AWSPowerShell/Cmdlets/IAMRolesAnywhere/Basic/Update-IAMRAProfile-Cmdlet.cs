@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AcceptRoleSessionName
+        /// <summary>
+        /// <para>
+        /// <para>Used to determine if a custom role session name will be accepted in a temporary credential
+        /// request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AcceptRoleSessionName { get; set; }
+        #endregion
+        
         #region Parameter DurationSecond
         /// <summary>
         /// <para>
@@ -183,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
                 context.Select = (response, cmdlet) => this.ProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AcceptRoleSessionName = this.AcceptRoleSessionName;
             context.DurationSecond = this.DurationSecond;
             if (this.ManagedPolicyArn != null)
             {
@@ -217,6 +229,10 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             // create request
             var request = new Amazon.IAMRolesAnywhere.Model.UpdateProfileRequest();
             
+            if (cmdletContext.AcceptRoleSessionName != null)
+            {
+                request.AcceptRoleSessionName = cmdletContext.AcceptRoleSessionName.Value;
+            }
             if (cmdletContext.DurationSecond != null)
             {
                 request.DurationSeconds = cmdletContext.DurationSecond.Value;
@@ -302,6 +318,7 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? AcceptRoleSessionName { get; set; }
             public System.Int32? DurationSecond { get; set; }
             public List<System.String> ManagedPolicyArn { get; set; }
             public System.String Name { get; set; }

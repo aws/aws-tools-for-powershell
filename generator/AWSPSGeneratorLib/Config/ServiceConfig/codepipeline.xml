@@ -100,11 +100,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListRuleExecutions" OutputProperty="RuleExecutionDetails" Verb="Get" Noun="RuleExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRuleTypes" OutputProperty="RuleTypes" Verb="Get" Noun="RuleTypeList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListWebhooks" OutputProperty="Webhooks" Verb="Get" Noun="WebhookList" PipelineParameter="MaxResults" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="OverrideStageCondition" Verb="Skip" Noun="StageCondition" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -22,74 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Tnb;
-using Amazon.Tnb.Model;
+using Amazon.CodePipeline;
+using Amazon.CodePipeline.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TNB
+namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Lists details for a network operation, including when the operation started and the
-    /// status of the operation.
-    /// 
-    ///  
-    /// <para>
-    /// A network operation is any operation that is done to your network, such as network
-    /// instance instantiation or termination.
-    /// </para>
+    /// Lists the rules for the condition.
     /// </summary>
-    [Cmdlet("Get", "TNBSolNetworkOperationList")]
-    [OutputType("Amazon.Tnb.Model.ListSolNetworkOperationsInfo")]
-    [AWSCmdlet("Calls the AWS Telco Network Builder ListSolNetworkOperations API operation.", Operation = new[] {"ListSolNetworkOperations"}, SelectReturnType = typeof(Amazon.Tnb.Model.ListSolNetworkOperationsResponse))]
-    [AWSCmdletOutput("Amazon.Tnb.Model.ListSolNetworkOperationsInfo or Amazon.Tnb.Model.ListSolNetworkOperationsResponse",
-        "This cmdlet returns a collection of Amazon.Tnb.Model.ListSolNetworkOperationsInfo objects.",
-        "The service call response (type Amazon.Tnb.Model.ListSolNetworkOperationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CPRuleTypeList")]
+    [OutputType("Amazon.CodePipeline.Model.RuleType")]
+    [AWSCmdlet("Calls the AWS CodePipeline ListRuleTypes API operation.", Operation = new[] {"ListRuleTypes"}, SelectReturnType = typeof(Amazon.CodePipeline.Model.ListRuleTypesResponse))]
+    [AWSCmdletOutput("Amazon.CodePipeline.Model.RuleType or Amazon.CodePipeline.Model.ListRuleTypesResponse",
+        "This cmdlet returns a collection of Amazon.CodePipeline.Model.RuleType objects.",
+        "The service call response (type Amazon.CodePipeline.Model.ListRuleTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetTNBSolNetworkOperationListCmdlet : AmazonTnbClientCmdlet, IExecutor
+    public partial class GetCPRuleTypeListCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter NsInstanceId
+        #region Parameter RegionFilter
         /// <summary>
         /// <para>
-        /// <para>Network instance id filter, to retrieve network operations associated to a network
-        /// instance.</para>
+        /// <para>The rule Region to filter on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NsInstanceId { get; set; }
+        public System.String RegionFilter { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter RuleOwnerFilter
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to include in the response.</para>
+        /// <para>The rule owner to filter on.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("MaxResults")]
-        public System.Int32? MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The token for the next page of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String NextToken { get; set; }
+        [AWSConstantClassSource("Amazon.CodePipeline.RuleOwner")]
+        public Amazon.CodePipeline.RuleOwner RuleOwnerFilter { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'NetworkOperations'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Tnb.Model.ListSolNetworkOperationsResponse).
-        /// Specifying the name of a property of type Amazon.Tnb.Model.ListSolNetworkOperationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RuleTypes'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CodePipeline.Model.ListRuleTypesResponse).
+        /// Specifying the name of a property of type Amazon.CodePipeline.Model.ListRuleTypesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "NetworkOperations";
+        public string Select { get; set; } = "RuleTypes";
         #endregion
         
         protected override void ProcessRecord()
@@ -104,12 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.TNB
             
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Tnb.Model.ListSolNetworkOperationsResponse, GetTNBSolNetworkOperationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CodePipeline.Model.ListRuleTypesResponse, GetCPRuleTypeListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
-            context.MaxResult = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.NsInstanceId = this.NsInstanceId;
+            context.RegionFilter = this.RegionFilter;
+            context.RuleOwnerFilter = this.RuleOwnerFilter;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,19 +105,15 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Tnb.Model.ListSolNetworkOperationsRequest();
+            var request = new Amazon.CodePipeline.Model.ListRuleTypesRequest();
             
-            if (cmdletContext.MaxResult != null)
+            if (cmdletContext.RegionFilter != null)
             {
-                request.MaxResults = cmdletContext.MaxResult.Value;
+                request.RegionFilter = cmdletContext.RegionFilter;
             }
-            if (cmdletContext.NextToken != null)
+            if (cmdletContext.RuleOwnerFilter != null)
             {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.NsInstanceId != null)
-            {
-                request.NsInstanceId = cmdletContext.NsInstanceId;
+                request.RuleOwnerFilter = cmdletContext.RuleOwnerFilter;
             }
             
             CmdletOutput output;
@@ -171,15 +148,15 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         
         #region AWS Service Operation Call
         
-        private Amazon.Tnb.Model.ListSolNetworkOperationsResponse CallAWSServiceOperation(IAmazonTnb client, Amazon.Tnb.Model.ListSolNetworkOperationsRequest request)
+        private Amazon.CodePipeline.Model.ListRuleTypesResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.ListRuleTypesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Telco Network Builder", "ListSolNetworkOperations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "ListRuleTypes");
             try
             {
                 #if DESKTOP
-                return client.ListSolNetworkOperations(request);
+                return client.ListRuleTypes(request);
                 #elif CORECLR
-                return client.ListSolNetworkOperationsAsync(request).GetAwaiter().GetResult();
+                return client.ListRuleTypesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -199,11 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.TNB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Int32? MaxResult { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String NsInstanceId { get; set; }
-            public System.Func<Amazon.Tnb.Model.ListSolNetworkOperationsResponse, GetTNBSolNetworkOperationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.NetworkOperations;
+            public System.String RegionFilter { get; set; }
+            public Amazon.CodePipeline.RuleOwner RuleOwnerFilter { get; set; }
+            public System.Func<Amazon.CodePipeline.Model.ListRuleTypesResponse, GetCPRuleTypeListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RuleTypes;
         }
         
     }

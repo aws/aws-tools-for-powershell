@@ -65,8 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Capacity_DesiredUserSession
         /// <summary>
         /// <para>
-        /// <para>The desired number of user sessions for a multi-session pool. This is not allowed
-        /// for single-session pools.</para>
+        /// <para>The desired number of user sessions for the WorkSpaces in the pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

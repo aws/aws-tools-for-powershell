@@ -78,6 +78,37 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         public System.String BotVersion { get; set; }
         #endregion
         
+        #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt
+        /// <summary>
+        /// <para>
+        /// <para>The custom prompt used in the Bedrock model specification details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BedrockModelSpecification_CustomPrompt")]
+        public System.String GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt
+        /// <summary>
+        /// <para>
+        /// <para>The custom prompt used in the Bedrock model specification details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt
+        /// <summary>
+        /// <para>
+        /// <para>The custom prompt used in the Bedrock model specification details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -132,6 +163,37 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.LexModelsV2.VoiceEngine")]
         public Amazon.LexModelsV2.VoiceEngine VoiceSettings_Engine { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique guardrail id for the Bedrock guardrail configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BedrockModelSpecification_Guardrail_Identifier")]
+        public System.String GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique guardrail id for the Bedrock guardrail configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The unique guardrail id for the Bedrock guardrail configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier { get; set; }
         #endregion
         
         #region Parameter LocaleId
@@ -205,6 +267,71 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.Double? NluIntentConfidenceThreshold { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus
+        /// <summary>
+        /// <para>
+        /// <para>The Bedrock trace status in the Bedrock model specification details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BedrockModelSpecification_TraceStatus")]
+        [AWSConstantClassSource("Amazon.LexModelsV2.BedrockTraceStatus")]
+        public Amazon.LexModelsV2.BedrockTraceStatus GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus
+        /// <summary>
+        /// <para>
+        /// <para>The Bedrock trace status in the Bedrock model specification details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.BedrockTraceStatus")]
+        public Amazon.LexModelsV2.BedrockTraceStatus GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus
+        /// <summary>
+        /// <para>
+        /// <para>The Bedrock trace status in the Bedrock model specification details.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.LexModelsV2.BedrockTraceStatus")]
+        public Amazon.LexModelsV2.BedrockTraceStatus GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version
+        /// <summary>
+        /// <para>
+        /// <para>The guardrail version for the Bedrock guardrail configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("BedrockModelSpecification_Guardrail_Version")]
+        public System.String GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version
+        /// <summary>
+        /// <para>
+        /// <para>The guardrail version for the Bedrock guardrail configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version { get; set; }
+        #endregion
+        
+        #region Parameter GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version
+        /// <summary>
+        /// <para>
+        /// <para>The guardrail version for the Bedrock guardrail configuration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version { get; set; }
         #endregion
         
         #region Parameter VoiceSettings_VoiceId
@@ -294,11 +421,23 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             }
             #endif
             context.Description = this.Description;
+            context.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt = this.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt;
+            context.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier = this.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier;
+            context.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version = this.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version;
             context.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn = this.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn;
+            context.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus = this.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus;
             context.DescriptiveBotBuilder_Enabled = this.DescriptiveBotBuilder_Enabled;
+            context.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt = this.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt;
+            context.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier = this.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier;
+            context.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version = this.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version;
             context.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn = this.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn;
+            context.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus = this.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus;
             context.SampleUtteranceGeneration_Enabled = this.SampleUtteranceGeneration_Enabled;
+            context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt;
+            context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier;
+            context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version;
             context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn;
+            context.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus = this.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus;
             context.SlotResolutionImprovement_Enabled = this.SlotResolutionImprovement_Enabled;
             context.LocaleId = this.LocaleId;
             #if MODULAR
@@ -373,6 +512,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate BedrockModelSpecification
             var requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecificationIsNull = true;
             requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification = new Amazon.LexModelsV2.Model.BedrockModelSpecification();
+            System.String requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt = null;
+            if (cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt = cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification.CustomPrompt = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecificationIsNull = false;
+            }
             System.String requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn = null;
             if (cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn != null)
             {
@@ -381,6 +530,51 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn != null)
             {
                 requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification.ModelArn = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.BedrockTraceStatus requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus = null;
+            if (cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus = cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification.TraceStatus = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.BedrockGuardrailConfiguration requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail = null;
+            
+             // populate Guardrail
+            var requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_GuardrailIsNull = true;
+            requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail = new Amazon.LexModelsV2.Model.BedrockGuardrailConfiguration();
+            System.String requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier = null;
+            if (cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier = cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail.Identifier = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_GuardrailIsNull = false;
+            }
+            System.String requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version = null;
+            if (cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version = cmdletContext.GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail.Version = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version;
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_GuardrailIsNull = false;
+            }
+             // determine if requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail should be set to null
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_GuardrailIsNull)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail = null;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification.Guardrail = requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail;
                 requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecificationIsNull = false;
             }
              // determine if requestGenerativeAISettings_generativeAISettings_RuntimeSettings_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_generativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification should be set to null
@@ -438,6 +632,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate BedrockModelSpecification
             var requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecificationIsNull = true;
             requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification = new Amazon.LexModelsV2.Model.BedrockModelSpecification();
+            System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt = cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification.CustomPrompt = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecificationIsNull = false;
+            }
             System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn = null;
             if (cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn != null)
             {
@@ -446,6 +650,51 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn != null)
             {
                 requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification.ModelArn = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.BedrockTraceStatus requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus = cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification.TraceStatus = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.BedrockGuardrailConfiguration requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail = null;
+            
+             // populate Guardrail
+            var requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_GuardrailIsNull = true;
+            requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail = new Amazon.LexModelsV2.Model.BedrockGuardrailConfiguration();
+            System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier = cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail.Identifier = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_GuardrailIsNull = false;
+            }
+            System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version = cmdletContext.GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail.Version = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_GuardrailIsNull = false;
+            }
+             // determine if requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail should be set to null
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_GuardrailIsNull)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail = null;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification.Guardrail = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail;
                 requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecificationIsNull = false;
             }
              // determine if requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_generativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification should be set to null
@@ -488,6 +737,16 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
              // populate BedrockModelSpecification
             var requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecificationIsNull = true;
             requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification = new Amazon.LexModelsV2.Model.BedrockModelSpecification();
+            System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt = cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification.CustomPrompt = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecificationIsNull = false;
+            }
             System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn = null;
             if (cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn != null)
             {
@@ -496,6 +755,51 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn != null)
             {
                 requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification.ModelArn = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.BedrockTraceStatus requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus = cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification.TraceStatus = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecificationIsNull = false;
+            }
+            Amazon.LexModelsV2.Model.BedrockGuardrailConfiguration requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail = null;
+            
+             // populate Guardrail
+            var requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_GuardrailIsNull = true;
+            requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail = new Amazon.LexModelsV2.Model.BedrockGuardrailConfiguration();
+            System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier = cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail.Identifier = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_GuardrailIsNull = false;
+            }
+            System.String requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version = null;
+            if (cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version = cmdletContext.GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail.Version = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version;
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_GuardrailIsNull = false;
+            }
+             // determine if requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail should be set to null
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_GuardrailIsNull)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail = null;
+            }
+            if (requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail != null)
+            {
+                requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification.Guardrail = requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail;
                 requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecificationIsNull = false;
             }
              // determine if requestGenerativeAISettings_generativeAISettings_BuildtimeSettings_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_generativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification should be set to null
@@ -634,11 +938,23 @@ namespace Amazon.PowerShell.Cmdlets.LMBV2
             public System.String BotId { get; set; }
             public System.String BotVersion { get; set; }
             public System.String Description { get; set; }
+            public System.String GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_CustomPrompt { get; set; }
+            public System.String GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Identifier { get; set; }
+            public System.String GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_Guardrail_Version { get; set; }
             public System.String GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_ModelArn { get; set; }
+            public Amazon.LexModelsV2.BedrockTraceStatus GenerativeAISettings_BuildtimeSettings_DescriptiveBotBuilder_BedrockModelSpecification_TraceStatus { get; set; }
             public System.Boolean? DescriptiveBotBuilder_Enabled { get; set; }
+            public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_CustomPrompt { get; set; }
+            public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Identifier { get; set; }
+            public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_Guardrail_Version { get; set; }
             public System.String GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_ModelArn { get; set; }
+            public Amazon.LexModelsV2.BedrockTraceStatus GenerativeAISettings_BuildtimeSettings_SampleUtteranceGeneration_BedrockModelSpecification_TraceStatus { get; set; }
             public System.Boolean? SampleUtteranceGeneration_Enabled { get; set; }
+            public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_CustomPrompt { get; set; }
+            public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Identifier { get; set; }
+            public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_Guardrail_Version { get; set; }
             public System.String GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_ModelArn { get; set; }
+            public Amazon.LexModelsV2.BedrockTraceStatus GenerativeAISettings_RuntimeSettings_SlotResolutionImprovement_BedrockModelSpecification_TraceStatus { get; set; }
             public System.Boolean? SlotResolutionImprovement_Enabled { get; set; }
             public System.String LocaleId { get; set; }
             public System.Double? NluIntentConfidenceThreshold { get; set; }
