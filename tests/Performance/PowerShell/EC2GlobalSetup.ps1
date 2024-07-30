@@ -6,4 +6,4 @@ $tagSpecification = [Amazon.EC2.Model.TagSpecification]::new()
 $tagSpecification.ResourceType = 'Instance'
 $tagSpecification.Tags = $Tags
 $imageId = (Get-SSMParameter $AMISSMParameter).Value
-New-EC2Instance -ImageId $imageId -TagSpecification $tagSpecification
+New-EC2Instance -ImageId $imageId -TagSpecification $tagSpecification -InstanceType "m6i.large"
