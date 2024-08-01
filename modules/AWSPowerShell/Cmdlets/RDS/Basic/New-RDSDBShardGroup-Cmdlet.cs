@@ -111,6 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Double? MaxACU { get; set; }
         #endregion
         
+        #region Parameter MinACU
+        /// <summary>
+        /// <para>
+        /// <para>The minimum capacity of the DB shard group in Aurora capacity units (ACUs).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? MinACU { get; set; }
+        #endregion
+        
         #region Parameter PubliclyAccessible
         /// <summary>
         /// <para>
@@ -218,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 WriteWarning("You are passing $null as a value for parameter MaxACU which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MinACU = this.MinACU;
             context.PubliclyAccessible = this.PubliclyAccessible;
             
             // allow further manipulation of loaded context prior to processing
@@ -250,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MaxACU != null)
             {
                 request.MaxACU = cmdletContext.MaxACU.Value;
+            }
+            if (cmdletContext.MinACU != null)
+            {
+                request.MinACU = cmdletContext.MinACU.Value;
             }
             if (cmdletContext.PubliclyAccessible != null)
             {
@@ -320,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBShardGroupIdentifier { get; set; }
             public System.Double? MaxACU { get; set; }
+            public System.Double? MinACU { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.Func<Amazon.RDS.Model.CreateDBShardGroupResponse, NewRDSDBShardGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

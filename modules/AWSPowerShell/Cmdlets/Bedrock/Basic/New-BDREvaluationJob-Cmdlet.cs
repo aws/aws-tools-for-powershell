@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// API operation for creating and managing Amazon Bedrock automatic model evaluation
     /// jobs and model evaluation jobs that use human workers. To learn more about the requirements
     /// for creating a model evaluation job see, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model
-    /// evaluations</a>.
+    /// evaluation</a>.
     /// </summary>
     [Cmdlet("New", "BDREvaluationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

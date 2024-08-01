@@ -31,6 +31,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelCopyJob" OutputProperty="JobArn" Verb="New" Noun="ModelCopyJob" ShouldProcessTarget="SourceModelArn" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateModelCustomizationJob" OutputProperty="JobArn" Verb="New" Noun="ModelCustomizationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -71,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetModelCopyJob" OutputProperty="*" Verb="Get" Noun="ModelCopyJob" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetModelCustomizationJob" OutputProperty="*" Verb="Get" Noun="ModelCustomizationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -96,6 +104,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGuardrails" OutputProperty="Guardrails" Verb="Get" Noun="GuardrailList" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelCopyJobs" OutputProperty="ModelCopyJobSummaries" Verb="Get" Noun="ModelCopyJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

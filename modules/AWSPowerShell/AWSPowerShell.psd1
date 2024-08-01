@@ -397,6 +397,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.SQS.dll',
         'AWSSDK.SSMContacts.dll',
         'AWSSDK.SSMIncidents.dll',
+        'AWSSDK.SSMQuickSetup.dll',
         'AWSSDK.SsmSap.dll',
         'AWSSDK.SSO.dll',
         'AWSSDK.SSOAdmin.dll',

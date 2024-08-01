@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
     /// Retrieves the properties associated with a model evaluation job, including the status
-    /// of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/latest/userguide/model-evaluation.html">Model
-    /// evaluations</a>.
+    /// of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model
+    /// evaluation</a>.
     /// </summary>
     [Cmdlet("Get", "BDREvaluationJob")]
     [OutputType("Amazon.Bedrock.Model.GetEvaluationJobResponse")]

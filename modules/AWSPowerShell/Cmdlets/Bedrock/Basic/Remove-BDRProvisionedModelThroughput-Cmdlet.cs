@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// <summary>
     /// Deletes a Provisioned Throughput. You can't delete a Provisioned Throughput before
     /// the commitment term is over. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned
-    /// Throughput</a> in the Amazon Bedrock User Guide.
+    /// Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon
+    /// Bedrock User Guide</a>.
     /// </summary>
     [Cmdlet("Remove", "BDRProvisionedModelThroughput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

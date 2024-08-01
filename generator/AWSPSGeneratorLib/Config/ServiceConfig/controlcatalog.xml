@@ -19,7 +19,15 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="GetControl" OutputProperty="*" Verb="Get" Noun="Control" PipelineParameter="ControlArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListCommonControls" OutputProperty="CommonControls" Verb="Get" Noun="CommonControlList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListControls" OutputProperty="Controls" Verb="Get" Noun="ControlList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

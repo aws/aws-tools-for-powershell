@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>ssm-quicksetup</C2jFilename>
+    <AssemblyName>SSMQuickSetup</AssemblyName>
+    <ServiceNounPrefix>SSMQS</ServiceNounPrefix>
+    <ServiceName>AWS Systems Manager QuickSetup</ServiceName>
+    <ServiceClientInterface>IAmazonSSMQuickSetup</ServiceClientInterface>
+    <ServiceClient>AmazonSSMQuickSetupClient</ServiceClient>
+    <ServiceModuleGuid>4b1dfdad-f468-43cc-895b-9f517e93479c</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateConfigurationManager" OutputProperty="ManagerArn" Verb="New" Noun="ConfigurationManager" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationManager" Verb="Remove" Noun="ConfigurationManager" ShouldProcessTarget="ManagerArn" PipelineParameter="ManagerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationManager" OutputProperty="*" Verb="Get" Noun="ConfigurationManager" PipelineParameter="ManagerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceSettings" OutputProperty="ServiceSettings" Verb="Get" Noun="ServiceSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationManagers" OutputProperty="ConfigurationManagersList" Verb="Get" Noun="ConfigurationManagerList" PipelineParameter="Filters" NoPipelineParameter="false">
+            <Params />
+            <AutoIterate Start="StartingToken" Next="NextToken" EmitLimit="MaxItems" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQuickSetupTypes" OutputProperty="QuickSetupTypeList" Verb="Get" Noun="QuickSetupTypeList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationDefinition" Verb="Update" Noun="ConfigurationDefinition" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationManager" Verb="Update" Noun="ConfigurationManager" ShouldProcessTarget="ManagerArn" PipelineParameter="ManagerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceSettings" Verb="Update" Noun="ServiceSetting" ShouldProcessTarget="ExplorerEnablingRoleArn" PipelineParameter="ExplorerEnablingRoleArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

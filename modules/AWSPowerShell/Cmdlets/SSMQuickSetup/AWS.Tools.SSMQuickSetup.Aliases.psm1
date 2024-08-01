@@ -1,0 +1,3 @@
+﻿# SSMQuickSetup
+
+Export-ModuleMember -Alias *

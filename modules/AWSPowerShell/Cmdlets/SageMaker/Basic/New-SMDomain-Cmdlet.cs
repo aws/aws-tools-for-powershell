@@ -104,6 +104,24 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.AppSecurityGroupManagement AppSecurityGroupManagement { get; set; }
         #endregion
         
+        #region Parameter EmrSettings_AssumableRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role
+        /// of SageMaker can assume for performing operations or tasks related to Amazon EMR clusters
+        /// or Amazon EMR Serverless applications. These roles define the permissions and access
+        /// policies required when performing Amazon EMR-related operations, such as listing,
+        /// connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications.
+        /// They are typically used in cross-account access scenarios, where the Amazon EMR resources
+        /// (clusters or serverless applications) are located in a different Amazon Web Services
+        /// account than the SageMaker domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultSpaceSettings_JupyterLabAppSettings_EmrSettings_AssumableRoleArns")]
+        public System.String[] EmrSettings_AssumableRoleArn { get; set; }
+        #endregion
+        
         #region Parameter AuthMode
         /// <summary>
         /// <para>
@@ -258,6 +276,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DefaultSpaceSettings_ExecutionRole { get; set; }
+        #endregion
+        
+        #region Parameter EmrSettings_ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster
+        /// instances or job execution environments to access other Amazon Web Services services
+        /// and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless
+        /// workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other
+        /// Amazon Web Services services based on the particular workload requirements.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultSpaceSettings_JupyterLabAppSettings_EmrSettings_ExecutionRoleArns")]
+        public System.String[] EmrSettings_ExecutionRoleArn { get; set; }
         #endregion
         
         #region Parameter DomainSettings_ExecutionRoleIdentityConfig
@@ -805,6 +838,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn = this.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn;
             context.DefaultResourceSpec_SageMakerImageVersionAlias = this.DefaultResourceSpec_SageMakerImageVersionAlias;
             context.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn = this.DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn;
+            if (this.EmrSettings_AssumableRoleArn != null)
+            {
+                context.EmrSettings_AssumableRoleArn = new List<System.String>(this.EmrSettings_AssumableRoleArn);
+            }
+            if (this.EmrSettings_ExecutionRoleArn != null)
+            {
+                context.EmrSettings_ExecutionRoleArn = new List<System.String>(this.EmrSettings_ExecutionRoleArn);
+            }
             if (this.JupyterLabAppSettings_LifecycleConfigArn != null)
             {
                 context.JupyterLabAppSettings_LifecycleConfigArn = new List<System.String>(this.JupyterLabAppSettings_LifecycleConfigArn);
@@ -1282,6 +1323,41 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings.LifecycleConfigArns = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_jupyterLabAppSettings_LifecycleConfigArn;
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettingsIsNull = false;
             }
+            Amazon.SageMaker.Model.EmrSettings requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings = null;
+            
+             // populate EmrSettings
+            var requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettingsIsNull = true;
+            requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings = new Amazon.SageMaker.Model.EmrSettings();
+            List<System.String> requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_AssumableRoleArn = null;
+            if (cmdletContext.EmrSettings_AssumableRoleArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_AssumableRoleArn = cmdletContext.EmrSettings_AssumableRoleArn;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_AssumableRoleArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings.AssumableRoleArns = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_AssumableRoleArn;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettingsIsNull = false;
+            }
+            List<System.String> requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_ExecutionRoleArn = null;
+            if (cmdletContext.EmrSettings_ExecutionRoleArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_ExecutionRoleArn = cmdletContext.EmrSettings_ExecutionRoleArn;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_ExecutionRoleArn != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings.ExecutionRoleArns = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings_emrSettings_ExecutionRoleArn;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettingsIsNull = false;
+            }
+             // determine if requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings should be set to null
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettingsIsNull)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings = null;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings.EmrSettings = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettingsIsNull = false;
+            }
             Amazon.SageMaker.Model.ResourceSpec requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec = null;
             
              // populate DefaultResourceSpec
@@ -1676,6 +1752,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageArn { get; set; }
             public System.String DefaultResourceSpec_SageMakerImageVersionAlias { get; set; }
             public System.String DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn { get; set; }
+            public List<System.String> EmrSettings_AssumableRoleArn { get; set; }
+            public List<System.String> EmrSettings_ExecutionRoleArn { get; set; }
             public List<System.String> JupyterLabAppSettings_LifecycleConfigArn { get; set; }
             public List<Amazon.SageMaker.Model.CodeRepository> JupyterServerAppSettings_CodeRepository { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultSpaceSettings_JupyterServerAppSettings_DefaultResourceSpec_InstanceType { get; set; }

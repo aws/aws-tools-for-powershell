@@ -34,7 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     ///  
     /// <para>
     /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Amazon Bedrock User Guide.
+    /// models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon
+    /// Bedrock User Guide</a>.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BDRCustomModelList")]
@@ -93,6 +94,17 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String FoundationModelArnEqual { get; set; }
         #endregion
         
+        #region Parameter IsOwned
+        /// <summary>
+        /// <para>
+        /// <para>Return custom models depending on if the current account owns them (<c>true</c>) or
+        /// if they were shared with the current account (<c>false</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsOwned { get; set; }
+        #endregion
+        
         #region Parameter NameContain
         /// <summary>
         /// <para>
@@ -129,7 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to return in the response.</para>
+        /// <para>The maximum number of results to return in the response. If the total number of results
+        /// is greater than this value, use the token returned in the response in the <c>nextToken</c>
+        /// field when making another request to return the next batch of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Continuation token from the previous response, for Amazon Bedrock to list the next
-        /// set of results.</para>
+        /// <para>If the total number of results is greater than the <c>maxResults</c> value provided
+        /// in the request, enter the token returned in the <c>nextToken</c> field in the response
+        /// in this field to return the next batch of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -192,6 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             context.CreationTimeAfter = this.CreationTimeAfter;
             context.CreationTimeBefore = this.CreationTimeBefore;
             context.FoundationModelArnEqual = this.FoundationModelArnEqual;
+            context.IsOwned = this.IsOwned;
             context.MaxResult = this.MaxResult;
             context.NameContain = this.NameContain;
             context.NextToken = this.NextToken;
@@ -230,6 +246,10 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.FoundationModelArnEqual != null)
             {
                 request.FoundationModelArnEquals = cmdletContext.FoundationModelArnEqual;
+            }
+            if (cmdletContext.IsOwned != null)
+            {
+                request.IsOwned = cmdletContext.IsOwned.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -336,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             public System.DateTime? CreationTimeAfter { get; set; }
             public System.DateTime? CreationTimeBefore { get; set; }
             public System.String FoundationModelArnEqual { get; set; }
+            public System.Boolean? IsOwned { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NameContain { get; set; }
             public System.String NextToken { get; set; }

@@ -69,6 +69,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Double? MaxACU { get; set; }
         #endregion
         
+        #region Parameter MinACU
+        /// <summary>
+        /// <para>
+        /// <para>The minimum capacity of the DB shard group in Aurora capacity units (ACUs).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? MinACU { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -139,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             #endif
             context.MaxACU = this.MaxACU;
+            context.MinACU = this.MinACU;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.MaxACU != null)
             {
                 request.MaxACU = cmdletContext.MaxACU.Value;
+            }
+            if (cmdletContext.MinACU != null)
+            {
+                request.MinACU = cmdletContext.MinACU.Value;
             }
             
             CmdletOutput output;
@@ -226,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.String DBShardGroupIdentifier { get; set; }
             public System.Double? MaxACU { get; set; }
+            public System.Double? MinACU { get; set; }
             public System.Func<Amazon.RDS.Model.ModifyDBShardGroupResponse, EditRDSDBShardGroupCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

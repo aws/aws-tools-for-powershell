@@ -1,4 +1,22 @@
-﻿### 4.1.625 (2024-07-30 20:58Z)
+﻿### 4.1.626 (2024-08-01 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.856.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRModelCopyJob leveraging the GetModelCopyJob service API.
+    * Added cmdlet Get-BDRModelCopyJobList leveraging the ListModelCopyJobs service API.
+    * Added cmdlet New-BDRModelCopyJob leveraging the CreateModelCopyJob service API.
+    * Modified cmdlet Get-BDRCustomModelList: added parameter IsOwned.
+  * Amazon Control Catalog
+    * Added cmdlet Get-CLCATControl leveraging the GetControl service API.
+    * Added cmdlet Get-CLCATControlList leveraging the ListControls service API.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBShardGroup: added parameter MinACU.
+    * Modified cmdlet New-RDSDBShardGroup: added parameter MinACU.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameters EmrSettings_AssumableRoleArn and EmrSettings_ExecutionRoleArn.
+    * Modified cmdlet Update-SMDomain: added parameters EmrSettings_AssumableRoleArn and EmrSettings_ExecutionRoleArn.
+  * Amazon Systems Manager QuickSetup. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SSMQS and can be listed using the command 'Get-AWSCmdletName -Service SSMQS'.
+
+### 4.1.625 (2024-07-30 20:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.855.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodePipeline
     * Added cmdlet Get-CPRuleExecutionList leveraging the ListRuleExecutions service API.

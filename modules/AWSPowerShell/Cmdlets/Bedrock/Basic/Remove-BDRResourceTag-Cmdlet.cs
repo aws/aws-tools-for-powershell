@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
     /// Remove one or more tags from a resource. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging
-    /// resources</a> in the Amazon Bedrock User Guide.
+    /// resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon
+    /// Bedrock User Guide</a>.
     /// </summary>
     [Cmdlet("Remove", "BDRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

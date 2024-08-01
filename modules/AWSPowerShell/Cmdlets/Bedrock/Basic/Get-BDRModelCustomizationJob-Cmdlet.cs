@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
     /// <summary>
     /// Retrieves the properties associated with a model-customization job, including the
     /// status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom
-    /// models</a> in the Amazon Bedrock User Guide.
+    /// models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon
+    /// Bedrock User Guide</a>.
     /// </summary>
     [Cmdlet("Get", "BDRModelCustomizationJob")]
     [OutputType("Amazon.Bedrock.Model.GetModelCustomizationJobResponse")]

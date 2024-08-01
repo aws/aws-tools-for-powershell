@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
     /// Returns details for a Provisioned Throughput. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned
-    /// Throughput</a> in the Amazon Bedrock User Guide.
+    /// Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon
+    /// Bedrock User Guide</a>.
     /// </summary>
     [Cmdlet("Get", "BDRProvisionedModelThroughput")]
     [OutputType("Amazon.Bedrock.Model.GetProvisionedModelThroughputResponse")]

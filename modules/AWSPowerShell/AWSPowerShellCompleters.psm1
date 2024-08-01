@@ -6171,6 +6171,13 @@ $BDR_Completers = {
             break
         }
 
+        # Amazon.Bedrock.ModelCopyJobStatus
+        "Get-BDRModelCopyJobList/StatusEqual"
+        {
+            $v = "Completed","Failed","InProgress"
+            break
+        }
+
         # Amazon.Bedrock.ModelCustomization
         "Get-BDRFoundationModelList/ByCustomizationType"
         {
@@ -6202,6 +6209,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.SortJobsBy
         {
             ($_ -eq "Get-BDREvaluationJobList/SortBy") -Or
+            ($_ -eq "Get-BDRModelCopyJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortBy")
         }
         {
@@ -6220,6 +6228,7 @@ $BDR_Completers = {
         {
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
+            ($_ -eq "Get-BDRModelCopyJobList/SortOrder") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRProvisionedModelThroughputList/SortOrder")
         }
@@ -6242,9 +6251,9 @@ $BDR_map = @{
     "ByOutputModality"=@("Get-BDRFoundationModelList")
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
-    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
-    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRProvisionedModelThroughputList")
 }
 
 _awsArgumentCompleterRegistration $BDR_Completers $BDR_map
@@ -6300,6 +6309,7 @@ $BDR_SelectMap = @{
     "Select"=@("New-BDREvaluationJob",
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",
+               "New-BDRModelCopyJob",
                "New-BDRModelCustomizationJob",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
@@ -6310,6 +6320,7 @@ $BDR_SelectMap = @{
                "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
                "Get-BDRGuardrail",
+               "Get-BDRModelCopyJob",
                "Get-BDRModelCustomizationJob",
                "Get-BDRModelInvocationLoggingConfiguration",
                "Get-BDRProvisionedModelThroughput",
@@ -6317,6 +6328,7 @@ $BDR_SelectMap = @{
                "Get-BDREvaluationJobList",
                "Get-BDRFoundationModelList",
                "Get-BDRGuardrailList",
+               "Get-BDRModelCopyJobList",
                "Get-BDRModelCustomizationJobList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
@@ -17309,7 +17321,9 @@ $CLCAT_SelectCompleters = {
 }
 
 $CLCAT_SelectMap = @{
-    "Select"=@("Get-CLCATCommonControlList",
+    "Select"=@("Get-CLCATControl",
+               "Get-CLCATCommonControlList",
+               "Get-CLCATControlList",
                "Get-CLCATDomainList",
                "Get-CLCATObjectiveList")
 }
@@ -65574,6 +65588,72 @@ $SSMI_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SSMI_SelectCompleters $SSMI_SelectMap
+# Argument completions for service AWS Systems Manager QuickSetup
+
+
+$SSMQS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SSMQS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SSMQS_SelectMap = @{
+    "Select"=@("New-SSMQSConfigurationManager",
+               "Remove-SSMQSConfigurationManager",
+               "Get-SSMQSConfigurationManager",
+               "Get-SSMQSServiceSetting",
+               "Get-SSMQSConfigurationManagerList",
+               "Get-SSMQSQuickSetupTypeList",
+               "Get-SSMQSResourceTag",
+               "Add-SSMQSResourceTag",
+               "Remove-SSMQSResourceTag",
+               "Update-SSMQSConfigurationDefinition",
+               "Update-SSMQSConfigurationManager",
+               "Update-SSMQSServiceSetting")
+}
+
+_awsArgumentCompleterRegistration $SSMQS_SelectCompleters $SSMQS_SelectMap
 # Argument completions for service AWS Systems Manager for SAP
 
 
