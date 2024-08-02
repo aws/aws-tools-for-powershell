@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Indicates the maximum number of applications requested.</para>
+        /// <para>Indicates the maximum number of compliance drifts requested.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -76,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Indicates the unique token number of the next application to be checked for compliance
-        /// and regulatory requirements from the list of applications.</para>
+        /// <para>Null, or the token from a previous call to get the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

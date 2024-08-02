@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
     /// Describes a resource of the Resilience Hub application.
     /// 
     ///  <note><para>
-    /// This API accepts only one of the following parameters to descibe the resource:
+    /// This API accepts only one of the following parameters to describe the resource:
     /// </para><ul><li><para><c>resourceName</c></para></li><li><para><c>logicalResourceId</c></para></li><li><para><c>physicalResourceId</c> (Along with <c>physicalResourceId</c>, you can also provide
     /// <c>awsAccountId</c>, and <c>awsRegion</c>)
     /// </para></li></ul></note>

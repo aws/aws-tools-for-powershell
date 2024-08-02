@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptResourceGroupingRecommendations" OutputProperty="*" Verb="Approve" Noun="ResourceGroupingRecommendation" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AddDraftAppVersionResourceMappings" OutputProperty="*" Verb="Add" Noun="DraftAppVersionResourceMapping" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -111,6 +115,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceGroupingRecommendationTask" OutputProperty="*" Verb="Get" Noun="ResourceGroupingRecommendationTask" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ImportResourcesToDraftAppVersion" OutputProperty="*" Verb="Import" Noun="ResourcesToDraftAppVersion" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -171,6 +179,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceGroupingRecommendations" OutputProperty="*" Verb="Get" Noun="ResourceGroupingRecommendationList" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSopRecommendations" OutputProperty="SopRecommendations" Verb="Get" Noun="SopRecommendationList" PipelineParameter="AssessmentArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -199,6 +211,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RejectResourceGroupingRecommendations" OutputProperty="*" Verb="Deny" Noun="ResourceGroupingRecommendation" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RemoveDraftAppVersionResourceMappings" OutputProperty="*" Verb="Remove" Noun="DraftAppVersionResourceMapping" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -208,6 +224,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StartAppAssessment" OutputProperty="Assessment" Verb="Start" Noun="AppAssessment" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartResourceGroupingRecommendationTask" OutputProperty="*" Verb="Start" Noun="ResourceGroupingRecommendationTask" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

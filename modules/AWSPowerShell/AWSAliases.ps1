@@ -23810,6 +23810,9 @@ Set-Alias -Name RESP-SendInvites -Value Send-RESPInvite
 Set-Alias -Name RESP-TagResource -Value Add-RESPResourceTag
 Set-Alias -Name RESP-UntagResource -Value Remove-RESPResourceTag
 Set-Alias -Name RESP-UpdateSpace -Value Update-RESPSpace
+Set-Alias -Name Accept-RESHResourceGroupingRecommendations -Value Approve-RESHResourceGroupingRecommendation
+Set-Alias -Name Accept-RESHResourceGroupingRecommendation -Value Approve-RESHResourceGroupingRecommendation
+Set-Alias -Name RESH-AcceptResourceGroupingRecommendations -Value Approve-RESHResourceGroupingRecommendation
 Set-Alias -Name Add-RESHDraftAppVersionResourceMappings -Value Add-RESHDraftAppVersionResourceMapping
 Set-Alias -Name RESH-AddDraftAppVersionResourceMappings -Value Add-RESHDraftAppVersionResourceMapping
 Set-Alias -Name Batch-RESHUpdateRecommendationStatus -Value Set-RESHUpdateRecommendationStatus
@@ -23856,6 +23859,8 @@ Set-Alias -Name Describe-RESHDraftAppVersionResourcesImportStatus -Value Get-RES
 Set-Alias -Name RESH-DescribeDraftAppVersionResourcesImportStatus -Value Get-RESHDraftAppVersionResourcesImportStatus
 Set-Alias -Name Describe-RESHResiliencyPolicy -Value Get-RESHResiliencyPolicy
 Set-Alias -Name RESH-DescribeResiliencyPolicy -Value Get-RESHResiliencyPolicy
+Set-Alias -Name Describe-RESHResourceGroupingRecommendationTask -Value Get-RESHResourceGroupingRecommendationTask
+Set-Alias -Name RESH-DescribeResourceGroupingRecommendationTask -Value Get-RESHResourceGroupingRecommendationTask
 Set-Alias -Name RESH-ImportResourcesToDraftAppVersion -Value Import-RESHResourcesToDraftAppVersion
 Set-Alias -Name List-RESHAlarmRecommendations -Value Get-RESHAlarmRecommendationList
 Set-Alias -Name List-RESHAlarmRecommendationList -Value Get-RESHAlarmRecommendationList
@@ -23899,6 +23904,9 @@ Set-Alias -Name RESH-ListRecommendationTemplates -Value Get-RESHRecommendationTe
 Set-Alias -Name List-RESHResiliencyPolicies -Value Get-RESHResiliencyPolicyList
 Set-Alias -Name List-RESHResiliencyPolicyList -Value Get-RESHResiliencyPolicyList
 Set-Alias -Name RESH-ListResiliencyPolicies -Value Get-RESHResiliencyPolicyList
+Set-Alias -Name List-RESHResourceGroupingRecommendations -Value Get-RESHResourceGroupingRecommendationList
+Set-Alias -Name List-RESHResourceGroupingRecommendationList -Value Get-RESHResourceGroupingRecommendationList
+Set-Alias -Name RESH-ListResourceGroupingRecommendations -Value Get-RESHResourceGroupingRecommendationList
 Set-Alias -Name List-RESHSopRecommendations -Value Get-RESHSopRecommendationList
 Set-Alias -Name List-RESHSopRecommendationList -Value Get-RESHSopRecommendationList
 Set-Alias -Name RESH-ListSopRecommendations -Value Get-RESHSopRecommendationList
@@ -23915,11 +23923,15 @@ Set-Alias -Name RESH-ListUnsupportedAppVersionResources -Value Get-RESHUnsupport
 Set-Alias -Name RESH-PublishAppVersion -Value Publish-RESHAppVersion
 Set-Alias -Name Put-RESHDraftAppVersionTemplate -Value Write-RESHDraftAppVersionTemplate
 Set-Alias -Name RESH-PutDraftAppVersionTemplate -Value Write-RESHDraftAppVersionTemplate
+Set-Alias -Name Reject-RESHResourceGroupingRecommendations -Value Deny-RESHResourceGroupingRecommendation
+Set-Alias -Name Reject-RESHResourceGroupingRecommendation -Value Deny-RESHResourceGroupingRecommendation
+Set-Alias -Name RESH-RejectResourceGroupingRecommendations -Value Deny-RESHResourceGroupingRecommendation
 Set-Alias -Name Remove-RESHDraftAppVersionResourceMappings -Value Remove-RESHDraftAppVersionResourceMapping
 Set-Alias -Name RESH-RemoveDraftAppVersionResourceMappings -Value Remove-RESHDraftAppVersionResourceMapping
 Set-Alias -Name Resolve-RESHAppVersionResources -Value Resolve-RESHAppVersionResource
 Set-Alias -Name RESH-ResolveAppVersionResources -Value Resolve-RESHAppVersionResource
 Set-Alias -Name RESH-StartAppAssessment -Value Start-RESHAppAssessment
+Set-Alias -Name RESH-StartResourceGroupingRecommendationTask -Value Start-RESHResourceGroupingRecommendationTask
 Set-Alias -Name RESH-TagResource -Value Add-RESHResourceTag
 Set-Alias -Name RESH-UntagResource -Value Remove-RESHResourceTag
 Set-Alias -Name RESH-UpdateApp -Value Update-RESHApp

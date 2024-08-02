@@ -28,23 +28,15 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Lists your Resilience Hub applications.
-    /// 
-    ///  <note><para>
-    /// You can filter applications using only one filter at a time or without using any filter.
-    /// If you try to filter applications using multiple filters, you will get the following
-    /// error:
-    /// </para><para><c>An error occurred (ValidationException) when calling the ListApps operation: Only
-    /// one filter is supported for this operation.</c></para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the resource grouping recommendations suggested by Resilience Hub for your application.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "RESHAppList")]
-    [OutputType("Amazon.ResilienceHub.Model.AppSummary")]
-    [AWSCmdlet("Calls the AWS Resilience Hub ListApps API operation.", Operation = new[] {"ListApps"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListAppsResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.AppSummary or Amazon.ResilienceHub.Model.ListAppsResponse",
-        "This cmdlet returns a collection of Amazon.ResilienceHub.Model.AppSummary objects.",
-        "The service call response (type Amazon.ResilienceHub.Model.ListAppsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RESHResourceGroupingRecommendationList")]
+    [OutputType("Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse")]
+    [AWSCmdlet("Calls the AWS Resilience Hub ListResourceGroupingRecommendations API operation.", Operation = new[] {"ListResourceGroupingRecommendations"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse))]
+    [AWSCmdletOutput("Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse",
+        "This cmdlet returns an Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetRESHAppListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class GetRESHResourceGroupingRecommendationListCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -59,60 +51,14 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         /// guide.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AppArn { get; set; }
-        #endregion
-        
-        #region Parameter FromLastAssessmentTime
-        /// <summary>
-        /// <para>
-        /// <para>Indicates the lower limit of the range that is used to filter applications based on
-        /// their last assessment times.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? FromLastAssessmentTime { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name for the one of the listed applications.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ReverseOrder
-        /// <summary>
-        /// <para>
-        /// <para>The application list is sorted based on the values of <c>lastAppComplianceEvaluationTime</c>
-        /// field. By default, application list is sorted in ascending order. To sort the application
-        /// list in descending order, set this field to <c>True</c>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? ReverseOrder { get; set; }
-        #endregion
-        
-        #region Parameter ToLastAssessmentTime
-        /// <summary>
-        /// <para>
-        /// <para>Indicates the upper limit of the range that is used to filter the applications based
-        /// on their last assessment times.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.DateTime? ToLastAssessmentTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of results to include in the response. If more results exist than the
-        /// specified <c>MaxResults</c> value, a token is included in the response so that the
-        /// remaining results can be retrieved.</para>
+        /// <para>Maximum number of grouping recommendations to be displayed per Resilience Hub application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,13 +82,23 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'AppSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.ListAppsResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.ListAppsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse).
+        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "AppSummaries";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AppArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AppArn' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter NoAutoIteration
@@ -165,18 +121,24 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.ListAppsResponse, GetRESHAppListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse, GetRESHResourceGroupingRecommendationListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.AppArn;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AppArn = this.AppArn;
-            context.FromLastAssessmentTime = this.FromLastAssessmentTime;
             context.MaxResult = this.MaxResult;
-            context.Name = this.Name;
             context.NextToken = this.NextToken;
-            context.ReverseOrder = this.ReverseOrder;
-            context.ToLastAssessmentTime = this.ToLastAssessmentTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -190,34 +152,20 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            var useParameterSelect = this.Select.StartsWith("^");
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.ResilienceHub.Model.ListAppsRequest();
+            var request = new Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsRequest();
             
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
             }
-            if (cmdletContext.FromLastAssessmentTime != null)
-            {
-                request.FromLastAssessmentTime = cmdletContext.FromLastAssessmentTime.Value;
-            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.ReverseOrder != null)
-            {
-                request.ReverseOrder = cmdletContext.ReverseOrder.Value;
-            }
-            if (cmdletContext.ToLastAssessmentTime != null)
-            {
-                request.ToLastAssessmentTime = cmdletContext.ToLastAssessmentTime.Value;
             }
             
             // Initialize loop variant and commence piping
@@ -276,15 +224,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.ListAppsResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.ListAppsRequest request)
+        private Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "ListApps");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "ListResourceGroupingRecommendations");
             try
             {
                 #if DESKTOP
-                return client.ListApps(request);
+                return client.ListResourceGroupingRecommendations(request);
                 #elif CORECLR
-                return client.ListAppsAsync(request).GetAwaiter().GetResult();
+                return client.ListResourceGroupingRecommendationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -305,14 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
-            public System.DateTime? FromLastAssessmentTime { get; set; }
             public System.Int32? MaxResult { get; set; }
-            public System.String Name { get; set; }
             public System.String NextToken { get; set; }
-            public System.Boolean? ReverseOrder { get; set; }
-            public System.DateTime? ToLastAssessmentTime { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.ListAppsResponse, GetRESHAppListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.AppSummaries;
+            public System.Func<Amazon.ResilienceHub.Model.ListResourceGroupingRecommendationsResponse, GetRESHResourceGroupingRecommendationListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -28,20 +28,15 @@ using Amazon.ResilienceHub.Model;
 namespace Amazon.PowerShell.Cmdlets.RESH
 {
     /// <summary>
-    /// Adds the source of resource-maps to the draft version of an application. During assessment,
-    /// Resilience Hub will use these resource-maps to resolve the latest physical ID for
-    /// each resource in the application template. For more information about different types
-    /// of resources supported by Resilience Hub and how to add them in your application,
-    /// see <a href="https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html">Step
-    /// 2: How is your application managed?</a> in the Resilience Hub User Guide.
+    /// Starts grouping recommendation task.
     /// </summary>
-    [Cmdlet("Add", "RESHDraftAppVersionResourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse")]
-    [AWSCmdlet("Calls the AWS Resilience Hub AddDraftAppVersionResourceMappings API operation.", Operation = new[] {"AddDraftAppVersionResourceMappings"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse))]
-    [AWSCmdletOutput("Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse",
-        "This cmdlet returns an Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "RESHResourceGroupingRecommendationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse")]
+    [AWSCmdlet("Calls the AWS Resilience Hub StartResourceGroupingRecommendationTask API operation.", Operation = new[] {"StartResourceGroupingRecommendationTask"}, SelectReturnType = typeof(Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse))]
+    [AWSCmdletOutput("Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse",
+        "This cmdlet returns an Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddRESHDraftAppVersionResourceMappingCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
+    public partial class StartRESHResourceGroupingRecommendationTaskCmdlet : AmazonResilienceHubClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -67,33 +62,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         public System.String AppArn { get; set; }
         #endregion
         
-        #region Parameter ResourceMapping
-        /// <summary>
-        /// <para>
-        /// <para>Mappings used to map logical resources from the template to physical resources. You
-        /// can use the mapping type <c>CFN_STACK</c> if the application template uses a logical
-        /// stack name. Or you can map individual resources by using the mapping type <c>RESOURCE</c>.
-        /// We recommend using the mapping type <c>CFN_STACK</c> if the application is backed
-        /// by a CloudFormation stack.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ResourceMappings")]
-        public Amazon.ResilienceHub.Model.ResourceMapping[] ResourceMapping { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse).
-        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse).
+        /// Specifying the name of a property of type Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -126,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AppArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-RESHDraftAppVersionResourceMapping (AddDraftAppVersionResourceMappings)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-RESHResourceGroupingRecommendationTask (StartResourceGroupingRecommendationTask)"))
             {
                 return;
             }
@@ -139,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse, AddRESHDraftAppVersionResourceMappingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse, StartRESHResourceGroupingRecommendationTaskCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -158,16 +131,6 @@ namespace Amazon.PowerShell.Cmdlets.RESH
                 WriteWarning("You are passing $null as a value for parameter AppArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ResourceMapping != null)
-            {
-                context.ResourceMapping = new List<Amazon.ResilienceHub.Model.ResourceMapping>(this.ResourceMapping);
-            }
-            #if MODULAR
-            if (this.ResourceMapping == null && ParameterWasBound(nameof(this.ResourceMapping)))
-            {
-                WriteWarning("You are passing $null as a value for parameter ResourceMapping which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,15 +145,11 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsRequest();
+            var request = new Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskRequest();
             
             if (cmdletContext.AppArn != null)
             {
                 request.AppArn = cmdletContext.AppArn;
-            }
-            if (cmdletContext.ResourceMapping != null)
-            {
-                request.ResourceMappings = cmdletContext.ResourceMapping;
             }
             
             CmdletOutput output;
@@ -225,15 +184,15 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         
         #region AWS Service Operation Call
         
-        private Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsRequest request)
+        private Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse CallAWSServiceOperation(IAmazonResilienceHub client, Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "AddDraftAppVersionResourceMappings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resilience Hub", "StartResourceGroupingRecommendationTask");
             try
             {
                 #if DESKTOP
-                return client.AddDraftAppVersionResourceMappings(request);
+                return client.StartResourceGroupingRecommendationTask(request);
                 #elif CORECLR
-                return client.AddDraftAppVersionResourceMappingsAsync(request).GetAwaiter().GetResult();
+                return client.StartResourceGroupingRecommendationTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -254,8 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RESH
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
-            public List<Amazon.ResilienceHub.Model.ResourceMapping> ResourceMapping { get; set; }
-            public System.Func<Amazon.ResilienceHub.Model.AddDraftAppVersionResourceMappingsResponse, AddRESHDraftAppVersionResourceMappingCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.ResilienceHub.Model.StartResourceGroupingRecommendationTaskResponse, StartRESHResourceGroupingRecommendationTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

@@ -1,4 +1,13 @@
-﻿### 4.1.626 (2024-08-01 21:01Z)
+﻿### 4.1.627 (2024-08-02 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.857.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Resilience Hub
+    * Added cmdlet Approve-RESHResourceGroupingRecommendation leveraging the AcceptResourceGroupingRecommendations service API.
+    * Added cmdlet Deny-RESHResourceGroupingRecommendation leveraging the RejectResourceGroupingRecommendations service API.
+    * Added cmdlet Get-RESHResourceGroupingRecommendationList leveraging the ListResourceGroupingRecommendations service API.
+    * Added cmdlet Get-RESHResourceGroupingRecommendationTask leveraging the DescribeResourceGroupingRecommendationTask service API.
+    * Added cmdlet Start-RESHResourceGroupingRecommendationTask leveraging the StartResourceGroupingRecommendationTask service API.
+
+### 4.1.626 (2024-08-01 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.856.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRModelCopyJob leveraging the GetModelCopyJob service API.

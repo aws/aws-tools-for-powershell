@@ -56558,7 +56558,7 @@ $RESH_Completers = {
         # Amazon.ResilienceHub.ComplianceStatus
         "Get-RESHAppAssessmentList/ComplianceStatus"
         {
-            $v = "PolicyBreached","PolicyMet"
+            $v = "MissingPolicy","NotApplicable","PolicyBreached","PolicyMet"
             break
         }
 
@@ -56675,7 +56675,8 @@ $RESH_SelectCompleters = {
 }
 
 $RESH_SelectMap = @{
-    "Select"=@("Add-RESHDraftAppVersionResourceMapping",
+    "Select"=@("Approve-RESHResourceGroupingRecommendation",
+               "Add-RESHDraftAppVersionResourceMapping",
                "Set-RESHUpdateRecommendationStatus",
                "New-RESHApp",
                "New-RESHAppVersionAppComponent",
@@ -56698,6 +56699,7 @@ $RESH_SelectMap = @{
                "Get-RESHAppVersionTemplate",
                "Get-RESHDraftAppVersionResourcesImportStatus",
                "Get-RESHResiliencyPolicy",
+               "Get-RESHResourceGroupingRecommendationTask",
                "Import-RESHResourcesToDraftAppVersion",
                "Get-RESHAlarmRecommendationList",
                "Get-RESHAppAssessmentComplianceDriftList",
@@ -56713,6 +56715,7 @@ $RESH_SelectMap = @{
                "Get-RESHAppVersionList",
                "Get-RESHRecommendationTemplateList",
                "Get-RESHResiliencyPolicyList",
+               "Get-RESHResourceGroupingRecommendationList",
                "Get-RESHSopRecommendationList",
                "Get-RESHSuggestedResiliencyPolicyList",
                "Get-RESHResourceTag",
@@ -56720,9 +56723,11 @@ $RESH_SelectMap = @{
                "Get-RESHUnsupportedAppVersionResourceList",
                "Publish-RESHAppVersion",
                "Write-RESHDraftAppVersionTemplate",
+               "Deny-RESHResourceGroupingRecommendation",
                "Remove-RESHDraftAppVersionResourceMapping",
                "Resolve-RESHAppVersionResource",
                "Start-RESHAppAssessment",
+               "Start-RESHResourceGroupingRecommendationTask",
                "Add-RESHResourceTag",
                "Remove-RESHResourceTag",
                "Update-RESHApp",
