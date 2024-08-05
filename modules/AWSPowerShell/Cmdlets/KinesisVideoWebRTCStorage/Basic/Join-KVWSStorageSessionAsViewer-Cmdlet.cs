@@ -22,30 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.KinesisVideoWebRTCStorage;
+using Amazon.KinesisVideoWebRTCStorage.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.KVWS
 {
     /// <summary>
-    /// Deletes an asset in Amazon DataZone.
+    /// Join the ongoing one way-video and/or multi-way audio WebRTC session as a viewer
+    /// for an input channel. If there’s no existing session for the channel, create a new
+    /// streaming session and provide the Amazon Resource Name (ARN) of the signaling channel
+    /// (<c>channelArn</c>) and client id (<c>clientId</c>). 
+    /// 
+    ///  
+    /// <para>
+    /// Currently for <c>SINGLE_MASTER</c> type, a video producing device is able to ingest
+    /// both audio and video media into a stream, while viewers can only ingest audio. Both
+    /// a video producing device and viewers can join a session first and wait for other participants.
+    /// While participants are having peer to peer conversations through WebRTC, the ingested
+    /// media session will be stored into the Kinesis Video Stream. Multiple viewers are able
+    /// to playback real-time media. 
+    /// </para><para>
+    /// Customers can also use existing Kinesis Video Streams features like <c>HLS</c> or
+    /// <c>DASH</c> playback, Image generation, and more with ingested WebRTC media. If there’s
+    /// an existing session with the same <c>clientId</c> that's found in the join session
+    /// request, the new request takes precedence.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "DZAsset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Join", "KVWSStorageSessionAsViewer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DataZone DeleteAsset API operation.", Operation = new[] {"DeleteAsset"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteAssetResponse))]
-    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteAssetResponse",
+    [AWSCmdlet("Calls the Amazon Kinesis Video WebRTC Storage JoinStorageSessionAsViewer API operation.", Operation = new[] {"JoinStorageSessionAsViewer"}, SelectReturnType = typeof(Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse))]
+    [AWSCmdletOutput("None or Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteAssetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveDZAssetCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class JoinKVWSStorageSessionAsViewerCmdlet : AmazonKinesisVideoWebRTCStorageClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainIdentifier
+        #region Parameter ChannelArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which the asset is deleted.</para>
+        /// <para> The Amazon Resource Name (ARN) of the signaling channel. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,44 +74,34 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
+        public System.String ChannelArn { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the asset that is deleted.</para>
+        /// <para> The unique identifier for the sender client. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String ClientId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteAssetResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -111,8 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZAsset (DeleteAsset)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Join-KVWSStorageSessionAsViewer (JoinStorageSessionAsViewer)"))
             {
                 return;
             }
@@ -122,33 +130,23 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteAssetResponse, RemoveDZAssetCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse, JoinKVWSStorageSessionAsViewerCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.Identifier;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.ChannelArn = this.ChannelArn;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.ChannelArn == null && ParameterWasBound(nameof(this.ChannelArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ChannelArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.ClientId = this.ClientId;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.ClientId == null && ParameterWasBound(nameof(this.ClientId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClientId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -165,15 +163,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.DeleteAssetRequest();
+            var request = new Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.ChannelArn != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.ChannelArn = cmdletContext.ChannelArn;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.ClientId != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.ClientId = cmdletContext.ClientId;
             }
             
             CmdletOutput output;
@@ -208,15 +206,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.DeleteAssetResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteAssetRequest request)
+        private Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse CallAWSServiceOperation(IAmazonKinesisVideoWebRTCStorage client, Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteAsset");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Video WebRTC Storage", "JoinStorageSessionAsViewer");
             try
             {
                 #if DESKTOP
-                return client.DeleteAsset(request);
+                return client.JoinStorageSessionAsViewer(request);
                 #elif CORECLR
-                return client.DeleteAssetAsync(request).GetAwaiter().GetResult();
+                return client.JoinStorageSessionAsViewerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -236,9 +234,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.DeleteAssetResponse, RemoveDZAssetCmdlet, object> Select { get; set; } =
+            public System.String ChannelArn { get; set; }
+            public System.String ClientId { get; set; }
+            public System.Func<Amazon.KinesisVideoWebRTCStorage.Model.JoinStorageSessionAsViewerResponse, JoinKVWSStorageSessionAsViewerCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

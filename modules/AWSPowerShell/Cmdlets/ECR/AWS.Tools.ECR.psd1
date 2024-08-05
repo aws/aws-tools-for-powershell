@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-ECRResourceTag', 
         'Complete-ECRLayerUpload', 
+        'Get-ECRAccountSetting', 
         'Get-ECRAuthorizationToken', 
         'Get-ECRDownloadUrlForLayer', 
         'Get-ECRImage', 
@@ -127,6 +128,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Test-ECRPullThroughCacheRule', 
         'Update-ECRPullThroughCacheRule', 
         'Update-ECRRepositoryCreationTemplate', 
+        'Write-ECRAccountSetting', 
         'Write-ECRImage', 
         'Write-ECRImageScanningConfiguration', 
         'Write-ECRImageTagMutability', 

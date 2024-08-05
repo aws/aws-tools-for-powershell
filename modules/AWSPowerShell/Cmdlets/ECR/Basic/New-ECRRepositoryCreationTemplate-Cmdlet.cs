@@ -68,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <summary>
         /// <para>
         /// <para>The ARN of the role to be assumed by Amazon ECR. This role must be in the same account
-        /// as the registry that you are configuring.</para>
+        /// as the registry that you are configuring. Amazon ECR will assume your supplied role
+        /// when the customRoleArn is specified. When this field isn't specified, Amazon ECR will
+        /// use the service-linked role for the repository creation template.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

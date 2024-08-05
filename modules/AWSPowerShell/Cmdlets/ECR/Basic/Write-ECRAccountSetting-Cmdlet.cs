@@ -22,49 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.ECR;
+using Amazon.ECR.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Gets a listing (a record of an asset at a given time). If you specify a listing version,
-    /// only details that are specific to that version are returned.
+    /// Allows you to change the basic scan type version by setting the <c>name</c> parameter
+    /// to either <c>CLAIR</c> to <c>AWS_NATIVE</c>.
     /// </summary>
-    [Cmdlet("Get", "DZListing")]
-    [OutputType("Amazon.DataZone.Model.GetListingResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetListing API operation.", Operation = new[] {"GetListing"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetListingResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetListingResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetListingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "ECRAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ECR.Model.PutAccountSettingResponse")]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutAccountSetting API operation.", Operation = new[] {"PutAccountSetting"}, SelectReturnType = typeof(Amazon.ECR.Model.PutAccountSettingResponse))]
+    [AWSCmdletOutput("Amazon.ECR.Model.PutAccountSettingResponse",
+        "This cmdlet returns an Amazon.ECR.Model.PutAccountSettingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDZListingCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class WriteECRAccountSettingCmdlet : AmazonECRClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainIdentifier
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the listing.</para>
+        /// <para>Basic scan type version name. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -75,24 +56,32 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ListingRevision
+        #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>The revision of the listing.</para>
+        /// <para>Setting value that determines what basic scan type is being used: <c>AWS_NATIVE</c>
+        /// or <c>CLAIR</c>.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ListingRevision { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Value { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetListingResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetListingResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ECR.Model.PutAccountSettingResponse).
+        /// Specifying the name of a property of type Amazon.ECR.Model.PutAccountSettingResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,18 +90,34 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-ECRAccountSetting (PutAccountSetting)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -122,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetListingResponse, GetDZListingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ECR.Model.PutAccountSettingResponse, WriteECRAccountSettingCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -131,24 +136,23 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.Value = this.Value;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.Value == null && ParameterWasBound(nameof(this.Value)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Value which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ListingRevision = this.ListingRevision;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,19 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.GetListingRequest();
+            var request = new Amazon.ECR.Model.PutAccountSettingRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.Name != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.Value != null)
             {
-                request.Identifier = cmdletContext.Identifier;
-            }
-            if (cmdletContext.ListingRevision != null)
-            {
-                request.ListingRevision = cmdletContext.ListingRevision;
+                request.Value = cmdletContext.Value;
             }
             
             CmdletOutput output;
@@ -210,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetListingResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetListingRequest request)
+        private Amazon.ECR.Model.PutAccountSettingResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.PutAccountSettingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetListing");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "PutAccountSetting");
             try
             {
                 #if DESKTOP
-                return client.GetListing(request);
+                return client.PutAccountSetting(request);
                 #elif CORECLR
-                return client.GetListingAsync(request).GetAwaiter().GetResult();
+                return client.PutAccountSettingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,10 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.String ListingRevision { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetListingResponse, GetDZListingCmdlet, object> Select { get; set; } =
+            public System.String Name { get; set; }
+            public System.String Value { get; set; }
+            public System.Func<Amazon.ECR.Model.PutAccountSettingResponse, WriteECRAccountSettingCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

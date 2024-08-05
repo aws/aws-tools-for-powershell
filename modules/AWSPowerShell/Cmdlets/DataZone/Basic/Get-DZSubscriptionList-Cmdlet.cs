@@ -105,7 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The status of the subscriptions that you want to list.</para>
+        /// <para>The status of the subscriptions that you want to list.</para><note><para>This is not a required parameter, but if not provided, by default, Amazon DataZone
+        /// returns only <c>APPROVED</c> subscriptions. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -55,6 +55,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataProduct" OutputProperty="*" Verb="New" Noun="DataProduct" ShouldProcessTarget="DomainIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataProductRevision" OutputProperty="*" Verb="New" Noun="DataProductRevision" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateDataSource" OutputProperty="*" Verb="New" Noun="DataSource" ShouldProcessTarget="ProjectIdentifier" PipelineParameter="ProjectIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -128,6 +136,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAssetType" Verb="Remove" Noun="AssetType" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDataProduct" Verb="Remove" Noun="DataProduct" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -208,6 +220,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAssetType" OutputProperty="*" Verb="Get" Noun="AssetType" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataProduct" OutputProperty="*" Verb="Get" Noun="DataProduct" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -312,6 +328,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAssetRevisions" OutputProperty="Items" Verb="Get" Noun="AssetRevisionList" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataProductRevisions" OutputProperty="Items" Verb="Get" Noun="DataProductRevisionList" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

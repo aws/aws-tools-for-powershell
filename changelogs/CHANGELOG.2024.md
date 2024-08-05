@@ -1,4 +1,19 @@
-﻿### 4.1.627 (2024-08-02 21:11Z)
+﻿### 4.1.628 (2024-08-05 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.858.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Added cmdlet Get-DZDataProduct leveraging the GetDataProduct service API.
+    * Added cmdlet Get-DZDataProductRevisionList leveraging the ListDataProductRevisions service API.
+    * Added cmdlet New-DZDataProduct leveraging the CreateDataProduct service API.
+    * Added cmdlet New-DZDataProductRevision leveraging the CreateDataProductRevision service API.
+    * Added cmdlet Remove-DZDataProduct leveraging the DeleteDataProduct service API.
+    * Modified cmdlet Get-DZSubscriptionGrantList: added parameter OwningProjectId.
+  * Amazon EC2 Container Registry
+    * Added cmdlet Get-ECRAccountSetting leveraging the GetAccountSetting service API.
+    * Added cmdlet Write-ECRAccountSetting leveraging the PutAccountSetting service API.
+  * Amazon Kinesis Video WebRTC Storage
+    * Added cmdlet Join-KVWSStorageSessionAsViewer leveraging the JoinStorageSessionAsViewer service API.
+
+### 4.1.627 (2024-08-02 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.857.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Resilience Hub
     * Added cmdlet Approve-RESHResourceGroupingRecommendation leveraging the AcceptResourceGroupingRecommendations service API.

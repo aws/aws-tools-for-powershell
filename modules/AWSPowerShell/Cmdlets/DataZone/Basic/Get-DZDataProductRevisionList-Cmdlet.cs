@@ -28,26 +28,24 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Gets a listing (a record of an asset at a given time). If you specify a listing version,
-    /// only details that are specific to that version are returned.
+    /// Lists data product revisions.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "DZListing")]
-    [OutputType("Amazon.DataZone.Model.GetListingResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetListing API operation.", Operation = new[] {"GetListing"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetListingResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetListingResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetListingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DZDataProductRevisionList")]
+    [OutputType("Amazon.DataZone.Model.DataProductRevision")]
+    [AWSCmdlet("Calls the Amazon DataZone ListDataProductRevisions API operation.", Operation = new[] {"ListDataProductRevisions"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListDataProductRevisionsResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.DataProductRevision or Amazon.DataZone.Model.ListDataProductRevisionsResponse",
+        "This cmdlet returns a collection of Amazon.DataZone.Model.DataProductRevision objects.",
+        "The service call response (type Amazon.DataZone.Model.ListDataProductRevisionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDZListingCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetDZDataProductRevisionListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain.</para>
+        /// <para>The ID of the domain of the data product revisions that you want to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the listing.</para>
+        /// <para>The ID of the data product revision.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,25 +76,48 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Identifier { get; set; }
         #endregion
         
-        #region Parameter ListingRevision
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The revision of the listing.</para>
+        /// <para>The maximum number of asset filters to return in a single call to <c>ListDataProductRevisions</c>.
+        /// When the number of data product revisions to be listed is greater than the value of
+        /// <c>MaxResults</c>, the response contains a <c>NextToken</c> value that you can use
+        /// in a subsequent call to <c>ListDataProductRevisions</c> to list the next set of data
+        /// product revisions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ListingRevision { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>When the number of data product revisions is greater than the default value for the
+        /// <c>MaxResults</c> parameter, or if you explicitly specify a value for <c>MaxResults</c>
+        /// that is less than the number of data product revisions, the response includes a pagination
+        /// token named <c>NextToken</c>. You can specify this <c>NextToken</c> value in a subsequent
+        /// call to <c>ListDataProductRevisions</c> to list the next set of data product revisions.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetListingResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetListingResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListDataProductRevisionsResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.ListDataProductRevisionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter PassThru
@@ -107,6 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter NoAutoIteration
+        /// <summary>
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -122,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetListingResponse, GetDZListingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListDataProductRevisionsResponse, GetDZDataProductRevisionListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,7 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ListingRevision = this.ListingRevision;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,8 +194,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.DataZone.Model.GetListingRequest();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            
+            // create request and set iteration invariants
+            var request = new Amazon.DataZone.Model.ListDataProductRevisionsRequest();
             
             if (cmdletContext.DomainIdentifier != null)
             {
@@ -173,32 +209,56 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Identifier = cmdletContext.Identifier;
             }
-            if (cmdletContext.ListingRevision != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.ListingRevision = cmdletContext.ListingRevision;
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -210,15 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetListingResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetListingRequest request)
+        private Amazon.DataZone.Model.ListDataProductRevisionsResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListDataProductRevisionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetListing");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListDataProductRevisions");
             try
             {
                 #if DESKTOP
-                return client.GetListing(request);
+                return client.ListDataProductRevisions(request);
                 #elif CORECLR
-                return client.GetListingAsync(request).GetAwaiter().GetResult();
+                return client.ListDataProductRevisionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,9 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
-            public System.String ListingRevision { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetListingResponse, GetDZListingCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.DataZone.Model.ListDataProductRevisionsResponse, GetDZDataProductRevisionListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

@@ -18836,7 +18836,7 @@ $DZ_Completers = {
         # Amazon.DataZone.EntityType
         "New-DZListingChangeSet/EntityType"
         {
-            $v = "ASSET"
+            $v = "ASSET","DATA_PRODUCT"
             break
         }
 
@@ -18898,7 +18898,7 @@ $DZ_Completers = {
         # Amazon.DataZone.InventorySearchScope
         "Search-DZResource/SearchScope"
         {
-            $v = "ASSET","GLOSSARY","GLOSSARY_TERM"
+            $v = "ASSET","DATA_PRODUCT","GLOSSARY","GLOSSARY_TERM"
             break
         }
 
@@ -19171,6 +19171,8 @@ $DZ_SelectMap = @{
                "New-DZAssetFilter",
                "New-DZAssetRevision",
                "New-DZAssetType",
+               "New-DZDataProduct",
+               "New-DZDataProductRevision",
                "New-DZDataSource",
                "New-DZDomain",
                "New-DZEnvironment",
@@ -19190,6 +19192,7 @@ $DZ_SelectMap = @{
                "Remove-DZAsset",
                "Remove-DZAssetFilter",
                "Remove-DZAssetType",
+               "Remove-DZDataProduct",
                "Remove-DZDataSource",
                "Remove-DZDomain",
                "Remove-DZEnvironment",
@@ -19210,6 +19213,7 @@ $DZ_SelectMap = @{
                "Get-DZAsset",
                "Get-DZAssetFilter",
                "Get-DZAssetType",
+               "Get-DZDataProduct",
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
                "Get-DZDomain",
@@ -19236,6 +19240,7 @@ $DZ_SelectMap = @{
                "Get-DZUserProfile",
                "Get-DZAssetFilterList",
                "Get-DZAssetRevisionList",
+               "Get-DZDataProductRevisionList",
                "Get-DZDataSourceRunActivityList",
                "Get-DZDataSourceRunList",
                "Get-DZDataSourceList",
@@ -24861,6 +24866,7 @@ $ECR_SelectMap = @{
                "Get-ECRRegistry",
                "Get-ECRRepository",
                "Get-ECRRepositoryCreationTemplate",
+               "Get-ECRAccountSetting",
                "Get-ECRAuthorizationToken",
                "Get-ECRDownloadUrlForLayer",
                "Get-ECRLifecyclePolicy",
@@ -24871,6 +24877,7 @@ $ECR_SelectMap = @{
                "Start-ECRLayerUpload",
                "Get-ECRImage",
                "Get-ECRResourceTag",
+               "Write-ECRAccountSetting",
                "Write-ECRImage",
                "Write-ECRImageScanningConfiguration",
                "Write-ECRImageTagMutability",
@@ -38807,7 +38814,8 @@ $KVWS_SelectCompleters = {
 }
 
 $KVWS_SelectMap = @{
-    "Select"=@("Join-KVWSStorageSession")
+    "Select"=@("Join-KVWSStorageSession",
+               "Join-KVWSStorageSessionAsViewer")
 }
 
 _awsArgumentCompleterRegistration $KVWS_SelectCompleters $KVWS_SelectMap

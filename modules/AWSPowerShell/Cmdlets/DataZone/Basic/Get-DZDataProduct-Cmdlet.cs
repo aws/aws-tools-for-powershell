@@ -28,16 +28,15 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Gets a listing (a record of an asset at a given time). If you specify a listing version,
-    /// only details that are specific to that version are returned.
+    /// Gets the data product.
     /// </summary>
-    [Cmdlet("Get", "DZListing")]
-    [OutputType("Amazon.DataZone.Model.GetListingResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone GetListing API operation.", Operation = new[] {"GetListing"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetListingResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.GetListingResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.GetListingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DZDataProduct")]
+    [OutputType("Amazon.DataZone.Model.GetDataProductResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone GetDataProduct API operation.", Operation = new[] {"GetDataProduct"}, SelectReturnType = typeof(Amazon.DataZone.Model.GetDataProductResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.GetDataProductResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.GetDataProductResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetDZListingCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class GetDZDataProductCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
@@ -47,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain.</para>
+        /// <para>The ID of the domain where the data product lives.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the listing.</para>
+        /// <para>The ID of the data product.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,21 +77,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String Identifier { get; set; }
         #endregion
         
-        #region Parameter ListingRevision
+        #region Parameter Revision
         /// <summary>
         /// <para>
-        /// <para>The revision of the listing.</para>
+        /// <para>The revision of the data product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ListingRevision { get; set; }
+        public System.String Revision { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetListingResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.GetListingResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.GetDataProductResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.GetDataProductResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetListingResponse, GetDZListingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.GetDataProductResponse, GetDZDataProductCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -148,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.ListingRevision = this.ListingRevision;
+            context.Revision = this.Revision;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.GetListingRequest();
+            var request = new Amazon.DataZone.Model.GetDataProductRequest();
             
             if (cmdletContext.DomainIdentifier != null)
             {
@@ -173,9 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.Identifier = cmdletContext.Identifier;
             }
-            if (cmdletContext.ListingRevision != null)
+            if (cmdletContext.Revision != null)
             {
-                request.ListingRevision = cmdletContext.ListingRevision;
+                request.Revision = cmdletContext.Revision;
             }
             
             CmdletOutput output;
@@ -210,15 +209,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.GetListingResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetListingRequest request)
+        private Amazon.DataZone.Model.GetDataProductResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.GetDataProductRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetListing");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "GetDataProduct");
             try
             {
                 #if DESKTOP
-                return client.GetListing(request);
+                return client.GetDataProduct(request);
                 #elif CORECLR
-                return client.GetListingAsync(request).GetAwaiter().GetResult();
+                return client.GetDataProductAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }
-            public System.String ListingRevision { get; set; }
-            public System.Func<Amazon.DataZone.Model.GetListingResponse, GetDZListingCmdlet, object> Select { get; set; } =
+            public System.String Revision { get; set; }
+            public System.Func<Amazon.DataZone.Model.GetDataProductResponse, GetDZDataProductCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

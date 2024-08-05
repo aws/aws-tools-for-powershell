@@ -7222,6 +7222,10 @@ Set-Alias -Name Create-DZAssetRevision -Value New-DZAssetRevision
 Set-Alias -Name DZ-CreateAssetRevision -Value New-DZAssetRevision
 Set-Alias -Name Create-DZAssetType -Value New-DZAssetType
 Set-Alias -Name DZ-CreateAssetType -Value New-DZAssetType
+Set-Alias -Name Create-DZDataProduct -Value New-DZDataProduct
+Set-Alias -Name DZ-CreateDataProduct -Value New-DZDataProduct
+Set-Alias -Name Create-DZDataProductRevision -Value New-DZDataProductRevision
+Set-Alias -Name DZ-CreateDataProductRevision -Value New-DZDataProductRevision
 Set-Alias -Name Create-DZDataSource -Value New-DZDataSource
 Set-Alias -Name DZ-CreateDataSource -Value New-DZDataSource
 Set-Alias -Name Create-DZDomain -Value New-DZDomain
@@ -7260,6 +7264,8 @@ Set-Alias -Name Delete-DZAssetFilter -Value Remove-DZAssetFilter
 Set-Alias -Name DZ-DeleteAssetFilter -Value Remove-DZAssetFilter
 Set-Alias -Name Delete-DZAssetType -Value Remove-DZAssetType
 Set-Alias -Name DZ-DeleteAssetType -Value Remove-DZAssetType
+Set-Alias -Name Delete-DZDataProduct -Value Remove-DZDataProduct
+Set-Alias -Name DZ-DeleteDataProduct -Value Remove-DZDataProduct
 Set-Alias -Name Delete-DZDataSource -Value Remove-DZDataSource
 Set-Alias -Name DZ-DeleteDataSource -Value Remove-DZDataSource
 Set-Alias -Name Delete-DZDomain -Value Remove-DZDomain
@@ -7298,6 +7304,7 @@ Set-Alias -Name DZ-DisassociateEnvironmentRole -Value Reset-DZEnvironmentRole
 Set-Alias -Name DZ-GetAsset -Value Get-DZAsset
 Set-Alias -Name DZ-GetAssetFilter -Value Get-DZAssetFilter
 Set-Alias -Name DZ-GetAssetType -Value Get-DZAssetType
+Set-Alias -Name DZ-GetDataProduct -Value Get-DZDataProduct
 Set-Alias -Name DZ-GetDataSource -Value Get-DZDataSource
 Set-Alias -Name DZ-GetDataSourceRun -Value Get-DZDataSourceRun
 Set-Alias -Name DZ-GetDomain -Value Get-DZDomain
@@ -7330,6 +7337,9 @@ Set-Alias -Name DZ-ListAssetFilters -Value Get-DZAssetFilterList
 Set-Alias -Name List-DZAssetRevisions -Value Get-DZAssetRevisionList
 Set-Alias -Name List-DZAssetRevisionList -Value Get-DZAssetRevisionList
 Set-Alias -Name DZ-ListAssetRevisions -Value Get-DZAssetRevisionList
+Set-Alias -Name List-DZDataProductRevisions -Value Get-DZDataProductRevisionList
+Set-Alias -Name List-DZDataProductRevisionList -Value Get-DZDataProductRevisionList
+Set-Alias -Name DZ-ListDataProductRevisions -Value Get-DZDataProductRevisionList
 Set-Alias -Name List-DZDataSourceRunActivities -Value Get-DZDataSourceRunActivityList
 Set-Alias -Name List-DZDataSourceRunActivityList -Value Get-DZDataSourceRunActivityList
 Set-Alias -Name DZ-ListDataSourceRunActivities -Value Get-DZDataSourceRunActivityList
@@ -10258,6 +10268,7 @@ Set-Alias -Name ECR-DescribeRepositories -Value Get-ECRRepository
 Set-Alias -Name Describe-ECRRepositoryCreationTemplates -Value Get-ECRRepositoryCreationTemplate
 Set-Alias -Name Describe-ECRRepositoryCreationTemplate -Value Get-ECRRepositoryCreationTemplate
 Set-Alias -Name ECR-DescribeRepositoryCreationTemplates -Value Get-ECRRepositoryCreationTemplate
+Set-Alias -Name ECR-GetAccountSetting -Value Get-ECRAccountSetting
 Set-Alias -Name ECR-GetAuthorizationToken -Value Get-ECRAuthorizationToken
 Set-Alias -Name ECR-GetDownloadUrlForLayer -Value Get-ECRDownloadUrlForLayer
 Set-Alias -Name ECR-GetLifecyclePolicy -Value Get-ECRLifecyclePolicy
@@ -10271,6 +10282,8 @@ Set-Alias -Name List-ECRImages -Value Get-ECRImage
 Set-Alias -Name List-ECRImage -Value Get-ECRImage
 Set-Alias -Name ECR-ListImages -Value Get-ECRImage
 Set-Alias -Name ECR-ListTagsForResource -Value Get-ECRResourceTag
+Set-Alias -Name Put-ECRAccountSetting -Value Write-ECRAccountSetting
+Set-Alias -Name ECR-PutAccountSetting -Value Write-ECRAccountSetting
 Set-Alias -Name Put-ECRImage -Value Write-ECRImage
 Set-Alias -Name ECR-PutImage -Value Write-ECRImage
 Set-Alias -Name Put-ECRImageScanningConfiguration -Value Write-ECRImageScanningConfiguration
@@ -16515,6 +16528,7 @@ Set-Alias -Name KV-UpdateStream -Value Update-KVStream
 Set-Alias -Name KVM-GetMedia -Value Get-KVMMedia
 Set-Alias -Name KVSC-GetIceServerConfig -Value Get-KVSCIceServerConfig
 Set-Alias -Name KVSC-SendAlexaOfferToMaster -Value Send-KVSCAlexaOfferToMaster
+Set-Alias -Name KVWS-JoinStorageSessionAsViewer -Value Join-KVWSStorageSessionAsViewer
 Set-Alias -Name KVWS-JoinStorageSession -Value Join-KVWSStorageSession
 Set-Alias -Name Cancel-KMSKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name KMS-CancelKeyDeletion -Value Stop-KMSKeyDeletion

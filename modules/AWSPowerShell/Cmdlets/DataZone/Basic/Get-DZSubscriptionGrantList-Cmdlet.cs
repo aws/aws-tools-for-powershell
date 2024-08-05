@@ -68,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String EnvironmentId { get; set; }
         #endregion
         
+        #region Parameter OwningProjectId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the owning project of the subscription grants.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OwningProjectId { get; set; }
+        #endregion
+        
         #region Parameter SortBy
         /// <summary>
         /// <para>
@@ -218,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             context.EnvironmentId = this.EnvironmentId;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OwningProjectId = this.OwningProjectId;
             context.SortBy = this.SortBy;
             context.SortOrder = this.SortOrder;
             context.SubscribedListingId = this.SubscribedListingId;
@@ -254,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.OwningProjectId != null)
+            {
+                request.OwningProjectId = cmdletContext.OwningProjectId;
             }
             if (cmdletContext.SortBy != null)
             {
@@ -364,6 +379,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             public System.String EnvironmentId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public System.String OwningProjectId { get; set; }
             public Amazon.DataZone.SortKey SortBy { get; set; }
             public Amazon.DataZone.SortOrder SortOrder { get; set; }
             public System.String SubscribedListingId { get; set; }
