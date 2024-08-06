@@ -52,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows
         /// 10 and 11 BYOL images. For more information about subscribing to Office for BYOL images,
         /// see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
-        /// Bring Your Own Windows Desktop Licenses</a>.</para><note><ul><li><para>Although this parameter is an array, only one item is allowed at this time.</para></li><li><para>Windows 11 only supports <c>Microsoft_Office_2019</c>.</para></li></ul></note>
+        /// Bring Your Own Windows Desktop Licenses</a>.</para><note><ul><li><para>Although this parameter is an array, only one item is allowed at this time.</para></li><li><para>During the image import process, non-GPU WSP WorkSpaces with Windows 11 support only
+        /// <c>Microsoft_Office_2019</c>. GPU WSP WorkSpaces with Windows 11 do not support Office
+        /// installation.</para></li></ul></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

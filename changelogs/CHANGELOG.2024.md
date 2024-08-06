@@ -1,4 +1,12 @@
-﻿### 4.1.628 (2024-08-05 21:07Z)
+﻿### 4.1.629 (2024-08-06 20:55Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.859.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameter PasswordPolicy_PasswordHistorySize.
+    * Modified cmdlet Update-CGIPUserPool: added parameter PasswordPolicy_PasswordHistorySize.
+  * Amazon Cost Optimization Hub
+    * Modified cmdlet Get-COHRecommendationSummaryList: added parameter Metric.
+
+### 4.1.628 (2024-08-05 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.858.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Added cmdlet Get-DZDataProduct leveraging the GetDataProduct service API.

@@ -530,6 +530,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32? PasswordPolicy_MinimumLength { get; set; }
         #endregion
         
+        #region Parameter PasswordPolicy_PasswordHistorySize
+        /// <summary>
+        /// <para>
+        /// <para>The number of previous passwords that you want Amazon Cognito to restrict each user
+        /// from reusing. Users can't set a password that matches any of <c>n</c> previous passwords,
+        /// where <c>n</c> is the value of <c>PasswordHistorySize</c>.</para><para>Password history isn't enforced and isn't displayed in <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>
+        /// responses when you set this value to <c>0</c> or don't provide it. To activate this
+        /// setting, <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html">
+        /// advanced security features</a> must be active in your user pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Policies_PasswordPolicy_PasswordHistorySize")]
+        public System.Int32? PasswordPolicy_PasswordHistorySize { get; set; }
+        #endregion
+        
         #region Parameter PoolName
         /// <summary>
         /// <para>
@@ -955,6 +971,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.LambdaConfig_VerifyAuthChallengeResponse = this.LambdaConfig_VerifyAuthChallengeResponse;
             context.MfaConfiguration = this.MfaConfiguration;
             context.PasswordPolicy_MinimumLength = this.PasswordPolicy_MinimumLength;
+            context.PasswordPolicy_PasswordHistorySize = this.PasswordPolicy_PasswordHistorySize;
             context.PasswordPolicy_RequireLowercase = this.PasswordPolicy_RequireLowercase;
             context.PasswordPolicy_RequireNumber = this.PasswordPolicy_RequireNumber;
             context.PasswordPolicy_RequireSymbol = this.PasswordPolicy_RequireSymbol;
@@ -1464,6 +1481,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 requestPolicies_policies_PasswordPolicy.MinimumLength = requestPolicies_policies_PasswordPolicy_passwordPolicy_MinimumLength.Value;
                 requestPolicies_policies_PasswordPolicyIsNull = false;
             }
+            System.Int32? requestPolicies_policies_PasswordPolicy_passwordPolicy_PasswordHistorySize = null;
+            if (cmdletContext.PasswordPolicy_PasswordHistorySize != null)
+            {
+                requestPolicies_policies_PasswordPolicy_passwordPolicy_PasswordHistorySize = cmdletContext.PasswordPolicy_PasswordHistorySize.Value;
+            }
+            if (requestPolicies_policies_PasswordPolicy_passwordPolicy_PasswordHistorySize != null)
+            {
+                requestPolicies_policies_PasswordPolicy.PasswordHistorySize = requestPolicies_policies_PasswordPolicy_passwordPolicy_PasswordHistorySize.Value;
+                requestPolicies_policies_PasswordPolicyIsNull = false;
+            }
             System.Boolean? requestPolicies_policies_PasswordPolicy_passwordPolicy_RequireLowercase = null;
             if (cmdletContext.PasswordPolicy_RequireLowercase != null)
             {
@@ -1816,6 +1843,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String LambdaConfig_VerifyAuthChallengeResponse { get; set; }
             public Amazon.CognitoIdentityProvider.UserPoolMfaType MfaConfiguration { get; set; }
             public System.Int32? PasswordPolicy_MinimumLength { get; set; }
+            public System.Int32? PasswordPolicy_PasswordHistorySize { get; set; }
             public System.Boolean? PasswordPolicy_RequireLowercase { get; set; }
             public System.Boolean? PasswordPolicy_RequireNumber { get; set; }
             public System.Boolean? PasswordPolicy_RequireSymbol { get; set; }

@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Gets the detailed activity logging configuration for a user pool.
+    /// Gets the logging configuration of a user pool.
     /// </summary>
     [Cmdlet("Get", "CGIPLogDeliveryConfiguration")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool where you want to view detailed activity logging configuration.</para>
+        /// <para>The ID of the user pool that has the logging configuration that you want to view.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

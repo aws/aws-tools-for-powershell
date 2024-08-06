@@ -40,8 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// VerifySoftwareToken</a> API request. If you don't verify the software token and your
     /// user pool doesn't require MFA, the user can then authenticate with user name and password
     /// credentials alone. If your user pool requires TOTP MFA, Amazon Cognito generates an
-    /// <c>MFA_SETUP</c> or <c>SOFTWARE_TOKEN_SETUP</c> challenge each time your user signs.
-    /// Complete setup with <c>AssociateSoftwareToken</c> and <c>VerifySoftwareToken</c>.
+    /// <c>MFA_SETUP</c> or <c>SOFTWARE_TOKEN_SETUP</c> challenge each time your user signs
+    /// in. Complete setup with <c>AssociateSoftwareToken</c> and <c>VerifySoftwareToken</c>.
     /// </para><para>
     /// After you set up software token MFA for your user, Amazon Cognito generates a <c>SOFTWARE_TOKEN_MFA</c>
     /// challenge when they authenticate. Respond to this challenge with your user's TOTP.

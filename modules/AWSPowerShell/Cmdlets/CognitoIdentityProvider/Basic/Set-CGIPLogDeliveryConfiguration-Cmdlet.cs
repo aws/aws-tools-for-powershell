@@ -28,7 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Sets up or modifies the detailed activity logging configuration of a user pool.
+    /// Sets up or modifies the logging configuration of a user pool. User pools can export
+    /// user notification logs and advanced security features user activity logs.
     /// </summary>
     [Cmdlet("Set", "CGIPLogDeliveryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.LogDeliveryConfigurationType")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LogConfiguration
         /// <summary>
         /// <para>
-        /// <para>A collection of all of the detailed activity logging configurations for a user pool.</para>
+        /// <para>A collection of the logging configurations for a user pool.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user pool where you want to configure detailed activity logging .</para>
+        /// <para>The ID of the user pool where you want to configure logging.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

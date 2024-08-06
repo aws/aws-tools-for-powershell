@@ -331,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// and password recovery return a response indicating a code was sent to a simulated
         /// destination. When set to <c>LEGACY</c>, those APIs return a <c>UserNotFoundException</c>
         /// exception if the user doesn't exist in the user pool.</para><para>Valid values include:</para><ul><li><para><c>ENABLED</c> - This prevents user existence-related errors.</para></li><li><para><c>LEGACY</c> - This represents the early behavior of Amazon Cognito where user existence
-        /// related errors aren't prevented.</para></li></ul>
+        /// related errors aren't prevented.</para></li></ul><para>Defaults to <c>LEGACY</c> when you don't provide a value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

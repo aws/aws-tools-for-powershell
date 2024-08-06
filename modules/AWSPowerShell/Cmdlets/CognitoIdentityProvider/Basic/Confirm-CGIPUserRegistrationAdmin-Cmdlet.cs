@@ -28,18 +28,17 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// This IAM-authenticated API operation provides a code that Amazon Cognito sent to your
-    /// user when they signed up in your user pool. After your user enters their code, they
-    /// confirm ownership of the email address or phone number that they provided, and their
-    /// user account becomes active. Depending on your user pool configuration, your users
-    /// will receive their confirmation code in an email or SMS message.
+    /// This IAM-authenticated API operation confirms user sign-up as an administrator. Unlike
+    /// <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.html">ConfirmSignUp</a>,
+    /// your IAM credentials authorize user account confirmation. No confirmation code is
+    /// required.
     /// 
     ///  
     /// <para>
-    /// Local users who signed up in your user pool are the only type of user who can confirm
-    /// sign-up with a code. Users who federate through an external identity provider (IdP)
-    /// have already been confirmed by their IdP. Administrator-created users confirm their
-    /// accounts when they respond to their invitation email message and choose a password.
+    /// This request sets a user account active in a user pool that <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#signing-up-users-in-your-app-and-confirming-them-as-admin">requires
+    /// confirmation of new user accounts</a> before they can sign in. You can configure your
+    /// user pool to not send confirmation codes to new users and instead confirm them with
+    /// this API operation on the back end.
     /// </para><note><para>
     /// Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests
     /// for this API operation. For this operation, you must use IAM credentials to authorize

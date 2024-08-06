@@ -97,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.COH
         public System.String[] Filter_ImplementationEffort { get; set; }
         #endregion
         
+        #region Parameter Metric
+        /// <summary>
+        /// <para>
+        /// <para>Additional metrics to be returned for the request. The only valid value is <c>savingsPercentage</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Metrics")]
+        public System.String[] Metric { get; set; }
+        #endregion
+        
         #region Parameter Filter_RecommendationId
         /// <summary>
         /// <para>
@@ -186,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of recommendations that are returned for the request.</para>
+        /// <para>The maximum number of recommendations to be returned for the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -296,6 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.COH
             }
             #endif
             context.MaxResult = this.MaxResult;
+            if (this.Metric != null)
+            {
+                context.Metric = new List<System.String>(this.Metric);
+            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -440,6 +455,10 @@ namespace Amazon.PowerShell.Cmdlets.COH
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
             }
+            if (cmdletContext.Metric != null)
+            {
+                request.Metrics = cmdletContext.Metric;
+            }
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
@@ -518,6 +537,7 @@ namespace Amazon.PowerShell.Cmdlets.COH
             public List<Amazon.CostOptimizationHub.Model.Tag> Filter_Tag { get; set; }
             public System.String GroupBy { get; set; }
             public System.Int32? MaxResult { get; set; }
+            public List<System.String> Metric { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.CostOptimizationHub.Model.ListRecommendationSummariesResponse, GetCOHRecommendationSummaryListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
