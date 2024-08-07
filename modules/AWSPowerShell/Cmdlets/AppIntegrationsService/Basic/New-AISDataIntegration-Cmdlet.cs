@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         #region Parameter KmsKey
         /// <summary>
         /// <para>
-        /// <para>The KMS key for the DataIntegration.</para>
+        /// <para>The KMS key ARN for the DataIntegration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,14 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.AIS
         /// <para>The URI of the data source.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String SourceURI { get; set; }
         #endregion
         
@@ -311,12 +304,6 @@ namespace Amazon.PowerShell.Cmdlets.AIS
             context.ScheduleConfig_Object = this.ScheduleConfig_Object;
             context.ScheduleConfig_ScheduleExpression = this.ScheduleConfig_ScheduleExpression;
             context.SourceURI = this.SourceURI;
-            #if MODULAR
-            if (this.SourceURI == null && ParameterWasBound(nameof(this.SourceURI)))
-            {
-                WriteWarning("You are passing $null as a value for parameter SourceURI which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);

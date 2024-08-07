@@ -113,6 +113,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String GlueTable_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter DataQualitySecurityConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The name of the security configuration created with the data quality encryption option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataQualitySecurityConfiguration { get; set; }
+        #endregion
+        
         #region Parameter NumberOfWorker
         /// <summary>
         /// <para>
@@ -246,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.CreatedRulesetName = this.CreatedRulesetName;
+            context.DataQualitySecurityConfiguration = this.DataQualitySecurityConfiguration;
             if (this.GlueTable_AdditionalOption != null)
             {
                 context.GlueTable_AdditionalOption = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -302,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.CreatedRulesetName != null)
             {
                 request.CreatedRulesetName = cmdletContext.CreatedRulesetName;
+            }
+            if (cmdletContext.DataQualitySecurityConfiguration != null)
+            {
+                request.DataQualitySecurityConfiguration = cmdletContext.DataQualitySecurityConfiguration;
             }
             
              // populate DataSource
@@ -452,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String ClientToken { get; set; }
             public System.String CreatedRulesetName { get; set; }
+            public System.String DataQualitySecurityConfiguration { get; set; }
             public Dictionary<System.String, System.String> GlueTable_AdditionalOption { get; set; }
             public System.String GlueTable_CatalogId { get; set; }
             public System.String GlueTable_ConnectionName { get; set; }

@@ -68,6 +68,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String TargetTable_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter DataQualitySecurityConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The name of the security configuration created with the data quality encryption option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DataQualitySecurityConfiguration { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -208,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
+            context.DataQualitySecurityConfiguration = this.DataQualitySecurityConfiguration;
             context.Description = this.Description;
             context.Name = this.Name;
             #if MODULAR
@@ -253,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.DataQualitySecurityConfiguration != null)
+            {
+                request.DataQualitySecurityConfiguration = cmdletContext.DataQualitySecurityConfiguration;
             }
             if (cmdletContext.Description != null)
             {
@@ -371,6 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String DataQualitySecurityConfiguration { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String Ruleset { get; set; }

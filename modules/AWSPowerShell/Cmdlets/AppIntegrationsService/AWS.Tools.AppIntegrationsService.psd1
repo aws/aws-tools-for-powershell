@@ -99,6 +99,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-AISResourceTag', 
         'New-AISApplication', 
         'New-AISDataIntegration', 
+        'New-AISDataIntegrationAssociation', 
         'New-AISEventIntegration', 
         'Remove-AISApplication', 
         'Remove-AISDataIntegration', 
@@ -106,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-AISResourceTag', 
         'Update-AISApplication', 
         'Update-AISDataIntegration', 
+        'Update-AISDataIntegrationAssociation', 
         'Update-AISEventIntegration')
 
     # Variables to export from this module

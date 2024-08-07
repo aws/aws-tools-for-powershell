@@ -81,6 +81,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchPutDataQualityStatisticAnnotation" OutputProperty="FailedInclusionAnnotations" Verb="Set" Noun="BatchDataQualityStatisticAnnotation" ShouldProcessTarget="InclusionAnnotations" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchStopJobRun" OutputProperty="*" Verb="Stop" Noun="JobRunBatch" ShouldProcessTarget="JobName" PipelineParameter="JobRunIds" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -391,6 +395,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityModel" OutputProperty="*" Verb="Get" Noun="DataQualityModel" PipelineParameter="ProfileId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDataQualityModelResult" OutputProperty="*" Verb="Get" Noun="DataQualityModelResult" PipelineParameter="StatisticId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetDataQualityResult" OutputProperty="*" Verb="Get" Noun="DataQualityResult" PipelineParameter="ResultId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -633,6 +645,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityStatisticAnnotations" OutputProperty="Annotations" Verb="Get" Noun="DataQualityStatisticAnnotationList" PipelineParameter="StatisticId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDataQualityStatistics" OutputProperty="Statistics" Verb="Get" Noun="DataQualityStatisticList" PipelineParameter="StatisticId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListDevEndpoints" OutputProperty="DevEndpointNames" Verb="Get" Noun="DevEndpointNameList" PipelineParameter="Tags" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -682,6 +702,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDataCatalogEncryptionSettings" Verb="Set" Noun="DataCatalogEncryptionSetting" ShouldProcessTarget="CatalogId" PipelineParameter="CatalogId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDataQualityProfileAnnotation" Verb="Write" Noun="DataQualityProfileAnnotation" ShouldProcessTarget="ProfileId" PipelineParameter="ProfileId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

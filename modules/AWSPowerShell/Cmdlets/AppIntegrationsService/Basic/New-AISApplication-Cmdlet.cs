@@ -28,12 +28,7 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// This API is in preview release and subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Creates and persists an Application resource.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "AISApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppIntegrationsService.Model.CreateApplicationResponse")]

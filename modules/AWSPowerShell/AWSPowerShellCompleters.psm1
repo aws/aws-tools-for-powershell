@@ -2326,6 +2326,35 @@ _awsArgumentCompleterRegistration $AF_SelectCompleters $AF_SelectMap
 # Argument completions for service Amazon AppIntegrations Service
 
 
+$AIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AppIntegrationsService.ExecutionMode
+        {
+            ($_ -eq "New-AISDataIntegrationAssociation/ExecutionConfiguration_ExecutionMode") -Or
+            ($_ -eq "Update-AISDataIntegrationAssociation/ExecutionConfiguration_ExecutionMode")
+        }
+        {
+            $v = "ON_DEMAND","SCHEDULED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AIS_map = @{
+    "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
+}
+
+_awsArgumentCompleterRegistration $AIS_Completers $AIS_map
+
 $AIS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -2376,6 +2405,7 @@ $AIS_SelectCompleters = {
 $AIS_SelectMap = @{
     "Select"=@("New-AISApplication",
                "New-AISDataIntegration",
+               "New-AISDataIntegrationAssociation",
                "New-AISEventIntegration",
                "Remove-AISApplication",
                "Remove-AISDataIntegration",
@@ -2394,6 +2424,7 @@ $AIS_SelectMap = @{
                "Remove-AISResourceTag",
                "Update-AISApplication",
                "Update-AISDataIntegration",
+               "Update-AISDataIntegrationAssociation",
                "Update-AISEventIntegration")
 }
 
@@ -30947,6 +30978,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.InclusionAnnotationValue
+        "Write-GLUEDataQualityProfileAnnotation/InclusionAnnotation"
+        {
+            $v = "EXCLUDE","INCLUDE"
+            break
+        }
+
         # Amazon.Glue.JobBookmarksEncryptionMode
         "New-GLUESecurityConfiguration/JobBookmarksEncryption_JobBookmarksEncryptionMode"
         {
@@ -31169,6 +31207,7 @@ $GLUE_map = @{
     "Filter_TaskRunType"=@("Get-GLUEMLTaskRunList")
     "Filter_TransformType"=@("Get-GLUEMLTransformIdentifier","Get-GLUEMLTransformList")
     "IcebergInput_MetadataOperation"=@("New-GLUETable")
+    "InclusionAnnotation"=@("Write-GLUEDataQualityProfileAnnotation")
     "JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
     "JobMode"=@("New-GLUEJob")
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
@@ -31255,6 +31294,7 @@ $GLUE_SelectMap = @{
                "Get-GLUETableOptimizerBatch",
                "Get-GLUETriggerBatch",
                "Get-GLUEWorkflowBatch",
+               "Set-GLUEBatchDataQualityStatisticAnnotation",
                "Stop-GLUEJobRunBatch",
                "Update-GLUEPartitionBatch",
                "Stop-GLUEDataQualityRuleRecommendationRun",
@@ -31332,6 +31372,8 @@ $GLUE_SelectMap = @{
                "Get-GLUEDatabaseList",
                "Get-GLUEDataCatalogEncryptionSetting",
                "Get-GLUEDataflowGraph",
+               "Get-GLUEDataQualityModel",
+               "Get-GLUEDataQualityModelResult",
                "Get-GLUEDataQualityResult",
                "Get-GLUEDataQualityRuleRecommendationRun",
                "Get-GLUEDataQualityRuleset",
@@ -31391,6 +31433,8 @@ $GLUE_SelectMap = @{
                "Get-GLUEDataQualityRuleRecommendationRunList",
                "Get-GLUEDataQualityRulesetEvaluationRunList",
                "Get-GLUEDataQualityRulesetList",
+               "Get-GLUEDataQualityStatisticAnnotationList",
+               "Get-GLUEDataQualityStatisticList",
                "Get-GLUEDevEndpointNameList",
                "Get-GLUEJobNameList",
                "Get-GLUEMLTransformIdentifier",
@@ -31404,6 +31448,7 @@ $GLUE_SelectMap = @{
                "Get-GLUEUsageProfileList",
                "Get-GLUEWorkflowList",
                "Set-GLUEDataCatalogEncryptionSetting",
+               "Write-GLUEDataQualityProfileAnnotation",
                "Set-GLUEResourcePolicy",
                "Write-GLUESchemaVersionMetadata",
                "Write-GLUEWorkflowRunProperty",

@@ -28,12 +28,7 @@ using Amazon.AppIntegrationsService.Model;
 namespace Amazon.PowerShell.Cmdlets.AIS
 {
     /// <summary>
-    /// This API is in preview release and subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Lists applications in the account.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "AISApplicationList")]
     [OutputType("Amazon.AppIntegrationsService.Model.ApplicationSummary")]

@@ -26,6 +26,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDataIntegrationAssociation" OutputProperty="*" Verb="New" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEventIntegration" OutputProperty="EventIntegrationArn" Verb="New" Noun="EventIntegration" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -95,6 +99,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDataIntegration" Verb="Update" Noun="DataIntegration" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDataIntegrationAssociation" Verb="Update" Noun="DataIntegrationAssociation" ShouldProcessTarget="DataIntegrationIdentifier" PipelineParameter="DataIntegrationIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

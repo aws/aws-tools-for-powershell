@@ -28,25 +28,41 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves the result of a data quality rule evaluation.
+    /// Annotate all datapoints for a Profile.
     /// </summary>
-    [Cmdlet("Get", "GLUEDataQualityResult")]
-    [OutputType("Amazon.Glue.Model.GetDataQualityResultResponse")]
-    [AWSCmdlet("Calls the AWS Glue GetDataQualityResult API operation.", Operation = new[] {"GetDataQualityResult"}, SelectReturnType = typeof(Amazon.Glue.Model.GetDataQualityResultResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.GetDataQualityResultResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetDataQualityResultResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "GLUEDataQualityProfileAnnotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Glue PutDataQualityProfileAnnotation API operation.", Operation = new[] {"PutDataQualityProfileAnnotation"}, SelectReturnType = typeof(Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse))]
+    [AWSCmdletOutput("None or Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGLUEDataQualityResultCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class WriteGLUEDataQualityProfileAnnotationCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResultId
+        #region Parameter InclusionAnnotation
         /// <summary>
         /// <para>
-        /// <para>A unique result ID for the data quality result.</para>
+        /// <para>The inclusion annotation value to apply to the profile.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.Glue.InclusionAnnotationValue")]
+        public Amazon.Glue.InclusionAnnotationValue InclusionAnnotation { get; set; }
+        #endregion
+        
+        #region Parameter ProfileId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the data quality monitoring profile to annotate.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,14 +73,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResultId { get; set; }
+        public System.String ProfileId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetDataQualityResultResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.GetDataQualityResultResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,18 +88,34 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResultId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResultId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ProfileId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ProfileId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResultId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ProfileId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ProfileId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-GLUEDataQualityProfileAnnotation (PutDataQualityProfileAnnotation)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -94,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetDataQualityResultResponse, GetGLUEDataQualityResultCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse, WriteGLUEDataQualityProfileAnnotationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,14 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResultId;
+                context.Select = (response, cmdlet) => this.ProfileId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResultId = this.ResultId;
+            context.InclusionAnnotation = this.InclusionAnnotation;
             #if MODULAR
-            if (this.ResultId == null && ParameterWasBound(nameof(this.ResultId)))
+            if (this.InclusionAnnotation == null && ParameterWasBound(nameof(this.InclusionAnnotation)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResultId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InclusionAnnotation which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ProfileId = this.ProfileId;
+            #if MODULAR
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -127,11 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.GetDataQualityResultRequest();
+            var request = new Amazon.Glue.Model.PutDataQualityProfileAnnotationRequest();
             
-            if (cmdletContext.ResultId != null)
+            if (cmdletContext.InclusionAnnotation != null)
             {
-                request.ResultId = cmdletContext.ResultId;
+                request.InclusionAnnotation = cmdletContext.InclusionAnnotation;
+            }
+            if (cmdletContext.ProfileId != null)
+            {
+                request.ProfileId = cmdletContext.ProfileId;
             }
             
             CmdletOutput output;
@@ -166,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.GetDataQualityResultResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetDataQualityResultRequest request)
+        private Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.PutDataQualityProfileAnnotationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetDataQualityResult");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "PutDataQualityProfileAnnotation");
             try
             {
                 #if DESKTOP
-                return client.GetDataQualityResult(request);
+                return client.PutDataQualityProfileAnnotation(request);
                 #elif CORECLR
-                return client.GetDataQualityResultAsync(request).GetAwaiter().GetResult();
+                return client.PutDataQualityProfileAnnotationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,9 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResultId { get; set; }
-            public System.Func<Amazon.Glue.Model.GetDataQualityResultResponse, GetGLUEDataQualityResultCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public Amazon.Glue.InclusionAnnotationValue InclusionAnnotation { get; set; }
+            public System.String ProfileId { get; set; }
+            public System.Func<Amazon.Glue.Model.PutDataQualityProfileAnnotationResponse, WriteGLUEDataQualityProfileAnnotationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -75,6 +75,35 @@ function _awsArgumentCompleterRegistration()
 # Argument completions for service Amazon AppIntegrations Service
 
 
+$AIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AppIntegrationsService.ExecutionMode
+        {
+            ($_ -eq "New-AISDataIntegrationAssociation/ExecutionConfiguration_ExecutionMode") -Or
+            ($_ -eq "Update-AISDataIntegrationAssociation/ExecutionConfiguration_ExecutionMode")
+        }
+        {
+            $v = "ON_DEMAND","SCHEDULED"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AIS_map = @{
+    "ExecutionConfiguration_ExecutionMode"=@("New-AISDataIntegrationAssociation","Update-AISDataIntegrationAssociation")
+}
+
+_awsArgumentCompleterRegistration $AIS_Completers $AIS_map
+
 $AIS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
@@ -125,6 +154,7 @@ $AIS_SelectCompleters = {
 $AIS_SelectMap = @{
     "Select"=@("New-AISApplication",
                "New-AISDataIntegration",
+               "New-AISDataIntegrationAssociation",
                "New-AISEventIntegration",
                "Remove-AISApplication",
                "Remove-AISDataIntegration",
@@ -143,6 +173,7 @@ $AIS_SelectMap = @{
                "Remove-AISResourceTag",
                "Update-AISApplication",
                "Update-AISDataIntegration",
+               "Update-AISDataIntegrationAssociation",
                "Update-AISEventIntegration")
 }
 

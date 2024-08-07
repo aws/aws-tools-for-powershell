@@ -28,25 +28,40 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Retrieves the result of a data quality rule evaluation.
+    /// Retrieve a statistic's predictions for a given Profile ID.
     /// </summary>
-    [Cmdlet("Get", "GLUEDataQualityResult")]
-    [OutputType("Amazon.Glue.Model.GetDataQualityResultResponse")]
-    [AWSCmdlet("Calls the AWS Glue GetDataQualityResult API operation.", Operation = new[] {"GetDataQualityResult"}, SelectReturnType = typeof(Amazon.Glue.Model.GetDataQualityResultResponse))]
-    [AWSCmdletOutput("Amazon.Glue.Model.GetDataQualityResultResponse",
-        "This cmdlet returns an Amazon.Glue.Model.GetDataQualityResultResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GLUEDataQualityModelResult")]
+    [OutputType("Amazon.Glue.Model.GetDataQualityModelResultResponse")]
+    [AWSCmdlet("Calls the AWS Glue GetDataQualityModelResult API operation.", Operation = new[] {"GetDataQualityModelResult"}, SelectReturnType = typeof(Amazon.Glue.Model.GetDataQualityModelResultResponse))]
+    [AWSCmdletOutput("Amazon.Glue.Model.GetDataQualityModelResultResponse",
+        "This cmdlet returns an Amazon.Glue.Model.GetDataQualityModelResultResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGLUEDataQualityResultCmdlet : AmazonGlueClientCmdlet, IExecutor
+    public partial class GetGLUEDataQualityModelResultCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResultId
+        #region Parameter ProfileId
         /// <summary>
         /// <para>
-        /// <para>A unique result ID for the data quality result.</para>
+        /// <para>The Profile ID.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ProfileId { get; set; }
+        #endregion
+        
+        #region Parameter StatisticId
+        /// <summary>
+        /// <para>
+        /// <para>The Statistic ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,14 +72,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResultId { get; set; }
+        public System.String StatisticId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetDataQualityResultResponse).
-        /// Specifying the name of a property of type Amazon.Glue.Model.GetDataQualityResultResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Glue.Model.GetDataQualityModelResultResponse).
+        /// Specifying the name of a property of type Amazon.Glue.Model.GetDataQualityModelResultResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -73,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResultId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResultId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the StatisticId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^StatisticId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResultId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^StatisticId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -94,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetDataQualityResultResponse, GetGLUEDataQualityResultCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Glue.Model.GetDataQualityModelResultResponse, GetGLUEDataQualityModelResultCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -103,14 +118,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResultId;
+                context.Select = (response, cmdlet) => this.StatisticId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResultId = this.ResultId;
+            context.ProfileId = this.ProfileId;
             #if MODULAR
-            if (this.ResultId == null && ParameterWasBound(nameof(this.ResultId)))
+            if (this.ProfileId == null && ParameterWasBound(nameof(this.ProfileId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResultId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ProfileId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.StatisticId = this.StatisticId;
+            #if MODULAR
+            if (this.StatisticId == null && ParameterWasBound(nameof(this.StatisticId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter StatisticId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -127,11 +149,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Glue.Model.GetDataQualityResultRequest();
+            var request = new Amazon.Glue.Model.GetDataQualityModelResultRequest();
             
-            if (cmdletContext.ResultId != null)
+            if (cmdletContext.ProfileId != null)
             {
-                request.ResultId = cmdletContext.ResultId;
+                request.ProfileId = cmdletContext.ProfileId;
+            }
+            if (cmdletContext.StatisticId != null)
+            {
+                request.StatisticId = cmdletContext.StatisticId;
             }
             
             CmdletOutput output;
@@ -166,15 +192,15 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         #region AWS Service Operation Call
         
-        private Amazon.Glue.Model.GetDataQualityResultResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetDataQualityResultRequest request)
+        private Amazon.Glue.Model.GetDataQualityModelResultResponse CallAWSServiceOperation(IAmazonGlue client, Amazon.Glue.Model.GetDataQualityModelResultRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetDataQualityResult");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Glue", "GetDataQualityModelResult");
             try
             {
                 #if DESKTOP
-                return client.GetDataQualityResult(request);
+                return client.GetDataQualityModelResult(request);
                 #elif CORECLR
-                return client.GetDataQualityResultAsync(request).GetAwaiter().GetResult();
+                return client.GetDataQualityModelResultAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -194,8 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResultId { get; set; }
-            public System.Func<Amazon.Glue.Model.GetDataQualityResultResponse, GetGLUEDataQualityResultCmdlet, object> Select { get; set; } =
+            public System.String ProfileId { get; set; }
+            public System.String StatisticId { get; set; }
+            public System.Func<Amazon.Glue.Model.GetDataQualityModelResultResponse, GetGLUEDataQualityModelResultCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

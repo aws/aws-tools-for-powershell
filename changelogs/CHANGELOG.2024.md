@@ -1,4 +1,19 @@
-﻿### 4.1.629 (2024-08-06 20:55Z)
+﻿### 4.1.630 (2024-08-07 20:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.860.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppIntegrations Service
+    * Added cmdlet New-AISDataIntegrationAssociation leveraging the CreateDataIntegrationAssociation service API.
+    * Added cmdlet Update-AISDataIntegrationAssociation leveraging the UpdateDataIntegrationAssociation service API.
+  * Amazon Glue
+    * Added cmdlet Get-GLUEDataQualityModel leveraging the GetDataQualityModel service API.
+    * Added cmdlet Get-GLUEDataQualityModelResult leveraging the GetDataQualityModelResult service API.
+    * Added cmdlet Get-GLUEDataQualityStatisticAnnotationList leveraging the ListDataQualityStatisticAnnotations service API.
+    * Added cmdlet Get-GLUEDataQualityStatisticList leveraging the ListDataQualityStatistics service API.
+    * Added cmdlet Set-GLUEBatchDataQualityStatisticAnnotation leveraging the BatchPutDataQualityStatisticAnnotation service API.
+    * Added cmdlet Write-GLUEDataQualityProfileAnnotation leveraging the PutDataQualityProfileAnnotation service API.
+    * Modified cmdlet New-GLUEDataQualityRuleset: added parameter DataQualitySecurityConfiguration.
+    * Modified cmdlet Start-GLUEDataQualityRuleRecommendationRun: added parameter DataQualitySecurityConfiguration.
+
+### 4.1.629 (2024-08-06 20:55Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.859.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPool: added parameter PasswordPolicy_PasswordHistorySize.

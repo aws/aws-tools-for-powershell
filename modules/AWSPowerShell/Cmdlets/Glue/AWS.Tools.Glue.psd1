@@ -116,6 +116,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GLUEDatabaseList', 
         'Get-GLUEDataCatalogEncryptionSetting', 
         'Get-GLUEDataflowGraph', 
+        'Get-GLUEDataQualityModel', 
+        'Get-GLUEDataQualityModelResult', 
         'Get-GLUEDataQualityResult', 
         'Get-GLUEDataQualityResultBatch', 
         'Get-GLUEDataQualityResultList', 
@@ -125,6 +127,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-GLUEDataQualityRulesetEvaluationRun', 
         'Get-GLUEDataQualityRulesetEvaluationRunList', 
         'Get-GLUEDataQualityRulesetList', 
+        'Get-GLUEDataQualityStatisticAnnotationList', 
+        'Get-GLUEDataQualityStatisticList', 
         'Get-GLUEDevEndpoint', 
         'Get-GLUEDevEndpointBatch', 
         'Get-GLUEDevEndpointList', 
@@ -252,6 +256,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-GLUEWorkflow', 
         'Reset-GLUEJobBookmark', 
         'Resume-GLUEWorkflowRun', 
+        'Set-GLUEBatchDataQualityStatisticAnnotation', 
         'Set-GLUEDataCatalogEncryptionSetting', 
         'Set-GLUEResourcePolicy', 
         'Start-GLUEBlueprintRun', 
@@ -302,6 +307,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-GLUEUsageProfile', 
         'Update-GLUEUserDefinedFunction', 
         'Update-GLUEWorkflow', 
+        'Write-GLUEDataQualityProfileAnnotation', 
         'Write-GLUESchemaVersionMetadata', 
         'Write-GLUEWorkflowRunProperty')
 
