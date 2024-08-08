@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter NetmaskLength
         /// <summary>
         /// <para>
-        /// <para>The netmask length of the CIDR you would like to allocate to the public IPv4 pool.</para>
+        /// <para>The netmask length of the CIDR you would like to allocate to the public IPv4 pool.
+        /// The least specific netmask length you can define is 24.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

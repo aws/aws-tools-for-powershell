@@ -1,4 +1,17 @@
-﻿### 4.1.630 (2024-08-07 20:33Z)
+﻿### 4.1.631 (2024-08-08 20:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.861.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameter AdvancedSecurityAdditionalFlows_CustomAuthMode.
+    * Modified cmdlet Update-CGIPUserPool: added parameter AdvancedSecurityAdditionalFlows_CustomAuthMode.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet Edit-EC2Ipam: added parameter EnablePrivateGua.
+    * Modified cmdlet New-EC2Ipam: added parameter EnablePrivateGua.
+  * Amazon Glue
+    * Modified cmdlet Find-GLUETable: added parameter IncludeStatusDetail.
+    * Modified cmdlet Get-GLUETable: added parameter IncludeStatusDetail.
+    * Modified cmdlet Get-GLUETableList: added parameter IncludeStatusDetail.
+
+### 4.1.630 (2024-08-07 20:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.860.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppIntegrations Service
     * Added cmdlet New-AISDataIntegrationAssociation leveraging the CreateDataIntegrationAssociation service API.

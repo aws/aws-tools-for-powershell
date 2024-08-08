@@ -82,6 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String Expression { get; set; }
         #endregion
         
+        #region Parameter IncludeStatusDetail
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include status details related to a request to create or update
+        /// an Glue Data Catalog view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeStatusDetails")]
+        public System.Boolean? IncludeStatusDetail { get; set; }
+        #endregion
+        
         #region Parameter QueryAsOfTime
         /// <summary>
         /// <para>
@@ -198,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.Expression = this.Expression;
+            context.IncludeStatusDetail = this.IncludeStatusDetail;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -243,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Expression != null)
             {
                 request.Expression = cmdletContext.Expression;
+            }
+            if (cmdletContext.IncludeStatusDetail != null)
+            {
+                request.IncludeStatusDetails = cmdletContext.IncludeStatusDetail.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -322,6 +339,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Expression != null)
             {
                 request.Expression = cmdletContext.Expression;
+            }
+            if (cmdletContext.IncludeStatusDetail != null)
+            {
+                request.IncludeStatusDetails = cmdletContext.IncludeStatusDetail.Value;
             }
             if (cmdletContext.QueryAsOfTime != null)
             {
@@ -453,6 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Expression { get; set; }
+            public System.Boolean? IncludeStatusDetail { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? QueryAsOfTime { get; set; }

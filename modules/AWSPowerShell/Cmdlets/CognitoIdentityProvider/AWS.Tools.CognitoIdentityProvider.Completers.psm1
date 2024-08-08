@@ -91,6 +91,16 @@ $CGIP_Completers = {
             break
         }
 
+        # Amazon.CognitoIdentityProvider.AdvancedSecurityEnabledModeType
+        {
+            ($_ -eq "New-CGIPUserPool/AdvancedSecurityAdditionalFlows_CustomAuthMode") -Or
+            ($_ -eq "Update-CGIPUserPool/AdvancedSecurityAdditionalFlows_CustomAuthMode")
+        }
+        {
+            $v = "AUDIT","ENFORCED"
+            break
+        }
+
         # Amazon.CognitoIdentityProvider.AdvancedSecurityModeType
         {
             ($_ -eq "New-CGIPUserPool/UserPoolAddOns_AdvancedSecurityMode") -Or
@@ -267,6 +277,7 @@ $CGIP_Completers = {
 
 $CGIP_map = @{
     "Actions_EventAction"=@("Set-CGIPRiskConfiguration")
+    "AdvancedSecurityAdditionalFlows_CustomAuthMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
     "CustomEmailSender_LambdaVersion"=@("New-CGIPUserPool","Update-CGIPUserPool")

@@ -74,7 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolAddOns_AdvancedSecurityMode
         /// <summary>
         /// <para>
-        /// <para>The operating mode of advanced security features in your user pool.</para>
+        /// <para>The operating mode of advanced security features for standard authentication types
+        /// in your user pool, including username-password and secure remote password (SRP) authentication.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -165,6 +167,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String LambdaConfig_CreateAuthChallenge { get; set; }
+        #endregion
+        
+        #region Parameter AdvancedSecurityAdditionalFlows_CustomAuthMode
+        /// <summary>
+        /// <para>
+        /// <para>The operating mode of advanced security features in custom authentication with <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">
+        /// Custom authentication challenge Lambda triggers</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("UserPoolAddOns_AdvancedSecurityAdditionalFlows_CustomAuthMode")]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.AdvancedSecurityEnabledModeType")]
+        public Amazon.CognitoIdentityProvider.AdvancedSecurityEnabledModeType AdvancedSecurityAdditionalFlows_CustomAuthMode { get; set; }
         #endregion
         
         #region Parameter LambdaConfig_CustomMessage
@@ -931,6 +946,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate = new List<System.String>(this.UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate);
             }
+            context.AdvancedSecurityAdditionalFlows_CustomAuthMode = this.AdvancedSecurityAdditionalFlows_CustomAuthMode;
             context.UserPoolAddOns_AdvancedSecurityMode = this.UserPoolAddOns_AdvancedSecurityMode;
             context.UserPoolId = this.UserPoolId;
             #if MODULAR
@@ -1568,6 +1584,31 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.UserPoolAddOns.AdvancedSecurityMode = requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityMode;
                 requestUserPoolAddOnsIsNull = false;
             }
+            Amazon.CognitoIdentityProvider.Model.AdvancedSecurityAdditionalFlowsType requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows = null;
+            
+             // populate AdvancedSecurityAdditionalFlows
+            var requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlowsIsNull = true;
+            requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows = new Amazon.CognitoIdentityProvider.Model.AdvancedSecurityAdditionalFlowsType();
+            Amazon.CognitoIdentityProvider.AdvancedSecurityEnabledModeType requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows_advancedSecurityAdditionalFlows_CustomAuthMode = null;
+            if (cmdletContext.AdvancedSecurityAdditionalFlows_CustomAuthMode != null)
+            {
+                requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows_advancedSecurityAdditionalFlows_CustomAuthMode = cmdletContext.AdvancedSecurityAdditionalFlows_CustomAuthMode;
+            }
+            if (requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows_advancedSecurityAdditionalFlows_CustomAuthMode != null)
+            {
+                requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows.CustomAuthMode = requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows_advancedSecurityAdditionalFlows_CustomAuthMode;
+                requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlowsIsNull = false;
+            }
+             // determine if requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows should be set to null
+            if (requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlowsIsNull)
+            {
+                requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows = null;
+            }
+            if (requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows != null)
+            {
+                request.UserPoolAddOns.AdvancedSecurityAdditionalFlows = requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityAdditionalFlows;
+                requestUserPoolAddOnsIsNull = false;
+            }
              // determine if request.UserPoolAddOns should be set to null
             if (requestUserPoolAddOnsIsNull)
             {
@@ -1759,6 +1800,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String SmsConfiguration_SnsRegion { get; set; }
             public System.String SmsVerificationMessage { get; set; }
             public List<System.String> UserAttributeUpdateSettings_AttributesRequireVerificationBeforeUpdate { get; set; }
+            public Amazon.CognitoIdentityProvider.AdvancedSecurityEnabledModeType AdvancedSecurityAdditionalFlows_CustomAuthMode { get; set; }
             public Amazon.CognitoIdentityProvider.AdvancedSecurityModeType UserPoolAddOns_AdvancedSecurityMode { get; set; }
             public System.String UserPoolId { get; set; }
             public Dictionary<System.String, System.String> UserPoolTag { get; set; }

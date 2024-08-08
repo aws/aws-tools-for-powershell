@@ -82,6 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.Model.PropertyPredicate[] Filter { get; set; }
         #endregion
         
+        #region Parameter IncludeStatusDetail
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to include status details related to a request to create or update
+        /// an Glue Data Catalog view.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IncludeStatusDetails")]
+        public System.Boolean? IncludeStatusDetail { get; set; }
+        #endregion
+        
         #region Parameter ResourceShareType
         /// <summary>
         /// <para>
@@ -188,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 context.Filter = new List<Amazon.Glue.Model.PropertyPredicate>(this.Filter);
             }
+            context.IncludeStatusDetail = this.IncludeStatusDetail;
             context.MaxResult = this.MaxResult;
             #if !MODULAR
             if (ParameterWasBound(nameof(this.MaxResult)) && this.MaxResult.HasValue)
@@ -231,6 +244,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeStatusDetail != null)
+            {
+                request.IncludeStatusDetails = cmdletContext.IncludeStatusDetail.Value;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -310,6 +327,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Filter != null)
             {
                 request.Filters = cmdletContext.Filter;
+            }
+            if (cmdletContext.IncludeStatusDetail != null)
+            {
+                request.IncludeStatusDetails = cmdletContext.IncludeStatusDetail.Value;
             }
             if (cmdletContext.ResourceShareType != null)
             {
@@ -444,6 +465,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public List<Amazon.Glue.Model.PropertyPredicate> Filter { get; set; }
+            public System.Boolean? IncludeStatusDetail { get; set; }
             public int? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.Glue.ResourceShareType ResourceShareType { get; set; }

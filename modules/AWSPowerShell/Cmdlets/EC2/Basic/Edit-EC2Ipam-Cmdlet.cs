@@ -67,6 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EnablePrivateGua
+        /// <summary>
+        /// <para>
+        /// <para>Enable this option to use your own GUA ranges as private IPv6 addresses. This option
+        /// is disabled by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePrivateGua { get; set; }
+        #endregion
+        
         #region Parameter IpamId
         /// <summary>
         /// <para>
@@ -175,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.AddOperatingRegion = new List<Amazon.EC2.Model.AddIpamOperatingRegion>(this.AddOperatingRegion);
             }
             context.Description = this.Description;
+            context.EnablePrivateGua = this.EnablePrivateGua;
             context.IpamId = this.IpamId;
             #if MODULAR
             if (this.IpamId == null && ParameterWasBound(nameof(this.IpamId)))
@@ -210,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EnablePrivateGua != null)
+            {
+                request.EnablePrivateGua = cmdletContext.EnablePrivateGua.Value;
             }
             if (cmdletContext.IpamId != null)
             {
@@ -286,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public List<Amazon.EC2.Model.AddIpamOperatingRegion> AddOperatingRegion { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? EnablePrivateGua { get; set; }
             public System.String IpamId { get; set; }
             public List<Amazon.EC2.Model.RemoveIpamOperatingRegion> RemoveOperatingRegion { get; set; }
             public Amazon.EC2.IpamTier Tier { get; set; }

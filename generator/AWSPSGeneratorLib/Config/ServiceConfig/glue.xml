@@ -951,5 +951,6 @@
         <Type>Amazon.Glue.Model.UpdateXMLClassifierRequest</Type>
         <Type>Amazon.Glue.Model.UserDefinedFunctionInput</Type>
         <Type>Amazon.Glue.Model.XMLClassifier</Type>
+        <Type>Amazon.Glue.Model.StatusDetails</Type>
     </TypesNotToFlatten>
 </ConfigModel>

@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter EnablePrivateGua
+        /// <summary>
+        /// <para>
+        /// <para>Enable this option to use your own GUA ranges as private IPv6 addresses. This option
+        /// is disabled by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EnablePrivateGua { get; set; }
+        #endregion
+        
         #region Parameter OperatingRegion
         /// <summary>
         /// <para>
@@ -178,6 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
+            context.EnablePrivateGua = this.EnablePrivateGua;
             if (this.OperatingRegion != null)
             {
                 context.OperatingRegion = new List<Amazon.EC2.Model.AddIpamOperatingRegion>(this.OperatingRegion);
@@ -210,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.EnablePrivateGua != null)
+            {
+                request.EnablePrivateGua = cmdletContext.EnablePrivateGua.Value;
             }
             if (cmdletContext.OperatingRegion != null)
             {
@@ -286,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
+            public System.Boolean? EnablePrivateGua { get; set; }
             public List<Amazon.EC2.Model.AddIpamOperatingRegion> OperatingRegion { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }
             public Amazon.EC2.IpamTier Tier { get; set; }
