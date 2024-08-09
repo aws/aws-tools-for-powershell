@@ -116,6 +116,20 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public System.Int32? QueueTimeAdjustmentSecond { get; set; }
         #endregion
         
+        #region Parameter RoutingCriteria_Step
+        /// <summary>
+        /// <para>
+        /// <para>When Amazon Connect does not find an available agent meeting the requirements in a
+        /// step for  a given step duration, the routing criteria will move on to the next
+        /// step sequentially until a  join is completed with an agent. When all steps
+        /// are exhausted, the contact will be offered to any agent in the queue.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RoutingCriteria_Steps")]
+        public Amazon.Connect.Model.RoutingCriteriaInputStep[] RoutingCriteria_Step { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -193,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #endif
             context.QueuePriority = this.QueuePriority;
             context.QueueTimeAdjustmentSecond = this.QueueTimeAdjustmentSecond;
+            if (this.RoutingCriteria_Step != null)
+            {
+                context.RoutingCriteria_Step = new List<Amazon.Connect.Model.RoutingCriteriaInputStep>(this.RoutingCriteria_Step);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -224,6 +242,25 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             if (cmdletContext.QueueTimeAdjustmentSecond != null)
             {
                 request.QueueTimeAdjustmentSeconds = cmdletContext.QueueTimeAdjustmentSecond.Value;
+            }
+            
+             // populate RoutingCriteria
+            var requestRoutingCriteriaIsNull = true;
+            request.RoutingCriteria = new Amazon.Connect.Model.RoutingCriteriaInput();
+            List<Amazon.Connect.Model.RoutingCriteriaInputStep> requestRoutingCriteria_routingCriteria_Step = null;
+            if (cmdletContext.RoutingCriteria_Step != null)
+            {
+                requestRoutingCriteria_routingCriteria_Step = cmdletContext.RoutingCriteria_Step;
+            }
+            if (requestRoutingCriteria_routingCriteria_Step != null)
+            {
+                request.RoutingCriteria.Steps = requestRoutingCriteria_routingCriteria_Step;
+                requestRoutingCriteriaIsNull = false;
+            }
+             // determine if request.RoutingCriteria should be set to null
+            if (requestRoutingCriteriaIsNull)
+            {
+                request.RoutingCriteria = null;
             }
             
             CmdletOutput output;
@@ -290,6 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             public System.String InstanceId { get; set; }
             public System.Int64? QueuePriority { get; set; }
             public System.Int32? QueueTimeAdjustmentSecond { get; set; }
+            public List<Amazon.Connect.Model.RoutingCriteriaInputStep> RoutingCriteria_Step { get; set; }
             public System.Func<Amazon.Connect.Model.UpdateContactRoutingDataResponse, UpdateCONNContactRoutingDataCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

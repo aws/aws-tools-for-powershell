@@ -39,6 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// operating system type:
     /// </para><dl><dt>AMAZON_LINUX</dt><dd><para>
     /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>AMAZON_LINUX_2</dt><dd><para>
+    /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>AMAZON_LINUX_2023</dt><dd><para>
     /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>CENTOS</dt><dd><para>
     /// Valid properties: <c>PRODUCT</c> | <c>CLASSIFICATION</c> | <c>SEVERITY</c></para></dd><dt>DEBIAN</dt><dd><para>
     /// Valid properties: <c>PRODUCT</c> | <c>PRIORITY</c></para></dd><dt>MACOS</dt><dd><para>

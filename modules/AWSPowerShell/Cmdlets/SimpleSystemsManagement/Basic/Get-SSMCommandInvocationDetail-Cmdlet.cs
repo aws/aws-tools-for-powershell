@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Returns detailed information about command execution for an invocation or plugin.
+    /// The Run Command API follows an eventual consistency model, due to the distributed
+    /// nature of the system supporting the API. This means that the result of an API command
+    /// you run that affects your resources might not be immediately visible to all subsequent
+    /// commands you run. You should keep this in mind when you carry out an API command that
+    /// immediately follows a previous API command.
     /// 
     ///  
     /// <para><c>GetCommandInvocation</c> only gives the execution status of a plugin in a document.

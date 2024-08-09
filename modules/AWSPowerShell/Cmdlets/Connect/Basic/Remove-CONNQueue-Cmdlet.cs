@@ -28,7 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Deletes a queue.
+    /// Deletes a queue. It isn't possible to delete a queue by using the Amazon Connect admin
+    /// website.
     /// </summary>
     [Cmdlet("Remove", "CONNQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

@@ -165,14 +165,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The action for Patch Manager to take on patches included in the <c>RejectedPackages</c>
-        /// list.</para><ul><li><para><b><c>ALLOW_AS_DEPENDENCY</c></b>: A package in the <c>Rejected</c> patches list
-        /// is installed only if it is a dependency of another package. It is considered compliant
-        /// with the patch baseline, and its status is reported as <c>InstalledOther</c>. This
-        /// is the default action if no option is specified.</para></li><li><para><b>BLOCK</b>: Packages in the <b>Rejected patches</b> list, and packages that include
+        /// list.</para><dl><dt>ALLOW_AS_DEPENDENCY</dt><dd><para><b>Linux and macOS</b>: A package in the rejected patches list is installed only
+        /// if it is a dependency of another package. It is considered compliant with the patch
+        /// baseline, and its status is reported as <c>INSTALLED_OTHER</c>. This is the default
+        /// action if no option is specified.</para><para><b>Windows Server</b>: Windows Server doesn't support the concept of package dependencies.
+        /// If a package in the rejected patches list and already installed on the node, its status
+        /// is reported as <c>INSTALLED_OTHER</c>. Any package not already installed on the node
+        /// is skipped. This is the default action if no option is specified.</para></dd><dt>BLOCK</dt><dd><para><b>All OSs</b>: Packages in the rejected patches list, and packages that include
         /// them as dependencies, aren't installed by Patch Manager under any circumstances. If
-        /// a package was installed before it was added to the <b>Rejected patches</b> list, or
-        /// is installed outside of Patch Manager afterward, it's considered noncompliant with
-        /// the patch baseline and its status is reported as <i>InstalledRejected</i>.</para></li></ul>
+        /// a package was installed before it was added to the rejected patches list, or is installed
+        /// outside of Patch Manager afterward, it's considered noncompliant with the patch baseline
+        /// and its status is reported as <c>INSTALLED_REJECTED</c>.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

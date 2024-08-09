@@ -1,4 +1,9 @@
-﻿### 4.1.631 (2024-08-08 20:46Z)
+﻿### 4.1.632 (2024-08-09 21:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.862.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Modified cmdlet Update-CONNContactRoutingData: added parameter RoutingCriteria_Step.
+
+### 4.1.631 (2024-08-08 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.861.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Cognito Identity Provider
     * Modified cmdlet New-CGIPUserPool: added parameter AdvancedSecurityAdditionalFlows_CustomAuthMode.

@@ -28,7 +28,10 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// Predefined attributes that meet certain criteria.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Searches predefined attributes that meet certain criteria. <i>Predefined attributes</i>
+    /// are attributes in an Amazon Connect instance that can be used to route contacts to
+    /// an agent or pools of agents within a queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
+    /// predefined attributes for routing contacts to agents</a>.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Search", "CONNPredefinedAttribute")]
     [OutputType("Amazon.Connect.Model.SearchPredefinedAttributesResponse")]

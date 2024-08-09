@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// 
     ///  
     /// <para>
-    /// Deletes the Amazon Connect instance.
+    /// Deletes the Amazon Connect instance. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-connect-instance.html">Delete
+    /// your Amazon Connect instance</a> in the <i>Amazon Connect Administrator Guide</i>.
     /// </para><para>
     /// Amazon Connect enforces a limit on the total number of instances that you can create
     /// or delete in 30 days. If you exceed this limit, you will get an error message indicating

@@ -37,6 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
     /// Kinesis. It also does not allow for any configurations on features, such as Contact
     /// Lens for Amazon Connect. 
     /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html">Create
+    /// an Amazon Connect instance</a> in the <i>Amazon Connect Administrator Guide</i>.
+    /// </para><para>
     /// Amazon Connect enforces a limit on the total number of instances that you can create
     /// or delete in 30 days. If you exceed this limit, you will get an error message indicating
     /// there has been an excessive number of attempts at creating or deleting instances.
