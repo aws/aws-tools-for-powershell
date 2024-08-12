@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AwsService
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Service. Currently not supported.</para>
+        /// <para>The Amazon Web Services service. Currently not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

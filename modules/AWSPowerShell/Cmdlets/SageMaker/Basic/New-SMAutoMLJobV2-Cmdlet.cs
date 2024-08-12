@@ -30,7 +30,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Creates an Autopilot job also referred to as Autopilot experiment or AutoML job V2.
     /// 
-    ///  <note><para><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
+    ///  
+    /// <para>
+    /// An AutoML job in SageMaker is a fully automated process that allows you to build machine
+    /// learning models with minimal effort and machine learning expertise. When initiating
+    /// an AutoML job, you provide your data and optionally specify parameters tailored to
+    /// your use case. SageMaker then automates the entire model development lifecycle, including
+    /// data preprocessing, model training, tuning, and evaluation. AutoML jobs are designed
+    /// to simplify and accelerate the model building process by automating various tasks
+    /// and exploring different combinations of machine learning algorithms, data preprocessing
+    /// techniques, and hyperparameter values. The output of an AutoML job comprises one or
+    /// more trained models ready for deployment and inference. Additionally, SageMaker AutoML
+    /// jobs generate a candidate model leaderboard, allowing you to select the best-performing
+    /// model for deployment.
+    /// </para><para>
+    /// For more information about AutoML jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html">https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development.html</a>
+    /// in the SageMaker developer guide.
+    /// </para><para>
+    /// AutoML jobs V2 support various problem types such as regression, binary, and multiclass
+    /// classification with tabular data, text and image classification, time-series forecasting,
+    /// and fine-tuning of large language models (LLMs) for text generation.
+    /// </para><note><para><a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a>
     /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>
     /// are new versions of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>
     /// and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>
@@ -239,6 +259,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ModelDeployConfig_EndpointName { get; set; }
+        #endregion
+        
+        #region Parameter EmrServerlessComputeConfig_ExecutionRoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role granting the AutoML job V2 the necessary permissions access
+        /// policies to list, connect to, or manage EMR Serverless jobs. For detailed information
+        /// about the required permissions of this role, see "How to configure AutoML to initiate
+        /// a remote job on EMR Serverless for large datasets" in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html">Create
+        /// a regression or classification job for tabular data using the AutoML API</a> or <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-timeseries-forecasting.html#timeseries-forecasting-api-optional-params">Create
+        /// an AutoML job for time-series forecasting using the API</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AutoMLComputeConfig_EmrServerlessComputeConfig_ExecutionRoleARN")]
+        public System.String EmrServerlessComputeConfig_ExecutionRoleARN { get; set; }
         #endregion
         
         #region Parameter TabularJobConfig_FeatureSpecificationS3Uri
@@ -709,7 +745,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OutputDataConfig_S3OutputPath
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 output path. Must be 128 characters or less.</para>
+        /// <para>The Amazon S3 output path. Must be 512 characters or less.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -934,6 +970,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.Select = (response, cmdlet) => this.AutoMLJobName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EmrServerlessComputeConfig_ExecutionRoleARN = this.EmrServerlessComputeConfig_ExecutionRoleARN;
             if (this.AutoMLJobInputDataConfig != null)
             {
                 context.AutoMLJobInputDataConfig = new List<Amazon.SageMaker.Model.AutoMLJobChannel>(this.AutoMLJobInputDataConfig);
@@ -1075,6 +1112,40 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateAutoMLJobV2Request();
             
+            
+             // populate AutoMLComputeConfig
+            var requestAutoMLComputeConfigIsNull = true;
+            request.AutoMLComputeConfig = new Amazon.SageMaker.Model.AutoMLComputeConfig();
+            Amazon.SageMaker.Model.EmrServerlessComputeConfig requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig = null;
+            
+             // populate EmrServerlessComputeConfig
+            var requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfigIsNull = true;
+            requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig = new Amazon.SageMaker.Model.EmrServerlessComputeConfig();
+            System.String requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig_emrServerlessComputeConfig_ExecutionRoleARN = null;
+            if (cmdletContext.EmrServerlessComputeConfig_ExecutionRoleARN != null)
+            {
+                requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig_emrServerlessComputeConfig_ExecutionRoleARN = cmdletContext.EmrServerlessComputeConfig_ExecutionRoleARN;
+            }
+            if (requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig_emrServerlessComputeConfig_ExecutionRoleARN != null)
+            {
+                requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig.ExecutionRoleARN = requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig_emrServerlessComputeConfig_ExecutionRoleARN;
+                requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfigIsNull = false;
+            }
+             // determine if requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig should be set to null
+            if (requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfigIsNull)
+            {
+                requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig = null;
+            }
+            if (requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig != null)
+            {
+                request.AutoMLComputeConfig.EmrServerlessComputeConfig = requestAutoMLComputeConfig_autoMLComputeConfig_EmrServerlessComputeConfig;
+                requestAutoMLComputeConfigIsNull = false;
+            }
+             // determine if request.AutoMLComputeConfig should be set to null
+            if (requestAutoMLComputeConfigIsNull)
+            {
+                request.AutoMLComputeConfig = null;
+            }
             if (cmdletContext.AutoMLJobInputDataConfig != null)
             {
                 request.AutoMLJobInputDataConfig = cmdletContext.AutoMLJobInputDataConfig;
@@ -1936,6 +2007,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EmrServerlessComputeConfig_ExecutionRoleARN { get; set; }
             public List<Amazon.SageMaker.Model.AutoMLJobChannel> AutoMLJobInputDataConfig { get; set; }
             public System.String AutoMLJobName { get; set; }
             public Amazon.SageMaker.AutoMLMetricEnum AutoMLJobObjective_MetricName { get; set; }

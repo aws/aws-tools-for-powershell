@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><c>network-interface-permission.network-interface-permission-id</c> - The ID of the
         /// permission.</para></li><li><para><c>network-interface-permission.network-interface-id</c> - The ID of the network
         /// interface.</para></li><li><para><c>network-interface-permission.aws-account-id</c> - The Amazon Web Services account
-        /// ID.</para></li><li><para><c>network-interface-permission.aws-service</c> - The Amazon Web Service.</para></li><li><para><c>network-interface-permission.permission</c> - The type of permission (<c>INSTANCE-ATTACH</c>
+        /// ID.</para></li><li><para><c>network-interface-permission.aws-service</c> - The Amazon Web Services service.</para></li><li><para><c>network-interface-permission.permission</c> - The type of permission (<c>INSTANCE-ATTACH</c>
         /// | <c>EIP-ASSOCIATE</c>).</para></li></ul>
         /// </para>
         /// </summary>

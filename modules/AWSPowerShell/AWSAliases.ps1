@@ -9003,6 +9003,8 @@ Set-Alias -Name EC2-CopyImage -Value Copy-EC2Image
 Set-Alias -Name EC2-CopySnapshot -Value Copy-EC2Snapshot
 Set-Alias -Name Create-EC2CapacityReservation -Value Add-EC2CapacityReservation
 Set-Alias -Name EC2-CreateCapacityReservation -Value Add-EC2CapacityReservation
+Set-Alias -Name Create-EC2CapacityReservationBySplitting -Value New-EC2CapacityReservationBySplitting
+Set-Alias -Name EC2-CreateCapacityReservationBySplitting -Value New-EC2CapacityReservationBySplitting
 Set-Alias -Name Create-EC2CapacityReservationFleet -Value New-EC2CapacityReservationFleet
 Set-Alias -Name EC2-CreateCapacityReservationFleet -Value New-EC2CapacityReservationFleet
 Set-Alias -Name Create-EC2CarrierGateway -Value New-EC2CarrierGateway
@@ -10091,6 +10093,8 @@ Set-Alias -Name Monitor-EC2InstanceMonitoring -Value Start-EC2InstanceMonitoring
 Set-Alias -Name EC2-MonitorInstances -Value Start-EC2InstanceMonitoring
 Set-Alias -Name EC2-MoveAddressToVpc -Value Move-EC2AddressToVpc
 Set-Alias -Name EC2-MoveByoipCidrToIpam -Value Move-EC2ByoipCidrToIpam
+Set-Alias -Name Move-EC2CapacityReservationInstances -Value Move-EC2CapacityReservationInstance
+Set-Alias -Name EC2-MoveCapacityReservationInstances -Value Move-EC2CapacityReservationInstance
 Set-Alias -Name Provision-EC2ByoipCidr -Value Register-EC2ByoipCidr
 Set-Alias -Name EC2-ProvisionByoipCidr -Value Register-EC2ByoipCidr
 Set-Alias -Name Provision-EC2IpamByoasn -Value Add-EC2IpamByoasn

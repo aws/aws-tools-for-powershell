@@ -23293,7 +23293,10 @@ $EC2_Completers = {
         }
 
         # Amazon.EC2.InstanceMatchCriteria
-        "Add-EC2CapacityReservation/InstanceMatchCriterion"
+        {
+            ($_ -eq "Add-EC2CapacityReservation/InstanceMatchCriterion") -Or
+            ($_ -eq "Edit-EC2CapacityReservation/InstanceMatchCriterion")
+        }
         {
             $v = "open","targeted"
             break
@@ -23941,7 +23944,7 @@ $EC2_map = @{
     "InstanceFamily"=@("Edit-EC2DefaultCreditSpecification","Get-EC2DefaultCreditSpecification")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
-    "InstanceMatchCriterion"=@("Add-EC2CapacityReservation","New-EC2CapacityReservationFleet")
+    "InstanceMatchCriterion"=@("Add-EC2CapacityReservation","Edit-EC2CapacityReservation","New-EC2CapacityReservationFleet")
     "InstanceMetadataTag"=@("Edit-EC2InstanceMetadataDefault","Edit-EC2InstanceMetadataOption")
     "InstancePlatform"=@("Add-EC2CapacityReservation","New-EC2EC2CapacityBlock")
     "InstanceRequirements_BareMetal"=@("Get-EC2InstanceTypesFromInstanceRequirement","Get-EC2SpotPlacementScore")
@@ -24138,6 +24141,7 @@ $EC2_SelectMap = @{
                "Copy-EC2Image",
                "Copy-EC2Snapshot",
                "Add-EC2CapacityReservation",
+               "New-EC2CapacityReservationBySplitting",
                "New-EC2CapacityReservationFleet",
                "New-EC2CarrierGateway",
                "New-EC2ClientVpnEndpoint",
@@ -24636,6 +24640,7 @@ $EC2_SelectMap = @{
                "Start-EC2InstanceMonitoring",
                "Move-EC2AddressToVpc",
                "Move-EC2ByoipCidrToIpam",
+               "Move-EC2CapacityReservationInstance",
                "Register-EC2ByoipCidr",
                "Add-EC2IpamByoasn",
                "Register-EC2IpamPoolCidr",
@@ -25395,7 +25400,7 @@ $EKS_Completers = {
         # Amazon.EKS.AMITypes
         "New-EKSNodegroup/AmiType"
         {
-            $v = "AL2023_ARM_64_STANDARD","AL2023_x86_64_STANDARD","AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
+            $v = "AL2023_ARM_64_STANDARD","AL2023_x86_64_NEURON","AL2023_x86_64_NVIDIA","AL2023_x86_64_STANDARD","AL2_ARM_64","AL2_x86_64","AL2_x86_64_GPU","BOTTLEROCKET_ARM_64","BOTTLEROCKET_ARM_64_NVIDIA","BOTTLEROCKET_x86_64","BOTTLEROCKET_x86_64_NVIDIA","CUSTOM","WINDOWS_CORE_2019_x86_64","WINDOWS_CORE_2022_x86_64","WINDOWS_FULL_2019_x86_64","WINDOWS_FULL_2022_x86_64"
             break
         }
 

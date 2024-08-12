@@ -293,6 +293,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCapacityReservationBySplitting" OutputProperty="*" Verb="New" Noun="CapacityReservationBySplitting" ShouldProcessTarget="SourceCapacityReservationId" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCapacityReservationFleet" OutputProperty="*" Verb="New" Noun="CapacityReservationFleet" ShouldProcessTarget="TotalTargetCapacity" PipelineParameter="TotalTargetCapacity" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -2406,6 +2410,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="MoveByoipCidrToIpam" OutputProperty="ByoipCidr" Verb="Move" Noun="ByoipCidrToIpam" ShouldProcessTarget="IpamPoolId" PipelineParameter="IpamPoolId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MoveCapacityReservationInstances" OutputProperty="*" Verb="Move" Noun="CapacityReservationInstance" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -1,4 +1,15 @@
-﻿### 4.1.632 (2024-08-09 21:46Z)
+﻿### 4.1.633 (2024-08-12 20:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.863.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Move-EC2CapacityReservationInstance leveraging the MoveCapacityReservationInstances service API.
+    * Added cmdlet New-EC2CapacityReservationBySplitting leveraging the CreateCapacityReservationBySplitting service API.
+    * Modified cmdlet Edit-EC2CapacityReservation: added parameter InstanceMatchCriterion.
+  * Amazon Elemental MediaLive
+    * Modified cmdlet Update-EMLMultiplex: added parameter PacketIdentifiersMapping.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMAutoMLJobV2: added parameter EmrServerlessComputeConfig_ExecutionRoleARN.
+
+### 4.1.632 (2024-08-09 21:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.862.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Modified cmdlet Update-CONNContactRoutingData: added parameter RoutingCriteria_Step.

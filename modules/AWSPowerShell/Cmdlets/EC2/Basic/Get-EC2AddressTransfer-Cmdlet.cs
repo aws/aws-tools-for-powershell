@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// During those seven days, the source account can view the pending transfer by using
     /// this action. After seven days, the transfer expires and ownership of the Elastic IP
     /// address returns to the source account. Accepted transfers are visible to the source
-    /// account for three days after the transfers have been accepted.
+    /// account for 14 days after the transfers have been accepted.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "EC2AddressTransfer")]

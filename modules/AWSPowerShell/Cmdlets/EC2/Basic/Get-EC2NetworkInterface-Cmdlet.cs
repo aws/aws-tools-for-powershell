@@ -79,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <c>quicksight</c> | <c>transit_gateway</c> | <c>trunk</c> | <c>vpc_endpoint</c>).</para></li><li><para><c>mac-address</c> - The MAC address of the network interface.</para></li><li><para><c>network-interface-id</c> - The ID of the network interface.</para></li><li><para><c>owner-id</c> - The Amazon Web Services account ID of the network interface owner.</para></li><li><para><c>private-dns-name</c> - The private DNS name of the network interface (IPv4).</para></li><li><para><c>private-ip-address</c> - The private IPv4 address or addresses of the network
         /// interface.</para></li><li><para><c>requester-id</c> - The alias or Amazon Web Services account ID of the principal
         /// or service that created the network interface.</para></li><li><para><c>requester-managed</c> - Indicates whether the network interface is being managed
-        /// by an Amazon Web Service (for example, Amazon Web Services Management Console, Auto
-        /// Scaling, and so on).</para></li><li><para><c>source-dest-check</c> - Indicates whether the network interface performs source/destination
+        /// by an Amazon Web Services service (for example, Amazon Web Services Management Console,
+        /// Auto Scaling, and so on).</para></li><li><para><c>source-dest-check</c> - Indicates whether the network interface performs source/destination
         /// checking. A value of <c>true</c> means checking is enabled, and <c>false</c> means
         /// checking is disabled. The value must be <c>false</c> for the network interface to
         /// perform network address translation (NAT) in your VPC. </para></li><li><para><c>status</c> - The status of the network interface. If the network interface is

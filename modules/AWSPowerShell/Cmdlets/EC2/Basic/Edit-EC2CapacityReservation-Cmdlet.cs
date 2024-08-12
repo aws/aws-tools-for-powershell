@@ -28,11 +28,13 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies a Capacity Reservation's capacity and the conditions under which it is to
-    /// be released. You cannot change a Capacity Reservation's instance type, EBS optimization,
-    /// instance store settings, platform, Availability Zone, or instance eligibility. If
-    /// you need to modify any of these attributes, we recommend that you cancel the Capacity
-    /// Reservation, and then create a new one with the required attributes.
+    /// Modifies a Capacity Reservation's capacity, instance eligibility, and the conditions
+    /// under which it is to be released. You can't modify a Capacity Reservation's instance
+    /// type, EBS optimization, platform, instance store settings, Availability Zone, or tenancy.
+    /// If you need to modify any of these attributes, we recommend that you cancel the Capacity
+    /// Reservation, and then create a new one with the required attributes. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-modify.html">Modify
+    /// an active Capacity Reservation</a>.
     /// </summary>
     [Cmdlet("Edit", "EC2CapacityReservation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
@@ -124,6 +126,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32? InstanceCount { get; set; }
         #endregion
         
+        #region Parameter InstanceMatchCriterion
+        /// <summary>
+        /// <para>
+        /// <para> The matching criteria (instance eligibility) that you want to use in the modified
+        /// Capacity Reservation. If you change the instance eligibility of an existing Capacity
+        /// Reservation from <c>targeted</c> to <c>open</c>, any running instances that match
+        /// the attributes of the Capacity Reservation, have the <c>CapacityReservationPreference</c>
+        /// set to <c>open</c>, and are not yet running in the Capacity Reservation, will automatically
+        /// use the modified Capacity Reservation. </para><para>To modify the instance eligibility, the Capacity Reservation must be completely idle
+        /// (zero usage).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InstanceMatchCriteria")]
+        [AWSConstantClassSource("Amazon.EC2.InstanceMatchCriteria")]
+        public Amazon.EC2.InstanceMatchCriteria InstanceMatchCriterion { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Return'.
@@ -198,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.EndDate = this.EndDate;
             context.EndDateType = this.EndDateType;
             context.InstanceCount = this.InstanceCount;
+            context.InstanceMatchCriterion = this.InstanceMatchCriterion;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -237,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceCount != null)
             {
                 request.InstanceCount = cmdletContext.InstanceCount.Value;
+            }
+            if (cmdletContext.InstanceMatchCriterion != null)
+            {
+                request.InstanceMatchCriteria = cmdletContext.InstanceMatchCriterion;
             }
             
             CmdletOutput output;
@@ -305,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.DateTime? EndDate { get; set; }
             public Amazon.EC2.EndDateType EndDateType { get; set; }
             public System.Int32? InstanceCount { get; set; }
+            public Amazon.EC2.InstanceMatchCriteria InstanceMatchCriterion { get; set; }
             public System.Func<Amazon.EC2.Model.ModifyCapacityReservationResponse, EditEC2CapacityReservationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Return;
         }

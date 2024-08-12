@@ -81,6 +81,16 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter PacketIdentifiersMapping
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable PacketIdentifiersMapping { get; set; }
+        #endregion
+        
         #region Parameter MultiplexSettings_TransportStreamBitrate
         /// <summary>
         /// <para>
@@ -186,6 +196,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.MultiplexSettings_TransportStreamId = this.MultiplexSettings_TransportStreamId;
             context.MultiplexSettings_TransportStreamReservedBitrate = this.MultiplexSettings_TransportStreamReservedBitrate;
             context.Name = this.Name;
+            if (this.PacketIdentifiersMapping != null)
+            {
+                context.PacketIdentifiersMapping = new Dictionary<System.String, Amazon.MediaLive.Model.MultiplexProgramPacketIdentifiersMap>(StringComparer.Ordinal);
+                foreach (var hashKey in this.PacketIdentifiersMapping.Keys)
+                {
+                    context.PacketIdentifiersMapping.Add((String)hashKey, (Amazon.MediaLive.Model.MultiplexProgramPacketIdentifiersMap)(this.PacketIdentifiersMapping[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -259,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.PacketIdentifiersMapping != null)
+            {
+                request.PacketIdentifiersMapping = cmdletContext.PacketIdentifiersMapping;
+            }
             
             CmdletOutput output;
             
@@ -326,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.Int32? MultiplexSettings_TransportStreamId { get; set; }
             public System.Int32? MultiplexSettings_TransportStreamReservedBitrate { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, Amazon.MediaLive.Model.MultiplexProgramPacketIdentifiersMap> PacketIdentifiersMapping { get; set; }
             public System.Func<Amazon.MediaLive.Model.UpdateMultiplexResponse, UpdateEMLMultiplexCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Multiplex;
         }

@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for the VPC (<c>true</c> | <c>false</c>). Route tables that do not have an association
         /// ID are not returned in the response.</para></li><li><para><c>owner-id</c> - The ID of the Amazon Web Services account that owns the route table.</para></li><li><para><c>route-table-id</c> - The ID of the route table.</para></li><li><para><c>route.destination-cidr-block</c> - The IPv4 CIDR range specified in a route in
         /// the table.</para></li><li><para><c>route.destination-ipv6-cidr-block</c> - The IPv6 CIDR range specified in a route
-        /// in the route table.</para></li><li><para><c>route.destination-prefix-list-id</c> - The ID (prefix) of the Amazon Web Service
-        /// specified in a route in the table.</para></li><li><para><c>route.egress-only-internet-gateway-id</c> - The ID of an egress-only Internet
+        /// in the route table.</para></li><li><para><c>route.destination-prefix-list-id</c> - The ID (prefix) of the Amazon Web Services
+        /// service specified in a route in the table.</para></li><li><para><c>route.egress-only-internet-gateway-id</c> - The ID of an egress-only Internet
         /// gateway specified in a route in the route table.</para></li><li><para><c>route.gateway-id</c> - The ID of a gateway specified in a route in the table.</para></li><li><para><c>route.instance-id</c> - The ID of an instance specified in a route in the table.</para></li><li><para><c>route.nat-gateway-id</c> - The ID of a NAT gateway.</para></li><li><para><c>route.transit-gateway-id</c> - The ID of a transit gateway.</para></li><li><para><c>route.origin</c> - Describes how the route was created. <c>CreateRouteTable</c>
         /// indicates that the route was automatically created when the route table was created;
         /// <c>CreateRoute</c> indicates that the route was manually added to the route table;
