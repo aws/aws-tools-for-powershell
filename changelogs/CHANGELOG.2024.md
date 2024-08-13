@@ -1,4 +1,20 @@
-﻿### 4.1.633 (2024-08-12 20:52Z)
+﻿### 4.1.634 (2024-08-13 20:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.864.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Amplify
+    * Modified cmdlet New-AMPApp: added parameter CacheConfig_Type.
+    * Modified cmdlet Update-AMPApp: added parameter CacheConfig_Type.
+  * Amazon AppStream
+    * Added cmdlet Get-APSThemeForStack leveraging the DescribeThemeForStack service API.
+    * Added cmdlet New-APSThemeForStack leveraging the CreateThemeForStack service API.
+    * Added cmdlet Remove-APSThemeForStack leveraging the DeleteThemeForStack service API.
+    * Added cmdlet Update-APSThemeForStack leveraging the UpdateThemeForStack service API.
+  * Amazon Glue
+    * Modified cmdlet Get-GLUETableList: added parameter AttributesToGet.
+  * Amazon Neptune Graph
+    * Modified cmdlet New-NEPTGGraphUsingImportTask: added parameter BlankNodeHandling.
+    * Modified cmdlet Start-NEPTGImportTask: added parameter BlankNodeHandling.
+
+### 4.1.633 (2024-08-12 20:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.863.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elastic Compute Cloud (EC2)
     * Added cmdlet Move-EC2CapacityReservationInstance leveraging the MoveCapacityReservationInstances service API.

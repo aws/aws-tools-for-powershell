@@ -1151,6 +1151,8 @@ Set-Alias -Name Create-APSStack -Value New-APSStack
 Set-Alias -Name APS-CreateStack -Value New-APSStack
 Set-Alias -Name Create-APSStreamingURL -Value New-APSStreamingURL
 Set-Alias -Name APS-CreateStreamingURL -Value New-APSStreamingURL
+Set-Alias -Name Create-APSThemeForStack -Value New-APSThemeForStack
+Set-Alias -Name APS-CreateThemeForStack -Value New-APSThemeForStack
 Set-Alias -Name Create-APSUpdatedImage -Value New-APSUpdatedImage
 Set-Alias -Name APS-CreateUpdatedImage -Value New-APSUpdatedImage
 Set-Alias -Name Create-APSUsageReportSubscription -Value New-APSUsageReportSubscription
@@ -1178,6 +1180,8 @@ Set-Alias -Name Delete-APSImagePermission -Value Remove-APSImagePermission
 Set-Alias -Name APS-DeleteImagePermissions -Value Remove-APSImagePermission
 Set-Alias -Name Delete-APSStack -Value Remove-APSStack
 Set-Alias -Name APS-DeleteStack -Value Remove-APSStack
+Set-Alias -Name Delete-APSThemeForStack -Value Remove-APSThemeForStack
+Set-Alias -Name APS-DeleteThemeForStack -Value Remove-APSThemeForStack
 Set-Alias -Name Delete-APSUsageReportSubscription -Value Remove-APSUsageReportSubscription
 Set-Alias -Name APS-DeleteUsageReportSubscription -Value Remove-APSUsageReportSubscription
 Set-Alias -Name Delete-APSUser -Value Remove-APSUser
@@ -1221,6 +1225,8 @@ Set-Alias -Name APS-DescribeSessions -Value Get-APSSessionList
 Set-Alias -Name Describe-APSStacks -Value Get-APSStackList
 Set-Alias -Name Describe-APSStackList -Value Get-APSStackList
 Set-Alias -Name APS-DescribeStacks -Value Get-APSStackList
+Set-Alias -Name Describe-APSThemeForStack -Value Get-APSThemeForStack
+Set-Alias -Name APS-DescribeThemeForStack -Value Get-APSThemeForStack
 Set-Alias -Name Describe-APSUsageReportSubscriptions -Value Get-APSUsageReportSubscription
 Set-Alias -Name Describe-APSUsageReportSubscription -Value Get-APSUsageReportSubscription
 Set-Alias -Name APS-DescribeUsageReportSubscriptions -Value Get-APSUsageReportSubscription
@@ -1269,6 +1275,7 @@ Set-Alias -Name APS-UpdateFleet -Value Update-APSFleet
 Set-Alias -Name Update-APSImagePermissions -Value Update-APSImagePermission
 Set-Alias -Name APS-UpdateImagePermissions -Value Update-APSImagePermission
 Set-Alias -Name APS-UpdateStack -Value Update-APSStack
+Set-Alias -Name APS-UpdateThemeForStack -Value Update-APSThemeForStack
 Set-Alias -Name Associate-ASYNApi -Value Start-ASYNApiAssociation
 Set-Alias -Name Associate-ASYNApiAssociation -Value Start-ASYNApiAssociation
 Set-Alias -Name ASYN-AssociateApi -Value Start-ASYNApiAssociation

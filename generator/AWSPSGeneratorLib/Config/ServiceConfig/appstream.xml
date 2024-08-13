@@ -94,6 +94,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateThemeForStack" OutputProperty="Theme" Verb="New" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateUpdatedImage" OutputProperty="*" Verb="New" Noun="UpdatedImage" ShouldProcessTarget="ExistingImageName" PipelineParameter="NewImageName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -143,6 +147,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStack" Verb="Remove" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteThemeForStack" Verb="Remove" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -205,6 +213,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeStacks" OutputProperty="Stacks" Verb="Get" Noun="StackList" PipelineParameter="Names" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeThemeForStack" OutputProperty="Theme" Verb="Get" Noun="ThemeForStack" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -321,6 +333,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateStack" OutputProperty="Stack" Verb="Update" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateThemeForStack" OutputProperty="Theme" Verb="Update" Noun="ThemeForStack" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

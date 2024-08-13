@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AttributesToGet
+        /// <summary>
+        /// <para>
+        /// <para> Specifies the table fields returned by the <c>GetTables</c> call. This parameter
+        /// doesn’t accept an empty list. The request must include <c>NAME</c>.</para><para>The following are the valid combinations of values:</para><ul><li><para><c>NAME</c> - Names of all tables in the database.</para></li><li><para><c>NAME</c>, <c>TABLE_TYPE</c> - Names of all tables and the table types.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] AttributesToGet { get; set; }
+        #endregion
+        
         #region Parameter CatalogId
         /// <summary>
         /// <para>
@@ -201,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.Select = (response, cmdlet) => this.DatabaseName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AttributesToGet != null)
+            {
+                context.AttributesToGet = new List<System.String>(this.AttributesToGet);
+            }
             context.CatalogId = this.CatalogId;
             context.DatabaseName = this.DatabaseName;
             #if MODULAR
@@ -245,6 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request and set iteration invariants
             var request = new Amazon.Glue.Model.GetTablesRequest();
             
+            if (cmdletContext.AttributesToGet != null)
+            {
+                request.AttributesToGet = cmdletContext.AttributesToGet;
+            }
             if (cmdletContext.CatalogId != null)
             {
                 request.CatalogId = cmdletContext.CatalogId;
@@ -328,6 +347,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             // create request and set iteration invariants
             var request = new Amazon.Glue.Model.GetTablesRequest();
+            if (cmdletContext.AttributesToGet != null)
+            {
+                request.AttributesToGet = cmdletContext.AttributesToGet;
+            }
             if (cmdletContext.CatalogId != null)
             {
                 request.CatalogId = cmdletContext.CatalogId;
@@ -471,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributesToGet { get; set; }
             public System.String CatalogId { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String Expression { get; set; }

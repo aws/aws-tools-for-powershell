@@ -370,6 +370,20 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter CacheConfig_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of cache configuration to use for an Amplify app.</para><para>The <c>AMPLIFY_MANAGED</c> cache configuration automatically applies an optimized
+        /// cache configuration for your app based on its platform, routing rules, and rewrite
+        /// rules. This is the default setting.</para><para>The <c>AMPLIFY_MANAGED_NO_COOKIES</c> cache configuration type is the same as <c>AMPLIFY_MANAGED</c>,
+        /// except that it excludes all cookies from the cache key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.Amplify.CacheConfigType")]
+        public Amazon.Amplify.CacheConfigType CacheConfig_Type { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'App'.
@@ -456,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             }
             context.BasicAuthCredential = this.BasicAuthCredential;
             context.BuildSpec = this.BuildSpec;
+            context.CacheConfig_Type = this.CacheConfig_Type;
             context.CustomHeader = this.CustomHeader;
             if (this.CustomRule != null)
             {
@@ -634,6 +649,25 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             {
                 request.BuildSpec = cmdletContext.BuildSpec;
             }
+            
+             // populate CacheConfig
+            var requestCacheConfigIsNull = true;
+            request.CacheConfig = new Amazon.Amplify.Model.CacheConfig();
+            Amazon.Amplify.CacheConfigType requestCacheConfig_cacheConfig_Type = null;
+            if (cmdletContext.CacheConfig_Type != null)
+            {
+                requestCacheConfig_cacheConfig_Type = cmdletContext.CacheConfig_Type;
+            }
+            if (requestCacheConfig_cacheConfig_Type != null)
+            {
+                request.CacheConfig.Type = requestCacheConfig_cacheConfig_Type;
+                requestCacheConfigIsNull = false;
+            }
+             // determine if request.CacheConfig should be set to null
+            if (requestCacheConfigIsNull)
+            {
+                request.CacheConfig = null;
+            }
             if (cmdletContext.CustomHeader != null)
             {
                 request.CustomHeaders = cmdletContext.CustomHeader;
@@ -765,6 +799,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
             public List<System.String> AutoBranchCreationPattern { get; set; }
             public System.String BasicAuthCredential { get; set; }
             public System.String BuildSpec { get; set; }
+            public Amazon.Amplify.CacheConfigType CacheConfig_Type { get; set; }
             public System.String CustomHeader { get; set; }
             public List<Amazon.Amplify.Model.CustomRule> CustomRule { get; set; }
             public System.String Description { get; set; }

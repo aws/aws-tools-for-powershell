@@ -109,6 +109,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-APSSessionList', 
         'Get-APSStackList', 
         'Get-APSTagsForResourceList', 
+        'Get-APSThemeForStack', 
         'Get-APSUsageReportSubscription', 
         'Get-APSUser', 
         'Get-APSUserStackAssociation', 
@@ -123,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'New-APSImageBuilderStreamingURL', 
         'New-APSStack', 
         'New-APSStreamingURL', 
+        'New-APSThemeForStack', 
         'New-APSUpdatedImage', 
         'New-APSUsageReportSubscription', 
         'New-APSUser', 
@@ -142,6 +144,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Remove-APSImagePermission', 
         'Remove-APSResourceTag', 
         'Remove-APSStack', 
+        'Remove-APSThemeForStack', 
         'Remove-APSUsageReportSubscription', 
         'Remove-APSUser', 
         'Revoke-APSSession', 
@@ -160,7 +163,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Update-APSEntitlement', 
         'Update-APSFleet', 
         'Update-APSImagePermission', 
-        'Update-APSStack')
+        'Update-APSStack', 
+        'Update-APSThemeForStack')
 
     # Variables to export from this module
     VariablesToExport = '*'

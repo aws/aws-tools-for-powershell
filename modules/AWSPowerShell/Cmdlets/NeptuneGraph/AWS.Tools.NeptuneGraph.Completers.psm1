@@ -80,6 +80,16 @@ $NEPTG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NeptuneGraph.BlankNodeHandling
+        {
+            ($_ -eq "New-NEPTGGraphUsingImportTask/BlankNodeHandling") -Or
+            ($_ -eq "Start-NEPTGImportTask/BlankNodeHandling")
+        }
+        {
+            $v = "convertToIri"
+            break
+        }
+
         # Amazon.NeptuneGraph.ExplainMode
         "Invoke-NEPTGQuery/ExplainMode"
         {
@@ -93,7 +103,7 @@ $NEPTG_Completers = {
             ($_ -eq "Start-NEPTGImportTask/Format")
         }
         {
-            $v = "CSV","OPEN_CYPHER"
+            $v = "CSV","NTRIPLES","OPEN_CYPHER"
             break
         }
 
@@ -134,6 +144,7 @@ $NEPTG_Completers = {
 }
 
 $NEPTG_map = @{
+    "BlankNodeHandling"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
     "ExplainMode"=@("Invoke-NEPTGQuery")
     "Format"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
     "Language"=@("Invoke-NEPTGQuery")

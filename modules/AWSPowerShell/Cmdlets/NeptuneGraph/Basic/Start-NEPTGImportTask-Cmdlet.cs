@@ -42,6 +42,20 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BlankNodeHandling
+        /// <summary>
+        /// <para>
+        /// <para>The method to handle blank nodes in the dataset. Currently, only <c>convertToIri</c>
+        /// is supported, meaning blank nodes are converted to unique IRIs at load time. Must
+        /// be provided when format is <c>ntriples</c>. For more information, see <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling">Handling
+        /// RDF values</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.NeptuneGraph.BlankNodeHandling")]
+        public Amazon.NeptuneGraph.BlankNodeHandling BlankNodeHandling { get; set; }
+        #endregion
+        
         #region Parameter FailOnError
         /// <summary>
         /// <para>
@@ -232,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
                 context.Select = (response, cmdlet) => this.GraphIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BlankNodeHandling = this.BlankNodeHandling;
             context.FailOnError = this.FailOnError;
             context.Format = this.Format;
             context.GraphIdentifier = this.GraphIdentifier;
@@ -275,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             // create request
             var request = new Amazon.NeptuneGraph.Model.StartImportTaskRequest();
             
+            if (cmdletContext.BlankNodeHandling != null)
+            {
+                request.BlankNodeHandling = cmdletContext.BlankNodeHandling;
+            }
             if (cmdletContext.FailOnError != null)
             {
                 request.FailOnError = cmdletContext.FailOnError.Value;
@@ -420,6 +439,7 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.NeptuneGraph.BlankNodeHandling BlankNodeHandling { get; set; }
             public System.Boolean? FailOnError { get; set; }
             public Amazon.NeptuneGraph.Format Format { get; set; }
             public System.String GraphIdentifier { get; set; }

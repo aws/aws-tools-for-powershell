@@ -651,6 +651,16 @@ $AMP_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Amplify.CacheConfigType
+        {
+            ($_ -eq "New-AMPApp/CacheConfig_Type") -Or
+            ($_ -eq "Update-AMPApp/CacheConfig_Type")
+        }
+        {
+            $v = "AMPLIFY_MANAGED","AMPLIFY_MANAGED_NO_COOKIES"
+            break
+        }
+
         # Amazon.Amplify.CertificateType
         {
             ($_ -eq "New-AMPDomainAssociation/CertificateSettings_Type") -Or
@@ -700,6 +710,7 @@ $AMP_Completers = {
 
 $AMP_map = @{
     "AutoBranchCreationConfig_Stage"=@("New-AMPApp","Update-AMPApp")
+    "CacheConfig_Type"=@("New-AMPApp","Update-AMPApp")
     "CertificateSettings_Type"=@("New-AMPDomainAssociation","Update-AMPDomainAssociation")
     "JobType"=@("Start-AMPJob")
     "Platform"=@("New-AMPApp","Update-AMPApp")
@@ -3531,6 +3542,23 @@ $APS_Completers = {
             break
         }
 
+        # Amazon.AppStream.ThemeState
+        "Update-APSThemeForStack/State"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.AppStream.ThemeStyling
+        {
+            ($_ -eq "New-APSThemeForStack/ThemeStyling") -Or
+            ($_ -eq "Update-APSThemeForStack/ThemeStyling")
+        }
+        {
+            $v = "BLUE","LIGHT_BLUE","PINK","RED"
+            break
+        }
+
         # Amazon.AppStream.VisibilityType
         "Get-APSImageList/Type"
         {
@@ -3554,8 +3582,10 @@ $APS_map = @{
     "MessageAction"=@("New-APSUser")
     "PackagingType"=@("New-APSAppBlock")
     "Platform"=@("New-APSAppBlockBuilder","New-APSFleet","Update-APSAppBlockBuilder","Update-APSFleet")
+    "State"=@("Update-APSThemeForStack")
     "StreamingExperienceSettings_PreferredProtocol"=@("New-APSStack","Update-APSStack")
     "StreamView"=@("New-APSFleet","Update-APSFleet")
+    "ThemeStyling"=@("New-APSThemeForStack","Update-APSThemeForStack")
     "Type"=@("Get-APSImageList")
 }
 
@@ -3627,6 +3657,7 @@ $APS_SelectMap = @{
                "New-APSImageBuilderStreamingURL",
                "New-APSStack",
                "New-APSStreamingURL",
+               "New-APSThemeForStack",
                "New-APSUpdatedImage",
                "New-APSUsageReportSubscription",
                "New-APSUser",
@@ -3640,6 +3671,7 @@ $APS_SelectMap = @{
                "Remove-APSImageBuilder",
                "Remove-APSImagePermission",
                "Remove-APSStack",
+               "Remove-APSThemeForStack",
                "Remove-APSUsageReportSubscription",
                "Remove-APSUser",
                "Get-APSAppBlockBuilderAppBlockAssociation",
@@ -3655,6 +3687,7 @@ $APS_SelectMap = @{
                "Get-APSImageList",
                "Get-APSSessionList",
                "Get-APSStackList",
+               "Get-APSThemeForStack",
                "Get-APSUsageReportSubscription",
                "Get-APSUser",
                "Get-APSUserStackAssociation",
@@ -3683,7 +3716,8 @@ $APS_SelectMap = @{
                "Update-APSEntitlement",
                "Update-APSFleet",
                "Update-APSImagePermission",
-               "Update-APSStack")
+               "Update-APSStack",
+               "Update-APSThemeForStack")
 }
 
 _awsArgumentCompleterRegistration $APS_SelectCompleters $APS_SelectMap
@@ -47796,6 +47830,16 @@ $NEPTG_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.NeptuneGraph.BlankNodeHandling
+        {
+            ($_ -eq "New-NEPTGGraphUsingImportTask/BlankNodeHandling") -Or
+            ($_ -eq "Start-NEPTGImportTask/BlankNodeHandling")
+        }
+        {
+            $v = "convertToIri"
+            break
+        }
+
         # Amazon.NeptuneGraph.ExplainMode
         "Invoke-NEPTGQuery/ExplainMode"
         {
@@ -47809,7 +47853,7 @@ $NEPTG_Completers = {
             ($_ -eq "Start-NEPTGImportTask/Format")
         }
         {
-            $v = "CSV","OPEN_CYPHER"
+            $v = "CSV","NTRIPLES","OPEN_CYPHER"
             break
         }
 
@@ -47850,6 +47894,7 @@ $NEPTG_Completers = {
 }
 
 $NEPTG_map = @{
+    "BlankNodeHandling"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
     "ExplainMode"=@("Invoke-NEPTGQuery")
     "Format"=@("New-NEPTGGraphUsingImportTask","Start-NEPTGImportTask")
     "Language"=@("Invoke-NEPTGQuery")
