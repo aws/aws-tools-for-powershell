@@ -86,6 +86,14 @@ function DownloadSdkArtifacts {
   }
 }
 
+# same as msbuild task clean-sdk-references in build.proj
+function Remove-SdkReferences {
+  $sdkFolderPath = 'Include/sdk/assemblies'
+  if (Test-Path $sdkFolderPath) {
+    $null = Remove-Item $sdkFolderPath -Recurse -Force
+  }
+}
+
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
 
@@ -130,8 +138,16 @@ try {
     # for Release, $SdkArtifactsUri is uri to _sdk-versions.json in github repo aws-sdk-net
     #	https://raw.githubusercontent.com/aws/aws-sdk-net/{path to_sdk-versions.json}
 
+    $cleanSDKReferenceInMsBuild = 'true'
+    if ($BuildType -eq 'DRY_RUN') {
+      Write-Host "Removing Sdk References for DRY_RUN build"
+      Remove-SdkReferences
+      # for dry run, the clean-sdk-references should be set to false
+      # so that the sdk dlls that are downloaded in Build.ps1 DownloadSdkArtifacts are not overwritten in the generator by downloading artifacts from github
+      $cleanSDKReferenceInMsBuild = 'false'
+    }
+    
     # for Dry run, $SdkArtifactsUri can be _sdk-versions.json or dry run artifacts from .NET build.
-
     if ($SdkArtifactsUri) {
       DownloadSdkArtifacts -SdkArtifactsUri $SdkArtifactsUri
     }
@@ -146,7 +162,8 @@ try {
     if ($RunAsStagingBuild -eq 'true') {
       msbuild ./buildtools/build.proj `
         /t:staging-build `
-        /p:Configuration=$Configuration
+        /p:Configuration=$Configuration `
+        /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild
     }
     else {
       msbuild ./buildtools/build.proj `
@@ -157,7 +174,8 @@ try {
         /p:Configuration=$Configuration `
         /p:SignModules=$SignModules `
         /p:DraftReleaseNotes=true `
-        /p:SkipCmdletGeneration=false
+        /p:SkipCmdletGeneration=false `
+        /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild
     }
     $BuildResult = $LASTEXITCODE
   }
