@@ -1,4 +1,7 @@
-﻿### 4.1.634 (2024-08-13 20:53Z)
+﻿### 4.1.635 (2024-08-14 20:43Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.865.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.634 (2024-08-13 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.864.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Amplify
     * Modified cmdlet New-AMPApp: added parameter CacheConfig_Type.

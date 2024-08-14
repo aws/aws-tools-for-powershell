@@ -734,7 +734,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SourceAuthOverride_Type
         /// <summary>
         /// <para>
-        /// <para>The authorization type to use. Valid options are OAUTH or CODECONNECTIONS.</para>
+        /// <para>The authorization type to use. Valid options are OAUTH, CODECONNECTIONS, or SECRETS_MANAGER.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

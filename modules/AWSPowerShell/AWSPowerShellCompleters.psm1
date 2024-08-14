@@ -12323,7 +12323,7 @@ $CB_Completers = {
         # Amazon.CodeBuild.AuthType
         "Import-CBSourceCredential/AuthType"
         {
-            $v = "BASIC_AUTH","CODECONNECTIONS","OAUTH","PERSONAL_ACCESS_TOKEN"
+            $v = "BASIC_AUTH","CODECONNECTIONS","OAUTH","PERSONAL_ACCESS_TOKEN","SECRETS_MANAGER"
             break
         }
 
@@ -12585,7 +12585,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/SourceAuthOverride_Type")
         }
         {
-            $v = "CODECONNECTIONS","OAUTH"
+            $v = "CODECONNECTIONS","OAUTH","SECRETS_MANAGER"
             break
         }
 
