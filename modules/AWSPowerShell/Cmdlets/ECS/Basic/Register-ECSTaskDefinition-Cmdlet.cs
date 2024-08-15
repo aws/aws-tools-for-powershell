@@ -42,10 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// You can specify a Docker networking mode for the containers in your task definition
-    /// with the <c>networkMode</c> parameter. The available network modes correspond to those
-    /// described in <a href="https://docs.docker.com/engine/reference/run/#/network-settings">Network
-    /// settings</a> in the Docker run reference. If you specify the <c>awsvpc</c> network
-    /// mode, the task is allocated an elastic network interface, and you must specify a <a>NetworkConfiguration</a>
+    /// with the <c>networkMode</c> parameter. If you specify the <c>awsvpc</c> network mode,
+    /// the task is allocated an elastic network interface, and you must specify a <a>NetworkConfiguration</a>
     /// when you create a service or run a task with the task definition. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
     /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
@@ -131,11 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS
-        /// container agent permission to make Amazon Web Services API calls on your behalf. The
-        /// task execution IAM role is required depending on the requirements of your task. For
-        /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_execution_IAM_role.html">Amazon
-        /// ECS task execution IAM role</a> in the <i>Amazon Elastic Container Service Developer
-        /// Guide</i>.</para>
+        /// container agent permission to make Amazon Web Services API calls on your behalf. For
+        /// informationabout the required IAM roles for Amazon ECS, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html">IAM
+        /// roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,10 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// If <c>none</c> is specified, then IPC resources within the containers of a task are
         /// private and not shared with other containers in a task or on the container instance.
         /// If no value is specified, then the IPC resource namespace sharing depends on the Docker
-        /// daemon setting on the container instance. For more information, see <a href="https://docs.docker.com/engine/reference/run/#ipc-settings---ipc">IPC
-        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <c>host</c> IPC mode is used, be aware that there is a heightened risk of undesired
-        /// IPC namespace expose. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-        /// security</a>.</para><para>If you are setting namespaced kernel parameters using <c>systemControls</c> for the
+        /// daemon setting on the container instance.</para><para>If the <c>host</c> IPC mode is used, be aware that there is a heightened risk of undesired
+        /// IPC namespace expose.</para><para>If you are setting namespaced kernel parameters using <c>systemControls</c> for the
         /// containers in the task, the following will apply to your IPC resource namespace. For
         /// more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html">System
         /// Controls</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><ul><li><para>For tasks that use the <c>host</c> IPC mode, IPC namespace related <c>systemControls</c>
@@ -239,11 +233,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// or the attached elastic network interface port (for the <c>awsvpc</c> network mode),
         /// so you cannot take advantage of dynamic host port mappings. </para><important><para>When using the <c>host</c> network mode, you should not run containers using the root
         /// user (UID 0). It is considered best practice to use a non-root user.</para></important><para>If the network mode is <c>awsvpc</c>, the task is allocated an elastic network interface,
-        /// and you must specify a <a>NetworkConfiguration</a> value when you create a service
-        /// or run a task with the task definition. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
+        /// and you must specify a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html">NetworkConfiguration</a>
+        /// value when you create a service or run a task with the task definition. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
         /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the network mode is <c>host</c>, you cannot run multiple instantiations of the
-        /// same task on a single container instance when port mappings are used.</para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
-        /// settings</a> in the <i>Docker run reference</i>.</para>
+        /// same task on a single container instance when port mappings are used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -271,11 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// information about other containers running in the same task.</para><para>If <c>host</c> is specified, all containers within the tasks that specified the <c>host</c>
         /// PID mode on the same container instance share the same process namespace with the
         /// host Amazon EC2 instance.</para><para>If <c>task</c> is specified, all containers within the specified task share the same
-        /// process namespace.</para><para>If no value is specified, the default is a private namespace for each container. For
-        /// more information, see <a href="https://docs.docker.com/engine/reference/run/#pid-settings---pid">PID
-        /// settings</a> in the <i>Docker run reference</i>.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
-        /// namespace exposure. For more information, see <a href="https://docs.docker.com/engine/security/security/">Docker
-        /// security</a>.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
+        /// process namespace.</para><para>If no value is specified, the default is a private namespace for each container.</para><para>If the <c>host</c> PID mode is used, there's a heightened risk of undesired process
+        /// namespace exposure.</para><note><para>This parameter is not supported for Windows containers.</para></note><note><para>This parameter is only supported for tasks that are hosted on Fargate if the tasks
         /// are using platform version <c>1.4.0</c> or later (Linux). This isn't supported for
         /// Windows containers on Fargate.</para></note>
         /// </para>

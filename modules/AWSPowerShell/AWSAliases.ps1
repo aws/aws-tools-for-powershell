@@ -8485,6 +8485,9 @@ Set-Alias -Name DOC-DescribePendingMaintenanceActions -Value Get-DOCPendingMaint
 Set-Alias -Name Failover-DOCDBCluster -Value Start-DOCDBClusterFailover
 Set-Alias -Name Failover-DOCDBClusterFailover -Value Start-DOCDBClusterFailover
 Set-Alias -Name DOC-FailoverDBCluster -Value Start-DOCDBClusterFailover
+Set-Alias -Name Failover-DOCGlobalCluster -Value Start-DOCFailoverGlobalCluster
+Set-Alias -Name Failover-DOCFailoverGlobalCluster -Value Start-DOCFailoverGlobalCluster
+Set-Alias -Name DOC-FailoverGlobalCluster -Value Start-DOCFailoverGlobalCluster
 Set-Alias -Name DOC-ListTagsForResource -Value Get-DOCResourceTag
 Set-Alias -Name Modify-DOCDBCluster -Value Edit-DOCDBCluster
 Set-Alias -Name DOC-ModifyDBCluster -Value Edit-DOCDBCluster

@@ -1,4 +1,11 @@
-﻿### 4.1.635 (2024-08-14 20:43Z)
+﻿### 4.1.636 (2024-08-15 21:01Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.866.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DocumentDB (with MongoDB compatibility)
+    * Added cmdlet Start-DOCFailoverGlobalCluster leveraging the FailoverGlobalCluster service API.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Get-S3Bucket: added parameters ContinuationToken and MaxBucket.
+
+### 4.1.635 (2024-08-14 20:43Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.865.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.634 (2024-08-13 20:53Z)

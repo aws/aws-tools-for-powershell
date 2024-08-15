@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// affected. You must wait for them to finish or stop them manually.
     /// </para><para>
     /// A container instance has completed draining when it has no more <c>RUNNING</c> tasks.
-    /// You can verify this using <a>ListTasks</a>.
+    /// You can verify this using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html">ListTasks</a>.
     /// </para><para>
     /// When a container instance has been drained, you can set a container instance to <c>ACTIVE</c>
     /// status and once it has reached that status the Amazon ECS scheduler can begin scheduling

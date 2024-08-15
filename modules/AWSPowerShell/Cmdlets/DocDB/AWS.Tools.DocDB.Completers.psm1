@@ -185,6 +185,7 @@ $DOC_SelectMap = @{
                "Get-DOCOrderableDBInstanceOption",
                "Get-DOCPendingMaintenanceAction",
                "Start-DOCDBClusterFailover",
+               "Start-DOCFailoverGlobalCluster",
                "Get-DOCResourceTag",
                "Edit-DOCDBCluster",
                "Edit-DOCDBClusterParameterGroup",

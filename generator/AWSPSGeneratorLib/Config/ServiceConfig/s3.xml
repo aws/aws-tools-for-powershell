@@ -271,7 +271,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuckets" OutputProperty="Buckets" Verb="Get" Noun="Bucket" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListBuckets" OutputProperty="Buckets" Verb="Get" Noun="Bucket" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

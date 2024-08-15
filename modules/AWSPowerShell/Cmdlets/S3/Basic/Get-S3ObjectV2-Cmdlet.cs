@@ -36,11 +36,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// object keys programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list
     /// of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.
     /// 
-    ///  <note><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
+    ///  <note><ul><li><para><b>General purpose bucket</b> - For general purpose buckets, <c>ListObjectsV2</c>
+    /// doesn't return prefixes that are related only to in-progress multipart uploads.
+    /// </para></li><li><para><b>Directory buckets</b> - For directory buckets, <c>ListObjectsV2</c> response includes
+    /// the prefixes that are related only to in-progress multipart uploads. 
+    /// </para></li><li><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
     /// API operation to the Zonal endpoint. These endpoints support virtual-hosted-style
     /// requests in the format <c>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i></c>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
     /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use this operation, you must have
+    /// </para></li></ul></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use this operation, you must have
     /// READ access to the bucket. You must have permission to perform the <c>s3:ListBucket</c>
     /// action. The bucket owner has this permission by default and can grant this permission
     /// to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions

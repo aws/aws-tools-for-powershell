@@ -339,9 +339,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>An optional tag specified when a task is started. For example, if you automatically
         /// trigger a task to run a batch process job, you could apply a unique identifier for
         /// that job to your task with the <c>startedBy</c> parameter. You can then identify which
-        /// tasks belong to that job by filtering the results of a <a>ListTasks</a> call with
-        /// the <c>startedBy</c> value. Up to 128 letters (uppercase and lowercase), numbers,
-        /// hyphens (-), and underscores (_) are allowed.</para><para>If a task is started by an Amazon ECS service, then the <c>startedBy</c> parameter
+        /// tasks belong to that job by filtering the results of a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListTasks.html">ListTasks</a>
+        /// call with the <c>startedBy</c> value. Up to 128 letters (uppercase and lowercase),
+        /// numbers, hyphens (-), forward slash (/), and underscores (_) are allowed.</para><para>If a task is started by an Amazon ECS service, then the <c>startedBy</c> parameter
         /// contains the deployment ID of the service that starts it.</para>
         /// </para>
         /// </summary>

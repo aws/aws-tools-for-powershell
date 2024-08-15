@@ -50,6 +50,30 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ContinuationToken
+        /// <summary>
+        /// <para>
+        /// <para><c>ContinuationToken</c> is included in the response when there are more buckets that can be listed with pagination. 
+        /// The next <c>ListBuckets</c> request to Amazon S3 can be continued with this <c>ContinuationToken</c>. 
+        /// <c>ContinuationToken</c> is obfuscated and is not a real bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ContinuationToken { get; set; }
+        #endregion
+        
+        #region Parameter MaxBucket
+        /// <summary>
+        /// <para>
+        /// <para>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are
+        /// owned by an Amazon Web Services account, return all the buckets in response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxBuckets")]
+        public System.Int32? MaxBucket { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Buckets'.
@@ -76,6 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Select = CreateSelectDelegate<Amazon.S3.Model.ListBucketsResponse, GetS3BucketCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
+            context.ContinuationToken = this.ContinuationToken;
+            context.MaxBucket = this.MaxBucket;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -92,6 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.S3
             // create request
             var request = new Amazon.S3.Model.ListBucketsRequest();
             
+            if (cmdletContext.ContinuationToken != null)
+            {
+                request.ContinuationToken = cmdletContext.ContinuationToken;
+            }
+            if (cmdletContext.MaxBucket != null)
+            {
+                request.MaxBuckets = cmdletContext.MaxBucket.Value;
+            }
             
             CmdletOutput output;
             
@@ -153,6 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ContinuationToken { get; set; }
+            public System.Int32? MaxBucket { get; set; }
             public System.Func<Amazon.S3.Model.ListBucketsResponse, GetS3BucketCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Buckets;
         }

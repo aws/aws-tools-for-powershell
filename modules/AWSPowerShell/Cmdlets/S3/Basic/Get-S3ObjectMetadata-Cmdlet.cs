@@ -31,22 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// The <c>HEAD</c> operation retrieves metadata from an object without returning the
     /// object itself. This operation is useful if you're interested only in an object's metadata.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
     /// A <c>HEAD</c> request has the same options as a <c>GET</c> operation on an object.
     /// The response is identical to the <c>GET</c> response except that there is no response
     /// body. Because of this, if the <c>HEAD</c> request generates an error, it returns a
     /// generic code, such as <c>400 Bad Request</c>, <c>403 Forbidden</c>, <c>404 Not Found</c>,
     /// <c>405 Method Not Allowed</c>, <c>412 Precondition Failed</c>, or <c>304 Not Modified</c>.
     /// It's not possible to retrieve the exact exception of these error codes.
-    /// </para><para>
+    /// </para></note><para>
     /// Request headers are limited to 8 KB in size. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonRequestHeaders.html">Common
     /// Request Headers</a>.
-    /// </para><note><para><b>Directory buckets</b> - For directory buckets, you must make requests for this
-    /// API operation to the Zonal endpoint. These endpoints support virtual-hosted-style
-    /// requests in the format <c>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i></c>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
-    /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
-    /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use <c>HEAD</c>, you must have the
+    /// </para><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use <c>HEAD</c>, you must have the
     /// <c>s3:GetObject</c> permission. You need the relevant read object (or version) permission
     /// for this operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html">Actions,
     /// resources, and condition keys for Amazon S3</a> in the <i>Amazon S3 User Guide</i>.
@@ -102,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// by directory buckets. You can only specify <c>null</c> to the <c>versionId</c> query
     /// parameter in the request.
     /// </para></li></ul></note></dd><dt>HTTP Host header syntax</dt><dd><para><b>Directory buckets </b> - The HTTP Host header syntax is <c><i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</c>.
-    /// </para></dd></dl><para>
+    /// </para><note><para>
+    /// For directory buckets, you must make requests for this API operation to the Zonal
+    /// endpoint. These endpoints support virtual-hosted-style requests in the format <c>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i></c>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional
+    /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
+    /// </para></note></dd></dl><para>
     /// The following actions are related to <c>HeadObject</c>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAttributes.html">GetObjectAttributes</a></para></li></ul>
     /// </summary>

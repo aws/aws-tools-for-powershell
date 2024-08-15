@@ -139,6 +139,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Restore-DOCDBClusterToPointInTime', 
         'Start-DOCDBCluster', 
         'Start-DOCDBClusterFailover', 
+        'Start-DOCFailoverGlobalCluster', 
         'Stop-DOCDBCluster')
 
     # Variables to export from this module

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// authorization. When a task definition revision is not specified, authorization will
     /// occur using the latest revision of a task definition.
     /// </para></note><para>
-    /// For information about the maximum number of task sets and otther quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon
+    /// For information about the maximum number of task sets and other quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon
     /// ECS service quotas</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     /// </summary>
