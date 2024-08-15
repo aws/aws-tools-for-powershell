@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -25,13 +25,13 @@
     <None Update="XmlTests\Valid\overrides.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-	<None Include="YamlData\*\metadata\*.yaml" >
+	<None Include="YamlData\*\metadata\*.yaml">
 		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
-	<None Include="YamlData\*\snippet_files\*.ps1" >
+	<None Include="YamlData\*\snippet_files\*.ps1">
 		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
-	<None Include="YamlData\*\xml\*.xml" >
+	<None Include="YamlData\*\xml\*.xml">
 		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</None>
   </ItemGroup>

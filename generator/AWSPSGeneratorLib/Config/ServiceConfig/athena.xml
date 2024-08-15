@@ -135,7 +135,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyPaginationCountParameter="ResultSet.Rows.Count">
+        <ServiceOperation MethodName="GetQueryResults" OutputProperty="ResultSet" Verb="Get" Noun="QueryResult" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit" LegacyPaginationCountParameter="ResultSet?.Rows?.Count">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

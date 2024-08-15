@@ -7,7 +7,7 @@ $ErrorActionPreference = "Stop"
 
 $releaseBitPath = "bin/$configuration/netstandard2.0"
 
-$generatorAssemblyPath ="$rootFolder/generator/AWSPSGenerator/bin/$configuration/netcoreapp3.1/AWSPSGenerator.dll"
+$generatorAssemblyPath ="$rootFolder/generator/AWSPSGenerator/bin/$configuration/net8.0/AWSPSGenerator.dll"
 $modularDeploymentFolder = "$rootFolder/Deployment/AWS.Tools"
 $commonModuleFolder = "$rootFolder/modules/ModularAWSPowerShell"
 $installerModuleFolder = "$rootFolder/modules/Installer"

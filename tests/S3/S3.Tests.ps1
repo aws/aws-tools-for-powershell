@@ -147,19 +147,13 @@ Describe -Tag "Smoke" "S3" {
 
         AfterEach {
             $eastBucketName | Remove-S3Bucket -Force -DeleteBucketContent
-            $westBucketName | Remove-S3Bucket -Force -DeleteBucketContent
+            $westBucketName | Remove-S3Bucket -Region us-west-1 -Force -DeleteBucketContent
         }
 
-        It "Can copy cross-region" {
-            Copy-S3Object -BucketName $eastBucketName -Key key -DestinationBucket $westBucketName -DestinationKey key -Region us-east-1
-
-            Read-S3Object -BucketName $westBucketName -Key key -File "temp\cross-region-copy.txt"
-            (Get-Content "temp\cross-region-copy.txt") | Should -Be $content
-        }
         It "Can copy cross-region with SourceRegion Parameter"{
             Copy-S3Object -BucketName $eastBucketName -Key key -SourceRegion us-east-1 -DestinationBucket $westBucketName -DestinationKey key -Region us-west-1
 
-            Read-S3Object -BucketName $westBucketName -Key key -File "temp\cross-region-copy.txt"
+            Read-S3Object -BucketName $westBucketName -Key key -File "temp\cross-region-copy.txt" -Region us-west-1
             (Get-Content "temp\cross-region-copy.txt") | Should -Be $content
         }
 

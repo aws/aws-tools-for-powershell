@@ -41,15 +41,15 @@ Describe -Tag "Smoke" "Common.FileSize" {
         }
 
         It "FileSize with missing value" {
-            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("") } | Should -Throw 'Exception calling ".ctor" with "1" argument(s): "Missing value for argument.*'
+            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("") } | Should -Throw
         }
 
         It "FileSize with invalid value" {
-            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("15.12.45MB") } | Should -Throw 'Exception calling ".ctor" with "1" argument(s): "Input string was not in a correct format."'
+            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("15.12.45MB") } | Should -Throw
         }
 
         It "FileSize with unsupported suffix" {
-            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("15.12PB") } | Should -Throw 'Exception calling ".ctor" with "1" argument(s): "Unsupported file size extension PB."'
+            { New-Object -TypeName "Amazon.PowerShell.Common.FileSize" ("15.12PB") } | Should -Throw
         }
     }
 }

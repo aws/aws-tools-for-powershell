@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.9" />
-    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.2.16" />
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.3" />
   </ItemGroup>
 
 </Project>

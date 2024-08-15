@@ -32,6 +32,7 @@ using Amazon.Runtime;
 using AWSRegion = Amazon.PowerShell.Common.AWSRegion;
 using System.Text;
 using Amazon.Runtime.CredentialManagement;
+using Amazon.Runtime.Internal;
 using Amazon.Util;
 
 namespace Amazon.PowerShell.Cmdlets.S3
@@ -820,7 +821,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ChecksumAlgorithm = cmdletContext.ChecksumAlgorithm;
 
             if (cmdletContext.TagSet != null)
+            {
+                request.TagSet = new List<Tag>();
                 request.TagSet.AddRange(cmdletContext.TagSet);
+            }
 
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 

@@ -86,7 +86,7 @@ namespace AWSPowerShellGenerator.Utils
             var splitVersion = versionNumber.Split('.');
             if (versionNumber != "0.0.0.0" &&
                 (splitVersion.Length < 3 ||
-                 !versionNumber.StartsWith("4.1.") ||
+                 !versionNumber.StartsWith("5.0.") ||
                  versionNumber != string.Join(".", splitVersion.Select(sanitizeInteger))))
             {
                 throw new FileFormatException($"Invalid version number {versionNumber}");

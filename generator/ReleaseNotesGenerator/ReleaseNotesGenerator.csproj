@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>PSReleaseNotesGenerator</RootNamespace>
     <AssemblyName>ReleaseNotesGenerator</AssemblyName>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -41,7 +41,7 @@
       <Version>2.2.5</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
-    <PackageReference Include="Microsoft.PowerShell.SDK" Version="6.2.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.PowerShell.SDK" Version="7.4.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 </Project>

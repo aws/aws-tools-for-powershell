@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 
         private Object ConvertFromDDBAttribute(Amazon.DynamoDBv2.Model.AttributeValue attributeValue)
         {
-            if (attributeValue.SS.Count > 0)
+            if (attributeValue.SS?.Count > 0)
             {
                 return new HashSet<string>(attributeValue.SS.ToList());
             }
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 return attributeValue.S;
             }
-            else if (attributeValue.NS.Count > 0)
+            else if (attributeValue.NS?.Count > 0)
             {
                 switch (NumericType.Name)
                 {
@@ -156,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 return attributeValue.BOOL;
             }
-            else if (attributeValue.BS.Count > 0)
+            else if (attributeValue.BS?.Count > 0)
             {
                 return new HashSet<System.IO.MemoryStream>(attributeValue.BS.ToList());
             }

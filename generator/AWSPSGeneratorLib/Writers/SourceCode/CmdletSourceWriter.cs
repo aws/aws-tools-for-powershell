@@ -1680,9 +1680,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
                         WriteResultOutput(writer, true);
 
-                        // most if not all collections are marshalled as List<T>, so assume we have a Count
-                        // property available (if not, compile will break post-generation and we can investigate)
-                        writer.WriteLine($"int _receivedThisCall = response.{Operation.LegacyPaginationCountParameter ?? (Operation.OutputProperty + ".Count")};");
+                        writer.WriteLine($"int _receivedThisCall = response.{Operation.LegacyPaginationCountParameter ?? (Operation.OutputProperty + "?.Count")} ?? 0;");
 
                         writer.WriteLine();
                         writer.WriteLine($"_nextToken = {responseMemberReferencePath}.{autoIteration.Next};");

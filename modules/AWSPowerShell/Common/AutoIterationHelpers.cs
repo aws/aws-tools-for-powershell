@@ -33,14 +33,7 @@ namespace Amazon.PowerShell.Common
         public static bool HasValue<T>(T token)
         {
             var tokenDictionary = token as IDictionary;
-            if (tokenDictionary != null)
-            {
-                return tokenDictionary.Count > 0;
-            }
-            else
-            {
-                throw new ArgumentException("Unknown iteration key type.");
-            }
+            return tokenDictionary?.Count > 0;
         }
 
         public static bool HasValue(string s)
