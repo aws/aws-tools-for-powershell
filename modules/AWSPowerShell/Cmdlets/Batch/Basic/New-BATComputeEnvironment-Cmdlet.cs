@@ -193,6 +193,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ComputeEnvironmentName { get; set; }
         #endregion
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_DesiredvCpu
         /// <summary>
         /// <para>
@@ -670,6 +680,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 }
             }
             context.ComputeResources_Type = this.ComputeResources_Type;
+            context.Context = this.Context;
             context.EksConfiguration_EksClusterArn = this.EksConfiguration_EksClusterArn;
             context.EksConfiguration_KubernetesNamespace = this.EksConfiguration_KubernetesNamespace;
             context.ServiceRole = this.ServiceRole;
@@ -926,6 +937,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.ComputeResources = null;
             }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
+            }
             
              // populate EksConfiguration
             var requestEksConfigurationIsNull = true;
@@ -1057,6 +1072,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<System.String> ComputeResources_Subnet { get; set; }
             public Dictionary<System.String, System.String> ComputeResources_Tag { get; set; }
             public Amazon.Batch.CRType ComputeResources_Type { get; set; }
+            public System.String Context { get; set; }
             public System.String EksConfiguration_EksClusterArn { get; set; }
             public System.String EksConfiguration_KubernetesNamespace { get; set; }
             public System.String ServiceRole { get; set; }

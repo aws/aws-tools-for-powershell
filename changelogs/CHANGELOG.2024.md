@@ -1,4 +1,10 @@
-﻿### 4.1.636 (2024-08-15 21:01Z)
+﻿### 4.1.637 (2024-08-16 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.867.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Batch
+    * Modified cmdlet New-BATComputeEnvironment: added parameter Context.
+    * Modified cmdlet Update-BATComputeEnvironment: added parameter Context.
+
+### 4.1.636 (2024-08-15 21:01Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.866.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DocumentDB (with MongoDB compatibility)
     * Added cmdlet Start-DOCFailoverGlobalCluster leveraging the FailoverGlobalCluster service API.

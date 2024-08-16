@@ -108,6 +108,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ComputeEnvironment { get; set; }
         #endregion
         
+        #region Parameter Context
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Context { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_DesiredvCpu
         /// <summary>
         /// <para>
@@ -594,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             }
             context.ComputeResources_Type = this.ComputeResources_Type;
             context.ComputeResources_UpdateToLatestImageVersion = this.ComputeResources_UpdateToLatestImageVersion;
+            context.Context = this.Context;
             context.ServiceRole = this.ServiceRole;
             context.State = this.State;
             context.UnmanagedvCpu = this.UnmanagedvCpu;
@@ -833,6 +844,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.ComputeResources = null;
             }
+            if (cmdletContext.Context != null)
+            {
+                request.Context = cmdletContext.Context;
+            }
             if (cmdletContext.ServiceRole != null)
             {
                 request.ServiceRole = cmdletContext.ServiceRole;
@@ -955,6 +970,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public Dictionary<System.String, System.String> ComputeResources_Tag { get; set; }
             public Amazon.Batch.CRType ComputeResources_Type { get; set; }
             public System.Boolean? ComputeResources_UpdateToLatestImageVersion { get; set; }
+            public System.String Context { get; set; }
             public System.String ServiceRole { get; set; }
             public Amazon.Batch.CEState State { get; set; }
             public System.Int32? UnmanagedvCpu { get; set; }

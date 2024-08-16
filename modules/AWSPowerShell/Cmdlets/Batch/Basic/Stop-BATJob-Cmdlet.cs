@@ -28,9 +28,8 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Cancels a job in an Batch job queue. Jobs that are in the <c>SUBMITTED</c> or <c>PENDING</c>
-    /// are canceled. A job in<c>RUNNABLE</c> remains in <c>RUNNABLE</c> until it reaches
-    /// the head of the job queue. Then the job status is updated to <c>FAILED</c>.
+    /// Cancels a job in an Batch job queue. Jobs that are in a <c>SUBMITTED</c>, <c>PENDING</c>,
+    /// or <c>RUNNABLE</c> state are cancelled and the job status is updated to <c>FAILED</c>.
     /// 
     ///  <note><para>
     /// A <c>PENDING</c> job is canceled after all dependency jobs are completed. Therefore,
