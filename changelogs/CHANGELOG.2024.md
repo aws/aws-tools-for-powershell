@@ -1,4 +1,18 @@
-﻿### 4.1.637 (2024-08-16 21:02Z)
+﻿### 4.1.638 (2024-08-19 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.868.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRModelInvocationJob leveraging the GetModelInvocationJob service API.
+    * Added cmdlet Get-BDRModelInvocationJobList leveraging the ListModelInvocationJobs service API.
+    * Added cmdlet New-BDRModelInvocationJob leveraging the CreateModelInvocationJob service API.
+    * Added cmdlet Stop-BDRModelInvocationJob leveraging the StopModelInvocationJob service API.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBFleet: added parameter ImageId.
+    * Modified cmdlet Update-CBFleet: added parameter ImageId.
+  * Amazon Lambda
+    * Added cmdlet Get-LMFunctionRecursionConfig leveraging the GetFunctionRecursionConfig service API.
+    * Added cmdlet Write-LMFunctionRecursionConfig leveraging the PutFunctionRecursionConfig service API.
+
+### 4.1.637 (2024-08-16 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.867.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Batch
     * Modified cmdlet New-BATComputeEnvironment: added parameter Context.

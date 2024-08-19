@@ -128,6 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String FleetServiceRole { get; set; }
         #endregion
         
+        #region Parameter ImageId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Machine Image (AMI) of the compute fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ImageId { get; set; }
+        #endregion
+        
         #region Parameter ScalingConfiguration_MaxCapacity
         /// <summary>
         /// <para>
@@ -293,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ComputeType = this.ComputeType;
             context.EnvironmentType = this.EnvironmentType;
             context.FleetServiceRole = this.FleetServiceRole;
+            context.ImageId = this.ImageId;
             context.OverflowBehavior = this.OverflowBehavior;
             context.ScalingConfiguration_MaxCapacity = this.ScalingConfiguration_MaxCapacity;
             context.ScalingConfiguration_ScalingType = this.ScalingConfiguration_ScalingType;
@@ -348,6 +359,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.FleetServiceRole != null)
             {
                 request.FleetServiceRole = cmdletContext.FleetServiceRole;
+            }
+            if (cmdletContext.ImageId != null)
+            {
+                request.ImageId = cmdletContext.ImageId;
             }
             if (cmdletContext.OverflowBehavior != null)
             {
@@ -501,6 +516,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ComputeType ComputeType { get; set; }
             public Amazon.CodeBuild.EnvironmentType EnvironmentType { get; set; }
             public System.String FleetServiceRole { get; set; }
+            public System.String ImageId { get; set; }
             public Amazon.CodeBuild.FleetOverflowBehavior OverflowBehavior { get; set; }
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public Amazon.CodeBuild.FleetScalingType ScalingConfiguration_ScalingType { get; set; }

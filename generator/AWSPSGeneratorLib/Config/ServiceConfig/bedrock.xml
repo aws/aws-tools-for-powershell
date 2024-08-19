@@ -39,6 +39,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelInvocationJob" OutputProperty="JobArn" Verb="New" Noun="ModelInvocationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateProvisionedModelThroughput" OutputProperty="ProvisionedModelArn" Verb="New" Noun="ProvisionedModelThroughput" ShouldProcessTarget="ModelId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -83,6 +87,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetModelInvocationJob" OutputProperty="*" Verb="Get" Noun="ModelInvocationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetModelInvocationLoggingConfiguration" OutputProperty="LoggingConfig" Verb="Get" Noun="ModelInvocationLoggingConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -115,6 +123,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListModelInvocationJobs" OutputProperty="InvocationJobSummaries" Verb="Get" Noun="ModelInvocationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListProvisionedModelThroughputs" OutputProperty="ProvisionedModelSummaries" Verb="Get" Noun="ProvisionedModelThroughputList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -132,6 +144,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="StopModelCustomizationJob" Verb="Stop" Noun="ModelCustomizationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopModelInvocationJob" Verb="Stop" Noun="ModelInvocationJob" ShouldProcessTarget="JobIdentifier" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -189,6 +189,13 @@ $LM_Completers = {
             break
         }
 
+        # Amazon.Lambda.RecursiveLoop
+        "Write-LMFunctionRecursionConfig/RecursiveLoop"
+        {
+            $v = "Allow","Terminate"
+            break
+        }
+
         # Amazon.Lambda.ResponseStreamingInvocationType
         "Invoke-LMWithResponseStream/InvocationType"
         {
@@ -268,6 +275,7 @@ $LM_map = @{
     "LoggingConfig_SystemLogLevel"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "LogType"=@("Invoke-LMFunction","Invoke-LMWithResponseStream")
     "PackageType"=@("Publish-LMFunction")
+    "RecursiveLoop"=@("Write-LMFunctionRecursionConfig")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "SnapStart_ApplyOn"=@("Publish-LMFunction","Update-LMFunctionConfiguration")
     "StartingPosition"=@("New-LMEventSourceMapping")
@@ -351,6 +359,7 @@ $LM_SelectMap = @{
                "Get-LMFunctionConcurrency",
                "Get-LMFunctionConfiguration",
                "Get-LMFunctionEventInvokeConfig",
+               "Get-LMFunctionRecursionConfig",
                "Get-LMFunctionUrlConfig",
                "Get-LMLayerVersion",
                "Get-LMLayerVersionByArn",
@@ -378,6 +387,7 @@ $LM_SelectMap = @{
                "Write-LMFunctionCodeSigningConfig",
                "Write-LMFunctionConcurrency",
                "Write-LMFunctionEventInvokeConfig",
+               "Write-LMFunctionRecursionConfig",
                "Write-LMProvisionedConcurrencyConfig",
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",

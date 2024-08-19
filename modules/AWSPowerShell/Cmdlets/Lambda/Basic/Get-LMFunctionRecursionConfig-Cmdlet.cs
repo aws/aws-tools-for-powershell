@@ -22,54 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Deadline;
-using Amazon.Deadline.Model;
+using Amazon.Lambda;
+using Amazon.Lambda.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ADC
+namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Updates a farm.
+    /// Returns your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html">recursive
+    /// loop detection</a> configuration.
     /// </summary>
-    [Cmdlet("Update", "ADCFarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWSDeadlineCloud UpdateFarm API operation.", Operation = new[] {"UpdateFarm"}, SelectReturnType = typeof(Amazon.Deadline.Model.UpdateFarmResponse))]
-    [AWSCmdletOutput("None or Amazon.Deadline.Model.UpdateFarmResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.UpdateFarmResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "LMFunctionRecursionConfig")]
+    [OutputType("Amazon.Lambda.RecursiveLoop")]
+    [AWSCmdlet("Calls the AWS Lambda GetFunctionRecursionConfig API operation.", Operation = new[] {"GetFunctionRecursionConfig"}, SelectReturnType = typeof(Amazon.Lambda.Model.GetFunctionRecursionConfigResponse))]
+    [AWSCmdletOutput("Amazon.Lambda.RecursiveLoop or Amazon.Lambda.Model.GetFunctionRecursionConfigResponse",
+        "This cmdlet returns an Amazon.Lambda.RecursiveLoop object.",
+        "The service call response (type Amazon.Lambda.Model.GetFunctionRecursionConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateADCFarmCmdlet : AmazonDeadlineClientCmdlet, IExecutor
+    public partial class GetLMFunctionRecursionConfigCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Description
+        #region Parameter FunctionName
         /// <summary>
         /// <para>
-        /// <para>The description of the farm to update.</para><important><para>This field can store any content. Escape or encode this content before displaying
-        /// it on a webpage or any other system that might interpret the content of this field.</para></important>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter DisplayName
-        /// <summary>
-        /// <para>
-        /// <para>The display name of the farm to update.</para><important><para>This field can store any content. Escape or encode this content before displaying
-        /// it on a webpage or any other system that might interpret the content of this field.</para></important>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DisplayName { get; set; }
-        #endregion
-        
-        #region Parameter FarmId
-        /// <summary>
-        /// <para>
-        /// <para>The farm ID to update.</para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,49 +57,34 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FarmId { get; set; }
+        public System.String FunctionName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Deadline.Model.UpdateFarmResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'RecursiveLoop'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.GetFunctionRecursionConfigResponse).
+        /// Specifying the name of a property of type Amazon.Lambda.Model.GetFunctionRecursionConfigResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "RecursiveLoop";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FarmId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FarmId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the FunctionName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^FunctionName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FarmId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FunctionName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.FarmId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-ADCFarm (UpdateFarm)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -132,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Deadline.Model.UpdateFarmResponse, UpdateADCFarmCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.GetFunctionRecursionConfigResponse, GetLMFunctionRecursionConfigCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -141,16 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FarmId;
+                context.Select = (response, cmdlet) => this.FunctionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Description = this.Description;
-            context.DisplayName = this.DisplayName;
-            context.FarmId = this.FarmId;
+            context.FunctionName = this.FunctionName;
             #if MODULAR
-            if (this.FarmId == null && ParameterWasBound(nameof(this.FarmId)))
+            if (this.FunctionName == null && ParameterWasBound(nameof(this.FunctionName)))
             {
-                WriteWarning("You are passing $null as a value for parameter FarmId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter FunctionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -167,19 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Deadline.Model.UpdateFarmRequest();
+            var request = new Amazon.Lambda.Model.GetFunctionRecursionConfigRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.FunctionName != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.DisplayName != null)
-            {
-                request.DisplayName = cmdletContext.DisplayName;
-            }
-            if (cmdletContext.FarmId != null)
-            {
-                request.FarmId = cmdletContext.FarmId;
+                request.FunctionName = cmdletContext.FunctionName;
             }
             
             CmdletOutput output;
@@ -214,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         #region AWS Service Operation Call
         
-        private Amazon.Deadline.Model.UpdateFarmResponse CallAWSServiceOperation(IAmazonDeadline client, Amazon.Deadline.Model.UpdateFarmRequest request)
+        private Amazon.Lambda.Model.GetFunctionRecursionConfigResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetFunctionRecursionConfigRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "UpdateFarm");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetFunctionRecursionConfig");
             try
             {
                 #if DESKTOP
-                return client.UpdateFarm(request);
+                return client.GetFunctionRecursionConfig(request);
                 #elif CORECLR
-                return client.UpdateFarmAsync(request).GetAwaiter().GetResult();
+                return client.GetFunctionRecursionConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,11 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String DisplayName { get; set; }
-            public System.String FarmId { get; set; }
-            public System.Func<Amazon.Deadline.Model.UpdateFarmResponse, UpdateADCFarmCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String FunctionName { get; set; }
+            public System.Func<Amazon.Lambda.Model.GetFunctionRecursionConfigResponse, GetLMFunctionRecursionConfigCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.RecursiveLoop;
         }
         
     }

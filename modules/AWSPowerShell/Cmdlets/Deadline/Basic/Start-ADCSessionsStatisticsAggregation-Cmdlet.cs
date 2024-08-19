@@ -30,7 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
     /// <summary>
     /// Starts an asynchronous request for getting aggregated statistics about queues and
     /// farms. Get the statistics using the <c>GetSessionsStatisticsAggregation</c> operation.
-    /// Statistics are available for 1 hour after you call the <c>StartSessionsStatisticsAggregation</c>
+    /// You can only have one running aggregation for your Deadline Cloud farm. Call the <c>GetSessionsStatisticsAggregation</c>
+    /// operation and check the <c>status</c> field to see if an aggregation is running. Statistics
+    /// are available for 1 hour after you call the <c>StartSessionsStatisticsAggregation</c>
     /// operation.
     /// </summary>
     [Cmdlet("Start", "ADCSessionsStatisticsAggregation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

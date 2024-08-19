@@ -426,9 +426,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Runtime
         /// <summary>
         /// <para>
-        /// <para>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.
-        /// Runtime is required if the deployment package is a .zip file archive.</para><para>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime
-        /// deprecation policy</a>.</para>
+        /// <para>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">
+        /// runtime</a>. Runtime is required if the deployment package is a .zip file archive.
+        /// Specifying a runtime results in an error if you're deploying a function using a container
+        /// image.</para><para>The following list includes deprecated runtimes. Lambda blocks creating new functions
+        /// and updating existing functions shortly after each runtime is deprecated. For more
+        /// information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime
+        /// use after deprecation</a>.</para><para>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported
+        /// runtimes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]

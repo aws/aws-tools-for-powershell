@@ -62,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
-        /// <para>The principal ID. This filter is only valid when using Nimble Studio credentials and
-        /// should match the user ID in the credentials of the caller.</para>
+        /// <para>The principal IDs to include in the list of queues.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

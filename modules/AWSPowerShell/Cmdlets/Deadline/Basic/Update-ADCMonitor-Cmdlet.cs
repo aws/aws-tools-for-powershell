@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The new value to use for the monitor's display name.</para>
+        /// <para>The new value to use for the monitor's display name.</para><important><para>This field can store any content. Escape or encode this content before displaying
+        /// it on a webpage or any other system that might interpret the content of this field.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

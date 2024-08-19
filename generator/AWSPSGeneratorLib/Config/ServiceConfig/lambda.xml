@@ -135,6 +135,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Get" Noun="FunctionRecursionConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetFunctionUrlConfig" OutputProperty="*" Verb="Get" Noun="FunctionUrlConfig" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -246,6 +250,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutFunctionEventInvokeConfig" OutputProperty="*" Verb="Write" Noun="FunctionEventInvokeConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutFunctionRecursionConfig" OutputProperty="RecursiveLoop" Verb="Write" Noun="FunctionRecursionConfig" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

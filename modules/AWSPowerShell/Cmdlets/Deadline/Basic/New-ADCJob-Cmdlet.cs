@@ -28,8 +28,9 @@ using Amazon.Deadline.Model;
 namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
-    /// Creates a job. A job is a render submission submitted by a user. It contains specific
-    /// job properties outlined as steps and tasks.
+    /// Creates a job. A job is a set of instructions that AWS Deadline Cloud uses to schedule
+    /// and run work on available workers. For more information, see <a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html">Deadline
+    /// Cloud jobs</a>.
     /// </summary>
     [Cmdlet("New", "ADCJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -97,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter MaxRetriesPerTask
         /// <summary>
         /// <para>
-        /// <para>The maximum number of retries for a job.</para>
+        /// <para>The maximum number of retries for each task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,7 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The priority of the job on a scale of 1 to 100. The highest priority is 1.</para>
+        /// <para>The priority of the job on a scale of 0 to 100. The highest priority (first scheduled)
+        /// is 100. When two jobs have the same priority, the oldest job is scheduled first.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -161,8 +163,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter TargetTaskRunStatus
         /// <summary>
         /// <para>
-        /// <para>The initial status of the job's tasks when they are created. Tasks that are created
-        /// with a <c>SUSPENDED</c> status will not run until you update their status.</para>
+        /// <para>The initial job status when it is created. Jobs that are created with a <c>SUSPENDED</c>
+        /// status will not run until manually requeued.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

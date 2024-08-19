@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the queue.</para>
+        /// <para>The description of the queue.</para><important><para>This field can store any content. Escape or encode this content before displaying
+        /// it on a webpage or any other system that might interpret the content of this field.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,7 +81,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The display name of the queue.</para>
+        /// <para>The display name of the queue.</para><important><para>This field can store any content. Escape or encode this content before displaying
+        /// it on a webpage or any other system that might interpret the content of this field.</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

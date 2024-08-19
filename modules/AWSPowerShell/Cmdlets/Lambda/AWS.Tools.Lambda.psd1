@@ -103,6 +103,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-LMFunctionEventInvokeConfig', 
         'Get-LMFunctionEventInvokeConfigList', 
         'Get-LMFunctionList', 
+        'Get-LMFunctionRecursionConfig', 
         'Get-LMFunctionsByCodeSigningConfigList', 
         'Get-LMFunctionUrlConfig', 
         'Get-LMFunctionUrlConfigList', 
@@ -150,6 +151,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Write-LMFunctionCodeSigningConfig', 
         'Write-LMFunctionConcurrency', 
         'Write-LMFunctionEventInvokeConfig', 
+        'Write-LMFunctionRecursionConfig', 
         'Write-LMProvisionedConcurrencyConfig', 
         'Write-LMRuntimeManagementConfig')
 

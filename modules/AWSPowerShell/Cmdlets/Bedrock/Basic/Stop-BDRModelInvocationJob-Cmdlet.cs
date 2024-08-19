@@ -22,73 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Deadline;
-using Amazon.Deadline.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ADC
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Deletes a queue.
-    /// 
-    ///  <important><para>
-    /// You can't recover the jobs in a queue if you delete the queue. Deleting the queue
-    /// also deletes the jobs in that queue.
-    /// </para></important>
+    /// Stops a batch inference job. You're only charged for tokens that were already processed.
+    /// For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-manage.html#batch-inference-stop">Stop
+    /// a batch inference job</a>.
     /// </summary>
-    [Cmdlet("Remove", "ADCQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Stop", "BDRModelInvocationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWSDeadlineCloud DeleteQueue API operation.", Operation = new[] {"DeleteQueue"}, SelectReturnType = typeof(Amazon.Deadline.Model.DeleteQueueResponse))]
-    [AWSCmdletOutput("None or Amazon.Deadline.Model.DeleteQueueResponse",
+    [AWSCmdlet("Calls the Amazon Bedrock StopModelInvocationJob API operation.", Operation = new[] {"StopModelInvocationJob"}, SelectReturnType = typeof(Amazon.Bedrock.Model.StopModelInvocationJobResponse))]
+    [AWSCmdletOutput("None or Amazon.Bedrock.Model.StopModelInvocationJobResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Deadline.Model.DeleteQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.Bedrock.Model.StopModelInvocationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveADCQueueCmdlet : AmazonDeadlineClientCmdlet, IExecutor
+    public partial class StopBDRModelInvocationJobCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FarmId
+        #region Parameter JobIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the farm from which to remove the queue.</para>
+        /// <para>The Amazon Resource Name (ARN) of the batch inference job to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FarmId { get; set; }
-        #endregion
-        
-        #region Parameter QueueId
-        /// <summary>
-        /// <para>
-        /// <para>The queue ID of the queue to delete.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String QueueId { get; set; }
+        public System.String JobIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Deadline.Model.DeleteQueueResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.StopModelInvocationJobResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the JobIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^JobIdentifier' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^JobIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -106,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ADCQueue (DeleteQueue)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.JobIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-BDRModelInvocationJob (StopModelInvocationJob)"))
             {
                 return;
             }
@@ -117,23 +107,26 @@ namespace Amazon.PowerShell.Cmdlets.ADC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Deadline.Model.DeleteQueueResponse, RemoveADCQueueCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.StopModelInvocationJobResponse, StopBDRModelInvocationJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.FarmId = this.FarmId;
-            #if MODULAR
-            if (this.FarmId == null && ParameterWasBound(nameof(this.FarmId)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter FarmId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.JobIdentifier;
             }
-            #endif
-            context.QueueId = this.QueueId;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.JobIdentifier = this.JobIdentifier;
             #if MODULAR
-            if (this.QueueId == null && ParameterWasBound(nameof(this.QueueId)))
+            if (this.JobIdentifier == null && ParameterWasBound(nameof(this.JobIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter QueueId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter JobIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,15 +143,11 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Deadline.Model.DeleteQueueRequest();
+            var request = new Amazon.Bedrock.Model.StopModelInvocationJobRequest();
             
-            if (cmdletContext.FarmId != null)
+            if (cmdletContext.JobIdentifier != null)
             {
-                request.FarmId = cmdletContext.FarmId;
-            }
-            if (cmdletContext.QueueId != null)
-            {
-                request.QueueId = cmdletContext.QueueId;
+                request.JobIdentifier = cmdletContext.JobIdentifier;
             }
             
             CmdletOutput output;
@@ -193,15 +182,15 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         #region AWS Service Operation Call
         
-        private Amazon.Deadline.Model.DeleteQueueResponse CallAWSServiceOperation(IAmazonDeadline client, Amazon.Deadline.Model.DeleteQueueRequest request)
+        private Amazon.Bedrock.Model.StopModelInvocationJobResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.StopModelInvocationJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWSDeadlineCloud", "DeleteQueue");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "StopModelInvocationJob");
             try
             {
                 #if DESKTOP
-                return client.DeleteQueue(request);
+                return client.StopModelInvocationJob(request);
                 #elif CORECLR
-                return client.DeleteQueueAsync(request).GetAwaiter().GetResult();
+                return client.StopModelInvocationJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -221,9 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FarmId { get; set; }
-            public System.String QueueId { get; set; }
-            public System.Func<Amazon.Deadline.Model.DeleteQueueResponse, RemoveADCQueueCmdlet, object> Select { get; set; } =
+            public System.String JobIdentifier { get; set; }
+            public System.Func<Amazon.Bedrock.Model.StopModelInvocationJobResponse, StopBDRModelInvocationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

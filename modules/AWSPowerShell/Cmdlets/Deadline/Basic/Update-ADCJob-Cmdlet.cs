@@ -28,7 +28,16 @@ using Amazon.Deadline.Model;
 namespace Amazon.PowerShell.Cmdlets.ADC
 {
     /// <summary>
-    /// Updates a job.
+    /// Updates a job. 
+    /// 
+    ///  
+    /// <para>
+    /// When you change the status of the job to <c>ARCHIVED</c>, the job can't be scheduled
+    /// or archived.
+    /// </para><important><para>
+    /// An archived jobs and its steps and tasks are deleted after 120 days. The job can't
+    /// be recovered.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Update", "ADCJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -79,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.ADC
         #region Parameter LifecycleStatus
         /// <summary>
         /// <para>
-        /// <para>The status of a job in its lifecycle.</para>
+        /// <para>The status of a job in its lifecycle. When you change the status of the job to <c>ARCHIVED</c>,
+        /// the job can't be scheduled or archived.</para><important><para>An archived jobs and its steps and tasks are deleted after 120 days. The job can't
+        /// be recovered.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

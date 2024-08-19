@@ -2311,6 +2311,8 @@ Set-Alias -Name Create-BDRModelCopyJob -Value New-BDRModelCopyJob
 Set-Alias -Name BDR-CreateModelCopyJob -Value New-BDRModelCopyJob
 Set-Alias -Name Create-BDRModelCustomizationJob -Value New-BDRModelCustomizationJob
 Set-Alias -Name BDR-CreateModelCustomizationJob -Value New-BDRModelCustomizationJob
+Set-Alias -Name Create-BDRModelInvocationJob -Value New-BDRModelInvocationJob
+Set-Alias -Name BDR-CreateModelInvocationJob -Value New-BDRModelInvocationJob
 Set-Alias -Name Create-BDRProvisionedModelThroughput -Value New-BDRProvisionedModelThroughput
 Set-Alias -Name BDR-CreateProvisionedModelThroughput -Value New-BDRProvisionedModelThroughput
 Set-Alias -Name Delete-BDRCustomModel -Value Remove-BDRCustomModel
@@ -2327,6 +2329,7 @@ Set-Alias -Name BDR-GetFoundationModel -Value Get-BDRFoundationModel
 Set-Alias -Name BDR-GetGuardrail -Value Get-BDRGuardrail
 Set-Alias -Name BDR-GetModelCopyJob -Value Get-BDRModelCopyJob
 Set-Alias -Name BDR-GetModelCustomizationJob -Value Get-BDRModelCustomizationJob
+Set-Alias -Name BDR-GetModelInvocationJob -Value Get-BDRModelInvocationJob
 Set-Alias -Name BDR-GetModelInvocationLoggingConfiguration -Value Get-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-GetProvisionedModelThroughput -Value Get-BDRProvisionedModelThroughput
 Set-Alias -Name List-BDRCustomModels -Value Get-BDRCustomModelList
@@ -2347,6 +2350,9 @@ Set-Alias -Name BDR-ListModelCopyJobs -Value Get-BDRModelCopyJobList
 Set-Alias -Name List-BDRModelCustomizationJobs -Value Get-BDRModelCustomizationJobList
 Set-Alias -Name List-BDRModelCustomizationJobList -Value Get-BDRModelCustomizationJobList
 Set-Alias -Name BDR-ListModelCustomizationJobs -Value Get-BDRModelCustomizationJobList
+Set-Alias -Name List-BDRModelInvocationJobs -Value Get-BDRModelInvocationJobList
+Set-Alias -Name List-BDRModelInvocationJobList -Value Get-BDRModelInvocationJobList
+Set-Alias -Name BDR-ListModelInvocationJobs -Value Get-BDRModelInvocationJobList
 Set-Alias -Name List-BDRProvisionedModelThroughputs -Value Get-BDRProvisionedModelThroughputList
 Set-Alias -Name List-BDRProvisionedModelThroughputList -Value Get-BDRProvisionedModelThroughputList
 Set-Alias -Name BDR-ListProvisionedModelThroughputs -Value Get-BDRProvisionedModelThroughputList
@@ -2355,6 +2361,7 @@ Set-Alias -Name Put-BDRModelInvocationLoggingConfiguration -Value Write-BDRModel
 Set-Alias -Name BDR-PutModelInvocationLoggingConfiguration -Value Write-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-StopEvaluationJob -Value Stop-BDREvaluationJob
 Set-Alias -Name BDR-StopModelCustomizationJob -Value Stop-BDRModelCustomizationJob
+Set-Alias -Name BDR-StopModelInvocationJob -Value Stop-BDRModelInvocationJob
 Set-Alias -Name BDR-TagResource -Value Add-BDRResourceTag
 Set-Alias -Name BDR-UntagResource -Value Remove-BDRResourceTag
 Set-Alias -Name BDR-UpdateGuardrail -Value Update-BDRGuardrail
@@ -16808,6 +16815,7 @@ Set-Alias -Name LM-GetFunctionCodeSigningConfig -Value Get-LMFunctionCodeSigning
 Set-Alias -Name LM-GetFunctionConcurrency -Value Get-LMFunctionConcurrency
 Set-Alias -Name LM-GetFunctionConfiguration -Value Get-LMFunctionConfiguration
 Set-Alias -Name LM-GetFunctionEventInvokeConfig -Value Get-LMFunctionEventInvokeConfig
+Set-Alias -Name LM-GetFunctionRecursionConfig -Value Get-LMFunctionRecursionConfig
 Set-Alias -Name LM-GetFunctionUrlConfig -Value Get-LMFunctionUrlConfig
 Set-Alias -Name LM-GetLayerVersion -Value Get-LMLayerVersion
 Set-Alias -Name LM-GetLayerVersionByArn -Value Get-LMLayerVersionByArn
@@ -16862,6 +16870,8 @@ Set-Alias -Name Put-LMFunctionConcurrency -Value Write-LMFunctionConcurrency
 Set-Alias -Name LM-PutFunctionConcurrency -Value Write-LMFunctionConcurrency
 Set-Alias -Name Put-LMFunctionEventInvokeConfig -Value Write-LMFunctionEventInvokeConfig
 Set-Alias -Name LM-PutFunctionEventInvokeConfig -Value Write-LMFunctionEventInvokeConfig
+Set-Alias -Name Put-LMFunctionRecursionConfig -Value Write-LMFunctionRecursionConfig
+Set-Alias -Name LM-PutFunctionRecursionConfig -Value Write-LMFunctionRecursionConfig
 Set-Alias -Name Put-LMProvisionedConcurrencyConfig -Value Write-LMProvisionedConcurrencyConfig
 Set-Alias -Name LM-PutProvisionedConcurrencyConfig -Value Write-LMProvisionedConcurrencyConfig
 Set-Alias -Name Put-LMRuntimeManagementConfig -Value Write-LMRuntimeManagementConfig

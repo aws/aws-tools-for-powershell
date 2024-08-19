@@ -61,8 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter CompatibleRuntime
         /// <summary>
         /// <para>
-        /// <para>A runtime identifier. For example, <c>java21</c>.</para><para>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime
-        /// deprecation policy</a>.</para>
+        /// <para>A runtime identifier.</para><para>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime
+        /// use after deprecation</a>.</para><para>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported
+        /// runtimes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
