@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// 
     ///  
     /// <para>
-    /// When <a>StopTask</a> is called on a task, the equivalent of <c>docker stop</c> is
-    /// issued to the containers running in the task. This results in a <c>SIGTERM</c> value
-    /// and a default 30-second timeout, after which the <c>SIGKILL</c> value is sent and
-    /// the containers are forcibly stopped. If the container handles the <c>SIGTERM</c> value
+    /// When you call <c>StopTask</c> on a task, the equivalent of <c>docker stop</c> is issued
+    /// to the containers running in the task. This results in a <c>SIGTERM</c> value and
+    /// a default 30-second timeout, after which the <c>SIGKILL</c> value is sent and the
+    /// containers are forcibly stopped. If the container handles the <c>SIGTERM</c> value
     /// gracefully and exits within 30 seconds from receiving it, no <c>SIGKILL</c> value
     /// is sent.
     /// </para><para>
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>An optional message specified when a task is stopped. For example, if you're using
         /// a custom scheduler, you can use this parameter to specify the reason for stopping
-        /// the task here, and the message appears in subsequent <a>DescribeTasks</a> API operations
-        /// on this task.</para>
+        /// the task here, and the message appears in subsequent <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html">DescribeTasks</a>&gt;
+        /// API operations on this task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

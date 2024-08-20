@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// <summary>
     /// <note><para>
     /// This operation is not supported by directory buckets.
-    /// </para></note><para>
+    /// </para></note><important><para>
+    /// The <c>SELECT</c> job type for the RestoreObject operation is no longer available
+    /// to new customers. Existing customers of Amazon S3 Select can continue to use the feature
+    /// as usual. <a href="http://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/">Learn
+    /// more</a></para></important><para>
     /// Restores an archived copy of an object back into Amazon S3
     /// </para><para>
     /// This functionality is not supported for Amazon S3 on Outposts.

@@ -30,14 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Creates a new Amazon ECS cluster. By default, your account receives a <c>default</c>
     /// cluster when you launch your first container instance. However, you can create your
-    /// own cluster with a unique name with the <c>CreateCluster</c> action.
+    /// own cluster with a unique name.
     /// 
     ///  <note><para>
-    /// When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to create
-    /// the Amazon ECS service-linked role for your account. This is so that it can manage
-    /// required resources in other Amazon Web Services services on your behalf. However,
-    /// if the user that makes the call doesn't have permissions to create the service-linked
-    /// role, it isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+    /// When you call the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html">CreateCluster</a>
+    /// API operation, Amazon ECS attempts to create the Amazon ECS service-linked role for
+    /// your account. This is so that it can manage required resources in other Amazon Web
+    /// Services services on your behalf. However, if the user that makes the call doesn't
+    /// have permissions to create the service-linked role, it isn't created. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
     /// service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
     /// Developer Guide</i>.
     /// </para></note>
@@ -120,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">RunTask</a>
         /// APIs with no capacity provider strategy or launch type specified, the default capacity
         /// provider strategy for the cluster is used.</para><para>If a default capacity provider strategy isn't defined for a cluster when it was created,
-        /// it can be defined later with the <a>PutClusterCapacityProviders</a> API operation.</para>
+        /// it can be defined later with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
+        /// API operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -239,7 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The setting to use when creating a cluster. This parameter is used to turn on CloudWatch
         /// Container Insights for a cluster. If this value is specified, it overrides the <c>containerInsights</c>
-        /// value set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</para>
+        /// value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a>
+        /// or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -71,16 +71,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The capacity provider strategy to use for the task set.</para><para>A capacity provider strategy consists of one or more capacity providers along with
         /// the <c>base</c> and <c>weight</c> to assign to them. A capacity provider must be associated
-        /// with the cluster to be used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a>
+        /// with the cluster to be used in a capacity provider strategy. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
         /// API is used to associate a capacity provider with a cluster. Only capacity providers
         /// with an <c>ACTIVE</c> or <c>UPDATING</c> status can be used.</para><para>If a <c>capacityProviderStrategy</c> is specified, the <c>launchType</c> parameter
         /// must be omitted. If no <c>capacityProviderStrategy</c> or <c>launchType</c> is specified,
         /// the <c>defaultCapacityProviderStrategy</c> for the cluster is used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
-        /// API operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
+        /// must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProviderProvider.html">CreateCapacityProviderProvider</a>API
+        /// operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
         /// capacity providers. The Fargate capacity providers are available to all accounts and
-        /// only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
-        /// available capacity providers for a cluster after the cluster is created.</para>
+        /// only need to be associated with a cluster to be used.</para><para>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
+        /// API operation is used to update the list of available capacity providers for a cluster
+        /// after the cluster is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -204,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -1,4 +1,10 @@
-﻿### 4.1.638 (2024-08-19 21:00Z)
+﻿### 4.1.639 (2024-08-20 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.869.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Copy-S3Object: added parameter IfNoneMatch.
+    * Modified cmdlet Write-S3Object: added parameter IfNoneMatch.
+
+### 4.1.638 (2024-08-19 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.868.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRModelInvocationJob leveraging the GetModelInvocationJob service API.

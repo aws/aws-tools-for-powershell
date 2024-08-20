@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Service tasks on the container instance that are in the <c>RUNNING</c> state are stopped
     /// and replaced according to the service's deployment configuration parameters, <c>minimumHealthyPercent</c>
     /// and <c>maximumPercent</c>. You can change the deployment configuration of your service
-    /// using <a>UpdateService</a>.
+    /// using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.
     /// </para><ul><li><para>
     /// If <c>minimumHealthyPercent</c> is below 100%, the scheduler can ignore <c>desiredCount</c>
     /// temporarily during task replacement. For example, <c>desiredCount</c> is four tasks,

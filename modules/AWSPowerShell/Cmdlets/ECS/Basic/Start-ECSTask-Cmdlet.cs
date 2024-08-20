@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// during the past 30-day period are considered current customers and will be able to
     /// continue using the service. 
     /// </para><para>
-    /// Alternatively, you can use <a>RunTask</a> to place tasks for you. For more information,
+    /// Alternatively, you can use<c>RunTask</c> to place tasks for you. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
     /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// strategy for the cluster. If the specified cluster has existing capacity providers
     /// associated with it, you must specify all existing capacity providers in addition to
     /// any new ones you want to add. Any existing capacity providers that are associated
-    /// with a cluster that are omitted from a <a>PutClusterCapacityProviders</a> API call
-    /// will be disassociated with the cluster. You can only disassociate an existing capacity
-    /// provider from a cluster if it's not being used by any existing tasks.
+    /// with a cluster that are omitted from a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
+    /// API call will be disassociated with the cluster. You can only disassociate an existing
+    /// capacity provider from a cluster if it's not being used by any existing tasks.
     /// </para><para>
     /// When creating a service or running a task on a cluster, if no capacity provider or
     /// launch type is specified, then the cluster's default capacity provider strategy is
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The name of one or more capacity providers to associate with the cluster.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
+        /// must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a>
         /// API operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
         /// capacity providers. The Fargate capacity providers are available to all accounts and
         /// only need to be associated with a cluster to be used.</para>
@@ -107,10 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// launch type is specified then the default capacity provider strategy for the cluster
         /// is used.</para><para>A capacity provider strategy consists of one or more capacity providers along with
         /// the <c>base</c> and <c>weight</c> to assign to them. A capacity provider must be associated
-        /// with the cluster to be used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a>
+        /// with the cluster to be used in a capacity provider strategy. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
         /// API is used to associate a capacity provider with a cluster. Only capacity providers
         /// with an <c>ACTIVE</c> or <c>UPDATING</c> status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
+        /// must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCapacityProvider.html">CreateCapacityProvider</a>
         /// API operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
         /// capacity providers. The Fargate capacity providers are available to all accounts and
         /// only need to be associated with a cluster to be used.</para>

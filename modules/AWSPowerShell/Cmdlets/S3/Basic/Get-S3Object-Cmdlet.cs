@@ -87,12 +87,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter Encoding
         /// <summary>
         /// <para>
-        /// Requests Amazon S3 to encode the object keys in the response and specifies
-        /// the encoding method to use. An object key may contain any Unicode character;
-        /// however, XML 1.0 parser cannot parse some characters, such as characters
-        /// with an ASCII value from 0 to 10. For characters that are not supported in
-        /// XML 1.0, you can add this parameter to request that Amazon S3 encode the
-        /// keys in the response.
+        /// <para>Encoding type used by Amazon S3 to encode the 
+        /// <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> 
+        /// in the response. Responses are encoded only in UTF-8. An object key can contain any Unicode 
+        /// character. However, the XML 1.0 parser can't parse certain characters, such as characters with an 
+        /// ASCII value from 0 to 10. For characters that aren't supported in XML 1.0, you can add this parameter 
+        /// to request that Amazon S3 encode the keys in the response. For more information about characters to avoid 
+        /// in object key names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-guidelines">Object key naming guidelines</a>.</para><note><para>When using the URL encoding type, non-ASCII characters that are used in an object's 
+        /// key name will be percent-encoded according to UTF-8 code values. For example, the object 
+        /// <code>test_file(3).png</code> will appear as <code>test_file%283%29.png</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

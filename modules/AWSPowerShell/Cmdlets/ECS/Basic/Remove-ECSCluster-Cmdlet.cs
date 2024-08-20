@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  
     /// <para>
     /// You must deregister all container instances from this cluster before you may delete
-    /// it. You can list the container instances in a cluster with <a>ListContainerInstances</a>
-    /// and deregister them with <a>DeregisterContainerInstance</a>.
+    /// it. You can list the container instances in a cluster with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html">ListContainerInstances</a>
+    /// and deregister them with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html">DeregisterContainerInstance</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ECSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><para>
     /// You can specify a Docker networking mode for the containers in your task definition
     /// with the <c>networkMode</c> parameter. If you specify the <c>awsvpc</c> network mode,
-    /// the task is allocated an elastic network interface, and you must specify a <a>NetworkConfiguration</a>
+    /// the task is allocated an elastic network interface, and you must specify a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_NetworkConfiguration.html">NetworkConfiguration</a>
     /// when you create a service or run a task with the task definition. For more information,
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
     /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.

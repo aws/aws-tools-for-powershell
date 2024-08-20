@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
     /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
-    /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
+    /// Alternatively, you can use <c>StartTask</c> to use your own scheduler or place tasks
     /// manually on specific container instances.
     /// </para><para>
     /// Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>Specifies whether to propagate the tags from the task definition to the task. If no
         /// value is specified, the tags aren't propagated. Tags can only be propagated to the
-        /// task during task creation. To add tags to a task after task creation, use the <a>TagResource</a>
+        /// task during task creation. To add tags to a task after task creation, use the<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_TagResource.html">TagResource</a>
         /// API action.</para><note><para>An error will be received if you specify the <c>SERVICE</c> option when running a
         /// task.</para></note>
         /// </para>
@@ -313,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -353,7 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

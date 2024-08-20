@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// count, task placement constraints and strategies, health check grace period, enable
     /// ECS managed tags option, and propagate tags option, using this API. If the launch
     /// type, load balancer, network configuration, platform version, or task definition need
-    /// to be updated, create a new task set For more information, see <a>CreateTaskSet</a>.
+    /// to be updated, create a new task set For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>.
     /// </para><para>
     /// You can add to or subtract from the number of instantiations of a task definition
     /// in a service by specifying the cluster that the service is running in and a new <c>desiredCount</c>
@@ -103,11 +103,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// before stopping the four older tasks (provided that the cluster resources required
     /// to do this are available).
     /// </para></li></ul><para>
-    /// When <a>UpdateService</a> stops a task during a deployment, the equivalent of <c>docker
-    /// stop</c> is issued to the containers running in the task. This results in a <c>SIGTERM</c>
-    /// and a 30-second timeout. After this, <c>SIGKILL</c> is sent and the containers are
-    /// forcibly stopped. If the container handles the <c>SIGTERM</c> gracefully and exits
-    /// within 30 seconds from receiving it, no <c>SIGKILL</c> is sent.
+    /// When <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>
+    /// stops a task during a deployment, the equivalent of <c>docker stop</c> is issued to
+    /// the containers running in the task. This results in a <c>SIGTERM</c> and a 30-second
+    /// timeout. After this, <c>SIGKILL</c> is sent and the containers are forcibly stopped.
+    /// If the container handles the <c>SIGTERM</c> gracefully and exits within 30 seconds
+    /// from receiving it, no <c>SIGKILL</c> is sent.
     /// </para><para>
     /// When the service scheduler launches new tasks, it determines task placement in your
     /// cluster with the following logic.
@@ -192,14 +193,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// not the default capacity provider strategy, the service can't be updated to use the
         /// cluster's default capacity provider strategy.</para><para>A capacity provider strategy consists of one or more capacity providers along with
         /// the <c>base</c> and <c>weight</c> to assign to them. A capacity provider must be associated
-        /// with the cluster to be used in a capacity provider strategy. The <a>PutClusterCapacityProviders</a>
+        /// with the cluster to be used in a capacity provider strategy. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>
         /// API is used to associate a capacity provider with a cluster. Only capacity providers
         /// with an <c>ACTIVE</c> or <c>UPDATING</c> status can be used.</para><para>If specifying a capacity provider that uses an Auto Scaling group, the capacity provider
-        /// must already be created. New capacity providers can be created with the <a>CreateCapacityProvider</a>
+        /// must already be created. New capacity providers can be created with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateClusterCapacityProvider.html">CreateClusterCapacityProvider</a>
         /// API operation.</para><para>To use a Fargate capacity provider, specify either the <c>FARGATE</c> or <c>FARGATE_SPOT</c>
         /// capacity providers. The Fargate capacity providers are available to all accounts and
-        /// only need to be associated with a cluster to be used.</para><para>The <a>PutClusterCapacityProviders</a> API operation is used to update the list of
-        /// available capacity providers for a cluster after the cluster is created.</para>
+        /// only need to be associated with a cluster to be used.</para><para>The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a>API
+        /// operation is used to update the list of available capacity providers for a cluster
+        /// after the cluster is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -561,7 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -623,7 +625,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

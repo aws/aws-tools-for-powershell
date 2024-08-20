@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Runs and maintains your desired number of tasks from a specified task definition.
     /// If the number of tasks running in a service drops below the <c>desiredCount</c>, Amazon
     /// ECS runs another copy of the task in the specified cluster. To update an existing
-    /// service, see the <a>UpdateService</a> action.
+    /// service, use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.
     /// 
     ///  <note><para>
     /// On March 21, 2024, a change was made to resolve the task definition revision before
@@ -71,10 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para></li></ul><para>
     /// You can optionally specify a deployment configuration for your service. The deployment
     /// is initiated by changing properties. For example, the deployment might be initiated
-    /// by the task definition or by your desired count of a service. This is done with an
-    /// <a>UpdateService</a> operation. The default value for a replica service for <c>minimumHealthyPercent</c>
-    /// is 100%. The default value for a daemon service for <c>minimumHealthyPercent</c> is
-    /// 0%.
+    /// by the task definition or by your desired count of a service. You can use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.
+    /// The default value for a replica service for <c>minimumHealthyPercent</c> is 100%.
+    /// The default value for a daemon service for <c>minimumHealthyPercent</c> is 0%.
     /// </para><para>
     /// If a service uses the <c>ECS</c> deployment controller, the minimum healthy percent
     /// represents a lower limit on the number of tasks in a service that must remain in the
@@ -112,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><para>
     /// When creating a service that uses the <c>EXTERNAL</c> deployment controller, you can
     /// specify only parameters that aren't controlled at the task set level. The only required
-    /// parameter is the service name. You control your services using the <a>CreateTaskSet</a>
-    /// operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
+    /// parameter is the service name. You control your services using the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon
     /// ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// When the service scheduler launches new tasks, it determines task placement. For information
@@ -597,7 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The IDs of the security groups associated with the task or service. If you don't specify
         /// a security group, the default security group for the VPC is used. There's a limit
-        /// of 5 security groups that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// of 5 security groups that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -661,7 +660,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets associated with the task or service. There's a limit of 16
-        /// subnets that can be specified per <c>AwsVpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// subnets that can be specified per <c>awsvpcConfiguration</c>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -710,7 +709,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// version of the container with the latest version. The number of containers Amazon
         /// ECS adds or removes from the service during a rolling update is controlled by adjusting
         /// the minimum and maximum number of healthy tasks allowed during a service deployment,
-        /// as specified in the <a>DeploymentConfiguration</a>.</para></dd><dt>CODE_DEPLOY</dt><dd><para>The blue/green (<c>CODE_DEPLOY</c>) deployment type uses the blue/green deployment
+        /// as specified in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html">DeploymentConfiguration</a>.</para></dd><dt>CODE_DEPLOY</dt><dd><para>The blue/green (<c>CODE_DEPLOY</c>) deployment type uses the blue/green deployment
         /// model powered by CodeDeploy, which allows you to verify a new deployment of a service
         /// before sending production traffic to it.</para></dd><dt>EXTERNAL</dt><dd><para>The external (<c>EXTERNAL</c>) deployment type enables you to use any third-party
         /// deployment controller for full control over the deployment process for an Amazon ECS

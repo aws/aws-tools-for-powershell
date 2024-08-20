@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The setting to use by default for a cluster. This parameter is used to turn on CloudWatch
         /// Container Insights for a cluster. If this value is specified, it overrides the <c>containerInsights</c>
-        /// value set with <a>PutAccountSetting</a> or <a>PutAccountSettingDefault</a>.</para><important><para>Currently, if you delete an existing cluster that does not have Container Insights
+        /// value set with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSetting.html">PutAccountSetting</a>
+        /// or <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutAccountSettingDefault.html">PutAccountSettingDefault</a>.</para><important><para>Currently, if you delete an existing cluster that does not have Container Insights
         /// turned on, and then create a new cluster with the same name with Container Insights
         /// tuned on, Container Insights will not actually be turned on. If you want to preserve
         /// the same name for your existing cluster and turn on Container Insights, you must wait
