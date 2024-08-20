@@ -139,7 +139,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.CodeGuruReviewer.dll',
         'AWSSDK.CodeGuruSecurity.dll',
         'AWSSDK.CodePipeline.dll',
-        'AWSSDK.CodeStar.dll',
         'AWSSDK.CodeStarconnections.dll',
         'AWSSDK.CodeStarNotifications.dll',
         'AWSSDK.CognitoIdentity.dll',

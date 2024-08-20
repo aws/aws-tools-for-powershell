@@ -1,3 +1,0 @@
-﻿# CodeStar
-
-Export-ModuleMember -Alias *

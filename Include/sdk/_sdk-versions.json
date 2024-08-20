@@ -771,14 +771,6 @@
             },
             "InPreview"               : false
         },
-        "CodeStar"                        : {
-            "Version" : "3.7.400.9",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.400.9"
-            },
-            "InPreview"               : false
-        },
         "LexModelBuildingService"         : {
             "Version" : "3.7.400.9",
             "AssemblyVersionOverride" : "3.3",

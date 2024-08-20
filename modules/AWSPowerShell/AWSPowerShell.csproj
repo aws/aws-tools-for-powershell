@@ -313,9 +313,6 @@
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.CodeStar">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeStar.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.CodeStarconnections">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.CodeStarconnections.dll</HintPath>
     </Reference>
@@ -1451,9 +1448,6 @@
     </Reference>
     <Reference Include="AWSSDK.CodePipeline">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodePipeline.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.CodeStar">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeStar.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeStarconnections">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.CodeStarconnections.dll</HintPath>
