@@ -211,6 +211,19 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String[] FunctionResponseType { get; set; }
         #endregion
         
+        #region Parameter KMSKeyArn
+        /// <summary>
+        /// <para>
+        /// <para> The ARN of the Key Management Service (KMS) customer managed key that Lambda uses
+        /// to encrypt your function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-basics">filter
+        /// criteria</a>. By default, Lambda does not encrypt your filter criteria object. Specify
+        /// this property to encrypt data using your own customer managed key. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KMSKeyArn { get; set; }
+        #endregion
+        
         #region Parameter MaximumBatchingWindowInSecond
         /// <summary>
         /// <para>
@@ -398,6 +411,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 context.FunctionResponseType = new List<System.String>(this.FunctionResponseType);
             }
+            context.KMSKeyArn = this.KMSKeyArn;
             context.MaximumBatchingWindowInSecond = this.MaximumBatchingWindowInSecond;
             context.MaximumRecordAgeInSecond = this.MaximumRecordAgeInSecond;
             context.MaximumRetryAttempt = this.MaximumRetryAttempt;
@@ -568,6 +582,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.FunctionResponseTypes = cmdletContext.FunctionResponseType;
             }
+            if (cmdletContext.KMSKeyArn != null)
+            {
+                request.KMSKeyArn = cmdletContext.KMSKeyArn;
+            }
             if (cmdletContext.MaximumBatchingWindowInSecond != null)
             {
                 request.MaximumBatchingWindowInSeconds = cmdletContext.MaximumBatchingWindowInSecond.Value;
@@ -687,6 +705,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public List<Amazon.Lambda.Model.Filter> FilterCriteria_Filter { get; set; }
             public System.String FunctionName { get; set; }
             public List<System.String> FunctionResponseType { get; set; }
+            public System.String KMSKeyArn { get; set; }
             public System.Int32? MaximumBatchingWindowInSecond { get; set; }
             public System.Int32? MaximumRecordAgeInSecond { get; set; }
             public System.Int32? MaximumRetryAttempt { get; set; }

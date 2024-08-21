@@ -105,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String JobRunId { get; set; }
         #endregion
         
+        #region Parameter JobRunQueuingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether job run queuing is enabled for the job run.</para><para>A value of true means job run queuing is enabled for the job run. If false or not
+        /// populated, the job run will not be considered for queueing.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? JobRunQueuingEnabled { get; set; }
+        #endregion
+        
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
@@ -306,6 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.JobRunId = this.JobRunId;
+            context.JobRunQueuingEnabled = this.JobRunQueuingEnabled;
             context.MaxCapacity = this.MaxCapacity;
             context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
             context.NumberOfWorker = this.NumberOfWorker;
@@ -349,6 +361,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.JobRunId != null)
             {
                 request.JobRunId = cmdletContext.JobRunId;
+            }
+            if (cmdletContext.JobRunQueuingEnabled != null)
+            {
+                request.JobRunQueuingEnabled = cmdletContext.JobRunQueuingEnabled.Value;
             }
             if (cmdletContext.MaxCapacity != null)
             {
@@ -456,6 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public Amazon.Glue.ExecutionClass ExecutionClass { get; set; }
             public System.String JobName { get; set; }
             public System.String JobRunId { get; set; }
+            public System.Boolean? JobRunQueuingEnabled { get; set; }
             public System.Double? MaxCapacity { get; set; }
             public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
             public System.Int32? NumberOfWorker { get; set; }

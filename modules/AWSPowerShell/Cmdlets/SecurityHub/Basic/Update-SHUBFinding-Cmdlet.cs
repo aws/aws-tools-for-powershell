@@ -33,13 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// Updates the <c>Note</c> and <c>RecordState</c> of the Security Hub-aggregated findings
-    /// that the filter attributes specify. Any member account that can view the finding also
-    /// sees the update to the finding.
+    /// The <c>UpdateFindings</c> operation updates the <c>Note</c> and <c>RecordState</c>
+    /// of the Security Hub aggregated findings that the filter attributes specify. Any member
+    /// account that can view the finding can also see the update to the finding.
     /// </para><para>
-    /// Finding updates made with <c>UpdateFindings</c> might not be persisted if the same
-    /// finding is later updated by the finding provider through the <c>BatchImportFindings</c>
-    /// operation.
+    /// Finding updates made with <c>UpdateFindings</c> aren't persisted if the same finding
+    /// is later updated by the finding provider through the <c>BatchImportFindings</c> operation.
+    /// In addition, Security Hub doesn't record updates made with <c>UpdateFindings</c> in
+    /// the finding history.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SHUBFinding", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

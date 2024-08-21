@@ -71,15 +71,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>Indicates whether to aggregate findings from all of the available Regions in the current
         /// partition. Also determines whether to automatically aggregate findings from new Regions
         /// as Security Hub supports them and you opt into them.</para><para>The selected option also determines how to use the Regions provided in the Regions
-        /// list.</para><para>The options are as follows:</para><ul><li><para><c>ALL_REGIONS</c> - Indicates to aggregate findings from all of the Regions where
-        /// Security Hub is enabled. When you choose this option, Security Hub also automatically
-        /// aggregates findings from new Regions as Security Hub supports them and you opt into
-        /// them. </para></li><li><para><c>ALL_REGIONS_EXCEPT_SPECIFIED</c> - Indicates to aggregate findings from all of
-        /// the Regions where Security Hub is enabled, except for the Regions listed in the <c>Regions</c>
+        /// list.</para><para>The options are as follows:</para><ul><li><para><c>ALL_REGIONS</c> - Aggregates findings from all of the Regions where Security Hub
+        /// is enabled. When you choose this option, Security Hub also automatically aggregates
+        /// findings from new Regions as Security Hub supports them and you opt into them. </para></li><li><para><c>ALL_REGIONS_EXCEPT_SPECIFIED</c> - Aggregates findings from all of the Regions
+        /// where Security Hub is enabled, except for the Regions listed in the <c>Regions</c>
         /// parameter. When you choose this option, Security Hub also automatically aggregates
-        /// findings from new Regions as Security Hub supports them and you opt into them. </para></li><li><para><c>SPECIFIED_REGIONS</c> - Indicates to aggregate findings only from the Regions
-        /// listed in the <c>Regions</c> parameter. Security Hub does not automatically aggregate
-        /// findings from new Regions. </para></li></ul>
+        /// findings from new Regions as Security Hub supports them and you opt into them. </para></li><li><para><c>SPECIFIED_REGIONS</c> - Aggregates findings only from the Regions listed in the
+        /// <c>Regions</c> parameter. Security Hub does not automatically aggregate findings from
+        /// new Regions. </para></li><li><para><c>NO_REGIONS</c> - Aggregates no data because no Regions are selected as linked
+        /// Regions. </para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,7 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>If <c>RegionLinkingMode</c> is <c>ALL_REGIONS_EXCEPT_SPECIFIED</c>, then this is a
         /// space-separated list of Regions that do not aggregate findings to the aggregation
         /// Region.</para><para>If <c>RegionLinkingMode</c> is <c>SPECIFIED_REGIONS</c>, then this is a space-separated
-        /// list of Regions that do aggregate findings to the aggregation Region.</para>
+        /// list of Regions that do aggregate findings to the aggregation Region.</para><para>An <c>InvalidInputException</c> error results if you populate this field while <c>RegionLinkingMode</c>
+        /// is <c>NO_REGIONS</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

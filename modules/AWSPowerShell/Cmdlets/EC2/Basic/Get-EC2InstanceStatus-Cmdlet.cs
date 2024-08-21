@@ -79,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <c>reachability</c> (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>instance-status.status</c> - The status of the instance (<c>ok</c> | <c>impaired</c>
         /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>system-status.reachability</c> - Filters on system status where the name is <c>reachability</c>
         /// (<c>passed</c> | <c>failed</c> | <c>initializing</c> | <c>insufficient-data</c>).</para></li><li><para><c>system-status.status</c> - The system status of the instance (<c>ok</c> | <c>impaired</c>
-        /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li></ul>
+        /// | <c>initializing</c> | <c>insufficient-data</c> | <c>not-applicable</c>).</para></li><li><para><c>attached-ebs-status.status</c> - The status of the attached EBS volume for the
+        /// instance (<c>ok</c> | <c>impaired</c> | <c>initializing</c> | <c>insufficient-data</c>
+        /// | <c>not-applicable</c>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

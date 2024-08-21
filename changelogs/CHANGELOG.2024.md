@@ -1,4 +1,14 @@
-﻿### 4.1.639 (2024-08-20 21:07Z)
+﻿### 4.1.640 (2024-08-21 20:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.870.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon CodeStar
+  * Amazon Glue
+    * Modified cmdlet New-GLUEJob: added parameter JobRunQueuingEnabled.
+    * Modified cmdlet Start-GLUEJobRun: added parameter JobRunQueuingEnabled.
+  * Amazon Lambda
+    * Modified cmdlet New-LMEventSourceMapping: added parameter KMSKeyArn.
+    * Modified cmdlet Update-LMEventSourceMapping: added parameter KMSKeyArn.
+
+### 4.1.639 (2024-08-20 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.869.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Simple Storage Service (S3)
     * Modified cmdlet Copy-S3Object: added parameter IfNoneMatch.

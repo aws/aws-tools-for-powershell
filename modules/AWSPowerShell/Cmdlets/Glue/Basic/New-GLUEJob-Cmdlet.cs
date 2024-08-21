@@ -198,6 +198,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.JobMode JobMode { get; set; }
         #endregion
         
+        #region Parameter JobRunQueuingEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether job run queuing is enabled for the job runs for this job.</para><para>A value of true means job run queuing is enabled for the job runs. If false or not
+        /// populated, the job runs will not be considered for queueing.</para><para>If this field does not match the value set in the job run, then the value from the
+        /// job run field will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? JobRunQueuingEnabled { get; set; }
+        #endregion
+        
         #region Parameter SourceControlDetails_LastCommitId
         /// <summary>
         /// <para>
@@ -562,6 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.ExecutionProperty_MaxConcurrentRun = this.ExecutionProperty_MaxConcurrentRun;
             context.GlueVersion = this.GlueVersion;
             context.JobMode = this.JobMode;
+            context.JobRunQueuingEnabled = this.JobRunQueuingEnabled;
             context.LogUri = this.LogUri;
             context.MaintenanceWindow = this.MaintenanceWindow;
             context.MaxCapacity = this.MaxCapacity;
@@ -696,6 +709,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.JobMode != null)
             {
                 request.JobMode = cmdletContext.JobMode;
+            }
+            if (cmdletContext.JobRunQueuingEnabled != null)
+            {
+                request.JobRunQueuingEnabled = cmdletContext.JobRunQueuingEnabled.Value;
             }
             if (cmdletContext.LogUri != null)
             {
@@ -925,6 +942,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Int32? ExecutionProperty_MaxConcurrentRun { get; set; }
             public System.String GlueVersion { get; set; }
             public Amazon.Glue.JobMode JobMode { get; set; }
+            public System.Boolean? JobRunQueuingEnabled { get; set; }
             public System.String LogUri { get; set; }
             public System.String MaintenanceWindow { get; set; }
             public System.Double? MaxCapacity { get; set; }
