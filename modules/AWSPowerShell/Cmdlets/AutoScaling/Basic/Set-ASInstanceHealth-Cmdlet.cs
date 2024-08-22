@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html">Health
-    /// checks for instances in an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling
-    /// User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/set-up-a-custom-health-check.html">Set
+    /// up a custom health check for your Auto Scaling group</a> in the <i>Amazon EC2 Auto
+    /// Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "ASInstanceHealth", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -415,8 +415,10 @@
             <Params>
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Bookmarks_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Bookmarks_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" />
+                <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -289,6 +289,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.QueryExecutionMode
+        {
+            ($_ -eq "New-QSAnalysis/QueryExecutionOptions_QueryExecutionMode") -Or
+            ($_ -eq "New-QSTemplate/QueryExecutionOptions_QueryExecutionMode") -Or
+            ($_ -eq "Update-QSAnalysis/QueryExecutionOptions_QueryExecutionMode") -Or
+            ($_ -eq "Update-QSTemplate/QueryExecutionOptions_QueryExecutionMode")
+        }
+        {
+            $v = "AUTO","MANUAL"
+            break
+        }
+
         # Amazon.QuickSight.RefreshInterval
         {
             ($_ -eq "New-QSRefreshSchedule/ScheduleFrequency_Interval") -Or
@@ -484,6 +496,7 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
+    "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")

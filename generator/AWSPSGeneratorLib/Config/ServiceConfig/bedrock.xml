@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="BatchDeleteEvaluationJob" OutputProperty="*" Verb="Set" Noun="BatchDeleteEvaluationJob" ShouldProcessTarget="JobIdentifiers" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEvaluationJob" OutputProperty="JobArn" Verb="New" Noun="EvaluationJob" ShouldProcessTarget="JobName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -39,6 +43,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateModelImportJob" OutputProperty="JobArn" Verb="New" Noun="ModelImportJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateModelInvocationJob" OutputProperty="JobArn" Verb="New" Noun="ModelInvocationJob" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
@@ -52,6 +60,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteGuardrail" Verb="Remove" Noun="Guardrail" ShouldProcessTarget="GuardrailIdentifier" PipelineParameter="GuardrailIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImportedModel" Verb="Remove" Noun="ImportedModel" ShouldProcessTarget="ModelIdentifier" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -79,11 +91,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetImportedModel" OutputProperty="*" Verb="Get" Noun="ImportedModel" PipelineParameter="ModelIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetModelCopyJob" OutputProperty="*" Verb="Get" Noun="ModelCopyJob" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetModelCustomizationJob" OutputProperty="*" Verb="Get" Noun="ModelCustomizationJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetModelImportJob" OutputProperty="*" Verb="Get" Noun="ModelImportJob" PipelineParameter="JobIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -115,11 +135,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListImportedModels" OutputProperty="ModelSummaries" Verb="Get" Noun="ImportedModelList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListModelCopyJobs" OutputProperty="ModelCopyJobSummaries" Verb="Get" Noun="ModelCopyJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListModelCustomizationJobs" OutputProperty="ModelCustomizationJobSummaries" Verb="Get" Noun="ModelCustomizationJobList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModelImportJobs" OutputProperty="ModelImportJobSummaries" Verb="Get" Noun="ModelImportJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

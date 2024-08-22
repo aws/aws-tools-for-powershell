@@ -128,6 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled { get; set; }
         #endregion
         
+        #region Parameter ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>The shared view settings of an embedded dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled { get; set; }
+        #endregion
+        
         #region Parameter ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled
         /// <summary>
         /// <para>
@@ -137,6 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>The shared view settings of an embedded dashboard.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled { get; set; }
         #endregion
         
         #region Parameter ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled
@@ -341,6 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             }
             #endif
             context.ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled = this.ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled;
+            context.ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled = this.ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled;
             context.ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled = this.ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled;
             context.Dashboard_InitialDashboardId = this.Dashboard_InitialDashboardId;
             context.InitialDashboardVisualId_DashboardId = this.InitialDashboardVisualId_DashboardId;
@@ -348,6 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             context.InitialDashboardVisualId_VisualId = this.InitialDashboardVisualId_VisualId;
             context.GenerativeQnA_InitialTopicId = this.GenerativeQnA_InitialTopicId;
             context.QSearchBar_InitialTopicId = this.QSearchBar_InitialTopicId;
+            context.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled = this.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled;
             context.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled = this.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled;
             context.QuickSightConsole_InitialPath = this.QuickSightConsole_InitialPath;
             context.SessionLifetimeInMinute = this.SessionLifetimeInMinute;
@@ -541,6 +563,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations.Bookmarks = requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks;
                 requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurationsIsNull = false;
             }
+            Amazon.QuickSight.Model.SharedViewConfigurations requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView = null;
+            
+             // populate SharedView
+            var requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedViewIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView = new Amazon.QuickSight.Model.SharedViewConfigurations();
+            System.Boolean? requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled = null;
+            if (cmdletContext.ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled = cmdletContext.ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled.Value;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView.Enabled = requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled.Value;
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedViewIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedViewIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations.SharedView = requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_SharedView;
+                requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurationsIsNull = false;
+            }
             Amazon.QuickSight.Model.StatePersistenceConfigurations requestExperienceConfiguration_experienceConfiguration_Dashboard_experienceConfiguration_Dashboard_FeatureConfigurations_experienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence = null;
             
              // populate StatePersistence
@@ -606,6 +653,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
              // populate FeatureConfigurations
             var requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurationsIsNull = true;
             requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations = new Amazon.QuickSight.Model.RegisteredUserConsoleFeatureConfigurations();
+            Amazon.QuickSight.Model.SharedViewConfigurations requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView = null;
+            
+             // populate SharedView
+            var requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedViewIsNull = true;
+            requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView = new Amazon.QuickSight.Model.SharedViewConfigurations();
+            System.Boolean? requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled = null;
+            if (cmdletContext.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled = cmdletContext.ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled.Value;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView.Enabled = requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled.Value;
+                requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedViewIsNull = false;
+            }
+             // determine if requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView should be set to null
+            if (requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedViewIsNull)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView = null;
+            }
+            if (requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView != null)
+            {
+                requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations.SharedView = requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView;
+                requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurationsIsNull = false;
+            }
             Amazon.QuickSight.Model.StatePersistenceConfigurations requestExperienceConfiguration_experienceConfiguration_QuickSightConsole_experienceConfiguration_QuickSightConsole_FeatureConfigurations_experienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence = null;
             
              // populate StatePersistence
@@ -728,6 +800,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<System.String> AllowedDomain { get; set; }
             public System.String AwsAccountId { get; set; }
             public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled { get; set; }
+            public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled { get; set; }
             public System.Boolean? ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled { get; set; }
             public System.String Dashboard_InitialDashboardId { get; set; }
             public System.String InitialDashboardVisualId_DashboardId { get; set; }
@@ -735,6 +808,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String InitialDashboardVisualId_VisualId { get; set; }
             public System.String GenerativeQnA_InitialTopicId { get; set; }
             public System.String QSearchBar_InitialTopicId { get; set; }
+            public System.Boolean? ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled { get; set; }
             public System.Boolean? ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled { get; set; }
             public System.String QuickSightConsole_InitialPath { get; set; }
             public System.Int64? SessionLifetimeInMinute { get; set; }

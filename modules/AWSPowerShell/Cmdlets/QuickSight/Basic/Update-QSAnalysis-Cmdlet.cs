@@ -291,6 +291,18 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.Model.ParameterDeclaration[] Definition_ParameterDeclaration { get; set; }
         #endregion
         
+        #region Parameter QueryExecutionOptions_QueryExecutionMode
+        /// <summary>
+        /// <para>
+        /// <para>A structure that describes the query execution mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Definition_QueryExecutionOptions_QueryExecutionMode")]
+        [AWSConstantClassSource("Amazon.QuickSight.QueryExecutionMode")]
+        public Amazon.QuickSight.QueryExecutionMode QueryExecutionOptions_QueryExecutionMode { get; set; }
+        #endregion
+        
         #region Parameter ScreenCanvasSizeOptions_ResizeOption
         /// <summary>
         /// <para>
@@ -505,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Definition_ParameterDeclaration = new List<Amazon.QuickSight.Model.ParameterDeclaration>(this.Definition_ParameterDeclaration);
             }
+            context.QueryExecutionOptions_QueryExecutionMode = this.QueryExecutionOptions_QueryExecutionMode;
             if (this.Definition_Sheet != null)
             {
                 context.Definition_Sheet = new List<Amazon.QuickSight.Model.SheetDefinition>(this.Definition_Sheet);
@@ -937,6 +950,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Definition.AnalysisDefaults = requestDefinition_definition_AnalysisDefaults;
                 requestDefinitionIsNull = false;
             }
+            Amazon.QuickSight.Model.QueryExecutionOptions requestDefinition_definition_QueryExecutionOptions = null;
+            
+             // populate QueryExecutionOptions
+            var requestDefinition_definition_QueryExecutionOptionsIsNull = true;
+            requestDefinition_definition_QueryExecutionOptions = new Amazon.QuickSight.Model.QueryExecutionOptions();
+            Amazon.QuickSight.QueryExecutionMode requestDefinition_definition_QueryExecutionOptions_queryExecutionOptions_QueryExecutionMode = null;
+            if (cmdletContext.QueryExecutionOptions_QueryExecutionMode != null)
+            {
+                requestDefinition_definition_QueryExecutionOptions_queryExecutionOptions_QueryExecutionMode = cmdletContext.QueryExecutionOptions_QueryExecutionMode;
+            }
+            if (requestDefinition_definition_QueryExecutionOptions_queryExecutionOptions_QueryExecutionMode != null)
+            {
+                requestDefinition_definition_QueryExecutionOptions.QueryExecutionMode = requestDefinition_definition_QueryExecutionOptions_queryExecutionOptions_QueryExecutionMode;
+                requestDefinition_definition_QueryExecutionOptionsIsNull = false;
+            }
+             // determine if requestDefinition_definition_QueryExecutionOptions should be set to null
+            if (requestDefinition_definition_QueryExecutionOptionsIsNull)
+            {
+                requestDefinition_definition_QueryExecutionOptions = null;
+            }
+            if (requestDefinition_definition_QueryExecutionOptions != null)
+            {
+                request.Definition.QueryExecutionOptions = requestDefinition_definition_QueryExecutionOptions;
+                requestDefinitionIsNull = false;
+            }
             Amazon.QuickSight.Model.AssetOptions requestDefinition_definition_Options = null;
             
              // populate Options
@@ -1177,6 +1215,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public System.String Options_Timezone { get; set; }
             public Amazon.QuickSight.DayOfTheWeek Options_WeekStart { get; set; }
             public List<Amazon.QuickSight.Model.ParameterDeclaration> Definition_ParameterDeclaration { get; set; }
+            public Amazon.QuickSight.QueryExecutionMode QueryExecutionOptions_QueryExecutionMode { get; set; }
             public List<Amazon.QuickSight.Model.SheetDefinition> Definition_Sheet { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.QuickSight.Model.DateTimeParameter> Parameters_DateTimeParameter { get; set; }

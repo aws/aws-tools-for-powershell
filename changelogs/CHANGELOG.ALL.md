@@ -1,4 +1,22 @@
-﻿### 4.1.640 (2024-08-21 20:57Z)
+﻿### 4.1.641 (2024-08-22 21:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.871.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRImportedModel leveraging the GetImportedModel service API.
+    * Added cmdlet Get-BDRImportedModelList leveraging the ListImportedModels service API.
+    * Added cmdlet Get-BDRModelImportJob leveraging the GetModelImportJob service API.
+    * Added cmdlet Get-BDRModelImportJobList leveraging the ListModelImportJobs service API.
+    * Added cmdlet New-BDRModelImportJob leveraging the CreateModelImportJob service API.
+    * Added cmdlet Remove-BDRImportedModel leveraging the DeleteImportedModel service API.
+    * Added cmdlet Set-BDRBatchDeleteEvaluationJob leveraging the BatchDeleteEvaluationJob service API.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSAnalysis: added parameter QueryExecutionOptions_QueryExecutionMode.
+    * Modified cmdlet New-QSEmbedUrlForAnonymousUser: added parameters Dashboard_DisabledFeature, Dashboard_EnabledFeature and SharedView_Enabled.
+    * Modified cmdlet New-QSEmbedUrlForRegisteredUser: added parameters ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled and ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled.
+    * Modified cmdlet New-QSTemplate: added parameter QueryExecutionOptions_QueryExecutionMode.
+    * Modified cmdlet Update-QSAnalysis: added parameter QueryExecutionOptions_QueryExecutionMode.
+    * Modified cmdlet Update-QSTemplate: added parameter QueryExecutionOptions_QueryExecutionMode.
+
+### 4.1.640 (2024-08-21 20:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.870.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon CodeStar
   * Amazon Glue

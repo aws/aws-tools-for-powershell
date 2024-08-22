@@ -2301,6 +2301,9 @@ Set-Alias -Name BCMDE-ListTagsForResource -Value Get-BCMDEResourceTag
 Set-Alias -Name BCMDE-TagResource -Value Add-BCMDEResourceTag
 Set-Alias -Name BCMDE-UntagResource -Value Remove-BCMDEResourceTag
 Set-Alias -Name BCMDE-UpdateExport -Value Update-BCMDEExport
+Set-Alias -Name Batch-BDRDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
+Set-Alias -Name Batch-BDRBatchDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
+Set-Alias -Name BDR-BatchDeleteEvaluationJob -Value Set-BDRBatchDeleteEvaluationJob
 Set-Alias -Name Create-BDREvaluationJob -Value New-BDREvaluationJob
 Set-Alias -Name BDR-CreateEvaluationJob -Value New-BDREvaluationJob
 Set-Alias -Name Create-BDRGuardrail -Value New-BDRGuardrail
@@ -2311,6 +2314,8 @@ Set-Alias -Name Create-BDRModelCopyJob -Value New-BDRModelCopyJob
 Set-Alias -Name BDR-CreateModelCopyJob -Value New-BDRModelCopyJob
 Set-Alias -Name Create-BDRModelCustomizationJob -Value New-BDRModelCustomizationJob
 Set-Alias -Name BDR-CreateModelCustomizationJob -Value New-BDRModelCustomizationJob
+Set-Alias -Name Create-BDRModelImportJob -Value New-BDRModelImportJob
+Set-Alias -Name BDR-CreateModelImportJob -Value New-BDRModelImportJob
 Set-Alias -Name Create-BDRModelInvocationJob -Value New-BDRModelInvocationJob
 Set-Alias -Name BDR-CreateModelInvocationJob -Value New-BDRModelInvocationJob
 Set-Alias -Name Create-BDRProvisionedModelThroughput -Value New-BDRProvisionedModelThroughput
@@ -2319,6 +2324,8 @@ Set-Alias -Name Delete-BDRCustomModel -Value Remove-BDRCustomModel
 Set-Alias -Name BDR-DeleteCustomModel -Value Remove-BDRCustomModel
 Set-Alias -Name Delete-BDRGuardrail -Value Remove-BDRGuardrail
 Set-Alias -Name BDR-DeleteGuardrail -Value Remove-BDRGuardrail
+Set-Alias -Name Delete-BDRImportedModel -Value Remove-BDRImportedModel
+Set-Alias -Name BDR-DeleteImportedModel -Value Remove-BDRImportedModel
 Set-Alias -Name Delete-BDRModelInvocationLoggingConfiguration -Value Remove-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-DeleteModelInvocationLoggingConfiguration -Value Remove-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name Delete-BDRProvisionedModelThroughput -Value Remove-BDRProvisionedModelThroughput
@@ -2327,8 +2334,10 @@ Set-Alias -Name BDR-GetCustomModel -Value Get-BDRCustomModel
 Set-Alias -Name BDR-GetEvaluationJob -Value Get-BDREvaluationJob
 Set-Alias -Name BDR-GetFoundationModel -Value Get-BDRFoundationModel
 Set-Alias -Name BDR-GetGuardrail -Value Get-BDRGuardrail
+Set-Alias -Name BDR-GetImportedModel -Value Get-BDRImportedModel
 Set-Alias -Name BDR-GetModelCopyJob -Value Get-BDRModelCopyJob
 Set-Alias -Name BDR-GetModelCustomizationJob -Value Get-BDRModelCustomizationJob
+Set-Alias -Name BDR-GetModelImportJob -Value Get-BDRModelImportJob
 Set-Alias -Name BDR-GetModelInvocationJob -Value Get-BDRModelInvocationJob
 Set-Alias -Name BDR-GetModelInvocationLoggingConfiguration -Value Get-BDRModelInvocationLoggingConfiguration
 Set-Alias -Name BDR-GetProvisionedModelThroughput -Value Get-BDRProvisionedModelThroughput
@@ -2344,12 +2353,18 @@ Set-Alias -Name BDR-ListFoundationModels -Value Get-BDRFoundationModelList
 Set-Alias -Name List-BDRGuardrails -Value Get-BDRGuardrailList
 Set-Alias -Name List-BDRGuardrailList -Value Get-BDRGuardrailList
 Set-Alias -Name BDR-ListGuardrails -Value Get-BDRGuardrailList
+Set-Alias -Name List-BDRImportedModels -Value Get-BDRImportedModelList
+Set-Alias -Name List-BDRImportedModelList -Value Get-BDRImportedModelList
+Set-Alias -Name BDR-ListImportedModels -Value Get-BDRImportedModelList
 Set-Alias -Name List-BDRModelCopyJobs -Value Get-BDRModelCopyJobList
 Set-Alias -Name List-BDRModelCopyJobList -Value Get-BDRModelCopyJobList
 Set-Alias -Name BDR-ListModelCopyJobs -Value Get-BDRModelCopyJobList
 Set-Alias -Name List-BDRModelCustomizationJobs -Value Get-BDRModelCustomizationJobList
 Set-Alias -Name List-BDRModelCustomizationJobList -Value Get-BDRModelCustomizationJobList
 Set-Alias -Name BDR-ListModelCustomizationJobs -Value Get-BDRModelCustomizationJobList
+Set-Alias -Name List-BDRModelImportJobs -Value Get-BDRModelImportJobList
+Set-Alias -Name List-BDRModelImportJobList -Value Get-BDRModelImportJobList
+Set-Alias -Name BDR-ListModelImportJobs -Value Get-BDRModelImportJobList
 Set-Alias -Name List-BDRModelInvocationJobs -Value Get-BDRModelInvocationJobList
 Set-Alias -Name List-BDRModelInvocationJobList -Value Get-BDRModelInvocationJobList
 Set-Alias -Name BDR-ListModelInvocationJobs -Value Get-BDRModelInvocationJobList

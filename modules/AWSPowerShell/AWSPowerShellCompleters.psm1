@@ -6218,7 +6218,7 @@ $BDR_Completers = {
         # Amazon.Bedrock.EvaluationJobStatus
         "Get-BDREvaluationJobList/StatusEqual"
         {
-            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            $v = "Completed","Deleting","Failed","InProgress","Stopped","Stopping"
             break
         }
 
@@ -6247,6 +6247,13 @@ $BDR_Completers = {
         "Get-BDRFoundationModelList/ByCustomizationType"
         {
             $v = "CONTINUED_PRE_TRAINING","FINE_TUNING"
+            break
+        }
+
+        # Amazon.Bedrock.ModelImportJobStatus
+        "Get-BDRModelImportJobList/StatusEqual"
+        {
+            $v = "Completed","Failed","InProgress"
             break
         }
 
@@ -6290,6 +6297,7 @@ $BDR_Completers = {
             ($_ -eq "Get-BDREvaluationJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelCopyJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortBy") -Or
+            ($_ -eq "Get-BDRModelImportJobList/SortBy") -Or
             ($_ -eq "Get-BDRModelInvocationJobList/SortBy")
         }
         {
@@ -6298,7 +6306,10 @@ $BDR_Completers = {
         }
 
         # Amazon.Bedrock.SortModelsBy
-        "Get-BDRCustomModelList/SortBy"
+        {
+            ($_ -eq "Get-BDRCustomModelList/SortBy") -Or
+            ($_ -eq "Get-BDRImportedModelList/SortBy")
+        }
         {
             $v = "CreationTime"
             break
@@ -6308,8 +6319,10 @@ $BDR_Completers = {
         {
             ($_ -eq "Get-BDRCustomModelList/SortOrder") -Or
             ($_ -eq "Get-BDREvaluationJobList/SortOrder") -Or
+            ($_ -eq "Get-BDRImportedModelList/SortOrder") -Or
             ($_ -eq "Get-BDRModelCopyJobList/SortOrder") -Or
             ($_ -eq "Get-BDRModelCustomizationJobList/SortOrder") -Or
+            ($_ -eq "Get-BDRModelImportJobList/SortOrder") -Or
             ($_ -eq "Get-BDRModelInvocationJobList/SortOrder") -Or
             ($_ -eq "Get-BDRProvisionedModelThroughputList/SortOrder")
         }
@@ -6333,9 +6346,9 @@ $BDR_map = @{
     "CommitmentDuration"=@("New-BDRProvisionedModelThroughput")
     "CustomizationType"=@("New-BDRModelCustomizationJob")
     "S3InputDataConfig_S3InputFormat"=@("New-BDRModelInvocationJob")
-    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
-    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortBy"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "SortOrder"=@("Get-BDRCustomModelList","Get-BDREvaluationJobList","Get-BDRImportedModelList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
+    "StatusEqual"=@("Get-BDREvaluationJobList","Get-BDRModelCopyJobList","Get-BDRModelCustomizationJobList","Get-BDRModelImportJobList","Get-BDRModelInvocationJobList","Get-BDRProvisionedModelThroughputList")
 }
 
 _awsArgumentCompleterRegistration $BDR_Completers $BDR_map
@@ -6388,23 +6401,28 @@ $BDR_SelectCompleters = {
 }
 
 $BDR_SelectMap = @{
-    "Select"=@("New-BDREvaluationJob",
+    "Select"=@("Set-BDRBatchDeleteEvaluationJob",
+               "New-BDREvaluationJob",
                "New-BDRGuardrail",
                "New-BDRGuardrailVersion",
                "New-BDRModelCopyJob",
                "New-BDRModelCustomizationJob",
+               "New-BDRModelImportJob",
                "New-BDRModelInvocationJob",
                "New-BDRProvisionedModelThroughput",
                "Remove-BDRCustomModel",
                "Remove-BDRGuardrail",
+               "Remove-BDRImportedModel",
                "Remove-BDRModelInvocationLoggingConfiguration",
                "Remove-BDRProvisionedModelThroughput",
                "Get-BDRCustomModel",
                "Get-BDREvaluationJob",
                "Get-BDRFoundationModel",
                "Get-BDRGuardrail",
+               "Get-BDRImportedModel",
                "Get-BDRModelCopyJob",
                "Get-BDRModelCustomizationJob",
+               "Get-BDRModelImportJob",
                "Get-BDRModelInvocationJob",
                "Get-BDRModelInvocationLoggingConfiguration",
                "Get-BDRProvisionedModelThroughput",
@@ -6412,8 +6430,10 @@ $BDR_SelectMap = @{
                "Get-BDREvaluationJobList",
                "Get-BDRFoundationModelList",
                "Get-BDRGuardrailList",
+               "Get-BDRImportedModelList",
                "Get-BDRModelCopyJobList",
                "Get-BDRModelCustomizationJobList",
+               "Get-BDRModelImportJobList",
                "Get-BDRModelInvocationJobList",
                "Get-BDRProvisionedModelThroughputList",
                "Get-BDRResourceTag",
@@ -54537,6 +54557,18 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.QueryExecutionMode
+        {
+            ($_ -eq "New-QSAnalysis/QueryExecutionOptions_QueryExecutionMode") -Or
+            ($_ -eq "New-QSTemplate/QueryExecutionOptions_QueryExecutionMode") -Or
+            ($_ -eq "Update-QSAnalysis/QueryExecutionOptions_QueryExecutionMode") -Or
+            ($_ -eq "Update-QSTemplate/QueryExecutionOptions_QueryExecutionMode")
+        }
+        {
+            $v = "AUTO","MANUAL"
+            break
+        }
+
         # Amazon.QuickSight.RefreshInterval
         {
             ($_ -eq "New-QSRefreshSchedule/ScheduleFrequency_Interval") -Or
@@ -54732,6 +54764,7 @@ $QS_map = @{
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
+    "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
     "RefreshSchedule_TopicScheduleType"=@("New-QSTopicRefreshSchedule","Update-QSTopicRefreshSchedule")
     "Role"=@("Get-QSRoleCustomPermission","Get-QSRoleMembershipList","New-QSRoleMembership","Remove-QSRoleCustomPermission","Remove-QSRoleMembership","Update-QSRoleCustomPermission","Update-QSUser")
@@ -57385,7 +57418,7 @@ $R53_Completers = {
             ($_ -eq "Update-R53HealthCheck/AlarmIdentifier_Region")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ca-central-1","ca-west-1","cn-north-1","cn-northwest-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
@@ -57461,7 +57494,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53HostedZonesByVPC/VPCRegion")
         }
         {
-            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ca-central-1","ca-west-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
+            $v = "af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-south-2","ap-southeast-1","ap-southeast-2","ap-southeast-3","ap-southeast-4","ap-southeast-5","ca-central-1","ca-west-1","cn-north-1","eu-central-1","eu-central-2","eu-north-1","eu-south-1","eu-south-2","eu-west-1","eu-west-2","eu-west-3","il-central-1","me-central-1","me-south-1","sa-east-1","us-east-1","us-east-2","us-gov-east-1","us-gov-west-1","us-iso-east-1","us-iso-west-1","us-isob-east-1","us-west-1","us-west-2"
             break
         }
 
