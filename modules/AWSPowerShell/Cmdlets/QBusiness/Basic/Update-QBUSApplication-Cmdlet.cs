@@ -71,6 +71,31 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public Amazon.QBusiness.AttachmentsControlMode AttachmentsConfiguration_AttachmentsControlMode { get; set; }
         #endregion
         
+        #region Parameter AutoSubscriptionConfiguration_AutoSubscribe
+        /// <summary>
+        /// <para>
+        /// <para>Describes whether automatic subscriptions are enabled for an Amazon Q Business application
+        /// using IAM identity federation for user management.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.AutoSubscriptionStatus")]
+        public Amazon.QBusiness.AutoSubscriptionStatus AutoSubscriptionConfiguration_AutoSubscribe { get; set; }
+        #endregion
+        
+        #region Parameter AutoSubscriptionConfiguration_DefaultSubscriptionType
+        /// <summary>
+        /// <para>
+        /// <para>Describes the default subscription type assigned to an Amazon Q Business application
+        /// using IAM identity federation for user management. If the value for <c>autoSubscribe</c>
+        /// is set to <c>ENABLED</c> you must select a value for this field.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.SubscriptionType")]
+        public Amazon.QBusiness.SubscriptionType AutoSubscriptionConfiguration_DefaultSubscriptionType { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -206,6 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #endif
             context.AttachmentsConfiguration_AttachmentsControlMode = this.AttachmentsConfiguration_AttachmentsControlMode;
+            context.AutoSubscriptionConfiguration_AutoSubscribe = this.AutoSubscriptionConfiguration_AutoSubscribe;
+            context.AutoSubscriptionConfiguration_DefaultSubscriptionType = this.AutoSubscriptionConfiguration_DefaultSubscriptionType;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
@@ -250,6 +277,35 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (requestAttachmentsConfigurationIsNull)
             {
                 request.AttachmentsConfiguration = null;
+            }
+            
+             // populate AutoSubscriptionConfiguration
+            var requestAutoSubscriptionConfigurationIsNull = true;
+            request.AutoSubscriptionConfiguration = new Amazon.QBusiness.Model.AutoSubscriptionConfiguration();
+            Amazon.QBusiness.AutoSubscriptionStatus requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_AutoSubscribe = null;
+            if (cmdletContext.AutoSubscriptionConfiguration_AutoSubscribe != null)
+            {
+                requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_AutoSubscribe = cmdletContext.AutoSubscriptionConfiguration_AutoSubscribe;
+            }
+            if (requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_AutoSubscribe != null)
+            {
+                request.AutoSubscriptionConfiguration.AutoSubscribe = requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_AutoSubscribe;
+                requestAutoSubscriptionConfigurationIsNull = false;
+            }
+            Amazon.QBusiness.SubscriptionType requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_DefaultSubscriptionType = null;
+            if (cmdletContext.AutoSubscriptionConfiguration_DefaultSubscriptionType != null)
+            {
+                requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_DefaultSubscriptionType = cmdletContext.AutoSubscriptionConfiguration_DefaultSubscriptionType;
+            }
+            if (requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_DefaultSubscriptionType != null)
+            {
+                request.AutoSubscriptionConfiguration.DefaultSubscriptionType = requestAutoSubscriptionConfiguration_autoSubscriptionConfiguration_DefaultSubscriptionType;
+                requestAutoSubscriptionConfigurationIsNull = false;
+            }
+             // determine if request.AutoSubscriptionConfiguration should be set to null
+            if (requestAutoSubscriptionConfigurationIsNull)
+            {
+                request.AutoSubscriptionConfiguration = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -368,6 +424,8 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         {
             public System.String ApplicationId { get; set; }
             public Amazon.QBusiness.AttachmentsControlMode AttachmentsConfiguration_AttachmentsControlMode { get; set; }
+            public Amazon.QBusiness.AutoSubscriptionStatus AutoSubscriptionConfiguration_AutoSubscribe { get; set; }
+            public Amazon.QBusiness.SubscriptionType AutoSubscriptionConfiguration_DefaultSubscriptionType { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String IdentityCenterInstanceArn { get; set; }

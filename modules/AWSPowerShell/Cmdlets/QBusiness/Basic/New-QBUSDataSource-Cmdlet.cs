@@ -67,9 +67,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <para>Configuration information to connect to your data source repository. For configuration
-        /// templates for your specific data source, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html">Supported
-        /// connectors</a>.</para>
+        /// <para>Configuration information to connect your data source repository to Amazon Q Business.
+        /// Use this parameter to provide a JSON schema with configuration information specific
+        /// to your data source connector.</para><para>Each data source has a JSON schema provided by Amazon Q Business that you must use.
+        /// For example, the Amazon S3 and Web Crawler connectors require the following JSON schemas:</para><ul><li><para><a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html">Amazon
+        /// S3 JSON schema</a></para></li><li><para><a href="https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html">Web
+        /// Crawler JSON schema</a></para></li></ul><para>You can find configuration templates for your specific data source using the following
+        /// steps:</para><ol><li><para>Navigate to the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html">Supported
+        /// connectors</a> page in the Amazon Q Business User Guide, and select the data source
+        /// of your choice.</para></li><li><para>Then, from your specific data source connector page, select <b>Using the API</b>.
+        /// You will find the JSON schema for your data source, including parameter descriptions,
+        /// in this section.</para></li></ol>
         /// </para>
         /// </summary>
         #if !MODULAR

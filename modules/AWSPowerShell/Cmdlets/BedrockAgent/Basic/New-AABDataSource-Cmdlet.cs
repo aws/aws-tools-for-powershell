@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name of an Secrets Manager secret that stores your authentication
-        /// credentials for your SharePoint site/sites. For more information on the key-value
+        /// credentials for your Confluence instance URL. For more information on the key-value
         /// pairs that must be included in your secret, depending on your authentication type,
         /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/confluence-data-source-connector.html#configuration-confluence-connector">Confluence
         /// connection configuration</a>.</para>
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name of an Secrets Manager secret that stores your authentication
-        /// credentials for your SharePoint site/sites. For more information on the key-value
+        /// credentials for your Salesforce instance URL. For more information on the key-value
         /// pairs that must be included in your secret, depending on your authentication type,
         /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/salesforce-data-source-connector.html#configuration-salesforce-connector">Salesforce
         /// connection configuration</a>.</para>
@@ -194,11 +194,12 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataDeletionPolicy
         /// <summary>
         /// <para>
-        /// <para>The data deletion policy for the data source.</para><para>You can set the data deletion policy to:</para><ul><li><para>DELETE: Deletes all underlying data belonging to the data source from the vector store
-        /// upon deletion of a knowledge base or data source resource. Note that the vector store
-        /// itself is not deleted, only the underlying data. This flag is ignored if an Amazon
-        /// Web Services account is deleted.</para></li><li><para>RETAIN: Retains all underlying data in your vector store upon deletion of a knowledge
-        /// base or data source resource.</para></li></ul>
+        /// <para>The data deletion policy for the data source.</para><para>You can set the data deletion policy to:</para><ul><li><para>DELETE: Deletes all data from your data source that’s converted into vector embeddings
+        /// upon deletion of a knowledge base or data source resource. Note that the <b>vector
+        /// store itself is not deleted</b>, only the data. This flag is ignored if an Amazon
+        /// Web Services account is deleted.</para></li><li><para>RETAIN: Retains all data from your data source that’s converted into vector embeddings
+        /// upon deletion of a knowledge base or data source resource. Note that the <b>vector
+        /// store itself is not deleted</b> if you delete a knowledge base or data source resource.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

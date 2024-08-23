@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name of an Secrets Manager secret that stores your authentication
-        /// credentials for your SharePoint site/sites. For more information on the key-value
+        /// credentials for your Confluence instance URL. For more information on the key-value
         /// pairs that must be included in your secret, depending on your authentication type,
         /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/confluence-data-source-connector.html#configuration-confluence-connector">Confluence
         /// connection configuration</a>.</para>
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name of an Secrets Manager secret that stores your authentication
-        /// credentials for your SharePoint site/sites. For more information on the key-value
+        /// credentials for your Salesforce instance URL. For more information on the key-value
         /// pairs that must be included in your secret, depending on your authentication type,
         /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/salesforce-data-source-connector.html#configuration-salesforce-connector">Salesforce
         /// connection configuration</a>.</para>

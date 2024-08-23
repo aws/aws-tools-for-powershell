@@ -28,8 +28,10 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Returns a list of prompts from the Prompt management tool and information about each
-    /// prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html">View
+    /// Returns either information about the working draft (<c>DRAFT</c> version) of each
+    /// prompt in an account, or information about of all versions of a prompt, depending
+    /// on whether you include the <c>promptIdentifier</c> field or not. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html">View
     /// information about prompts using Prompt management</a> in the Amazon Bedrock User Guide.
     /// </summary>
     [Cmdlet("Get", "AABPromptList")]
@@ -47,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PromptIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the prompt.</para>
+        /// <para>The unique identifier of the prompt for whose versions you want to return information.
+        /// Omit this field to list information about all prompts in an account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

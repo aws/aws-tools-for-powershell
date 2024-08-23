@@ -97,7 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo),
         /// and Asia Pacific (Mumbai).</para></li><li><para>The environment type <c>LINUX_GPU_CONTAINER</c> is available only in regions US East
         /// (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia
-        /// Pacific (Tokyo), and Asia Pacific (Sydney).</para></li><li><para>The environment type <c>WINDOWS_SERVER_2019_CONTAINER</c> is available only in regions
+        /// Pacific (Tokyo), and Asia Pacific (Sydney).</para></li><li><para>The environment type <c>MAC_ARM</c> is available for Medium fleets only in regions
+        /// US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), and
+        /// EU (Frankfurt)</para></li><li><para>The environment type <c>MAC_ARM</c> is available for Large fleets only in regions
+        /// US East (N. Virginia), US East (Ohio), US West (Oregon), and Asia Pacific (Sydney).</para></li><li><para>The environment type <c>WINDOWS_SERVER_2019_CONTAINER</c> is available only in regions
         /// US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Sydney), Asia
         /// Pacific (Tokyo), Asia Pacific (Mumbai) and EU (Ireland).</para></li><li><para>The environment type <c>WINDOWS_SERVER_2022_CONTAINER</c> is available only in regions
         /// US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt),

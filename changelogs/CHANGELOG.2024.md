@@ -1,4 +1,12 @@
-﻿### 4.1.641 (2024-08-22 21:29Z)
+﻿### 4.1.642 (2024-08-23 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.872.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon QBusiness
+    * Modified cmdlet New-QBUSApplication: added parameters ClientIdsForOIDC, IamIdentityProviderArn and IdentityType.
+    * Modified cmdlet New-QBUSWebExperience: added parameters OpenIDConnectConfiguration_SecretsArn, OpenIDConnectConfiguration_SecretsRole and SamlConfiguration_AuthenticationUrl.
+    * Modified cmdlet Update-QBUSApplication: added parameters AutoSubscriptionConfiguration_AutoSubscribe and AutoSubscriptionConfiguration_DefaultSubscriptionType.
+    * Modified cmdlet Update-QBUSWebExperience: added parameters OpenIDConnectConfiguration_SecretsArn, OpenIDConnectConfiguration_SecretsRole and SamlConfiguration_AuthenticationUrl.
+
+### 4.1.641 (2024-08-22 21:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.871.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRImportedModel leveraging the GetImportedModel service API.

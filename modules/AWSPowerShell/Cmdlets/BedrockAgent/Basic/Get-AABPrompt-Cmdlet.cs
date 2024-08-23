@@ -28,8 +28,9 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Retrieves information about a prompt or a version of it. For more information, see
-    /// <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html">View
+    /// Retrieves information about the working draft (<c>DRAFT</c> version) of a prompt or
+    /// a version of it, depending on whether you include the <c>promptVersion</c> field or
+    /// not. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-view.html">View
     /// information about prompts using Prompt management</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-view.html">View
     /// information about a version of your prompt</a> in the Amazon Bedrock User Guide.
     /// </summary>
@@ -66,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PromptVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the prompt about which you want to retrieve information.</para>
+        /// <para>The version of the prompt about which you want to retrieve information. Omit this
+        /// field to return information about the working draft of the prompt.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

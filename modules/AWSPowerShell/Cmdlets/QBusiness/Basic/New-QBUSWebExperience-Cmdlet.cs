@@ -58,10 +58,23 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter SamlConfiguration_AuthenticationUrl
+        /// <summary>
+        /// <para>
+        /// <para>The URL where Amazon Q Business end users will be redirected for authentication. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentityProviderConfiguration_SamlConfiguration_AuthenticationUrl")]
+        public System.String SamlConfiguration_AuthenticationUrl { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the service role attached to your web experience.</para>
+        /// <para>The Amazon Resource Name (ARN) of the service role attached to your web experience.</para><note><para>You must provide this value if you're using IAM Identity Center to manage end user
+        /// access to your application. If you're using legacy identity management to manage user
+        /// access, you don't need to provide this value.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -77,6 +90,30 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.QBusiness.WebExperienceSamplePromptsControlMode")]
         public Amazon.QBusiness.WebExperienceSamplePromptsControlMode SamplePromptsControlMode { get; set; }
+        #endregion
+        
+        #region Parameter OpenIDConnectConfiguration_SecretsArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a Secrets Manager secret containing the OIDC client
+        /// secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentityProviderConfiguration_OpenIDConnectConfiguration_SecretsArn")]
+        public System.String OpenIDConnectConfiguration_SecretsArn { get; set; }
+        #endregion
+        
+        #region Parameter OpenIDConnectConfiguration_SecretsRole
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role with permissions to access KMS to decrypt the Secrets Manager secret containing
+        /// your OIDC client secret.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("IdentityProviderConfiguration_OpenIDConnectConfiguration_SecretsRole")]
+        public System.String OpenIDConnectConfiguration_SecretsRole { get; set; }
         #endregion
         
         #region Parameter Subtitle
@@ -204,6 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.OpenIDConnectConfiguration_SecretsArn = this.OpenIDConnectConfiguration_SecretsArn;
+            context.OpenIDConnectConfiguration_SecretsRole = this.OpenIDConnectConfiguration_SecretsRole;
+            context.SamlConfiguration_AuthenticationUrl = this.SamlConfiguration_AuthenticationUrl;
             context.RoleArn = this.RoleArn;
             context.SamplePromptsControlMode = this.SamplePromptsControlMode;
             context.Subtitle = this.Subtitle;
@@ -236,6 +276,75 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            
+             // populate IdentityProviderConfiguration
+            var requestIdentityProviderConfigurationIsNull = true;
+            request.IdentityProviderConfiguration = new Amazon.QBusiness.Model.IdentityProviderConfiguration();
+            Amazon.QBusiness.Model.SamlProviderConfiguration requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration = null;
+            
+             // populate SamlConfiguration
+            var requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfigurationIsNull = true;
+            requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration = new Amazon.QBusiness.Model.SamlProviderConfiguration();
+            System.String requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration_samlConfiguration_AuthenticationUrl = null;
+            if (cmdletContext.SamlConfiguration_AuthenticationUrl != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration_samlConfiguration_AuthenticationUrl = cmdletContext.SamlConfiguration_AuthenticationUrl;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration_samlConfiguration_AuthenticationUrl != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration.AuthenticationUrl = requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration_samlConfiguration_AuthenticationUrl;
+                requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfigurationIsNull = false;
+            }
+             // determine if requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration should be set to null
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfigurationIsNull)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration = null;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration != null)
+            {
+                request.IdentityProviderConfiguration.SamlConfiguration = requestIdentityProviderConfiguration_identityProviderConfiguration_SamlConfiguration;
+                requestIdentityProviderConfigurationIsNull = false;
+            }
+            Amazon.QBusiness.Model.OpenIDConnectProviderConfiguration requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration = null;
+            
+             // populate OpenIDConnectConfiguration
+            var requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfigurationIsNull = true;
+            requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration = new Amazon.QBusiness.Model.OpenIDConnectProviderConfiguration();
+            System.String requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsArn = null;
+            if (cmdletContext.OpenIDConnectConfiguration_SecretsArn != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsArn = cmdletContext.OpenIDConnectConfiguration_SecretsArn;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsArn != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration.SecretsArn = requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsArn;
+                requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfigurationIsNull = false;
+            }
+            System.String requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsRole = null;
+            if (cmdletContext.OpenIDConnectConfiguration_SecretsRole != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsRole = cmdletContext.OpenIDConnectConfiguration_SecretsRole;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsRole != null)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration.SecretsRole = requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration_openIDConnectConfiguration_SecretsRole;
+                requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfigurationIsNull = false;
+            }
+             // determine if requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration should be set to null
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfigurationIsNull)
+            {
+                requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration = null;
+            }
+            if (requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration != null)
+            {
+                request.IdentityProviderConfiguration.OpenIDConnectConfiguration = requestIdentityProviderConfiguration_identityProviderConfiguration_OpenIDConnectConfiguration;
+                requestIdentityProviderConfigurationIsNull = false;
+            }
+             // determine if request.IdentityProviderConfiguration should be set to null
+            if (requestIdentityProviderConfigurationIsNull)
+            {
+                request.IdentityProviderConfiguration = null;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -324,6 +433,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         {
             public System.String ApplicationId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String OpenIDConnectConfiguration_SecretsArn { get; set; }
+            public System.String OpenIDConnectConfiguration_SecretsRole { get; set; }
+            public System.String SamlConfiguration_AuthenticationUrl { get; set; }
             public System.String RoleArn { get; set; }
             public Amazon.QBusiness.WebExperienceSamplePromptsControlMode SamplePromptsControlMode { get; set; }
             public System.String Subtitle { get; set; }

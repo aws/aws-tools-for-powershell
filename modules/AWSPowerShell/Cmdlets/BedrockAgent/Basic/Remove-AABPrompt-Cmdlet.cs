@@ -28,8 +28,8 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Deletes a prompt or a prompt version from the Prompt management tool. For more information,
-    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-delete.html">Delete
+    /// Deletes a prompt or a version of it, depending on whether you include the <c>promptVersion</c>
+    /// field or not. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-manage.html#prompt-management-delete.html">Delete
     /// prompts from the Prompt management tool</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-delete.html">Delete
     /// a version of a prompt from the Prompt management tool</a> in the Amazon Bedrock User
     /// Guide.
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter PromptVersion
         /// <summary>
         /// <para>
-        /// <para>The version of the prompt to delete.</para>
+        /// <para>The version of the prompt to delete. To delete the prompt, omit this field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

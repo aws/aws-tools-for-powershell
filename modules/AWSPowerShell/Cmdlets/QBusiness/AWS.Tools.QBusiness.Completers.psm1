@@ -100,6 +100,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.AutoSubscriptionStatus
+        "Update-QBUSApplication/AutoSubscriptionConfiguration_AutoSubscribe"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QBusiness.ChatMode
         "Set-QBUSChatSync/ChatMode"
         {
@@ -130,6 +137,13 @@ $QBUS_Completers = {
         }
         {
             $v = "BEGINS_WITH","CONTAINS","EQUALS","EXISTS","GREATER_THAN","GREATER_THAN_OR_EQUALS","LESS_THAN","LESS_THAN_OR_EQUALS","NOT_CONTAINS","NOT_EQUALS","NOT_EXISTS"
+            break
+        }
+
+        # Amazon.QBusiness.IdentityType
+        "New-QBUSApplication/IdentityType"
+        {
+            $v = "AWS_IAM_IDC","AWS_IAM_IDP_OIDC","AWS_IAM_IDP_SAML"
             break
         }
 
@@ -209,6 +223,13 @@ $QBUS_Completers = {
             break
         }
 
+        # Amazon.QBusiness.SubscriptionType
+        "Update-QBUSApplication/AutoSubscriptionConfiguration_DefaultSubscriptionType"
+        {
+            $v = "Q_BUSINESS","Q_LITE"
+            break
+        }
+
         # Amazon.QBusiness.WebExperienceSamplePromptsControlMode
         {
             ($_ -eq "New-QBUSWebExperience/SamplePromptsControlMode") -Or
@@ -229,11 +250,14 @@ $QBUS_Completers = {
 
 $QBUS_map = @{
     "AttachmentsConfiguration_AttachmentsControlMode"=@("New-QBUSApplication","Update-QBUSApplication")
+    "AutoSubscriptionConfiguration_AutoSubscribe"=@("Update-QBUSApplication")
+    "AutoSubscriptionConfiguration_DefaultSubscriptionType"=@("Update-QBUSApplication")
     "ChatMode"=@("Set-QBUSChatSync")
     "CreatorModeConfiguration_CreatorModeControl"=@("Update-QBUSChatControlsConfiguration")
     "CustomPluginConfiguration_ApiSchemaType"=@("New-QBUSPlugin","Update-QBUSPlugin")
     "DocumentEnrichmentConfiguration_PostInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
     "DocumentEnrichmentConfiguration_PreInvocationCondition_Operator"=@("New-QBUSDataSource","Update-QBUSDataSource")
+    "IdentityType"=@("New-QBUSApplication")
     "MessageUsefulness_Reason"=@("Write-QBUSFeedback")
     "MessageUsefulness_Usefulness"=@("Write-QBUSFeedback")
     "PersonalizationConfiguration_PersonalizationControlMode"=@("New-QBUSApplication","Update-QBUSApplication")

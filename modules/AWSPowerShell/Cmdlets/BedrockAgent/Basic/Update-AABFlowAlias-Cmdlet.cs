@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the flow alias.</para>
+        /// <para>A description for the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the flow alias.</para>
+        /// <para>The name of the alias.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

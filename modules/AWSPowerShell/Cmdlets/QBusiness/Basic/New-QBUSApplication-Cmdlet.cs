@@ -63,6 +63,16 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public Amazon.QBusiness.AttachmentsControlMode AttachmentsConfiguration_AttachmentsControlMode { get; set; }
         #endregion
         
+        #region Parameter ClientIdsForOIDC
+        /// <summary>
+        /// <para>
+        /// <para>The OIDC client ID for a Amazon Q Business application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String[] ClientIdsForOIDC { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -90,6 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         public System.String DisplayName { get; set; }
         #endregion
         
+        #region Parameter IamIdentityProviderArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business
+        /// application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IamIdentityProviderArn { get; set; }
+        #endregion
+        
         #region Parameter IdentityCenterInstanceArn
         /// <summary>
         /// <para>
@@ -99,6 +120,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String IdentityCenterInstanceArn { get; set; }
+        #endregion
+        
+        #region Parameter IdentityType
+        /// <summary>
+        /// <para>
+        /// <para>The authentication type being used by a Amazon Q Business application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QBusiness.IdentityType")]
+        public Amazon.QBusiness.IdentityType IdentityType { get; set; }
         #endregion
         
         #region Parameter EncryptionConfiguration_KmsKeyId
@@ -234,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AttachmentsConfiguration_AttachmentsControlMode = this.AttachmentsConfiguration_AttachmentsControlMode;
+            if (this.ClientIdsForOIDC != null)
+            {
+                context.ClientIdsForOIDC = new List<System.String>(this.ClientIdsForOIDC);
+            }
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
@@ -244,7 +280,9 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             }
             #endif
             context.EncryptionConfiguration_KmsKeyId = this.EncryptionConfiguration_KmsKeyId;
+            context.IamIdentityProviderArn = this.IamIdentityProviderArn;
             context.IdentityCenterInstanceArn = this.IdentityCenterInstanceArn;
+            context.IdentityType = this.IdentityType;
             context.PersonalizationConfiguration_PersonalizationControlMode = this.PersonalizationConfiguration_PersonalizationControlMode;
             context.QAppsConfiguration_QAppsControlMode = this.QAppsConfiguration_QAppsControlMode;
             context.RoleArn = this.RoleArn;
@@ -287,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.AttachmentsConfiguration = null;
             }
+            if (cmdletContext.ClientIdsForOIDC != null)
+            {
+                request.ClientIdsForOIDC = cmdletContext.ClientIdsForOIDC;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -318,9 +360,17 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
             {
                 request.EncryptionConfiguration = null;
             }
+            if (cmdletContext.IamIdentityProviderArn != null)
+            {
+                request.IamIdentityProviderArn = cmdletContext.IamIdentityProviderArn;
+            }
             if (cmdletContext.IdentityCenterInstanceArn != null)
             {
                 request.IdentityCenterInstanceArn = cmdletContext.IdentityCenterInstanceArn;
+            }
+            if (cmdletContext.IdentityType != null)
+            {
+                request.IdentityType = cmdletContext.IdentityType;
             }
             
              // populate PersonalizationConfiguration
@@ -430,11 +480,14 @@ namespace Amazon.PowerShell.Cmdlets.QBUS
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.QBusiness.AttachmentsControlMode AttachmentsConfiguration_AttachmentsControlMode { get; set; }
+            public List<System.String> ClientIdsForOIDC { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String EncryptionConfiguration_KmsKeyId { get; set; }
+            public System.String IamIdentityProviderArn { get; set; }
             public System.String IdentityCenterInstanceArn { get; set; }
+            public Amazon.QBusiness.IdentityType IdentityType { get; set; }
             public Amazon.QBusiness.PersonalizationControlMode PersonalizationConfiguration_PersonalizationControlMode { get; set; }
             public Amazon.QBusiness.QAppsControlMode QAppsConfiguration_QAppsControlMode { get; set; }
             public System.String RoleArn { get; set; }
