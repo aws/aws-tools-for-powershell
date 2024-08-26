@@ -53,13 +53,17 @@
 
     # Modules that must be imported into the global environment prior to importing this module
     RequiredModules = @@(
-@(string.Join("," + Environment.NewLine, RequiredModules.Select(module => "        @{"
-                                                 + Environment.NewLine + $"            ModuleName = '{module.Name}';"
-                                                 + Environment.NewLine + $"            RequiredVersion = '{Version}';"
-                                                 + Environment.NewLine + $"            Guid = '{module.Guid}' }}")))
+        @if (!string.IsNullOrWhiteSpace(PrereleaseTag))
+        {
+            string.Join("," + Environment.NewLine, RequiredModules.Select(module => "        @{"
+                                                                                    + Environment.NewLine + $"            ModuleName = '{module.Name}';"
+                                                                                    + Environment.NewLine + $"            RequiredVersion = '{Version}';"
+                                                                                    + Environment.NewLine + $"            Guid = '{module.Guid}' }}"));
+
+        }
     )
 
-    # Assemblies that must be loaded prior to importing this module.
+# Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @@(
 @(string.Join("," + Environment.NewLine, Assemblies.Select(assembly => $"        '{assembly}.dll'")))
     )
@@ -115,7 +119,7 @@
             ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md'
 @if (!string.IsNullOrWhiteSpace(PrereleaseTag))
 {
-@:            Prerelease = '@PrereleaseTag'
+@:           Prerelease = '@PrereleaseTag'
 }
         }
     }

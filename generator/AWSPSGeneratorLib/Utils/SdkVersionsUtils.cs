@@ -56,12 +56,20 @@ namespace AWSPowerShellGenerator.Utils
             }
         }
 
-        internal static Version GetSDKVersion(string sdkAssembliesFolder)
+        internal static (Version Version, bool IsPreview, string PreviewLabel) GetSDKVersion(string sdkAssembliesFolder)
         {
             try
             {
                 var root = ReadSdkVersionFile(sdkAssembliesFolder);
-                return Version.Parse((string)root["ProductVersion"]);
+                var version = Version.Parse((string)root["ProductVersion"]);
+                var previewLabel = "";
+                var isPreview = bool.Parse((string)root["DefaultToPreview"]);
+                if (isPreview)
+                {
+                    previewLabel = (string)root["PreviewLabel"];
+                }
+
+                return (version, isPreview, previewLabel);
             }
             catch (Exception e)
             {
@@ -89,8 +97,8 @@ namespace AWSPowerShellGenerator.Utils
                     string filePath = Path.Combine(platformPath, fileName);
                     if (!File.Exists(filePath))
                     {
-                        var version = SdkVersionsUtils.GetSDKVersion(sdkAssembliesFolder);
-                        DownloadSDKAssembliesAsync(platformPath, platformName, version).Wait();
+                        var (version, isPreview, previewLabel)  = SdkVersionsUtils.GetSDKVersion(sdkAssembliesFolder);
+                        DownloadSDKAssembliesAsync(platformPath, platformName, version, isPreview, previewLabel).Wait();
                     }
                 }
             }
@@ -99,11 +107,11 @@ namespace AWSPowerShellGenerator.Utils
         /// <summary>
         /// Downloads the required version/platform of the SDK assemblies
         /// </summary>
-        private static async Task DownloadSDKAssembliesAsync(string platformPath, string platformName, Version sdkVersion)
+        private static async Task DownloadSDKAssembliesAsync(string platformPath, string platformName, Version sdkVersion, bool isPreview, string previewLabel)
         {
             if (DownloadedSdkPlatforms.Add(platformPath))
             {
-                var sdkUri = $"https://sdk-for-net.amazonwebservices.com/releases/aws-sdk-{platformName}-{sdkVersion}.zip";
+                var sdkUri = $"https://sdk-for-net.amazonwebservices.com/releases/aws-sdk-{platformName}-{sdkVersion}{(isPreview ? $"-{previewLabel}" : "")}.zip";
                 Console.WriteLine($"Downloading SDK at {sdkUri}");
 
                 try

@@ -121,6 +121,10 @@ namespace AWSPowerShellGenerator
         /// </summary>
         public string Edition { get; set; }
 
+        public string PreviewLabel { get; set; } = string.Empty;
+
+        public bool IsPreview => !string.IsNullOrEmpty(PreviewLabel);
+
         /// <summary>
         /// Returns the constructed deployment folder path for the edition
         /// denoted in the Edition property.
@@ -196,6 +200,7 @@ namespace AWSPowerShellGenerator
             CNNorth1RegionDocsDomain = rhs.CNNorth1RegionDocsDomain;
             Edition = rhs.Edition;
             SkipCmdletGeneration = rhs.SkipCmdletGeneration;
+            PreviewLabel = rhs.PreviewLabel;
         }
     }
 }

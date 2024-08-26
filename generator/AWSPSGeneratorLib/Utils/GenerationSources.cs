@@ -26,6 +26,7 @@ namespace AWSPowerShellGenerator.Utils
         private readonly SortedDictionary<string, Assembly> Assemblies = new SortedDictionary<string, Assembly>();
         private readonly Dictionary<string, XmlDocument> NDocs = new Dictionary<string, XmlDocument>();
         private readonly string AwsPowerShellModuleFolder;
+        private readonly string PreviewLabel;
 
         /// <summary>
         /// The default location that nupkg files will be loaded from
@@ -69,10 +70,11 @@ namespace AWSPowerShellGenerator.Utils
 
         public string ModuleVersionNumber { get; }
 
-        public GenerationSources(string awsPowerShellModuleFolder, string sdkAssembliesFolder, string versionNumber)
+        public GenerationSources(string awsPowerShellModuleFolder, string sdkAssembliesFolder, string versionNumber, string previewLabel)
         {
             AwsPowerShellModuleFolder = awsPowerShellModuleFolder;
             SdkAssembliesFolder = sdkAssembliesFolder;
+            PreviewLabel = previewLabel;
 
             Func<string, string> sanitizeInteger = (string s) =>
             {
@@ -261,7 +263,9 @@ namespace AWSPowerShellGenerator.Utils
                 fileList: new string[] { "AWS.Tools.Common.dll-Help.xml" },
                 scriptsToProcess: new string[] { "ImportGuard.ps1" },
                 aliasesToExport: commonLegacyAliases.SelectMany(cmdlet => cmdlet.Value),
-                cmdletsToExport: commonAdvancedCmdlets);
+                cmdletsToExport: commonAdvancedCmdlets,
+                prereleaseTag: PreviewLabel
+                );
 
             File.WriteAllText(projectFile, fileContents);
         }
@@ -296,7 +300,9 @@ namespace AWSPowerShellGenerator.Utils
                                                    "AWSPowerShellLegacyAliases.psm1" },
                 scriptsToProcess: new string[] { "ImportGuard.ps1" },
                 fileList: new string[] { $"AWSPowerShell{(netStandard ? ".NetCore" : "")}.dll-Help.xml",
-                                         "CHANGELOG.txt"});
+                                         "CHANGELOG.txt"},
+                prereleaseTag: PreviewLabel
+                );
 
             File.WriteAllText(filePath, fileContents);
         }
@@ -346,7 +352,8 @@ namespace AWSPowerShellGenerator.Utils
                             .Concat(project
                                 .SelectMany(service => service.AdvancedCmdlets.Keys))
                             .OrderBy(name => name),
-                        aliasesToExport: projectAliases.Keys);
+                        aliasesToExport: projectAliases.Keys,
+                        prereleaseTag: PreviewLabel);
 
                     File.WriteAllText(Path.Combine(AwsPowerShellModuleFolder, CmdletGenerator.CmdletsOutputSubFoldername, project.Key, $"AWS.Tools.{project.Key}.psd1"), fileContents);
                 }
@@ -428,7 +435,7 @@ namespace AWSPowerShellGenerator.Utils
                 writer.WriteLine(fileHeader);
                 writer.WriteLine();
                 writer.WriteLine(completionScript);
-                foreach(var customCompleterFile in customCompleterFiles)
+                foreach (var customCompleterFile in customCompleterFiles)
                 {
                     string content = File.ReadAllText(customCompleterFile);
                     writer.WriteLine();

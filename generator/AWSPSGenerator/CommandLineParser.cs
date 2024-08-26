@@ -251,6 +251,14 @@ namespace AWSPowerShellGenerator
                 HasValue = true,
                 Parse = (arguments, argValue) => arguments.ParsedOptions.VersionNumber = argValue,
                 HelpText = "The four-components version number e.g. 4.0.0.0."
+            },
+            new ArgDeclaration
+            {
+                OptionName = "previewlabel",
+                ShortName = "pl",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.PreviewLabel = argValue,
+                HelpText = "Preview Label for a Preview Release e.g. preview2."
             }
         };
 

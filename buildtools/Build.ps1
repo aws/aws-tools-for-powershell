@@ -30,7 +30,10 @@ param (
   [string] $RunTests = "false",
 
   [Parameter()]
-  [string] $RunAsStagingBuild = "false"
+  [string] $RunAsStagingBuild = "false",
+
+  [Parameter()]
+  [string] $PreviewLabel = ""
 )
 function DownloadSdkArtifacts {
   [CmdletBinding()]
@@ -163,7 +166,8 @@ try {
       msbuild ./buildtools/build.proj `
         /t:staging-build `
         /p:Configuration=$Configuration `
-        /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild
+        /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild `
+        /p:PreviewLabel=$PreviewLabel
     }
     else {
       msbuild ./buildtools/build.proj `
@@ -175,7 +179,8 @@ try {
         /p:SignModules=$SignModules `
         /p:DraftReleaseNotes=true `
         /p:SkipCmdletGeneration=false `
-        /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild
+        /p:CleanSdkReferences=$cleanSDKReferenceInMsBuild `
+        /p:PreviewLabel=$PreviewLabel
     }
     $BuildResult = $LASTEXITCODE
   }

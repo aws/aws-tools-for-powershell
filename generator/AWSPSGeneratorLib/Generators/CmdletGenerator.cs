@@ -201,7 +201,7 @@ namespace AWSPowerShellGenerator.Generators
 
             ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
 
-            SourceArtifacts = new GenerationSources(OutputFolder, SdkAssembliesFolder, Options.VersionNumber);
+            SourceArtifacts = new GenerationSources(OutputFolder, SdkAssembliesFolder, Options.VersionNumber, Options.PreviewLabel);
             LoadCoreSDKRuntimeMaterials();
             LoadSpecialServiceAssemblies();
 
