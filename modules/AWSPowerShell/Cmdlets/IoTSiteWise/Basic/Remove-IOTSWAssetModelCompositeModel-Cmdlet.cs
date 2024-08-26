@@ -81,6 +81,43 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String AssetModelId { get; set; }
         #endregion
         
+        #region Parameter IfMatch
+        /// <summary>
+        /// <para>
+        /// <para>The expected current entity tag (ETag) for the asset model’s latest or active version
+        /// (specified using <c>matchForVersionType</c>). The delete request is rejected if the
+        /// tag does not match the latest or active version's current entity tag. See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/opt-locking-for-model.html">Optimistic
+        /// locking for asset model writes</a> in the <i>IoT SiteWise User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IfMatch { get; set; }
+        #endregion
+        
+        #region Parameter IfNoneMatch
+        /// <summary>
+        /// <para>
+        /// <para>Accepts <b>*</b> to reject the delete request if an active version (specified using
+        /// <c>matchForVersionType</c> as <c>ACTIVE</c>) already exists for the asset model.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IfNoneMatch { get; set; }
+        #endregion
+        
+        #region Parameter MatchForVersionType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the asset model version type (<c>LATEST</c> or <c>ACTIVE</c>) used in conjunction
+        /// with <c>If-Match</c> or <c>If-None-Match</c> headers to determine the target ETag
+        /// for the delete operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoTSiteWise.AssetModelVersionType")]
+        public Amazon.IoTSiteWise.AssetModelVersionType MatchForVersionType { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -149,6 +186,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             }
             #endif
             context.ClientToken = this.ClientToken;
+            context.IfMatch = this.IfMatch;
+            context.IfNoneMatch = this.IfNoneMatch;
+            context.MatchForVersionType = this.MatchForVersionType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -176,6 +216,18 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.IfMatch != null)
+            {
+                request.IfMatch = cmdletContext.IfMatch;
+            }
+            if (cmdletContext.IfNoneMatch != null)
+            {
+                request.IfNoneMatch = cmdletContext.IfNoneMatch;
+            }
+            if (cmdletContext.MatchForVersionType != null)
+            {
+                request.MatchForVersionType = cmdletContext.MatchForVersionType;
             }
             
             CmdletOutput output;
@@ -241,6 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             public System.String AssetModelCompositeModelId { get; set; }
             public System.String AssetModelId { get; set; }
             public System.String ClientToken { get; set; }
+            public System.String IfMatch { get; set; }
+            public System.String IfNoneMatch { get; set; }
+            public Amazon.IoTSiteWise.AssetModelVersionType MatchForVersionType { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.DeleteAssetModelCompositeModelResponse, RemoveIOTSWAssetModelCompositeModelCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.AssetModelStatus;
         }

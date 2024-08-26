@@ -64,6 +64,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         public System.String AssetModelId { get; set; }
         #endregion
         
+        #region Parameter AssetModelVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version alias that specifies the latest or active version of the asset model.
+        /// The details are returned in the response. The default value is <c>LATEST</c>. See
+        /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
+        /// Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetModelVersion { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -167,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
                 WriteWarning("You are passing $null as a value for parameter AssetModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AssetModelVersion = this.AssetModelVersion;
             context.Filter = this.Filter;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -193,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.AssetModelId != null)
             {
                 request.AssetModelId = cmdletContext.AssetModelId;
+            }
+            if (cmdletContext.AssetModelVersion != null)
+            {
+                request.AssetModelVersion = cmdletContext.AssetModelVersion;
             }
             if (cmdletContext.Filter != null)
             {
@@ -288,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssetModelId { get; set; }
+            public System.String AssetModelVersion { get; set; }
             public Amazon.IoTSiteWise.ListAssetModelPropertiesFilter Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }

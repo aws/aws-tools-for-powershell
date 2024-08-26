@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         #region Parameter AssetModelType
         /// <summary>
         /// <para>
-        /// <para>The type of asset model.</para><ul><li><para><b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
-        /// Can't be included as a component in another asset model.</para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
+        /// <para>The type of asset model. If you don't provide an <c>assetModelTypes</c>, all types
+        /// of asset models are returned.</para><ul><li><para><b>ASSET_MODEL</b> – An asset model that you can use to create assets. Can't be included
+        /// as a component in another asset model.</para></li><li><para><b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
         /// models of other asset models. You can't create assets directly from this type of asset
         /// model. </para></li></ul>
         /// </para>
@@ -54,6 +55,19 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("AssetModelTypes")]
         public System.String[] AssetModelType { get; set; }
+        #endregion
+        
+        #region Parameter AssetModelVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version alias that specifies the latest or active version of the asset model.
+        /// The details are returned in the response. The default value is <c>LATEST</c>. See
+        /// <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
+        /// Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AssetModelVersion { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -121,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             {
                 context.AssetModelType = new List<System.String>(this.AssetModelType);
             }
+            context.AssetModelVersion = this.AssetModelVersion;
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -144,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
             if (cmdletContext.AssetModelType != null)
             {
                 request.AssetModelTypes = cmdletContext.AssetModelType;
+            }
+            if (cmdletContext.AssetModelVersion != null)
+            {
+                request.AssetModelVersion = cmdletContext.AssetModelVersion;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -235,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTSW
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AssetModelType { get; set; }
+            public System.String AssetModelVersion { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public System.Func<Amazon.IoTSiteWise.Model.ListAssetModelsResponse, GetIOTSWAssetModelListCmdlet, object> Select { get; set; } =

@@ -45,6 +45,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter MicrosoftEntraConfig_ApplicationConfigSecretArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the application config.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftEntraConfig_ApplicationConfigSecretArn { get; set; }
+        #endregion
+        
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
@@ -91,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("EnableWorkDocs")]
         public System.Boolean? EnableWorkDoc { get; set; }
+        #endregion
+        
+        #region Parameter IdcInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the identity center instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IdcInstanceArn { get; set; }
         #endregion
         
         #region Parameter ActiveDirectoryConfig_ServiceAccountSecretArn
@@ -142,6 +162,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.WorkSpaces.Tenancy")]
         public Amazon.WorkSpaces.Tenancy Tenancy { get; set; }
+        #endregion
+        
+        #region Parameter MicrosoftEntraConfig_TenantId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the tenant.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MicrosoftEntraConfig_TenantId { get; set; }
         #endregion
         
         #region Parameter UserIdentityType
@@ -253,6 +283,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.DirectoryId = this.DirectoryId;
             context.EnableSelfService = this.EnableSelfService;
             context.EnableWorkDoc = this.EnableWorkDoc;
+            context.IdcInstanceArn = this.IdcInstanceArn;
+            context.MicrosoftEntraConfig_ApplicationConfigSecretArn = this.MicrosoftEntraConfig_ApplicationConfigSecretArn;
+            context.MicrosoftEntraConfig_TenantId = this.MicrosoftEntraConfig_TenantId;
             if (this.SubnetId != null)
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
@@ -322,6 +355,39 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.EnableWorkDoc != null)
             {
                 request.EnableWorkDocs = cmdletContext.EnableWorkDoc.Value;
+            }
+            if (cmdletContext.IdcInstanceArn != null)
+            {
+                request.IdcInstanceArn = cmdletContext.IdcInstanceArn;
+            }
+            
+             // populate MicrosoftEntraConfig
+            var requestMicrosoftEntraConfigIsNull = true;
+            request.MicrosoftEntraConfig = new Amazon.WorkSpaces.Model.MicrosoftEntraConfig();
+            System.String requestMicrosoftEntraConfig_microsoftEntraConfig_ApplicationConfigSecretArn = null;
+            if (cmdletContext.MicrosoftEntraConfig_ApplicationConfigSecretArn != null)
+            {
+                requestMicrosoftEntraConfig_microsoftEntraConfig_ApplicationConfigSecretArn = cmdletContext.MicrosoftEntraConfig_ApplicationConfigSecretArn;
+            }
+            if (requestMicrosoftEntraConfig_microsoftEntraConfig_ApplicationConfigSecretArn != null)
+            {
+                request.MicrosoftEntraConfig.ApplicationConfigSecretArn = requestMicrosoftEntraConfig_microsoftEntraConfig_ApplicationConfigSecretArn;
+                requestMicrosoftEntraConfigIsNull = false;
+            }
+            System.String requestMicrosoftEntraConfig_microsoftEntraConfig_TenantId = null;
+            if (cmdletContext.MicrosoftEntraConfig_TenantId != null)
+            {
+                requestMicrosoftEntraConfig_microsoftEntraConfig_TenantId = cmdletContext.MicrosoftEntraConfig_TenantId;
+            }
+            if (requestMicrosoftEntraConfig_microsoftEntraConfig_TenantId != null)
+            {
+                request.MicrosoftEntraConfig.TenantId = requestMicrosoftEntraConfig_microsoftEntraConfig_TenantId;
+                requestMicrosoftEntraConfigIsNull = false;
+            }
+             // determine if request.MicrosoftEntraConfig should be set to null
+            if (requestMicrosoftEntraConfigIsNull)
+            {
+                request.MicrosoftEntraConfig = null;
             }
             if (cmdletContext.SubnetId != null)
             {
@@ -417,6 +483,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String DirectoryId { get; set; }
             public System.Boolean? EnableSelfService { get; set; }
             public System.Boolean? EnableWorkDoc { get; set; }
+            public System.String IdcInstanceArn { get; set; }
+            public System.String MicrosoftEntraConfig_ApplicationConfigSecretArn { get; set; }
+            public System.String MicrosoftEntraConfig_TenantId { get; set; }
             public List<System.String> SubnetId { get; set; }
             public List<Amazon.WorkSpaces.Model.Tag> Tag { get; set; }
             public Amazon.WorkSpaces.Tenancy Tenancy { get; set; }

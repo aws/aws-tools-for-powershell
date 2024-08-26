@@ -1,4 +1,21 @@
-﻿### 4.1.642 (2024-08-23 21:11Z)
+﻿### 4.1.643 (2024-08-26 20:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.873.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon IoT SiteWise
+    * Modified cmdlet Get-IOTSWAssetModel: added parameter AssetModelVersion.
+    * Modified cmdlet Get-IOTSWAssetModelCompositeModel: added parameter AssetModelVersion.
+    * Modified cmdlet Get-IOTSWAssetModelCompositeModelList: added parameter AssetModelVersion.
+    * Modified cmdlet Get-IOTSWAssetModelList: added parameter AssetModelVersion.
+    * Modified cmdlet Get-IOTSWAssetModelPropertyList: added parameter AssetModelVersion.
+    * Modified cmdlet New-IOTSWAssetModelCompositeModel: added parameters IfMatch, IfNoneMatch and MatchForVersionType.
+    * Modified cmdlet Remove-IOTSWAssetModel: added parameters IfMatch, IfNoneMatch and MatchForVersionType.
+    * Modified cmdlet Remove-IOTSWAssetModelCompositeModel: added parameters IfMatch, IfNoneMatch and MatchForVersionType.
+    * Modified cmdlet Update-IOTSWAssetModel: added parameters IfMatch, IfNoneMatch and MatchForVersionType.
+    * Modified cmdlet Update-IOTSWAssetModelCompositeModel: added parameters IfMatch, IfNoneMatch and MatchForVersionType.
+  * Amazon WorkSpaces
+    * Modified cmdlet Get-WKSWorkspaceDirectory: added parameter Filter.
+    * Modified cmdlet Register-WKSWorkspaceDirectory: added parameters IdcInstanceArn, MicrosoftEntraConfig_ApplicationConfigSecretArn and MicrosoftEntraConfig_TenantId.
+
+### 4.1.642 (2024-08-23 21:11Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.872.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon QBusiness
     * Modified cmdlet New-QBUSApplication: added parameters ClientIdsForOIDC, IamIdentityProviderArn and IdentityType.

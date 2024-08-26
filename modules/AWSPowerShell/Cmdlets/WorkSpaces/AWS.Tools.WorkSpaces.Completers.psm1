@@ -210,7 +210,7 @@ $WKS_Completers = {
         # Amazon.WorkSpaces.UserIdentityType
         "Register-WKSWorkspaceDirectory/UserIdentityType"
         {
-            $v = "AWS_DIRECTORY_SERVICE","CUSTOMER_MANAGED"
+            $v = "AWS_DIRECTORY_SERVICE","AWS_IAM_IDENTITY_CENTER","CUSTOMER_MANAGED"
             break
         }
 

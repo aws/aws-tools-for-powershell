@@ -87,6 +87,19 @@ $IOTSW_Completers = {
             break
         }
 
+        # Amazon.IoTSiteWise.AssetModelVersionType
+        {
+            ($_ -eq "New-IOTSWAssetModelCompositeModel/MatchForVersionType") -Or
+            ($_ -eq "Remove-IOTSWAssetModel/MatchForVersionType") -Or
+            ($_ -eq "Remove-IOTSWAssetModelCompositeModel/MatchForVersionType") -Or
+            ($_ -eq "Update-IOTSWAssetModel/MatchForVersionType") -Or
+            ($_ -eq "Update-IOTSWAssetModelCompositeModel/MatchForVersionType")
+        }
+        {
+            $v = "ACTIVE","LATEST"
+            break
+        }
+
         # Amazon.IoTSiteWise.AuthMode
         "New-IOTSWPortal/PortalAuthMode"
         {
@@ -260,6 +273,7 @@ $IOTSW_map = @{
     "Filter"=@("Get-IOTSWAssetList","Get-IOTSWAssetModelPropertyList","Get-IOTSWAssetPropertyList","Get-IOTSWBulkImportJobList")
     "IdentityType"=@("Get-IOTSWAccessPolicyList")
     "LoggingOptions_Level"=@("Write-IOTSWLoggingOption")
+    "MatchForVersionType"=@("New-IOTSWAssetModelCompositeModel","Remove-IOTSWAssetModel","Remove-IOTSWAssetModelCompositeModel","Update-IOTSWAssetModel","Update-IOTSWAssetModelCompositeModel")
     "PortalAuthMode"=@("New-IOTSWPortal")
     "PortalLogoImageFile_Type"=@("New-IOTSWPortal")
     "PropertyNotificationState"=@("Update-IOTSWAssetProperty")

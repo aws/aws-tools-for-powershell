@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String[] DirectoryId { get; set; }
         #endregion
         
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>The filter condition for the WorkSpaces.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Filters")]
+        public Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesFilter[] Filter { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceDirectoryName
         /// <summary>
         /// <para>
@@ -149,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 context.DirectoryId = new List<System.String>(this.DirectoryId);
             }
+            if (this.Filter != null)
+            {
+                context.Filter = new List<Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesFilter>(this.Filter);
+            }
             context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             if (this.WorkspaceDirectoryName != null)
@@ -178,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryIds = cmdletContext.DirectoryId;
+            }
+            if (cmdletContext.Filter != null)
+            {
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.Limit != null)
             {
@@ -273,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> DirectoryId { get; set; }
+            public List<Amazon.WorkSpaces.Model.DescribeWorkspaceDirectoriesFilter> Filter { get; set; }
             public System.Int32? Limit { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> WorkspaceDirectoryName { get; set; }
