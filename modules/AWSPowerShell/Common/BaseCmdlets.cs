@@ -27,6 +27,9 @@ using Amazon.Util.Internal;
 using Amazon.PowerShell.Common.Internal;
 using Amazon.Runtime.CredentialManagement;
 using Amazon.Util;
+using Amazon.Runtime.Telemetry.Tracing;
+using Amazon.Runtime.Telemetry;
+using Amazon.Runtime.Internal.Util;
 
 namespace Amazon.PowerShell.Common
 {
@@ -63,6 +66,9 @@ namespace Amazon.PowerShell.Common
         private bool IsSanitizingRequestError { get; set; }
         private bool IsSanitizingResponseError { get; set; }
 
+        private TraceSpan TraceSpan { get; set; }
+
+        protected string AWSServiceId { get; set; } = "NoServiceClient";
 
         #region Error calls
 
@@ -124,6 +130,9 @@ namespace Amazon.PowerShell.Common
         /// <param name="innerException">The exception that was caught, if any</param>
         protected void ThrowExecutionError(string message, object errorSource, Exception innerException)
         {
+            TraceSpan?.RecordException(innerException);
+            TraceSpan?.Dispose();
+            TraceSpan = null;
             this.ThrowTerminatingError(new ErrorRecord(new InvalidOperationException(message, innerException),
                                                         innerException == null
                                                             ? "InvalidOperationException"
@@ -330,6 +339,10 @@ namespace Amazon.PowerShell.Common
 
         protected override void BeginProcessing()
         {
+            string serviceId = AWSServiceId.Replace(" ", "");
+            TraceSpan = AWSConfigs.TelemetryProvider.TracerProvider.GetTracer($"{TelemetryConstants.TelemetryScopePrefix}.PS.{serviceId}")
+                .CreateSpan(this.MyInvocation.InvocationName, null, Amazon.Runtime.Telemetry.Tracing.SpanKind.CLIENT);
+
             base.BeginProcessing();
 
             if (!AWSPowerShellUserAgentSet)
@@ -372,7 +385,12 @@ namespace Amazon.PowerShell.Common
                 string errorMessage = $"Error occurred in sensitive data redaction, as a result {failedType} being omitted from $AWSHistory. In case you rely on $AWSHistory, run Set-AWSHistoryConfiguration -IncludeSensitiveData command to skip sensitive data redaction. Please report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.";
                 this.WriteError(new ErrorRecord(new Exception(errorMessage), "", ErrorCategory.InvalidOperation, this));
             }
-        }
+
+            base.EndProcessing();
+
+            TraceSpan?.Dispose();
+            TraceSpan = null;
+    }
 
         protected virtual void ProcessOutput(CmdletOutput cmdletOutput)
         {
