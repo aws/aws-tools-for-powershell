@@ -1,4 +1,10 @@
-﻿### 4.1.643 (2024-08-26 20:50Z)
+﻿### 4.1.644 (2024-08-27 20:59Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.874.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Added cmdlet Get-BDRInferenceProfile leveraging the GetInferenceProfile service API.
+    * Added cmdlet Get-BDRInferenceProfileList leveraging the ListInferenceProfiles service API.
+
+### 4.1.643 (2024-08-26 20:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.873.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon IoT SiteWise
     * Modified cmdlet Get-IOTSWAssetModel: added parameter AssetModelVersion.

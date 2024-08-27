@@ -2335,6 +2335,7 @@ Set-Alias -Name BDR-GetEvaluationJob -Value Get-BDREvaluationJob
 Set-Alias -Name BDR-GetFoundationModel -Value Get-BDRFoundationModel
 Set-Alias -Name BDR-GetGuardrail -Value Get-BDRGuardrail
 Set-Alias -Name BDR-GetImportedModel -Value Get-BDRImportedModel
+Set-Alias -Name BDR-GetInferenceProfile -Value Get-BDRInferenceProfile
 Set-Alias -Name BDR-GetModelCopyJob -Value Get-BDRModelCopyJob
 Set-Alias -Name BDR-GetModelCustomizationJob -Value Get-BDRModelCustomizationJob
 Set-Alias -Name BDR-GetModelImportJob -Value Get-BDRModelImportJob
@@ -2356,6 +2357,9 @@ Set-Alias -Name BDR-ListGuardrails -Value Get-BDRGuardrailList
 Set-Alias -Name List-BDRImportedModels -Value Get-BDRImportedModelList
 Set-Alias -Name List-BDRImportedModelList -Value Get-BDRImportedModelList
 Set-Alias -Name BDR-ListImportedModels -Value Get-BDRImportedModelList
+Set-Alias -Name List-BDRInferenceProfiles -Value Get-BDRInferenceProfileList
+Set-Alias -Name List-BDRInferenceProfileList -Value Get-BDRInferenceProfileList
+Set-Alias -Name BDR-ListInferenceProfiles -Value Get-BDRInferenceProfileList
 Set-Alias -Name List-BDRModelCopyJobs -Value Get-BDRModelCopyJobList
 Set-Alias -Name List-BDRModelCopyJobList -Value Get-BDRModelCopyJobList
 Set-Alias -Name BDR-ListModelCopyJobs -Value Get-BDRModelCopyJobList

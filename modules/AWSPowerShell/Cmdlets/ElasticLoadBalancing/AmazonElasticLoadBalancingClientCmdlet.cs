@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonElasticLoadBalancingConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

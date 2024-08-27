@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMMP
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonChimeSDKMediaPipelinesConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

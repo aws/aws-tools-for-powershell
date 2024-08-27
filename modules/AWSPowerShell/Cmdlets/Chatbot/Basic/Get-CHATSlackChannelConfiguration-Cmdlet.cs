@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Lists Slack Channel Configurations optionally filtered by ChatConfigurationArn
+    /// Lists Slack channel configurations optionally filtered by ChatConfigurationArn
     /// </summary>
     [Cmdlet("Get", "CHATSlackChannelConfiguration")]
     [OutputType("Amazon.Chatbot.Model.SlackChannelConfiguration")]
@@ -40,13 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     public partial class GetCHATSlackChannelConfigurationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// An optional ARN of a SlackChannelConfiguration
-        /// to describe.
+        /// <para>An optional Amazon Resource Number (ARN) of a SlackChannelConfiguration to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,9 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of results to include in
-        /// the response. If more results exist than the specified MaxResults value, a token is
-        /// included in the response so that the remaining results can be retrieved.
+        /// <para>The maximum number of results to include in the response. If more results exist than
+        /// the specified MaxResults value, a token is included in the response so that the remaining
+        /// results can be retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,10 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// An optional token returned from a prior request.
-        /// Use this token for pagination of results from this action. If this parameter is specified,
-        /// the response includes only results beyond the token, up to the value specified by
-        /// MaxResults.
+        /// <para> An optional token returned from a prior request. Use this token for pagination of
+        /// results from this action. If this parameter is specified, the response includes only
+        /// results beyond the token, up to the value specified by MaxResults. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

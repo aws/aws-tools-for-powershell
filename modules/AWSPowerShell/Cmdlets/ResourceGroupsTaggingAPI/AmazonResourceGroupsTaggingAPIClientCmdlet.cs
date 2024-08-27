@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonResourceGroupsTaggingAPIConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

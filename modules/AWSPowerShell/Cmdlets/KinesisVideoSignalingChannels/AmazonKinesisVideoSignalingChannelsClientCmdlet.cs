@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.KVSC
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonKinesisVideoSignalingChannelsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

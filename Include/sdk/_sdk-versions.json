@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.873.0",
+    "ProductVersion"    : "3.7.874.0",
     "CoreVersion"       : "3.7.400.11",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -628,7 +628,7 @@
             "InPreview"               : false
         },
         "Polly"                           : {
-            "Version" : "3.7.400.11",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.11"
@@ -2572,7 +2572,7 @@
             "InPreview"               : false
         },
         "Omics"                               : {
-            "Version" : "3.7.400.11",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.11"
@@ -2788,7 +2788,7 @@
             "InPreview"               : false
         },
         "BedrockRuntime"                      : {
-            "Version" : "3.7.401.11",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.11"
@@ -2796,7 +2796,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.403.0",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.11"
@@ -2988,7 +2988,7 @@
             "InPreview"               : false
         },
         "Chatbot"                             : {
-            "Version" : "3.7.400.11",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.11"

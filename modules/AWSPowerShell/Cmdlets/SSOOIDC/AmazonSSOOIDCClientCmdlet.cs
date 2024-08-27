@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.SSOOIDC
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonSSOOIDCConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

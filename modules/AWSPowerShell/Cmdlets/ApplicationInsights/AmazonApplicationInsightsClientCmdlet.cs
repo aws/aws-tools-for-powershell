@@ -64,6 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.CWAI
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonApplicationInsightsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

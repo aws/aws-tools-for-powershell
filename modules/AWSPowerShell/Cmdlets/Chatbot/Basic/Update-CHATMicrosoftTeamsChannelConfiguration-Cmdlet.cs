@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Updates MS Teams Channel Configuration
+    /// Updates an Microsoft Teams channel configuration.
     /// </summary>
     [Cmdlet("Update", "CHATMicrosoftTeamsChannelConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chatbot.Model.TeamsChannelConfiguration")]
@@ -40,12 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     public partial class UpdateCHATMicrosoftTeamsChannelConfigurationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ChannelId
         /// <summary>
         /// <para>
-        /// The ID of the Microsoft Teams channel.
+        /// <para>The ID of the Microsoft Teams channel.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChannelName
         /// <summary>
         /// <para>
-        /// The name of the Microsoft Teams channel.
+        /// <para>The name of the Microsoft Teams channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,8 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// The ARN of the MicrosoftTeamsChannelConfiguration
-        /// to update.
+        /// <para>The Amazon Resource Number (ARN) of the TeamsChannelConfiguration to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -90,9 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter GuardrailPolicyArn
         /// <summary>
         /// <para>
-        /// The list of IAM policy ARNs that are
-        /// applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied
-        /// by default if this is not set.
+        /// <para>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed
+        /// <c>AdministratorAccess</c> policy is applied by default if this is not set. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,9 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// The ARN of the IAM role that defines the permissions
-        /// for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is
-        /// not the service-linked role. For more information, see IAM Policies for AWS Chatbot.
+        /// <para>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</para><para>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM
+        /// policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -115,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter LoggingLevel
         /// <summary>
         /// <para>
-        /// Logging levels include ERROR, INFO, or NONE.
+        /// <para>Logging levels include <c>ERROR</c>, <c>INFO</c>, or <c>NONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,8 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// The ARNs of the SNS topics that deliver notifications
-        /// to AWS Chatbot.
+        /// <para>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS
+        /// Chatbot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -137,8 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter UserAuthorizationRequired
         /// <summary>
         /// <para>
-        /// Enables use of a user role requirement
-        /// in your chat configuration.
+        /// <para>Enables use of a user role requirement in your chat configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

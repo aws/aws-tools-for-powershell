@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonComprehendMedicalConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

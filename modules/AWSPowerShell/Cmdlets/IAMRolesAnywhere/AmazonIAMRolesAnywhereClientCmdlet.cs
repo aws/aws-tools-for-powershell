@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IAMRA
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonIAMRolesAnywhereConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

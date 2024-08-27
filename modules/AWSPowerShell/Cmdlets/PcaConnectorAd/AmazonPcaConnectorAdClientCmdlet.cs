@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.PCAAD
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonPcaConnectorAdConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

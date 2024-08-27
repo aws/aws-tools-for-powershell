@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         protected override void BeginProcessing()
         {
-            base.ServiceId = AmazonDynamoDBConfig.ServiceId.ToString();
+            base.AWSServiceId = AmazonDynamoDBConfig.ServiceId.ToString();
             
             base.BeginProcessing();
         }

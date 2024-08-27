@@ -22,31 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Chatbot;
-using Amazon.Chatbot.Model;
+using Amazon.Bedrock;
+using Amazon.Bedrock.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CHAT
+namespace Amazon.PowerShell.Cmdlets.BDR
 {
     /// <summary>
-    /// Attaches a key-value pair to a resource, as identified by its Amazon Resource Name
-    /// (ARN). Resources are users, servers, roles, and other entities.
+    /// Gets information about an inference profile. For more information, see the Amazon
+    /// Bedrock User Guide.
     /// </summary>
-    [Cmdlet("Add", "CHATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Chatbot TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Chatbot.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Chatbot.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Chatbot.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "BDRInferenceProfile")]
+    [OutputType("Amazon.Bedrock.Model.GetInferenceProfileResponse")]
+    [AWSCmdlet("Calls the Amazon Bedrock GetInferenceProfile API operation.", Operation = new[] {"GetInferenceProfile"}, SelectReturnType = typeof(Amazon.Bedrock.Model.GetInferenceProfileResponse))]
+    [AWSCmdletOutput("Amazon.Bedrock.Model.GetInferenceProfileResponse",
+        "This cmdlet returns an Amazon.Bedrock.Model.GetInferenceProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddCHATResourceTagCmdlet : AmazonChatbotClientCmdlet, IExecutor
+    public partial class GetBDRInferenceProfileCmdlet : AmazonBedrockClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceARN
+        #region Parameter InferenceProfileIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ARN of the configuration.</para>
+        /// <para>The unique identifier of the inference profile.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -57,31 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceARN { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>A list of tags to apply to the configuration.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public Amazon.Chatbot.Model.Tag[] Tag { get; set; }
+        public System.String InferenceProfileIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Chatbot.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Bedrock.Model.GetInferenceProfileResponse).
+        /// Specifying the name of a property of type Amazon.Bedrock.Model.GetInferenceProfileResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -90,34 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceARN parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InferenceProfileIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InferenceProfileIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceARN' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InferenceProfileIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceARN), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-CHATResourceTag (TagResource)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -127,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Chatbot.Model.TagResourceResponse, AddCHATResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Bedrock.Model.GetInferenceProfileResponse, GetBDRInferenceProfileCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,24 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceARN;
+                context.Select = (response, cmdlet) => this.InferenceProfileIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceARN = this.ResourceARN;
+            context.InferenceProfileIdentifier = this.InferenceProfileIdentifier;
             #if MODULAR
-            if (this.ResourceARN == null && ParameterWasBound(nameof(this.ResourceARN)))
+            if (this.InferenceProfileIdentifier == null && ParameterWasBound(nameof(this.InferenceProfileIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceARN which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new List<Amazon.Chatbot.Model.Tag>(this.Tag);
-            }
-            #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InferenceProfileIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,15 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Chatbot.Model.TagResourceRequest();
+            var request = new Amazon.Bedrock.Model.GetInferenceProfileRequest();
             
-            if (cmdletContext.ResourceARN != null)
+            if (cmdletContext.InferenceProfileIdentifier != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
-            }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
+                request.InferenceProfileIdentifier = cmdletContext.InferenceProfileIdentifier;
             }
             
             CmdletOutput output;
@@ -213,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         
         #region AWS Service Operation Call
         
-        private Amazon.Chatbot.Model.TagResourceResponse CallAWSServiceOperation(IAmazonChatbot client, Amazon.Chatbot.Model.TagResourceRequest request)
+        private Amazon.Bedrock.Model.GetInferenceProfileResponse CallAWSServiceOperation(IAmazonBedrock client, Amazon.Bedrock.Model.GetInferenceProfileRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Chatbot", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Bedrock", "GetInferenceProfile");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.GetInferenceProfile(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.GetInferenceProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -241,10 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceARN { get; set; }
-            public List<Amazon.Chatbot.Model.Tag> Tag { get; set; }
-            public System.Func<Amazon.Chatbot.Model.TagResourceResponse, AddCHATResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String InferenceProfileIdentifier { get; set; }
+            public System.Func<Amazon.Bedrock.Model.GetInferenceProfileResponse, GetBDRInferenceProfileCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CRML
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCleanRoomsMLConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

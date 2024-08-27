@@ -28,7 +28,8 @@ using Amazon.Omics.Model;
 namespace Amazon.PowerShell.Cmdlets.OMICS
 {
     /// <summary>
-    /// Creates a run group.
+    /// You can optionally create a run group to limit the compute resources for the runs
+    /// that you add to the group.
     /// </summary>
     [Cmdlet("New", "OMICSRunGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Omics.Model.CreateRunGroupResponse")]
@@ -44,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxCpu
         /// <summary>
         /// <para>
-        /// <para>The maximum number of CPUs to use in the group.</para>
+        /// <para>The maximum number of CPUs that can run concurrently across all active runs in the
+        /// run group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -55,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxDuration
         /// <summary>
         /// <para>
-        /// <para>A maximum run time for the group in minutes.</para>
+        /// <para>The maximum time for each run (in minutes). If a run exceeds the maximum run time,
+        /// the run fails automatically.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxGpus
         /// <summary>
         /// <para>
-        /// <para>The maximum GPUs that can be used by a run group.</para>
+        /// <para>The maximum number of GPUs that can run concurrently across all active runs in the
+        /// run group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
         #region Parameter MaxRun
         /// <summary>
         /// <para>
-        /// <para>The maximum number of concurrent runs for the group.</para>
+        /// <para>The maximum number of runs that can be running at the same time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

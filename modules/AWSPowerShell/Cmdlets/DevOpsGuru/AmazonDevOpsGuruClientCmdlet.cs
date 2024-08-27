@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.DGURU
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonDevOpsGuruConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

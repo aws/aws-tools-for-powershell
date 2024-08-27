@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.LWIZ
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonLaunchWizardConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

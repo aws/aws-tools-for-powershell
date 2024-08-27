@@ -28,7 +28,8 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Lists all authorized Slack Workspaces for AWS Account
+    /// List all authorized Slack workspaces connected to the AWS Account onboarded with AWS
+    /// Chatbot.
     /// </summary>
     [Cmdlet("Get", "CHATSlackWorkspace")]
     [OutputType("Amazon.Chatbot.Model.SlackWorkspace")]
@@ -45,9 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of results to include in
-        /// the response. If more results exist than the specified MaxResults value, a token is
-        /// included in the response so that the remaining results can be retrieved.
+        /// <para>The maximum number of results to include in the response. If more results exist than
+        /// the specified MaxResults value, a token is included in the response so that the remaining
+        /// results can be retrieved. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -58,10 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// An optional token returned from a prior request.
-        /// Use this token for pagination of results from this action. If this parameter is specified,
-        /// the response includes only results beyond the token, up to the value specified by
-        /// MaxResults.
+        /// <para> An optional token returned from a prior request. Use this token for pagination of
+        /// results from this action. If this parameter is specified, the response includes only
+        /// results beyond the token, up to the value specified by MaxResults. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

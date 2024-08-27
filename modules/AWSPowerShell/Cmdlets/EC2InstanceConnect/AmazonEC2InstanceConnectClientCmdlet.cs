@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2IC
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonEC2InstanceConnectConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         
         protected override void BeginProcessing()
         {
-            base.ServiceId = AmazonSecretsManagerConfig.ServiceId.ToString();
+            base.AWSServiceId = AmazonSecretsManagerConfig.ServiceId.ToString();
             
             base.BeginProcessing();
         }

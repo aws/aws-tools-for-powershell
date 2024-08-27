@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Get Chatbot account level preferences
+    /// Returns AWS Chatbot account preferences.
     /// </summary>
     [Cmdlet("Get", "CHATAccountPreference")]
     [OutputType("Amazon.Chatbot.Model.AccountPreferences")]

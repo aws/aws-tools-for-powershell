@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.L4E
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonLookoutEquipmentConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMTG
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonChimeSDKMeetingsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

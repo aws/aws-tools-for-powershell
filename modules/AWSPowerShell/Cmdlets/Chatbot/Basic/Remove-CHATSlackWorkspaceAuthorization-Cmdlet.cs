@@ -46,8 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SlackTeamId
         /// <summary>
         /// <para>
-        /// The ID of the Slack workspace authorized with
-        /// AWS Chatbot.
+        /// <para>The ID of the Slack workspace authorized with AWS Chatbot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
