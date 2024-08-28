@@ -22,47 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.PCS;
+using Amazon.PCS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Deletes a data product in Amazon DataZone.
+    /// Deletes a cluster and all its linked resources. You must delete all queues and compute
+    /// node groups associated with the cluster before you can delete the cluster.
     /// </summary>
-    [Cmdlet("Remove", "DZDataProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "PCSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DataZone DeleteDataProduct API operation.", Operation = new[] {"DeleteDataProduct"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteDataProductResponse))]
-    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteDataProductResponse",
+    [AWSCmdlet("Calls the AWS Parallel Computing Service DeleteCluster API operation.", Operation = new[] {"DeleteCluster"}, SelectReturnType = typeof(Amazon.PCS.Model.DeleteClusterResponse))]
+    [AWSCmdletOutput("None or Amazon.PCS.Model.DeleteClusterResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteDataProductResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PCS.Model.DeleteClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveDZDataProductCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class RemovePCSClusterCmdlet : AmazonPCSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainIdentifier
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which the data product is deleted.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the data product that is deleted.</para>
+        /// <para>The name or ID of the cluster to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,13 +57,28 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. Idempotency ensures that an API request completes only once. With an
+        /// idempotent request, if the original request completes successfully, the subsequent
+        /// retries with the same client token return the result from the original successful
+        /// request and they have no additional effect. If you don't specify a client token, the
+        /// CLI and SDK automatically generate 1 for you.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteDataProductResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PCS.Model.DeleteClusterResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZDataProduct (DeleteDataProduct)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PCSCluster (DeleteCluster)"))
             {
                 return;
             }
@@ -125,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PCS.Model.DeleteClusterResponse, RemovePCSClusterCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,21 +133,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.ClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.ClientToken = this.ClientToken;
+            context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -165,15 +158,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.DeleteDataProductRequest();
+            var request = new Amazon.PCS.Model.DeleteClusterRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.ClusterIdentifier != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
             }
             
             CmdletOutput output;
@@ -208,15 +201,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.DeleteDataProductResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteDataProductRequest request)
+        private Amazon.PCS.Model.DeleteClusterResponse CallAWSServiceOperation(IAmazonPCS client, Amazon.PCS.Model.DeleteClusterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteDataProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "DeleteCluster");
             try
             {
                 #if DESKTOP
-                return client.DeleteDataProduct(request);
+                return client.DeleteCluster(request);
                 #elif CORECLR
-                return client.DeleteDataProductAsync(request).GetAwaiter().GetResult();
+                return client.DeleteClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -236,9 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.Func<Amazon.PCS.Model.DeleteClusterResponse, RemovePCSClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

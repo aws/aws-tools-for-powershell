@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.AppConfig'
+# Module manifest for module 'AWS.Tools.PCS'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.AppConfig.dll'
+    RootModule = 'AWS.Tools.PCS.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = '0bccbfac-12ae-4424-aac0-75c2cc1f5361'
+    GUID = '92c95590-099f-452e-abfe-d88d89a395c6'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The AppConfig module of AWS Tools for PowerShell lets developers and administrators manage AWS AppConfig from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The PCS module of AWS Tools for PowerShell lets developers and administrators manage AWS Parallel Computing Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.AppConfig.dll'
+        'AWSSDK.PCS.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.AppConfig.Format.ps1xml'
+        'AWS.Tools.PCS.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.AppConfig.Completers.psm1',
-        'AWS.Tools.AppConfig.Aliases.psm1'
+        'AWS.Tools.PCS.Completers.psm1',
+        'AWS.Tools.PCS.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,51 +86,24 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-APPCResourceTag', 
-        'Get-APPCAccountSetting', 
-        'Get-APPCApplication', 
-        'Get-APPCApplicationList', 
-        'Get-APPCConfiguration', 
-        'Get-APPCConfigurationProfile', 
-        'Get-APPCConfigurationProfileList', 
-        'Get-APPCDeployment', 
-        'Get-APPCDeploymentList', 
-        'Get-APPCDeploymentStrategy', 
-        'Get-APPCDeploymentStrategyList', 
-        'Get-APPCEnvironment', 
-        'Get-APPCEnvironmentList', 
-        'Get-APPCExtension', 
-        'Get-APPCExtensionAssociation', 
-        'Get-APPCExtensionAssociationList', 
-        'Get-APPCExtensionList', 
-        'Get-APPCHostedConfigurationVersion', 
-        'Get-APPCHostedConfigurationVersionList', 
-        'Get-APPCResourceTag', 
-        'New-APPCApplication', 
-        'New-APPCConfigurationProfile', 
-        'New-APPCDeploymentStrategy', 
-        'New-APPCEnvironment', 
-        'New-APPCExtension', 
-        'New-APPCExtensionAssociation', 
-        'New-APPCHostedConfigurationVersion', 
-        'Remove-APPCApplication', 
-        'Remove-APPCConfigurationProfile', 
-        'Remove-APPCDeploymentStrategy', 
-        'Remove-APPCEnvironment', 
-        'Remove-APPCExtension', 
-        'Remove-APPCExtensionAssociation', 
-        'Remove-APPCHostedConfigurationVersion', 
-        'Remove-APPCResourceTag', 
-        'Start-APPCDeployment', 
-        'Stop-APPCDeployment', 
-        'Test-APPCConfigurationValidity', 
-        'Update-APPCAccountSetting', 
-        'Update-APPCApplication', 
-        'Update-APPCConfigurationProfile', 
-        'Update-APPCDeploymentStrategy', 
-        'Update-APPCEnvironment', 
-        'Update-APPCExtension', 
-        'Update-APPCExtensionAssociation')
+        'Add-PCSResourceTag', 
+        'Get-PCSCluster', 
+        'Get-PCSClusterList', 
+        'Get-PCSComputeNodeGroup', 
+        'Get-PCSComputeNodeGroupList', 
+        'Get-PCSQueue', 
+        'Get-PCSQueueList', 
+        'Get-PCSResourceTag', 
+        'New-PCSCluster', 
+        'New-PCSComputeNodeGroup', 
+        'New-PCSQueue', 
+        'Register-PCSComputeNodeGroupInstance', 
+        'Remove-PCSCluster', 
+        'Remove-PCSComputeNodeGroup', 
+        'Remove-PCSQueue', 
+        'Remove-PCSResourceTag', 
+        'Update-PCSComputeNodeGroup', 
+        'Update-PCSQueue')
 
     # Variables to export from this module
     VariablesToExport = '*'
@@ -143,7 +116,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.AppConfig.dll-Help.xml'
+        'AWS.Tools.PCS.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

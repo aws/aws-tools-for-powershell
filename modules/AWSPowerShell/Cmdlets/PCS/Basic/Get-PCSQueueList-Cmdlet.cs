@@ -22,30 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppConfig;
-using Amazon.AppConfig.Model;
+using Amazon.PCS;
+using Amazon.PCS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.APPC
+namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Deletes an application.
+    /// Returns a list of all queues associated with a cluster.
     /// </summary>
-    [Cmdlet("Remove", "APPCApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS AppConfig DeleteApplication API operation.", Operation = new[] {"DeleteApplication"}, SelectReturnType = typeof(Amazon.AppConfig.Model.DeleteApplicationResponse))]
-    [AWSCmdletOutput("None or Amazon.AppConfig.Model.DeleteApplicationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppConfig.Model.DeleteApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PCSQueueList")]
+    [OutputType("Amazon.PCS.Model.QueueSummary")]
+    [AWSCmdlet("Calls the AWS Parallel Computing Service ListQueues API operation.", Operation = new[] {"ListQueues"}, SelectReturnType = typeof(Amazon.PCS.Model.ListQueuesResponse))]
+    [AWSCmdletOutput("Amazon.PCS.Model.QueueSummary or Amazon.PCS.Model.ListQueuesResponse",
+        "This cmdlet returns a collection of Amazon.PCS.Model.QueueSummary objects.",
+        "The service call response (type Amazon.PCS.Model.ListQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveAPPCApplicationCmdlet : AmazonAppConfigClientCmdlet, IExecutor
+    public partial class GetPCSQueueListCmdlet : AmazonPCSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationId
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the application to delete.</para>
+        /// <para>The name or ID of the cluster to list queues for.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -56,49 +56,61 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationId { get; set; }
+        public System.String ClusterIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results that are returned per call. You can use <c>nextToken</c>
+        /// to obtain further pages of results. The default is 10 results, and the maximum allowed
+        /// page size is 100 results. A value of 0 uses the default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The value of <c>nextToken</c> is a unique pagination token for each page of results
+        /// returned. If <c>nextToken</c> is returned, there are more results available. Make
+        /// the call again using the returned token to retrieve the next page. Keep all other
+        /// arguments unchanged. Each pagination token expires after 24 hours. Using an expired
+        /// pagination token returns an <c>HTTP 400 InvalidToken</c> error.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppConfig.Model.DeleteApplicationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Queues'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PCS.Model.ListQueuesResponse).
+        /// Specifying the name of a property of type Amazon.PCS.Model.ListQueuesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Queues";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ApplicationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ClusterIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ApplicationId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ApplicationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-APPCApplication (DeleteApplication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -108,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppConfig.Model.DeleteApplicationResponse, RemoveAPPCApplicationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PCS.Model.ListQueuesResponse, GetPCSQueueListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -117,16 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ApplicationId;
+                context.Select = (response, cmdlet) => this.ClusterIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationId = this.ApplicationId;
+            context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
-            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,11 +155,19 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppConfig.Model.DeleteApplicationRequest();
+            var request = new Amazon.PCS.Model.ListQueuesRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.ClusterIdentifier != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -180,15 +202,15 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         #region AWS Service Operation Call
         
-        private Amazon.AppConfig.Model.DeleteApplicationResponse CallAWSServiceOperation(IAmazonAppConfig client, Amazon.AppConfig.Model.DeleteApplicationRequest request)
+        private Amazon.PCS.Model.ListQueuesResponse CallAWSServiceOperation(IAmazonPCS client, Amazon.PCS.Model.ListQueuesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppConfig", "DeleteApplication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "ListQueues");
             try
             {
                 #if DESKTOP
-                return client.DeleteApplication(request);
+                return client.ListQueues(request);
                 #elif CORECLR
-                return client.DeleteApplicationAsync(request).GetAwaiter().GetResult();
+                return client.ListQueuesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -208,9 +230,11 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public System.Func<Amazon.AppConfig.Model.DeleteApplicationResponse, RemoveAPPCApplicationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String ClusterIdentifier { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.PCS.Model.ListQueuesResponse, GetPCSQueueListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Queues;
         }
         
     }

@@ -22,37 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppConfig;
-using Amazon.AppConfig.Model;
+using Amazon.PCS;
+using Amazon.PCS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.APPC
+namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Deletes an environment.
-    /// 
-    ///  
-    /// <para>
-    /// To prevent users from unintentionally deleting actively-used environments, enable
-    /// <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html">deletion
-    /// protection</a>.
-    /// </para>
+    /// Deletes a job queue. If the compute node group associated with this queue isn't associated
+    /// with any other queues, Amazon Web Services PCS terminates all the compute nodes for
+    /// this queue.
     /// </summary>
-    [Cmdlet("Remove", "APPCEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "PCSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS AppConfig DeleteEnvironment API operation.", Operation = new[] {"DeleteEnvironment"}, SelectReturnType = typeof(Amazon.AppConfig.Model.DeleteEnvironmentResponse))]
-    [AWSCmdletOutput("None or Amazon.AppConfig.Model.DeleteEnvironmentResponse",
+    [AWSCmdlet("Calls the AWS Parallel Computing Service DeleteQueue API operation.", Operation = new[] {"DeleteQueue"}, SelectReturnType = typeof(Amazon.PCS.Model.DeleteQueueResponse))]
+    [AWSCmdletOutput("None or Amazon.PCS.Model.DeleteQueueResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.AppConfig.Model.DeleteEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PCS.Model.DeleteQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveAPPCEnvironmentCmdlet : AmazonAppConfigClientCmdlet, IExecutor
+    public partial class RemovePCSQueueCmdlet : AmazonPCSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ApplicationId
+        #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The application ID that includes the environment that you want to delete.</para>
+        /// <para>The name or ID of the cluster of the queue.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,32 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ApplicationId { get; set; }
+        public System.String ClusterIdentifier { get; set; }
         #endregion
         
-        #region Parameter DeletionProtectionCheck
+        #region Parameter QueueIdentifier
         /// <summary>
         /// <para>
-        /// <para>A parameter to configure deletion protection. If enabled, deletion protection prevents
-        /// a user from deleting an environment if your application called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a>
-        /// or in the environment during the specified interval. </para><para>This parameter supports the following values:</para><ul><li><para><c>BYPASS</c>: Instructs AppConfig to bypass the deletion protection check and delete
-        /// a configuration profile even if deletion protection would have otherwise prevented
-        /// it. </para></li><li><para><c>APPLY</c>: Instructs the deletion protection check to run, even if deletion protection
-        /// is disabled at the account level. <c>APPLY</c> also forces the deletion protection
-        /// check to run against resources created in the past hour, which are normally excluded
-        /// from deletion protection checks. </para></li><li><para><c>ACCOUNT_DEFAULT</c>: The default setting, which instructs AppConfig to implement
-        /// the deletion protection value specified in the <c>UpdateAccountSettings</c> API.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.AppConfig.DeletionProtectionCheck")]
-        public Amazon.AppConfig.DeletionProtectionCheck DeletionProtectionCheck { get; set; }
-        #endregion
-        
-        #region Parameter EnvironmentId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the environment that you want to delete.</para>
+        /// <para>The name or ID of the queue to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -99,13 +75,28 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String EnvironmentId { get; set; }
+        public System.String QueueIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. Idempotency ensures that an API request completes only once. With an
+        /// idempotent request, if the original request completes successfully, the subsequent
+        /// retries with the same client token return the result from the original successful
+        /// request and they have no additional effect. If you don't specify a client token, the
+        /// CLI and SDK automatically generate 1 for you.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.AppConfig.Model.DeleteEnvironmentResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PCS.Model.DeleteQueueResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -114,10 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the EnvironmentId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the QueueIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^QueueIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^EnvironmentId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^QueueIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -137,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.EnvironmentId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-APPCEnvironment (DeleteEnvironment)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.QueueIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PCSQueue (DeleteQueue)"))
             {
                 return;
             }
@@ -151,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.AppConfig.Model.DeleteEnvironmentResponse, RemoveAPPCEnvironmentCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PCS.Model.DeleteQueueResponse, RemovePCSQueueCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -160,22 +151,22 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.EnvironmentId;
+                context.Select = (response, cmdlet) => this.QueueIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ApplicationId = this.ApplicationId;
+            context.ClientToken = this.ClientToken;
+            context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
-            if (this.ApplicationId == null && ParameterWasBound(nameof(this.ApplicationId)))
+            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.DeletionProtectionCheck = this.DeletionProtectionCheck;
-            context.EnvironmentId = this.EnvironmentId;
+            context.QueueIdentifier = this.QueueIdentifier;
             #if MODULAR
-            if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
+            if (this.QueueIdentifier == null && ParameterWasBound(nameof(this.QueueIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter EnvironmentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter QueueIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -192,19 +183,19 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppConfig.Model.DeleteEnvironmentRequest();
+            var request = new Amazon.PCS.Model.DeleteQueueRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.DeletionProtectionCheck != null)
+            if (cmdletContext.ClusterIdentifier != null)
             {
-                request.DeletionProtectionCheck = cmdletContext.DeletionProtectionCheck;
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
             }
-            if (cmdletContext.EnvironmentId != null)
+            if (cmdletContext.QueueIdentifier != null)
             {
-                request.EnvironmentId = cmdletContext.EnvironmentId;
+                request.QueueIdentifier = cmdletContext.QueueIdentifier;
             }
             
             CmdletOutput output;
@@ -239,15 +230,15 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         #region AWS Service Operation Call
         
-        private Amazon.AppConfig.Model.DeleteEnvironmentResponse CallAWSServiceOperation(IAmazonAppConfig client, Amazon.AppConfig.Model.DeleteEnvironmentRequest request)
+        private Amazon.PCS.Model.DeleteQueueResponse CallAWSServiceOperation(IAmazonPCS client, Amazon.PCS.Model.DeleteQueueRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppConfig", "DeleteEnvironment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "DeleteQueue");
             try
             {
                 #if DESKTOP
-                return client.DeleteEnvironment(request);
+                return client.DeleteQueue(request);
                 #elif CORECLR
-                return client.DeleteEnvironmentAsync(request).GetAwaiter().GetResult();
+                return client.DeleteQueueAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -267,10 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public Amazon.AppConfig.DeletionProtectionCheck DeletionProtectionCheck { get; set; }
-            public System.String EnvironmentId { get; set; }
-            public System.Func<Amazon.AppConfig.Model.DeleteEnvironmentResponse, RemoveAPPCEnvironmentCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.String QueueIdentifier { get; set; }
+            public System.Func<Amazon.PCS.Model.DeleteQueueResponse, RemovePCSQueueCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

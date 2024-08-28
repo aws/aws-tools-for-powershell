@@ -22,47 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.PCS;
+using Amazon.PCS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Deletes a data product in Amazon DataZone.
+    /// Deletes tags from an Amazon Web Services PCS resource. To delete a tag, specify the
+    /// tag key and the Amazon Resource Name (ARN) of the Amazon Web Services PCS resource.
     /// </summary>
-    [Cmdlet("Remove", "DZDataProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "PCSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DataZone DeleteDataProduct API operation.", Operation = new[] {"DeleteDataProduct"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteDataProductResponse))]
-    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteDataProductResponse",
+    [AWSCmdlet("Calls the AWS Parallel Computing Service UntagResource API operation.", Operation = new[] {"UntagResource"}, SelectReturnType = typeof(Amazon.PCS.Model.UntagResourceResponse))]
+    [AWSCmdletOutput("None or Amazon.PCS.Model.UntagResourceResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteDataProductResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.PCS.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveDZDataProductCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class RemovePCSResourceTagCmdlet : AmazonPCSClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainIdentifier
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which the data product is deleted.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the data product that is deleted.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,13 +57,32 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>1 or more tag keys to remove from the resource. Specify only tag keys and not tag
+        /// values.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteDataProductResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PCS.Model.UntagResourceResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZDataProduct (DeleteDataProduct)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PCSResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -125,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PCS.Model.UntagResourceResponse, RemovePCSResourceTagCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,21 +137,24 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
-            #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.TagKey != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.TagKey = new List<System.String>(this.TagKey);
+            }
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -165,15 +171,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.DeleteDataProductRequest();
+            var request = new Amazon.PCS.Model.UntagResourceRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.TagKey != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.TagKeys = cmdletContext.TagKey;
             }
             
             CmdletOutput output;
@@ -208,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.DeleteDataProductResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteDataProductRequest request)
+        private Amazon.PCS.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonPCS client, Amazon.PCS.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteDataProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteDataProduct(request);
+                return client.UntagResource(request);
                 #elif CORECLR
-                return client.DeleteDataProductAsync(request).GetAwaiter().GetResult();
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -236,9 +242,9 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public List<System.String> TagKey { get; set; }
+            public System.Func<Amazon.PCS.Model.UntagResourceResponse, RemovePCSResourceTagCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

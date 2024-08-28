@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pcs</C2jFilename>
+    <AssemblyName>PCS</AssemblyName>
+    <ServiceNounPrefix>PCS</ServiceNounPrefix>
+    <ServiceName>AWS Parallel Computing Service</ServiceName>
+    <ServiceClientInterface>IAmazonPCS</ServiceClientInterface>
+    <ServiceClient>AmazonPCSClient</ServiceClient>
+    <ServiceModuleGuid>92c95590-099f-452e-abfe-d88d89a395c6</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="Cluster" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateComputeNodeGroup" OutputProperty="ComputeNodeGroup" Verb="New" Noun="ComputeNodeGroup" ShouldProcessTarget="ComputeNodeGroupName" PipelineParameter="ComputeNodeGroupName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQueue" OutputProperty="Queue" Verb="New" Noun="Queue" ShouldProcessTarget="QueueName" PipelineParameter="QueueName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCluster" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteComputeNodeGroup" Verb="Remove" Noun="ComputeNodeGroup" ShouldProcessTarget="ComputeNodeGroupIdentifier" PipelineParameter="ComputeNodeGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQueue" Verb="Remove" Noun="Queue" ShouldProcessTarget="QueueIdentifier" PipelineParameter="QueueIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCluster" OutputProperty="Cluster" Verb="Get" Noun="Cluster" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComputeNodeGroup" OutputProperty="ComputeNodeGroup" Verb="Get" Noun="ComputeNodeGroup" PipelineParameter="ComputeNodeGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueue" OutputProperty="Queue" Verb="Get" Noun="Queue" PipelineParameter="QueueIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComputeNodeGroups" OutputProperty="ComputeNodeGroups" Verb="Get" Noun="ComputeNodeGroupList" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueues" OutputProperty="Queues" Verb="Get" Noun="QueueList" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="Tags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterComputeNodeGroupInstance" OutputProperty="*" Verb="Register" Noun="ComputeNodeGroupInstance" ShouldProcessTarget="BootstrapId" PipelineParameter="BootstrapId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateComputeNodeGroup" OutputProperty="ComputeNodeGroup" Verb="Update" Noun="ComputeNodeGroup" ShouldProcessTarget="ComputeNodeGroupIdentifier" PipelineParameter="ComputeNodeGroupIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueue" OutputProperty="Queue" Verb="Update" Noun="Queue" ShouldProcessTarget="QueueIdentifier" PipelineParameter="QueueIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

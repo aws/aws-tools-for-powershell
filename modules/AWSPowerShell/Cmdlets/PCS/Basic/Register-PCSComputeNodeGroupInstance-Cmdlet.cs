@@ -22,47 +22,36 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.PCS;
+using Amazon.PCS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.PCS
 {
     /// <summary>
-    /// Deletes a data product in Amazon DataZone.
+    /// <important><para>
+    /// This API action isn't intended for you to use.
+    /// </para></important><para>
+    /// Amazon Web Services PCS uses this API action to register the compute nodes it launches
+    /// in your account.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "DZDataProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon DataZone DeleteDataProduct API operation.", Operation = new[] {"DeleteDataProduct"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteDataProductResponse))]
-    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteDataProductResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DataZone.Model.DeleteDataProductResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Register", "PCSComputeNodeGroupInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse")]
+    [AWSCmdlet("Calls the AWS Parallel Computing Service RegisterComputeNodeGroupInstance API operation.", Operation = new[] {"RegisterComputeNodeGroupInstance"}, SelectReturnType = typeof(Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse))]
+    [AWSCmdletOutput("Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse",
+        "This cmdlet returns an Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveDZDataProductCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class RegisterPCSComputeNodeGroupInstanceCmdlet : AmazonPCSClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DomainIdentifier
+        #region Parameter BootstrapId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain in which the data product is deleted.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the data product that is deleted.</para>
+        /// <para>The client-generated token to allow for retries.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,13 +62,31 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String BootstrapId { get; set; }
+        #endregion
+        
+        #region Parameter ClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The name or ID of the cluster to register the compute node group instance in.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ClusterIdentifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteDataProductResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse).
+        /// Specifying the name of a property of type Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -88,10 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the BootstrapId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^BootstrapId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BootstrapId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -111,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZDataProduct (DeleteDataProduct)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.BootstrapId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-PCSComputeNodeGroupInstance (RegisterComputeNodeGroupInstance)"))
             {
                 return;
             }
@@ -125,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse, RegisterPCSComputeNodeGroupInstanceCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -134,21 +141,21 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.BootstrapId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DomainIdentifier = this.DomainIdentifier;
+            context.BootstrapId = this.BootstrapId;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.BootstrapId == null && ParameterWasBound(nameof(this.BootstrapId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter BootstrapId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.ClusterIdentifier = this.ClusterIdentifier;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -165,15 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.DeleteDataProductRequest();
+            var request = new Amazon.PCS.Model.RegisterComputeNodeGroupInstanceRequest();
             
-            if (cmdletContext.DomainIdentifier != null)
+            if (cmdletContext.BootstrapId != null)
             {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+                request.BootstrapId = cmdletContext.BootstrapId;
             }
-            if (cmdletContext.Identifier != null)
+            if (cmdletContext.ClusterIdentifier != null)
             {
-                request.Identifier = cmdletContext.Identifier;
+                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
             }
             
             CmdletOutput output;
@@ -208,15 +215,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.DeleteDataProductResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteDataProductRequest request)
+        private Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse CallAWSServiceOperation(IAmazonPCS client, Amazon.PCS.Model.RegisterComputeNodeGroupInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteDataProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Parallel Computing Service", "RegisterComputeNodeGroupInstance");
             try
             {
                 #if DESKTOP
-                return client.DeleteDataProduct(request);
+                return client.RegisterComputeNodeGroupInstance(request);
                 #elif CORECLR
-                return client.DeleteDataProductAsync(request).GetAwaiter().GetResult();
+                return client.RegisterComputeNodeGroupInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -236,10 +243,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.DeleteDataProductResponse, RemoveDZDataProductCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String BootstrapId { get; set; }
+            public System.String ClusterIdentifier { get; set; }
+            public System.Func<Amazon.PCS.Model.RegisterComputeNodeGroupInstanceResponse, RegisterPCSComputeNodeGroupInstanceCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

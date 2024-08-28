@@ -1,4 +1,15 @@
-﻿### 4.1.644 (2024-08-27 20:59Z)
+﻿### 4.1.645 (2024-08-28 20:47Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.875.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AppConfig
+    * Added cmdlet Get-APPCAccountSetting leveraging the GetAccountSettings service API.
+    * Added cmdlet Update-APPCAccountSetting leveraging the UpdateAccountSettings service API.
+    * Modified cmdlet Remove-APPCConfigurationProfile: added parameter DeletionProtectionCheck.
+    * Modified cmdlet Remove-APPCEnvironment: added parameter DeletionProtectionCheck.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Modified cmdlet New-EC2Address: added parameter IpamPoolId.
+  * Amazon Parallel Computing Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix PCS and can be listed using the command 'Get-AWSCmdletName -Service PCS'.
+
+### 4.1.644 (2024-08-27 20:59Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.874.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Added cmdlet Get-BDRInferenceProfile leveraging the GetInferenceProfile service API.

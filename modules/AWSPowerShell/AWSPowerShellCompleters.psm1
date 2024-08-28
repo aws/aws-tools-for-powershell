@@ -1833,6 +1833,16 @@ $APPC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppConfig.DeletionProtectionCheck
+        {
+            ($_ -eq "Remove-APPCConfigurationProfile/DeletionProtectionCheck") -Or
+            ($_ -eq "Remove-APPCEnvironment/DeletionProtectionCheck")
+        }
+        {
+            $v = "ACCOUNT_DEFAULT","APPLY","BYPASS"
+            break
+        }
+
         # Amazon.AppConfig.GrowthType
         {
             ($_ -eq "New-APPCDeploymentStrategy/GrowthType") -Or
@@ -1859,6 +1869,7 @@ $APPC_Completers = {
 }
 
 $APPC_map = @{
+    "DeletionProtectionCheck"=@("Remove-APPCConfigurationProfile","Remove-APPCEnvironment")
     "GrowthType"=@("New-APPCDeploymentStrategy","Update-APPCDeploymentStrategy")
     "ReplicateTo"=@("New-APPCDeploymentStrategy")
 }
@@ -1927,6 +1938,7 @@ $APPC_SelectMap = @{
                "Remove-APPCExtension",
                "Remove-APPCExtensionAssociation",
                "Remove-APPCHostedConfigurationVersion",
+               "Get-APPCAccountSetting",
                "Get-APPCApplication",
                "Get-APPCConfiguration",
                "Get-APPCConfigurationProfile",
@@ -1949,6 +1961,7 @@ $APPC_SelectMap = @{
                "Stop-APPCDeployment",
                "Add-APPCResourceTag",
                "Remove-APPCResourceTag",
+               "Update-APPCAccountSetting",
                "Update-APPCApplication",
                "Update-APPCConfigurationProfile",
                "Update-APPCDeploymentStrategy",
@@ -20077,7 +20090,7 @@ $DF_Completers = {
             ($_ -eq "Get-DFDevicePoolCompatibility/TestType")
         }
         {
-            $v = "APPIUM_JAVA_JUNIT","APPIUM_JAVA_TESTNG","APPIUM_NODE","APPIUM_PYTHON","APPIUM_RUBY","APPIUM_WEB_JAVA_JUNIT","APPIUM_WEB_JAVA_TESTNG","APPIUM_WEB_NODE","APPIUM_WEB_PYTHON","APPIUM_WEB_RUBY","BUILTIN_EXPLORER","BUILTIN_FUZZ","CALABASH","INSTRUMENTATION","REMOTE_ACCESS_RECORD","REMOTE_ACCESS_REPLAY","UIAUTOMATION","UIAUTOMATOR","WEB_PERFORMANCE_PROFILE","XCTEST","XCTEST_UI"
+            $v = "APPIUM_JAVA_JUNIT","APPIUM_JAVA_TESTNG","APPIUM_NODE","APPIUM_PYTHON","APPIUM_RUBY","APPIUM_WEB_JAVA_JUNIT","APPIUM_WEB_JAVA_TESTNG","APPIUM_WEB_NODE","APPIUM_WEB_PYTHON","APPIUM_WEB_RUBY","BUILTIN_FUZZ","INSTRUMENTATION","XCTEST","XCTEST_UI"
             break
         }
 
@@ -34209,7 +34222,7 @@ $CWIM_Completers = {
         # Amazon.InternetMonitor.QueryType
         "Start-CWIMQuery/QueryType"
         {
-            $v = "MEASUREMENTS","TOP_LOCATIONS","TOP_LOCATION_DETAILS"
+            $v = "MEASUREMENTS","OVERALL_TRAFFIC_SUGGESTIONS","OVERALL_TRAFFIC_SUGGESTIONS_DETAILS","TOP_LOCATIONS","TOP_LOCATION_DETAILS"
             break
         }
 
@@ -51444,6 +51457,134 @@ $PCASCEP_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $PCASCEP_SelectCompleters $PCASCEP_SelectMap
+# Argument completions for service AWS Parallel Computing Service
+
+
+$PCS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.PCS.PurchaseOption
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/PurchaseOption") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/PurchaseOption")
+        }
+        {
+            $v = "ONDEMAND","SPOT"
+            break
+        }
+
+        # Amazon.PCS.SchedulerType
+        "New-PCSCluster/Scheduler_Type"
+        {
+            $v = "SLURM"
+            break
+        }
+
+        # Amazon.PCS.Size
+        "New-PCSCluster/Size"
+        {
+            $v = "LARGE","MEDIUM","SMALL"
+            break
+        }
+
+        # Amazon.PCS.SpotAllocationStrategy
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/SpotOptions_AllocationStrategy") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/SpotOptions_AllocationStrategy")
+        }
+        {
+            $v = "capacity-optimized","lowest-price","price-capacity-optimized"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCS_map = @{
+    "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
+    "Scheduler_Type"=@("New-PCSCluster")
+    "Size"=@("New-PCSCluster")
+    "SpotOptions_AllocationStrategy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
+}
+
+_awsArgumentCompleterRegistration $PCS_Completers $PCS_map
+
+$PCS_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PCS.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$PCS_SelectMap = @{
+    "Select"=@("New-PCSCluster",
+               "New-PCSComputeNodeGroup",
+               "New-PCSQueue",
+               "Remove-PCSCluster",
+               "Remove-PCSComputeNodeGroup",
+               "Remove-PCSQueue",
+               "Get-PCSCluster",
+               "Get-PCSComputeNodeGroup",
+               "Get-PCSQueue",
+               "Get-PCSClusterList",
+               "Get-PCSComputeNodeGroupList",
+               "Get-PCSQueueList",
+               "Get-PCSResourceTag",
+               "Register-PCSComputeNodeGroupInstance",
+               "Add-PCSResourceTag",
+               "Remove-PCSResourceTag",
+               "Update-PCSComputeNodeGroup",
+               "Update-PCSQueue")
+}
+
+_awsArgumentCompleterRegistration $PCS_SelectCompleters $PCS_SelectMap
 # Argument completions for service AWS Personalize
 
 

@@ -72,38 +72,45 @@ function _awsArgumentCompleterRegistration()
 # sort-object after filtering against $wordToComplete but we omit this as our members 
 # are already sorted.
 
-# Argument completions for service AWS AppConfig
+# Argument completions for service AWS Parallel Computing Service
 
 
-$APPC_Completers = {
+$PCS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.AppConfig.DeletionProtectionCheck
+        # Amazon.PCS.PurchaseOption
         {
-            ($_ -eq "Remove-APPCConfigurationProfile/DeletionProtectionCheck") -Or
-            ($_ -eq "Remove-APPCEnvironment/DeletionProtectionCheck")
+            ($_ -eq "New-PCSComputeNodeGroup/PurchaseOption") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/PurchaseOption")
         }
         {
-            $v = "ACCOUNT_DEFAULT","APPLY","BYPASS"
+            $v = "ONDEMAND","SPOT"
             break
         }
 
-        # Amazon.AppConfig.GrowthType
+        # Amazon.PCS.SchedulerType
+        "New-PCSCluster/Scheduler_Type"
         {
-            ($_ -eq "New-APPCDeploymentStrategy/GrowthType") -Or
-            ($_ -eq "Update-APPCDeploymentStrategy/GrowthType")
-        }
-        {
-            $v = "EXPONENTIAL","LINEAR"
+            $v = "SLURM"
             break
         }
 
-        # Amazon.AppConfig.ReplicateTo
-        "New-APPCDeploymentStrategy/ReplicateTo"
+        # Amazon.PCS.Size
+        "New-PCSCluster/Size"
         {
-            $v = "NONE","SSM_DOCUMENT"
+            $v = "LARGE","MEDIUM","SMALL"
+            break
+        }
+
+        # Amazon.PCS.SpotAllocationStrategy
+        {
+            ($_ -eq "New-PCSComputeNodeGroup/SpotOptions_AllocationStrategy") -Or
+            ($_ -eq "Update-PCSComputeNodeGroup/SpotOptions_AllocationStrategy")
+        }
+        {
+            $v = "capacity-optimized","lowest-price","price-capacity-optimized"
             break
         }
 
@@ -115,18 +122,19 @@ $APPC_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$APPC_map = @{
-    "DeletionProtectionCheck"=@("Remove-APPCConfigurationProfile","Remove-APPCEnvironment")
-    "GrowthType"=@("New-APPCDeploymentStrategy","Update-APPCDeploymentStrategy")
-    "ReplicateTo"=@("New-APPCDeploymentStrategy")
+$PCS_map = @{
+    "PurchaseOption"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
+    "Scheduler_Type"=@("New-PCSCluster")
+    "Size"=@("New-PCSCluster")
+    "SpotOptions_AllocationStrategy"=@("New-PCSComputeNodeGroup","Update-PCSComputeNodeGroup")
 }
 
-_awsArgumentCompleterRegistration $APPC_Completers $APPC_map
+_awsArgumentCompleterRegistration $PCS_Completers $PCS_map
 
-$APPC_SelectCompleters = {
+$PCS_SelectCompleters = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
 
-    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.APPC.$($commandName.Replace('-', ''))Cmdlet]"
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.PCS.$($commandName.Replace('-', ''))Cmdlet]"
     if (-not $cmdletType) {
         return
     }
@@ -170,53 +178,26 @@ $APPC_SelectCompleters = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$APPC_SelectMap = @{
-    "Select"=@("New-APPCApplication",
-               "New-APPCConfigurationProfile",
-               "New-APPCDeploymentStrategy",
-               "New-APPCEnvironment",
-               "New-APPCExtension",
-               "New-APPCExtensionAssociation",
-               "New-APPCHostedConfigurationVersion",
-               "Remove-APPCApplication",
-               "Remove-APPCConfigurationProfile",
-               "Remove-APPCDeploymentStrategy",
-               "Remove-APPCEnvironment",
-               "Remove-APPCExtension",
-               "Remove-APPCExtensionAssociation",
-               "Remove-APPCHostedConfigurationVersion",
-               "Get-APPCAccountSetting",
-               "Get-APPCApplication",
-               "Get-APPCConfiguration",
-               "Get-APPCConfigurationProfile",
-               "Get-APPCDeployment",
-               "Get-APPCDeploymentStrategy",
-               "Get-APPCEnvironment",
-               "Get-APPCExtension",
-               "Get-APPCExtensionAssociation",
-               "Get-APPCHostedConfigurationVersion",
-               "Get-APPCApplicationList",
-               "Get-APPCConfigurationProfileList",
-               "Get-APPCDeploymentList",
-               "Get-APPCDeploymentStrategyList",
-               "Get-APPCEnvironmentList",
-               "Get-APPCExtensionAssociationList",
-               "Get-APPCExtensionList",
-               "Get-APPCHostedConfigurationVersionList",
-               "Get-APPCResourceTag",
-               "Start-APPCDeployment",
-               "Stop-APPCDeployment",
-               "Add-APPCResourceTag",
-               "Remove-APPCResourceTag",
-               "Update-APPCAccountSetting",
-               "Update-APPCApplication",
-               "Update-APPCConfigurationProfile",
-               "Update-APPCDeploymentStrategy",
-               "Update-APPCEnvironment",
-               "Update-APPCExtension",
-               "Update-APPCExtensionAssociation",
-               "Test-APPCConfigurationValidity")
+$PCS_SelectMap = @{
+    "Select"=@("New-PCSCluster",
+               "New-PCSComputeNodeGroup",
+               "New-PCSQueue",
+               "Remove-PCSCluster",
+               "Remove-PCSComputeNodeGroup",
+               "Remove-PCSQueue",
+               "Get-PCSCluster",
+               "Get-PCSComputeNodeGroup",
+               "Get-PCSQueue",
+               "Get-PCSClusterList",
+               "Get-PCSComputeNodeGroupList",
+               "Get-PCSQueueList",
+               "Get-PCSResourceTag",
+               "Register-PCSComputeNodeGroupInstance",
+               "Add-PCSResourceTag",
+               "Remove-PCSResourceTag",
+               "Update-PCSComputeNodeGroup",
+               "Update-PCSQueue")
 }
 
-_awsArgumentCompleterRegistration $APPC_SelectCompleters $APPC_SelectMap
+_awsArgumentCompleterRegistration $PCS_SelectCompleters $PCS_SelectMap
 
