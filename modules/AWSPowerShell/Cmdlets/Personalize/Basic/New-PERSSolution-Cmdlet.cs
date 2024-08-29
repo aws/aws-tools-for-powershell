@@ -29,12 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.PERS
 {
     /// <summary>
     /// <important><para>
-    /// After you create a solution, you can’t change its configuration. By default, all new
-    /// solutions use automatic training. With automatic training, you incur training costs
-    /// while your solution is active. You can't stop automatic training for a solution. To
-    /// avoid unnecessary costs, make sure to delete the solution when you are finished. For
-    /// information about training costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon
-    /// Personalize pricing</a>.
+    /// By default, all new solutions use automatic training. With automatic training, you
+    /// incur training costs while your solution is active. To avoid unnecessary costs, when
+    /// you are finished you can <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html">update
+    /// the solution</a> to turn off automatic training. For information about training costs,
+    /// see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.
     /// </para></important><para>
     /// Creates the configuration for training a model (creating a solution version). This
     /// configuration includes the recipe to use for model training and optional training
@@ -44,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para><para>
     ///  By default, new solutions use automatic training to create solution versions every
     /// 7 days. You can change the training frequency. Automatic solution version creation
-    /// starts one hour after the solution is ACTIVE. If you manually create a solution version
-    /// within the hour, the solution skips the first automatic training. For more information,
-    /// see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring
+    /// starts within one hour after the solution is ACTIVE. If you manually create a solution
+    /// version within the hour, the solution skips the first automatic training. For more
+    /// information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring
     /// automatic training</a>.
     /// </para><para>
     ///  To turn off automatic training, set <c>performAutoTraining</c> to false. If you turn
@@ -75,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.PERS
     /// </para></li></ul><para>
     /// To get the status of the solution, call <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a>.
     /// If you use manual training, the status must be ACTIVE before you call <c>CreateSolutionVersion</c>.
-    /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a></para></li></ul><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a></para></li></ul>
+    /// </para><para><b>Related APIs</b></para><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UpdateSolution.html">UpdateSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutions.html">ListSolutions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolutionVersion.html">CreateSolutionVersion</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSolution.html">DeleteSolution</a></para></li></ul><ul><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a></para></li><li><para><a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "PERSSolution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -324,9 +323,9 @@ namespace Amazon.PowerShell.Cmdlets.PERS
         /// versions every 7 days. You can change the training frequency by specifying a <c>schedulingExpression</c>
         /// in the <c>AutoTrainingConfig</c> as part of solution configuration. For more information
         /// about automatic training, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/solution-config-auto-training.html">Configuring
-        /// automatic training</a>.</para><para> Automatic solution version creation starts one hour after the solution is ACTIVE.
-        /// If you manually create a solution version within the hour, the solution skips the
-        /// first automatic training. </para><para> After training starts, you can get the solution version's Amazon Resource Name (ARN)
+        /// automatic training</a>.</para><para> Automatic solution version creation starts within one hour after the solution is
+        /// ACTIVE. If you manually create a solution version within the hour, the solution skips
+        /// the first automatic training. </para><para> After training starts, you can get the solution version's Amazon Resource Name (ARN)
         /// with the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListSolutionVersions.html">ListSolutionVersions</a>
         /// API operation. To get its status, use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a>.
         /// </para>

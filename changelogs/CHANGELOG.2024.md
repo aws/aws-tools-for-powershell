@@ -1,4 +1,11 @@
-﻿### 4.1.645 (2024-08-28 20:47Z)
+﻿### 4.1.646 (2024-08-29 21:52Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.876.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Personalize
+    * Added cmdlet Update-PERSSolution leveraging the UpdateSolution service API.
+  * Amazon Step Functions
+    * Modified cmdlet Test-SFNStateMachineDefinitionValidation: added parameters MaxResult and Severity.
+
+### 4.1.645 (2024-08-28 20:47Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.875.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AppConfig
     * Added cmdlet Get-APPCAccountSetting leveraging the GetAccountSettings service API.

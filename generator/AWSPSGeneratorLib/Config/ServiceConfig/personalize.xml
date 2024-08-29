@@ -299,6 +299,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSolution" OutputProperty="SolutionArn" Verb="Update" Noun="Solution" ShouldProcessTarget="SolutionArn" PipelineParameter="SolutionArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
     </ServiceOperations>
     <TypesNotToFlatten />
 </ConfigModel>

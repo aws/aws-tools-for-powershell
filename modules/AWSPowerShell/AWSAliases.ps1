@@ -21444,6 +21444,7 @@ Set-Alias -Name PERS-UpdateCampaign -Value Update-PERSCampaign
 Set-Alias -Name PERS-UpdateDataset -Value Update-PERSDataset
 Set-Alias -Name PERS-UpdateMetricAttribution -Value Update-PERSMetricAttribution
 Set-Alias -Name PERS-UpdateRecommender -Value Update-PERSRecommender
+Set-Alias -Name PERS-UpdateSolution -Value Update-PERSSolution
 Set-Alias -Name Put-PERSEActionInteractions -Value Write-PERSEActionInteraction
 Set-Alias -Name Put-PERSEActionInteraction -Value Write-PERSEActionInteraction
 Set-Alias -Name PERSE-PutActionInteractions -Value Write-PERSEActionInteraction
