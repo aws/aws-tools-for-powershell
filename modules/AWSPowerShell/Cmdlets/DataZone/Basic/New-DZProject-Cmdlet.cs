@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         public System.String DomainIdentifier { get; set; }
         #endregion
         
+        #region Parameter DomainUnitId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the domain unit. This parameter is not required and if it is not specified,
+        /// then the project is created at the root domain unit level.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DomainUnitId { get; set; }
+        #endregion
+        
         #region Parameter GlossaryTerm
         /// <summary>
         /// <para>
@@ -171,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DomainUnitId = this.DomainUnitId;
             if (this.GlossaryTerm != null)
             {
                 context.GlossaryTerm = new List<System.String>(this.GlossaryTerm);
@@ -205,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             if (cmdletContext.DomainIdentifier != null)
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.DomainUnitId != null)
+            {
+                request.DomainUnitId = cmdletContext.DomainUnitId;
             }
             if (cmdletContext.GlossaryTerm != null)
             {
@@ -277,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
+            public System.String DomainUnitId { get; set; }
             public List<System.String> GlossaryTerm { get; set; }
             public System.String Name { get; set; }
             public System.Func<Amazon.DataZone.Model.CreateProjectResponse, NewDZProjectCmdlet, object> Select { get; set; } =

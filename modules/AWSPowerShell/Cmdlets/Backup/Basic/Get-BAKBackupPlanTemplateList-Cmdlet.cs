@@ -28,8 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns metadata of your saved backup plan templates, including the template ID, name,
-    /// and the creation and deletion dates.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists the backup plan templates.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKBackupPlanTemplateList")]
     [OutputType("Amazon.Backup.Model.BackupPlanTemplatesListMember")]
@@ -46,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be returned.</para>
+        /// <para>The maximum number of items to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> In AWSPowerShell and AWSPowerShell.NetCore this parameter is used to limit the total number of items returned by the cmdlet.

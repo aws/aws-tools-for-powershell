@@ -28,8 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates an existing report plan identified by its <c>ReportPlanName</c> with the input
-    /// document in JSON format.
+    /// Updates the specified report plan.
     /// </summary>
     [Cmdlet("Update", "BAKReportPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.UpdateReportPlanResponse")]
@@ -45,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportSetting_Account
         /// <summary>
         /// <para>
-        /// <para>These are the accounts to be included in the report.</para>
+        /// <para>These are the accounts to be included in the report.</para><para>Use string value of <c>ROOT</c> to include all organizational units.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportDeliveryChannel_Format
         /// <summary>
         /// <para>
-        /// <para>A list of the format of your reports: <c>CSV</c>, <c>JSON</c>, or both. If not specified,
-        /// the default format is <c>CSV</c>.</para>
+        /// <para>The format of your reports: <c>CSV</c>, <c>JSON</c>, or both. If not specified, the
+        /// default format is <c>CSV</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -113,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportSetting_Region
         /// <summary>
         /// <para>
-        /// <para>These are the Regions to be included in the report.</para>
+        /// <para>These are the Regions to be included in the report.</para><para>Use the wildcard as the string value to include all Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

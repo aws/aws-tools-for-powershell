@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>Returns only backup jobs that will be stored in the specified backup vault. Backup
         /// vaults are identified by names that are unique to the account used to create them
-        /// and the Amazon Web Services Region where they are created. They consist of lowercase
-        /// letters, numbers, and hyphens.</para>
+        /// and the Amazon Web Services Region where they are created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +146,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ByResourceType
         /// <summary>
         /// <para>
-        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><c>Aurora</c> for Amazon Aurora</para></li><li><para><c>CloudFormation</c> for CloudFormation</para></li><li><para><c>DocumentDB</c> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><c>DynamoDB</c> for Amazon DynamoDB</para></li><li><para><c>EBS</c> for Amazon Elastic Block Store</para></li><li><para><c>EC2</c> for Amazon Elastic Compute Cloud</para></li><li><para><c>EFS</c> for Amazon Elastic File System</para></li><li><para><c>FSx</c> for Amazon FSx</para></li><li><para><c>Neptune</c> for Amazon Neptune</para></li><li><para><c>Redshift</c> for Amazon Redshift</para></li><li><para><c>RDS</c> for Amazon Relational Database Service</para></li><li><para><c>SAP HANA on Amazon EC2</c> for SAP HANA databases</para></li><li><para><c>Storage Gateway</c> for Storage Gateway</para></li><li><para><c>S3</c> for Amazon S3</para></li><li><para><c>Timestream</c> for Amazon Timestream</para></li><li><para><c>VirtualMachine</c> for virtual machines</para></li></ul>
+        /// <para>Returns only backup jobs for the specified resources:</para><ul><li><para><c>Aurora</c> for Amazon Aurora</para></li><li><para><c>CloudFormation</c> for CloudFormation</para></li><li><para><c>DocumentDB</c> for Amazon DocumentDB (with MongoDB compatibility)</para></li><li><para><c>DynamoDB</c> for Amazon DynamoDB</para></li><li><para><c>EBS</c> for Amazon Elastic Block Store</para></li><li><para><c>EC2</c> for Amazon Elastic Compute Cloud</para></li><li><para><c>EFS</c> for Amazon Elastic File System</para></li><li><para><c>FSx</c> for Amazon FSx</para></li><li><para><c>Neptune</c> for Amazon Neptune</para></li><li><para><c>RDS</c> for Amazon Relational Database Service</para></li><li><para><c>Redshift</c> for Amazon Redshift</para></li><li><para><c>S3</c> for Amazon Simple Storage Service (Amazon S3)</para></li><li><para><c>SAP HANA on Amazon EC2</c> for SAP HANA databases on Amazon Elastic Compute Cloud
+        /// instances</para></li><li><para><c>Storage Gateway</c> for Storage Gateway</para></li><li><para><c>Timestream</c> for Amazon Timestream</para></li><li><para><c>VirtualMachine</c> for VMware virtual machines</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -27,6 +27,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AddEntityOwner" Verb="Add" Noun="EntityOwner" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddPolicyGrant" Verb="Add" Noun="PolicyGrant" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateEnvironmentRole" Verb="Set" Noun="EnvironmentRole" ShouldProcessTarget="EnvironmentRoleArn" PipelineParameter="EnvironmentRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -68,6 +76,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDomain" OutputProperty="*" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomainUnit" OutputProperty="*" Verb="New" Noun="DomainUnit" ShouldProcessTarget="ParentDomainUnitIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -148,6 +160,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDomain" OutputProperty="Status" Verb="Remove" Noun="Domain" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomainUnit" Verb="Remove" Noun="DomainUnit" ShouldProcessTarget="Identifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -236,6 +252,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDomain" OutputProperty="*" Verb="Get" Noun="Domain" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainUnit" OutputProperty="*" Verb="Get" Noun="DomainUnit" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -351,6 +371,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainUnitsForParent" OutputProperty="Items" Verb="Get" Noun="DomainUnitsForParentList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEntityOwners" OutputProperty="Owners" Verb="Get" Noun="EntityOwnerList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListEnvironmentActions" OutputProperty="Items" Verb="Get" Noun="EnvironmentActionList" PipelineParameter="EnvironmentIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -384,6 +412,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListNotifications" OutputProperty="Notifications" Verb="Get" Noun="NotificationList" PipelineParameter="Type" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyGrants" OutputProperty="GrantList" Verb="Get" Noun="PolicyGrantList" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -439,6 +471,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveEntityOwner" Verb="Remove" Noun="EntityOwner" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemovePolicyGrant" Verb="Remove" Noun="PolicyGrant" ShouldProcessTarget="EntityIdentifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="RevokeSubscription" OutputProperty="*" Verb="Revoke" Noun="Subscription" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -488,6 +528,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDomain" OutputProperty="*" Verb="Update" Noun="Domain" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainUnit" OutputProperty="*" Verb="Update" Noun="DomainUnit" ShouldProcessTarget="Identifier" PipelineParameter="DomainIdentifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

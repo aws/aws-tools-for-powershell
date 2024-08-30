@@ -36,6 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <para>
     /// The maximum number of metric filters that can be associated with a log group is 100.
     /// </para><para>
+    /// Using regular expressions to create metric filters is supported. For these filters,
+    /// there is a quotas of quota of two regular expression patterns within a single filter
+    /// pattern. There is also a quota of five regular expression patterns per log group.
+    /// For more information about using regular expressions in metric filters, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
+    /// Filter pattern syntax for metric filters, subscription filters, filter log events,
+    /// and Live Tail</a>.
+    /// </para><para>
     /// When you create a metric filter, you can also optionally assign a unit and dimensions
     /// to the metric that is created.
     /// </para><important><para>

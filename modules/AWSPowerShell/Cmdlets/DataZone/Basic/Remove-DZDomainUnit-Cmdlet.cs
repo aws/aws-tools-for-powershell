@@ -22,60 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Returns metadata associated with a recovery point, including ID, status, encryption,
-    /// and lifecycle.
+    /// Deletes a domain unit.
     /// </summary>
-    [Cmdlet("Get", "BAKRecoveryPoint")]
-    [OutputType("Amazon.Backup.Model.DescribeRecoveryPointResponse")]
-    [AWSCmdlet("Calls the AWS Backup DescribeRecoveryPoint API operation.", Operation = new[] {"DescribeRecoveryPoint"}, SelectReturnType = typeof(Amazon.Backup.Model.DescribeRecoveryPointResponse))]
-    [AWSCmdletOutput("Amazon.Backup.Model.DescribeRecoveryPointResponse",
-        "This cmdlet returns an Amazon.Backup.Model.DescribeRecoveryPointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "DZDomainUnit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon DataZone DeleteDomainUnit API operation.", Operation = new[] {"DeleteDomainUnit"}, SelectReturnType = typeof(Amazon.DataZone.Model.DeleteDomainUnitResponse))]
+    [AWSCmdletOutput("None or Amazon.DataZone.Model.DeleteDomainUnitResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.DataZone.Model.DeleteDomainUnitResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBAKRecoveryPointCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class RemoveDZDomainUnitCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BackupVaultAccountId
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The account ID of the specified backup vault.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String BackupVaultAccountId { get; set; }
-        #endregion
-        
-        #region Parameter BackupVaultName
-        /// <summary>
-        /// <para>
-        /// <para>The name of a logical container where backups are stored. Backup vaults are identified
-        /// by names that are unique to the account used to create them and the Amazon Web Services
-        /// Region where they are created.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupVaultName { get; set; }
-        #endregion
-        
-        #region Parameter RecoveryPointArn
-        /// <summary>
-        /// <para>
-        /// <para>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
-        /// <c>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</c>.</para>
+        /// <para>The ID of the domain where you want to delete a domain unit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,14 +56,30 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String RecoveryPointArn { get; set; }
+        public System.String DomainIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter Identifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the domain unit that you want to delete.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Identifier { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.DescribeRecoveryPointResponse).
-        /// Specifying the name of a property of type Amazon.Backup.Model.DescribeRecoveryPointResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.DeleteDomainUnitResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,18 +88,34 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the RecoveryPointArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^RecoveryPointArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^RecoveryPointArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-DZDomainUnit (DeleteDomainUnit)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -123,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.DescribeRecoveryPointResponse, GetBAKRecoveryPointCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.DeleteDomainUnitResponse, RemoveDZDomainUnitCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -132,22 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.RecoveryPointArn;
+                context.Select = (response, cmdlet) => this.DomainIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupVaultAccountId = this.BackupVaultAccountId;
-            context.BackupVaultName = this.BackupVaultName;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.BackupVaultName == null && ParameterWasBound(nameof(this.BackupVaultName)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter BackupVaultName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RecoveryPointArn = this.RecoveryPointArn;
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.RecoveryPointArn == null && ParameterWasBound(nameof(this.RecoveryPointArn)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter RecoveryPointArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -164,19 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.DescribeRecoveryPointRequest();
+            var request = new Amazon.DataZone.Model.DeleteDomainUnitRequest();
             
-            if (cmdletContext.BackupVaultAccountId != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.BackupVaultAccountId = cmdletContext.BackupVaultAccountId;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.BackupVaultName != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.BackupVaultName = cmdletContext.BackupVaultName;
-            }
-            if (cmdletContext.RecoveryPointArn != null)
-            {
-                request.RecoveryPointArn = cmdletContext.RecoveryPointArn;
+                request.Identifier = cmdletContext.Identifier;
             }
             
             CmdletOutput output;
@@ -211,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.DescribeRecoveryPointResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.DescribeRecoveryPointRequest request)
+        private Amazon.DataZone.Model.DeleteDomainUnitResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.DeleteDomainUnitRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "DescribeRecoveryPoint");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "DeleteDomainUnit");
             try
             {
                 #if DESKTOP
-                return client.DescribeRecoveryPoint(request);
+                return client.DeleteDomainUnit(request);
                 #elif CORECLR
-                return client.DescribeRecoveryPointAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDomainUnitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -239,11 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupVaultAccountId { get; set; }
-            public System.String BackupVaultName { get; set; }
-            public System.String RecoveryPointArn { get; set; }
-            public System.Func<Amazon.Backup.Model.DescribeRecoveryPointResponse, GetBAKRecoveryPointCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String DomainIdentifier { get; set; }
+            public System.String Identifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.DeleteDomainUnitResponse, RemoveDZDomainUnitCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

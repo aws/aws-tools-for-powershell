@@ -116,8 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>Filters the results to include only events from log streams that have names starting
         /// with this prefix.</para><para>If you specify a value for both <c>logStreamNamePrefix</c> and <c>logStreamNames</c>,
-        /// but the value for <c>logStreamNamePrefix</c> does not match any log stream names specified
-        /// in <c>logStreamNames</c>, the action returns an <c>InvalidParameterException</c> error.</para>
+        /// the action returns an <c>InvalidParameterException</c> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -127,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter LogStreamName
         /// <summary>
         /// <para>
-        /// <para>Filters the results to only logs from the log streams in this list.</para><para>If you specify a value for both <c>logStreamNamePrefix</c> and <c>logStreamNames</c>,
+        /// <para>Filters the results to only logs from the log streams in this list.</para><para>If you specify a value for both <c>logStreamNames</c> and <c>logStreamNamePrefix</c>,
         /// the action returns an <c>InvalidParameterException</c> error.</para>
         /// </para>
         /// </summary>

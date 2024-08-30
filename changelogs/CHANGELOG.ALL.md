@@ -1,4 +1,25 @@
-﻿### 4.1.646 (2024-08-29 21:52Z)
+﻿### 4.1.647 (2024-08-30 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.877.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Modified cmdlet Write-CWLLogEvent: added parameters Entity_Attribute and Entity_KeyAttribute.
+  * Amazon DataZone
+    * Added cmdlet Add-DZEntityOwner leveraging the AddEntityOwner service API.
+    * Added cmdlet Add-DZPolicyGrant leveraging the AddPolicyGrant service API.
+    * Added cmdlet Get-DZDomainUnit leveraging the GetDomainUnit service API.
+    * Added cmdlet Get-DZDomainUnitsForParentList leveraging the ListDomainUnitsForParent service API.
+    * Added cmdlet Get-DZEntityOwnerList leveraging the ListEntityOwners service API.
+    * Added cmdlet Get-DZPolicyGrantList leveraging the ListPolicyGrants service API.
+    * Added cmdlet New-DZDomainUnit leveraging the CreateDomainUnit service API.
+    * Added cmdlet Remove-DZDomainUnit leveraging the DeleteDomainUnit service API.
+    * Added cmdlet Remove-DZEntityOwner leveraging the RemoveEntityOwner service API.
+    * Added cmdlet Remove-DZPolicyGrant leveraging the RemovePolicyGrant service API.
+    * Added cmdlet Update-DZDomainUnit leveraging the UpdateDomainUnit service API.
+    * Modified cmdlet New-DZProject: added parameter DomainUnitId.
+  * Amazon Redshift Data API Service
+    * Modified cmdlet Push-RSDBatchStatement: added parameters SessionId and SessionKeepAliveSecond.
+    * Modified cmdlet Send-RSDStatement: added parameters SessionId and SessionKeepAliveSecond.
+
+### 4.1.646 (2024-08-29 21:52Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.876.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Personalize
     * Added cmdlet Update-PERSSolution leveraging the UpdateSolution service API.

@@ -28,16 +28,15 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Updates the specified project in Amazon DataZone.
+    /// Creates a domain unit in Amazon DataZone.
     /// </summary>
-    [Cmdlet("Update", "DZProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon DataZone UpdateProject API operation.", Operation = new[] {"UpdateProject"}, SelectReturnType = typeof(Amazon.DataZone.Model.UpdateProjectResponse))]
-    [AWSCmdletOutput("System.String or Amazon.DataZone.Model.UpdateProjectResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.DataZone.Model.UpdateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "DZDomainUnit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DataZone.Model.CreateDomainUnitResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone CreateDomainUnit API operation.", Operation = new[] {"CreateDomainUnit"}, SelectReturnType = typeof(Amazon.DataZone.Model.CreateDomainUnitResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.CreateDomainUnitResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.CreateDomainUnitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateDZProjectCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class NewDZDomainUnitCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
@@ -49,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description to be updated as part of the <c>UpdateProject</c> action.</para>
+        /// <para>The description of the domain unit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -59,35 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon DataZone domain where a project is being updated.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter GlossaryTerm
-        /// <summary>
-        /// <para>
-        /// <para>The glossary terms to be updated as part of the <c>UpdateProject</c> action.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("GlossaryTerms")]
-        public System.String[] GlossaryTerm { get; set; }
-        #endregion
-        
-        #region Parameter Identifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the project that is to be updated.</para>
+        /// <para>The ID of the domain where you want to crate a domain unit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -98,36 +69,71 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String DomainIdentifier { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name to be updated as part of the <c>UpdateProject</c> action.</para>
+        /// <para>The name of the domain unit.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ParentDomainUnitIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the parent domain unit.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ParentDomainUnitIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that is provided to ensure the idempotency of
+        /// the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Id'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.UpdateProjectResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.UpdateProjectResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.CreateDomainUnitResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.CreateDomainUnitResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Id";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -147,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DZProject (UpdateProject)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ParentDomainUnitIdentifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DZDomainUnit (CreateDomainUnit)"))
             {
                 return;
             }
@@ -161,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.UpdateProjectResponse, UpdateDZProjectCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.CreateDomainUnitResponse, NewDZDomainUnitCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -170,9 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.DomainIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -181,18 +188,20 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.GlossaryTerm != null)
-            {
-                context.GlossaryTerm = new List<System.String>(this.GlossaryTerm);
-            }
-            context.Identifier = this.Identifier;
+            context.Name = this.Name;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Name = this.Name;
+            context.ParentDomainUnitIdentifier = this.ParentDomainUnitIdentifier;
+            #if MODULAR
+            if (this.ParentDomainUnitIdentifier == null && ParameterWasBound(nameof(this.ParentDomainUnitIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ParentDomainUnitIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -207,8 +216,12 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.UpdateProjectRequest();
+            var request = new Amazon.DataZone.Model.CreateDomainUnitRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -217,17 +230,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             {
                 request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
-            if (cmdletContext.GlossaryTerm != null)
-            {
-                request.GlossaryTerms = cmdletContext.GlossaryTerm;
-            }
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ParentDomainUnitIdentifier != null)
+            {
+                request.ParentDomainUnitIdentifier = cmdletContext.ParentDomainUnitIdentifier;
             }
             
             CmdletOutput output;
@@ -262,15 +271,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.UpdateProjectResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.UpdateProjectRequest request)
+        private Amazon.DataZone.Model.CreateDomainUnitResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.CreateDomainUnitRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "UpdateProject");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "CreateDomainUnit");
             try
             {
                 #if DESKTOP
-                return client.UpdateProject(request);
+                return client.CreateDomainUnit(request);
                 #elif CORECLR
-                return client.UpdateProjectAsync(request).GetAwaiter().GetResult();
+                return client.CreateDomainUnitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -290,13 +299,13 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String DomainIdentifier { get; set; }
-            public List<System.String> GlossaryTerm { get; set; }
-            public System.String Identifier { get; set; }
             public System.String Name { get; set; }
-            public System.Func<Amazon.DataZone.Model.UpdateProjectResponse, UpdateDZProjectCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Id;
+            public System.String ParentDomainUnitIdentifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.CreateDomainUnitResponse, NewDZDomainUnitCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

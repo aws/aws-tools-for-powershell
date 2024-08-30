@@ -28,8 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates an existing backup plan identified by its <c>backupPlanId</c> with the input
-    /// document in JSON format. The new version is uniquely identified by a <c>VersionId</c>.
+    /// Updates the specified backup plan. The new version is uniquely identified by its ID.
     /// </summary>
     [Cmdlet("Update", "BAKBackupPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.UpdateBackupPlanResponse")]
@@ -59,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlanId
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies a backup plan.</para>
+        /// <para>The ID of the backup plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

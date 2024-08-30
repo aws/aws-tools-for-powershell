@@ -86,7 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RecoveryPointSelection_RecoveryPointType
         /// <summary>
         /// <para>
-        /// <para>These are the types of recovery points.</para>
+        /// <para>These are the types of recovery points.</para><para>Include <c>SNAPSHOT</c> to restore only snapshot recovery points; include <c>CONTINUOUS</c>
+        /// to restore continuous recovery points (point in time restore / PITR); use both to
+        /// restore either a snapshot or a continuous recovery point. The recovery point will
+        /// be determined by the value for <c>Algorithm</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingPlanName
         /// <summary>
         /// <para>
-        /// <para>This is the restore testing plan name you wish to update.</para>
+        /// <para>The name of the restore testing plan name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

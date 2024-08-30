@@ -7209,6 +7209,8 @@ Set-Alias -Name Accept-DZPrediction -Value Approve-DZPrediction
 Set-Alias -Name DZ-AcceptPredictions -Value Approve-DZPrediction
 Set-Alias -Name Accept-DZSubscriptionRequest -Value Approve-DZSubscriptionRequest
 Set-Alias -Name DZ-AcceptSubscriptionRequest -Value Approve-DZSubscriptionRequest
+Set-Alias -Name DZ-AddEntityOwner -Value Add-DZEntityOwner
+Set-Alias -Name DZ-AddPolicyGrant -Value Add-DZPolicyGrant
 Set-Alias -Name Associate-DZEnvironmentRole -Value Set-DZEnvironmentRole
 Set-Alias -Name DZ-AssociateEnvironmentRole -Value Set-DZEnvironmentRole
 Set-Alias -Name Cancel-DZMetadataGenerationRun -Value Stop-DZMetadataGenerationRun
@@ -7231,6 +7233,8 @@ Set-Alias -Name Create-DZDataSource -Value New-DZDataSource
 Set-Alias -Name DZ-CreateDataSource -Value New-DZDataSource
 Set-Alias -Name Create-DZDomain -Value New-DZDomain
 Set-Alias -Name DZ-CreateDomain -Value New-DZDomain
+Set-Alias -Name Create-DZDomainUnit -Value New-DZDomainUnit
+Set-Alias -Name DZ-CreateDomainUnit -Value New-DZDomainUnit
 Set-Alias -Name Create-DZEnvironmentAction -Value New-DZEnvironmentAction
 Set-Alias -Name DZ-CreateEnvironmentAction -Value New-DZEnvironmentAction
 Set-Alias -Name Create-DZEnvironment -Value New-DZEnvironment
@@ -7271,6 +7275,8 @@ Set-Alias -Name Delete-DZDataSource -Value Remove-DZDataSource
 Set-Alias -Name DZ-DeleteDataSource -Value Remove-DZDataSource
 Set-Alias -Name Delete-DZDomain -Value Remove-DZDomain
 Set-Alias -Name DZ-DeleteDomain -Value Remove-DZDomain
+Set-Alias -Name Delete-DZDomainUnit -Value Remove-DZDomainUnit
+Set-Alias -Name DZ-DeleteDomainUnit -Value Remove-DZDomainUnit
 Set-Alias -Name Delete-DZEnvironmentAction -Value Remove-DZEnvironmentAction
 Set-Alias -Name DZ-DeleteEnvironmentAction -Value Remove-DZEnvironmentAction
 Set-Alias -Name Delete-DZEnvironment -Value Remove-DZEnvironment
@@ -7309,6 +7315,7 @@ Set-Alias -Name DZ-GetDataProduct -Value Get-DZDataProduct
 Set-Alias -Name DZ-GetDataSource -Value Get-DZDataSource
 Set-Alias -Name DZ-GetDataSourceRun -Value Get-DZDataSourceRun
 Set-Alias -Name DZ-GetDomain -Value Get-DZDomain
+Set-Alias -Name DZ-GetDomainUnit -Value Get-DZDomainUnit
 Set-Alias -Name DZ-GetEnvironmentAction -Value Get-DZEnvironmentAction
 Set-Alias -Name DZ-GetEnvironment -Value Get-DZEnvironment
 Set-Alias -Name DZ-GetEnvironmentBlueprint -Value Get-DZEnvironmentBlueprint
@@ -7353,6 +7360,12 @@ Set-Alias -Name DZ-ListDataSources -Value Get-DZDataSourceList
 Set-Alias -Name List-DZDomains -Value Get-DZDomainList
 Set-Alias -Name List-DZDomainList -Value Get-DZDomainList
 Set-Alias -Name DZ-ListDomains -Value Get-DZDomainList
+Set-Alias -Name List-DZDomainUnitsForParent -Value Get-DZDomainUnitsForParentList
+Set-Alias -Name List-DZDomainUnitsForParentList -Value Get-DZDomainUnitsForParentList
+Set-Alias -Name DZ-ListDomainUnitsForParent -Value Get-DZDomainUnitsForParentList
+Set-Alias -Name List-DZEntityOwners -Value Get-DZEntityOwnerList
+Set-Alias -Name List-DZEntityOwnerList -Value Get-DZEntityOwnerList
+Set-Alias -Name DZ-ListEntityOwners -Value Get-DZEntityOwnerList
 Set-Alias -Name List-DZEnvironmentActions -Value Get-DZEnvironmentActionList
 Set-Alias -Name List-DZEnvironmentActionList -Value Get-DZEnvironmentActionList
 Set-Alias -Name DZ-ListEnvironmentActions -Value Get-DZEnvironmentActionList
@@ -7377,6 +7390,9 @@ Set-Alias -Name DZ-ListMetadataGenerationRuns -Value Get-DZMetadataGenerationRun
 Set-Alias -Name List-DZNotifications -Value Get-DZNotificationList
 Set-Alias -Name List-DZNotificationList -Value Get-DZNotificationList
 Set-Alias -Name DZ-ListNotifications -Value Get-DZNotificationList
+Set-Alias -Name List-DZPolicyGrants -Value Get-DZPolicyGrantList
+Set-Alias -Name List-DZPolicyGrantList -Value Get-DZPolicyGrantList
+Set-Alias -Name DZ-ListPolicyGrants -Value Get-DZPolicyGrantList
 Set-Alias -Name List-DZProjectMemberships -Value Get-DZProjectMembershipList
 Set-Alias -Name List-DZProjectMembershipList -Value Get-DZProjectMembershipList
 Set-Alias -Name DZ-ListProjectMemberships -Value Get-DZProjectMembershipList
@@ -7411,6 +7427,8 @@ Set-Alias -Name Reject-DZPrediction -Value Deny-DZPrediction
 Set-Alias -Name DZ-RejectPredictions -Value Deny-DZPrediction
 Set-Alias -Name Reject-DZSubscriptionRequest -Value Deny-DZSubscriptionRequest
 Set-Alias -Name DZ-RejectSubscriptionRequest -Value Deny-DZSubscriptionRequest
+Set-Alias -Name DZ-RemoveEntityOwner -Value Remove-DZEntityOwner
+Set-Alias -Name DZ-RemovePolicyGrant -Value Remove-DZPolicyGrant
 Set-Alias -Name DZ-RevokeSubscription -Value Revoke-DZSubscription
 Set-Alias -Name Search-DZ -Value Search-DZResource
 Set-Alias -Name DZ-Search -Value Search-DZResource
@@ -7429,6 +7447,7 @@ Set-Alias -Name DZ-UntagResource -Value Remove-DZResourceTag
 Set-Alias -Name DZ-UpdateAssetFilter -Value Update-DZAssetFilter
 Set-Alias -Name DZ-UpdateDataSource -Value Update-DZDataSource
 Set-Alias -Name DZ-UpdateDomain -Value Update-DZDomain
+Set-Alias -Name DZ-UpdateDomainUnit -Value Update-DZDomainUnit
 Set-Alias -Name DZ-UpdateEnvironmentAction -Value Update-DZEnvironmentAction
 Set-Alias -Name DZ-UpdateEnvironment -Value Update-DZEnvironment
 Set-Alias -Name DZ-UpdateEnvironmentProfile -Value Update-DZEnvironmentProfile

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ValidationStatus
         /// <summary>
         /// <para>
-        /// <para>This is the status of your restore validation.</para>
+        /// <para>The status of your restore validation.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

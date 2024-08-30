@@ -28,8 +28,7 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Updates an existing framework identified by its <c>FrameworkName</c> with the input
-    /// document in JSON format.
+    /// Updates the specified framework.
     /// </summary>
     [Cmdlet("Update", "BAKFramework", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.UpdateFrameworkResponse")]
@@ -45,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter FrameworkControl
         /// <summary>
         /// <para>
-        /// <para>A list of the controls that make up the framework. Each control in the list has a
-        /// name, input parameters, and scope.</para>
+        /// <para>The controls that make up the framework. Each control in the list has a name, input
+        /// parameters, and scope.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

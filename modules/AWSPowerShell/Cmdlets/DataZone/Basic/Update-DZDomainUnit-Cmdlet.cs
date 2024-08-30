@@ -22,43 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Assigns a set of key-value pairs to a recovery point, backup plan, or backup vault
-    /// identified by an Amazon Resource Name (ARN).
-    /// 
-    ///  
-    /// <para>
-    /// This API is supported for recovery points for resource types including Aurora, Amazon
-    /// DocumentDB. Amazon EBS, Amazon FSx, Neptune, and Amazon RDS.
-    /// </para>
+    /// Updates the domain unit.
     /// </summary>
-    [Cmdlet("Add", "BAKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Backup TagResource API operation.", Operation = new[] {"TagResource"}, SelectReturnType = typeof(Amazon.Backup.Model.TagResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.Backup.Model.TagResourceResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Backup.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "DZDomainUnit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DataZone.Model.UpdateDomainUnitResponse")]
+    [AWSCmdlet("Calls the Amazon DataZone UpdateDomainUnit API operation.", Operation = new[] {"UpdateDomainUnit"}, SelectReturnType = typeof(Amazon.DataZone.Model.UpdateDomainUnitResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.UpdateDomainUnitResponse",
+        "This cmdlet returns an Amazon.DataZone.Model.UpdateDomainUnitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddBAKResourceTagCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class UpdateDZDomainUnitCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveRequest { get; set; } = true;
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An ARN that uniquely identifies a resource. The format of the ARN depends on the type
-        /// of the tagged resource.</para><para>ARNs that do not include <c>backup</c> are incompatible with tagging. <c>TagResource</c>
-        /// and <c>UntagResource</c> with invalid ARNs will result in an error. Acceptable ARN
-        /// content can include <c>arn:aws:backup:us-east</c>. Invalid ARN content may look like
-        /// <c>arn:aws:ec2:us-east</c>.</para>
+        /// <para>The description of the domain unit that you want to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter DomainIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the domain where you want to update a domain unit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,33 +69,41 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String DomainIdentifier { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>Key-value pairs that are used to help organize your resources. You can assign your
-        /// own metadata to the resources you create. For clarity, this is the structure to assign
-        /// tags: <c>[{"Key":"string","Value":"string"}]</c>.</para>
+        /// <para>The ID of the domain unit that you want to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
+        public System.String Identifier { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the domain unit that you want to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.TagResourceResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.UpdateDomainUnitResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.UpdateDomainUnitResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -127,8 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-BAKResourceTag (TagResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-DZDomainUnit (UpdateDomainUnit)"))
             {
                 return;
             }
@@ -141,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.TagResourceResponse, AddBAKResourceTagCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.UpdateDomainUnitResponse, UpdateDZDomainUnitCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -150,30 +158,25 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.DomainIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.Description = this.Description;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
+            context.Identifier = this.Identifier;
             #if MODULAR
-            if (this.Tag == null && ParameterWasBound(nameof(this.Tag)))
+            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter Tag which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,15 +191,23 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Backup.Model.TagResourceRequest();
+            var request = new Amazon.DataZone.Model.UpdateDomainUnitRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.Description != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.Tag != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.Tags = cmdletContext.Tag;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
+            }
+            if (cmdletContext.Identifier != null)
+            {
+                request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -231,15 +242,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.TagResourceResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.TagResourceRequest request)
+        private Amazon.DataZone.Model.UpdateDomainUnitResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.UpdateDomainUnitRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "TagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "UpdateDomainUnit");
             try
             {
                 #if DESKTOP
-                return client.TagResource(request);
+                return client.UpdateDomainUnit(request);
                 #elif CORECLR
-                return client.TagResourceAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDomainUnitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -259,10 +270,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.Backup.Model.TagResourceResponse, AddBAKResourceTagCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Description { get; set; }
+            public System.String DomainIdentifier { get; set; }
+            public System.String Identifier { get; set; }
+            public System.String Name { get; set; }
+            public System.Func<Amazon.DataZone.Model.UpdateDomainUnitResponse, UpdateDZDomainUnitCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter FrameworkControl
         /// <summary>
         /// <para>
-        /// <para>A list of the controls that make up the framework. Each control in the list has a
-        /// name, input parameters, and scope.</para>
+        /// <para>The controls that make up the framework. Each control in the list has a name, input
+        /// parameters, and scope.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter FrameworkTag
         /// <summary>
         /// <para>
-        /// <para>Metadata that you can assign to help organize the frameworks that you create. Each
-        /// tag is a key-value pair.</para>
+        /// <para>The tags to assign to the framework.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

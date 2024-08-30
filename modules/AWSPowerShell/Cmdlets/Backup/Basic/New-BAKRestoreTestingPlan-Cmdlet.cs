@@ -28,13 +28,12 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// This is the first of two steps to create a restore testing plan; once this request
-    /// is successful, finish the procedure with request CreateRestoreTestingSelection.
+    /// Creates a restore testing plan.
     /// 
     ///  
     /// <para>
-    /// You must include the parameter RestoreTestingPlan. You may optionally include CreatorRequestId
-    /// and Tags.
+    /// The first of two steps to create a restore testing plan. After this request is successful,
+    /// finish the procedure using CreateRestoreTestingSelection.
     /// </para>
     /// </summary>
     [Cmdlet("New", "BAKRestoreTestingPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -102,7 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RecoveryPointSelection_RecoveryPointType
         /// <summary>
         /// <para>
-        /// <para>These are the types of recovery points.</para>
+        /// <para>These are the types of recovery points.</para><para>Include <c>SNAPSHOT</c> to restore only snapshot recovery points; include <c>CONTINUOUS</c>
+        /// to restore continuous recovery points (point in time restore / PITR); use both to
+        /// restore either a snapshot or a continuous recovery point. The recovery point will
+        /// be determined by the value for <c>Algorithm</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -184,9 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Optional tags to include. A tag is a key-value pair you can use to manage, filter,
-        /// and search for your resources. Allowed characters include UTF-8 letters,numbers, spaces,
-        /// and the following characters: + - = . _ : /.</para>
+        /// <para>The tags to assign to the restore testing plan.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

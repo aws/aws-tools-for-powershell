@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// <summary>
     /// Removes a set of key-value pairs from a recovery point, backup plan, or backup vault
     /// identified by an Amazon Resource Name (ARN)
+    /// 
+    ///  
+    /// <para>
+    /// This API is not supported for recovery points for resource types including Aurora,
+    /// Amazon DocumentDB. Amazon EBS, Amazon FSx, Neptune, and Amazon RDS.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "BAKResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -49,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <summary>
         /// <para>
         /// <para>An ARN that uniquely identifies a resource. The format of the ARN depends on the type
-        /// of the tagged resource.</para>
+        /// of the tagged resource.</para><para>ARNs that do not include <c>backup</c> are incompatible with tagging. <c>TagResource</c>
+        /// and <c>UntagResource</c> with invalid ARNs will result in an error. Acceptable ARN
+        /// content can include <c>arn:aws:backup:us-east</c>. Invalid ARN content may look like
+        /// <c>arn:aws:ec2:us-east</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter TagKeyList
         /// <summary>
         /// <para>
-        /// <para>A list of keys to identify which key-value tags to remove from a resource.</para>
+        /// <para>The keys to identify which key-value tags to remove from a resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

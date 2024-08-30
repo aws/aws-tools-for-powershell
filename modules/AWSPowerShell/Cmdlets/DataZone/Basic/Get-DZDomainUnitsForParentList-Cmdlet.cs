@@ -22,42 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Backup;
-using Amazon.Backup.Model;
+using Amazon.DataZone;
+using Amazon.DataZone.Model;
 
-namespace Amazon.PowerShell.Cmdlets.BAK
+namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// This request lists the protected resources corresponding to each backup vault.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Lists child domain units for the specified parent domain unit.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "BAKProtectedResourcesByBackupVaultList")]
-    [OutputType("Amazon.Backup.Model.ProtectedResource")]
-    [AWSCmdlet("Calls the AWS Backup ListProtectedResourcesByBackupVault API operation.", Operation = new[] {"ListProtectedResourcesByBackupVault"}, SelectReturnType = typeof(Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse))]
-    [AWSCmdletOutput("Amazon.Backup.Model.ProtectedResource or Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse",
-        "This cmdlet returns a collection of Amazon.Backup.Model.ProtectedResource objects.",
-        "The service call response (type Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DZDomainUnitsForParentList")]
+    [OutputType("Amazon.DataZone.Model.DomainUnitSummary")]
+    [AWSCmdlet("Calls the Amazon DataZone ListDomainUnitsForParent API operation.", Operation = new[] {"ListDomainUnitsForParent"}, SelectReturnType = typeof(Amazon.DataZone.Model.ListDomainUnitsForParentResponse))]
+    [AWSCmdletOutput("Amazon.DataZone.Model.DomainUnitSummary or Amazon.DataZone.Model.ListDomainUnitsForParentResponse",
+        "This cmdlet returns a collection of Amazon.DataZone.Model.DomainUnitSummary objects.",
+        "The service call response (type Amazon.DataZone.Model.ListDomainUnitsForParentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetBAKProtectedResourcesByBackupVaultListCmdlet : AmazonBackupClientCmdlet, IExecutor
+    public partial class GetDZDomainUnitsForParentListCmdlet : AmazonDataZoneClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BackupVaultAccountId
+        #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The list of protected resources by backup vault within the vault(s) you specify by
-        /// account ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String BackupVaultAccountId { get; set; }
-        #endregion
-        
-        #region Parameter BackupVaultName
-        /// <summary>
-        /// <para>
-        /// <para>The list of protected resources by backup vault within the vault(s) you specify by
-        /// name.</para>
+        /// <para>The ID of the domain in which you want to list domain units for a parent domain unit.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -68,13 +56,33 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String BackupVaultName { get; set; }
+        public System.String DomainIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ParentDomainUnitIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the parent domain unit.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String ParentDomainUnitIdentifier { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be returned.</para>
+        /// <para>The maximum number of domain units to return in a single call to ListDomainUnitsForParent.
+        /// When the number of domain units to be listed is greater than the value of MaxResults,
+        /// the response contains a NextToken value that you can use in a subsequent call to ListDomainUnitsForParent
+        /// to list the next set of domain units.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,9 +93,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The next item following a partial list of returned items. For example, if a request
-        /// is made to return <c>MaxResults</c> number of items, <c>NextToken</c> allows you to
-        /// return more items in your list starting at the location pointed to by the next token.</para>
+        /// <para>When the number of domain units is greater than the default value for the MaxResults
+        /// parameter, or if you explicitly specify a value for MaxResults that is less than the
+        /// number of domain units, the response includes a pagination token named NextToken.
+        /// You can specify this NextToken value in a subsequent call to ListDomainUnitsForParent
+        /// to list the next set of domain units.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -100,21 +110,21 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Results'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse).
-        /// Specifying the name of a property of type Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Items'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.ListDomainUnitsForParentResponse).
+        /// Specifying the name of a property of type Amazon.DataZone.Model.ListDomainUnitsForParentResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Results";
+        public string Select { get; set; } = "Items";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the BackupVaultName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^BackupVaultName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DomainIdentifier parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^BackupVaultName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DomainIdentifier' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -142,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse, GetBAKProtectedResourcesByBackupVaultListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.ListDomainUnitsForParentResponse, GetDZDomainUnitsForParentListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -151,19 +161,25 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.BackupVaultName;
+                context.Select = (response, cmdlet) => this.DomainIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BackupVaultAccountId = this.BackupVaultAccountId;
-            context.BackupVaultName = this.BackupVaultName;
+            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.BackupVaultName == null && ParameterWasBound(nameof(this.BackupVaultName)))
+            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
             {
-                WriteWarning("You are passing $null as a value for parameter BackupVaultName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ParentDomainUnitIdentifier = this.ParentDomainUnitIdentifier;
+            #if MODULAR
+            if (this.ParentDomainUnitIdentifier == null && ParameterWasBound(nameof(this.ParentDomainUnitIdentifier)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ParentDomainUnitIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,19 +198,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Backup.Model.ListProtectedResourcesByBackupVaultRequest();
+            var request = new Amazon.DataZone.Model.ListDomainUnitsForParentRequest();
             
-            if (cmdletContext.BackupVaultAccountId != null)
+            if (cmdletContext.DomainIdentifier != null)
             {
-                request.BackupVaultAccountId = cmdletContext.BackupVaultAccountId;
-            }
-            if (cmdletContext.BackupVaultName != null)
-            {
-                request.BackupVaultName = cmdletContext.BackupVaultName;
+                request.DomainIdentifier = cmdletContext.DomainIdentifier;
             }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.ParentDomainUnitIdentifier != null)
+            {
+                request.ParentDomainUnitIdentifier = cmdletContext.ParentDomainUnitIdentifier;
             }
             
             // Initialize loop variant and commence piping
@@ -253,15 +269,15 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         #region AWS Service Operation Call
         
-        private Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse CallAWSServiceOperation(IAmazonBackup client, Amazon.Backup.Model.ListProtectedResourcesByBackupVaultRequest request)
+        private Amazon.DataZone.Model.ListDomainUnitsForParentResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.ListDomainUnitsForParentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Backup", "ListProtectedResourcesByBackupVault");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "ListDomainUnitsForParent");
             try
             {
                 #if DESKTOP
-                return client.ListProtectedResourcesByBackupVault(request);
+                return client.ListDomainUnitsForParent(request);
                 #elif CORECLR
-                return client.ListProtectedResourcesByBackupVaultAsync(request).GetAwaiter().GetResult();
+                return client.ListDomainUnitsForParentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -281,12 +297,12 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BackupVaultAccountId { get; set; }
-            public System.String BackupVaultName { get; set; }
+            public System.String DomainIdentifier { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Backup.Model.ListProtectedResourcesByBackupVaultResponse, GetBAKProtectedResourcesByBackupVaultListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Results;
+            public System.String ParentDomainUnitIdentifier { get; set; }
+            public System.Func<Amazon.DataZone.Model.ListDomainUnitsForParentResponse, GetDZDomainUnitsForParentListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Items;
         }
         
     }

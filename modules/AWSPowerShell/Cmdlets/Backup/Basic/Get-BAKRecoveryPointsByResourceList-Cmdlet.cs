@@ -28,8 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns detailed information about all the recovery points of the type specified by
-    /// a resource Amazon Resource Name (ARN).
+    /// The information about the recovery points of the type specified by a resource Amazon
+    /// Resource Name (ARN).
     /// 
     ///  <note><para>
     /// For Amazon EFS and Amazon EC2, this action only lists recovery points created by Backup.
