@@ -47,8 +47,6 @@
         <!-- the four-components version number e.g. 4.0.0.0. -->
         <PatchNumber Condition="'$(PatchNumber)'==''">0.0.0.0</PatchNumber>
 
-        <PreviewLabel Condition="'$(PreviewLabel)'==''">""</PreviewLabel>
-
         <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)/Deployment</Deployment>
         <DesktopDeploymentArtifacts>$(Deployment)/AWSPowerShell/</DesktopDeploymentArtifacts>
@@ -105,6 +103,9 @@
     </Target>
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator">
+        <PropertyGroup>
+            <PreviewLabel Condition="'$(PreviewLabel)'==''">""</PreviewLabel>
+        </PropertyGroup>
         <Exec Command="pwsh -NoProfile -Command Remove-Item -Path $(RootPath)/GenerationSucceeded.tag" IgnoreExitCode="true" />
         <Message Text="Generating cmdlets for all services"/>
         <Exec Command="dotnet $(GeneratorPath)/$(Generator) -sdk $(SDKAssembliesFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations) -vn $(PatchNumber) -pl $(PreviewLabel)" />
