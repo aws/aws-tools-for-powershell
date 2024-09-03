@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Key
         /// <summary>
         /// <para>
-        /// <para>A valid security key in PEM format.</para>
+        /// <para>A valid security key in PEM format as a String.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

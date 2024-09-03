@@ -22,71 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataZone;
-using Amazon.DataZone.Model;
+using Amazon.ElasticLoadBalancingV2;
+using Amazon.ElasticLoadBalancingV2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DZ
+namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Accepts a subscription request to a specific asset.
+    /// Modifies the specified attributes of the specified listener.
     /// </summary>
-    [Cmdlet("Approve", "DZSubscriptionRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DataZone.Model.AcceptSubscriptionRequestResponse")]
-    [AWSCmdlet("Calls the Amazon DataZone AcceptSubscriptionRequest API operation.", Operation = new[] {"AcceptSubscriptionRequest"}, SelectReturnType = typeof(Amazon.DataZone.Model.AcceptSubscriptionRequestResponse))]
-    [AWSCmdletOutput("Amazon.DataZone.Model.AcceptSubscriptionRequestResponse",
-        "This cmdlet returns an Amazon.DataZone.Model.AcceptSubscriptionRequestResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "ELB2ListenerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute")]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyListenerAttributes API operation.", Operation = new[] {"ModifyListenerAttributes"}, SelectReturnType = typeof(Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse))]
+    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute or Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse",
+        "This cmdlet returns a collection of Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute objects.",
+        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ApproveDZSubscriptionRequestCmdlet : AmazonDataZoneClientCmdlet, IExecutor
+    public partial class EditELB2ListenerAttributeCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AssetScope
+        #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The asset scopes of the accept subscription request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AssetScopes")]
-        public Amazon.DataZone.Model.AcceptedAssetScope[] AssetScope { get; set; }
-        #endregion
-        
-        #region Parameter DecisionComment
-        /// <summary>
-        /// <para>
-        /// <para>A description that specifies the reason for accepting the specified subscription request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DecisionComment { get; set; }
-        #endregion
-        
-        #region Parameter DomainIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon DataZone domain where the specified subscription request is being accepted.</para>
+        /// <para>The listener attributes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowEmptyCollection]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DomainIdentifier { get; set; }
+        [Alias("Attributes")]
+        public Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute[] Attribute { get; set; }
         #endregion
         
-        #region Parameter Identifier
+        #region Parameter ListenerArn
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the subscription request that is to be accepted.</para>
+        /// <para>The Amazon Resource Name (ARN) of the listener.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -97,26 +74,26 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Identifier { get; set; }
+        public System.String ListenerArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DataZone.Model.AcceptSubscriptionRequestResponse).
-        /// Specifying the name of a property of type Amazon.DataZone.Model.AcceptSubscriptionRequestResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Attributes'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse).
+        /// Specifying the name of a property of type Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Attributes";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Identifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ListenerArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ListenerArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Identifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ListenerArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -136,8 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Identifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Approve-DZSubscriptionRequest (AcceptSubscriptionRequest)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ListenerArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-ELB2ListenerAttribute (ModifyListenerAttributes)"))
             {
                 return;
             }
@@ -150,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DataZone.Model.AcceptSubscriptionRequestResponse, ApproveDZSubscriptionRequestCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse, EditELB2ListenerAttributeCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,26 +136,24 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Identifier;
+                context.Select = (response, cmdlet) => this.ListenerArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AssetScope != null)
+            if (this.Attribute != null)
             {
-                context.AssetScope = new List<Amazon.DataZone.Model.AcceptedAssetScope>(this.AssetScope);
+                context.Attribute = new List<Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute>(this.Attribute);
             }
-            context.DecisionComment = this.DecisionComment;
-            context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
-            if (this.DomainIdentifier == null && ParameterWasBound(nameof(this.DomainIdentifier)))
+            if (this.Attribute == null && ParameterWasBound(nameof(this.Attribute)))
             {
-                WriteWarning("You are passing $null as a value for parameter DomainIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Attribute which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Identifier = this.Identifier;
+            context.ListenerArn = this.ListenerArn;
             #if MODULAR
-            if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
+            if (this.ListenerArn == null && ParameterWasBound(nameof(this.ListenerArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Identifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ListenerArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -195,23 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DataZone.Model.AcceptSubscriptionRequestRequest();
+            var request = new Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesRequest();
             
-            if (cmdletContext.AssetScope != null)
+            if (cmdletContext.Attribute != null)
             {
-                request.AssetScopes = cmdletContext.AssetScope;
+                request.Attributes = cmdletContext.Attribute;
             }
-            if (cmdletContext.DecisionComment != null)
+            if (cmdletContext.ListenerArn != null)
             {
-                request.DecisionComment = cmdletContext.DecisionComment;
-            }
-            if (cmdletContext.DomainIdentifier != null)
-            {
-                request.DomainIdentifier = cmdletContext.DomainIdentifier;
-            }
-            if (cmdletContext.Identifier != null)
-            {
-                request.Identifier = cmdletContext.Identifier;
+                request.ListenerArn = cmdletContext.ListenerArn;
             }
             
             CmdletOutput output;
@@ -246,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         #region AWS Service Operation Call
         
-        private Amazon.DataZone.Model.AcceptSubscriptionRequestResponse CallAWSServiceOperation(IAmazonDataZone client, Amazon.DataZone.Model.AcceptSubscriptionRequestRequest request)
+        private Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DataZone", "AcceptSubscriptionRequest");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyListenerAttributes");
             try
             {
                 #if DESKTOP
-                return client.AcceptSubscriptionRequest(request);
+                return client.ModifyListenerAttributes(request);
                 #elif CORECLR
-                return client.AcceptSubscriptionRequestAsync(request).GetAwaiter().GetResult();
+                return client.ModifyListenerAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -274,12 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.DataZone.Model.AcceptedAssetScope> AssetScope { get; set; }
-            public System.String DecisionComment { get; set; }
-            public System.String DomainIdentifier { get; set; }
-            public System.String Identifier { get; set; }
-            public System.Func<Amazon.DataZone.Model.AcceptSubscriptionRequestResponse, ApproveDZSubscriptionRequestCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public List<Amazon.ElasticLoadBalancingV2.Model.ListenerAttribute> Attribute { get; set; }
+            public System.String ListenerArn { get; set; }
+            public System.Func<Amazon.ElasticLoadBalancingV2.Model.ModifyListenerAttributesResponse, EditELB2ListenerAttributeCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Attributes;
         }
         
     }

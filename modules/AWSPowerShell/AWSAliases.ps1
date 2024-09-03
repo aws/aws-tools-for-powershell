@@ -11061,6 +11061,9 @@ Set-Alias -Name ELB2-DeregisterTargets -Value Unregister-ELB2Target
 Set-Alias -Name Describe-ELB2AccountLimits -Value Get-ELB2AccountLimit
 Set-Alias -Name Describe-ELB2AccountLimit -Value Get-ELB2AccountLimit
 Set-Alias -Name ELB2-DescribeAccountLimits -Value Get-ELB2AccountLimit
+Set-Alias -Name Describe-ELB2ListenerAttributes -Value Get-ELB2ListenerAttribute
+Set-Alias -Name Describe-ELB2ListenerAttribute -Value Get-ELB2ListenerAttribute
+Set-Alias -Name ELB2-DescribeListenerAttributes -Value Get-ELB2ListenerAttribute
 Set-Alias -Name Describe-ELB2ListenerCertificates -Value Get-ELB2ListenerCertificate
 Set-Alias -Name Describe-ELB2ListenerCertificate -Value Get-ELB2ListenerCertificate
 Set-Alias -Name ELB2-DescribeListenerCertificates -Value Get-ELB2ListenerCertificate
@@ -11104,6 +11107,9 @@ Set-Alias -Name ELB2-GetTrustStoreCaCertificatesBundle -Value Get-ELB2TrustStore
 Set-Alias -Name ELB2-GetTrustStoreRevocationContent -Value Get-ELB2TrustStoreRevocationContent
 Set-Alias -Name Modify-ELB2Listener -Value Edit-ELB2Listener
 Set-Alias -Name ELB2-ModifyListener -Value Edit-ELB2Listener
+Set-Alias -Name Modify-ELB2ListenerAttributes -Value Edit-ELB2ListenerAttribute
+Set-Alias -Name Modify-ELB2ListenerAttribute -Value Edit-ELB2ListenerAttribute
+Set-Alias -Name ELB2-ModifyListenerAttributes -Value Edit-ELB2ListenerAttribute
 Set-Alias -Name Modify-ELB2LoadBalancerAttributes -Value Edit-ELB2LoadBalancerAttribute
 Set-Alias -Name Modify-ELB2LoadBalancerAttribute -Value Edit-ELB2LoadBalancerAttribute
 Set-Alias -Name ELB2-ModifyLoadBalancerAttributes -Value Edit-ELB2LoadBalancerAttribute
@@ -18380,6 +18386,8 @@ Set-Alias -Name Describe-EMCNFlow -Value Get-EMCNFlow
 Set-Alias -Name EMCN-DescribeFlow -Value Get-EMCNFlow
 Set-Alias -Name Describe-EMCNFlowSourceMetadata -Value Get-EMCNFlowSourceMetadata
 Set-Alias -Name EMCN-DescribeFlowSourceMetadata -Value Get-EMCNFlowSourceMetadata
+Set-Alias -Name Describe-EMCNFlowSourceThumbnail -Value Get-EMCNFlowSourceThumbnail
+Set-Alias -Name EMCN-DescribeFlowSourceThumbnail -Value Get-EMCNFlowSourceThumbnail
 Set-Alias -Name Describe-EMCNGateway -Value Get-EMCNGateway
 Set-Alias -Name EMCN-DescribeGateway -Value Get-EMCNGateway
 Set-Alias -Name Describe-EMCNGatewayInstance -Value Get-EMCNGatewayInstance

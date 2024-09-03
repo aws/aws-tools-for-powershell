@@ -26644,6 +26644,7 @@ $ELB2_SelectMap = @{
                "Remove-ELB2TrustStore",
                "Unregister-ELB2Target",
                "Get-ELB2AccountLimit",
+               "Get-ELB2ListenerAttribute",
                "Get-ELB2ListenerCertificate",
                "Get-ELB2Listener",
                "Get-ELB2LoadBalancerAttribute",
@@ -26661,6 +26662,7 @@ $ELB2_SelectMap = @{
                "Get-ELB2TrustStoreCaCertificatesBundle",
                "Get-ELB2TrustStoreRevocationContent",
                "Edit-ELB2Listener",
+               "Edit-ELB2ListenerAttribute",
                "Edit-ELB2LoadBalancerAttribute",
                "Edit-ELB2Rule",
                "Edit-ELB2TargetGroup",
@@ -43599,6 +43601,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.ThumbnailState
+        {
+            ($_ -eq "New-EMCNFlow/SourceMonitoringConfig_ThumbnailState") -Or
+            ($_ -eq "Update-EMCNFlow/SourceMonitoringConfig_ThumbnailState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -43623,6 +43635,7 @@ $EMCN_map = @{
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
+    "SourceMonitoringConfig_ThumbnailState"=@("New-EMCNFlow","Update-EMCNFlow")
 }
 
 _awsArgumentCompleterRegistration $EMCN_Completers $EMCN_map
@@ -43691,6 +43704,7 @@ $EMCN_SelectMap = @{
                "Get-EMCNBridge",
                "Get-EMCNFlow",
                "Get-EMCNFlowSourceMetadata",
+               "Get-EMCNFlowSourceThumbnail",
                "Get-EMCNGateway",
                "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",
@@ -67809,7 +67823,10 @@ $TIDB_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.TimestreamInfluxDB.DbInstanceType
-        "New-TIDBDbInstance/DbInstanceType"
+        {
+            ($_ -eq "New-TIDBDbInstance/DbInstanceType") -Or
+            ($_ -eq "Update-TIDBDbInstance/DbInstanceType")
+        }
         {
             $v = "db.influx.12xlarge","db.influx.16xlarge","db.influx.2xlarge","db.influx.4xlarge","db.influx.8xlarge","db.influx.large","db.influx.medium","db.influx.xlarge"
             break
@@ -67823,7 +67840,10 @@ $TIDB_Completers = {
         }
 
         # Amazon.TimestreamInfluxDB.DeploymentType
-        "New-TIDBDbInstance/DeploymentType"
+        {
+            ($_ -eq "New-TIDBDbInstance/DeploymentType") -Or
+            ($_ -eq "Update-TIDBDbInstance/DeploymentType")
+        }
         {
             $v = "SINGLE_AZ","WITH_MULTIAZ_STANDBY"
             break
@@ -67852,9 +67872,9 @@ $TIDB_Completers = {
 }
 
 $TIDB_map = @{
-    "DbInstanceType"=@("New-TIDBDbInstance")
+    "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "DbStorageType"=@("New-TIDBDbInstance")
-    "DeploymentType"=@("New-TIDBDbInstance")
+    "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
 }

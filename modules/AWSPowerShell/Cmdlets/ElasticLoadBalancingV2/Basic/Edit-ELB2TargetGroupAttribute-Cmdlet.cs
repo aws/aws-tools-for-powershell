@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The attributes.</para>
+        /// <para>The target group attributes.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

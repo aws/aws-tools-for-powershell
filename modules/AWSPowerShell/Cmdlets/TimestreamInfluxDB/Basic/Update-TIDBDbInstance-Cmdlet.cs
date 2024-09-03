@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         public System.String S3Configuration_BucketName { get; set; }
         #endregion
         
+        #region Parameter DbInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The Timestream for InfluxDB DB instance type to run InfluxDB on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamInfluxDB.DbInstanceType")]
+        public Amazon.TimestreamInfluxDB.DbInstanceType DbInstanceType { get; set; }
+        #endregion
+        
         #region Parameter DbParameterGroupIdentifier
         /// <summary>
         /// <para>
@@ -62,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DbParameterGroupIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the DB instance will be deployed as a standalone instance or with
+        /// a Multi-AZ standby for high availability.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.TimestreamInfluxDB.DeploymentType")]
+        public Amazon.TimestreamInfluxDB.DeploymentType DeploymentType { get; set; }
         #endregion
         
         #region Parameter S3Configuration_Enabled
@@ -154,7 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
                 context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.DbInstanceType = this.DbInstanceType;
             context.DbParameterGroupIdentifier = this.DbParameterGroupIdentifier;
+            context.DeploymentType = this.DeploymentType;
             context.Identifier = this.Identifier;
             #if MODULAR
             if (this.Identifier == null && ParameterWasBound(nameof(this.Identifier)))
@@ -180,9 +205,17 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
             // create request
             var request = new Amazon.TimestreamInfluxDB.Model.UpdateDbInstanceRequest();
             
+            if (cmdletContext.DbInstanceType != null)
+            {
+                request.DbInstanceType = cmdletContext.DbInstanceType;
+            }
             if (cmdletContext.DbParameterGroupIdentifier != null)
             {
                 request.DbParameterGroupIdentifier = cmdletContext.DbParameterGroupIdentifier;
+            }
+            if (cmdletContext.DeploymentType != null)
+            {
+                request.DeploymentType = cmdletContext.DeploymentType;
             }
             if (cmdletContext.Identifier != null)
             {
@@ -293,7 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.TIDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.TimestreamInfluxDB.DbInstanceType DbInstanceType { get; set; }
             public System.String DbParameterGroupIdentifier { get; set; }
+            public Amazon.TimestreamInfluxDB.DeploymentType DeploymentType { get; set; }
             public System.String Identifier { get; set; }
             public System.String S3Configuration_BucketName { get; set; }
             public System.Boolean? S3Configuration_Enabled { get; set; }

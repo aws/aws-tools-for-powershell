@@ -1,4 +1,18 @@
-﻿### 4.1.647 (2024-08-30 21:13Z)
+﻿### 4.1.648 (2024-09-03 20:50Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.878.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon DataZone
+    * Modified cmdlet Approve-DZSubscriptionRequest: added parameter AssetScope.
+  * Amazon Elastic Load Balancing V2
+    * Added cmdlet Edit-ELB2ListenerAttribute leveraging the ModifyListenerAttributes service API.
+    * Added cmdlet Get-ELB2ListenerAttribute leveraging the DescribeListenerAttributes service API.
+  * Amazon Elemental MediaConnect
+    * Added cmdlet Get-EMCNFlowSourceThumbnail leveraging the DescribeFlowSourceThumbnail service API.
+    * Modified cmdlet New-EMCNFlow: added parameter SourceMonitoringConfig_ThumbnailState.
+    * Modified cmdlet Update-EMCNFlow: added parameter SourceMonitoringConfig_ThumbnailState.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet Update-TIDBDbInstance: added parameters DbInstanceType and DeploymentType.
+
+### 4.1.647 (2024-08-30 21:13Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.877.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Modified cmdlet Write-CWLLogEvent: added parameters Entity_Attribute and Entity_KeyAttribute.

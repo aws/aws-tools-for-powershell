@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.877.0",
+    "ProductVersion"    : "3.7.878.0",
     "CoreVersion"       : "3.7.400.13",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -572,7 +572,7 @@
             "InPreview"               : false
         },
         "ElasticLoadBalancingV2"          : {
-            "Version" : "3.7.401.13",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.13"
@@ -860,7 +860,7 @@
             "InPreview"               : false
         },
         "MediaLive"                       : {
-            "Version" : "3.7.401.9",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.13"
@@ -932,7 +932,7 @@
             "InPreview"               : false
         },
         "SageMaker"                       : {
-            "Version" : "3.7.403.6",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.13"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.402.9",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.13"
@@ -1260,7 +1260,7 @@
             "InPreview"               : false
         },
         "MediaConnect"                    : {
-            "Version" : "3.7.400.13",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.13"
@@ -2804,7 +2804,7 @@
             "InPreview"               : false
         },
         "DataZone"                            : {
-            "Version" : "3.7.404.0",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.13"
@@ -2996,7 +2996,7 @@
             "InPreview"               : false
         },
         "TimestreamInfluxDB"                  : {
-            "Version" : "3.7.400.13",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.13"
