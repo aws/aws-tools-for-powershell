@@ -3842,7 +3842,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNGraphqlApi/LogConfig_FieldLogLevel")
         }
         {
-            $v = "ALL","ERROR","NONE"
+            $v = "ALL","DEBUG","ERROR","INFO","NONE"
             break
         }
 
@@ -29114,6 +29114,13 @@ $FIS_Completers = {
             break
         }
 
+        # Amazon.FIS.SafetyLeverStatusInput
+        "Update-FISSafetyLeverState/State_Status"
+        {
+            $v = "disengaged","engaged"
+            break
+        }
+
 
     }
 
@@ -29126,6 +29133,7 @@ $FIS_map = @{
     "ExperimentOptions_AccountTargeting"=@("New-FISExperimentTemplate")
     "ExperimentOptions_ActionsMode"=@("Start-FISExperiment")
     "ExperimentOptions_EmptyTargetResolutionMode"=@("New-FISExperimentTemplate","Update-FISExperimentTemplate")
+    "State_Status"=@("Update-FISSafetyLeverState")
 }
 
 _awsArgumentCompleterRegistration $FIS_Completers $FIS_map
@@ -29186,6 +29194,7 @@ $FIS_SelectMap = @{
                "Get-FISExperiment",
                "Get-FISExperimentTargetAccountConfiguration",
                "Get-FISExperimentTemplate",
+               "Get-FISSafetyLever",
                "Get-FISTargetAccountConfiguration",
                "Get-FISTargetResourceType",
                "Get-FISActionList",
@@ -29201,6 +29210,7 @@ $FIS_SelectMap = @{
                "Add-FISResourceTag",
                "Remove-FISResourceTag",
                "Update-FISExperimentTemplate",
+               "Update-FISSafetyLeverState",
                "Update-FISTargetAccountConfiguration")
 }
 
@@ -41440,6 +41450,7 @@ $CWL_SelectMap = @{
                "Remove-CWLRetentionPolicy",
                "Remove-CWLSubscriptionFilter",
                "Get-CWLAccountPolicy",
+               "Find-CWLConfigurationTemplate",
                "Find-CWLDelivery",
                "Find-CWLDeliveryDestination",
                "Find-CWLDeliverySource",
@@ -41490,6 +41501,7 @@ $CWL_SelectMap = @{
                "Remove-CWLLogGroupTag",
                "Remove-CWLResourceTag",
                "Update-CWLAnomaly",
+               "Update-CWLDeliveryConfiguration",
                "Update-CWLLogAnomalyDetector")
 }
 
@@ -59830,6 +59842,7 @@ $S3C_SelectMap = @{
                "Get-S3CAccessGrantsLocationList",
                "Get-S3CAccessPointList",
                "Get-S3CAccessPointsForObjectLambdaList",
+               "Get-S3CCallerAccessGrantList",
                "Get-S3CJobList",
                "Get-S3CMultiRegionAccessPointList",
                "Get-S3CRegionalBucketList",

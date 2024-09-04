@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Entity_Attribute
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>Reserved for internal use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter Entity_KeyAttribute
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>Reserved for internal use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

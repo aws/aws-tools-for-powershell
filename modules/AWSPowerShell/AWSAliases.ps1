@@ -12132,6 +12132,7 @@ Set-Alias -Name FIS-GetAction -Value Get-FISAction
 Set-Alias -Name FIS-GetExperiment -Value Get-FISExperiment
 Set-Alias -Name FIS-GetExperimentTargetAccountConfiguration -Value Get-FISExperimentTargetAccountConfiguration
 Set-Alias -Name FIS-GetExperimentTemplate -Value Get-FISExperimentTemplate
+Set-Alias -Name FIS-GetSafetyLever -Value Get-FISSafetyLever
 Set-Alias -Name FIS-GetTargetAccountConfiguration -Value Get-FISTargetAccountConfiguration
 Set-Alias -Name FIS-GetTargetResourceType -Value Get-FISTargetResourceType
 Set-Alias -Name List-FISActions -Value Get-FISActionList
@@ -12161,6 +12162,7 @@ Set-Alias -Name FIS-StopExperiment -Value Stop-FISExperiment
 Set-Alias -Name FIS-TagResource -Value Add-FISResourceTag
 Set-Alias -Name FIS-UntagResource -Value Remove-FISResourceTag
 Set-Alias -Name FIS-UpdateExperimentTemplate -Value Update-FISExperimentTemplate
+Set-Alias -Name FIS-UpdateSafetyLeverState -Value Update-FISSafetyLeverState
 Set-Alias -Name FIS-UpdateTargetAccountConfiguration -Value Update-FISTargetAccountConfiguration
 Set-Alias -Name Associate-FMSAdminAccount -Value Add-FMSAdminAccountAssociation
 Set-Alias -Name Associate-FMSAdminAccountAssociation -Value Add-FMSAdminAccountAssociation
@@ -17593,6 +17595,9 @@ Set-Alias -Name CWL-DeleteSubscriptionFilter -Value Remove-CWLSubscriptionFilter
 Set-Alias -Name Describe-CWLAccountPolicies -Value Get-CWLAccountPolicy
 Set-Alias -Name Describe-CWLAccountPolicy -Value Get-CWLAccountPolicy
 Set-Alias -Name CWL-DescribeAccountPolicies -Value Get-CWLAccountPolicy
+Set-Alias -Name Describe-CWLConfigurationTemplates -Value Find-CWLConfigurationTemplate
+Set-Alias -Name Describe-CWLConfigurationTemplate -Value Find-CWLConfigurationTemplate
+Set-Alias -Name CWL-DescribeConfigurationTemplates -Value Find-CWLConfigurationTemplate
 Set-Alias -Name Describe-CWLDeliveries -Value Find-CWLDelivery
 Set-Alias -Name Describe-CWLDelivery -Value Find-CWLDelivery
 Set-Alias -Name CWL-DescribeDeliveries -Value Find-CWLDelivery
@@ -17697,6 +17702,7 @@ Set-Alias -Name Untag-CWLLogGroupTag -Value Remove-CWLLogGroupTag
 Set-Alias -Name CWL-UntagLogGroup -Value Remove-CWLLogGroupTag
 Set-Alias -Name CWL-UntagResource -Value Remove-CWLResourceTag
 Set-Alias -Name CWL-UpdateAnomaly -Value Update-CWLAnomaly
+Set-Alias -Name CWL-UpdateDeliveryConfiguration -Value Update-CWLDeliveryConfiguration
 Set-Alias -Name CWL-UpdateLogAnomalyDetector -Value Update-CWLLogAnomalyDetector
 Set-Alias -Name Create-L4EDataset -Value New-L4EDataset
 Set-Alias -Name L4E-CreateDataset -Value New-L4EDataset
@@ -25007,6 +25013,9 @@ Set-Alias -Name S3C-ListAccessPoints -Value Get-S3CAccessPointList
 Set-Alias -Name List-S3CAccessPointsForObjectLambda -Value Get-S3CAccessPointsForObjectLambdaList
 Set-Alias -Name List-S3CAccessPointsForObjectLambdaList -Value Get-S3CAccessPointsForObjectLambdaList
 Set-Alias -Name S3C-ListAccessPointsForObjectLambda -Value Get-S3CAccessPointsForObjectLambdaList
+Set-Alias -Name List-S3CCallerAccessGrants -Value Get-S3CCallerAccessGrantList
+Set-Alias -Name List-S3CCallerAccessGrantList -Value Get-S3CCallerAccessGrantList
+Set-Alias -Name S3C-ListCallerAccessGrants -Value Get-S3CCallerAccessGrantList
 Set-Alias -Name List-S3CJobs -Value Get-S3CJobList
 Set-Alias -Name List-S3CJobList -Value Get-S3CJobList
 Set-Alias -Name S3C-ListJobs -Value Get-S3CJobList

@@ -28,24 +28,23 @@ using Amazon.S3Control.Model;
 namespace Amazon.PowerShell.Cmdlets.S3C
 {
     /// <summary>
-    /// Deletes the resource policy of the S3 Access Grants instance. The resource policy
-    /// is used to manage cross-account access to your S3 Access Grants instance. By deleting
-    /// the resource policy, you delete any cross-account permissions to your S3 Access Grants
-    /// instance. 
+    /// Returns a list of the access grants that were given to the caller using S3 Access
+    /// Grants and that allow the caller to access the S3 data of the Amazon Web Services
+    /// account specified in the request.
     /// 
     ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <c>s3:DeleteAccessGrantsInstanceResourcePolicy</c> permission to
-    /// use this operation. 
+    /// You must have the <c>s3:ListCallerAccessGrants</c> permission to use this operation.
+    /// 
     /// </para></dd></dl>
     /// </summary>
-    [Cmdlet("Remove", "S3CAccessGrantsInstanceResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessGrantsInstanceResourcePolicy API operation.", Operation = new[] {"DeleteAccessGrantsInstanceResourcePolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "S3CCallerAccessGrantList")]
+    [OutputType("Amazon.S3Control.Model.ListCallerAccessGrantsEntry")]
+    [AWSCmdlet("Calls the Amazon S3 Control ListCallerAccessGrants API operation.", Operation = new[] {"ListCallerAccessGrants"}, SelectReturnType = typeof(Amazon.S3Control.Model.ListCallerAccessGrantsResponse))]
+    [AWSCmdletOutput("Amazon.S3Control.Model.ListCallerAccessGrantsEntry or Amazon.S3Control.Model.ListCallerAccessGrantsResponse",
+        "This cmdlet returns a collection of Amazon.S3Control.Model.ListCallerAccessGrantsEntry objects.",
+        "The service call response (type Amazon.S3Control.Model.ListCallerAccessGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveS3CAccessGrantsInstanceResourcePolicyCmdlet : AmazonS3ControlClientCmdlet, IExecutor
+    public partial class GetS3CCallerAccessGrantListCmdlet : AmazonS3ControlClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -67,14 +66,63 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public System.String AccountId { get; set; }
         #endregion
         
+        #region Parameter AllowedByApplication
+        /// <summary>
+        /// <para>
+        /// <para>If this optional parameter is passed in the request, a filter is applied to the results.
+        /// The results will include only the access grants for the caller's Identity Center application
+        /// or for any other applications (<c>ALL</c>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? AllowedByApplication { get; set; }
+        #endregion
+        
+        #region Parameter GrantScope
+        /// <summary>
+        /// <para>
+        /// <para>The S3 path of the data that you would like to access. Must start with <c>s3://</c>.
+        /// You can optionally pass only the beginning characters of a path, and S3 Access Grants
+        /// will search for all applicable grants for the path fragment. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String GrantScope { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of access grants that you would like returned in the <c>List Caller
+        /// Access Grants</c> response. If the results include the pagination token <c>NextToken</c>,
+        /// make another call using the <c>NextToken</c> to determine if there are more results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A pagination token to request the next page of results. Pass this value into a subsequent
+        /// <c>List Caller Access Grants</c> request in order to retrieve the next page of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'CallerAccessGrantsList'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.ListCallerAccessGrantsResponse).
+        /// Specifying the name of a property of type Amazon.S3Control.Model.ListCallerAccessGrantsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "CallerAccessGrantsList";
         #endregion
         
         #region Parameter PassThru
@@ -87,26 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "s3v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3CAccessGrantsInstanceResourcePolicy (DeleteAccessGrantsInstanceResourcePolicy)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -116,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse, RemoveS3CAccessGrantsInstanceResourcePolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.S3Control.Model.ListCallerAccessGrantsResponse, GetS3CCallerAccessGrantListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -135,6 +167,10 @@ namespace Amazon.PowerShell.Cmdlets.S3C
                 WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.AllowedByApplication = this.AllowedByApplication;
+            context.GrantScope = this.GrantScope;
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,11 +185,27 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyRequest();
+            var request = new Amazon.S3Control.Model.ListCallerAccessGrantsRequest();
             
             if (cmdletContext.AccountId != null)
             {
                 request.AccountId = cmdletContext.AccountId;
+            }
+            if (cmdletContext.AllowedByApplication != null)
+            {
+                request.AllowedByApplication = cmdletContext.AllowedByApplication.Value;
+            }
+            if (cmdletContext.GrantScope != null)
+            {
+                request.GrantScope = cmdletContext.GrantScope;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -188,15 +240,15 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         #region AWS Service Operation Call
         
-        private Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyRequest request)
+        private Amazon.S3Control.Model.ListCallerAccessGrantsResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.ListCallerAccessGrantsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteAccessGrantsInstanceResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "ListCallerAccessGrants");
             try
             {
                 #if DESKTOP
-                return client.DeleteAccessGrantsInstanceResourcePolicy(request);
+                return client.ListCallerAccessGrants(request);
                 #elif CORECLR
-                return client.DeleteAccessGrantsInstanceResourcePolicyAsync(request).GetAwaiter().GetResult();
+                return client.ListCallerAccessGrantsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -217,8 +269,12 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
-            public System.Func<Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse, RemoveS3CAccessGrantsInstanceResourcePolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Boolean? AllowedByApplication { get; set; }
+            public System.String GrantScope { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.S3Control.Model.ListCallerAccessGrantsResponse, GetS3CCallerAccessGrantListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.CallerAccessGrantsList;
         }
         
     }

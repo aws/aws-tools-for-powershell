@@ -1,4 +1,16 @@
-﻿### 4.1.648 (2024-09-03 20:50Z)
+﻿### 4.1.649 (2024-09-04 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.879.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Logs
+    * Added cmdlet Find-CWLConfigurationTemplate leveraging the DescribeConfigurationTemplates service API.
+    * Added cmdlet Update-CWLDeliveryConfiguration leveraging the UpdateDeliveryConfiguration service API.
+    * Modified cmdlet New-CWLDelivery: added parameters FieldDelimiter, RecordField, S3DeliveryConfiguration_EnableHiveCompatiblePath and S3DeliveryConfiguration_SuffixPath.
+  * Amazon Fault Injection Simulator
+    * Added cmdlet Get-FISSafetyLever leveraging the GetSafetyLever service API.
+    * Added cmdlet Update-FISSafetyLeverState leveraging the UpdateSafetyLeverState service API.
+  * Amazon S3 Control
+    * Added cmdlet Get-S3CCallerAccessGrantList leveraging the ListCallerAccessGrants service API.
+
+### 4.1.648 (2024-09-03 20:50Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.878.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon DataZone
     * Modified cmdlet Approve-DZSubscriptionRequest: added parameter AssetScope.

@@ -22,38 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.S3Control;
-using Amazon.S3Control.Model;
+using Amazon.FIS;
+using Amazon.FIS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.S3C
+namespace Amazon.PowerShell.Cmdlets.FIS
 {
     /// <summary>
-    /// Deletes the resource policy of the S3 Access Grants instance. The resource policy
-    /// is used to manage cross-account access to your S3 Access Grants instance. By deleting
-    /// the resource policy, you delete any cross-account permissions to your S3 Access Grants
-    /// instance. 
-    /// 
-    ///  <dl><dt>Permissions</dt><dd><para>
-    /// You must have the <c>s3:DeleteAccessGrantsInstanceResourcePolicy</c> permission to
-    /// use this operation. 
-    /// </para></dd></dl>
+    /// Gets information about the specified safety lever.
     /// </summary>
-    [Cmdlet("Remove", "S3CAccessGrantsInstanceResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon S3 Control DeleteAccessGrantsInstanceResourcePolicy API operation.", Operation = new[] {"DeleteAccessGrantsInstanceResourcePolicy"}, SelectReturnType = typeof(Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "FISSafetyLever")]
+    [OutputType("Amazon.FIS.Model.SafetyLever")]
+    [AWSCmdlet("Calls the AWS Fault Injection Simulator GetSafetyLever API operation.", Operation = new[] {"GetSafetyLever"}, SelectReturnType = typeof(Amazon.FIS.Model.GetSafetyLeverResponse))]
+    [AWSCmdletOutput("Amazon.FIS.Model.SafetyLever or Amazon.FIS.Model.GetSafetyLeverResponse",
+        "This cmdlet returns an Amazon.FIS.Model.SafetyLever object.",
+        "The service call response (type Amazon.FIS.Model.GetSafetyLeverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveS3CAccessGrantsInstanceResourcePolicyCmdlet : AmazonS3ControlClientCmdlet, IExecutor
+    public partial class GetFISSafetyLeverCmdlet : AmazonFISClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AccountId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Services account ID of the S3 Access Grants instance.</para>
+        /// <para> The ID of the safety lever. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,49 +56,34 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AccountId { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'SafetyLever'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.FIS.Model.GetSafetyLeverResponse).
+        /// Specifying the name of a property of type Amazon.FIS.Model.GetSafetyLeverResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "SafetyLever";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the AccountId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AccountId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
-            this._AWSSignerType = "s3v4";
+            this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AccountId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3CAccessGrantsInstanceResourcePolicy (DeleteAccessGrantsInstanceResourcePolicy)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -116,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse, RemoveS3CAccessGrantsInstanceResourcePolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.FIS.Model.GetSafetyLeverResponse, GetFISSafetyLeverCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -125,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.S3C
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.AccountId;
+                context.Select = (response, cmdlet) => this.Id;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AccountId = this.AccountId;
+            context.Id = this.Id;
             #if MODULAR
-            if (this.AccountId == null && ParameterWasBound(nameof(this.AccountId)))
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
             {
-                WriteWarning("You are passing $null as a value for parameter AccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -149,11 +126,11 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyRequest();
+            var request = new Amazon.FIS.Model.GetSafetyLeverRequest();
             
-            if (cmdletContext.AccountId != null)
+            if (cmdletContext.Id != null)
             {
-                request.AccountId = cmdletContext.AccountId;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -188,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         #region AWS Service Operation Call
         
-        private Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse CallAWSServiceOperation(IAmazonS3Control client, Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyRequest request)
+        private Amazon.FIS.Model.GetSafetyLeverResponse CallAWSServiceOperation(IAmazonFIS client, Amazon.FIS.Model.GetSafetyLeverRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3 Control", "DeleteAccessGrantsInstanceResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Fault Injection Simulator", "GetSafetyLever");
             try
             {
                 #if DESKTOP
-                return client.DeleteAccessGrantsInstanceResourcePolicy(request);
+                return client.GetSafetyLever(request);
                 #elif CORECLR
-                return client.DeleteAccessGrantsInstanceResourcePolicyAsync(request).GetAwaiter().GetResult();
+                return client.GetSafetyLeverAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -216,9 +193,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AccountId { get; set; }
-            public System.Func<Amazon.S3Control.Model.DeleteAccessGrantsInstanceResourcePolicyResponse, RemoveS3CAccessGrantsInstanceResourcePolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Id { get; set; }
+            public System.Func<Amazon.FIS.Model.GetSafetyLeverResponse, GetFISSafetyLeverCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.SafetyLever;
         }
         
     }

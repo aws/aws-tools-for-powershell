@@ -28,86 +28,21 @@ using Amazon.CloudWatchLogs.Model;
 namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
-    /// Creates a <i>delivery</i>. A delivery is a connection between a logical <i>delivery
-    /// source</i> and a logical <i>delivery destination</i> that you have already created.
-    /// 
-    ///  
-    /// <para>
-    /// Only some Amazon Web Services services support being configured as a delivery source
-    /// using this operation. These services are listed as <b>Supported [V2 Permissions]</b>
-    /// in the table at <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
-    /// logging from Amazon Web Services services.</a></para><para>
-    /// A delivery destination can represent a log group in CloudWatch Logs, an Amazon S3
-    /// bucket, or a delivery stream in Firehose.
-    /// </para><para>
-    /// To configure logs delivery between a supported Amazon Web Services service and a destination,
-    /// you must do the following:
-    /// </para><ul><li><para>
-    /// Create a delivery source, which is a logical object that represents the resource that
-    /// is actually sending the logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.
-    /// </para></li><li><para>
-    /// Create a <i>delivery destination</i>, which is a logical object that represents the
-    /// actual delivery destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.
-    /// </para></li><li><para>
-    /// If you are delivering logs cross-account, you must use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>
-    /// in the destination account to assign an IAM policy to the destination. This policy
-    /// allows delivery to that destination. 
-    /// </para></li><li><para>
-    /// Use <c>CreateDelivery</c> to create a <i>delivery</i> by pairing exactly one delivery
-    /// source and one delivery destination. 
-    /// </para></li></ul><para>
-    /// You can configure a single delivery source to send logs to multiple destinations by
-    /// creating multiple deliveries. You can also create multiple deliveries to configure
-    /// multiple delivery sources to send logs to the same delivery destination.
-    /// </para><para>
-    /// You can't update an existing delivery. You can only create and delete deliveries.
-    /// </para>
+    /// Use this operation to update the configuration of a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_Delivery.html">delivery</a>
+    /// to change either the S3 path pattern or the format of the delivered logs. You can't
+    /// use this operation to change the source or destination of the delivery.
     /// </summary>
-    [Cmdlet("New", "CWLDelivery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudWatchLogs.Model.Delivery")]
-    [AWSCmdlet("Calls the Amazon CloudWatch Logs CreateDelivery API operation.", Operation = new[] {"CreateDelivery"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.CreateDeliveryResponse))]
-    [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Delivery or Amazon.CloudWatchLogs.Model.CreateDeliveryResponse",
-        "This cmdlet returns an Amazon.CloudWatchLogs.Model.Delivery object.",
-        "The service call response (type Amazon.CloudWatchLogs.Model.CreateDeliveryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CWLDeliveryConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs UpdateDeliveryConfiguration API operation.", Operation = new[] {"UpdateDeliveryConfiguration"}, SelectReturnType = typeof(Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewCWLDeliveryCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
+    public partial class UpdateCWLDeliveryConfigurationCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter DeliveryDestinationArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the delivery destination to use for this delivery.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DeliveryDestinationArn { get; set; }
-        #endregion
-        
-        #region Parameter DeliverySourceName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the delivery source to use for this delivery.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DeliverySourceName { get; set; }
-        #endregion
         
         #region Parameter S3DeliveryConfiguration_EnableHiveCompatiblePath
         /// <summary>
@@ -129,6 +64,23 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String FieldDelimiter { get; set; }
+        #endregion
+        
+        #region Parameter Id
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the delivery to be updated by this request.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Id { get; set; }
         #endregion
         
         #region Parameter RecordField
@@ -156,27 +108,24 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String S3DeliveryConfiguration_SuffixPath { get; set; }
         #endregion
         
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>An optional list of key-value pairs to associate with the resource.</para><para>For more information about tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services resources</a></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Delivery'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.CreateDeliveryResponse).
-        /// Specifying the name of a property of type Amazon.CloudWatchLogs.Model.CreateDeliveryResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Delivery";
+        public string Select { get; set; } = "*";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the Id parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Id' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -194,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CWLDelivery (CreateDelivery)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Id), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CWLDeliveryConfiguration (UpdateDeliveryConfiguration)"))
             {
                 return;
             }
@@ -205,40 +154,35 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.CreateDeliveryResponse, NewCWLDeliveryCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse, UpdateCWLDeliveryConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
-            context.DeliveryDestinationArn = this.DeliveryDestinationArn;
-            #if MODULAR
-            if (this.DeliveryDestinationArn == null && ParameterWasBound(nameof(this.DeliveryDestinationArn)))
+            else if (this.PassThru.IsPresent)
             {
-                WriteWarning("You are passing $null as a value for parameter DeliveryDestinationArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Select = (response, cmdlet) => this.Id;
             }
-            #endif
-            context.DeliverySourceName = this.DeliverySourceName;
-            #if MODULAR
-            if (this.DeliverySourceName == null && ParameterWasBound(nameof(this.DeliverySourceName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter DeliverySourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.FieldDelimiter = this.FieldDelimiter;
+            context.Id = this.Id;
+            #if MODULAR
+            if (this.Id == null && ParameterWasBound(nameof(this.Id)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             if (this.RecordField != null)
             {
                 context.RecordField = new List<System.String>(this.RecordField);
             }
             context.S3DeliveryConfiguration_EnableHiveCompatiblePath = this.S3DeliveryConfiguration_EnableHiveCompatiblePath;
             context.S3DeliveryConfiguration_SuffixPath = this.S3DeliveryConfiguration_SuffixPath;
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -253,19 +197,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudWatchLogs.Model.CreateDeliveryRequest();
+            var request = new Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationRequest();
             
-            if (cmdletContext.DeliveryDestinationArn != null)
-            {
-                request.DeliveryDestinationArn = cmdletContext.DeliveryDestinationArn;
-            }
-            if (cmdletContext.DeliverySourceName != null)
-            {
-                request.DeliverySourceName = cmdletContext.DeliverySourceName;
-            }
             if (cmdletContext.FieldDelimiter != null)
             {
                 request.FieldDelimiter = cmdletContext.FieldDelimiter;
+            }
+            if (cmdletContext.Id != null)
+            {
+                request.Id = cmdletContext.Id;
             }
             if (cmdletContext.RecordField != null)
             {
@@ -300,10 +240,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             {
                 request.S3DeliveryConfiguration = null;
             }
-            if (cmdletContext.Tag != null)
-            {
-                request.Tags = cmdletContext.Tag;
-            }
             
             CmdletOutput output;
             
@@ -337,15 +273,15 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudWatchLogs.Model.CreateDeliveryResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.CreateDeliveryRequest request)
+        private Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse CallAWSServiceOperation(IAmazonCloudWatchLogs client, Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "CreateDelivery");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Logs", "UpdateDeliveryConfiguration");
             try
             {
                 #if DESKTOP
-                return client.CreateDelivery(request);
+                return client.UpdateDeliveryConfiguration(request);
                 #elif CORECLR
-                return client.CreateDeliveryAsync(request).GetAwaiter().GetResult();
+                return client.UpdateDeliveryConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -365,15 +301,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeliveryDestinationArn { get; set; }
-            public System.String DeliverySourceName { get; set; }
             public System.String FieldDelimiter { get; set; }
+            public System.String Id { get; set; }
             public List<System.String> RecordField { get; set; }
             public System.Boolean? S3DeliveryConfiguration_EnableHiveCompatiblePath { get; set; }
             public System.String S3DeliveryConfiguration_SuffixPath { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.CloudWatchLogs.Model.CreateDeliveryResponse, NewCWLDeliveryCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Delivery;
+            public System.Func<Amazon.CloudWatchLogs.Model.UpdateDeliveryConfigurationResponse, UpdateCWLDeliveryConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

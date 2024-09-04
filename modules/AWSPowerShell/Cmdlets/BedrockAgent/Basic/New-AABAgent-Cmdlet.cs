@@ -52,8 +52,11 @@ namespace Amazon.PowerShell.Cmdlets.AAB
     /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced
     /// prompts</a>.
     /// </para></li><li><para>
-    /// If you agent fails to be created, the response returns a list of <c>failureReasons</c>
+    /// If your agent fails to be created, the response returns a list of <c>failureReasons</c>
     /// alongside a list of <c>recommendedActions</c> for you to troubleshoot.
+    /// </para></li><li><para>
+    /// The agent instructions will not be honored if your agent has only one knowledge base,
+    /// uses default prompts, has no action group, and user input is disabled.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "AABAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
