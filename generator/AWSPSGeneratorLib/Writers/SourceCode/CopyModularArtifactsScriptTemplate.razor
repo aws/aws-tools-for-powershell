@@ -90,6 +90,15 @@ foreach ($project in $projectNameList)
     Copy-Item -Path "$rootFolder/NOTICE" -Destination "$projectDeploymentFolder/NOTICE"
 }
 
+@foreach (var service in Projects.Where(p => p.AdditionalServiceAssemblies.Any()))
+{
+    var assemblyName = service.AssemblyName;
+    foreach (var serviceAssembly in service.AdditionalServiceAssemblies)
+    {
+@:Copy-Item -Path "$assembliesFolder/netstandard2.0/@(serviceAssembly).dll" -Destination "$modularDeploymentFolder/AWS.Tools.@(assemblyName)/@(serviceAssembly).dll"
+    }
+}
+
 New-Item -Path "$modularDeploymentFolder/AWS.Tools.Installer" -ItemType Directory
 Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psd1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psd1"
 Copy-Item -Path "$installerModuleFolder/AWS.Tools.Installer.psm1" -Destination "$modularDeploymentFolder/AWS.Tools.Installer/AWS.Tools.Installer.psm1"

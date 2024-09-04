@@ -679,6 +679,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public IEnumerable<string> SDKDependencies { get; set; }
 
         [XmlIgnore]
+        public IEnumerable<string> AdditionalServiceAssemblies { get; set; } = Array.Empty<string>();
+
+        [XmlIgnore]
         public readonly List<AnalysisError> AnalysisErrors = new List<AnalysisError>();
 
         [XmlIgnore]

@@ -42,6 +42,14 @@ namespace AWSPowerShellGenerator.Utils
         private const string AWSPowerShellGuid = "21f083f2-4c41-4b5d-88ec-7d24c9e88769";
         private readonly string[] AwsToolsCommonSdkAssemblies = { "AWSSDK.Core", "AWSSDK.SecurityToken" };
         private readonly string[] AdditionalCrtAssemblies = { "aws-crt", "aws-crt-auth", "aws-crt-http", "aws-crt-checksums", "AWSSDK.Extensions.CrtIntegration" };
+        // Additional service assemblies that are added to Project files and Manifest files.
+        private readonly Dictionary<string, List<string>> _additionalServiceAssemblies = new()
+        {
+            ["CloudFront"] = ["AWSSDK.Extensions.CloudFront.Signers"],
+            ["EC2"] = ["AWSSDK.Extensions.EC2.DecryptPassword"]
+        };
+
+        private string[] AllAdditionalServiceAssemblies => _additionalServiceAssemblies.SelectMany(x => x.Value).ToArray();
 
         //All paths are relative to the AwsPowerShellModuleFolder
         public static readonly string AWSPowerShellModularSolutionFilename = Path.Combine("..", "..", "solutions", "ModularAWSPowerShell.sln");
@@ -188,6 +196,19 @@ namespace AWSPowerShellGenerator.Utils
             NDocs.Add(baseName, ndoc);
         }
 
+        /// <summary>
+        /// Set AdditionalServiceAssemblies property in the ConfigModels.
+        /// </summary>
+
+        /// <param name="services"></param>
+        public void SetAdditionalServiceAssemblies(ConfigModelCollection services)
+        {
+            foreach (var service in services.ConfigModels.Values.Where(x => _additionalServiceAssemblies.ContainsKey(x.AssemblyName)))
+            {
+                service.AdditionalServiceAssemblies = _additionalServiceAssemblies[service.AssemblyName];
+            }
+        }
+
         public void WriteModularSolution(IEnumerable<ConfigModel> services)
         {
             var solutionFile = Path.Combine(AwsPowerShellModuleFolder, AWSPowerShellModularSolutionFilename);
@@ -293,7 +314,7 @@ namespace AWSPowerShellGenerator.Utils
                 compatiblePowerShellVersion: 3,
                 compatibleFrameworkVersion: "4.7.2",
                 netStandard: netStandard,
-                assemblies: Assemblies.Keys.ToArray().Concat(AdditionalCrtAssemblies),
+                assemblies: Assemblies.Keys.ToArray().Concat(AdditionalCrtAssemblies).Concat(AllAdditionalServiceAssemblies),
                 typesToProcessFiles: new string[] { "AWSPowerShell.TypeExtensions.ps1xml" },
                 formatsToProcessFiles: new string[] { $"AWSPowerShell{(netStandard ? ".NetCore" : "")}.Format.ps1xml" },
                 nestedModulesFiles: new string[] { "AWSPowerShellCompleters.psm1",
@@ -336,7 +357,7 @@ namespace AWSPowerShellGenerator.Utils
                             "This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.",
                         compatiblePowerShellVersion: 5,
                         compatiblePowerShellMinorVersion: 1,
-                        assemblies: new string[] { $"AWSSDK.{project.Key}" }.Except(AwsToolsCommonSdkAssemblies),
+                        assemblies: new string[] { $"AWSSDK.{project.Key}" }.Except(AwsToolsCommonSdkAssemblies).Concat(mainServiceConfig.AdditionalServiceAssemblies),
                         formatsToProcessFiles: new string[] { $"AWS.Tools.{project.Key}.Format.ps1xml" },
                         fileList: new string[] { $"AWS.Tools.{project.Key}.dll-Help.xml" },
                         nestedModulesFiles: new string[] { $"AWS.Tools.{project.Key}.Completers.psm1",
@@ -515,7 +536,7 @@ namespace AWSPowerShellGenerator.Utils
         {
             string projectFilePath = Path.Combine(AwsPowerShellModuleFolder, MonolithicProjectFileName);
 
-            string fileContent = MonolithicProjectFileTemplate.Generate(Assemblies.Keys, ModuleVersionNumber);
+            string fileContent = MonolithicProjectFileTemplate.Generate(Assemblies.Keys.ToArray().Concat(AllAdditionalServiceAssemblies), ModuleVersionNumber);
 
             File.WriteAllText(projectFilePath, fileContent, Encoding.UTF8);
         }

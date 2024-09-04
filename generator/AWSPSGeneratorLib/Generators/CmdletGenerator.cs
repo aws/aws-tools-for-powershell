@@ -262,6 +262,8 @@ namespace AWSPowerShellGenerator.Generators
             {
                 ScanAdvancedCmdletsForCommonModule();
 
+                SourceArtifacts.SetAdditionalServiceAssemblies(ModelCollection);
+
                 SourceArtifacts.WriteLegacyAliasesFile(LegacyAliases, ModelCollection.CommonModuleAliases);
                 SourceArtifacts.WriteMonolithicCompletionScriptsFile(GetArgumentCompletionScriptContent());
                 SourceArtifacts.WriteMonolithicProjectFile();
