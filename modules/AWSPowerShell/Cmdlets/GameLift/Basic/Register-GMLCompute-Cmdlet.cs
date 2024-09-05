@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The IP address of the compute resource. Amazon GameLift requires either a DNS name
-        /// or IP address.</para>
+        /// or IP address. When registering an Anywhere fleet, an IP address is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>The name of a custom location to associate with the compute resource being registered.
-        /// </para>
+        /// This parameter is required when registering a compute for an Anywhere fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

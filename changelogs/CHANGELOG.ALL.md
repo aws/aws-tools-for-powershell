@@ -1,4 +1,15 @@
-﻿### 4.1.649 (2024-09-04 21:09Z)
+﻿### 4.1.650 (2024-09-05 21:00Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.880.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Application Signals
+    * Modified cmdlet New-CWASServiceLevelObjective: added parameters MonitoredRequestCountMetric_BadCountMetric, MonitoredRequestCountMetric_GoodCountMetric, RequestBasedSliConfig_ComparisonOperator, RequestBasedSliConfig_MetricThreshold, RequestBasedSliMetricConfig_KeyAttribute, RequestBasedSliMetricConfig_MetricType, RequestBasedSliMetricConfig_OperationName and RequestBasedSliMetricConfig_TotalRequestCountMetric.
+    * Modified cmdlet Update-CWASServiceLevelObjective: added parameters MonitoredRequestCountMetric_BadCountMetric, MonitoredRequestCountMetric_GoodCountMetric, RequestBasedSliConfig_ComparisonOperator, RequestBasedSliConfig_MetricThreshold, RequestBasedSliMetricConfig_KeyAttribute, RequestBasedSliMetricConfig_MetricType, RequestBasedSliMetricConfig_OperationName and RequestBasedSliMetricConfig_TotalRequestCountMetric.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameters IdleSettings_IdleTimeoutInMinute, IdleSettings_LifecycleManagement, IdleSettings_MaxIdleTimeoutInMinute and IdleSettings_MinIdleTimeoutInMinute.
+    * Modified cmdlet New-SMSpace: added parameters SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes and SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes.
+    * Modified cmdlet Update-SMDomain: added parameters IdleSettings_IdleTimeoutInMinute, IdleSettings_LifecycleManagement, IdleSettings_MaxIdleTimeoutInMinute and IdleSettings_MinIdleTimeoutInMinute.
+    * Modified cmdlet Update-SMSpace: added parameters SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes and SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes.
+
+### 4.1.649 (2024-09-04 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.879.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Logs
     * Added cmdlet Find-CWLConfigurationTemplate leveraging the DescribeConfigurationTemplates service API.

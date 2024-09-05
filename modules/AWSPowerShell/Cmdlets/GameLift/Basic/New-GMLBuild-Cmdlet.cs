@@ -125,10 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// the type of fleet resources that you use for this build. If your game build contains
         /// multiple executables, they all must run on the same operating system. You must specify
         /// a valid operating system in this request. There is no default value. You can't change
-        /// a build's operating system later.</para><note><para>If you have active fleets using the Windows Server 2012 operating system, you can
-        /// continue to create new builds using this OS until October 10, 2023, when Microsoft
-        /// ends its support. All others must use Windows Server 2016 when creating new Windows-based
-        /// builds.</para></note>
+        /// a build's operating system later.</para><note><para>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the
+        /// <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For
+        /// game servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x., first
+        /// update the game server build to server SDK 5.x, and then deploy to AL2023 instances.
+        /// See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html">
+        /// Migrate to Amazon GameLift server SDK version 5.</a></para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

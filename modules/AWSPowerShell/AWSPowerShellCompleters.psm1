@@ -2902,12 +2902,14 @@ $CWAS_Completers = {
             ($_ -eq "Update-CWASServiceLevelObjective/RollingInterval_DurationUnit")
         }
         {
-            $v = "DAY","MONTH"
+            $v = "DAY","HOUR","MINUTE","MONTH"
             break
         }
 
         # Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator
         {
+            ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliConfig_ComparisonOperator") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/RequestBasedSliConfig_ComparisonOperator") -Or
             ($_ -eq "New-CWASServiceLevelObjective/SliConfig_ComparisonOperator") -Or
             ($_ -eq "Update-CWASServiceLevelObjective/SliConfig_ComparisonOperator")
         }
@@ -2918,6 +2920,8 @@ $CWAS_Completers = {
 
         # Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType
         {
+            ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliMetricConfig_MetricType") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/RequestBasedSliMetricConfig_MetricType") -Or
             ($_ -eq "New-CWASServiceLevelObjective/SliMetricConfig_MetricType") -Or
             ($_ -eq "Update-CWASServiceLevelObjective/SliMetricConfig_MetricType")
         }
@@ -2936,6 +2940,8 @@ $CWAS_Completers = {
 
 $CWAS_map = @{
     "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "RequestBasedSliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "RequestBasedSliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
@@ -16539,7 +16545,7 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNVocabulary/LanguageCode")
         }
         {
-            $v = "ar-AE","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","pt-PT","zh-CN"
+            $v = "ar-AE","ca-ES","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fi-FI","fr-CA","fr-FR","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","no-NO","pl-PL","pt-BR","pt-PT","sv-SE","tl-PH","zh-CN"
             break
         }
 
@@ -38492,7 +38498,7 @@ $KINA2_Completers = {
             ($_ -eq "Update-KINA2Application/RuntimeEnvironmentUpdate")
         }
         {
-            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
+            $v = "FLINK-1_11","FLINK-1_13","FLINK-1_15","FLINK-1_18","FLINK-1_19","FLINK-1_20","FLINK-1_6","FLINK-1_8","SQL-1_0","ZEPPELIN-FLINK-1_0","ZEPPELIN-FLINK-2_0","ZEPPELIN-FLINK-3_0"
             break
         }
 
@@ -60572,6 +60578,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.LifecycleManagement
+        {
+            ($_ -eq "New-SMDomain/IdleSettings_LifecycleManagement") -Or
+            ($_ -eq "Update-SMDomain/IdleSettings_LifecycleManagement")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SageMaker.ListCompilationJobsSortBy
         "Get-SMCompilationJobList/SortBy"
         {
@@ -61472,6 +61488,7 @@ $SM_map = @{
     "HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")
     "IamPolicyConstraints_SourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "IamPolicyConstraints_VpcSourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
+    "IdleSettings_LifecycleManagement"=@("New-SMDomain","Update-SMDomain")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")

@@ -686,6 +686,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.LifecycleManagement
+        {
+            ($_ -eq "New-SMDomain/IdleSettings_LifecycleManagement") -Or
+            ($_ -eq "Update-SMDomain/IdleSettings_LifecycleManagement")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SageMaker.ListCompilationJobsSortBy
         "Get-SMCompilationJobList/SortBy"
         {
@@ -1586,6 +1596,7 @@ $SM_map = @{
     "HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")
     "IamPolicyConstraints_SourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "IamPolicyConstraints_VpcSourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
+    "IdleSettings_LifecycleManagement"=@("New-SMDomain","Update-SMDomain")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
