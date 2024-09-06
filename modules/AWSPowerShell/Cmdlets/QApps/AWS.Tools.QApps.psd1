@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Unregister-qappsLibraryItemReview', 
         'Unregister-qappsQAppFromUser', 
         'Update-qappsLibraryItem', 
+        'Update-qappsLibraryItemMetadata', 
         'Update-qappsQApp', 
         'Update-qappsQAppSession')
 

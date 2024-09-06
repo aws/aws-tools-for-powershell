@@ -22309,6 +22309,7 @@ Set-Alias -Name qapps-StopQAppSession -Value Stop-qappsQAppSession
 Set-Alias -Name qapps-TagResource -Value Add-qappsResourceTag
 Set-Alias -Name qapps-UntagResource -Value Remove-qappsResourceTag
 Set-Alias -Name qapps-UpdateLibraryItem -Value Update-qappsLibraryItem
+Set-Alias -Name qapps-UpdateLibraryItemMetadata -Value Update-qappsLibraryItemMetadata
 Set-Alias -Name qapps-UpdateQApp -Value Update-qappsQApp
 Set-Alias -Name qapps-UpdateQAppSession -Value Update-qappsQAppSession
 Set-Alias -Name Batch-QBUSDeleteDocument -Value Remove-QBUSBatchDeleteDocument

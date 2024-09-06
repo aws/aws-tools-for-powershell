@@ -28,29 +28,19 @@ using Amazon.QApps.Model;
 namespace Amazon.PowerShell.Cmdlets.qapps
 {
     /// <summary>
-    /// Updates the library item for an Amazon Q App.
+    /// Updates the verification status of a library item for an Amazon Q App.
     /// </summary>
-    [Cmdlet("Update", "qappsLibraryItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QApps.Model.UpdateLibraryItemResponse")]
-    [AWSCmdlet("Calls the Amazon Q Apps UpdateLibraryItem API operation.", Operation = new[] {"UpdateLibraryItem"}, SelectReturnType = typeof(Amazon.QApps.Model.UpdateLibraryItemResponse))]
-    [AWSCmdletOutput("Amazon.QApps.Model.UpdateLibraryItemResponse",
-        "This cmdlet returns an Amazon.QApps.Model.UpdateLibraryItemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "qappsLibraryItemMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Q Apps UpdateLibraryItemMetadata API operation.", Operation = new[] {"UpdateLibraryItemMetadata"}, SelectReturnType = typeof(Amazon.QApps.Model.UpdateLibraryItemMetadataResponse))]
+    [AWSCmdletOutput("None or Amazon.QApps.Model.UpdateLibraryItemMetadataResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.QApps.Model.UpdateLibraryItemMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateqappsLibraryItemCmdlet : AmazonQAppsClientCmdlet, IExecutor
+    public partial class UpdateqappsLibraryItemMetadataCmdlet : AmazonQAppsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter Category
-        /// <summary>
-        /// <para>
-        /// <para>The new categories to associate with the library item.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Categories")]
-        public System.String[] Category { get; set; }
-        #endregion
         
         #region Parameter InstanceId
         /// <summary>
@@ -69,10 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         public System.String InstanceId { get; set; }
         #endregion
         
+        #region Parameter IsVerified
+        /// <summary>
+        /// <para>
+        /// <para>The verification status of the library item</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? IsVerified { get; set; }
+        #endregion
+        
         #region Parameter LibraryItemId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the library item to update.</para>
+        /// <para>The unique identifier of the updated library item.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,22 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         public System.String LibraryItemId { get; set; }
         #endregion
         
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>The new status to set for the library item, such as "Published" or "Hidden".</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.QApps.LibraryItemStatus")]
-        public Amazon.QApps.LibraryItemStatus Status { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.UpdateLibraryItemResponse).
-        /// Specifying the name of a property of type Amazon.QApps.Model.UpdateLibraryItemResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QApps.Model.UpdateLibraryItemMetadataResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.LibraryItemId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-qappsLibraryItem (UpdateLibraryItem)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-qappsLibraryItemMetadata (UpdateLibraryItemMetadata)"))
             {
                 return;
             }
@@ -147,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QApps.Model.UpdateLibraryItemResponse, UpdateqappsLibraryItemCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QApps.Model.UpdateLibraryItemMetadataResponse, UpdateqappsLibraryItemMetadataCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -159,10 +147,6 @@ namespace Amazon.PowerShell.Cmdlets.qapps
                 context.Select = (response, cmdlet) => this.LibraryItemId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Category != null)
-            {
-                context.Category = new List<System.String>(this.Category);
-            }
             context.InstanceId = this.InstanceId;
             #if MODULAR
             if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
@@ -170,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.qapps
                 WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.IsVerified = this.IsVerified;
             context.LibraryItemId = this.LibraryItemId;
             #if MODULAR
             if (this.LibraryItemId == null && ParameterWasBound(nameof(this.LibraryItemId)))
@@ -177,7 +162,6 @@ namespace Amazon.PowerShell.Cmdlets.qapps
                 WriteWarning("You are passing $null as a value for parameter LibraryItemId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -192,23 +176,19 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QApps.Model.UpdateLibraryItemRequest();
+            var request = new Amazon.QApps.Model.UpdateLibraryItemMetadataRequest();
             
-            if (cmdletContext.Category != null)
-            {
-                request.Categories = cmdletContext.Category;
-            }
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
             }
+            if (cmdletContext.IsVerified != null)
+            {
+                request.IsVerified = cmdletContext.IsVerified.Value;
+            }
             if (cmdletContext.LibraryItemId != null)
             {
                 request.LibraryItemId = cmdletContext.LibraryItemId;
-            }
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
             }
             
             CmdletOutput output;
@@ -243,15 +223,15 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         
         #region AWS Service Operation Call
         
-        private Amazon.QApps.Model.UpdateLibraryItemResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.UpdateLibraryItemRequest request)
+        private Amazon.QApps.Model.UpdateLibraryItemMetadataResponse CallAWSServiceOperation(IAmazonQApps client, Amazon.QApps.Model.UpdateLibraryItemMetadataRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "UpdateLibraryItem");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Apps", "UpdateLibraryItemMetadata");
             try
             {
                 #if DESKTOP
-                return client.UpdateLibraryItem(request);
+                return client.UpdateLibraryItemMetadata(request);
                 #elif CORECLR
-                return client.UpdateLibraryItemAsync(request).GetAwaiter().GetResult();
+                return client.UpdateLibraryItemMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -271,12 +251,11 @@ namespace Amazon.PowerShell.Cmdlets.qapps
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Category { get; set; }
             public System.String InstanceId { get; set; }
+            public System.Boolean? IsVerified { get; set; }
             public System.String LibraryItemId { get; set; }
-            public Amazon.QApps.LibraryItemStatus Status { get; set; }
-            public System.Func<Amazon.QApps.Model.UpdateLibraryItemResponse, UpdateqappsLibraryItemCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.QApps.Model.UpdateLibraryItemMetadataResponse, UpdateqappsLibraryItemMetadataCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

@@ -1,4 +1,9 @@
-﻿### 4.1.650 (2024-09-05 21:00Z)
+﻿### 4.1.651 (2024-09-06 20:53Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.881.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Q Apps
+    * Added cmdlet Update-qappsLibraryItemMetadata leveraging the UpdateLibraryItemMetadata service API.
+
+### 4.1.650 (2024-09-05 21:00Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.880.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CloudWatch Application Signals
     * Modified cmdlet New-CWASServiceLevelObjective: added parameters MonitoredRequestCountMetric_BadCountMetric, MonitoredRequestCountMetric_GoodCountMetric, RequestBasedSliConfig_ComparisonOperator, RequestBasedSliConfig_MetricThreshold, RequestBasedSliMetricConfig_KeyAttribute, RequestBasedSliMetricConfig_MetricType, RequestBasedSliMetricConfig_OperationName and RequestBasedSliMetricConfig_TotalRequestCountMetric.
