@@ -316,6 +316,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClusterNodeRecovery
+        {
+            ($_ -eq "New-SMCluster/NodeRecovery") -Or
+            ($_ -eq "Update-SMCluster/NodeRecovery")
+        }
+        {
+            $v = "Automatic","None"
+            break
+        }
+
         # Amazon.SageMaker.ClusterSortBy
         {
             ($_ -eq "Get-SMClusterList/SortBy") -Or
@@ -1609,6 +1619,7 @@ $SM_map = @{
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")
     "MonitoringTypeEqual"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
+    "NodeRecovery"=@("New-SMCluster","Update-SMCluster")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEqual"=@("Get-SMFeatureGroupList")
     "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")

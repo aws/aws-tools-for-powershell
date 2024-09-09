@@ -37294,6 +37294,20 @@ $IVSRT_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IVSRealTime.IngestConfigurationState
+        "Get-IVSRTIngestConfigurationList/FilterByState"
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+
+        # Amazon.IVSRealTime.IngestProtocol
+        "New-IVSRTIngestConfiguration/IngestProtocol"
+        {
+            $v = "RTMP","RTMPS"
+            break
+        }
+
         # Amazon.IVSRealTime.ParticipantRecordingFilterByRecordingState
         "Get-IVSRTParticipantList/FilterByRecordingState"
         {
@@ -37349,9 +37363,10 @@ $IVSRT_Completers = {
 
 $IVSRT_map = @{
     "FilterByRecordingState"=@("Get-IVSRTParticipantList")
-    "FilterByState"=@("Get-IVSRTParticipantList")
+    "FilterByState"=@("Get-IVSRTIngestConfigurationList","Get-IVSRTParticipantList")
     "Grid_VideoAspectRatio"=@("Start-IVSRTComposition")
     "Grid_VideoFillMode"=@("Start-IVSRTComposition")
+    "IngestProtocol"=@("New-IVSRTIngestConfiguration")
     "Pip_PipBehavior"=@("Start-IVSRTComposition")
     "Pip_PipPosition"=@("Start-IVSRTComposition")
     "Pip_VideoFillMode"=@("Start-IVSRTComposition")
@@ -37408,16 +37423,19 @@ $IVSRT_SelectCompleters = {
 
 $IVSRT_SelectMap = @{
     "Select"=@("New-IVSRTEncoderConfiguration",
+               "New-IVSRTIngestConfiguration",
                "New-IVSRTParticipantToken",
                "New-IVSRTStage",
                "New-IVSRTStorageConfiguration",
                "Remove-IVSRTEncoderConfiguration",
+               "Remove-IVSRTIngestConfiguration",
                "Remove-IVSRTPublicKey",
                "Remove-IVSRTStage",
                "Remove-IVSRTStorageConfiguration",
                "Disconnect-IVSRTParticipant",
                "Get-IVSRTComposition",
                "Get-IVSRTEncoderConfiguration",
+               "Get-IVSRTIngestConfiguration",
                "Get-IVSRTParticipant",
                "Get-IVSRTPublicKey",
                "Get-IVSRTStage",
@@ -37426,6 +37444,7 @@ $IVSRT_SelectMap = @{
                "Import-IVSRTPublicKey",
                "Get-IVSRTCompositionList",
                "Get-IVSRTEncoderConfigurationList",
+               "Get-IVSRTIngestConfigurationList",
                "Get-IVSRTParticipantEventList",
                "Get-IVSRTParticipantList",
                "Get-IVSRTPublicKeyList",
@@ -37437,6 +37456,7 @@ $IVSRT_SelectMap = @{
                "Stop-IVSRTComposition",
                "Add-IVSRTResourceTag",
                "Remove-IVSRTResourceTag",
+               "Update-IVSRTIngestConfiguration",
                "Update-IVSRTStage")
 }
 
@@ -60209,6 +60229,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.ClusterNodeRecovery
+        {
+            ($_ -eq "New-SMCluster/NodeRecovery") -Or
+            ($_ -eq "Update-SMCluster/NodeRecovery")
+        }
+        {
+            $v = "Automatic","None"
+            break
+        }
+
         # Amazon.SageMaker.ClusterSortBy
         {
             ($_ -eq "Get-SMClusterList/SortBy") -Or
@@ -61502,6 +61532,7 @@ $SM_map = @{
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")
     "MonitoringTypeEqual"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
+    "NodeRecovery"=@("New-SMCluster","Update-SMCluster")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEqual"=@("Get-SMFeatureGroupList")
     "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")

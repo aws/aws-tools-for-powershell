@@ -46,6 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Eks_ClusterArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon EKS cluster associated with the SageMaker
+        /// HyperPod cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Orchestrator_Eks_ClusterArn")]
+        public System.String Eks_ClusterArn { get; set; }
+        #endregion
+        
         #region Parameter ClusterName
         /// <summary>
         /// <para>
@@ -79,6 +91,20 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("InstanceGroups")]
         public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
+        #endregion
+        
+        #region Parameter NodeRecovery
+        /// <summary>
+        /// <para>
+        /// <para>The node recovery mode for the SageMaker HyperPod cluster. When set to <c>Automatic</c>,
+        /// SageMaker HyperPod will automatically reboot or replace faulty nodes when issues are
+        /// detected. When set to <c>None</c>, cluster administrators will need to manually manage
+        /// any faulty cluster instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterNodeRecovery")]
+        public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
         #endregion
         
         #region Parameter VpcConfig_SecurityGroupId
@@ -200,6 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter InstanceGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NodeRecovery = this.NodeRecovery;
+            context.Eks_ClusterArn = this.Eks_ClusterArn;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -235,6 +263,44 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.InstanceGroup != null)
             {
                 request.InstanceGroups = cmdletContext.InstanceGroup;
+            }
+            if (cmdletContext.NodeRecovery != null)
+            {
+                request.NodeRecovery = cmdletContext.NodeRecovery;
+            }
+            
+             // populate Orchestrator
+            var requestOrchestratorIsNull = true;
+            request.Orchestrator = new Amazon.SageMaker.Model.ClusterOrchestrator();
+            Amazon.SageMaker.Model.ClusterOrchestratorEksConfig requestOrchestrator_orchestrator_Eks = null;
+            
+             // populate Eks
+            var requestOrchestrator_orchestrator_EksIsNull = true;
+            requestOrchestrator_orchestrator_Eks = new Amazon.SageMaker.Model.ClusterOrchestratorEksConfig();
+            System.String requestOrchestrator_orchestrator_Eks_eks_ClusterArn = null;
+            if (cmdletContext.Eks_ClusterArn != null)
+            {
+                requestOrchestrator_orchestrator_Eks_eks_ClusterArn = cmdletContext.Eks_ClusterArn;
+            }
+            if (requestOrchestrator_orchestrator_Eks_eks_ClusterArn != null)
+            {
+                requestOrchestrator_orchestrator_Eks.ClusterArn = requestOrchestrator_orchestrator_Eks_eks_ClusterArn;
+                requestOrchestrator_orchestrator_EksIsNull = false;
+            }
+             // determine if requestOrchestrator_orchestrator_Eks should be set to null
+            if (requestOrchestrator_orchestrator_EksIsNull)
+            {
+                requestOrchestrator_orchestrator_Eks = null;
+            }
+            if (requestOrchestrator_orchestrator_Eks != null)
+            {
+                request.Orchestrator.Eks = requestOrchestrator_orchestrator_Eks;
+                requestOrchestratorIsNull = false;
+            }
+             // determine if request.Orchestrator should be set to null
+            if (requestOrchestratorIsNull)
+            {
+                request.Orchestrator = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -332,6 +398,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String ClusterName { get; set; }
             public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
+            public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
+            public System.String Eks_ClusterArn { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public List<System.String> VpcConfig_SecurityGroupId { get; set; }
             public List<System.String> VpcConfig_Subnet { get; set; }

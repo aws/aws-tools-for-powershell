@@ -22,34 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Kafka;
-using Amazon.Kafka.Model;
+using Amazon.IVSRealTime;
+using Amazon.IVSRealTime.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MSK
+namespace Amazon.PowerShell.Cmdlets.IVSRT
 {
     /// <summary>
-    /// A list of brokers that a client application can use to bootstrap. This list doesn't
-    /// necessarily include all of the brokers in the cluster. The following Python 3.6 example
-    /// shows how you can use the Amazon Resource Name (ARN) of a cluster to get its bootstrap
-    /// brokers. If you don't know the ARN of your cluster, you can use the <c>ListClusters</c>
-    /// operation to get the ARNs of all the clusters in this account and Region.
+    /// Deletes a specified IngestConfiguration, so it can no longer be used to broadcast.
+    /// An IngestConfiguration cannot be deleted if the publisher is actively streaming to
+    /// a stage, unless <c>force</c> is set to <c>true</c>.
     /// </summary>
-    [Cmdlet("Get", "MSKBootstrapBroker")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Managed Streaming for Apache Kafka (MSK) GetBootstrapBrokers API operation.", Operation = new[] {"GetBootstrapBrokers"}, SelectReturnType = typeof(Amazon.Kafka.Model.GetBootstrapBrokersResponse))]
-    [AWSCmdletOutput("System.String or Amazon.Kafka.Model.GetBootstrapBrokersResponse",
-        "This cmdlet returns a System.String object.",
-        "The service call response (type Amazon.Kafka.Model.GetBootstrapBrokersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "IVSRTIngestConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime DeleteIngestConfiguration API operation.", Operation = new[] {"DeleteIngestConfiguration"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse))]
+    [AWSCmdletOutput("None or Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMSKBootstrapBrokerCmdlet : AmazonKafkaClientCmdlet, IExecutor
+    public partial class RemoveIVSRTIngestConfigurationCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ClusterArn
+        #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</para>
+        /// <para>ARN of the IngestConfiguration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -60,34 +58,61 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterArn { get; set; }
+        public System.String Arn { get; set; }
+        #endregion
+        
+        #region Parameter ForceDelete
+        /// <summary>
+        /// <para>
+        /// <para>Optional field to force deletion of the IngestConfiguration. If this is set to <c>true</c>
+        /// when a participant is actively publishing, the participant is disconnected from the
+        /// stage, followed by deletion of the IngestConfiguration. Default: <c>false</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? ForceDelete { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'BootstrapBrokerString'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Kafka.Model.GetBootstrapBrokersResponse).
-        /// Specifying the name of a property of type Amazon.Kafka.Model.GetBootstrapBrokersResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "BootstrapBrokerString";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Arn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Arn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Arn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IVSRTIngestConfiguration (DeleteIngestConfiguration)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -97,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Kafka.Model.GetBootstrapBrokersResponse, GetMSKBootstrapBrokerCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse, RemoveIVSRTIngestConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -106,16 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.MSK
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterArn;
+                context.Select = (response, cmdlet) => this.Arn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClusterArn = this.ClusterArn;
+            context.Arn = this.Arn;
             #if MODULAR
-            if (this.ClusterArn == null && ParameterWasBound(nameof(this.ClusterArn)))
+            if (this.Arn == null && ParameterWasBound(nameof(this.Arn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ClusterArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Arn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.ForceDelete = this.ForceDelete;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,11 +156,15 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kafka.Model.GetBootstrapBrokersRequest();
+            var request = new Amazon.IVSRealTime.Model.DeleteIngestConfigurationRequest();
             
-            if (cmdletContext.ClusterArn != null)
+            if (cmdletContext.Arn != null)
             {
-                request.ClusterArn = cmdletContext.ClusterArn;
+                request.Arn = cmdletContext.Arn;
+            }
+            if (cmdletContext.ForceDelete != null)
+            {
+                request.Force = cmdletContext.ForceDelete.Value;
             }
             
             CmdletOutput output;
@@ -169,15 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         #region AWS Service Operation Call
         
-        private Amazon.Kafka.Model.GetBootstrapBrokersResponse CallAWSServiceOperation(IAmazonKafka client, Amazon.Kafka.Model.GetBootstrapBrokersRequest request)
+        private Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.DeleteIngestConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Managed Streaming for Apache Kafka (MSK)", "GetBootstrapBrokers");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "DeleteIngestConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetBootstrapBrokers(request);
+                return client.DeleteIngestConfiguration(request);
                 #elif CORECLR
-                return client.GetBootstrapBrokersAsync(request).GetAwaiter().GetResult();
+                return client.DeleteIngestConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -197,9 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.MSK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClusterArn { get; set; }
-            public System.Func<Amazon.Kafka.Model.GetBootstrapBrokersResponse, GetMSKBootstrapBrokerCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.BootstrapBrokerString;
+            public System.String Arn { get; set; }
+            public System.Boolean? ForceDelete { get; set; }
+            public System.Func<Amazon.IVSRealTime.Model.DeleteIngestConfigurationResponse, RemoveIVSRTIngestConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

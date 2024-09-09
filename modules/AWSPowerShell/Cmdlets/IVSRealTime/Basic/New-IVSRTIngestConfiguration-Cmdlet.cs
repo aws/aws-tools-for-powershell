@@ -28,64 +28,84 @@ using Amazon.IVSRealTime.Model;
 namespace Amazon.PowerShell.Cmdlets.IVSRT
 {
     /// <summary>
-    /// Creates a new stage (and optionally participant tokens).
+    /// Creates a new IngestConfiguration resource, used to specify the ingest protocol for
+    /// a stage.
     /// </summary>
-    [Cmdlet("New", "IVSRTStage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IVSRealTime.Model.CreateStageResponse")]
-    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime CreateStage API operation.", Operation = new[] {"CreateStage"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.CreateStageResponse))]
-    [AWSCmdletOutput("Amazon.IVSRealTime.Model.CreateStageResponse",
-        "This cmdlet returns an Amazon.IVSRealTime.Model.CreateStageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "IVSRTIngestConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IVSRealTime.Model.IngestConfiguration")]
+    [AWSCmdlet("Calls the Amazon Interactive Video Service RealTime CreateIngestConfiguration API operation.", Operation = new[] {"CreateIngestConfiguration"}, SelectReturnType = typeof(Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.IVSRealTime.Model.IngestConfiguration or Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse",
+        "This cmdlet returns an Amazon.IVSRealTime.Model.IngestConfiguration object.",
+        "The service call response (type Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewIVSRTStageCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
+    public partial class NewIVSRTIngestConfigurationCmdlet : AmazonIVSRealTimeClientCmdlet, IExecutor
     {
         
         protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AutoParticipantRecordingConfiguration_MediaType
+        #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>Types of media to be recorded. Default: <c>AUDIO_VIDEO</c>.</para>
+        /// <para>Application-provided attributes to store in the IngestConfiguration and attach to
+        /// a stage. Map keys and values can contain UTF-8 encoded text. The maximum length of
+        /// this field is 1 KB total. <i>This field is exposed to all stage participants and should
+        /// not be used for personally identifying, confidential, or sensitive information.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("AutoParticipantRecordingConfiguration_MediaTypes")]
-        public System.String[] AutoParticipantRecordingConfiguration_MediaType { get; set; }
+        [Alias("Attributes")]
+        public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
+        
+        #region Parameter IngestProtocol
+        /// <summary>
+        /// <para>
+        /// <para>Type of ingest protocol that the user employs to broadcast. If this is set to <c>RTMP</c>,
+        /// <c>insecureIngest</c> must be set to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.IVSRealTime.IngestProtocol")]
+        public Amazon.IVSRealTime.IngestProtocol IngestProtocol { get; set; }
+        #endregion
+        
+        #region Parameter InsecureIngest
+        /// <summary>
+        /// <para>
+        /// <para>Whether the stage allows insecure RTMP ingest. This must be set to <c>true</c>, if
+        /// <c>ingestProtocol</c> is set to <c>RTMP</c>. Default: <c>false</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? InsecureIngest { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Optional name that can be specified for the stage being created.</para>
+        /// <para>Optional name that can be specified for the IngestConfiguration being created.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ParticipantTokenConfiguration
+        #region Parameter StageArn
         /// <summary>
         /// <para>
-        /// <para>Array of participant token configuration objects to attach to the new stage.</para>
+        /// <para>ARN of the stage with which the IngestConfiguration is associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ParticipantTokenConfigurations")]
-        public Amazon.IVSRealTime.Model.ParticipantTokenConfiguration[] ParticipantTokenConfiguration { get; set; }
-        #endregion
-        
-        #region Parameter AutoParticipantRecordingConfiguration_StorageConfigurationArn
-        /// <summary>
-        /// <para>
-        /// <para>ARN of the <a>StorageConfiguration</a> resource to use for individual participant
-        /// recording. Default: <c>""</c> (empty string, no storage configuration is specified).
-        /// Individual participant recording cannot be started unless a storage configuration
-        /// is specified, when a <a>Stage</a> is created or updated.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
+        public System.String StageArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -95,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
         /// practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details,
         /// including restrictions that apply to tags and "Tag naming limits and requirements";
-        /// Amazon IVS has no constraints on tags beyond what is documented there. </para>
+        /// Amazon IVS has no constraints on tags beyond what is documented there.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -103,23 +123,36 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
+        #region Parameter UserId
+        /// <summary>
+        /// <para>
+        /// <para>Customer-assigned name to help identify the participant using the IngestConfiguration;
+        /// this can be used to link a participant to a user in the customer’s own systems. This
+        /// can be any UTF-8 encoded text. <i>This field is exposed to all stage participants
+        /// and should not be used for personally identifying, confidential, or sensitive information.</i></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserId { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.CreateStageResponse).
-        /// Specifying the name of a property of type Amazon.IVSRealTime.Model.CreateStageResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IngestConfiguration'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "IngestConfiguration";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the IngestProtocol parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^IngestProtocol' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^IngestProtocol' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -139,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IVSRTStage (CreateStage)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IVSRTIngestConfiguration (CreateIngestConfiguration)"))
             {
                 return;
             }
@@ -153,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.CreateStageResponse, NewIVSRTStageCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse, NewIVSRTIngestConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -162,19 +195,27 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.IngestProtocol;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.AutoParticipantRecordingConfiguration_MediaType != null)
+            if (this.Attribute != null)
             {
-                context.AutoParticipantRecordingConfiguration_MediaType = new List<System.String>(this.AutoParticipantRecordingConfiguration_MediaType);
+                context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Attribute.Keys)
+                {
+                    context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
+                }
             }
-            context.AutoParticipantRecordingConfiguration_StorageConfigurationArn = this.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
+            context.IngestProtocol = this.IngestProtocol;
+            #if MODULAR
+            if (this.IngestProtocol == null && ParameterWasBound(nameof(this.IngestProtocol)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IngestProtocol which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.InsecureIngest = this.InsecureIngest;
             context.Name = this.Name;
-            if (this.ParticipantTokenConfiguration != null)
-            {
-                context.ParticipantTokenConfiguration = new List<Amazon.IVSRealTime.Model.ParticipantTokenConfiguration>(this.ParticipantTokenConfiguration);
-            }
+            context.StageArn = this.StageArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -183,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
                     context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
                 }
             }
+            context.UserId = this.UserId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,48 +239,35 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IVSRealTime.Model.CreateStageRequest();
+            var request = new Amazon.IVSRealTime.Model.CreateIngestConfigurationRequest();
             
-            
-             // populate AutoParticipantRecordingConfiguration
-            var requestAutoParticipantRecordingConfigurationIsNull = true;
-            request.AutoParticipantRecordingConfiguration = new Amazon.IVSRealTime.Model.AutoParticipantRecordingConfiguration();
-            List<System.String> requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType = null;
-            if (cmdletContext.AutoParticipantRecordingConfiguration_MediaType != null)
+            if (cmdletContext.Attribute != null)
             {
-                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType = cmdletContext.AutoParticipantRecordingConfiguration_MediaType;
+                request.Attributes = cmdletContext.Attribute;
             }
-            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType != null)
+            if (cmdletContext.IngestProtocol != null)
             {
-                request.AutoParticipantRecordingConfiguration.MediaTypes = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_MediaType;
-                requestAutoParticipantRecordingConfigurationIsNull = false;
+                request.IngestProtocol = cmdletContext.IngestProtocol;
             }
-            System.String requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = null;
-            if (cmdletContext.AutoParticipantRecordingConfiguration_StorageConfigurationArn != null)
+            if (cmdletContext.InsecureIngest != null)
             {
-                requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn = cmdletContext.AutoParticipantRecordingConfiguration_StorageConfigurationArn;
-            }
-            if (requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn != null)
-            {
-                request.AutoParticipantRecordingConfiguration.StorageConfigurationArn = requestAutoParticipantRecordingConfiguration_autoParticipantRecordingConfiguration_StorageConfigurationArn;
-                requestAutoParticipantRecordingConfigurationIsNull = false;
-            }
-             // determine if request.AutoParticipantRecordingConfiguration should be set to null
-            if (requestAutoParticipantRecordingConfigurationIsNull)
-            {
-                request.AutoParticipantRecordingConfiguration = null;
+                request.InsecureIngest = cmdletContext.InsecureIngest.Value;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.ParticipantTokenConfiguration != null)
+            if (cmdletContext.StageArn != null)
             {
-                request.ParticipantTokenConfigurations = cmdletContext.ParticipantTokenConfiguration;
+                request.StageArn = cmdletContext.StageArn;
             }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
+            }
+            if (cmdletContext.UserId != null)
+            {
+                request.UserId = cmdletContext.UserId;
             }
             
             CmdletOutput output;
@@ -273,15 +302,15 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         #region AWS Service Operation Call
         
-        private Amazon.IVSRealTime.Model.CreateStageResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.CreateStageRequest request)
+        private Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse CallAWSServiceOperation(IAmazonIVSRealTime client, Amazon.IVSRealTime.Model.CreateIngestConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "CreateStage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Interactive Video Service RealTime", "CreateIngestConfiguration");
             try
             {
                 #if DESKTOP
-                return client.CreateStage(request);
+                return client.CreateIngestConfiguration(request);
                 #elif CORECLR
-                return client.CreateStageAsync(request).GetAwaiter().GetResult();
+                return client.CreateIngestConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -301,13 +330,15 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AutoParticipantRecordingConfiguration_MediaType { get; set; }
-            public System.String AutoParticipantRecordingConfiguration_StorageConfigurationArn { get; set; }
+            public Dictionary<System.String, System.String> Attribute { get; set; }
+            public Amazon.IVSRealTime.IngestProtocol IngestProtocol { get; set; }
+            public System.Boolean? InsecureIngest { get; set; }
             public System.String Name { get; set; }
-            public List<Amazon.IVSRealTime.Model.ParticipantTokenConfiguration> ParticipantTokenConfiguration { get; set; }
+            public System.String StageArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.IVSRealTime.Model.CreateStageResponse, NewIVSRTStageCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String UserId { get; set; }
+            public System.Func<Amazon.IVSRealTime.Model.CreateIngestConfigurationResponse, NewIVSRTIngestConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IngestConfiguration;
         }
         
     }

@@ -187,6 +187,21 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String InferenceId { get; set; }
         #endregion
         
+        #region Parameter SessionId
+        /// <summary>
+        /// <para>
+        /// <para>Creates a stateful session or identifies an existing one. You can do one of the following:</para><ul><li><para>Create a stateful session by specifying the value <c>NEW_SESSION</c>.</para></li><li><para>Send your request to an existing stateful session by specifying the ID of that session.</para></li></ul><para>With a stateful session, you can send multiple requests to a stateful model. When
+        /// you create a session with a stateful model, the model must create the session ID and
+        /// set the expiration time. The model must also provide that information in the response
+        /// to your request. You can get the ID and timestamp from the <c>NewSessionId</c> response
+        /// parameter. For any subsequent request where you specify that session ID, SageMaker
+        /// routes the request to the same instance that supports the session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionId { get; set; }
+        #endregion
+        
         #region Parameter TargetContainerHostname
         /// <summary>
         /// <para>
@@ -304,6 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             #endif
             context.InferenceComponentName = this.InferenceComponentName;
             context.InferenceId = this.InferenceId;
+            context.SessionId = this.SessionId;
             context.TargetContainerHostname = this.TargetContainerHostname;
             context.TargetModel = this.TargetModel;
             context.TargetVariant = this.TargetVariant;
@@ -359,6 +375,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.InferenceId != null)
                 {
                     request.InferenceId = cmdletContext.InferenceId;
+                }
+                if (cmdletContext.SessionId != null)
+                {
+                    request.SessionId = cmdletContext.SessionId;
                 }
                 if (cmdletContext.TargetContainerHostname != null)
                 {
@@ -449,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String EndpointName { get; set; }
             public System.String InferenceComponentName { get; set; }
             public System.String InferenceId { get; set; }
+            public System.String SessionId { get; set; }
             public System.String TargetContainerHostname { get; set; }
             public System.String TargetModel { get; set; }
             public System.String TargetVariant { get; set; }

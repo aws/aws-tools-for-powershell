@@ -16016,6 +16016,8 @@ Set-Alias -Name IVSC-UpdateLoggingConfiguration -Value Update-IVSCLoggingConfigu
 Set-Alias -Name IVSC-UpdateRoom -Value Update-IVSCRoom
 Set-Alias -Name Create-IVSRTEncoderConfiguration -Value New-IVSRTEncoderConfiguration
 Set-Alias -Name IVSRT-CreateEncoderConfiguration -Value New-IVSRTEncoderConfiguration
+Set-Alias -Name Create-IVSRTIngestConfiguration -Value New-IVSRTIngestConfiguration
+Set-Alias -Name IVSRT-CreateIngestConfiguration -Value New-IVSRTIngestConfiguration
 Set-Alias -Name Create-IVSRTParticipantToken -Value New-IVSRTParticipantToken
 Set-Alias -Name IVSRT-CreateParticipantToken -Value New-IVSRTParticipantToken
 Set-Alias -Name Create-IVSRTStage -Value New-IVSRTStage
@@ -16024,6 +16026,8 @@ Set-Alias -Name Create-IVSRTStorageConfiguration -Value New-IVSRTStorageConfigur
 Set-Alias -Name IVSRT-CreateStorageConfiguration -Value New-IVSRTStorageConfiguration
 Set-Alias -Name Delete-IVSRTEncoderConfiguration -Value Remove-IVSRTEncoderConfiguration
 Set-Alias -Name IVSRT-DeleteEncoderConfiguration -Value Remove-IVSRTEncoderConfiguration
+Set-Alias -Name Delete-IVSRTIngestConfiguration -Value Remove-IVSRTIngestConfiguration
+Set-Alias -Name IVSRT-DeleteIngestConfiguration -Value Remove-IVSRTIngestConfiguration
 Set-Alias -Name Delete-IVSRTPublicKey -Value Remove-IVSRTPublicKey
 Set-Alias -Name IVSRT-DeletePublicKey -Value Remove-IVSRTPublicKey
 Set-Alias -Name Delete-IVSRTStage -Value Remove-IVSRTStage
@@ -16033,6 +16037,7 @@ Set-Alias -Name IVSRT-DeleteStorageConfiguration -Value Remove-IVSRTStorageConfi
 Set-Alias -Name IVSRT-DisconnectParticipant -Value Disconnect-IVSRTParticipant
 Set-Alias -Name IVSRT-GetComposition -Value Get-IVSRTComposition
 Set-Alias -Name IVSRT-GetEncoderConfiguration -Value Get-IVSRTEncoderConfiguration
+Set-Alias -Name IVSRT-GetIngestConfiguration -Value Get-IVSRTIngestConfiguration
 Set-Alias -Name IVSRT-GetParticipant -Value Get-IVSRTParticipant
 Set-Alias -Name IVSRT-GetPublicKey -Value Get-IVSRTPublicKey
 Set-Alias -Name IVSRT-GetStage -Value Get-IVSRTStage
@@ -16045,6 +16050,9 @@ Set-Alias -Name IVSRT-ListCompositions -Value Get-IVSRTCompositionList
 Set-Alias -Name List-IVSRTEncoderConfigurations -Value Get-IVSRTEncoderConfigurationList
 Set-Alias -Name List-IVSRTEncoderConfigurationList -Value Get-IVSRTEncoderConfigurationList
 Set-Alias -Name IVSRT-ListEncoderConfigurations -Value Get-IVSRTEncoderConfigurationList
+Set-Alias -Name List-IVSRTIngestConfigurations -Value Get-IVSRTIngestConfigurationList
+Set-Alias -Name List-IVSRTIngestConfigurationList -Value Get-IVSRTIngestConfigurationList
+Set-Alias -Name IVSRT-ListIngestConfigurations -Value Get-IVSRTIngestConfigurationList
 Set-Alias -Name List-IVSRTParticipantEvents -Value Get-IVSRTParticipantEventList
 Set-Alias -Name List-IVSRTParticipantEventList -Value Get-IVSRTParticipantEventList
 Set-Alias -Name IVSRT-ListParticipantEvents -Value Get-IVSRTParticipantEventList
@@ -16068,6 +16076,7 @@ Set-Alias -Name IVSRT-StartComposition -Value Start-IVSRTComposition
 Set-Alias -Name IVSRT-StopComposition -Value Stop-IVSRTComposition
 Set-Alias -Name IVSRT-TagResource -Value Add-IVSRTResourceTag
 Set-Alias -Name IVSRT-UntagResource -Value Remove-IVSRTResourceTag
+Set-Alias -Name IVSRT-UpdateIngestConfiguration -Value Update-IVSRTIngestConfiguration
 Set-Alias -Name IVSRT-UpdateStage -Value Update-IVSRTStage
 Set-Alias -Name Batch-MSKAssociateScramSecret -Value Register-MSKAssociateScramSecret
 Set-Alias -Name MSK-BatchAssociateScramSecret -Value Register-MSKAssociateScramSecret

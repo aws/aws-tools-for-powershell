@@ -28,8 +28,9 @@ using Amazon.IVSRealTime.Model;
 namespace Amazon.PowerShell.Cmdlets.IVSRT
 {
     /// <summary>
-    /// Disconnects a specified participant and revokes the participant permanently from a
-    /// specified stage.
+    /// Disconnects a specified participant from a specified stage. If the participant is
+    /// publishing using an <a>IngestConfiguration</a>, DisconnectParticipant also updates
+    /// the <c>stageArn</c> in the IngestConfiguration to be an empty string.
     /// </summary>
     [Cmdlet("Disconnect", "IVSRTParticipant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,8 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         #region Parameter ParticipantId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the participant to be disconnected. This is assigned by IVS and returned
-        /// by <a>CreateParticipantToken</a>.</para>
+        /// <para>Identifier of the participant to be disconnected. IVS assigns this; it is returned
+        /// by <a>CreateParticipantToken</a> (for streams using WebRTC ingest) or <a>CreateIngestConfiguration</a>
+        /// (for streams using RTMP ingest).</para>
         /// </para>
         /// </summary>
         #if !MODULAR

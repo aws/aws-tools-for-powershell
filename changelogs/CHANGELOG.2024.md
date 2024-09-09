@@ -1,4 +1,19 @@
-﻿### 4.1.651 (2024-09-06 20:53Z)
+﻿### 4.1.652 (2024-09-09 21:12Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.882.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Interactive Video Service RealTime
+    * Added cmdlet Get-IVSRTIngestConfiguration leveraging the GetIngestConfiguration service API.
+    * Added cmdlet Get-IVSRTIngestConfigurationList leveraging the ListIngestConfigurations service API.
+    * Added cmdlet New-IVSRTIngestConfiguration leveraging the CreateIngestConfiguration service API.
+    * Added cmdlet Remove-IVSRTIngestConfiguration leveraging the DeleteIngestConfiguration service API.
+    * Added cmdlet Update-IVSRTIngestConfiguration leveraging the UpdateIngestConfiguration service API.
+  * Amazon SageMaker Runtime
+    * Modified cmdlet Invoke-SMREndpoint: added parameter SessionId.
+    * Modified cmdlet Invoke-SMREndpointWithResponseStream: added parameter SessionId.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMCluster: added parameters Eks_ClusterArn and NodeRecovery.
+    * Modified cmdlet Update-SMCluster: added parameter NodeRecovery.
+
+### 4.1.651 (2024-09-06 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.881.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Q Apps
     * Added cmdlet Update-qappsLibraryItemMetadata leveraging the UpdateLibraryItemMetadata service API.
