@@ -1,4 +1,10 @@
-﻿### 4.1.652 (2024-09-09 21:12Z)
+﻿### 4.1.653 (2024-09-10 20:54Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.883.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EventBridge Pipes
+    * Modified cmdlet New-PIPESPipe: added parameter KmsKeyIdentifier.
+    * Modified cmdlet Update-PIPESPipe: added parameter KmsKeyIdentifier.
+
+### 4.1.652 (2024-09-09 21:12Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.882.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Interactive Video Service RealTime
     * Added cmdlet Get-IVSRTIngestConfiguration leveraging the GetIngestConfiguration service API.

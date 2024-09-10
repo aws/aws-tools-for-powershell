@@ -85,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter Country
         /// <summary>
         /// <para>
-        /// <para>The country in the address being validated.</para>
+        /// <para>The country in the address being validated as two-letter country code in ISO 3166-1
+        /// alpha-2 format, such as <c>US</c>. For more information, see <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+        /// 3166-1 alpha-2</a> in Wikipedia.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
