@@ -87,7 +87,7 @@ $ECR_Completers = {
             ($_ -eq "Update-ECRRepositoryCreationTemplate/EncryptionConfiguration_EncryptionType")
         }
         {
-            $v = "AES256","KMS"
+            $v = "AES256","KMS","KMS_DSSE"
             break
         }
 

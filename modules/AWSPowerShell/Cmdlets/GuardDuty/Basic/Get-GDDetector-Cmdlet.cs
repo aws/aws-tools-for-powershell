@@ -28,7 +28,7 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Retrieves an Amazon GuardDuty detector specified by the detectorId.
+    /// Retrieves a GuardDuty detector specified by the detectorId.
     /// 
     ///  
     /// <para>

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector to create sample findings for.</para>
+        /// <para>The ID of the detector for which you need to create sample findings.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

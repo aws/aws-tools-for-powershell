@@ -1,4 +1,35 @@
-﻿### 4.1.653 (2024-09-10 20:54Z)
+﻿### 4.1.654 (2024-09-11 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.884.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Get-EMLChannelPlacementGroup leveraging the DescribeChannelPlacementGroup service API.
+    * Added cmdlet Get-EMLChannelPlacementGroupList leveraging the ListChannelPlacementGroups service API.
+    * Added cmdlet Get-EMLCluster leveraging the DescribeCluster service API.
+    * Added cmdlet Get-EMLClusterList leveraging the ListClusters service API.
+    * Added cmdlet Get-EMLNetwork leveraging the DescribeNetwork service API.
+    * Added cmdlet Get-EMLNetworkList leveraging the ListNetworks service API.
+    * Added cmdlet Get-EMLNode leveraging the DescribeNode service API.
+    * Added cmdlet Get-EMLNodeList leveraging the ListNodes service API.
+    * Added cmdlet New-EMLChannelPlacementGroup leveraging the CreateChannelPlacementGroup service API.
+    * Added cmdlet New-EMLCluster leveraging the CreateCluster service API.
+    * Added cmdlet New-EMLNetwork leveraging the CreateNetwork service API.
+    * Added cmdlet New-EMLNode leveraging the CreateNode service API.
+    * Added cmdlet New-EMLNodeRegistrationScript leveraging the CreateNodeRegistrationScript service API.
+    * Added cmdlet Remove-EMLChannelPlacementGroup leveraging the DeleteChannelPlacementGroup service API.
+    * Added cmdlet Remove-EMLCluster leveraging the DeleteCluster service API.
+    * Added cmdlet Remove-EMLNetwork leveraging the DeleteNetwork service API.
+    * Added cmdlet Remove-EMLNode leveraging the DeleteNode service API.
+    * Added cmdlet Update-EMLChannelPlacementGroup leveraging the UpdateChannelPlacementGroup service API.
+    * Added cmdlet Update-EMLCluster leveraging the UpdateCluster service API.
+    * Added cmdlet Update-EMLNetwork leveraging the UpdateNetwork service API.
+    * Added cmdlet Update-EMLNode leveraging the UpdateNode service API.
+    * Added cmdlet Update-EMLNodeState leveraging the UpdateNodeState service API.
+    * Modified cmdlet New-EMLChannel: added parameters AnywhereSettings_ChannelPlacementGroupId and AnywhereSettings_ClusterId.
+    * Modified cmdlet New-EMLInput: added parameters InputNetworkLocation and MulticastSettings_Source.
+    * Modified cmdlet Update-EMLInput: added parameter MulticastSettings_Source.
+  * Amazon GuardDuty
+    * Modified cmdlet Get-GDFindingStatistic: added parameters GroupBy, MaxResult and OrderBy.
+
+### 4.1.653 (2024-09-10 20:54Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.883.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EventBridge Pipes
     * Modified cmdlet New-PIPESPipe: added parameter KmsKeyIdentifier.

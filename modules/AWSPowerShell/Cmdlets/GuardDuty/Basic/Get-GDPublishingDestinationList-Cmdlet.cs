@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector to retrieve publishing destinations for.</para>
+        /// <para>The detector ID for which you want to retrieve the publishing destination.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

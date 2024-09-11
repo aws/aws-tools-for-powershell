@@ -495,7 +495,7 @@ $LMBV2_Completers = {
             ($_ -eq "Update-LMBV2BotLocale/VoiceSettings_Engine")
         }
         {
-            $v = "neural","standard"
+            $v = "generative","long-form","neural","standard"
             break
         }
 

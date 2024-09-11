@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector that the IPSet is associated with.</para>
+        /// <para>The unique ID of the detector that is associated with the IPSet.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
