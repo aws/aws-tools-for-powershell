@@ -1,4 +1,27 @@
-﻿### 4.1.654 (2024-09-11 21:07Z)
+﻿### 4.1.655 (2024-09-12 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.885.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CloudWatch Synthetics
+    * Modified cmdlet New-CWSYNCanary: added parameter ResourcesToReplicateTag.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet Set-CGIPUserMFAPreference: added parameters EmailMfaSettings_Enabled and EmailMfaSettings_PreferredMfa.
+    * Modified cmdlet Set-CGIPUserMFAPreferenceAdmin: added parameters EmailMfaSettings_Enabled and EmailMfaSettings_PreferredMfa.
+    * Modified cmdlet Set-CGIPUserPoolMfaConfig: added parameters EmailMfaConfiguration_Message and EmailMfaConfiguration_Subject.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Add-EMRInstanceFleet: added parameters InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference, InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn, InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy, OnDemandResizeSpecification_AllocationStrategy and SpotResizeSpecification_AllocationStrategy.
+    * Modified cmdlet Edit-EMRInstanceFleet: added parameters CapacityReservationOptions_CapacityReservationPreference, CapacityReservationOptions_CapacityReservationResourceGroupArn, CapacityReservationOptions_UsageStrategy, InstanceFleet_InstanceTypeConfig, OnDemandResizeSpecification_AllocationStrategy and SpotResizeSpecification_AllocationStrategy.
+  * Amazon Elemental MediaConvert
+    * Added cmdlet Get-EMCVersionList leveraging the ListVersions service API.
+    * Modified cmdlet New-EMCJob: added parameter JobEngineVersion.
+  * Amazon Glue
+    * Modified cmdlet New-GLUETableOptimizer: added parameters IcebergConfiguration_CleanExpiredFile, IcebergConfiguration_Location, IcebergConfiguration_NumberOfSnapshotsToRetain, IcebergConfiguration_OrphanFileRetentionPeriodInDay and IcebergConfiguration_SnapshotRetentionPeriodInDay.
+    * Modified cmdlet Update-GLUETableOptimizer: added parameters IcebergConfiguration_CleanExpiredFile, IcebergConfiguration_Location, IcebergConfiguration_NumberOfSnapshotsToRetain, IcebergConfiguration_OrphanFileRetentionPeriodInDay and IcebergConfiguration_SnapshotRetentionPeriodInDay.
+  * Amazon Storage Gateway
+    * Modified cmdlet New-SGNFSFileShare: added parameter EncryptionType.
+    * Modified cmdlet New-SGSMBFileShare: added parameter EncryptionType.
+    * Modified cmdlet Update-SGNFSFileShare: added parameter EncryptionType.
+    * Modified cmdlet Update-SGSMBFileShare: added parameter EncryptionType.
+
+### 4.1.654 (2024-09-11 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.884.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Elemental MediaLive
     * Added cmdlet Get-EMLChannelPlacementGroup leveraging the DescribeChannelPlacementGroup service API.

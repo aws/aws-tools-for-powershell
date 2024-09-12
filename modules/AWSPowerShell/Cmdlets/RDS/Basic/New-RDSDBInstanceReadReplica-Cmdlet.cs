@@ -520,8 +520,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// Version 4 Signing Process</a>.</para><note><para>If you are using an Amazon Web Services SDK tool or the CLI, you can specify <c>SourceRegion</c>
         /// (or <c>--source-region</c> for the CLI) instead of specifying <c>PreSignedUrl</c>
         /// manually. Specifying <c>SourceRegion</c> autogenerates a presigned URL that is a valid
-        /// request for the operation that can run in the source Amazon Web Services Region.</para><para><c>SourceRegion</c> isn't supported for SQL Server, because Amazon RDS for SQL Server
-        /// doesn't support cross-Region read replicas.</para></note><para>This setting doesn't apply to RDS Custom DB instances.</para>
+        /// request for the operation that can run in the source Amazon Web Services Region.</para></note><para>This setting doesn't apply to RDS Custom DB instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

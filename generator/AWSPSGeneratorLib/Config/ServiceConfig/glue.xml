@@ -69,7 +69,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizerBatch" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizerBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

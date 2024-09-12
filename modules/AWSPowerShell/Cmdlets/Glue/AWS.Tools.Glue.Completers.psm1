@@ -289,7 +289,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUETableOptimizer/Type")
         }
         {
-            $v = "compaction"
+            $v = "compaction","orphan_file_deletion","retention"
             break
         }
 

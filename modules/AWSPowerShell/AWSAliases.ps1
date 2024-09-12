@@ -18501,6 +18501,9 @@ Set-Alias -Name List-EMCQueues -Value Get-EMCQueueList
 Set-Alias -Name List-EMCQueueList -Value Get-EMCQueueList
 Set-Alias -Name EMC-ListQueues -Value Get-EMCQueueList
 Set-Alias -Name EMC-ListTagsForResource -Value Get-EMCResourceTag
+Set-Alias -Name List-EMCVersions -Value Get-EMCVersionList
+Set-Alias -Name List-EMCVersionList -Value Get-EMCVersionList
+Set-Alias -Name EMC-ListVersions -Value Get-EMCVersionList
 Set-Alias -Name Put-EMCPolicy -Value Write-EMCPolicy
 Set-Alias -Name EMC-PutPolicy -Value Write-EMCPolicy
 Set-Alias -Name Search-EMCJobs -Value Search-EMCJob

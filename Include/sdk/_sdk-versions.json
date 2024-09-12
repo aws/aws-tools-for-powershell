@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.884.0",
+    "ProductVersion"    : "3.7.885.0",
     "CoreVersion"       : "3.7.400.19",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -194,7 +194,7 @@
             "InPreview"               : false
         },
         "ElasticMapReduce"     : {
-            "Version" : "3.7.400.19",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"
@@ -284,7 +284,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.401.17",
+            "Version" : "3.7.401.18",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"
@@ -380,7 +380,7 @@
             "InPreview"               : false
         },
         "StorageGateway"            : {
-            "Version" : "3.7.400.19",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"
@@ -540,7 +540,7 @@
             "InPreview"               : false
         },
         "CognitoIdentityProvider"         : {
-            "Version" : "3.7.402.16",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"
@@ -572,7 +572,7 @@
             "InPreview"               : false
         },
         "ElasticLoadBalancingV2"          : {
-            "Version" : "3.7.403.2",
+            "Version" : "3.7.404.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"
@@ -820,7 +820,7 @@
             "InPreview"               : false
         },
         "Glue"                            : {
-            "Version" : "3.7.405.9",
+            "Version" : "3.7.406.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"
@@ -884,7 +884,7 @@
             "InPreview"               : false
         },
         "MediaConvert"                    : {
-            "Version" : "3.7.400.19",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"
@@ -1732,7 +1732,7 @@
             "InPreview"               : false
         },
         "Synthetics"                      : {
-            "Version" : "3.7.400.19",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.19"

@@ -14683,7 +14683,7 @@ $CGIP_Completers = {
             ($_ -eq "Send-CGIPAuthChallengeResponseAdmin/ChallengeName")
         }
         {
-            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","MFA_SETUP","NEW_PASSWORD_REQUIRED","PASSWORD_VERIFIER","SELECT_MFA_TYPE","SMS_MFA","SOFTWARE_TOKEN_MFA"
+            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","EMAIL_OTP","MFA_SETUP","NEW_PASSWORD_REQUIRED","PASSWORD_VERIFIER","SELECT_MFA_TYPE","SMS_MFA","SOFTWARE_TOKEN_MFA"
             break
         }
 
@@ -26755,21 +26755,33 @@ $EMR_Completers = {
         }
 
         # Amazon.ElasticMapReduce.OnDemandCapacityReservationPreference
-        "Add-EMRInstanceFleet/CapacityReservationOptions_CapacityReservationPreference"
+        {
+            ($_ -eq "Add-EMRInstanceFleet/CapacityReservationOptions_CapacityReservationPreference") -Or
+            ($_ -eq "Edit-EMRInstanceFleet/CapacityReservationOptions_CapacityReservationPreference") -Or
+            ($_ -eq "Add-EMRInstanceFleet/InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference")
+        }
         {
             $v = "none","open"
             break
         }
 
         # Amazon.ElasticMapReduce.OnDemandCapacityReservationUsageStrategy
-        "Add-EMRInstanceFleet/CapacityReservationOptions_UsageStrategy"
+        {
+            ($_ -eq "Add-EMRInstanceFleet/CapacityReservationOptions_UsageStrategy") -Or
+            ($_ -eq "Edit-EMRInstanceFleet/CapacityReservationOptions_UsageStrategy") -Or
+            ($_ -eq "Add-EMRInstanceFleet/InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy")
+        }
         {
             $v = "use-capacity-reservations-first"
             break
         }
 
         # Amazon.ElasticMapReduce.OnDemandProvisioningAllocationStrategy
-        "Add-EMRInstanceFleet/OnDemandSpecification_AllocationStrategy"
+        {
+            ($_ -eq "Add-EMRInstanceFleet/OnDemandResizeSpecification_AllocationStrategy") -Or
+            ($_ -eq "Edit-EMRInstanceFleet/OnDemandResizeSpecification_AllocationStrategy") -Or
+            ($_ -eq "Add-EMRInstanceFleet/OnDemandSpecification_AllocationStrategy")
+        }
         {
             $v = "lowest-price","prioritized"
             break
@@ -26797,7 +26809,11 @@ $EMR_Completers = {
         }
 
         # Amazon.ElasticMapReduce.SpotProvisioningAllocationStrategy
-        "Add-EMRInstanceFleet/SpotSpecification_AllocationStrategy"
+        {
+            ($_ -eq "Add-EMRInstanceFleet/SpotResizeSpecification_AllocationStrategy") -Or
+            ($_ -eq "Edit-EMRInstanceFleet/SpotResizeSpecification_AllocationStrategy") -Or
+            ($_ -eq "Add-EMRInstanceFleet/SpotSpecification_AllocationStrategy")
+        }
         {
             $v = "capacity-optimized","capacity-optimized-prioritized","diversified","lowest-price","price-capacity-optimized"
             break
@@ -26827,18 +26843,22 @@ $EMR_Completers = {
 
 $EMR_map = @{
     "AuthMode"=@("New-EMRStudio")
-    "CapacityReservationOptions_CapacityReservationPreference"=@("Add-EMRInstanceFleet")
-    "CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet")
+    "CapacityReservationOptions_CapacityReservationPreference"=@("Add-EMRInstanceFleet","Edit-EMRInstanceFleet")
+    "CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet","Edit-EMRInstanceFleet")
     "ComputeLimits_UnitType"=@("Start-EMRJobFlow","Write-EMRManagedScalingPolicy")
     "ExecutionEngine_Type"=@("Start-EMRNotebookExecution")
     "IdcUserAssignment"=@("New-EMRStudio")
     "IdentityType"=@("Get-EMRStudioSessionMapping","Get-EMRStudioSessionMappingList","New-EMRStudioSessionMapping","Remove-EMRStudioSessionMapping","Update-EMRStudioSessionMapping")
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference"=@("Add-EMRInstanceFleet")
+    "InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
+    "OnDemandResizeSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet","Edit-EMRInstanceFleet")
     "OnDemandSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "OutputNotebookFormat"=@("Start-EMRNotebookExecution")
     "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
+    "SpotResizeSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet","Edit-EMRInstanceFleet")
     "SpotSpecification_AllocationStrategy"=@("Add-EMRInstanceFleet")
     "SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "Status"=@("Get-EMRNotebookExecutionList")
@@ -31212,7 +31232,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUETableOptimizer/Type")
         }
         {
-            $v = "compaction"
+            $v = "compaction","orphan_file_deletion","retention"
             break
         }
 
@@ -44033,6 +44053,7 @@ $EMC_SelectMap = @{
                "Get-EMCPresetList",
                "Get-EMCQueueList",
                "Get-EMCResourceTag",
+               "Get-EMCVersionList",
                "Write-EMCPolicy",
                "Search-EMCJob",
                "Add-EMCResourceTag",
@@ -66894,6 +66915,18 @@ $SG_Completers = {
             break
         }
 
+        # Amazon.StorageGateway.EncryptionType
+        {
+            ($_ -eq "New-SGNFSFileShare/EncryptionType") -Or
+            ($_ -eq "New-SGSMBFileShare/EncryptionType") -Or
+            ($_ -eq "Update-SGNFSFileShare/EncryptionType") -Or
+            ($_ -eq "Update-SGSMBFileShare/EncryptionType")
+        }
+        {
+            $v = "DsseKms","SseKms","SseS3"
+            break
+        }
+
         # Amazon.StorageGateway.GatewayCapacity
         "Update-SGGatewayInformation/GatewayCapacity"
         {
@@ -66944,6 +66977,7 @@ $SG_Completers = {
 
 $SG_map = @{
     "CaseSensitivity"=@("New-SGSMBFileShare","Update-SGSMBFileShare")
+    "EncryptionType"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "GatewayCapacity"=@("Update-SGGatewayInformation")
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "RetentionLockType"=@("New-SGTapePool")

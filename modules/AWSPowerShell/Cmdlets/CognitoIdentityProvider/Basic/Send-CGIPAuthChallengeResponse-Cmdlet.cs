@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Services service, Amazon Simple Notification Service might place your account in the
+    /// Servicesservice, Amazon Simple Notification Service might place your account in the
     /// SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you can send messages only to verified phone numbers. After you test
     /// your app while in the sandbox environment, you can move out of the sandbox and into
@@ -111,8 +111,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The responses to the challenge that you received in the previous request. Each challenge
         /// has its own required response parameters. The following examples are partial JSON
         /// request bodies that highlight challenge-response parameters.</para><important><para>You must provide a SECRET_HASH parameter in all challenge responses to an app client
-        /// that has a client secret.</para></important><dl><dt>SMS_MFA</dt><dd><para><c>"ChallengeName": "SMS_MFA", "ChallengeResponses": {"SMS_MFA_CODE": "[SMS_code]",
-        /// "USERNAME": "[username]"}</c></para></dd><dt>PASSWORD_VERIFIER</dt><dd><para><c>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses": {"PASSWORD_CLAIM_SIGNATURE":
+        /// that has a client secret.</para></important><dl><dt>SMS_MFA</dt><dd><para><c>"ChallengeName": "SMS_MFA", "ChallengeResponses": {"SMS_MFA_CODE": "[code]", "USERNAME":
+        /// "[username]"}</c></para></dd><dt>EMAIL_OTP</dt><dd><para><c>"ChallengeName": "EMAIL_OTP", "ChallengeResponses": {"EMAIL_OTP_CODE": "[code]",
+        /// "USERNAME": "[username]"}</c></para></dd><dt>PASSWORD_VERIFIER</dt><dd><para>This challenge response is part of the SRP flow. Amazon Cognito requires that your
+        /// application respond to this challenge within a few seconds. When the response time
+        /// exceeds this period, your user pool returns a <c>NotAuthorizedException</c> error.</para><para><c>"ChallengeName": "PASSWORD_VERIFIER", "ChallengeResponses": {"PASSWORD_CLAIM_SIGNATURE":
         /// "[claim_signature]", "PASSWORD_CLAIM_SECRET_BLOCK": "[secret_block]", "TIMESTAMP":
         /// [timestamp], "USERNAME": "[username]"}</c></para><para>Add <c>"DEVICE_KEY"</c> when you sign in with a remembered device.</para></dd><dt>CUSTOM_CHALLENGE</dt><dd><para><c>"ChallengeName": "CUSTOM_CHALLENGE", "ChallengeResponses": {"USERNAME": "[username]",
         /// "ANSWER": "[challenge_answer]"}</c></para><para>Add <c>"DEVICE_KEY"</c> when you sign in with a remembered device.</para></dd><dt>NEW_PASSWORD_REQUIRED</dt><dd><para><c>"ChallengeName": "NEW_PASSWORD_REQUIRED", "ChallengeResponses": {"NEW_PASSWORD":
