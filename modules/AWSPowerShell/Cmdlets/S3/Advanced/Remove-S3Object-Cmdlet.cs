@@ -185,6 +185,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
 
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// <para>Confirms that the requester knows that they will be charged for the request. 
+        /// Bucket owners need not specify this parameter in their requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
+        #endregion
+
         #region Shared Parameters
 
         #region Parameter SerialNumber
@@ -276,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             context.SerialNumber = this.SerialNumber;
             context.AuthenticationValue = this.AuthenticationValue;
+            context.RequestPayer = this.RequestPayer;
 
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -313,6 +326,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     SerialNumber = cmdletContext.SerialNumber,
                     AuthenticationValue = cmdletContext.AuthenticationValue
                 };
+            }
+
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
             }
 
             using (var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint))
@@ -383,6 +401,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     SerialNumber = cmdletContext.SerialNumber,
                     AuthenticationValue = cmdletContext.AuthenticationValue
                 };
+            }
+
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
             }
 
             using (var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint))
@@ -485,6 +508,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String AuthenticationValue { get; set; }
 
             public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
+
+            public RequestPayer RequestPayer { get; set; }
         }
     }
 }

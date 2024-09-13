@@ -405,6 +405,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public ChecksumAlgorithm ChecksumAlgorithm { get; set; }
         #endregion
 
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// <para>Confirms that the requester knows that they will be charged for the request. 
+        /// Bucket owners need not specify this parameter in their requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
+        #endregion
+
         #endregion
 
         #region TransferUtility Params
@@ -575,6 +587,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (!string.IsNullOrEmpty(this.IfNoneMatch))
                 context.IfNoneMatch = this.IfNoneMatch;
 
+            context.RequestPayer = this.RequestPayer;
+
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
@@ -585,7 +599,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
 
-            if (!string.IsNullOrEmpty(cmdletContext.File) || cmdletContext.Stream!=null)
+            if (!string.IsNullOrEmpty(cmdletContext.File) || cmdletContext.Stream != null)
                 return UploadFileToS3(cmdletContext);
 
             if (!string.IsNullOrEmpty(cmdletContext.Content))
@@ -645,6 +659,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
 
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
+
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
             CmdletOutput output;
@@ -679,11 +698,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     request.FilePath = cmdletContext.File;
                 }
-                else if(cmdletContext.Stream!=null)
+                else if (cmdletContext.Stream != null)
                 {
                     _Stream = Amazon.PowerShell.Common.StreamParameterConverter.TransformToStream(cmdletContext.Stream);
                     request.InputStream = _Stream;
-                }            
+                }
 
                 if (cmdletContext.CannedACL != null)
                     request.CannedACL = cmdletContext.CannedACL.Value;
@@ -713,6 +732,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
                 if (cmdletContext.PartSize != null)
                     request.PartSize = cmdletContext.PartSize.Value;
+
+                if (cmdletContext.RequestPayer != null)
+                {
+                    request.RequestPayer = cmdletContext.RequestPayer;
+                }
 
                 var transferUtilityConfig = new TransferUtilityConfig();
                 if (cmdletContext.ConcurrentServiceRequests.HasValue)
@@ -774,6 +798,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
             request.CalculateContentMD5Header = cmdletContext.CalculateContentMD5Header;
+
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
 
             AmazonS3Helper.SetExtraRequestFields(request, cmdletContext);
 
@@ -862,6 +891,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public long? PartSize { get; set; }
 
             public String IfNoneMatch { get; set; }
+
+            public RequestPayer RequestPayer { get; set; }
         }
 
         #region Progress Trackers
