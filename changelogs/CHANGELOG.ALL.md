@@ -1,4 +1,19 @@
-﻿### 4.1.656 (2024-09-13 20:53Z)
+﻿### 4.1.657 (2024-09-16 21:33Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.886.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Bedrock
+    * Modified cmdlet New-BDRModelInvocationJob: added parameters S3InputDataConfig_S3BucketOwner, S3OutputDataConfig_S3BucketOwner, VpcConfig_SecurityGroupId and VpcConfig_SubnetId.
+  * Amazon IoT
+    * Added cmdlet Add-IOTSbomWithPackageVersion leveraging the AssociateSbomWithPackageVersion service API.
+    * Added cmdlet Get-IOTSbomValidationResultList leveraging the ListSbomValidationResults service API.
+    * Added cmdlet Remove-IOTSbomFromPackageVersion leveraging the DisassociateSbomFromPackageVersion service API.
+    * Modified cmdlet Get-IOTJob: added parameter BeforeSubstitution.
+    * Modified cmdlet Get-IOTJobDocument: added parameter BeforeSubstitution.
+    * Modified cmdlet New-IOTPackageVersion: added parameters Recipe, S3Location_Bucket, S3Location_Key and S3Location_Version.
+    * Modified cmdlet Update-IOTPackageVersion: added parameters Recipe, S3Location_Bucket, S3Location_Key and S3Location_Version.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSGlobalCluster: added parameter Tag.
+
+### 4.1.656 (2024-09-13 20:53Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.885.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.655 (2024-09-12 21:08Z)

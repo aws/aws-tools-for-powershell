@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>VPC configuration security group Ids.</para>
+        /// <para>An array of IDs for each security group in the VPC to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>VPC configuration subnets.</para>
+        /// <para>An array of IDs for each subnet in the VPC to use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

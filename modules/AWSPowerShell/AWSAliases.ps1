@@ -14678,6 +14678,8 @@ Set-Alias -Name Accept-IOTCertificateTransfer -Value Confirm-IOTCertificateTrans
 Set-Alias -Name IOT-AcceptCertificateTransfer -Value Confirm-IOTCertificateTransfer
 Set-Alias -Name IOT-AddThingToBillingGroup -Value Add-IOTThingToBillingGroup
 Set-Alias -Name IOT-AddThingToThingGroup -Value Add-IOTThingToThingGroup
+Set-Alias -Name Associate-IOTSbomWithPackageVersion -Value Add-IOTSbomWithPackageVersion
+Set-Alias -Name IOT-AssociateSbomWithPackageVersion -Value Add-IOTSbomWithPackageVersion
 Set-Alias -Name Associate-IOTTargetsWithJob -Value Add-IOTTargetsWithJob
 Set-Alias -Name IOT-AssociateTargetsWithJob -Value Add-IOTTargetsWithJob
 Set-Alias -Name Attach-IOTPolicy -Value Add-IOTPolicy
@@ -14913,6 +14915,8 @@ Set-Alias -Name IOT-DetachSecurityProfile -Value Dismount-IOTSecurityProfile
 Set-Alias -Name Detach-IOTThingPrincipal -Value Remove-IOTThingPrincipal
 Set-Alias -Name IOT-DetachThingPrincipal -Value Remove-IOTThingPrincipal
 Set-Alias -Name IOT-DisableTopicRule -Value Disable-IOTTopicRule
+Set-Alias -Name Disassociate-IOTSbomFromPackageVersion -Value Remove-IOTSbomFromPackageVersion
+Set-Alias -Name IOT-DisassociateSbomFromPackageVersion -Value Remove-IOTSbomFromPackageVersion
 Set-Alias -Name IOT-EnableTopicRule -Value Enable-IOTTopicRule
 Set-Alias -Name Get-IOTBehaviorModelTrainingSummaries -Value Get-IOTBehaviorModelTrainingSummary
 Set-Alias -Name IOT-GetBehaviorModelTrainingSummaries -Value Get-IOTBehaviorModelTrainingSummary
@@ -15059,6 +15063,9 @@ Set-Alias -Name IOT-ListRelatedResourcesForAuditFinding -Value Get-IOTRelatedRes
 Set-Alias -Name List-IOTRoleAliases -Value Get-IOTRoleAliasList
 Set-Alias -Name List-IOTRoleAliasList -Value Get-IOTRoleAliasList
 Set-Alias -Name IOT-ListRoleAliases -Value Get-IOTRoleAliasList
+Set-Alias -Name List-IOTSbomValidationResults -Value Get-IOTSbomValidationResultList
+Set-Alias -Name List-IOTSbomValidationResultList -Value Get-IOTSbomValidationResultList
+Set-Alias -Name IOT-ListSbomValidationResults -Value Get-IOTSbomValidationResultList
 Set-Alias -Name List-IOTScheduledAudits -Value Get-IOTScheduledAuditList
 Set-Alias -Name List-IOTScheduledAuditList -Value Get-IOTScheduledAuditList
 Set-Alias -Name IOT-ListScheduledAudits -Value Get-IOTScheduledAuditList

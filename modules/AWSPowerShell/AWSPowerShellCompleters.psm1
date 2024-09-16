@@ -34745,6 +34745,13 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.SbomValidationResult
+        "Get-IOTSbomValidationResultList/ValidationResult"
+        {
+            $v = "FAILED","SUCCEEDED"
+            break
+        }
+
         # Amazon.IoT.ServiceType
         {
             ($_ -eq "Get-IOTDomainConfigurationList/ServiceType") -Or
@@ -34869,6 +34876,7 @@ $IOT_map = @{
     "Unit"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
     "UpdateCACertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
     "UpdateDeviceCertificateParams_Action"=@("New-IOTMitigationAction","Update-IOTMitigationAction")
+    "ValidationResult"=@("Get-IOTSbomValidationResultList")
     "VerificationState"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList","Write-IOTVerificationStateOnViolation")
 }
 
@@ -34925,6 +34933,7 @@ $IOT_SelectMap = @{
     "Select"=@("Confirm-IOTCertificateTransfer",
                "Add-IOTThingToBillingGroup",
                "Add-IOTThingToThingGroup",
+               "Add-IOTSbomWithPackageVersion",
                "Add-IOTTargetsWithJob",
                "Add-IOTPolicy",
                "Add-IOTPrincipalPolicy",
@@ -35043,6 +35052,7 @@ $IOT_SelectMap = @{
                "Dismount-IOTSecurityProfile",
                "Remove-IOTThingPrincipal",
                "Disable-IOTTopicRule",
+               "Remove-IOTSbomFromPackageVersion",
                "Enable-IOTTopicRule",
                "Get-IOTBehaviorModelTrainingSummary",
                "Get-IOTBucketsAggregation",
@@ -35103,6 +35113,7 @@ $IOT_SelectMap = @{
                "Get-IOTProvisioningTemplateVersionList",
                "Get-IOTRelatedResourcesForAuditFindingList",
                "Get-IOTRoleAliasList",
+               "Get-IOTSbomValidationResultList",
                "Get-IOTScheduledAuditList",
                "Get-IOTSecurityProfileList",
                "Get-IOTSecurityProfilesForTargetList",
@@ -44199,7 +44210,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputNetworkLocation
         "New-EMLInput/InputNetworkLocation"
         {
-            $v = "AWS","ON_PREMISE","ON_PREMISES"
+            $v = "AWS","ON_PREMISES"
             break
         }
 

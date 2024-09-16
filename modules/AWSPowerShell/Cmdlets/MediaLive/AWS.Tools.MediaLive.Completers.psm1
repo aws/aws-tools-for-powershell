@@ -207,7 +207,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputNetworkLocation
         "New-EMLInput/InputNetworkLocation"
         {
-            $v = "AWS","ON_PREMISE","ON_PREMISES"
+            $v = "AWS","ON_PREMISES"
             break
         }
 

@@ -119,6 +119,30 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter S3InputDataConfig_S3BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account that owns the S3 bucket containing the input
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("InputDataConfig_S3InputDataConfig_S3BucketOwner")]
+        public System.String S3InputDataConfig_S3BucketOwner { get; set; }
+        #endregion
+        
+        #region Parameter S3OutputDataConfig_S3BucketOwner
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon Web Services account that owns the S3 bucket containing the output
+        /// data.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OutputDataConfig_S3OutputDataConfig_S3BucketOwner")]
+        public System.String S3OutputDataConfig_S3BucketOwner { get; set; }
+        #endregion
+        
         #region Parameter S3OutputDataConfig_S3EncryptionKeyId
         /// <summary>
         /// <para>
@@ -162,6 +186,28 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("OutputDataConfig_S3OutputDataConfig_S3Uri")]
         public System.String S3OutputDataConfig_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>An array of IDs for each security group in the VPC to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>An array of IDs for each subnet in the VPC to use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("VpcConfig_SubnetIds")]
+        public System.String[] VpcConfig_SubnetId { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -230,6 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
             }
             context.ClientRequestToken = this.ClientRequestToken;
+            context.S3InputDataConfig_S3BucketOwner = this.S3InputDataConfig_S3BucketOwner;
             context.S3InputDataConfig_S3InputFormat = this.S3InputDataConfig_S3InputFormat;
             context.S3InputDataConfig_S3Uri = this.S3InputDataConfig_S3Uri;
             context.JobName = this.JobName;
@@ -246,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 WriteWarning("You are passing $null as a value for parameter ModelId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.S3OutputDataConfig_S3BucketOwner = this.S3OutputDataConfig_S3BucketOwner;
             context.S3OutputDataConfig_S3EncryptionKeyId = this.S3OutputDataConfig_S3EncryptionKeyId;
             context.S3OutputDataConfig_S3Uri = this.S3OutputDataConfig_S3Uri;
             context.RoleArn = this.RoleArn;
@@ -260,6 +308,14 @@ namespace Amazon.PowerShell.Cmdlets.BDR
                 context.Tag = new List<Amazon.Bedrock.Model.Tag>(this.Tag);
             }
             context.TimeoutDurationInHour = this.TimeoutDurationInHour;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupId = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_SubnetId != null)
+            {
+                context.VpcConfig_SubnetId = new List<System.String>(this.VpcConfig_SubnetId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -289,6 +345,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
              // populate S3InputDataConfig
             var requestInputDataConfig_inputDataConfig_S3InputDataConfigIsNull = true;
             requestInputDataConfig_inputDataConfig_S3InputDataConfig = new Amazon.Bedrock.Model.ModelInvocationJobS3InputDataConfig();
+            System.String requestInputDataConfig_inputDataConfig_S3InputDataConfig_s3InputDataConfig_S3BucketOwner = null;
+            if (cmdletContext.S3InputDataConfig_S3BucketOwner != null)
+            {
+                requestInputDataConfig_inputDataConfig_S3InputDataConfig_s3InputDataConfig_S3BucketOwner = cmdletContext.S3InputDataConfig_S3BucketOwner;
+            }
+            if (requestInputDataConfig_inputDataConfig_S3InputDataConfig_s3InputDataConfig_S3BucketOwner != null)
+            {
+                requestInputDataConfig_inputDataConfig_S3InputDataConfig.S3BucketOwner = requestInputDataConfig_inputDataConfig_S3InputDataConfig_s3InputDataConfig_S3BucketOwner;
+                requestInputDataConfig_inputDataConfig_S3InputDataConfigIsNull = false;
+            }
             Amazon.Bedrock.S3InputFormat requestInputDataConfig_inputDataConfig_S3InputDataConfig_s3InputDataConfig_S3InputFormat = null;
             if (cmdletContext.S3InputDataConfig_S3InputFormat != null)
             {
@@ -341,6 +407,16 @@ namespace Amazon.PowerShell.Cmdlets.BDR
              // populate S3OutputDataConfig
             var requestOutputDataConfig_outputDataConfig_S3OutputDataConfigIsNull = true;
             requestOutputDataConfig_outputDataConfig_S3OutputDataConfig = new Amazon.Bedrock.Model.ModelInvocationJobS3OutputDataConfig();
+            System.String requestOutputDataConfig_outputDataConfig_S3OutputDataConfig_s3OutputDataConfig_S3BucketOwner = null;
+            if (cmdletContext.S3OutputDataConfig_S3BucketOwner != null)
+            {
+                requestOutputDataConfig_outputDataConfig_S3OutputDataConfig_s3OutputDataConfig_S3BucketOwner = cmdletContext.S3OutputDataConfig_S3BucketOwner;
+            }
+            if (requestOutputDataConfig_outputDataConfig_S3OutputDataConfig_s3OutputDataConfig_S3BucketOwner != null)
+            {
+                requestOutputDataConfig_outputDataConfig_S3OutputDataConfig.S3BucketOwner = requestOutputDataConfig_outputDataConfig_S3OutputDataConfig_s3OutputDataConfig_S3BucketOwner;
+                requestOutputDataConfig_outputDataConfig_S3OutputDataConfigIsNull = false;
+            }
             System.String requestOutputDataConfig_outputDataConfig_S3OutputDataConfig_s3OutputDataConfig_S3EncryptionKeyId = null;
             if (cmdletContext.S3OutputDataConfig_S3EncryptionKeyId != null)
             {
@@ -387,6 +463,35 @@ namespace Amazon.PowerShell.Cmdlets.BDR
             if (cmdletContext.TimeoutDurationInHour != null)
             {
                 request.TimeoutDurationInHours = cmdletContext.TimeoutDurationInHour.Value;
+            }
+            
+             // populate VpcConfig
+            var requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.Bedrock.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupId != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupId;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_SubnetId = null;
+            if (cmdletContext.VpcConfig_SubnetId != null)
+            {
+                requestVpcConfig_vpcConfig_SubnetId = cmdletContext.VpcConfig_SubnetId;
+            }
+            if (requestVpcConfig_vpcConfig_SubnetId != null)
+            {
+                request.VpcConfig.SubnetIds = requestVpcConfig_vpcConfig_SubnetId;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
             }
             
             CmdletOutput output;
@@ -450,15 +555,19 @@ namespace Amazon.PowerShell.Cmdlets.BDR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public System.String S3InputDataConfig_S3BucketOwner { get; set; }
             public Amazon.Bedrock.S3InputFormat S3InputDataConfig_S3InputFormat { get; set; }
             public System.String S3InputDataConfig_S3Uri { get; set; }
             public System.String JobName { get; set; }
             public System.String ModelId { get; set; }
+            public System.String S3OutputDataConfig_S3BucketOwner { get; set; }
             public System.String S3OutputDataConfig_S3EncryptionKeyId { get; set; }
             public System.String S3OutputDataConfig_S3Uri { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.Bedrock.Model.Tag> Tag { get; set; }
             public System.Int32? TimeoutDurationInHour { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupId { get; set; }
+            public List<System.String> VpcConfig_SubnetId { get; set; }
             public System.Func<Amazon.Bedrock.Model.CreateModelInvocationJobResponse, NewBDRModelInvocationJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.JobArn;
         }

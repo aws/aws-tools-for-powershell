@@ -151,6 +151,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean? StorageEncrypted { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to assign to the global cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public Amazon.RDS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'GlobalCluster'.
@@ -221,6 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             context.StorageEncrypted = this.StorageEncrypted;
+            if (this.Tag != null)
+            {
+                context.Tag = new List<Amazon.RDS.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -268,6 +283,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.StorageEncrypted != null)
             {
                 request.StorageEncrypted = cmdletContext.StorageEncrypted.Value;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -338,6 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String GlobalClusterIdentifier { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
             public System.Boolean? StorageEncrypted { get; set; }
+            public List<Amazon.RDS.Model.Tag> Tag { get; set; }
             public System.Func<Amazon.RDS.Model.CreateGlobalClusterResponse, NewRDSGlobalClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.GlobalCluster;
         }

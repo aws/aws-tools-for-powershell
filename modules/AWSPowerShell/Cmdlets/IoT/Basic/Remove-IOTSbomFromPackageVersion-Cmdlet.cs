@@ -22,39 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Removes metadata tags from an Amazon RDS resource.
+    /// Disassociates a software bill of materials (SBOM) from a specific software package
+    /// version.
     /// 
     ///  
     /// <para>
-    /// For an overview on tagging an Amazon RDS resource, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging
-    /// Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging
-    /// Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisassociateSbomWithPackageVersion</a>
+    /// action.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "RDSTagFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "IOTSbomFromPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon Relational Database Service RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"}, SelectReturnType = typeof(Amazon.RDS.Model.RemoveTagsFromResourceResponse))]
-    [AWSCmdletOutput("None or Amazon.RDS.Model.RemoveTagsFromResourceResponse",
+    [AWSCmdlet("Calls the AWS IoT DisassociateSbomFromPackageVersion API operation.", Operation = new[] {"DisassociateSbomFromPackageVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse))]
+    [AWSCmdletOutput("None or Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.RDS.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRDSTagFromResourceCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class RemoveIOTSbomFromPackageVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceName
+        #region Parameter PackageName
         /// <summary>
         /// <para>
-        /// <para>The Amazon RDS resource that the tags are removed from. This value is an Amazon Resource
-        /// Name (ARN). For information about creating an ARN, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-        /// Constructing an ARN for Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
+        /// <para>The name of the new software package.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String PackageName { get; set; }
+        #endregion
+        
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the new package version.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,31 +80,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceName { get; set; }
+        public System.String VersionName { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The tag key (name) of the tag to be removed.</para>
+        /// <para>A unique case-sensitive identifier that you can provide to ensure the idempotency
+        /// of the request. Don't reuse this client token if a new idempotent request is required.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.RDS.Model.RemoveTagsFromResourceResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the collection of tag keys that were removed
-        /// The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in future
+        /// Changes the cmdlet behavior to return the value passed to the VersionName parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^VersionName' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VersionName' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.TagKey), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RDSTagFromResource (RemoveTagsFromResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VersionName), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTSbomFromPackageVersion (DisassociateSbomFromPackageVersion)"))
             {
                 return;
             }
@@ -135,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.RDS.Model.RemoveTagsFromResourceResponse, RemoveRDSTagFromResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse, RemoveIOTSbomFromPackageVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,24 +152,22 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => context.TagKey;
+                context.Select = (response, cmdlet) => this.VersionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceName = this.ResourceName;
+            context.ClientToken = this.ClientToken;
+            context.PackageName = this.PackageName;
             #if MODULAR
-            if (this.ResourceName == null && ParameterWasBound(nameof(this.ResourceName)))
+            if (this.PackageName == null && ParameterWasBound(nameof(this.PackageName)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PackageName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.TagKey != null)
-            {
-                context.TagKey = new List<System.String>(this.TagKey);
-            }
+            context.VersionName = this.VersionName;
             #if MODULAR
-            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            if (this.VersionName == null && ParameterWasBound(nameof(this.VersionName)))
             {
-                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter VersionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,15 +184,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.RemoveTagsFromResourceRequest();
+            var request = new Amazon.IoT.Model.DisassociateSbomFromPackageVersionRequest();
             
-            if (cmdletContext.ResourceName != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.ResourceName = cmdletContext.ResourceName;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.TagKey != null)
+            if (cmdletContext.PackageName != null)
             {
-                request.TagKeys = cmdletContext.TagKey;
+                request.PackageName = cmdletContext.PackageName;
+            }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
             }
             
             CmdletOutput output;
@@ -221,15 +231,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.RemoveTagsFromResourceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.RemoveTagsFromResourceRequest request)
+        private Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DisassociateSbomFromPackageVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "RemoveTagsFromResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DisassociateSbomFromPackageVersion");
             try
             {
                 #if DESKTOP
-                return client.RemoveTagsFromResource(request);
+                return client.DisassociateSbomFromPackageVersion(request);
                 #elif CORECLR
-                return client.RemoveTagsFromResourceAsync(request).GetAwaiter().GetResult();
+                return client.DisassociateSbomFromPackageVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,9 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceName { get; set; }
-            public List<System.String> TagKey { get; set; }
-            public System.Func<Amazon.RDS.Model.RemoveTagsFromResourceResponse, RemoveRDSTagFromResourceCmdlet, object> Select { get; set; } =
+            public System.String ClientToken { get; set; }
+            public System.String PackageName { get; set; }
+            public System.String VersionName { get; set; }
+            public System.Func<Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse, RemoveIOTSbomFromPackageVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

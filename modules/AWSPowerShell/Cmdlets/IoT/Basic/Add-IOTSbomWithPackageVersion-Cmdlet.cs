@@ -28,41 +28,24 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a new version for an existing IoT software package.
+    /// Associates a software bill of materials (SBOM) with a specific software package version.
     /// 
     ///  
     /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreatePackageVersion</a>
-    /// and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a>
-    /// actions.
+    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateSbomWithPackageVersion</a>
+    /// action.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "IOTPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.IoT.Model.CreatePackageVersionResponse")]
-    [AWSCmdlet("Calls the AWS IoT CreatePackageVersion API operation.", Operation = new[] {"CreatePackageVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.CreatePackageVersionResponse))]
-    [AWSCmdletOutput("Amazon.IoT.Model.CreatePackageVersionResponse",
-        "This cmdlet returns an Amazon.IoT.Model.CreatePackageVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "IOTSbomWithPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse")]
+    [AWSCmdlet("Calls the AWS IoT AssociateSbomWithPackageVersion API operation.", Operation = new[] {"AssociateSbomWithPackageVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse))]
+    [AWSCmdletOutput("Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse",
+        "This cmdlet returns an Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewIOTPackageVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class AddIOTSbomWithPackageVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveRequest { get; set; } = true;
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
-        
-        #region Parameter Attribute
-        /// <summary>
-        /// <para>
-        /// <para>Metadata that can be used to define a package version’s configuration. For example,
-        /// the S3 file location, configuration options that are being sent to the device or fleet.</para><para>The combined size of all the attributes on a package version is limited to 3KB.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Attributes")]
-        public System.Collections.Hashtable Attribute { get; set; }
-        #endregion
         
         #region Parameter S3Location_Bucket
         /// <summary>
@@ -71,19 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Artifact_S3Location_Bucket")]
+        [Alias("Sbom_S3Location_Bucket")]
         public System.String S3Location_Bucket { get; set; }
-        #endregion
-        
-        #region Parameter Description
-        /// <summary>
-        /// <para>
-        /// <para>A summary of the package version being created. This can be used to outline the package's
-        /// contents or purpose.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Description { get; set; }
         #endregion
         
         #region Parameter S3Location_Key
@@ -93,14 +65,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Artifact_S3Location_Key")]
+        [Alias("Sbom_S3Location_Key")]
         public System.String S3Location_Key { get; set; }
         #endregion
         
         #region Parameter PackageName
         /// <summary>
         /// <para>
-        /// <para>The name of the associated software package.</para>
+        /// <para>The name of the new software package.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -114,28 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String PackageName { get; set; }
         #endregion
         
-        #region Parameter Recipe
-        /// <summary>
-        /// <para>
-        /// <para>The inline job document associated with a software package version used for a quick
-        /// job deployment via IoT Jobs.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Recipe { get; set; }
-        #endregion
-        
-        #region Parameter Tag
-        /// <summary>
-        /// <para>
-        /// <para>Metadata that can be used to manage the package version.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Tags")]
-        public System.Collections.Hashtable Tag { get; set; }
-        #endregion
-        
         #region Parameter S3Location_Version
         /// <summary>
         /// <para>
@@ -143,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("Artifact_S3Location_Version")]
+        [Alias("Sbom_S3Location_Version")]
         public System.String S3Location_Version { get; set; }
         #endregion
         
@@ -178,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.CreatePackageVersionResponse).
-        /// Specifying the name of a property of type Amazon.IoT.Model.CreatePackageVersionResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse).
+        /// Specifying the name of a property of type Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -212,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VersionName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-IOTPackageVersion (CreatePackageVersion)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-IOTSbomWithPackageVersion (AssociateSbomWithPackageVersion)"))
             {
                 return;
             }
@@ -225,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.CreatePackageVersionResponse, NewIOTPackageVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse, AddIOTSbomWithPackageVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -237,19 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = (response, cmdlet) => this.VersionName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.S3Location_Bucket = this.S3Location_Bucket;
-            context.S3Location_Key = this.S3Location_Key;
-            context.S3Location_Version = this.S3Location_Version;
-            if (this.Attribute != null)
-            {
-                context.Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Attribute.Keys)
-                {
-                    context.Attribute.Add((String)hashKey, (System.String)(this.Attribute[hashKey]));
-                }
-            }
             context.ClientToken = this.ClientToken;
-            context.Description = this.Description;
             context.PackageName = this.PackageName;
             #if MODULAR
             if (this.PackageName == null && ParameterWasBound(nameof(this.PackageName)))
@@ -257,15 +195,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 WriteWarning("You are passing $null as a value for parameter PackageName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Recipe = this.Recipe;
-            if (this.Tag != null)
-            {
-                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.Tag.Keys)
-                {
-                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
-                }
-            }
+            context.S3Location_Bucket = this.S3Location_Bucket;
+            context.S3Location_Key = this.S3Location_Key;
+            context.S3Location_Version = this.S3Location_Version;
             context.VersionName = this.VersionName;
             #if MODULAR
             if (this.VersionName == null && ParameterWasBound(nameof(this.VersionName)))
@@ -287,85 +219,69 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.CreatePackageVersionRequest();
+            var request = new Amazon.IoT.Model.AssociateSbomWithPackageVersionRequest();
             
-            
-             // populate Artifact
-            var requestArtifactIsNull = true;
-            request.Artifact = new Amazon.IoT.Model.PackageVersionArtifact();
-            Amazon.IoT.Model.S3Location requestArtifact_artifact_S3Location = null;
-            
-             // populate S3Location
-            var requestArtifact_artifact_S3LocationIsNull = true;
-            requestArtifact_artifact_S3Location = new Amazon.IoT.Model.S3Location();
-            System.String requestArtifact_artifact_S3Location_s3Location_Bucket = null;
-            if (cmdletContext.S3Location_Bucket != null)
-            {
-                requestArtifact_artifact_S3Location_s3Location_Bucket = cmdletContext.S3Location_Bucket;
-            }
-            if (requestArtifact_artifact_S3Location_s3Location_Bucket != null)
-            {
-                requestArtifact_artifact_S3Location.Bucket = requestArtifact_artifact_S3Location_s3Location_Bucket;
-                requestArtifact_artifact_S3LocationIsNull = false;
-            }
-            System.String requestArtifact_artifact_S3Location_s3Location_Key = null;
-            if (cmdletContext.S3Location_Key != null)
-            {
-                requestArtifact_artifact_S3Location_s3Location_Key = cmdletContext.S3Location_Key;
-            }
-            if (requestArtifact_artifact_S3Location_s3Location_Key != null)
-            {
-                requestArtifact_artifact_S3Location.Key = requestArtifact_artifact_S3Location_s3Location_Key;
-                requestArtifact_artifact_S3LocationIsNull = false;
-            }
-            System.String requestArtifact_artifact_S3Location_s3Location_Version = null;
-            if (cmdletContext.S3Location_Version != null)
-            {
-                requestArtifact_artifact_S3Location_s3Location_Version = cmdletContext.S3Location_Version;
-            }
-            if (requestArtifact_artifact_S3Location_s3Location_Version != null)
-            {
-                requestArtifact_artifact_S3Location.Version = requestArtifact_artifact_S3Location_s3Location_Version;
-                requestArtifact_artifact_S3LocationIsNull = false;
-            }
-             // determine if requestArtifact_artifact_S3Location should be set to null
-            if (requestArtifact_artifact_S3LocationIsNull)
-            {
-                requestArtifact_artifact_S3Location = null;
-            }
-            if (requestArtifact_artifact_S3Location != null)
-            {
-                request.Artifact.S3Location = requestArtifact_artifact_S3Location;
-                requestArtifactIsNull = false;
-            }
-             // determine if request.Artifact should be set to null
-            if (requestArtifactIsNull)
-            {
-                request.Artifact = null;
-            }
-            if (cmdletContext.Attribute != null)
-            {
-                request.Attributes = cmdletContext.Attribute;
-            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
-            }
-            if (cmdletContext.Description != null)
-            {
-                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.PackageName != null)
             {
                 request.PackageName = cmdletContext.PackageName;
             }
-            if (cmdletContext.Recipe != null)
+            
+             // populate Sbom
+            var requestSbomIsNull = true;
+            request.Sbom = new Amazon.IoT.Model.Sbom();
+            Amazon.IoT.Model.S3Location requestSbom_sbom_S3Location = null;
+            
+             // populate S3Location
+            var requestSbom_sbom_S3LocationIsNull = true;
+            requestSbom_sbom_S3Location = new Amazon.IoT.Model.S3Location();
+            System.String requestSbom_sbom_S3Location_s3Location_Bucket = null;
+            if (cmdletContext.S3Location_Bucket != null)
             {
-                request.Recipe = cmdletContext.Recipe;
+                requestSbom_sbom_S3Location_s3Location_Bucket = cmdletContext.S3Location_Bucket;
             }
-            if (cmdletContext.Tag != null)
+            if (requestSbom_sbom_S3Location_s3Location_Bucket != null)
             {
-                request.Tags = cmdletContext.Tag;
+                requestSbom_sbom_S3Location.Bucket = requestSbom_sbom_S3Location_s3Location_Bucket;
+                requestSbom_sbom_S3LocationIsNull = false;
+            }
+            System.String requestSbom_sbom_S3Location_s3Location_Key = null;
+            if (cmdletContext.S3Location_Key != null)
+            {
+                requestSbom_sbom_S3Location_s3Location_Key = cmdletContext.S3Location_Key;
+            }
+            if (requestSbom_sbom_S3Location_s3Location_Key != null)
+            {
+                requestSbom_sbom_S3Location.Key = requestSbom_sbom_S3Location_s3Location_Key;
+                requestSbom_sbom_S3LocationIsNull = false;
+            }
+            System.String requestSbom_sbom_S3Location_s3Location_Version = null;
+            if (cmdletContext.S3Location_Version != null)
+            {
+                requestSbom_sbom_S3Location_s3Location_Version = cmdletContext.S3Location_Version;
+            }
+            if (requestSbom_sbom_S3Location_s3Location_Version != null)
+            {
+                requestSbom_sbom_S3Location.Version = requestSbom_sbom_S3Location_s3Location_Version;
+                requestSbom_sbom_S3LocationIsNull = false;
+            }
+             // determine if requestSbom_sbom_S3Location should be set to null
+            if (requestSbom_sbom_S3LocationIsNull)
+            {
+                requestSbom_sbom_S3Location = null;
+            }
+            if (requestSbom_sbom_S3Location != null)
+            {
+                request.Sbom.S3Location = requestSbom_sbom_S3Location;
+                requestSbomIsNull = false;
+            }
+             // determine if request.Sbom should be set to null
+            if (requestSbomIsNull)
+            {
+                request.Sbom = null;
             }
             if (cmdletContext.VersionName != null)
             {
@@ -404,15 +320,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.CreatePackageVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreatePackageVersionRequest request)
+        private Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.AssociateSbomWithPackageVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "CreatePackageVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "AssociateSbomWithPackageVersion");
             try
             {
                 #if DESKTOP
-                return client.CreatePackageVersion(request);
+                return client.AssociateSbomWithPackageVersion(request);
                 #elif CORECLR
-                return client.CreatePackageVersionAsync(request).GetAwaiter().GetResult();
+                return client.AssociateSbomWithPackageVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -432,17 +348,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
+            public System.String PackageName { get; set; }
             public System.String S3Location_Bucket { get; set; }
             public System.String S3Location_Key { get; set; }
             public System.String S3Location_Version { get; set; }
-            public Dictionary<System.String, System.String> Attribute { get; set; }
-            public System.String ClientToken { get; set; }
-            public System.String Description { get; set; }
-            public System.String PackageName { get; set; }
-            public System.String Recipe { get; set; }
-            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String VersionName { get; set; }
-            public System.Func<Amazon.IoT.Model.CreatePackageVersionResponse, NewIOTPackageVersionCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.IoT.Model.AssociateSbomWithPackageVersionResponse, AddIOTSbomWithPackageVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
