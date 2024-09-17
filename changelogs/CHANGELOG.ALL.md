@@ -1,4 +1,15 @@
-﻿### 4.1.657 (2024-09-16 21:33Z)
+﻿### 4.1.658 (2024-09-17 20:46Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.887.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Lambda
+    * Added cmdlet Get-LMPublicAccessBlockConfig leveraging the GetPublicAccessBlockConfig service API.
+    * Added cmdlet Get-LMResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-LMResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-LMPublicAccessBlockConfig leveraging the PutPublicAccessBlockConfig service API.
+    * Added cmdlet Write-LMResourcePolicy leveraging the PutResourcePolicy service API.
+  * Amazon Systems Manager
+    * Modified cmdlet Start-SSMAutomationExecution: added parameter TargetLocationsURL.
+
+### 4.1.657 (2024-09-16 21:33Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.886.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Bedrock
     * Modified cmdlet New-BDRModelInvocationJob: added parameters S3InputDataConfig_S3BucketOwner, S3OutputDataConfig_S3BucketOwner, VpcConfig_SecurityGroupId and VpcConfig_SubnetId.

@@ -12686,7 +12686,7 @@ $CB_Completers = {
         # Amazon.CodeBuild.WebhookScopeType
         "New-CBWebhook/ScopeConfiguration_Scope"
         {
-            $v = "GITHUB_GLOBAL","GITHUB_ORGANIZATION"
+            $v = "GITHUB_GLOBAL","GITHUB_ORGANIZATION","GITLAB_GROUP"
             break
         }
 
@@ -39833,6 +39833,7 @@ $LM_SelectMap = @{
                "Remove-LMFunctionUrlConfig",
                "Remove-LMLayerVersion",
                "Remove-LMProvisionedConcurrencyConfig",
+               "Remove-LMResourcePolicy",
                "Get-LMAccountSetting",
                "Get-LMAlias",
                "Get-LMCodeSigningConfig",
@@ -39849,6 +39850,8 @@ $LM_SelectMap = @{
                "Get-LMLayerVersionPolicy",
                "Get-LMPolicy",
                "Get-LMProvisionedConcurrencyConfig",
+               "Get-LMPublicAccessBlockConfig",
+               "Get-LMResourcePolicy",
                "Get-LMRuntimeManagementConfig",
                "Invoke-LMFunction",
                "Invoke-LMFunctionAsync",
@@ -39872,6 +39875,8 @@ $LM_SelectMap = @{
                "Write-LMFunctionEventInvokeConfig",
                "Write-LMFunctionRecursionConfig",
                "Write-LMProvisionedConcurrencyConfig",
+               "Write-LMPublicAccessBlockConfig",
+               "Write-LMResourcePolicy",
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
                "Remove-LMPermission",

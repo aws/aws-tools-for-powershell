@@ -22,40 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.Lambda;
+using Amazon.Lambda.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Get information about a single parameter by specifying the parameter name.
-    /// 
-    ///  <note><para>
-    /// To get information about more than one parameter at a time, use the <a>GetParameters</a>
-    /// operation.
-    /// </para></note>
+    /// Deletes a <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
+    /// policy</a> from a function.
     /// </summary>
-    [Cmdlet("Get", "SSMParameter")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
-    [AWSCmdlet("Calls the AWS Systems Manager GetParameter API operation.", Operation = new[] {"GetParameter"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.GetParameterResponse))]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Parameter or Amazon.SimpleSystemsManagement.Model.GetParameterResponse",
-        "This cmdlet returns an Amazon.SimpleSystemsManagement.Model.Parameter object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParameterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "LMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the AWS Lambda DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteResourcePolicyResponse))]
+    [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteResourcePolicyResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.Lambda.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class RemoveLMResourcePolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Name
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name or Amazon Resource Name (ARN) of the parameter that you want to query. For
-        /// parameters shared with you from another account, you must use the full ARN.</para><para>To query by parameter label, use <c>"Name": "name:label"</c>. To query by parameter
-        /// version, use <c>"Name": "name:version"</c>.</para><para>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working
-        /// with shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the function you want to delete the policy from.
+        /// You can use either a qualified or an unqualified ARN, but the value you specify must
+        /// be a complete ARN and wildcard characters are not accepted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,45 +59,61 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Name { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter WithDecryption
+        #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>Return decrypted values for secure string parameters. This flag is ignored for <c>String</c>
-        /// and <c>StringList</c> parameter types.</para>
+        /// <para>Delete the existing policy only if its revision ID matches the string you specify.
+        /// To find the revision ID of the policy currently attached to your function, use the
+        /// <a>GetResourcePolicy</a> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? WithDecryption { get; set; }
+        public System.String RevisionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Parameter'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.GetParameterResponse).
-        /// Specifying the name of a property of type Amazon.SimpleSystemsManagement.Model.GetParameterResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.DeleteResourcePolicyResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Parameter";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Name parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Name' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LMResourcePolicy (DeleteResourcePolicy)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -114,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.GetParameterResponse, GetSSMParameterCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.DeleteResourcePolicyResponse, RemoveLMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -123,17 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Name;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Name = this.Name;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.WithDecryption = this.WithDecryption;
+            context.RevisionId = this.RevisionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,15 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.GetParameterRequest();
+            var request = new Amazon.Lambda.Model.DeleteResourcePolicyRequest();
             
-            if (cmdletContext.Name != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.Name = cmdletContext.Name;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.WithDecryption != null)
+            if (cmdletContext.RevisionId != null)
             {
-                request.WithDecryption = cmdletContext.WithDecryption.Value;
+                request.RevisionId = cmdletContext.RevisionId;
             }
             
             CmdletOutput output;
@@ -191,15 +200,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.GetParameterResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParameterRequest request)
+        private Amazon.Lambda.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.DeleteResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "GetParameter");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "DeleteResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.GetParameter(request);
+                return client.DeleteResourcePolicy(request);
                 #elif CORECLR
-                return client.GetParameterAsync(request).GetAwaiter().GetResult();
+                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -219,10 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Name { get; set; }
-            public System.Boolean? WithDecryption { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.GetParameterResponse, GetSSMParameterCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Parameter;
+            public System.String ResourceArn { get; set; }
+            public System.String RevisionId { get; set; }
+            public System.Func<Amazon.Lambda.Model.DeleteResourcePolicyResponse, RemoveLMResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

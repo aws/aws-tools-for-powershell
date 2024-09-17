@@ -22,38 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.Lambda;
+using Amazon.Lambda.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Changes the Identity and Access Management (IAM) role that is assigned to the on-premises
-    /// server, edge device, or virtual machines (VM). IAM roles are first assigned to these
-    /// hybrid nodes during the activation process. For more information, see <a>CreateActivation</a>.
+    /// Adds a <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
+    /// policy</a> to a function. You can use resource-based policies to grant access to other
+    /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-cross-account.html">Amazon
+    /// Web Services accounts</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-organization.html">organizations</a>,
+    /// or <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html">services</a>.
+    /// Resource-based policies apply to a single function, version, or alias.
+    /// 
+    ///  <important><para>
+    /// Adding a resource-based policy using this API action replaces any existing policy
+    /// you've previously created. This means that if you've previously added resource-based
+    /// permissions to a function using the <a>AddPermission</a> action, those permissions
+    /// will be overwritten by your new policy.
+    /// </para></important>
     /// </summary>
-    [Cmdlet("Update", "SSMManagedInstanceRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Systems Manager UpdateManagedInstanceRole API operation.", Operation = new[] {"UpdateManagedInstanceRole"}, SelectReturnType = typeof(Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse))]
-    [AWSCmdletOutput("None or Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "LMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Lambda.Model.PutResourcePolicyResponse")]
+    [AWSCmdlet("Calls the AWS Lambda PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.Lambda.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.Lambda.Model.PutResourcePolicyResponse",
+        "This cmdlet returns an Amazon.Lambda.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSSMManagedInstanceRoleCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class WriteLMResourcePolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter IamRole
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The name of the Identity and Access Management (IAM) role that you want to assign
-        /// to the managed node. This IAM role must provide AssumeRole permissions for the Amazon
-        /// Web Services Systems Manager service principal <c>ssm.amazonaws.com</c>. For more
-        /// information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-service-role.html">Create
-        /// the IAM service role required for Systems Manager in hybrid and multicloud environments</a>
-        /// in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
-        /// unique role.</para></note>
+        /// <para>The JSON resource-based policy you want to add to your function.</para><para>To learn more about creating resource-based policies for controlling access to Lambda,
+        /// see <a href="https://docs.aws.amazon.com/">Working with resource-based IAM policies
+        /// in Lambda</a> in the <i>Lambda Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,13 +69,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String IamRole { get; set; }
+        public System.String Policy { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the managed node where you want to update the role.</para>
+        /// <para>The Amazon Resource Name (ARN) of the function you want to add the policy to. You
+        /// can use either a qualified or an unqualified ARN, but the value you specify must be
+        /// a complete ARN and wildcard characters are not accepted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,13 +88,26 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter RevisionId
+        /// <summary>
+        /// <para>
+        /// <para>Replace the existing policy only if its revision ID matches the string you specify.
+        /// To find the revision ID of the policy currently attached to your function, use the
+        /// <a>GetResourcePolicy</a> action.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RevisionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.PutResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.Lambda.Model.PutResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -96,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMManagedInstanceRole (UpdateManagedInstanceRole)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-LMResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -133,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse, UpdateSSMManagedInstanceRoleCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.PutResourcePolicyResponse, WriteLMResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,23 +162,24 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.IamRole = this.IamRole;
+            context.Policy = this.Policy;
             #if MODULAR
-            if (this.IamRole == null && ParameterWasBound(nameof(this.IamRole)))
+            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
             {
-                WriteWarning("You are passing $null as a value for parameter IamRole which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.InstanceId = this.InstanceId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RevisionId = this.RevisionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -173,15 +194,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest();
+            var request = new Amazon.Lambda.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.IamRole != null)
+            if (cmdletContext.Policy != null)
             {
-                request.IamRole = cmdletContext.IamRole;
+                request.Policy = cmdletContext.Policy;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.ResourceArn = cmdletContext.ResourceArn;
+            }
+            if (cmdletContext.RevisionId != null)
+            {
+                request.RevisionId = cmdletContext.RevisionId;
             }
             
             CmdletOutput output;
@@ -216,15 +241,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleRequest request)
+        private Amazon.Lambda.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Systems Manager", "UpdateManagedInstanceRole");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.UpdateManagedInstanceRole(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.UpdateManagedInstanceRoleAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,10 +269,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String IamRole { get; set; }
-            public System.String InstanceId { get; set; }
-            public System.Func<Amazon.SimpleSystemsManagement.Model.UpdateManagedInstanceRoleResponse, UpdateSSMManagedInstanceRoleCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String Policy { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.String RevisionId { get; set; }
+            public System.Func<Amazon.Lambda.Model.PutResourcePolicyResponse, WriteLMResourcePolicyCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
