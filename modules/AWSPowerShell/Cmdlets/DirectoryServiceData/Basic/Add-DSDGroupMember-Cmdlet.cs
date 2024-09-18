@@ -22,49 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectoryService;
-using Amazon.DirectoryService.Model;
+using Amazon.DirectoryServiceData;
+using Amazon.DirectoryServiceData.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DS
+namespace Amazon.PowerShell.Cmdlets.DSD
 {
     /// <summary>
-    /// Resets the password for any user in your Managed Microsoft AD or Simple AD directory.
-    /// Disabled users will become enabled and can be authenticated following the API call.
-    /// 
-    ///  
-    /// <para>
-    /// You can reset the password for any user in your directory with the following exceptions:
-    /// </para><ul><li><para>
-    /// For Simple AD, you cannot reset the password for any user that is a member of either
-    /// the <b>Domain Admins</b> or <b>Enterprise Admins</b> group except for the administrator
-    /// user.
-    /// </para></li><li><para>
-    /// For Managed Microsoft AD, you can only reset the password for a user that is in an
-    /// OU based off of the NetBIOS name that you typed when you created your directory. For
-    /// example, you cannot reset the password for a user in the <b>Amazon Web Services Reserved</b>
-    /// OU. For more information about the OU structure for an Managed Microsoft AD directory,
-    /// see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html">What
-    /// Gets Created</a> in the <i>Directory Service Administration Guide</i>.
-    /// </para></li></ul>
+    /// Adds an existing user, group, or computer as a group member.
     /// </summary>
-    [Cmdlet("Reset", "DSUserPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "DSDGroupMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Directory Service ResetUserPassword API operation.", Operation = new[] {"ResetUserPassword"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.ResetUserPasswordResponse))]
-    [AWSCmdletOutput("None or Amazon.DirectoryService.Model.ResetUserPasswordResponse",
+    [AWSCmdlet("Calls the AWS Directory Service Data AddGroupMember API operation.", Operation = new[] {"AddGroupMember"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.AddGroupMemberResponse))]
+    [AWSCmdletOutput("None or Amazon.DirectoryServiceData.Model.AddGroupMemberResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.ResetUserPasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryServiceData.Model.AddGroupMemberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ResetDSUserPasswordCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class AddDSDGroupMemberCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the Managed Microsoft AD or Simple AD directory in which the user resides.</para>
+        /// <para> The identifier (ID) of the directory that's associated with the group. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -78,10 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter NewPassword
+        #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>The new password that will be reset.</para>
+        /// <para> The name of the group. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,44 +73,65 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NewPassword { get; set; }
+        public System.String GroupName { get; set; }
         #endregion
         
-        #region Parameter UserName
+        #region Parameter MemberName
         /// <summary>
         /// <para>
-        /// <para>The user name of the user whose password will be reset.</para>
+        /// <para> The <c>SAMAccountName</c> of the user, group, or computer to add as a group member.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserName { get; set; }
+        public System.String MemberName { get; set; }
+        #endregion
+        
+        #region Parameter MemberRealm
+        /// <summary>
+        /// <para>
+        /// <para> The domain name that's associated with the group member. This parameter is required
+        /// only when adding a member outside of your Managed Microsoft AD domain to a group inside
+        /// of your Managed Microsoft AD domain. This parameter defaults to the Managed Microsoft
+        /// AD domain. </para><note><para> This parameter is case insensitive. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MemberRealm { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para> A unique and case-sensitive identifier that you provide to make sure the idempotency
+        /// of the request, so multiple identical calls have the same effect as one single call.
+        /// </para><para> A client token is valid for 8 hours after the first request that uses it completes.
+        /// After 8 hours, any request with the same client token is treated as a new request.
+        /// If the request succeeds, any future uses of that token will be idempotent for another
+        /// 8 hours. </para><para> If you submit a request with the same client token but change one of the other parameters
+        /// within the 8-hour idempotency window, Directory Service Data returns an <c>ConflictException</c>.
+        /// </para><note><para> This parameter is optional when using the CLI or SDK. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.ResetUserPasswordResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryServiceData.Model.AddGroupMemberResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -147,8 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-DSUserPassword (ResetUserPassword)"))
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-DSDGroupMember (AddGroupMember)"))
             {
                 return;
             }
@@ -158,21 +160,12 @@ namespace Amazon.PowerShell.Cmdlets.DS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.ResetUserPasswordResponse, ResetDSUserPasswordCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryServiceData.Model.AddGroupMemberResponse, AddDSDGroupMemberCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.UserName;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ClientToken = this.ClientToken;
             context.DirectoryId = this.DirectoryId;
             #if MODULAR
             if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
@@ -180,20 +173,21 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.NewPassword = this.NewPassword;
+            context.GroupName = this.GroupName;
             #if MODULAR
-            if (this.NewPassword == null && ParameterWasBound(nameof(this.NewPassword)))
+            if (this.GroupName == null && ParameterWasBound(nameof(this.GroupName)))
             {
-                WriteWarning("You are passing $null as a value for parameter NewPassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter GroupName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.UserName = this.UserName;
+            context.MemberName = this.MemberName;
             #if MODULAR
-            if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
+            if (this.MemberName == null && ParameterWasBound(nameof(this.MemberName)))
             {
-                WriteWarning("You are passing $null as a value for parameter UserName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter MemberName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MemberRealm = this.MemberRealm;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -208,19 +202,27 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.ResetUserPasswordRequest();
+            var request = new Amazon.DirectoryServiceData.Model.AddGroupMemberRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.NewPassword != null)
+            if (cmdletContext.GroupName != null)
             {
-                request.NewPassword = cmdletContext.NewPassword;
+                request.GroupName = cmdletContext.GroupName;
             }
-            if (cmdletContext.UserName != null)
+            if (cmdletContext.MemberName != null)
             {
-                request.UserName = cmdletContext.UserName;
+                request.MemberName = cmdletContext.MemberName;
+            }
+            if (cmdletContext.MemberRealm != null)
+            {
+                request.MemberRealm = cmdletContext.MemberRealm;
             }
             
             CmdletOutput output;
@@ -255,15 +257,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectoryService.Model.ResetUserPasswordResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ResetUserPasswordRequest request)
+        private Amazon.DirectoryServiceData.Model.AddGroupMemberResponse CallAWSServiceOperation(IAmazonDirectoryServiceData client, Amazon.DirectoryServiceData.Model.AddGroupMemberRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "ResetUserPassword");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service Data", "AddGroupMember");
             try
             {
                 #if DESKTOP
-                return client.ResetUserPassword(request);
+                return client.AddGroupMember(request);
                 #elif CORECLR
-                return client.ResetUserPasswordAsync(request).GetAwaiter().GetResult();
+                return client.AddGroupMemberAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -283,10 +285,12 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String DirectoryId { get; set; }
-            public System.String NewPassword { get; set; }
-            public System.String UserName { get; set; }
-            public System.Func<Amazon.DirectoryService.Model.ResetUserPasswordResponse, ResetDSUserPasswordCmdlet, object> Select { get; set; } =
+            public System.String GroupName { get; set; }
+            public System.String MemberName { get; set; }
+            public System.String MemberRealm { get; set; }
+            public System.Func<Amazon.DirectoryServiceData.Model.AddGroupMemberResponse, AddDSDGroupMemberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

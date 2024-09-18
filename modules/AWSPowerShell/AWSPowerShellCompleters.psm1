@@ -20700,6 +20700,128 @@ $DC_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $DC_SelectCompleters $DC_SelectMap
+# Argument completions for service AWS Directory Service Data
+
+
+$DSD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DirectoryServiceData.GroupScope
+        {
+            ($_ -eq "New-DSDGroup/GroupScope") -Or
+            ($_ -eq "Update-DSDGroup/GroupScope")
+        }
+        {
+            $v = "BuiltinLocal","DomainLocal","Global","Universal"
+            break
+        }
+
+        # Amazon.DirectoryServiceData.GroupType
+        {
+            ($_ -eq "New-DSDGroup/GroupType") -Or
+            ($_ -eq "Update-DSDGroup/GroupType")
+        }
+        {
+            $v = "Distribution","Security"
+            break
+        }
+
+        # Amazon.DirectoryServiceData.UpdateType
+        {
+            ($_ -eq "Update-DSDGroup/UpdateType") -Or
+            ($_ -eq "Update-DSDUser/UpdateType")
+        }
+        {
+            $v = "ADD","REMOVE","REPLACE"
+            break
+        }
+
+
+    }
+
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DSD_map = @{
+    "GroupScope"=@("New-DSDGroup","Update-DSDGroup")
+    "GroupType"=@("New-DSDGroup","Update-DSDGroup")
+    "UpdateType"=@("Update-DSDGroup","Update-DSDUser")
+}
+
+_awsArgumentCompleterRegistration $DSD_Completers $DSD_map
+
+$DSD_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.DSD.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DSD_SelectMap = @{
+    "Select"=@("Add-DSDGroupMember",
+               "New-DSDGroup",
+               "New-DSDUser",
+               "Remove-DSDGroup",
+               "Remove-DSDUser",
+               "Get-DSDGroup",
+               "Get-DSDUser",
+               "Disable-DSDUser",
+               "Get-DSDGroupMemberList",
+               "Get-DSDGroupList",
+               "Get-DSDGroupsForMemberList",
+               "Get-DSDUserList",
+               "Remove-DSDGroupMember",
+               "Search-DSDGroup",
+               "Search-DSDUser",
+               "Update-DSDGroup",
+               "Update-DSDUser")
+}
+
+_awsArgumentCompleterRegistration $DSD_SelectCompleters $DSD_SelectMap
 # Argument completions for service AWS Application Discovery Service
 
 
@@ -22230,6 +22352,7 @@ $DS_SelectMap = @{
                "Get-DSClientAuthenticationSetting",
                "Get-DSConditionalForwarder",
                "Get-DSDirectory",
+               "Get-DSDirectoryDataAccess",
                "Get-DSDomainControllerList",
                "Get-DSEventTopic",
                "Get-DSLDAPSSetting",
@@ -22240,10 +22363,12 @@ $DS_SelectMap = @{
                "Get-DSTrust",
                "Get-DSUpdateDirectory",
                "Disable-DSClientAuthentication",
+               "Disable-DSDirectoryDataAccess",
                "Disable-DSLDAPS",
                "Disable-DSRadius",
                "Disable-DSSso",
                "Enable-DSClientAuthentication",
+               "Enable-DSDirectoryDataAccess",
                "Enable-DSLDAPS",
                "Enable-DSRadius",
                "Enable-DSSso",
@@ -59412,6 +59537,7 @@ $S3_Completers = {
         {
             ($_ -eq "Restore-S3Object/Encryption_EncryptionType") -Or
             ($_ -eq "Copy-S3Object/ServerSideEncryption") -Or
+            ($_ -eq "New-S3Session/ServerSideEncryption") -Or
             ($_ -eq "Write-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionMethod") -Or
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
@@ -59480,7 +59606,7 @@ $S3_map = @{
     "S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
     "Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
     "ServerSideCustomerEncryptionMethod"=@("Select-S3ObjectContent")
-    "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
+    "ServerSideEncryption"=@("Copy-S3Object","New-S3Session","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL","Write-S3GetObjectResponse")
     "SessionMode"=@("New-S3Session")

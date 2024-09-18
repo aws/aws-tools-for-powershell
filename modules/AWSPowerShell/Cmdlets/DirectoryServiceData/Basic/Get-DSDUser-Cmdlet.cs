@@ -22,36 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DirectoryService;
-using Amazon.DirectoryService.Model;
+using Amazon.DirectoryServiceData;
+using Amazon.DirectoryServiceData.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DS
+namespace Amazon.PowerShell.Cmdlets.DSD
 {
     /// <summary>
-    /// Disables alternative client authentication methods for the specified directory.
+    /// Returns information about a specific user.
     /// </summary>
-    [Cmdlet("Disable", "DSClientAuthentication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Directory Service DisableClientAuthentication API operation.", Operation = new[] {"DisableClientAuthentication"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DisableClientAuthenticationResponse))]
-    [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DisableClientAuthenticationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DisableClientAuthenticationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSDUser")]
+    [OutputType("Amazon.DirectoryServiceData.Model.DescribeUserResponse")]
+    [AWSCmdlet("Calls the AWS Directory Service Data DescribeUser API operation.", Operation = new[] {"DescribeUser"}, SelectReturnType = typeof(Amazon.DirectoryServiceData.Model.DescribeUserResponse))]
+    [AWSCmdletOutput("Amazon.DirectoryServiceData.Model.DescribeUserResponse",
+        "This cmdlet returns an Amazon.DirectoryServiceData.Model.DescribeUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableDSClientAuthenticationCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class GetDSDUserCmdlet : AmazonDirectoryServiceDataClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory </para>
+        /// <para> The identifier (ID) of the directory that's associated with the user. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -59,52 +60,57 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Type
+        #region Parameter OtherAttribute
         /// <summary>
         /// <para>
-        /// <para>The type of client authentication to disable. Currently the only parameter <c>"SmartCard"</c>
-        /// is supported.</para>
+        /// <para> One or more attribute names to be returned for the user. A key is an attribute name,
+        /// and the value is a list of maps. For a list of supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory
+        /// Service Data Attributes</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OtherAttributes")]
+        public System.String[] OtherAttribute { get; set; }
+        #endregion
+        
+        #region Parameter Realm
+        /// <summary>
+        /// <para>
+        /// <para> The domain name that's associated with the user. </para><note><para> This parameter is optional, so you can return users outside your Managed Microsoft
+        /// AD domain. When no value is defined, only your Managed Microsoft AD users are returned.
+        /// </para><para> This value is case insensitive. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Realm { get; set; }
+        #endregion
+        
+        #region Parameter SAMAccountName
+        /// <summary>
+        /// <para>
+        /// <para> The name of the user. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.DirectoryService.ClientAuthenticationType")]
-        public Amazon.DirectoryService.ClientAuthenticationType Type { get; set; }
+        public System.String SAMAccountName { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DisableClientAuthenticationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryServiceData.Model.DescribeUserResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryServiceData.Model.DescribeUserResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public string Select { get; set; } = "*";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DirectoryId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -112,32 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.DS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DirectoryId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-DSClientAuthentication (DisableClientAuthentication)"))
-            {
-                return;
-            }
-            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DisableClientAuthenticationResponse, DisableDSClientAuthenticationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryServiceData.Model.DescribeUserResponse, GetDSDUserCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.DirectoryId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DirectoryId = this.DirectoryId;
             #if MODULAR
             if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
@@ -145,11 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
+            if (this.OtherAttribute != null)
             {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.OtherAttribute = new List<System.String>(this.OtherAttribute);
+            }
+            context.Realm = this.Realm;
+            context.SAMAccountName = this.SAMAccountName;
+            #if MODULAR
+            if (this.SAMAccountName == null && ParameterWasBound(nameof(this.SAMAccountName)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SAMAccountName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -166,15 +161,23 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.DisableClientAuthenticationRequest();
+            var request = new Amazon.DirectoryServiceData.Model.DescribeUserRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
             }
-            if (cmdletContext.Type != null)
+            if (cmdletContext.OtherAttribute != null)
             {
-                request.Type = cmdletContext.Type;
+                request.OtherAttributes = cmdletContext.OtherAttribute;
+            }
+            if (cmdletContext.Realm != null)
+            {
+                request.Realm = cmdletContext.Realm;
+            }
+            if (cmdletContext.SAMAccountName != null)
+            {
+                request.SAMAccountName = cmdletContext.SAMAccountName;
             }
             
             CmdletOutput output;
@@ -209,15 +212,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectoryService.Model.DisableClientAuthenticationResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DisableClientAuthenticationRequest request)
+        private Amazon.DirectoryServiceData.Model.DescribeUserResponse CallAWSServiceOperation(IAmazonDirectoryServiceData client, Amazon.DirectoryServiceData.Model.DescribeUserRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DisableClientAuthentication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service Data", "DescribeUser");
             try
             {
                 #if DESKTOP
-                return client.DisableClientAuthentication(request);
+                return client.DescribeUser(request);
                 #elif CORECLR
-                return client.DisableClientAuthenticationAsync(request).GetAwaiter().GetResult();
+                return client.DescribeUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,9 +241,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DirectoryId { get; set; }
-            public Amazon.DirectoryService.ClientAuthenticationType Type { get; set; }
-            public System.Func<Amazon.DirectoryService.Model.DisableClientAuthenticationResponse, DisableDSClientAuthenticationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public List<System.String> OtherAttribute { get; set; }
+            public System.String Realm { get; set; }
+            public System.String SAMAccountName { get; set; }
+            public System.Func<Amazon.DirectoryServiceData.Model.DescribeUserResponse, GetDSDUserCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

@@ -1,4 +1,14 @@
-﻿### 4.1.658 (2024-09-17 20:46Z)
+﻿### 4.1.659 (2024-09-18 20:57Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.888.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Directory Service
+    * Added cmdlet Disable-DSDirectoryDataAccess leveraging the DisableDirectoryDataAccess service API.
+    * Added cmdlet Enable-DSDirectoryDataAccess leveraging the EnableDirectoryDataAccess service API.
+    * Added cmdlet Get-DSDirectoryDataAccess leveraging the DescribeDirectoryDataAccess service API.
+  * Amazon Directory Service Data. Added cmdlets to support the service. Cmdlets for the service have the noun prefix DSD and can be listed using the command 'Get-AWSCmdletName -Service DSD'.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet New-S3Session: added parameters BucketKeyEnabled, ServerSideEncryption, SSEKMSEncryptionContext and SSEKMSKeyId.
+
+### 4.1.658 (2024-09-17 20:46Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.887.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Lambda
     * Added cmdlet Get-LMPublicAccessBlockConfig leveraging the GetPublicAccessBlockConfig service API.

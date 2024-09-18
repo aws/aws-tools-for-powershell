@@ -28,16 +28,17 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Disables alternative client authentication methods for the specified directory.
+    /// Obtains status of directory data access enablement through the Directory Service Data
+    /// API for the specified directory.
     /// </summary>
-    [Cmdlet("Disable", "DSClientAuthentication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Directory Service DisableClientAuthentication API operation.", Operation = new[] {"DisableClientAuthentication"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DisableClientAuthenticationResponse))]
-    [AWSCmdletOutput("None or Amazon.DirectoryService.Model.DisableClientAuthenticationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.DisableClientAuthenticationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DSDirectoryDataAccess")]
+    [OutputType("Amazon.DirectoryService.DataAccessStatus")]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeDirectoryDataAccess API operation.", Operation = new[] {"DescribeDirectoryDataAccess"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse))]
+    [AWSCmdletOutput("Amazon.DirectoryService.DataAccessStatus or Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse",
+        "This cmdlet returns an Amazon.DirectoryService.DataAccessStatus object.",
+        "The service call response (type Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableDSClientAuthenticationCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class GetDSDirectoryDataAccessCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the directory </para>
+        /// <para>The directory identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,32 +60,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter Type
-        /// <summary>
-        /// <para>
-        /// <para>The type of client authentication to disable. Currently the only parameter <c>"SmartCard"</c>
-        /// is supported.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [AWSConstantClassSource("Amazon.DirectoryService.ClientAuthenticationType")]
-        public Amazon.DirectoryService.ClientAuthenticationType Type { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DisableClientAuthenticationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'DataAccessStatus'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse).
+        /// Specifying the name of a property of type Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "DataAccessStatus";
         #endregion
         
         #region Parameter PassThru
@@ -97,26 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DirectoryId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-DSClientAuthentication (DisableClientAuthentication)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -126,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DisableClientAuthenticationResponse, DisableDSClientAuthenticationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse, GetDSDirectoryDataAccessCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -145,13 +113,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Type = this.Type;
-            #if MODULAR
-            if (this.Type == null && ParameterWasBound(nameof(this.Type)))
-            {
-                WriteWarning("You are passing $null as a value for parameter Type which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -166,15 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.DisableClientAuthenticationRequest();
+            var request = new Amazon.DirectoryService.Model.DescribeDirectoryDataAccessRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
-            }
-            if (cmdletContext.Type != null)
-            {
-                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -209,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectoryService.Model.DisableClientAuthenticationResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DisableClientAuthenticationRequest request)
+        private Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeDirectoryDataAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DisableClientAuthentication");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DescribeDirectoryDataAccess");
             try
             {
                 #if DESKTOP
-                return client.DisableClientAuthentication(request);
+                return client.DescribeDirectoryDataAccess(request);
                 #elif CORECLR
-                return client.DisableClientAuthenticationAsync(request).GetAwaiter().GetResult();
+                return client.DescribeDirectoryDataAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,9 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DirectoryId { get; set; }
-            public Amazon.DirectoryService.ClientAuthenticationType Type { get; set; }
-            public System.Func<Amazon.DirectoryService.Model.DisableClientAuthenticationResponse, DisableDSClientAuthenticationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Func<Amazon.DirectoryService.Model.DescribeDirectoryDataAccessResponse, GetDSDirectoryDataAccessCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.DataAccessStatus;
         }
         
     }

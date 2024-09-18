@@ -173,6 +173,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.DevOpsGuru.dll',
         'AWSSDK.DirectConnect.dll',
         'AWSSDK.DirectoryService.dll',
+        'AWSSDK.DirectoryServiceData.dll',
         'AWSSDK.DLM.dll',
         'AWSSDK.DocDB.dll',
         'AWSSDK.DocDBElastic.dll',

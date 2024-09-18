@@ -415,6 +415,9 @@
     <Reference Include="AWSSDK.DirectoryService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DirectoryService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.DirectoryServiceData">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DirectoryServiceData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DLM">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.DLM.dll</HintPath>
     </Reference>
@@ -1553,6 +1556,9 @@
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DirectoryService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DirectoryServiceData">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DirectoryServiceData.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DLM">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.DLM.dll</HintPath>

@@ -1,10 +1,10 @@
 #
-# Module manifest for module 'AWS.Tools.DirectoryService'
+# Module manifest for module 'AWS.Tools.DirectoryServiceData'
 #
 
 @{
     # Script module or binary module file associated with this manifest
-    RootModule = 'AWS.Tools.DirectoryService.dll'
+    RootModule = 'AWS.Tools.DirectoryServiceData.dll'
 
     # Supported PSEditions
     CompatiblePSEditions = @('Core', 'Desktop')
@@ -13,7 +13,7 @@
     ModuleVersion = '0.0.0.0'
 
     # ID used to uniquely identify this module
-    GUID = 'c4251743-697b-4bb8-92db-31d124e011c8'
+    GUID = '95855647-29cd-48d6-b080-597544221b27'
 
     # Author of this module
     Author = 'Amazon.com, Inc'
@@ -25,7 +25,7 @@
     Copyright = 'Copyright 2012-2024 Amazon.com, Inc. or its affiliates. All Rights Reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'The DirectoryService module of AWS Tools for PowerShell lets developers and administrators manage AWS Directory Service from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
+    Description = 'The DirectoryServiceData module of AWS Tools for PowerShell lets developers and administrators manage AWS Directory Service Data from the PowerShell scripting environment. In order to manage each AWS service, install the corresponding module (e.g. AWS.Tools.EC2, AWS.Tools.S3...).
 The module AWS.Tools.Installer (https://www.powershellgallery.com/packages/AWS.Tools.Installer/) makes it easier to install, update and uninstall the AWS.Tools modules.
 This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5.1+ and PowerShell Core 6+ on Windows, Linux and macOS. When running on Windows PowerShell, .NET Framework 4.7.2 or newer is required. Alternative modules AWSPowerShell.NetCore and AWSPowerShell, provide support for all AWS services from a single module and also support older versions of Windows PowerShell and .NET Framework.'
 
@@ -57,7 +57,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
-        'AWSSDK.DirectoryService.dll'
+        'AWSSDK.DirectoryServiceData.dll'
     )
 
     # Script files (.ps1) that are run in the caller's environment prior to importing this module
@@ -72,13 +72,13 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Format files (.ps1xml) to be loaded when importing this module
     FormatsToProcess = @(
-        'AWS.Tools.DirectoryService.Format.ps1xml'
+        'AWS.Tools.DirectoryServiceData.Format.ps1xml'
     )
 
     # Modules to import as nested modules of the module specified in ModuleToProcess
     NestedModules = @(
-        'AWS.Tools.DirectoryService.Completers.psm1',
-        'AWS.Tools.DirectoryService.Aliases.psm1'
+        'AWS.Tools.DirectoryServiceData.Completers.psm1',
+        'AWS.Tools.DirectoryServiceData.Aliases.psm1'
     )
 
     # Functions to export from this module
@@ -86,92 +86,36 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
 
     # Cmdlets to export from this module
     CmdletsToExport = @(
-        'Add-DSIpRoute', 
-        'Add-DSRegion', 
-        'Add-DSResourceTag', 
-        'Approve-DSTrust', 
-        'Confirm-DSSharedDirectory', 
-        'Connect-DSDirectory', 
-        'Deny-DSSharedDirectory', 
-        'Disable-DSClientAuthentication', 
-        'Disable-DSDirectoryDataAccess', 
-        'Disable-DSDirectoryShare', 
-        'Disable-DSLDAPS', 
-        'Disable-DSRadius', 
-        'Disable-DSSso', 
-        'Enable-DSClientAuthentication', 
-        'Enable-DSDirectoryDataAccess', 
-        'Enable-DSDirectoryShare', 
-        'Enable-DSLDAPS', 
-        'Enable-DSRadius', 
-        'Enable-DSSso', 
-        'Get-DSCertificate', 
-        'Get-DSCertificateList', 
-        'Get-DSClientAuthenticationSetting', 
-        'Get-DSConditionalForwarder', 
-        'Get-DSDirectory', 
-        'Get-DSDirectoryDataAccess', 
-        'Get-DSDirectoryLimit', 
-        'Get-DSDomainControllerList', 
-        'Get-DSEventTopic', 
-        'Get-DSIpRouteList', 
-        'Get-DSLDAPSSetting', 
-        'Get-DSLogSubscriptionList', 
-        'Get-DSRegion', 
-        'Get-DSResourceTag', 
-        'Get-DSSchemaExtension', 
-        'Get-DSSetting', 
-        'Get-DSSharedDirectory', 
-        'Get-DSSnapshot', 
-        'Get-DSSnapshotLimit', 
-        'Get-DSTrust', 
-        'Get-DSUpdateDirectory', 
-        'New-DSAlias', 
-        'New-DSComputer', 
-        'New-DSConditionalForwarder', 
-        'New-DSDirectory', 
-        'New-DSLogSubscription', 
-        'New-DSMicrosoftAD', 
-        'New-DSSnapshot', 
-        'New-DSTrust', 
-        'Register-DSCertificate', 
-        'Register-DSEventTopic', 
-        'Remove-DSConditionalForwarder', 
-        'Remove-DSDirectory', 
-        'Remove-DSIpRoute', 
-        'Remove-DSLogSubscription', 
-        'Remove-DSRegion', 
-        'Remove-DSResourceTag', 
-        'Remove-DSSnapshot', 
-        'Remove-DSTrust', 
-        'Reset-DSUserPassword', 
-        'Restore-DSFromSnapshot', 
-        'Set-DSDomainControllerCount', 
-        'Start-DSSchemaExtension', 
-        'Stop-DSSchemaExtension', 
-        'Unregister-DSCertificate', 
-        'Unregister-DSEventTopic', 
-        'Update-DSConditionalForwarder', 
-        'Update-DSDirectorySetup', 
-        'Update-DSRadius', 
-        'Update-DSSetting', 
-        'Update-DSTrust')
+        'Add-DSDGroupMember', 
+        'Disable-DSDUser', 
+        'Get-DSDGroup', 
+        'Get-DSDGroupList', 
+        'Get-DSDGroupMemberList', 
+        'Get-DSDGroupsForMemberList', 
+        'Get-DSDUser', 
+        'Get-DSDUserList', 
+        'New-DSDGroup', 
+        'New-DSDUser', 
+        'Remove-DSDGroup', 
+        'Remove-DSDGroupMember', 
+        'Remove-DSDUser', 
+        'Search-DSDGroup', 
+        'Search-DSDUser', 
+        'Update-DSDGroup', 
+        'Update-DSDUser')
 
     # Variables to export from this module
     VariablesToExport = '*'
 
     # Aliases to export from this module
-    AliasesToExport = @(
-        'Add-DSIpRoutes', 
-        'Get-DSIpRoutes', 
-        'Remove-DSIpRoutes')
+    AliasesToExport = @()
 
     # List of all modules packaged with this module
     ModuleList = @()
 
     # List of all files packaged with this module
     FileList = @(
-        'AWS.Tools.DirectoryService.dll-Help.xml'
+        'AWS.Tools.DirectoryServiceData.dll-Help.xml'
     )
 
     # Private data to pass to the module specified in ModuleToProcess

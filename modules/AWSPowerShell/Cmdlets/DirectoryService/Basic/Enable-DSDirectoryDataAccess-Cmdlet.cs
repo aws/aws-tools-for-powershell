@@ -28,77 +28,25 @@ using Amazon.DirectoryService.Model;
 namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Resets the password for any user in your Managed Microsoft AD or Simple AD directory.
-    /// Disabled users will become enabled and can be authenticated following the API call.
-    /// 
-    ///  
-    /// <para>
-    /// You can reset the password for any user in your directory with the following exceptions:
-    /// </para><ul><li><para>
-    /// For Simple AD, you cannot reset the password for any user that is a member of either
-    /// the <b>Domain Admins</b> or <b>Enterprise Admins</b> group except for the administrator
-    /// user.
-    /// </para></li><li><para>
-    /// For Managed Microsoft AD, you can only reset the password for a user that is in an
-    /// OU based off of the NetBIOS name that you typed when you created your directory. For
-    /// example, you cannot reset the password for a user in the <b>Amazon Web Services Reserved</b>
-    /// OU. For more information about the OU structure for an Managed Microsoft AD directory,
-    /// see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html">What
-    /// Gets Created</a> in the <i>Directory Service Administration Guide</i>.
-    /// </para></li></ul>
+    /// Enables access to directory data via the Directory Service Data API for the specified
+    /// directory.
     /// </summary>
-    [Cmdlet("Reset", "DSUserPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Enable", "DSDirectoryDataAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Directory Service ResetUserPassword API operation.", Operation = new[] {"ResetUserPassword"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.ResetUserPasswordResponse))]
-    [AWSCmdletOutput("None or Amazon.DirectoryService.Model.ResetUserPasswordResponse",
+    [AWSCmdlet("Calls the AWS Directory Service EnableDirectoryDataAccess API operation.", Operation = new[] {"EnableDirectoryDataAccess"}, SelectReturnType = typeof(Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse))]
+    [AWSCmdletOutput("None or Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.DirectoryService.Model.ResetUserPasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ResetDSUserPasswordCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
+    public partial class EnableDSDirectoryDataAccessCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveRequest { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the Managed Microsoft AD or Simple AD directory in which the user resides.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DirectoryId { get; set; }
-        #endregion
-        
-        #region Parameter NewPassword
-        /// <summary>
-        /// <para>
-        /// <para>The new password that will be reset.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String NewPassword { get; set; }
-        #endregion
-        
-        #region Parameter UserName
-        /// <summary>
-        /// <para>
-        /// <para>The user name of the user whose password will be reset.</para>
+        /// <para>The directory identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -109,13 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.DS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String UserName { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.ResetUserPasswordResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,10 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the UserName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the DirectoryId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^UserName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DirectoryId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -147,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.UserName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-DSUserPassword (ResetUserPassword)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.DirectoryId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-DSDirectoryDataAccess (EnableDirectoryDataAccess)"))
             {
                 return;
             }
@@ -161,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.ResetUserPasswordResponse, ResetDSUserPasswordCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse, EnableDSDirectoryDataAccessCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -170,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.UserName;
+                context.Select = (response, cmdlet) => this.DirectoryId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DirectoryId = this.DirectoryId;
@@ -178,20 +126,6 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (this.DirectoryId == null && ParameterWasBound(nameof(this.DirectoryId)))
             {
                 WriteWarning("You are passing $null as a value for parameter DirectoryId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.NewPassword = this.NewPassword;
-            #if MODULAR
-            if (this.NewPassword == null && ParameterWasBound(nameof(this.NewPassword)))
-            {
-                WriteWarning("You are passing $null as a value for parameter NewPassword which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
-            context.UserName = this.UserName;
-            #if MODULAR
-            if (this.UserName == null && ParameterWasBound(nameof(this.UserName)))
-            {
-                WriteWarning("You are passing $null as a value for parameter UserName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -208,19 +142,11 @@ namespace Amazon.PowerShell.Cmdlets.DS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectoryService.Model.ResetUserPasswordRequest();
+            var request = new Amazon.DirectoryService.Model.EnableDirectoryDataAccessRequest();
             
             if (cmdletContext.DirectoryId != null)
             {
                 request.DirectoryId = cmdletContext.DirectoryId;
-            }
-            if (cmdletContext.NewPassword != null)
-            {
-                request.NewPassword = cmdletContext.NewPassword;
-            }
-            if (cmdletContext.UserName != null)
-            {
-                request.UserName = cmdletContext.UserName;
             }
             
             CmdletOutput output;
@@ -255,15 +181,15 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectoryService.Model.ResetUserPasswordResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ResetUserPasswordRequest request)
+        private Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.EnableDirectoryDataAccessRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "ResetUserPassword");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "EnableDirectoryDataAccess");
             try
             {
                 #if DESKTOP
-                return client.ResetUserPassword(request);
+                return client.EnableDirectoryDataAccess(request);
                 #elif CORECLR
-                return client.ResetUserPasswordAsync(request).GetAwaiter().GetResult();
+                return client.EnableDirectoryDataAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -284,9 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DirectoryId { get; set; }
-            public System.String NewPassword { get; set; }
-            public System.String UserName { get; set; }
-            public System.Func<Amazon.DirectoryService.Model.ResetUserPasswordResponse, ResetDSUserPasswordCmdlet, object> Select { get; set; } =
+            public System.Func<Amazon.DirectoryService.Model.EnableDirectoryDataAccessResponse, EnableDSDirectoryDataAccessCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         

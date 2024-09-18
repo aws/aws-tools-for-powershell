@@ -47,6 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// If you are restoring from a shared manual DB snapshot, the <c>DBSnapshotIdentifier</c>
     /// must be the ARN of the shared DB snapshot.
+    /// </para><para>
+    /// To restore from a DB snapshot with an unsupported engine version, you must first upgrade
+    /// the engine version of the snapshot. For more information about upgrading a RDS for
+    /// MySQL DB snapshot engine version, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html">Upgrading
+    /// a MySQL DB snapshot engine version</a>. For more information about upgrading a RDS
+    /// for PostgreSQL DB snapshot engine version, <a href="https://docs.aws.amazon.com/USER_UpgradeDBSnapshot.PostgreSQL.html">Upgrading
+    /// a PostgreSQL DB snapshot engine version</a>.
     /// </para><note><para>
     /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
     /// <c>RestoreDBClusterFromSnapshot</c>.

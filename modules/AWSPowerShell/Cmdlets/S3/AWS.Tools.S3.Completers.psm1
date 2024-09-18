@@ -312,6 +312,7 @@ $S3_Completers = {
         {
             ($_ -eq "Restore-S3Object/Encryption_EncryptionType") -Or
             ($_ -eq "Copy-S3Object/ServerSideEncryption") -Or
+            ($_ -eq "New-S3Session/ServerSideEncryption") -Or
             ($_ -eq "Write-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionMethod") -Or
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
@@ -380,7 +381,7 @@ $S3_map = @{
     "S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
     "Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
     "ServerSideCustomerEncryptionMethod"=@("Select-S3ObjectContent")
-    "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
+    "ServerSideEncryption"=@("Copy-S3Object","New-S3Session","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL","Write-S3GetObjectResponse")
     "SessionMode"=@("New-S3Session")

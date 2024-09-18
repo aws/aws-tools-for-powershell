@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.887.0",
+    "ProductVersion"    : "3.7.888.0",
     "CoreVersion"       : "3.7.400.21",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -284,7 +284,7 @@
             "InPreview"               : false
         },
         "RDS"                  : {
-            "Version" : "3.7.402.1",
+            "Version" : "3.7.402.2",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.21"
@@ -316,7 +316,7 @@
             "InPreview"               : false
         },
         "S3"                   : {
-            "Version" : "3.7.402.12",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.21"
@@ -396,7 +396,7 @@
             "InPreview"               : false
         },
         "DirectoryService"          : {
-            "Version" : "3.7.400.21",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.21"
@@ -844,7 +844,7 @@
             "InPreview"               : false
         },
         "CostExplorer"                    : {
-            "Version" : "3.7.400.21",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.21"
@@ -900,7 +900,7 @@
             "InPreview"               : false
         },
         "GuardDuty"                       : {
-            "Version" : "3.7.401.2",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.21"
@@ -3036,7 +3036,7 @@
             "InPreview"               : false
         },
         "MailManager"                         : {
-            "Version" : "3.7.400.21",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.21"
@@ -3093,6 +3093,14 @@
         },
         "PCS"                                 : {
             "Version" : "3.7.400.9",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.400.21"
+            },
+            "InPreview"               : false
+        },
+        "DirectoryServiceData"                : {
+            "Version" : "3.7.400.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.21"

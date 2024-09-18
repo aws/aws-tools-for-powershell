@@ -28,7 +28,7 @@ using Amazon.MailManager.Model;
 namespace Amazon.PowerShell.Cmdlets.MMGR
 {
     /// <summary>
-    /// &gt;Update attributes of an already provisioned rule set.
+    /// Update attributes of an already provisioned rule set.
     /// </summary>
     [Cmdlet("Update", "MMGRRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

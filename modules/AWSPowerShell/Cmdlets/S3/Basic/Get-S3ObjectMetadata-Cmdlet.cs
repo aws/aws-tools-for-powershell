@@ -64,6 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// use. Amazon Web Services CLI or SDKs create session and refresh the session token
     /// automatically to avoid service interruptions when a session expires. For more information
     /// about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><c>CreateSession</c></a>.
+    /// </para><para>
+    /// If you enable <c>x-amz-checksum-mode</c> in the request and the object is encrypted
+    /// with Amazon Web Services Key Management Service (Amazon Web Services KMS), you must
+    /// also have the <c>kms:GenerateDataKey</c> and <c>kms:Decrypt</c> permissions in IAM
+    /// identity-based policies and KMS key policies for the KMS key to retrieve the checksum
+    /// of the object.
     /// </para></li></ul></dd><dt>Encryption</dt><dd><note><para>
     /// Encryption request headers, like <c>x-amz-server-side-encryption</c>, should not be
     /// sent for <c>HEAD</c> requests if your object uses server-side encryption with Key
@@ -83,8 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
     /// Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User
     /// Guide</i>.
-    /// </para><note><para><b>Directory bucket permissions</b> - For directory buckets, only server-side encryption
-    /// with Amazon S3 managed keys (SSE-S3) (<c>AES256</c>) is supported.
+    /// </para><note><para><b>Directory bucket </b> - For directory buckets, there are only two supported options
+    /// for server-side encryption: SSE-S3 and SSE-KMS. SSE-C isn't supported. For more information,
+    /// see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting
+    /// data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. 
     /// </para></note></dd><dt>Versioning</dt><dd><ul><li><para>
     /// If the current version of the object is a delete marker, Amazon S3 behaves as if the
     /// object was deleted and includes <c>x-amz-delete-marker: true</c> in the response.
@@ -152,9 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         #region Parameter ChecksumMode
         /// <summary>
         /// <para>
-        /// <para>This must be enabled to retrieve the checksum.</para><para>In addition, if you enable <c>ChecksumMode</c> and the object is KMS encrypted,
-        /// you must have permission to the <c>kms:Decrypt</c> action for the request to
-        /// succeed.</para>
+        /// <para>This must be enabled to retrieve the checksum.</para><para><b>General purpose buckets</b> - If you enable checksum mode and the object is uploaded with a <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">checksum</a> 
+        /// and encrypted with an Key Management Service (KMS) key, you must have permission to use the <c>kms:Decrypt</c> action to retrieve the checksum.</para><para><b>Directory buckets</b> - If you enable <c>ChecksumMode</c> and the object is encrypted with Amazon Web Services Key Management Service (Amazon Web Services KMS), 
+        /// you must also have the <c>kms:GenerateDataKey</c> and <c>kms:Decrypt</c> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the 
+        /// checksum of the object.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

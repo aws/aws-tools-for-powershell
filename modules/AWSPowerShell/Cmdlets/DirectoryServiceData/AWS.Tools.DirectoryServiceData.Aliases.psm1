@@ -1,0 +1,3 @@
+﻿# DirectoryServiceData
+
+Export-ModuleMember -Alias *

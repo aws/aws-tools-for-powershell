@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter TrustPassword
         /// <summary>
         /// <para>
-        /// <para>The trust password. The must be the same password that was used when creating the
-        /// trust relationship on the external domain.</para>
+        /// <para>The trust password. The trust password must be the same password that was used when
+        /// creating the trust relationship on the external domain.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
