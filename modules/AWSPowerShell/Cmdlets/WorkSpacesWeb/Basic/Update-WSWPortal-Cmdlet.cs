@@ -53,10 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.WSW
         /// Defaults to <c>Standard</c>.</para><para><c>Standard</c> web portals are authenticated directly through your identity provider.
         /// You need to call <c>CreateIdentityProvider</c> to integrate your identity provider
         /// with your web portal. User and group access to your web portal is controlled through
-        /// your identity provider.</para><para><c>IAM Identity Center</c> web portals are authenticated through IAM Identity Center
-        /// (successor to Single Sign-On). Identity sources (including external identity provider
-        /// integration), plus user and group access to your web portal, can be configured in
-        /// the IAM Identity Center.</para>
+        /// your identity provider.</para><para><c>IAM Identity Center</c> web portals are authenticated through IAM Identity Center.
+        /// Identity sources (including external identity provider integration), plus user and
+        /// group access to your web portal, can be configured in the IAM Identity Center.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

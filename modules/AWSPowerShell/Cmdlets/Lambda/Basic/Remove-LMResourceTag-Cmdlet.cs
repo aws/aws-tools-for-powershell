@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Removes <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>
-    /// from a function.
+    /// from a function, event source mapping, or code signing configuration.
     /// </summary>
     [Cmdlet("Remove", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The function's Amazon Resource Name (ARN).</para>
+        /// <para>The resource's Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>A list of tag keys to remove from the function.</para>
+        /// <para>A list of tag keys to remove from the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

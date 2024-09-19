@@ -28,12 +28,11 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Grants an Amazon Web Servicesservice, Amazon Web Services account, or Amazon Web Services
-    /// organization permission to use a function. You can apply the policy at the function
-    /// level, or specify a qualifier to restrict access to a single version or alias. If
-    /// you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that
-    /// version or alias to invoke the function. Note: Lambda does not support adding policies
-    /// to version $LATEST.
+    /// Grants a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">principal</a>
+    /// permission to use a function. You can apply the policy at the function level, or specify
+    /// a qualifier to restrict access to a single version or alias. If you use a qualifier,
+    /// the invoker must use the full Amazon Resource Name (ARN) of that version or alias
+    /// to invoke the function. Note: Lambda does not support adding policies to version $LATEST.
     /// 
     ///  
     /// <para>
@@ -129,9 +128,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Principal
         /// <summary>
         /// <para>
-        /// <para>The Amazon Web Servicesservice or Amazon Web Services account that invokes the function.
-        /// If you specify a service, use <c>SourceArn</c> or <c>SourceAccount</c> to limit who
-        /// can invoke the function through that service.</para>
+        /// <para>The Amazon Web Servicesservice, Amazon Web Services account, IAM user, or IAM role
+        /// that invokes the function. If you specify a service, use <c>SourceArn</c> or <c>SourceAccount</c>
+        /// to limit who can invoke the function through that service.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

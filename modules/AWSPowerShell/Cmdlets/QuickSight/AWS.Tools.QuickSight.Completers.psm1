@@ -677,6 +677,7 @@ $QS_SelectMap = @{
                "Get-QSDataSourceList",
                "Get-QSFolderMemberList",
                "Get-QSFolderList",
+               "Get-QSFoldersForResourceList",
                "Get-QSGroupMembershipList",
                "Get-QSGroupList",
                "Get-QSIAMPolicyAssignmentList",

@@ -396,6 +396,17 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.DateTime? StartingPositionTimestamp { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to apply to the event source mapping.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Topic
         /// <summary>
         /// <para>
@@ -544,6 +555,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             context.StartingPosition = this.StartingPosition;
             context.StartingPositionTimestamp = this.StartingPositionTimestamp;
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             if (this.Topic != null)
             {
                 context.Topic = new List<System.String>(this.Topic);
@@ -818,6 +837,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 request.StartingPositionTimestamp = cmdletContext.StartingPositionTimestamp.Value;
             }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
+            }
             if (cmdletContext.Topic != null)
             {
                 request.Topics = cmdletContext.Topic;
@@ -912,6 +935,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public List<Amazon.Lambda.Model.SourceAccessConfiguration> SourceAccessConfiguration { get; set; }
             public Amazon.Lambda.EventSourcePosition StartingPosition { get; set; }
             public System.DateTime? StartingPositionTimestamp { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public List<System.String> Topic { get; set; }
             public System.Int32? TumblingWindowInSecond { get; set; }
             public System.Func<Amazon.Lambda.Model.CreateEventSourceMappingResponse, NewLMEventSourceMappingCmdlet, object> Select { get; set; } =

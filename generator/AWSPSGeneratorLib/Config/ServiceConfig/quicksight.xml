@@ -466,6 +466,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListFoldersForResource" OutputProperty="Folders" Verb="Get" Noun="FoldersForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListGroupMemberships" OutputProperty="GroupMemberList" Verb="Get" Noun="GroupMembershipList" PipelineParameter="GroupName" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />

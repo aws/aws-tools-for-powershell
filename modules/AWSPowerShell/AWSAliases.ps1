@@ -13416,6 +13416,7 @@ Set-Alias -Name GLUE-StopSession -Value Stop-GLUESession
 Set-Alias -Name GLUE-StopTrigger -Value Stop-GLUETrigger
 Set-Alias -Name GLUE-StopWorkflowRun -Value Stop-GLUEWorkflowRun
 Set-Alias -Name GLUE-TagResource -Value Add-GLUEResourceTag
+Set-Alias -Name GLUE-TestConnection -Value Test-GLUEConnection
 Set-Alias -Name GLUE-UntagResource -Value Remove-GLUEResourceTag
 Set-Alias -Name GLUE-UpdateBlueprint -Value Update-GLUEBlueprint
 Set-Alias -Name GLUE-UpdateClassifier -Value Update-GLUEClassifier
@@ -22874,6 +22875,9 @@ Set-Alias -Name QS-ListFolderMembers -Value Get-QSFolderMemberList
 Set-Alias -Name List-QSFolders -Value Get-QSFolderList
 Set-Alias -Name List-QSFolderList -Value Get-QSFolderList
 Set-Alias -Name QS-ListFolders -Value Get-QSFolderList
+Set-Alias -Name List-QSFoldersForResource -Value Get-QSFoldersForResourceList
+Set-Alias -Name List-QSFoldersForResourceList -Value Get-QSFoldersForResourceList
+Set-Alias -Name QS-ListFoldersForResource -Value Get-QSFoldersForResourceList
 Set-Alias -Name List-QSGroupMemberships -Value Get-QSGroupMembershipList
 Set-Alias -Name List-QSGroupMembershipList -Value Get-QSGroupMembershipList
 Set-Alias -Name QS-ListGroupMemberships -Value Get-QSGroupMembershipList
@@ -30104,6 +30108,8 @@ Set-Alias -Name WSW-DisassociateUserAccessLoggingSettings -Value Unregister-WSWU
 Set-Alias -Name Disassociate-WSWUserSettings -Value Unregister-WSWUserSetting
 Set-Alias -Name Disassociate-WSWUserSetting -Value Unregister-WSWUserSetting
 Set-Alias -Name WSW-DisassociateUserSettings -Value Unregister-WSWUserSetting
+Set-Alias -Name Expire-WSWSession -Value Revoke-WSWSession
+Set-Alias -Name WSW-ExpireSession -Value Revoke-WSWSession
 Set-Alias -Name Get-WSWBrowserSettings -Value Get-WSWBrowserSetting
 Set-Alias -Name WSW-GetBrowserSettings -Value Get-WSWBrowserSetting
 Set-Alias -Name WSW-GetIdentityProvider -Value Get-WSWIdentityProvider
@@ -30113,6 +30119,7 @@ Set-Alias -Name Get-WSWNetworkSettings -Value Get-WSWNetworkSetting
 Set-Alias -Name WSW-GetNetworkSettings -Value Get-WSWNetworkSetting
 Set-Alias -Name WSW-GetPortal -Value Get-WSWPortal
 Set-Alias -Name WSW-GetPortalServiceProviderMetadata -Value Get-WSWPortalServiceProviderMetadata
+Set-Alias -Name WSW-GetSession -Value Get-WSWSession
 Set-Alias -Name WSW-GetTrustStore -Value Get-WSWTrustStore
 Set-Alias -Name WSW-GetTrustStoreCertificate -Value Get-WSWTrustStoreCertificate
 Set-Alias -Name Get-WSWUserAccessLoggingSettings -Value Get-WSWUserAccessLoggingSetting
@@ -30134,6 +30141,9 @@ Set-Alias -Name WSW-ListNetworkSettings -Value Get-WSWNetworkSettingList
 Set-Alias -Name List-WSWPortals -Value Get-WSWPortalList
 Set-Alias -Name List-WSWPortalList -Value Get-WSWPortalList
 Set-Alias -Name WSW-ListPortals -Value Get-WSWPortalList
+Set-Alias -Name List-WSWSessions -Value Get-WSWSessionList
+Set-Alias -Name List-WSWSessionList -Value Get-WSWSessionList
+Set-Alias -Name WSW-ListSessions -Value Get-WSWSessionList
 Set-Alias -Name WSW-ListTagsForResource -Value Get-WSWResourceTag
 Set-Alias -Name List-WSWTrustStoreCertificates -Value Get-WSWTrustStoreCertificateList
 Set-Alias -Name List-WSWTrustStoreCertificateList -Value Get-WSWTrustStoreCertificateList

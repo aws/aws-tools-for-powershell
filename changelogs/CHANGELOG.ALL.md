@@ -1,4 +1,21 @@
-﻿### 4.1.659 (2024-09-18 20:57Z)
+﻿### 4.1.660 (2024-09-19 20:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.889.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon CodeConnections
+    * Modified cmdlet New-CCONSyncConfiguration: added parameter PullRequestComment.
+    * Modified cmdlet Update-CCONSyncConfiguration: added parameter PullRequestComment.
+  * Amazon Glue
+    * Added cmdlet Test-GLUEConnection leveraging the TestConnection service API.
+  * Amazon Lambda
+    * Modified cmdlet New-LMCodeSigningConfig: added parameter Tag.
+    * Modified cmdlet New-LMEventSourceMapping: added parameter Tag.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSFoldersForResourceList leveraging the ListFoldersForResource service API.
+  * Amazon WorkSpaces Web
+    * Added cmdlet Get-WSWSession leveraging the GetSession service API.
+    * Added cmdlet Get-WSWSessionList leveraging the ListSessions service API.
+    * Added cmdlet Revoke-WSWSession leveraging the ExpireSession service API.
+
+### 4.1.659 (2024-09-18 20:57Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.888.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Directory Service
     * Added cmdlet Disable-DSDirectoryDataAccess leveraging the DisableDirectoryDataAccess service API.

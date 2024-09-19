@@ -22,47 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Lambda;
-using Amazon.Lambda.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LM
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// <note><para>
-    /// The option to create and modify full JSON resource-based policies, and to use the
-    /// PutResourcePolicy, GetResourcePolicy, and DeleteResourcePolicy APIs, won't be available
-    /// in all Amazon Web Services Regions until September 30, 2024.
-    /// </para></note><para>
-    /// Adds a <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
-    /// policy</a> to a function. You can use resource-based policies to grant access to other
-    /// <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-cross-account.html">Amazon
-    /// Web Services accounts</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-organization.html">organizations</a>,
-    /// or <a href="https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-services.html">services</a>.
-    /// Resource-based policies apply to a single function, version, or alias.
-    /// </para><important><para>
-    /// Adding a resource-based policy using this API action replaces any existing policy
-    /// you've previously created. This means that if you've previously added resource-based
-    /// permissions to a function using the <a>AddPermission</a> action, those permissions
-    /// will be overwritten by your new policy.
-    /// </para></important>
+    /// List all folders that a resource is a member of.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Write", "LMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Lambda.Model.PutResourcePolicyResponse")]
-    [AWSCmdlet("Calls the AWS Lambda PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.Lambda.Model.PutResourcePolicyResponse))]
-    [AWSCmdletOutput("Amazon.Lambda.Model.PutResourcePolicyResponse",
-        "This cmdlet returns an Amazon.Lambda.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "QSFoldersForResourceList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon QuickSight ListFoldersForResource API operation.", Operation = new[] {"ListFoldersForResource"}, SelectReturnType = typeof(Amazon.QuickSight.Model.ListFoldersForResourceResponse))]
+    [AWSCmdletOutput("System.String or Amazon.QuickSight.Model.ListFoldersForResourceResponse",
+        "This cmdlet returns a collection of System.String objects.",
+        "The service call response (type Amazon.QuickSight.Model.ListFoldersForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteLMResourcePolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class GetQSFoldersForResourceListCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Policy
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The JSON resource-based policy you want to add to your function.</para><para>To learn more about creating resource-based policies for controlling access to Lambda,
-        /// see <a href="https://docs.aws.amazon.com/">Working with resource-based IAM policies
-        /// in Lambda</a> in the <i>Lambda Developer Guide</i>.</para>
+        /// <para>The ID for the Amazon Web Services account that contains the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,15 +56,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Policy { get; set; }
+        public System.String AwsAccountId { get; set; }
         #endregion
         
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the function you want to add the policy to. You
-        /// can use either a qualified or an unqualified ARN, but the value you specify must be
-        /// a complete ARN and wildcard characters are not accepted.</para>
+        /// <para>The Amazon Resource Name (ARN) the resource whose folders you need to list.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -95,27 +76,40 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter RevisionId
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Replace the existing policy only if its revision ID matches the string you specify.
-        /// To find the revision ID of the policy currently attached to your function, use the
-        /// <a>GetResourcePolicy</a> action.</para>
+        /// <para>The maximum number of results to be returned per request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RevisionId { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token for the next set of results, or null if there are no more results.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, use '-NextToken $null' for the first call and '-NextToken $AWSHistory.LastServiceResponse.NextToken' for subsequent calls.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.PutResourcePolicyResponse).
-        /// Specifying the name of a property of type Amazon.Lambda.Model.PutResourcePolicyResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Folders'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.ListFoldersForResourceResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.ListFoldersForResourceResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Folders";
         #endregion
         
         #region Parameter PassThru
@@ -128,26 +122,20 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter NoAutoIteration
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// By default the cmdlet will auto-iterate and retrieve all results to the pipeline by performing multiple
+        /// service calls. If set, the cmdlet will retrieve only the next 'page' of results using the value of NextToken
+        /// as the start point.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
+        public SwitchParameter NoAutoIteration { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-LMResourcePolicy (PutResourcePolicy)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -157,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.PutResourcePolicyResponse, WriteLMResourcePolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.ListFoldersForResourceResponse, GetQSFoldersForResourceListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -169,13 +157,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Policy = this.Policy;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
             context.ResourceArn = this.ResourceArn;
             #if MODULAR
             if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
@@ -183,7 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RevisionId = this.RevisionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -197,43 +186,71 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.Lambda.Model.PutResourcePolicyRequest();
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
-            if (cmdletContext.Policy != null)
+            // create request and set iteration invariants
+            var request = new Amazon.QuickSight.Model.ListFoldersForResourceRequest();
+            
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.Policy = cmdletContext.Policy;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
             }
             if (cmdletContext.ResourceArn != null)
             {
                 request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.RevisionId != null)
-            {
-                request.RevisionId = cmdletContext.RevisionId;
-            }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            var _nextToken = cmdletContext.NextToken;
+            var _userControllingPaging = this.NoAutoIteration.IsPresent || ParameterWasBound(nameof(this.NextToken));
             
-            // issue call
             var client = Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint);
-            try
+            do
             {
-                var response = CallAWSServiceOperation(client, request);
-                object pipelineOutput = null;
-                pipelineOutput = cmdletContext.Select(response, this);
-                output = new CmdletOutput
+                request.NextToken = _nextToken;
+                
+                CmdletOutput output;
+                
+                try
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response
-                };
-            }
-            catch (Exception e)
+                    
+                    var response = CallAWSServiceOperation(client, request);
+                    
+                    object pipelineOutput = null;
+                    if (!useParameterSelect)
+                    {
+                        pipelineOutput = cmdletContext.Select(response, this);
+                    }
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = pipelineOutput,
+                        ServiceResponse = response
+                    };
+                    
+                    _nextToken = response.NextToken;
+                }
+                catch (Exception e)
+                {
+                    output = new CmdletOutput { ErrorResponse = e };
+                }
+                
+                ProcessOutput(output);
+                
+            } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextToken));
+            
+            if (useParameterSelect)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                WriteObject(cmdletContext.Select(null, this));
             }
             
-            return output;
+            
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -245,15 +262,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private Amazon.Lambda.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.PutResourcePolicyRequest request)
+        private Amazon.QuickSight.Model.ListFoldersForResourceResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.ListFoldersForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "PutResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "ListFoldersForResource");
             try
             {
                 #if DESKTOP
-                return client.PutResourcePolicy(request);
+                return client.ListFoldersForResource(request);
                 #elif CORECLR
-                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
+                return client.ListFoldersForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -273,11 +290,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Policy { get; set; }
+            public System.String AwsAccountId { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
             public System.String ResourceArn { get; set; }
-            public System.String RevisionId { get; set; }
-            public System.Func<Amazon.Lambda.Model.PutResourcePolicyResponse, WriteLMResourcePolicyCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.QuickSight.Model.ListFoldersForResourceResponse, GetQSFoldersForResourceListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Folders;
         }
         
     }

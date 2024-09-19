@@ -13279,6 +13279,16 @@ $CCON_Completers = {
             break
         }
 
+        # Amazon.CodeConnections.PullRequestComment
+        {
+            ($_ -eq "New-CCONSyncConfiguration/PullRequestComment") -Or
+            ($_ -eq "Update-CCONSyncConfiguration/PullRequestComment")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CodeConnections.SyncConfigurationType
         {
             ($_ -eq "Get-CCONRepositorySyncDefinitionList/SyncType") -Or
@@ -13319,6 +13329,7 @@ $CCON_map = @{
     "ProviderType"=@("New-CCONConnection","New-CCONHost")
     "ProviderTypeFilter"=@("Get-CCONConnectionList")
     "PublishDeploymentStatus"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
+    "PullRequestComment"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
     "SyncType"=@("Get-CCONRepositorySyncDefinitionList","Get-CCONRepositorySyncStatus","Get-CCONResourceSyncStatus","Get-CCONSyncBlockerSummary","Get-CCONSyncConfiguration","Get-CCONSyncConfigurationList","New-CCONSyncConfiguration","Remove-CCONSyncConfiguration","Update-CCONSyncBlocker","Update-CCONSyncConfiguration")
     "TriggerResourceUpdateOn"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
 }
@@ -31148,6 +31159,13 @@ $GLUE_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Glue.AuthenticationType
+        "Test-GLUEConnection/AuthenticationConfiguration_AuthenticationType"
+        {
+            $v = "BASIC","CUSTOM","OAUTH2"
+            break
+        }
+
         # Amazon.Glue.CatalogEncryptionMode
         "Set-GLUEDataCatalogEncryptionSetting/EncryptionAtRest_CatalogEncryptionMode"
         {
@@ -31169,6 +31187,13 @@ $GLUE_Completers = {
         }
         {
             $v = "BACKWARD","BACKWARD_ALL","DISABLED","FORWARD","FORWARD_ALL","FULL","FULL_ALL","NONE"
+            break
+        }
+
+        # Amazon.Glue.ConnectionType
+        "Test-GLUEConnection/TestConnectionInput_ConnectionType"
+        {
+            $v = "CUSTOM","JDBC","KAFKA","MARKETPLACE","MONGODB","NETWORK","SALESFORCE","SFTP","VIEW_VALIDATION_ATHENA","VIEW_VALIDATION_REDSHIFT"
             break
         }
 
@@ -31285,6 +31310,13 @@ $GLUE_Completers = {
         "New-GLUEMLTransform/MlUserDataEncryption_MlUserDataEncryptionMode"
         {
             $v = "DISABLED","SSE-KMS"
+            break
+        }
+
+        # Amazon.Glue.OAuth2GrantType
+        "Test-GLUEConnection/OAuth2Properties_OAuth2GrantType"
+        {
+            $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
             break
         }
 
@@ -31459,6 +31491,7 @@ $GLUE_Completers = {
 
 $GLUE_map = @{
     "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
@@ -31478,6 +31511,7 @@ $GLUE_map = @{
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "LineageConfiguration_CrawlerLineageSetting"=@("New-GLUECrawler","Update-GLUECrawler")
     "MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
+    "OAuth2Properties_OAuth2GrantType"=@("Test-GLUEConnection")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
@@ -31489,6 +31523,7 @@ $GLUE_map = @{
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
+    "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "ViewUpdateAction"=@("Update-GLUETable")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
@@ -31744,6 +31779,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUETrigger",
                "Stop-GLUEWorkflowRun",
                "Add-GLUEResourceTag",
+               "Test-GLUEConnection",
                "Remove-GLUEResourceTag",
                "Update-GLUEBlueprint",
                "Update-GLUEClassifier",
@@ -55479,6 +55515,7 @@ $QS_SelectMap = @{
                "Get-QSDataSourceList",
                "Get-QSFolderMemberList",
                "Get-QSFolderList",
+               "Get-QSFoldersForResourceList",
                "Get-QSGroupMembershipList",
                "Get-QSGroupList",
                "Get-QSIAMPolicyAssignmentList",
@@ -60278,7 +60315,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
             break
         }
 
@@ -72353,6 +72390,20 @@ $WSW_Completers = {
             break
         }
 
+        # Amazon.WorkSpacesWeb.SessionSortBy
+        "Get-WSWSessionList/SortBy"
+        {
+            $v = "StartTimeAscending","StartTimeDescending"
+            break
+        }
+
+        # Amazon.WorkSpacesWeb.SessionStatus
+        "Get-WSWSessionList/Status"
+        {
+            $v = "Active","Terminated"
+            break
+        }
+
 
     }
 
@@ -72370,6 +72421,8 @@ $WSW_map = @{
     "InstanceType"=@("New-WSWPortal","Update-WSWPortal")
     "PasteAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "PrintAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "SortBy"=@("Get-WSWSessionList")
+    "Status"=@("Get-WSWSessionList")
     "UploadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
 }
 
@@ -72451,12 +72504,14 @@ $WSW_SelectMap = @{
                "Unregister-WSWTrustStore",
                "Unregister-WSWUserAccessLoggingSetting",
                "Unregister-WSWUserSetting",
+               "Revoke-WSWSession",
                "Get-WSWBrowserSetting",
                "Get-WSWIdentityProvider",
                "Get-WSWIpAccessSetting",
                "Get-WSWNetworkSetting",
                "Get-WSWPortal",
                "Get-WSWPortalServiceProviderMetadata",
+               "Get-WSWSession",
                "Get-WSWTrustStore",
                "Get-WSWTrustStoreCertificate",
                "Get-WSWUserAccessLoggingSetting",
@@ -72466,6 +72521,7 @@ $WSW_SelectMap = @{
                "Get-WSWIpAccessSettingList",
                "Get-WSWNetworkSettingList",
                "Get-WSWPortalList",
+               "Get-WSWSessionList",
                "Get-WSWResourceTag",
                "Get-WSWTrustStoreCertificateList",
                "Get-WSWTrustStoreList",

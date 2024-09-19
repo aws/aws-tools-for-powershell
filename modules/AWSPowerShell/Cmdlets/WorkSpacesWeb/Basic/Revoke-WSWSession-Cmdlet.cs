@@ -22,39 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Lambda;
-using Amazon.Lambda.Model;
+using Amazon.WorkSpacesWeb;
+using Amazon.WorkSpacesWeb.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LM
+namespace Amazon.PowerShell.Cmdlets.WSW
 {
     /// <summary>
-    /// <note><para>
-    /// The option to create and modify full JSON resource-based policies, and to use the
-    /// PutResourcePolicy, GetResourcePolicy, and DeleteResourcePolicy APIs, won't be available
-    /// in all Amazon Web Services Regions until September 30, 2024.
-    /// </para></note><para>
-    /// Deletes a <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
-    /// policy</a> from a function.
-    /// </para>
+    /// Expires an active secure browser session.
     /// </summary>
-    [Cmdlet("Remove", "LMResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Revoke", "WSWSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Lambda DeleteResourcePolicy API operation.", Operation = new[] {"DeleteResourcePolicy"}, SelectReturnType = typeof(Amazon.Lambda.Model.DeleteResourcePolicyResponse))]
-    [AWSCmdletOutput("None or Amazon.Lambda.Model.DeleteResourcePolicyResponse",
+    [AWSCmdlet("Calls the Amazon WorkSpaces Web ExpireSession API operation.", Operation = new[] {"ExpireSession"}, SelectReturnType = typeof(Amazon.WorkSpacesWeb.Model.ExpireSessionResponse))]
+    [AWSCmdletOutput("None or Amazon.WorkSpacesWeb.Model.ExpireSessionResponse",
         "This cmdlet does not generate any output." +
-        "The service response (type Amazon.Lambda.Model.DeleteResourcePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.WorkSpacesWeb.Model.ExpireSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveLMResourcePolicyCmdlet : AmazonLambdaClientCmdlet, IExecutor
+    public partial class RevokeWSWSessionCmdlet : AmazonWorkSpacesWebClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter ResourceArn
+        #region Parameter PortalId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the function you want to delete the policy from.
-        /// You can use either a qualified or an unqualified ARN, but the value you specify must
-        /// be a complete ARN and wildcard characters are not accepted.</para>
+        /// <para>The ID of the web portal for the session.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -65,25 +56,30 @@ namespace Amazon.PowerShell.Cmdlets.LM
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ResourceArn { get; set; }
+        public System.String PortalId { get; set; }
         #endregion
         
-        #region Parameter RevisionId
+        #region Parameter SessionId
         /// <summary>
         /// <para>
-        /// <para>Delete the existing policy only if its revision ID matches the string you specify.
-        /// To find the revision ID of the policy currently attached to your function, use the
-        /// <a>GetResourcePolicy</a> action.</para>
+        /// <para>The ID of the session to expire.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RevisionId { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String SessionId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Lambda.Model.DeleteResourcePolicyResponse).
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.WorkSpacesWeb.Model.ExpireSessionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -92,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the PortalId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^PortalId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PortalId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -115,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-LMResourcePolicy (DeleteResourcePolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.SessionId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Revoke-WSWSession (ExpireSession)"))
             {
                 return;
             }
@@ -129,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Lambda.Model.DeleteResourcePolicyResponse, RemoveLMResourcePolicyCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.WorkSpacesWeb.Model.ExpireSessionResponse, RevokeWSWSessionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -138,17 +134,23 @@ namespace Amazon.PowerShell.Cmdlets.LM
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceArn;
+                context.Select = (response, cmdlet) => this.PortalId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ResourceArn = this.ResourceArn;
+            context.PortalId = this.PortalId;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.PortalId == null && ParameterWasBound(nameof(this.PortalId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PortalId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.RevisionId = this.RevisionId;
+            context.SessionId = this.SessionId;
+            #if MODULAR
+            if (this.SessionId == null && ParameterWasBound(nameof(this.SessionId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter SessionId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Lambda.Model.DeleteResourcePolicyRequest();
+            var request = new Amazon.WorkSpacesWeb.Model.ExpireSessionRequest();
             
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.PortalId != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.PortalId = cmdletContext.PortalId;
             }
-            if (cmdletContext.RevisionId != null)
+            if (cmdletContext.SessionId != null)
             {
-                request.RevisionId = cmdletContext.RevisionId;
+                request.SessionId = cmdletContext.SessionId;
             }
             
             CmdletOutput output;
@@ -206,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #region AWS Service Operation Call
         
-        private Amazon.Lambda.Model.DeleteResourcePolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.DeleteResourcePolicyRequest request)
+        private Amazon.WorkSpacesWeb.Model.ExpireSessionResponse CallAWSServiceOperation(IAmazonWorkSpacesWeb client, Amazon.WorkSpacesWeb.Model.ExpireSessionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "DeleteResourcePolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces Web", "ExpireSession");
             try
             {
                 #if DESKTOP
-                return client.DeleteResourcePolicy(request);
+                return client.ExpireSession(request);
                 #elif CORECLR
-                return client.DeleteResourcePolicyAsync(request).GetAwaiter().GetResult();
+                return client.ExpireSessionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -234,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceArn { get; set; }
-            public System.String RevisionId { get; set; }
-            public System.Func<Amazon.Lambda.Model.DeleteResourcePolicyResponse, RemoveLMResourcePolicyCmdlet, object> Select { get; set; } =
+            public System.String PortalId { get; set; }
+            public System.String SessionId { get; set; }
+            public System.Func<Amazon.WorkSpacesWeb.Model.ExpireSessionResponse, RevokeWSWSessionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
         
