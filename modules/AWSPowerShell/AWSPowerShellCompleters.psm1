@@ -62737,7 +62737,8 @@ $SMM_SelectCompleters = {
 }
 
 $SMM_SelectMap = @{
-    "Select"=@("Add-SMMMetric")
+    "Select"=@("Get-SMMMetric",
+               "Add-SMMMetric")
 }
 
 _awsArgumentCompleterRegistration $SMM_SelectCompleters $SMM_SelectMap

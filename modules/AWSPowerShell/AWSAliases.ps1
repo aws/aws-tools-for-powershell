@@ -25921,6 +25921,9 @@ Set-Alias -Name SMGS-StopEarthObservationJob -Value Stop-SMGSEarthObservationJob
 Set-Alias -Name SMGS-StopVectorEnrichmentJob -Value Stop-SMGSVectorEnrichmentJob
 Set-Alias -Name SMGS-TagResource -Value Add-SMGSResourceTag
 Set-Alias -Name SMGS-UntagResource -Value Remove-SMGSResourceTag
+Set-Alias -Name Batch-SMMGetMetrics -Value Get-SMMMetric
+Set-Alias -Name Batch-SMMMetric -Value Get-SMMMetric
+Set-Alias -Name SMM-BatchGetMetrics -Value Get-SMMMetric
 Set-Alias -Name Batch-SMMPutMetrics -Value Add-SMMMetric
 Set-Alias -Name Batch-SMMMetric -Value Add-SMMMetric
 Set-Alias -Name SMM-BatchPutMetrics -Value Add-SMMMetric

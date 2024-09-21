@@ -1,4 +1,9 @@
-﻿### 4.1.660 (2024-09-19 20:58Z)
+﻿### 4.1.661 (2024-09-21 01:29Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.890.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon SageMaker Metrics Service
+    * Added cmdlet Get-SMMMetric leveraging the BatchGetMetrics service API.
+
+### 4.1.660 (2024-09-19 20:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.889.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon CodeConnections
     * Modified cmdlet New-CCONSyncConfiguration: added parameter PullRequestComment.
