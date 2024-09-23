@@ -5,7 +5,8 @@
 .DESCRIPTION
     Publishes the AWS Tools for PowerShell modules (AWSPowerShell, 
     AWSPowerShell.NetCore, and AWS.Tools.*) to the PowerShell Gallery or a 
-    local PowerShell repository.
+    local PowerShell repository. Updating DDB Package Versions can be skipped by
+    passing an empty value to UpdatePackageVersionsProfile parameter.
 
 .NOTES
     The script must be run in a folder that contains subfolders holding the 
@@ -66,8 +67,7 @@ Param
     [ValidateNotNullOrEmpty()]
     [string]$SecretKey,
 
-    [Parameter(ParameterSetName="remote", Mandatory = $true, HelpMessage = "The AWS profile to use to update and store PowerShell Gallery package information in the ProfileVersions table.")]
-    [ValidateNotNullOrEmpty()]
+    [Parameter(ParameterSetName="remote", HelpMessage = "The AWS profile to use to update and store PowerShell Gallery package information in the ProfileVersions table. This should have a value for the latest GA version of AWSPowerShell. This should be empty for older versions and non-GA releases.")]
     [string]$UpdatePackageVersionsProfile,
     
     [Parameter(ParameterSetName="remote")]    
@@ -89,15 +89,21 @@ $paramSetLocalName = "local"
 
 Import-Module -Name "PowerShellGet"
 
+$shouldUpdatePackageVersions = ![string]::IsNullOrEmpty($UpdatePackageVersionsProfile)
 #Import DynamoDBv2 needed to update the PackageVersions table.
 if ($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
-    if (-not (Get-Module -ListAvailable -Name AWS.Tools.DynamoDBv2 | Where-Object { $_.Version -eq $RequiredAWSPowerShellVersionToUse })) {
-        Write-Host "Installing AWS.Tools.DynamoDBv2 $RequiredAWSPowerShellVersionToUse"
-        Install-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse -Force
-    }
-    Import-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse
+    if ($shouldUpdatePackageVersions) {
+        if (-not (Get-Module -ListAvailable -Name AWS.Tools.DynamoDBv2 | Where-Object { $_.Version -eq $RequiredAWSPowerShellVersionToUse })) {
+            Write-Host "Installing AWS.Tools.DynamoDBv2 $RequiredAWSPowerShellVersionToUse"
+            Install-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse -Force
+        }
+        Import-Module -Name AWS.Tools.DynamoDBv2 -RequiredVersion $RequiredAWSPowerShellVersionToUse
 
-    Import-Module $PSScriptRoot/Update-ModulePackageVersion.psm1
+        Import-Module $PSScriptRoot/Update-ModulePackageVersion.psm1
+    }
+    else {
+        Write-Warning 'Skipping updates to the PackageVersions table since UpdatePackageVersionsProfile parameter is either null or empty'
+    }
 }
 elseif($PSCmdlet.ParameterSetName -eq $paramSetLocalName){
     # validate if the LocalRepositoryName exists
@@ -171,7 +177,7 @@ function PublishRecursive([string]$modulePath) {
                 }
                 else {
                     Publish-Module -Path $modulePath @commonArgs -Force
-                    if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName) {
+                    if($PSCmdlet.ParameterSetName -eq $paramSetRemoteName -and $shouldUpdatePackageVersions) {
                         Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
                     }
                     Write-Host "Published $modulePath"
@@ -187,7 +193,7 @@ function PublishRecursive([string]$modulePath) {
                         if ($DryRun) {
                             Write-Host "-DryRun specified, skipped PackageVersions update of $modulePath in catch."
                         }
-                        else {
+                        elseif($shouldUpdatePackageVersions){
                             Update-ModulePackageVersion -modulePath $modulePath -versionNumber $manifestData.ModuleVersion -repository "PSGallery" -profileName $UpdatePackageVersionsProfile
                         }
                         break;
