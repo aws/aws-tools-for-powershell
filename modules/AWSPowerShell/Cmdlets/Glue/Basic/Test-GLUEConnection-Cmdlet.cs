@@ -49,6 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class TestGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter AuthenticationConfiguration_AuthenticationType

@@ -167,12 +167,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group to associate with this DB instance.</para><para>If you don't specify a value for <c>DBParameterGroupName</c>, then Amazon RDS uses
-        /// the <c>DBParameterGroup</c> of the source DB instance for a same Region read replica,
-        /// or the default <c>DBParameterGroup</c> for the specified DB engine for a cross-Region
-        /// read replica.</para><para>Specifying a parameter group for this operation is only supported for MySQL DB instances
-        /// for cross-Region read replicas and for Oracle DB instances. It isn't supported for
-        /// MySQL DB instances for same Region read replicas or for RDS Custom.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// <para>The name of the DB parameter group to associate with this read replica DB instance.</para><para>For Single-AZ or Multi-AZ DB instance read replica instances, if you don't specify
+        /// a value for <c>DBParameterGroupName</c>, then Amazon RDS uses the <c>DBParameterGroup</c>
+        /// of the source DB instance for a same Region read replica, or the default <c>DBParameterGroup</c>
+        /// for the specified DB engine for a cross-Region read replica.</para><para>For Multi-AZ DB cluster same Region read replica instances, if you don't specify a
+        /// value for <c>DBParameterGroupName</c>, then Amazon RDS uses the default <c>DBParameterGroup</c>.</para><para>Specifying a parameter group for this operation is only supported for MySQL DB instances
+        /// for cross-Region read replicas, for Multi-AZ DB cluster read replica instances, and
+        /// for Oracle DB instances. It isn't supported for MySQL DB instances for same Region
+        /// read replicas or for RDS Custom.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -24178,6 +24178,9 @@ Set-Alias -Name AREX-ListIndexes -Value Get-AREXIndexList
 Set-Alias -Name List-AREXIndexesForMembers -Value Get-AREXIndexesForMemberList
 Set-Alias -Name List-AREXIndexesForMemberList -Value Get-AREXIndexesForMemberList
 Set-Alias -Name AREX-ListIndexesForMembers -Value Get-AREXIndexesForMemberList
+Set-Alias -Name List-AREXResources -Value Get-AREXResourceList
+Set-Alias -Name List-AREXResourceList -Value Get-AREXResourceList
+Set-Alias -Name AREX-ListResources -Value Get-AREXResourceList
 Set-Alias -Name List-AREXSupportedResourceTypes -Value Get-AREXSupportedResourceTypeList
 Set-Alias -Name List-AREXSupportedResourceTypeList -Value Get-AREXSupportedResourceTypeList
 Set-Alias -Name AREX-ListSupportedResourceTypes -Value Get-AREXSupportedResourceTypeList

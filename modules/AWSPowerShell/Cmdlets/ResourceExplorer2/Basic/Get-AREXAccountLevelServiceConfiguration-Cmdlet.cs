@@ -30,8 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.AREX
     /// <summary>
     /// Retrieves the status of your account's Amazon Web Services service access, and validates
     /// the service linked role required to access the multi-account search feature. Only
-    /// the management account or a delegated administrator with service access enabled can
-    /// invoke this API call.
+    /// the management account can invoke this API call.
     /// </summary>
     [Cmdlet("Get", "AREXAccountLevelServiceConfiguration")]
     [OutputType("Amazon.ResourceExplorer2.Model.OrgConfiguration")]

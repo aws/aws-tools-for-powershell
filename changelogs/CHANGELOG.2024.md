@@ -1,4 +1,14 @@
-﻿### 4.1.661 (2024-09-21 01:29Z)
+﻿### 4.1.662 (2024-09-23 21:02Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.891.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon EMR Serverless
+    * Modified cmdlet New-EMRServerlessApplication: added parameters SchedulerConfiguration_MaxConcurrentRun and SchedulerConfiguration_QueueTimeoutMinute.
+    * Modified cmdlet Update-EMRServerlessApplication: added parameters SchedulerConfiguration_MaxConcurrentRun and SchedulerConfiguration_QueueTimeoutMinute.
+  * Amazon Relational Database Service
+    * Modified cmdlet Edit-RDSDBShardGroup: added parameter ComputeRedundancy.
+  * Amazon Resource Explorer
+    * Added cmdlet Get-AREXResourceList leveraging the ListResources service API.
+
+### 4.1.661 (2024-09-21 01:29Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.890.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon SageMaker Metrics Service
     * Added cmdlet Get-SMMMetric leveraging the BatchGetMetrics service API.
