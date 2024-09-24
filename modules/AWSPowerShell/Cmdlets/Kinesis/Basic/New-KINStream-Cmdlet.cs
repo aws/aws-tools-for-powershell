@@ -70,6 +70,12 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// You can use <a>DescribeStreamSummary</a> to check the stream status, which is returned
     /// in <c>StreamStatus</c>.
     /// </para><para><a>CreateStream</a> has a limit of five transactions per second per account.
+    /// </para><para>
+    /// You can add tags to the stream when making a <c>CreateStream</c> request by setting
+    /// the <c>Tags</c> parameter. If you pass <c>Tags</c> parameter, in addition to having
+    /// <c>kinesis:createStream</c> permission, you must also have <c>kinesis:addTagsToStream</c>
+    /// permission for the stream that will be created. Tags will take effect from the <c>CREATING</c>
+    /// status of the stream. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "KINStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -127,6 +133,17 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String StreamName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A set of up to 10 key-value pairs to use to create the tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Select
@@ -199,6 +216,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 WriteWarning("You are passing $null as a value for parameter StreamName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.Tag != null)
+            {
+                context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tag.Add((String)hashKey, (System.String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -241,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
+            }
+            if (cmdletContext.Tag != null)
+            {
+                request.Tags = cmdletContext.Tag;
             }
             
             CmdletOutput output;
@@ -306,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             public System.Int32? ShardCount { get; set; }
             public Amazon.Kinesis.StreamMode StreamModeDetails_StreamMode { get; set; }
             public System.String StreamName { get; set; }
+            public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.Kinesis.Model.CreateStreamResponse, NewKINStreamCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }

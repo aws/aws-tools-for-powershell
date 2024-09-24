@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <para>The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId,
         /// or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId
         /// and PhoneNumberArn, while <a>DescribeSenderIds</a> can be used to get the values for
-        /// SenderId and SenderIdArn.</para>
+        /// SenderId and SenderIdArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The pool to update with the new Identity. This value can be either the PoolId or PoolArn,
-        /// and you can find these values using <a>DescribePools</a>.</para>
+        /// and you can find these values using <a>DescribePools</a>.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

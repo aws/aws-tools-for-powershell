@@ -1,4 +1,17 @@
-﻿### 4.1.662 (2024-09-23 21:02Z)
+﻿### 4.1.663 (2024-09-24 21:41Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.892.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Kinesis
+    * Modified cmdlet New-KINStream: added parameter Tag.
+  * Amazon Pinpoint SMS Voice V2
+    * Added cmdlet Get-SMSVResourcePolicy leveraging the GetResourcePolicy service API.
+    * Added cmdlet Remove-SMSVResourcePolicy leveraging the DeleteResourcePolicy service API.
+    * Added cmdlet Write-SMSVResourcePolicy leveraging the PutResourcePolicy service API.
+    * Modified cmdlet Get-SMSVOptOutList: added parameter Owner.
+    * Modified cmdlet Get-SMSVPhoneNumber: added parameter Owner.
+    * Modified cmdlet Get-SMSVPool: added parameter Owner.
+    * Modified cmdlet Get-SMSVSenderId: added parameter Owner.
+
+### 4.1.662 (2024-09-23 21:02Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.891.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon EMR Serverless
     * Modified cmdlet New-EMRServerlessApplication: added parameters SchedulerConfiguration_MaxConcurrentRun and SchedulerConfiguration_QueueTimeoutMinute.

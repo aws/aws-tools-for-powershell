@@ -21964,6 +21964,8 @@ Set-Alias -Name Delete-SMSVRegistrationAttachment -Value Remove-SMSVRegistration
 Set-Alias -Name SMSV-DeleteRegistrationAttachment -Value Remove-SMSVRegistrationAttachment
 Set-Alias -Name Delete-SMSVRegistrationFieldValue -Value Remove-SMSVRegistrationFieldValue
 Set-Alias -Name SMSV-DeleteRegistrationFieldValue -Value Remove-SMSVRegistrationFieldValue
+Set-Alias -Name Delete-SMSVResourcePolicy -Value Remove-SMSVResourcePolicy
+Set-Alias -Name SMSV-DeleteResourcePolicy -Value Remove-SMSVResourcePolicy
 Set-Alias -Name Delete-SMSVTextMessageSpendLimitOverride -Value Remove-SMSVTextMessageSpendLimitOverride
 Set-Alias -Name SMSV-DeleteTextMessageSpendLimitOverride -Value Remove-SMSVTextMessageSpendLimitOverride
 Set-Alias -Name Delete-SMSVVerifiedDestinationNumber -Value Remove-SMSVVerifiedDestinationNumber
@@ -22034,6 +22036,7 @@ Set-Alias -Name SMSV-DisassociateProtectConfiguration -Value Unregister-SMSVProt
 Set-Alias -Name Discard-SMSVRegistrationVersion -Value Close-SMSVRegistrationVersion
 Set-Alias -Name SMSV-DiscardRegistrationVersion -Value Close-SMSVRegistrationVersion
 Set-Alias -Name SMSV-GetProtectConfigurationCountryRuleSet -Value Get-SMSVProtectConfigurationCountryRuleSet
+Set-Alias -Name SMSV-GetResourcePolicy -Value Get-SMSVResourcePolicy
 Set-Alias -Name List-SMSVPoolOriginationIdentities -Value Get-SMSVPoolOriginationIdentityList
 Set-Alias -Name List-SMSVPoolOriginationIdentityList -Value Get-SMSVPoolOriginationIdentityList
 Set-Alias -Name SMSV-ListPoolOriginationIdentities -Value Get-SMSVPoolOriginationIdentityList
@@ -22048,6 +22051,8 @@ Set-Alias -Name Put-SMSVOptedOutNumber -Value Set-SMSVOptedOutNumber
 Set-Alias -Name SMSV-PutOptedOutNumber -Value Set-SMSVOptedOutNumber
 Set-Alias -Name Put-SMSVRegistrationFieldValue -Value Set-SMSVRegistrationFieldValue
 Set-Alias -Name SMSV-PutRegistrationFieldValue -Value Set-SMSVRegistrationFieldValue
+Set-Alias -Name Put-SMSVResourcePolicy -Value Write-SMSVResourcePolicy
+Set-Alias -Name SMSV-PutResourcePolicy -Value Write-SMSVResourcePolicy
 Set-Alias -Name Release-SMSVPhoneNumber -Value Remove-SMSVPhoneNumber
 Set-Alias -Name SMSV-ReleasePhoneNumber -Value Remove-SMSVPhoneNumber
 Set-Alias -Name Release-SMSVSenderId -Value Remove-SMSVSenderId

@@ -28,32 +28,26 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Releases an existing origination phone number in your account. Once released, a phone
-    /// number is no longer available for sending messages.
-    /// 
-    ///  
-    /// <para>
-    /// If the origination phone number has deletion protection enabled or is associated with
-    /// a pool, an error is returned.
-    /// </para>
+    /// Retrieves the JSON text of the resource-based policy document attached to the AWS
+    /// End User Messaging SMS and Voice resource. A shared resource can be a Pool, Opt-out
+    /// list, Sender Id, or Phone number.
     /// </summary>
-    [Cmdlet("Remove", "SMSVPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse")]
-    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 ReleasePhoneNumber API operation.", Operation = new[] {"ReleasePhoneNumber"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse))]
-    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SMSVResourcePolicy")]
+    [OutputType("Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 GetResourcePolicy API operation.", Operation = new[] {"GetResourcePolicy"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse",
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSMSVPhoneNumberCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
+    public partial class GetSMSVResourcePolicyCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter PhoneNumberId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a>
-        /// to get the values for PhoneNumberId and PhoneNumberArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// <para>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource
+        /// attached to the resource-based policy.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,14 +58,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PhoneNumberId { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse).
-        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -80,34 +74,18 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the PhoneNumberId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^PhoneNumberId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^PhoneNumberId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.PhoneNumberId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMSVPhoneNumber (ReleasePhoneNumber)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -117,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse, RemoveSMSVPhoneNumberCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse, GetSMSVResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -126,14 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.PhoneNumberId;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.PhoneNumberId = this.PhoneNumberId;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.PhoneNumberId == null && ParameterWasBound(nameof(this.PhoneNumberId)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter PhoneNumberId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -150,11 +128,11 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberRequest();
+            var request = new Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyRequest();
             
-            if (cmdletContext.PhoneNumberId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.PhoneNumberId = cmdletContext.PhoneNumberId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -189,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region AWS Service Operation Call
         
-        private Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberRequest request)
+        private Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "ReleasePhoneNumber");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "GetResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.ReleasePhoneNumber(request);
+                return client.GetResourcePolicy(request);
                 #elif CORECLR
-                return client.ReleasePhoneNumberAsync(request).GetAwaiter().GetResult();
+                return client.GetResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -217,8 +195,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String PhoneNumberId { get; set; }
-            public System.Func<Amazon.PinpointSMSVoiceV2.Model.ReleasePhoneNumberResponse, RemoveSMSVPhoneNumberCmdlet, object> Select { get; set; } =
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.PinpointSMSVoiceV2.Model.GetResourcePolicyResponse, GetSMSVResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

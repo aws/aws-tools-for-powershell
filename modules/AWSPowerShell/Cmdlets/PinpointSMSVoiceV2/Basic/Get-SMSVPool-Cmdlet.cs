@@ -70,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The unique identifier of pools to find. This is an array of strings that can be either
-        /// the PoolId or PoolArn.</para>
+        /// the PoolId or PoolArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,6 +103,19 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>Use <c>SELF</c> to filter the list of Pools to ones your account owns or use <c>SHARED</c>
+        /// to filter on Pools shared with your account. The <c>Owner</c> and <c>PoolIds</c> parameters
+        /// can't be used at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PinpointSMSVoiceV2.Owner")]
+        public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -146,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Owner = this.Owner;
             if (this.PoolId != null)
             {
                 context.PoolId = new List<System.String>(this.PoolId);
@@ -175,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
             }
             if (cmdletContext.PoolId != null)
             {
@@ -268,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public List<Amazon.PinpointSMSVoiceV2.Model.PoolFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
             public List<System.String> PoolId { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.DescribePoolsResponse, GetSMSVPoolCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

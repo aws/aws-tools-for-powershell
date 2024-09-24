@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The OptOutLists to show the details of. This is an array of strings that can be either
-        /// the OptOutListName or OptOutListArn.</para>
+        /// the OptOutListName or OptOutListArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,6 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>Use <c>SELF</c> to filter the list of Opt-Out List to ones your account owns or use
+        /// <c>SHARED</c> to filter on Opt-Out List shared with your account. The <c>Owner</c>
+        /// and <c>OptOutListNames</c> parameters can't be used at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PinpointSMSVoiceV2.Owner")]
+        public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -131,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             {
                 context.OptOutListName = new List<System.String>(this.OptOutListName);
             }
+            context.Owner = this.Owner;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.OptOutListName != null)
             {
                 request.OptOutListNames = cmdletContext.OptOutListName;
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
             }
             
             // Initialize loop variant and commence piping
@@ -245,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
             public List<System.String> OptOutListName { get; set; }
+            public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.DescribeOptOutListsResponse, GetSMSVOptOutListCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }

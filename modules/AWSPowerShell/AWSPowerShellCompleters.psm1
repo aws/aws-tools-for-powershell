@@ -53003,6 +53003,18 @@ $SMSV_Completers = {
             break
         }
 
+        # Amazon.PinpointSMSVoiceV2.Owner
+        {
+            ($_ -eq "Get-SMSVOptOutList/Owner") -Or
+            ($_ -eq "Get-SMSVPhoneNumber/Owner") -Or
+            ($_ -eq "Get-SMSVPool/Owner") -Or
+            ($_ -eq "Get-SMSVSenderId/Owner")
+        }
+        {
+            $v = "SELF","SHARED"
+            break
+        }
+
         # Amazon.PinpointSMSVoiceV2.RequestableNumberType
         "New-SMSVPhoneNumber/NumberType"
         {
@@ -53046,6 +53058,7 @@ $SMSV_map = @{
     "MessageType"=@("New-SMSVPhoneNumber","New-SMSVPool","Send-SMSVTextMessage","Set-SMSVDefaultMessageType")
     "NumberCapability"=@("Get-SMSVProtectConfigurationCountryRuleSet","Update-SMSVProtectConfigurationCountryRuleSet")
     "NumberType"=@("New-SMSVPhoneNumber")
+    "Owner"=@("Get-SMSVOptOutList","Get-SMSVPhoneNumber","Get-SMSVPool","Get-SMSVSenderId")
     "VerificationChannel"=@("Send-SMSVDestinationNumberVerificationCode")
     "VoiceId"=@("Send-SMSVVoiceMessage")
 }
@@ -53126,6 +53139,7 @@ $SMSV_SelectMap = @{
                "Remove-SMSVRegistration",
                "Remove-SMSVRegistrationAttachment",
                "Remove-SMSVRegistrationFieldValue",
+               "Remove-SMSVResourcePolicy",
                "Remove-SMSVTextMessageSpendLimitOverride",
                "Remove-SMSVVerifiedDestinationNumber",
                "Remove-SMSVVoiceMessageSpendLimitOverride",
@@ -53152,12 +53166,14 @@ $SMSV_SelectMap = @{
                "Unregister-SMSVProtectConfiguration",
                "Close-SMSVRegistrationVersion",
                "Get-SMSVProtectConfigurationCountryRuleSet",
+               "Get-SMSVResourcePolicy",
                "Get-SMSVPoolOriginationIdentityList",
                "Get-SMSVRegistrationAssociationList",
                "Get-SMSVResourceTagList",
                "Set-SMSVKeyword",
                "Set-SMSVOptedOutNumber",
                "Set-SMSVRegistrationFieldValue",
+               "Write-SMSVResourcePolicy",
                "Remove-SMSVPhoneNumber",
                "Remove-SMSVSenderId",
                "New-SMSVPhoneNumber",

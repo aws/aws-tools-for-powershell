@@ -109,7 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId
         /// and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for
         /// SenderId and SenderIdArn.</para><para>After the pool is created you can add more origination identities to the pool by using
-        /// <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_AssociateOriginationIdentity.html">AssociateOriginationIdentity</a>.</para>
+        /// <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_AssociateOriginationIdentity.html">AssociateOriginationIdentity</a>.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,32 +28,27 @@ using Amazon.PinpointSMSVoiceV2.Model;
 namespace Amazon.PowerShell.Cmdlets.SMSV
 {
     /// <summary>
-    /// Deletes an existing opted out destination phone number from the specified opt-out
-    /// list.
-    /// 
-    ///  
-    /// <para>
-    /// Each destination phone number can only be deleted once every 30 days.
-    /// </para><para>
-    /// If the specified destination phone number doesn't exist or if the opt-out list doesn't
-    /// exist, an error is returned.
-    /// </para>
+    /// Attaches a resource-based policy to a AWS End User Messaging SMS and Voice resource(phone
+    /// number, sender Id, phone poll, or opt-out list) that is used for sharing the resource.
+    /// A shared resource can be a Pool, Opt-out list, Sender Id, or Phone number. For more
+    /// information about resource-based policies, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/shared-resources.html">Working
+    /// with shared resources</a> in the <i>AWS End User Messaging SMS User Guide</i>.
     /// </summary>
-    [Cmdlet("Remove", "SMSVOptedOutNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse")]
-    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 DeleteOptedOutNumber API operation.", Operation = new[] {"DeleteOptedOutNumber"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse))]
-    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse",
-        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "SMSVResourcePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse")]
+    [AWSCmdlet("Calls the Amazon Pinpoint SMS Voice V2 PutResourcePolicy API operation.", Operation = new[] {"PutResourcePolicy"}, SelectReturnType = typeof(Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse))]
+    [AWSCmdletOutput("Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse",
+        "This cmdlet returns an Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSMSVOptedOutNumberCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
+    public partial class WriteSMSVResourcePolicyCmdlet : AmazonPinpointSMSVoiceV2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter OptedOutNumber
+        #region Parameter Policy
         /// <summary>
         /// <para>
-        /// <para>The phone number, in E.164 format, to remove from the OptOutList.</para>
+        /// <para>The JSON formatted resource-based policy to attach.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,14 +59,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OptedOutNumber { get; set; }
+        public System.String Policy { get; set; }
         #endregion
         
-        #region Parameter OptOutListName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The OptOutListName or OptOutListArn to remove the phone number from.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
-        /// use the full Amazon Resource Name(ARN).</para></important>
+        /// <para>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource
+        /// to attach the resource-based policy to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,14 +77,14 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String OptOutListName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse).
-        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse).
+        /// Specifying the name of a property of type Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the OptOutListName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^OptOutListName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the ResourceArn parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^OptOutListName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceArn' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.OptOutListName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SMSVOptedOutNumber (DeleteOptedOutNumber)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ResourceArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-SMSVResourcePolicy (PutResourcePolicy)"))
             {
                 return;
             }
@@ -135,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse, RemoveSMSVOptedOutNumberCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse, WriteSMSVResourcePolicyCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,21 +139,21 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.OptOutListName;
+                context.Select = (response, cmdlet) => this.ResourceArn;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.OptedOutNumber = this.OptedOutNumber;
+            context.Policy = this.Policy;
             #if MODULAR
-            if (this.OptedOutNumber == null && ParameterWasBound(nameof(this.OptedOutNumber)))
+            if (this.Policy == null && ParameterWasBound(nameof(this.Policy)))
             {
-                WriteWarning("You are passing $null as a value for parameter OptedOutNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Policy which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.OptOutListName = this.OptOutListName;
+            context.ResourceArn = this.ResourceArn;
             #if MODULAR
-            if (this.OptOutListName == null && ParameterWasBound(nameof(this.OptOutListName)))
+            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter OptOutListName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -175,15 +170,15 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberRequest();
+            var request = new Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyRequest();
             
-            if (cmdletContext.OptedOutNumber != null)
+            if (cmdletContext.Policy != null)
             {
-                request.OptedOutNumber = cmdletContext.OptedOutNumber;
+                request.Policy = cmdletContext.Policy;
             }
-            if (cmdletContext.OptOutListName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.OptOutListName = cmdletContext.OptOutListName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -218,15 +213,15 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         #region AWS Service Operation Call
         
-        private Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberRequest request)
+        private Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse CallAWSServiceOperation(IAmazonPinpointSMSVoiceV2 client, Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "DeleteOptedOutNumber");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint SMS Voice V2", "PutResourcePolicy");
             try
             {
                 #if DESKTOP
-                return client.DeleteOptedOutNumber(request);
+                return client.PutResourcePolicy(request);
                 #elif CORECLR
-                return client.DeleteOptedOutNumberAsync(request).GetAwaiter().GetResult();
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -246,9 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OptedOutNumber { get; set; }
-            public System.String OptOutListName { get; set; }
-            public System.Func<Amazon.PinpointSMSVoiceV2.Model.DeleteOptedOutNumberResponse, RemoveSMSVOptedOutNumberCmdlet, object> Select { get; set; } =
+            public System.String Policy { get; set; }
+            public System.String ResourceArn { get; set; }
+            public System.Func<Amazon.PinpointSMSVoiceV2.Model.PutResourcePolicyResponse, WriteSMSVResourcePolicyCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         
