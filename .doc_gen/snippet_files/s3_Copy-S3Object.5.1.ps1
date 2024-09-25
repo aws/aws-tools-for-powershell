@@ -1,1 +1,1 @@
-Copy-S3Object -BucketName test-files -KeyPrefix data -LocalFolder c:\downloads
+Copy-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix data -LocalFolder c:\downloads

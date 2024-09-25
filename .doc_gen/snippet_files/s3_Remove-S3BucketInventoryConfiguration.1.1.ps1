@@ -1,1 +1,1 @@
-Remove-S3BucketInventoryConfiguration -BucketName 's3testbucket' -InventoryId 'testInventoryName'
+Remove-S3BucketInventoryConfiguration -BucketName 'amzn-s3-demo-bucket' -InventoryId 'testInventoryName'

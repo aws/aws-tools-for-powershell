@@ -7,7 +7,7 @@ $sourceStageActionOutputArtifact = New-Object Amazon.CodePipeline.Model.OutputAr
 $sourceStageActionOutputArtifact.Name = "MyApp"
 
 $sourceStageAction.ActionTypeId = @{"Category" = "Source"; "Owner" = "AWS"; "Provider" = "S3"; "Version" = 1}
-$sourceStageAction.Configuration.Add("S3Bucket", "MyBucketName")
+$sourceStageAction.Configuration.Add("S3Bucket", "amzn-s3-demo-bucket")
 $sourceStageAction.Configuration.Add("S3ObjectKey", "my-object-key-name.zip")
 $sourceStageAction.OutputArtifacts.Add($sourceStageActionOutputArtifact)
 $sourceStageAction.Name = "Source"
@@ -30,7 +30,7 @@ $deployStage.Name = "Beta"
 $sourceStage.Actions.Add($sourceStageAction)
 $deployStage.Actions.Add($deployStageAction)
 
-$pipeline.ArtifactStore = @{"Location" = "MyBucketName"; "Type" = "S3"}
+$pipeline.ArtifactStore = @{"Location" = "amzn-s3-demo-bucket"; "Type" = "S3"}
 $pipeline.Name = "CodePipelineDemo"
 $pipeline.RoleArn = "arn:aws:iam::80398EXAMPLE:role/CodePipelineServiceRole"
 $pipeline.Stages.Add($sourceStage)

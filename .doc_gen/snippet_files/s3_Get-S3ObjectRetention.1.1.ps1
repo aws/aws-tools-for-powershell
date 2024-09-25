@@ -1,1 +1,1 @@
-Get-S3ObjectRetention -BucketName 's3buckettesting' -Key 'testfile.txt'
+Get-S3ObjectRetention -BucketName 'amzn-s3-demo-bucket' -Key 'testfile.txt'

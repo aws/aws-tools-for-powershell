@@ -1,1 +1,1 @@
-Write-S3BucketVersioning -BucketName 's3testbucket' -VersioningConfig_Status Enabled
+Write-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket' -VersioningConfig_Status Enabled

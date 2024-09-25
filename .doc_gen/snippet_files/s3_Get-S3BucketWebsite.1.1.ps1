@@ -1,1 +1,1 @@
-Get-S3BucketWebsite -BucketName 's3testbucket'
+Get-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'

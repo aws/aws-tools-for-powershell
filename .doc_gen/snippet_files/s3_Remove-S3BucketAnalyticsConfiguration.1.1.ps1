@@ -1,1 +1,1 @@
-Remove-S3BucketAnalyticsConfiguration -BucketName 's3testbucket' -AnalyticsId 'testfilter'
+Remove-S3BucketAnalyticsConfiguration -BucketName 'amzn-s3-demo-bucket' -AnalyticsId 'testfilter'

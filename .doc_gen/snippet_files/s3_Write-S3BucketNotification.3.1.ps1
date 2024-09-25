@@ -30,4 +30,4 @@ $secondlambdaConfig = [Amazon.S3.Model.LambdaFunctionConfiguration] @{
   }
 }
 
-Write-S3BucketNotification -BucketName ssm-editor -LambdaFunctionConfiguration $firstLambdaConfig,$secondlambdaConfig
+Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -LambdaFunctionConfiguration $firstLambdaConfig,$secondlambdaConfig

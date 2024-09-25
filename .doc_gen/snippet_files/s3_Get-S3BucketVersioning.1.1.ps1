@@ -1,1 +1,1 @@
-Get-S3BucketVersioning -BucketName 's3testbucket'
+Get-S3BucketVersioning -BucketName 'amzn-s3-demo-bucket'

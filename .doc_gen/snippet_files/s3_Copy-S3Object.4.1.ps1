@@ -1,1 +1,1 @@
-Copy-S3Object -BucketName test-files -Key data/archive.zip -LocalFolder c:\downloads
+Copy-S3Object -BucketName amzn-s3-demo-bucket -Key data/archive.zip -LocalFolder c:\downloads

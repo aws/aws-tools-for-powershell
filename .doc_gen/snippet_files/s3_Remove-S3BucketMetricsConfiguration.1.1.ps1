@@ -1,1 +1,1 @@
-Remove-S3BucketMetricsConfiguration -BucketName 's3testbucket' -MetricsId 'testmetrics'
+Remove-S3BucketMetricsConfiguration -BucketName 'amzn-s3-demo-bucket' -MetricsId 'testmetrics'

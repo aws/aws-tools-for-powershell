@@ -1,1 +1,1 @@
-Remove-S3PublicAccessBlock -BucketName 's3testbucket' -Force -Select '^BucketName'
+Remove-S3PublicAccessBlock -BucketName 'amzn-s3-demo-bucket' -Force -Select '^BucketName'

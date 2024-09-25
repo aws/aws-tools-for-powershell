@@ -1,1 +1,1 @@
-Get-S3LifecycleConfiguration -BucketName test-bla
+Get-S3LifecycleConfiguration -BucketName amzn-s3-demo-bucket

@@ -1,1 +1,1 @@
-Get-S3ObjectMetadata -BucketName 's3testbucket' -Key 'ListTrusts.txt'
+Get-S3ObjectMetadata -BucketName 'amzn-s3-demo-bucket' -Key 'ListTrusts.txt'

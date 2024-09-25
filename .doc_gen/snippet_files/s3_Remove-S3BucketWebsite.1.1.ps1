@@ -1,1 +1,1 @@
-Remove-S3BucketWebsite -BucketName 's3testbucket'
+Remove-S3BucketWebsite -BucketName 'amzn-s3-demo-bucket'

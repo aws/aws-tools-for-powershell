@@ -1,1 +1,1 @@
-Test-CFNTemplate -TemplateURL https://s3.amazonaws.com/mytemplates/templatefile.template
+Test-CFNTemplate -TemplateURL https://s3.amazonaws.com/amzn-s3-demo-bucket/templatefile.template

@@ -1,1 +1,1 @@
-Remove-S3BucketTagging -BucketName 's3testbucket'
+Remove-S3BucketTagging -BucketName 'amzn-s3-demo-bucket'
