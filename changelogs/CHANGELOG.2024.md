@@ -1,4 +1,7 @@
-﻿### 4.1.663 (2024-09-24 21:41Z)
+﻿### 4.1.664 (2024-09-25 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.892.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.663 (2024-09-24 21:41Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.892.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Kinesis
     * Modified cmdlet New-KINStream: added parameter Tag.

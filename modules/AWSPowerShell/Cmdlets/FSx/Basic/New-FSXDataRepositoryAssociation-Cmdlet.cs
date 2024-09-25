@@ -83,9 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// <summary>
         /// <para>
         /// <para>The path to the Amazon S3 data repository that will be linked to the file system.
-        /// The path can be an S3 bucket or prefix in the format <c>s3://myBucket/myPrefix/</c>.
-        /// This path specifies where in the S3 data repository files will be imported from or
-        /// exported to.</para>
+        /// The path can be an S3 bucket or prefix in the format <c>s3://bucket-name/prefix/</c>
+        /// (where <c>prefix</c> is optional). This path specifies where in the S3 data repository
+        /// files will be imported from or exported to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
