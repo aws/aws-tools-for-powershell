@@ -1,4 +1,16 @@
-﻿### 4.1.664 (2024-09-25 21:09Z)
+﻿### 4.1.665 (2024-09-26 21:08Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.893.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * LM
+    * [Breaking Change] Removed cmdlets Get-LMPublicAccessBlockConfig, Get-LMResourcePolicy, Remove-LMResourcePolicy, Write-LMPublicAccessBlockConfig and Write-LMResourcePolicy.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter TagPropagation.
+    * Modified cmdlet Update-SMDomain: added parameter TagPropagation.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Copy-S3Object: added parameter RequestPayer.
+    * Modified cmdlet Remove-S3Object: added parameter RequestPayer.
+    * Modified cmdlet Write-S3Object: added parameter RequestPayer.
+
+### 4.1.664 (2024-09-25 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.892.1 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.663 (2024-09-24 21:41Z)

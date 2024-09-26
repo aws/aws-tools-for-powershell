@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Returns a function, event source mapping, or code signing configuration's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.
-    /// You can also view funciton tags with <a>GetFunction</a>.
+    /// You can also view function tags with <a>GetFunction</a>.
     /// </summary>
     [Cmdlet("Get", "LMResourceTag")]
     [OutputType("System.String")]

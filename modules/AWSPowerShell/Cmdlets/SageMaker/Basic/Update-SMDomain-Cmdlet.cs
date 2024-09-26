@@ -653,6 +653,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagPropagation
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether custom tag propagation is supported for the domain. Defaults to
+        /// <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.TagPropagation")]
+        public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
+        #endregion
+        
         #region Parameter CustomPosixUserConfig_Uid
         /// <summary>
         /// <para>
@@ -840,6 +852,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.SubnetId = new List<System.String>(this.SubnetId);
             }
+            context.TagPropagation = this.TagPropagation;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1624,6 +1637,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.SubnetIds = cmdletContext.SubnetId;
             }
+            if (cmdletContext.TagPropagation != null)
+            {
+                request.TagPropagation = cmdletContext.TagPropagation;
+            }
             
             CmdletOutput output;
             
@@ -1739,6 +1756,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String RStudioServerProDomainSettingsForUpdate_RStudioPackageManagerUrl { get; set; }
             public List<System.String> DomainSettingsForUpdate_SecurityGroupId { get; set; }
             public List<System.String> SubnetId { get; set; }
+            public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateDomainResponse, UpdateSMDomainCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.DomainArn;
         }

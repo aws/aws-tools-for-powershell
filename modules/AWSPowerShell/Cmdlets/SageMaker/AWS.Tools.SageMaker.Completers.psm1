@@ -1384,6 +1384,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TagPropagation
+        {
+            ($_ -eq "New-SMDomain/TagPropagation") -Or
+            ($_ -eq "Update-SMDomain/TagPropagation")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
@@ -1651,6 +1661,7 @@ $SM_map = @{
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TabularJobConfig_Mode"=@("New-SMAutoMLJobV2")
     "TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
+    "TagPropagation"=@("New-SMDomain","Update-SMDomain")
     "TargetPlatform_Accelerator"=@("New-SMCompilationJob")
     "TargetPlatform_Arch"=@("New-SMCompilationJob")
     "TargetPlatform_Os"=@("New-SMCompilationJob")

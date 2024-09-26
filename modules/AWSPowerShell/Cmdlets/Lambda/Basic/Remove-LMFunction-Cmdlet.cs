@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     ///  
     /// <para>
     /// To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-    /// For Amazon Web Servicesservices and resources that invoke your function directly,
+    /// For Amazon Web Services services and resources that invoke your function directly,
     /// delete the trigger in the service where you originally configured it.
     /// </para>
     /// </summary>

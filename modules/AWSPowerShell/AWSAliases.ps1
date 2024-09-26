@@ -16870,8 +16870,6 @@ Set-Alias -Name Delete-LMLayerVersion -Value Remove-LMLayerVersion
 Set-Alias -Name LM-DeleteLayerVersion -Value Remove-LMLayerVersion
 Set-Alias -Name Delete-LMProvisionedConcurrencyConfig -Value Remove-LMProvisionedConcurrencyConfig
 Set-Alias -Name LM-DeleteProvisionedConcurrencyConfig -Value Remove-LMProvisionedConcurrencyConfig
-Set-Alias -Name Delete-LMResourcePolicy -Value Remove-LMResourcePolicy
-Set-Alias -Name LM-DeleteResourcePolicy -Value Remove-LMResourcePolicy
 Set-Alias -Name Get-LMAccountSettings -Value Get-LMAccountSetting
 Set-Alias -Name LM-GetAccountSettings -Value Get-LMAccountSetting
 Set-Alias -Name LM-GetAlias -Value Get-LMAlias
@@ -16889,8 +16887,6 @@ Set-Alias -Name LM-GetLayerVersionByArn -Value Get-LMLayerVersionByArn
 Set-Alias -Name LM-GetLayerVersionPolicy -Value Get-LMLayerVersionPolicy
 Set-Alias -Name LM-GetPolicy -Value Get-LMPolicy
 Set-Alias -Name LM-GetProvisionedConcurrencyConfig -Value Get-LMProvisionedConcurrencyConfig
-Set-Alias -Name LM-GetPublicAccessBlockConfig -Value Get-LMPublicAccessBlockConfig
-Set-Alias -Name LM-GetResourcePolicy -Value Get-LMResourcePolicy
 Set-Alias -Name LM-GetRuntimeManagementConfig -Value Get-LMRuntimeManagementConfig
 Set-Alias -Name Invoke-LM -Value Invoke-LMFunction
 Set-Alias -Name LM-Invoke -Value Invoke-LMFunction
@@ -16943,10 +16939,6 @@ Set-Alias -Name Put-LMFunctionRecursionConfig -Value Write-LMFunctionRecursionCo
 Set-Alias -Name LM-PutFunctionRecursionConfig -Value Write-LMFunctionRecursionConfig
 Set-Alias -Name Put-LMProvisionedConcurrencyConfig -Value Write-LMProvisionedConcurrencyConfig
 Set-Alias -Name LM-PutProvisionedConcurrencyConfig -Value Write-LMProvisionedConcurrencyConfig
-Set-Alias -Name Put-LMPublicAccessBlockConfig -Value Write-LMPublicAccessBlockConfig
-Set-Alias -Name LM-PutPublicAccessBlockConfig -Value Write-LMPublicAccessBlockConfig
-Set-Alias -Name Put-LMResourcePolicy -Value Write-LMResourcePolicy
-Set-Alias -Name LM-PutResourcePolicy -Value Write-LMResourcePolicy
 Set-Alias -Name Put-LMRuntimeManagementConfig -Value Write-LMRuntimeManagementConfig
 Set-Alias -Name LM-PutRuntimeManagementConfig -Value Write-LMRuntimeManagementConfig
 Set-Alias -Name LM-RemoveLayerVersionPermission -Value Remove-LMLayerVersionPermission

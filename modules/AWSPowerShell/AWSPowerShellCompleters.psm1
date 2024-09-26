@@ -39994,7 +39994,6 @@ $LM_SelectMap = @{
                "Remove-LMFunctionUrlConfig",
                "Remove-LMLayerVersion",
                "Remove-LMProvisionedConcurrencyConfig",
-               "Remove-LMResourcePolicy",
                "Get-LMAccountSetting",
                "Get-LMAlias",
                "Get-LMCodeSigningConfig",
@@ -40011,8 +40010,6 @@ $LM_SelectMap = @{
                "Get-LMLayerVersionPolicy",
                "Get-LMPolicy",
                "Get-LMProvisionedConcurrencyConfig",
-               "Get-LMPublicAccessBlockConfig",
-               "Get-LMResourcePolicy",
                "Get-LMRuntimeManagementConfig",
                "Invoke-LMFunction",
                "Invoke-LMFunctionAsync",
@@ -40036,8 +40033,6 @@ $LM_SelectMap = @{
                "Write-LMFunctionEventInvokeConfig",
                "Write-LMFunctionRecursionConfig",
                "Write-LMProvisionedConcurrencyConfig",
-               "Write-LMPublicAccessBlockConfig",
-               "Write-LMResourcePolicy",
                "Write-LMRuntimeManagementConfig",
                "Remove-LMLayerVersionPermission",
                "Remove-LMPermission",
@@ -50375,7 +50370,7 @@ $ORG_Completers = {
         # Amazon.Organizations.EffectivePolicyType
         "Get-ORGEffectivePolicy/PolicyType"
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","TAG_POLICY"
             break
         }
 
@@ -50412,7 +50407,7 @@ $ORG_Completers = {
             ($_ -eq "New-ORGPolicy/Type")
         }
         {
-            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
+            $v = "AISERVICES_OPT_OUT_POLICY","BACKUP_POLICY","CHATBOT_POLICY","SERVICE_CONTROL_POLICY","TAG_POLICY"
             break
         }
 
@@ -59521,6 +59516,7 @@ $S3_Completers = {
 
         # Amazon.S3.RequestPayer
         {
+            ($_ -eq "Copy-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3BucketAccelerateConfiguration/RequestPayer") -Or
             ($_ -eq "Get-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectAttribute/RequestPayer") -Or
@@ -59530,7 +59526,9 @@ $S3_Completers = {
             ($_ -eq "Get-S3ObjectTagSet/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectV2/RequestPayer") -Or
             ($_ -eq "Get-S3Version/RequestPayer") -Or
+            ($_ -eq "Remove-S3Object/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
+            ($_ -eq "Write-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectRetention/RequestPayer") -Or
@@ -59651,7 +59649,7 @@ $S3_map = @{
     "PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
@@ -61584,6 +61582,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TagPropagation
+        {
+            ($_ -eq "New-SMDomain/TagPropagation") -Or
+            ($_ -eq "Update-SMDomain/TagPropagation")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
@@ -61851,6 +61859,7 @@ $SM_map = @{
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TabularJobConfig_Mode"=@("New-SMAutoMLJobV2")
     "TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
+    "TagPropagation"=@("New-SMDomain","Update-SMDomain")
     "TargetPlatform_Accelerator"=@("New-SMCompilationJob")
     "TargetPlatform_Arch"=@("New-SMCompilationJob")
     "TargetPlatform_Os"=@("New-SMCompilationJob")

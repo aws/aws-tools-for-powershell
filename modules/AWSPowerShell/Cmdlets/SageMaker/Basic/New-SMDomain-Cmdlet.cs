@@ -728,6 +728,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagPropagation
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether custom tag propagation is supported for the domain. Defaults to
+        /// <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.TagPropagation")]
+        public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -980,6 +992,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TagPropagation = this.TagPropagation;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -1789,6 +1802,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.SubnetIds = cmdletContext.SubnetId;
             }
+            if (cmdletContext.TagPropagation != null)
+            {
+                request.TagPropagation = cmdletContext.TagPropagation;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1916,6 +1933,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String HomeEfsFileSystemKmsKeyId { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<System.String> SubnetId { get; set; }
+            public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateDomainResponse, NewSMDomainCmdlet, object> Select { get; set; } =
