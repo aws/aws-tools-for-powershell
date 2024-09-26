@@ -1339,14 +1339,6 @@
             },
             "InPreview"               : false
         },
-        "WorkLink"                        : {
-            "Version" : "3.7.400.25",
-            "AssemblyVersionOverride" : "3.3",
-            "Dependencies"            : {
-                "Core" : "3.7.400.25"
-            },
-            "InPreview"               : false
-        },
         "Textract"                        : {
             "Version" : "3.7.400.25",
             "AssemblyVersionOverride" : "3.3",

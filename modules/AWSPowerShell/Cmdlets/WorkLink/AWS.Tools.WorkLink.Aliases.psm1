@@ -1,3 +1,0 @@
-﻿# WorkLink
-
-Export-ModuleMember -Alias *

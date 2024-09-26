@@ -1174,9 +1174,6 @@
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
-    <Reference Include="AWSSDK.WorkLink">
-      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkLink.dll</HintPath>
-    </Reference>
     <Reference Include="AWSSDK.WorkMail">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.WorkMail.dll</HintPath>
     </Reference>
@@ -2315,9 +2312,6 @@
     </Reference>
     <Reference Include="AWSSDK.WorkDocs">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkDocs.dll</HintPath>
-    </Reference>
-    <Reference Include="AWSSDK.WorkLink">
-      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkLink.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkMail">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.WorkMail.dll</HintPath>
