@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Utils
 #endif
 
             InternalSDKUtils.SetUserAgent(moduleName,
-                                          TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly.GetName().Version.ToString(),
+                                          typeof(BaseCmdlet).Assembly.GetName().Version.ToString(),
                                           string.Format("md/{0}/{1}.{2}", platform, hostVersion.Major, hostVersion.MajorRevision));
         }
 

@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Common
                 return sb.ToString();
             }
 
-            if (TypeFactory.GetTypeInfo(paramValue.GetType()).IsValueType) // unlikely but just in case...
+            if (paramValue.GetType().IsValueType) // unlikely but just in case...
                 return paramValue.ToString();
 
             // otherwise give up and report the parameter name for x-checking purposes

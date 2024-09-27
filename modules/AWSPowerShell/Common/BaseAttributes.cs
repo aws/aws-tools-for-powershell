@@ -41,9 +41,7 @@ namespace Amazon.PowerShell.Common
 
         public static AWSCmdletAttribute GetAttributeInstanceOnType(Type t, bool inherit)
         {
-            var attributeTypeInfo = TypeFactory.GetTypeInfo(typeof(AWSCmdletAttribute));
-
-            var customAttributes = TypeFactory.GetTypeInfo(t).GetCustomAttributes(attributeTypeInfo, inherit);
+            var customAttributes = t.GetCustomAttributes(typeof(AWSCmdletAttribute), inherit);
             if (customAttributes.Length != 1)
                 return null;
 
@@ -138,9 +136,7 @@ namespace Amazon.PowerShell.Common
 
         public static AWSClientCmdletAttribute GetAttributeInstanceOnType(Type t, bool inherit)
         {
-            var attributeTypeInfo = TypeFactory.GetTypeInfo(typeof(AWSClientCmdletAttribute));
-
-            var customAttributes = TypeFactory.GetTypeInfo(t).GetCustomAttributes(attributeTypeInfo, inherit);
+            var customAttributes = t.GetCustomAttributes(typeof(AWSClientCmdletAttribute), inherit);
             if (customAttributes.Length != 1)
                 return null;
 

@@ -209,12 +209,12 @@ namespace Amazon.PowerShell.Common
                 // or EC2 Instance Profile as a last resort
                 try
                 {
-                    string relativeUri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsURIEnvVariable);
-                    string fullUri = System.Environment.GetEnvironmentVariable(ECSTaskCredentials.ContainerCredentialsFullURIEnvVariable);
+                    string relativeUri = System.Environment.GetEnvironmentVariable("AWS_CONTAINER_CREDENTIALS_RELATIVE_URI");
+                    string fullUri = System.Environment.GetEnvironmentVariable("AWS_CONTAINER_CREDENTIALS_FULL_URI");
 
                     if (!string.IsNullOrEmpty(relativeUri) || !string.IsNullOrEmpty(fullUri))
                     {
-                        innerCredentials = new ECSTaskCredentials();
+                        innerCredentials = new GenericContainerCredentials();
                         source = CredentialsSource.Container;
                         name = "Container";
                         // no need to set proxy and callback
@@ -819,9 +819,9 @@ namespace Amazon.PowerShell.Common
             typeof(AssumeRoleAWSCredentials),
             typeof(URIBasedRefreshingCredentialHelper),
             typeof(AnonymousAWSCredentials),
-            typeof(ECSTaskCredentials),
+            typeof(GenericContainerCredentials),
             typeof(EnvironmentVariablesAWSCredentials),
-            typeof(StoredProfileAWSCredentials),
+            typeof(SharedCredentialsFile),
 #if DESKTOP
             typeof(EnvironmentAWSCredentials),
 #endif

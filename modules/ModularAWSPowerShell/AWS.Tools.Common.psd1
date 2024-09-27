@@ -50,10 +50,9 @@ Alternative modules, AWSPowerShell.NetCore and AWSPowerShell, provide support fo
 
     # Modules that must be imported into the global environment prior to importing this module
     RequiredModules = @(
-
     )
 
-    # Assemblies that must be loaded prior to importing this module.
+# Assemblies that must be loaded prior to importing this module.
     RequiredAssemblies = @(
         'AWSSDK.Core.dll',
         'AWSSDK.SecurityToken.dll',

@@ -478,7 +478,7 @@ namespace Amazon.PowerShell.Common
         {
             base.ProcessRecord();
 
-            var powershellAssembly = TypeFactory.GetTypeInfo(typeof(BaseCmdlet)).Assembly;
+            var powershellAssembly = typeof(BaseCmdlet).Assembly;
 
             using (var sw = new StringWriter())
             {
@@ -488,7 +488,7 @@ namespace Amazon.PowerShell.Common
                 sw.WriteLine("Version {0}", powershellInfo.FileVersion);
                 sw.WriteLine(powershellInfo.LegalCopyright);
 
-                var sdkAssembly = TypeFactory.GetTypeInfo(typeof(AWSCredentials)).Assembly;
+                var sdkAssembly = typeof(AWSCredentials).Assembly;
                 var sdkInfo = FileVersionInfo.GetVersionInfo(sdkAssembly.Location);
                 sw.WriteLine();
                 sw.WriteLine(sdkInfo.ProductName);
