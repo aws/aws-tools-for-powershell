@@ -22,35 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SecurityHub;
-using Amazon.SecurityHub.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SHUB
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// <note><para>
-    /// The <i>aggregation Region</i> is now called the <i>home Region</i>.
-    /// </para></note><para>
-    /// Returns the current configuration in the calling account for cross-Region aggregation.
-    /// A finding aggregator is a resource that establishes the home Region and any linked
-    /// Regions.
-    /// </para>
+    /// Describes a personalization configuration.
     /// </summary>
-    [Cmdlet("Get", "SHUBFindingAggregator")]
-    [OutputType("Amazon.SecurityHub.Model.GetFindingAggregatorResponse")]
-    [AWSCmdlet("Calls the AWS Security Hub GetFindingAggregator API operation.", Operation = new[] {"GetFindingAggregator"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.GetFindingAggregatorResponse))]
-    [AWSCmdletOutput("Amazon.SecurityHub.Model.GetFindingAggregatorResponse",
-        "This cmdlet returns an Amazon.SecurityHub.Model.GetFindingAggregatorResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "QSQPersonalizationConfiguration")]
+    [OutputType("Amazon.QuickSight.PersonalizationMode")]
+    [AWSCmdlet("Calls the Amazon QuickSight DescribeQPersonalizationConfiguration API operation.", Operation = new[] {"DescribeQPersonalizationConfiguration"}, SelectReturnType = typeof(Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.PersonalizationMode or Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse",
+        "This cmdlet returns an Amazon.QuickSight.PersonalizationMode object.",
+        "The service call response (type Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSHUBFindingAggregatorCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
+    public partial class GetQSQPersonalizationConfigurationCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter FindingAggregatorArn
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the finding aggregator to return details for. To obtain the ARN, use <c>ListFindingAggregators</c>.</para>
+        /// <para>The ID of the Amazon Web Services account that contains the personalization configuration
+        /// that the user wants described.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -61,26 +57,26 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String FindingAggregatorArn { get; set; }
+        public System.String AwsAccountId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.GetFindingAggregatorResponse).
-        /// Specifying the name of a property of type Amazon.SecurityHub.Model.GetFindingAggregatorResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PersonalizationMode'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "PersonalizationMode";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the FindingAggregatorArn parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^FindingAggregatorArn' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AwsAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^FindingAggregatorArn' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -98,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.GetFindingAggregatorResponse, GetSHUBFindingAggregatorCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse, GetQSQPersonalizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -107,14 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.FindingAggregatorArn;
+                context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.FindingAggregatorArn = this.FindingAggregatorArn;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.FindingAggregatorArn == null && ParameterWasBound(nameof(this.FindingAggregatorArn)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter FindingAggregatorArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -131,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityHub.Model.GetFindingAggregatorRequest();
+            var request = new Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationRequest();
             
-            if (cmdletContext.FindingAggregatorArn != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.FindingAggregatorArn = cmdletContext.FindingAggregatorArn;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
             
             CmdletOutput output;
@@ -170,15 +166,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityHub.Model.GetFindingAggregatorResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.GetFindingAggregatorRequest request)
+        private Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "GetFindingAggregator");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "DescribeQPersonalizationConfiguration");
             try
             {
                 #if DESKTOP
-                return client.GetFindingAggregator(request);
+                return client.DescribeQPersonalizationConfiguration(request);
                 #elif CORECLR
-                return client.GetFindingAggregatorAsync(request).GetAwaiter().GetResult();
+                return client.DescribeQPersonalizationConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -198,9 +194,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FindingAggregatorArn { get; set; }
-            public System.Func<Amazon.SecurityHub.Model.GetFindingAggregatorResponse, GetSHUBFindingAggregatorCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String AwsAccountId { get; set; }
+            public System.Func<Amazon.QuickSight.Model.DescribeQPersonalizationConfigurationResponse, GetQSQPersonalizationConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PersonalizationMode;
         }
         
     }

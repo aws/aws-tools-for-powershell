@@ -22806,6 +22806,8 @@ Set-Alias -Name Describe-QSKeyRegistration -Value Get-QSKeyRegistration
 Set-Alias -Name QS-DescribeKeyRegistration -Value Get-QSKeyRegistration
 Set-Alias -Name Describe-QSNamespace -Value Get-QSNamespace
 Set-Alias -Name QS-DescribeNamespace -Value Get-QSNamespace
+Set-Alias -Name Describe-QSQPersonalizationConfiguration -Value Get-QSQPersonalizationConfiguration
+Set-Alias -Name QS-DescribeQPersonalizationConfiguration -Value Get-QSQPersonalizationConfiguration
 Set-Alias -Name Describe-QSRefreshSchedule -Value Get-QSRefreshSchedule
 Set-Alias -Name QS-DescribeRefreshSchedule -Value Get-QSRefreshSchedule
 Set-Alias -Name Describe-QSRoleCustomPermission -Value Get-QSRoleCustomPermission
@@ -22990,6 +22992,7 @@ Set-Alias -Name QS-UpdateIpRestriction -Value Update-QSIpRestriction
 Set-Alias -Name QS-UpdateKeyRegistration -Value Update-QSKeyRegistration
 Set-Alias -Name Update-QSPublicSharingSettings -Value Update-QSPublicSharingSetting
 Set-Alias -Name QS-UpdatePublicSharingSettings -Value Update-QSPublicSharingSetting
+Set-Alias -Name QS-UpdateQPersonalizationConfiguration -Value Update-QSQPersonalizationConfiguration
 Set-Alias -Name QS-UpdateRefreshSchedule -Value Update-QSRefreshSchedule
 Set-Alias -Name QS-UpdateRoleCustomPermission -Value Update-QSRoleCustomPermission
 Set-Alias -Name QS-UpdateSPICECapacityConfiguration -Value Update-QSSPICECapacityConfiguration

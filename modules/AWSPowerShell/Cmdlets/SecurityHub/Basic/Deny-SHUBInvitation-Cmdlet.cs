@@ -28,15 +28,19 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Declines invitations to become a member account.
-    /// 
-    ///  
-    /// <para>
+    /// <note><para>
+    /// We recommend using Organizations instead of Security Hub invitations to manage your
+    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
+    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
+    /// Hub User Guide</i>.
+    /// </para></note><para>
+    /// Declines invitations to become a Security Hub member account.
+    /// </para><para>
     /// A prospective member account uses this operation to decline an invitation to become
     /// a member.
     /// </para><para>
-    /// This operation is only called by member accounts that aren't part of an organization.
-    /// Organization accounts don't receive invitations.
+    /// Only member accounts that aren't part of an Amazon Web Services organization should
+    /// use this operation. Organization accounts don't receive invitations.
     /// </para>
     /// </summary>
     [Cmdlet("Deny", "SHUBInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

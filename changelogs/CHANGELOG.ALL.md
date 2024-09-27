@@ -1,4 +1,16 @@
-﻿### 4.1.665 (2024-09-26 21:08Z)
+﻿### 4.1.666 (2024-09-27 21:23Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.894.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * [Breaking Change] Removed support for Amazon WorkLink
+  * Amazon Connect Customer Profiles
+    * Modified cmdlet Write-CPFIntegration: added parameter RoleArn.
+  * Amazon QuickSight
+    * Added cmdlet Get-QSQPersonalizationConfiguration leveraging the DescribeQPersonalizationConfiguration service API.
+    * Added cmdlet Update-QSQPersonalizationConfiguration leveraging the UpdateQPersonalizationConfiguration service API.
+  * Amazon Simple Email Service V2 (SES V2)
+    * Modified cmdlet New-SES2ConfigurationSet: added parameter TrackingOptions_HttpsPolicy.
+    * Modified cmdlet Write-SES2ConfigurationSetTrackingOption: added parameter HttpsPolicy.
+
+### 4.1.665 (2024-09-26 21:08Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.893.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * LM
     * [Breaking Change] Removed cmdlets Get-LMPublicAccessBlockConfig, Get-LMResourcePolicy, Remove-LMResourcePolicy, Write-LMPublicAccessBlockConfig and Write-LMResourcePolicy.

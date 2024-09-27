@@ -55131,6 +55131,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.PersonalizationMode
+        "Update-QSQPersonalizationConfiguration/PersonalizationMode"
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.QuickSight.PurchaseMode
         "Update-QSSPICECapacityConfiguration/PurchaseMode"
         {
@@ -55344,6 +55351,7 @@ $QS_map = @{
     "Options_WeekStart"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperOrientation"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
     "PaperCanvasSizeOptions_PaperSize"=@("New-QSAnalysis","New-QSDashboard","New-QSTemplate","Update-QSAnalysis","Update-QSDashboard","Update-QSTemplate")
+    "PersonalizationMode"=@("Update-QSQPersonalizationConfiguration")
     "PurchaseMode"=@("Update-QSSPICECapacityConfiguration")
     "QueryExecutionOptions_QueryExecutionMode"=@("New-QSAnalysis","New-QSTemplate","Update-QSAnalysis","Update-QSTemplate")
     "RefreshOnDay_DayOfWeek"=@("New-QSRefreshSchedule","Update-QSRefreshSchedule")
@@ -55498,6 +55506,7 @@ $QS_SelectMap = @{
                "Get-QSIpRestriction",
                "Get-QSKeyRegistration",
                "Get-QSNamespace",
+               "Get-QSQPersonalizationConfiguration",
                "Get-QSRefreshSchedule",
                "Get-QSRoleCustomPermission",
                "Get-QSTemplate",
@@ -55583,6 +55592,7 @@ $QS_SelectMap = @{
                "Update-QSIpRestriction",
                "Update-QSKeyRegistration",
                "Update-QSPublicSharingSetting",
+               "Update-QSQPersonalizationConfiguration",
                "Update-QSRefreshSchedule",
                "Update-QSRoleCustomPermission",
                "Update-QSSPICECapacityConfiguration",
@@ -64418,6 +64428,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.HttpsPolicy
+        {
+            ($_ -eq "Write-SES2ConfigurationSetTrackingOption/HttpsPolicy") -Or
+            ($_ -eq "New-SES2ConfigurationSet/TrackingOptions_HttpsPolicy")
+        }
+        {
+            $v = "OPTIONAL","REQUIRE","REQUIRE_OPEN_ONLY"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ImportDestinationType
         "Get-SES2ImportJobList/ImportDestinationType"
         {
@@ -64508,6 +64528,7 @@ $SES2_map = @{
     "Filter_FilteredStatus"=@("Get-SES2ContactCollection")
     "GuardianAttributes_OptimizedSharedDelivery"=@("Write-SES2AccountVdmAttribute")
     "GuardianOptions_OptimizedSharedDelivery"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
+    "HttpsPolicy"=@("Write-SES2ConfigurationSetTrackingOption")
     "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "JobStatus"=@("Get-SES2ExportJobList")
@@ -64519,6 +64540,7 @@ $SES2_map = @{
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
+    "TrackingOptions_HttpsPolicy"=@("New-SES2ConfigurationSet")
     "VdmAttributes_VdmEnabled"=@("Write-SES2AccountVdmAttribute")
 }
 

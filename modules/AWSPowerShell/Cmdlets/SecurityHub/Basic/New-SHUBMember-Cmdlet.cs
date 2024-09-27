@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// the <c>InviteMembers</c> operation. If the account owner accepts the invitation, the
     /// account becomes a member account in Security Hub.
     /// </para><para>
-    /// Accounts that are managed using Organizations do not receive an invitation. They automatically
+    /// Accounts that are managed using Organizations don't receive an invitation. They automatically
     /// become a member account in Security Hub.
     /// </para><ul><li><para>
     /// If the organization account does not have Security Hub enabled, then Security Hub

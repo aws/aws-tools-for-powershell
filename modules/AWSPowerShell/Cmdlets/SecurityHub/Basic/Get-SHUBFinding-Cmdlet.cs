@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// If finding aggregation is enabled, then when you call <c>GetFindings</c> from the
-    /// aggregation Region, the results include all of the matching findings from both the
-    /// aggregation Region and the linked Regions.
+    /// If cross-Region aggregation is enabled, then when you call <c>GetFindings</c> from
+    /// the home Region, the results include all of the matching findings from both the home
+    /// Region and linked Regions.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBFinding")]

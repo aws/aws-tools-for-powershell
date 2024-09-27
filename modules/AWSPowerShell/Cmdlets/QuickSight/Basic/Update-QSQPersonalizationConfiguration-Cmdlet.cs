@@ -22,60 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SecurityHub;
-using Amazon.SecurityHub.Model;
+using Amazon.QuickSight;
+using Amazon.QuickSight.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SHUB
+namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// <note><para>
-    /// We recommend using Organizations instead of Security Hub invitations to manage your
-    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
-    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
-    /// Hub User Guide</i>.
-    /// </para></note><para>
-    /// Accepts the invitation to be a member account and be monitored by the Security Hub
-    /// administrator account that the invitation was sent from.
-    /// </para><para>
-    /// This operation is only used by member accounts that are not added through Organizations.
-    /// </para><para>
-    /// When the member account accepts the invitation, permission is granted to the administrator
-    /// account to view findings generated in the member account.
-    /// </para>
+    /// Updates a personalization configuration.
     /// </summary>
-    [Cmdlet("Confirm", "SHUBAdministratorInvitation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS Security Hub AcceptAdministratorInvitation API operation.", Operation = new[] {"AcceptAdministratorInvitation"}, SelectReturnType = typeof(Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse))]
-    [AWSCmdletOutput("None or Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "QSQPersonalizationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.QuickSight.PersonalizationMode")]
+    [AWSCmdlet("Calls the Amazon QuickSight UpdateQPersonalizationConfiguration API operation.", Operation = new[] {"UpdateQPersonalizationConfiguration"}, SelectReturnType = typeof(Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse))]
+    [AWSCmdletOutput("Amazon.QuickSight.PersonalizationMode or Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse",
+        "This cmdlet returns an Amazon.QuickSight.PersonalizationMode object.",
+        "The service call response (type Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ConfirmSHUBAdministratorInvitationCmdlet : AmazonSecurityHubClientCmdlet, IExecutor
+    public partial class UpdateQSQPersonalizationConfigurationCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter AdministratorId
+        #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the Security Hub administrator account that sent the invitation.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String AdministratorId { get; set; }
-        #endregion
-        
-        #region Parameter InvitationId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the invitation sent from the Security Hub administrator account.</para>
+        /// <para>The ID of the Amazon Web Services account account that contains the personalization
+        /// configuration that the user wants to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -86,25 +57,44 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InvitationId { get; set; }
+        public System.String AwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter PersonalizationMode
+        /// <summary>
+        /// <para>
+        /// <para>An option to allow Amazon QuickSight to customize data stories with user specific
+        /// metadata, specifically location and job information, in your IAM Identity Center instance.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        [AWSConstantClassSource("Amazon.QuickSight.PersonalizationMode")]
+        public Amazon.QuickSight.PersonalizationMode PersonalizationMode { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'PersonalizationMode'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "PersonalizationMode";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InvitationId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InvitationId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AwsAccountId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InvitationId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AwsAccountId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -124,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InvitationId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Confirm-SHUBAdministratorInvitation (AcceptAdministratorInvitation)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AwsAccountId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-QSQPersonalizationConfiguration (UpdateQPersonalizationConfiguration)"))
             {
                 return;
             }
@@ -138,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse, ConfirmSHUBAdministratorInvitationCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse, UpdateQSQPersonalizationConfigurationCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -147,21 +137,21 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InvitationId;
+                context.Select = (response, cmdlet) => this.AwsAccountId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.AdministratorId = this.AdministratorId;
+            context.AwsAccountId = this.AwsAccountId;
             #if MODULAR
-            if (this.AdministratorId == null && ParameterWasBound(nameof(this.AdministratorId)))
+            if (this.AwsAccountId == null && ParameterWasBound(nameof(this.AwsAccountId)))
             {
-                WriteWarning("You are passing $null as a value for parameter AdministratorId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AwsAccountId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.InvitationId = this.InvitationId;
+            context.PersonalizationMode = this.PersonalizationMode;
             #if MODULAR
-            if (this.InvitationId == null && ParameterWasBound(nameof(this.InvitationId)))
+            if (this.PersonalizationMode == null && ParameterWasBound(nameof(this.PersonalizationMode)))
             {
-                WriteWarning("You are passing $null as a value for parameter InvitationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter PersonalizationMode which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,15 +168,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SecurityHub.Model.AcceptAdministratorInvitationRequest();
+            var request = new Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationRequest();
             
-            if (cmdletContext.AdministratorId != null)
+            if (cmdletContext.AwsAccountId != null)
             {
-                request.AdministratorId = cmdletContext.AdministratorId;
+                request.AwsAccountId = cmdletContext.AwsAccountId;
             }
-            if (cmdletContext.InvitationId != null)
+            if (cmdletContext.PersonalizationMode != null)
             {
-                request.InvitationId = cmdletContext.InvitationId;
+                request.PersonalizationMode = cmdletContext.PersonalizationMode;
             }
             
             CmdletOutput output;
@@ -221,15 +211,15 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         #region AWS Service Operation Call
         
-        private Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse CallAWSServiceOperation(IAmazonSecurityHub client, Amazon.SecurityHub.Model.AcceptAdministratorInvitationRequest request)
+        private Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse CallAWSServiceOperation(IAmazonQuickSight client, Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Hub", "AcceptAdministratorInvitation");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon QuickSight", "UpdateQPersonalizationConfiguration");
             try
             {
                 #if DESKTOP
-                return client.AcceptAdministratorInvitation(request);
+                return client.UpdateQPersonalizationConfiguration(request);
                 #elif CORECLR
-                return client.AcceptAdministratorInvitationAsync(request).GetAwaiter().GetResult();
+                return client.UpdateQPersonalizationConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,10 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AdministratorId { get; set; }
-            public System.String InvitationId { get; set; }
-            public System.Func<Amazon.SecurityHub.Model.AcceptAdministratorInvitationResponse, ConfirmSHUBAdministratorInvitationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.String AwsAccountId { get; set; }
+            public Amazon.QuickSight.PersonalizationMode PersonalizationMode { get; set; }
+            public System.Func<Amazon.QuickSight.Model.UpdateQPersonalizationConfigurationResponse, UpdateQSQPersonalizationConfigurationCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.PersonalizationMode;
         }
         
     }

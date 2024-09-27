@@ -347,6 +347,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Get" Noun="QPersonalizationConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRefreshSchedule" OutputProperty="*" Verb="Get" Noun="RefreshSchedule" PipelineParameter="ScheduleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -702,6 +706,10 @@
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest</Type>
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse</Type>
             </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Update" Noun="QPersonalizationConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRefreshSchedule" OutputProperty="*" Verb="Update" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false">
             <Params />

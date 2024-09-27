@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter InsightArn
         /// <summary>
         /// <para>
-        /// <para>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
+        /// <para>The ARNs of the insights to describe. If you don't provide any insight ARNs, then
         /// <c>GetInsights</c> returns all of your custom insights. It does not return any managed
         /// insights.</para>
         /// </para>

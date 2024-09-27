@@ -28,14 +28,16 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Deletes a finding aggregator. When you delete the finding aggregator, you stop finding
-    /// aggregation.
-    /// 
-    ///  
-    /// <para>
-    /// When you stop finding aggregation, findings that were already aggregated to the aggregation
-    /// Region are still visible from the aggregation Region. New findings and finding updates
-    /// are not aggregated. 
+    /// <note><para>
+    /// The <i>aggregation Region</i> is now called the <i>home Region</i>.
+    /// </para></note><para>
+    /// Deletes a finding aggregator. When you delete the finding aggregator, you stop cross-Region
+    /// aggregation. Finding replication stops occurring from the linked Regions to the home
+    /// Region.
+    /// </para><para>
+    /// When you stop cross-Region aggregation, findings that were already replicated and
+    /// sent to the home Region are still visible from the home Region. However, new findings
+    /// and finding updates are no longer replicated and sent to the home Region. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SHUBFindingAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

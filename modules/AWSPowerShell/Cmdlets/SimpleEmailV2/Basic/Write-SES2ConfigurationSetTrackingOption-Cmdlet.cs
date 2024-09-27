@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public System.String CustomRedirectDomain { get; set; }
         #endregion
         
+        #region Parameter HttpsPolicy
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.HttpsPolicy")]
+        public Amazon.SimpleEmailV2.HttpsPolicy HttpsPolicy { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
@@ -139,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             }
             #endif
             context.CustomRedirectDomain = this.CustomRedirectDomain;
+            context.HttpsPolicy = this.HttpsPolicy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -162,6 +174,10 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             if (cmdletContext.CustomRedirectDomain != null)
             {
                 request.CustomRedirectDomain = cmdletContext.CustomRedirectDomain;
+            }
+            if (cmdletContext.HttpsPolicy != null)
+            {
+                request.HttpsPolicy = cmdletContext.HttpsPolicy;
             }
             
             CmdletOutput output;
@@ -226,6 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         {
             public System.String ConfigurationSetName { get; set; }
             public System.String CustomRedirectDomain { get; set; }
+            public Amazon.SimpleEmailV2.HttpsPolicy HttpsPolicy { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.PutConfigurationSetTrackingOptionsResponse, WriteSES2ConfigurationSetTrackingOptionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;
         }
