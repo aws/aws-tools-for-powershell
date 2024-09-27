@@ -426,7 +426,6 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.WAFV2.dll',
         'AWSSDK.WellArchitected.dll',
         'AWSSDK.WorkDocs.dll',
-        'AWSSDK.WorkLink.dll',
         'AWSSDK.WorkMail.dll',
         'AWSSDK.WorkMailMessageFlow.dll',
         'AWSSDK.WorkSpaces.dll',
