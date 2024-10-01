@@ -130,10 +130,23 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetACL" OutputProperty="AccessControlList" Verb="Get" Noun="ACL" PositionalParameters="Key;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Get-S3BucketACL or Get-S3ObjectACL instead.">            
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBucketAcl" OutputProperty="Grants" Verb="Get" Noun="BucketACL" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="BucketName" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetObjectAcl" OutputProperty="Grants" Verb="Get" Noun="ObjectACL" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="BucketName" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    
         <ServiceOperation MethodName="GetBucketAccelerateConfiguration" OutputProperty="Status" Verb="Get" Noun="BucketAccelerateConfiguration" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -313,7 +326,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutACL" Verb="Set" Noun="ACL" ShouldProcessTarget="Key" PositionalParameters="Key;AccessControlList_Owner_Id;AccessControlList_Owner_DisplayName;AccessControlList_Grants;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutACL" Verb="Set" Noun="ACL" ShouldProcessTarget="Key" PositionalParameters="Key;AccessControlList_Owner_Id;AccessControlList_Owner_DisplayName;AccessControlList_Grants;VersionId" PipelineParameter="BucketName" NoPipelineParameter="false" ReplacementObsoleteMessage="This cmdlet is deprecated, use Set-S3BucketACL or Set-S3ObjectACL instead.">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
                 <Param Name="AccessControlList_Owner_Id" NewName="Owner_Id" Alias="OwnerId;ACL_Owner_Id" />
@@ -323,6 +336,18 @@
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutBucketAcl" Verb="Set" Noun="BucketACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="BucketName" Mandatory="true" />
+            </Params>
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutObjectAcl" OutputProperty="RequestCharged" Verb="Set" Noun="ObjectACL" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+        <Params>
+            <Param Name="BucketName" Mandatory="true" />
+        </Params>
+        <TypesNotToFlatten />
+        </ServiceOperation>    
         <ServiceOperation MethodName="PutBucket" OutputProperty="*" Verb="New" Noun="Bucket" Exclude="true" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params>
                 <Param Name="BucketName" Mandatory="true" />
