@@ -7,7 +7,7 @@
     <ServiceName>Amazon DynamoDB Streams</ServiceName>
     <ServiceClientInterface>IAmazonDynamoDBStreams</ServiceClientInterface>
     <ServiceClient>AmazonDynamoDBStreamsClient</ServiceClient>
-    <ServiceModuleGuid />
+    <ServiceModuleGuid>1fedf5a4-7e66-4cb7-9b26-0fb671bb9484</ServiceModuleGuid>
     <PipelineParameter>TableName</PipelineParameter>
     <VerbMappings />
     <NounMappings />
