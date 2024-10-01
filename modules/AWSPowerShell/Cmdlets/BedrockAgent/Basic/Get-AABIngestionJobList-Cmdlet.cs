@@ -28,7 +28,8 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Lists the ingestion jobs for a data source and information about each of them.
+    /// Lists the data ingestion jobs for a data source. The list also includes information
+    /// about each job.
     /// </summary>
     [Cmdlet("Get", "AABIngestionJobList")]
     [OutputType("Amazon.BedrockAgent.Model.IngestionJobSummary")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter SortBy_Attribute
         /// <summary>
         /// <para>
-        /// <para>The attribute by which to sort the results.</para>
+        /// <para>The name of field or attribute to apply sorting of data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the data source for which to return ingestion jobs.</para>
+        /// <para>The unique identifier of the data source for the list of data ingestion jobs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Contains a definition of a filter for which to filter the results.</para>
+        /// <para>Contains information about the filters for filtering the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the knowledge base for which to return ingestion jobs.</para>
+        /// <para>The unique identifier of the knowledge base for the list of data ingestion jobs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -101,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter SortBy_Order
         /// <summary>
         /// <para>
-        /// <para>The order by which to sort the results.</para>
+        /// <para>The order for sorting the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

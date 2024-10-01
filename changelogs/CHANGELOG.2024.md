@@ -1,4 +1,14 @@
-﻿### 4.1.667 (2024-10-01 00:25Z)
+﻿### 4.1.668 (2024-10-01 21:21Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.896.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Agents for Amazon Bedrock
+    * Added cmdlet Stop-AABIngestionJob leveraging the StopIngestionJob service API.
+  * Amazon CodeArtifact
+    * Modified cmdlet Get-CARepositoryEndpoint: added parameter EndpointType.
+  * Amazon Relational Database Service
+    * Modified cmdlet New-RDSDBCluster: added parameter ClusterScalabilityType.
+    * Modified cmdlet New-RDSDBShardGroup: added parameter Tag.
+
+### 4.1.667 (2024-10-01 00:25Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.895.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Connect Service
     * Added cmdlet Start-CONNOutboundChatContact leveraging the StartOutboundChatContact service API.

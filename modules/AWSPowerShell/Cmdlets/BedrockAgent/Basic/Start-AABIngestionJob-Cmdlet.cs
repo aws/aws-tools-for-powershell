@@ -28,7 +28,8 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Begins an ingestion job, in which a data source is added to a knowledge base.
+    /// Begins a data ingestion job. Data sources are ingested into your knowledge base so
+    /// that Large Language Models (LLMs) can use your data.
     /// </summary>
     [Cmdlet("Start", "AABIngestionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgent.Model.IngestionJob")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the data source to ingest.</para>
+        /// <para>The unique identifier of the data source you want to ingest into your knowledge base.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description of the ingestion job.</para>
+        /// <para>A description of the data ingestion job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the knowledge base to which to add the data source.</para>
+        /// <para>The unique identifier of the knowledge base for the data ingestion job.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

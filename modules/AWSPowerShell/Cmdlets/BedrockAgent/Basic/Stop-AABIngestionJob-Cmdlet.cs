@@ -28,32 +28,31 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Gets information about a data source.
+    /// Stops a currently running data ingestion job. You can send a <c>StartIngestionJob</c>
+    /// request again to ingest the rest of your data when you are ready.
     /// </summary>
-    [Cmdlet("Get", "AABDataSource")]
-    [OutputType("Amazon.BedrockAgent.Model.DataSource")]
-    [AWSCmdlet("Calls the Agents for Amazon Bedrock GetDataSource API operation.", Operation = new[] {"GetDataSource"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.GetDataSourceResponse))]
-    [AWSCmdletOutput("Amazon.BedrockAgent.Model.DataSource or Amazon.BedrockAgent.Model.GetDataSourceResponse",
-        "This cmdlet returns an Amazon.BedrockAgent.Model.DataSource object.",
-        "The service call response (type Amazon.BedrockAgent.Model.GetDataSourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "AABIngestionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.BedrockAgent.Model.IngestionJob")]
+    [AWSCmdlet("Calls the Agents for Amazon Bedrock StopIngestionJob API operation.", Operation = new[] {"StopIngestionJob"}, SelectReturnType = typeof(Amazon.BedrockAgent.Model.StopIngestionJobResponse))]
+    [AWSCmdletOutput("Amazon.BedrockAgent.Model.IngestionJob or Amazon.BedrockAgent.Model.StopIngestionJobResponse",
+        "This cmdlet returns an Amazon.BedrockAgent.Model.IngestionJob object.",
+        "The service call response (type Amazon.BedrockAgent.Model.StopIngestionJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetAABDataSourceCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
+    public partial class StopAABIngestionJobCmdlet : AmazonBedrockAgentClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter DataSourceId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the data source.</para>
+        /// <para>The unique identifier of the data source for the data ingestion job you want to stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
         [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
@@ -61,10 +60,28 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         public System.String DataSourceId { get; set; }
         #endregion
         
+        #region Parameter IngestionJobId
+        /// <summary>
+        /// <para>
+        /// <para>The unique identifier of the data ingestion job you want to stop.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String IngestionJobId { get; set; }
+        #endregion
+        
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the knowledge base for the data source.</para>
+        /// <para>The unique identifier of the knowledge base for the data ingestion job you want to
+        /// stop.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,23 +97,23 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'DataSource'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgent.Model.GetDataSourceResponse).
-        /// Specifying the name of a property of type Amazon.BedrockAgent.Model.GetDataSourceResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'IngestionJob'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.BedrockAgent.Model.StopIngestionJobResponse).
+        /// Specifying the name of a property of type Amazon.BedrockAgent.Model.StopIngestionJobResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "DataSource";
+        public string Select { get; set; } = "IngestionJob";
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Force
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DataSourceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DataSourceId' instead. This parameter will be removed in a future version.
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DataSourceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -104,31 +121,34 @@ namespace Amazon.PowerShell.Cmdlets.AAB
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-AABIngestionJob (StopIngestionJob)"))
+            {
+                return;
+            }
+            
             var context = new CmdletContext();
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.BedrockAgent.Model.GetDataSourceResponse, GetAABDataSourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.BedrockAgent.Model.StopIngestionJobResponse, StopAABIngestionJobCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
-            {
-                context.Select = (response, cmdlet) => this.DataSourceId;
-            }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.DataSourceId = this.DataSourceId;
             #if MODULAR
             if (this.DataSourceId == null && ParameterWasBound(nameof(this.DataSourceId)))
             {
                 WriteWarning("You are passing $null as a value for parameter DataSourceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.IngestionJobId = this.IngestionJobId;
+            #if MODULAR
+            if (this.IngestionJobId == null && ParameterWasBound(nameof(this.IngestionJobId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter IngestionJobId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.KnowledgeBaseId = this.KnowledgeBaseId;
@@ -152,11 +172,15 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.BedrockAgent.Model.GetDataSourceRequest();
+            var request = new Amazon.BedrockAgent.Model.StopIngestionJobRequest();
             
             if (cmdletContext.DataSourceId != null)
             {
                 request.DataSourceId = cmdletContext.DataSourceId;
+            }
+            if (cmdletContext.IngestionJobId != null)
+            {
+                request.IngestionJobId = cmdletContext.IngestionJobId;
             }
             if (cmdletContext.KnowledgeBaseId != null)
             {
@@ -195,15 +219,15 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         
         #region AWS Service Operation Call
         
-        private Amazon.BedrockAgent.Model.GetDataSourceResponse CallAWSServiceOperation(IAmazonBedrockAgent client, Amazon.BedrockAgent.Model.GetDataSourceRequest request)
+        private Amazon.BedrockAgent.Model.StopIngestionJobResponse CallAWSServiceOperation(IAmazonBedrockAgent client, Amazon.BedrockAgent.Model.StopIngestionJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Agents for Amazon Bedrock", "GetDataSource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Agents for Amazon Bedrock", "StopIngestionJob");
             try
             {
                 #if DESKTOP
-                return client.GetDataSource(request);
+                return client.StopIngestionJob(request);
                 #elif CORECLR
-                return client.GetDataSourceAsync(request).GetAwaiter().GetResult();
+                return client.StopIngestionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -224,9 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DataSourceId { get; set; }
+            public System.String IngestionJobId { get; set; }
             public System.String KnowledgeBaseId { get; set; }
-            public System.Func<Amazon.BedrockAgent.Model.GetDataSourceResponse, GetAABDataSourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.DataSource;
+            public System.Func<Amazon.BedrockAgent.Model.StopIngestionJobResponse, StopAABIngestionJobCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.IngestionJob;
         }
         
     }

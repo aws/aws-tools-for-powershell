@@ -400,6 +400,7 @@ $AAB_SelectMap = @{
                "Initialize-AABAgent",
                "Initialize-AABFlow",
                "Start-AABIngestionJob",
+               "Stop-AABIngestionJob",
                "Add-AABResourceTag",
                "Remove-AABResourceTag",
                "Update-AABAgent",

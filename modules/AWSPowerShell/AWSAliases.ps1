@@ -2487,6 +2487,7 @@ Set-Alias -Name AAB-PrepareAgent -Value Initialize-AABAgent
 Set-Alias -Name Prepare-AABFlow -Value Initialize-AABFlow
 Set-Alias -Name AAB-PrepareFlow -Value Initialize-AABFlow
 Set-Alias -Name AAB-StartIngestionJob -Value Start-AABIngestionJob
+Set-Alias -Name AAB-StopIngestionJob -Value Stop-AABIngestionJob
 Set-Alias -Name AAB-TagResource -Value Add-AABResourceTag
 Set-Alias -Name AAB-UntagResource -Value Remove-AABResourceTag
 Set-Alias -Name AAB-UpdateAgentActionGroup -Value Update-AABAgentActionGroup

@@ -151,6 +151,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String CharacterSetName { get; set; }
         #endregion
         
+        #region Parameter ClusterScalabilityType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the scalability mode of the Aurora DB cluster. When set to <c>limitless</c>,
+        /// the cluster operates as an Aurora Limitless Database. When set to <c>standard</c>
+        /// (the default), the cluster uses normal DB instance creation.</para><para>Valid for: Aurora DB clusters only</para><note><para>You can't modify this setting after you create the DB cluster.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.RDS.ClusterScalabilityType")]
+        public Amazon.RDS.ClusterScalabilityType ClusterScalabilityType { get; set; }
+        #endregion
+        
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
@@ -955,6 +968,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.BackupRetentionPeriod = this.BackupRetentionPeriod;
             context.CACertificateIdentifier = this.CACertificateIdentifier;
             context.CharacterSetName = this.CharacterSetName;
+            context.ClusterScalabilityType = this.ClusterScalabilityType;
             context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
@@ -1078,6 +1092,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.CharacterSetName != null)
             {
                 request.CharacterSetName = cmdletContext.CharacterSetName;
+            }
+            if (cmdletContext.ClusterScalabilityType != null)
+            {
+                request.ClusterScalabilityType = cmdletContext.ClusterScalabilityType;
             }
             if (cmdletContext.CopyTagsToSnapshot != null)
             {
@@ -1461,6 +1479,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String CACertificateIdentifier { get; set; }
             public System.String CharacterSetName { get; set; }
+            public Amazon.RDS.ClusterScalabilityType ClusterScalabilityType { get; set; }
             public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the knowledge base for which to get information.</para>
+        /// <para>The unique identifier of the knowledge base you want to get information on.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

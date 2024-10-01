@@ -28,10 +28,11 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Creates a knowledge base that contains data sources from which information can be
-    /// queried and used by LLMs. To create a knowledge base, you must first set up your data
-    /// sources and configure a supported vector store. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html">Set
-    /// up your data for ingestion</a>.
+    /// Creates a knowledge base. A knowledge base contains your data sources so that Large
+    /// Language Models (LLMs) can use your data. To create a knowledge base, you must first
+    /// set up your data sources and configure a supported vector store. For more information,
+    /// see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowlege-base-prereq.html">Set
+    /// up a knowledge base</a>.
     /// 
     ///  <note><para>
     /// If you prefer to let Amazon Bedrock create and manage a vector store for you in Amazon

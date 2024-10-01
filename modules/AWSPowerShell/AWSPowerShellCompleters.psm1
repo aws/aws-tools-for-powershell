@@ -6797,6 +6797,7 @@ $AAB_SelectMap = @{
                "Initialize-AABAgent",
                "Initialize-AABFlow",
                "Start-AABIngestionJob",
+               "Stop-AABIngestionJob",
                "Add-AABResourceTag",
                "Remove-AABResourceTag",
                "Update-AABAgent",
@@ -12156,6 +12157,13 @@ $CA_Completers = {
             break
         }
 
+        # Amazon.CodeArtifact.EndpointType
+        "Get-CARepositoryEndpoint/EndpointType"
+        {
+            $v = "dualstack","ipv4"
+            break
+        }
+
         # Amazon.CodeArtifact.PackageFormat
         {
             ($_ -eq "Copy-CAPackageVersion/Format") -Or
@@ -12224,6 +12232,7 @@ $CA_Completers = {
 }
 
 $CA_map = @{
+    "EndpointType"=@("Get-CARepositoryEndpoint")
     "ExpectedStatus"=@("Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus")
     "Format"=@("Copy-CAPackageVersion","Get-CAAssociatedPackageGroup","Get-CAPackage","Get-CAPackageList","Get-CAPackageVersion","Get-CAPackageVersionAsset","Get-CAPackageVersionAssetList","Get-CAPackageVersionDependencyList","Get-CAPackageVersionList","Get-CAPackageVersionReadme","Get-CARepositoryEndpoint","Publish-CAPackageVersion","Remove-CAPackage","Remove-CAPackageVersion","Unpublish-CAPackageVersion","Update-CAPackageVersionsStatus","Write-CAPackageOriginConfiguration")
     "OriginRestrictionType"=@("Get-CAAllowedRepositoriesForGroupList")
@@ -55957,6 +55966,13 @@ $RDS_Completers = {
             break
         }
 
+        # Amazon.RDS.ClusterScalabilityType
+        "New-RDSDBCluster/ClusterScalabilityType"
+        {
+            $v = "limitless","standard"
+            break
+        }
+
         # Amazon.RDS.CustomEngineVersionStatus
         "Edit-RDSCustomDBEngineVersion/Status"
         {
@@ -56016,6 +56032,7 @@ $RDS_Completers = {
 $RDS_map = @{
     "AuditPolicyState"=@("Edit-RDSActivityStream")
     "AutomationMode"=@("Edit-RDSDBInstance")
+    "ClusterScalabilityType"=@("New-RDSDBCluster")
     "EngineFamily"=@("New-RDSDBProxy")
     "Mode"=@("Start-RDSActivityStream")
     "RdsCustomClusterConfiguration_ReplicaMode"=@("New-RDSDBCluster","Restore-RDSDBClusterFromSnapshot","Restore-RDSDBClusterToPointInTime")

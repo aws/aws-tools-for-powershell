@@ -28,7 +28,8 @@ using Amazon.BedrockAgent.Model;
 namespace Amazon.PowerShell.Cmdlets.AAB
 {
     /// <summary>
-    /// Lists the knowledge bases in an account and information about each of them.
+    /// Lists the knowledge bases in an account. The list also includesinformation about each
+    /// knowledge base.
     /// </summary>
     [Cmdlet("Get", "AABKnowledgeBasisList")]
     [OutputType("Amazon.BedrockAgent.Model.KnowledgeBaseSummary")]
