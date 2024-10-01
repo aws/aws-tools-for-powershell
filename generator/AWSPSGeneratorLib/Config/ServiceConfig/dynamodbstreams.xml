@@ -2,9 +2,9 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>dynamodbstreams</C2jFilename>
-    <AssemblyName>DynamoDBv2</AssemblyName>
-    <ServiceNounPrefix>DDB</ServiceNounPrefix>
-    <ServiceName>Amazon DynamoDB</ServiceName>
+    <AssemblyName>DynamoDBStreams</AssemblyName>
+    <ServiceNounPrefix>DDBS</ServiceNounPrefix>
+    <ServiceName>Amazon DynamoDB Streams</ServiceName>
     <ServiceClientInterface>IAmazonDynamoDBStreams</ServiceClientInterface>
     <ServiceClient>AmazonDynamoDBStreamsClient</ServiceClient>
     <ServiceModuleGuid />
