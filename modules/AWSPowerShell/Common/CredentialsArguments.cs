@@ -808,9 +808,6 @@ namespace Amazon.PowerShell.Common
         private static HashSet<Type> PassThroughExtractTypes = new HashSet<Type>
         {
             typeof(InstanceProfileAWSCredentials),
-#if DESKTOP
-            typeof(StoredProfileFederatedCredentials),
-#endif
             typeof(FederatedAWSCredentials),
         };
 
@@ -822,9 +819,6 @@ namespace Amazon.PowerShell.Common
             typeof(GenericContainerCredentials),
             typeof(EnvironmentVariablesAWSCredentials),
             typeof(SharedCredentialsFile),
-#if DESKTOP
-            typeof(EnvironmentAWSCredentials),
-#endif
             typeof(EnvironmentVariablesAWSCredentials)
         };
 #pragma warning restore CS0618 //A class was marked with the Obsolete attribute

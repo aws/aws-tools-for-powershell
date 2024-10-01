@@ -186,15 +186,6 @@ namespace Amazon.PowerShell.Common
         {
             var callbackState = (currentCredentials.Credentials as FederatedAWSCredentials)?.Options.CustomCallbackState as SAMLCredentialCallbackState;
 
-#if DESKTOP
-            if (callbackState == null)
-            {
-#pragma warning disable CS0618 //A class was marked with the Obsolete attribute
-                callbackState = (currentCredentials.Credentials as StoredProfileFederatedCredentials)?.CustomCallbackState as SAMLCredentialCallbackState;
-#pragma warning restore CS0618 //A class was marked with the Obsolete attribute
-            }
-#endif
-
             if (callbackState != null) // is our callback that's attached
             {
                 callbackState.ShellNetworkCredentialParameter = NetworkCredential;
