@@ -22,41 +22,43 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.ResourceGroups;
+using Amazon.ResourceGroups.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Lists the association status of requested dataset ID for a given Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the status of the last grouping or ungrouping action for each resource in
+    /// the specified application group.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CONNAnalyticsDataAssociationList")]
-    [OutputType("Amazon.Connect.Model.AnalyticsDataAssociationResult")]
-    [AWSCmdlet("Calls the Amazon Connect Service ListAnalyticsDataAssociations API operation.", Operation = new[] {"ListAnalyticsDataAssociations"}, SelectReturnType = typeof(Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.AnalyticsDataAssociationResult or Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse",
-        "This cmdlet returns a collection of Amazon.Connect.Model.AnalyticsDataAssociationResult objects.",
-        "The service call response (type Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RGGroupingStatusList")]
+    [OutputType("Amazon.ResourceGroups.Model.ListGroupingStatusesResponse")]
+    [AWSCmdlet("Calls the AWS Resource Groups ListGroupingStatuses API operation.", Operation = new[] {"ListGroupingStatuses"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.ListGroupingStatusesResponse))]
+    [AWSCmdletOutput("Amazon.ResourceGroups.Model.ListGroupingStatusesResponse",
+        "This cmdlet returns an Amazon.ResourceGroups.Model.ListGroupingStatusesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCONNAnalyticsDataAssociationListCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetRGGroupingStatusListCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DataSetId
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The identifier of the dataset to get the association status.</para>
+        /// <para>The filter name and value pair that is used to return more specific results from a
+        /// list of resources. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DataSetId { get; set; }
+        [Alias("Filters")]
+        public Amazon.ResourceGroups.Model.ListGroupingStatusesFilter[] Filter { get; set; }
         #endregion
         
-        #region Parameter InstanceId
+        #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
+        /// <para>The application group identifier, expressed as an Amazon resource name (ARN) or the
+        /// application group name. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,13 +69,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        public System.String Group { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of resources and their statuses returned in the response. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>The parameter for receiving additional results if you receive a <c>NextToken</c> response
+        /// in a previous request. A <c>NextToken</c> response indicates that more output is available.
+        /// Set this parameter to the value provided by a previous call's <c>NextToken</c> response
+        /// to indicate where the output should continue from. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -98,21 +102,21 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Results'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.ListGroupingStatusesResponse).
+        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.ListGroupingStatusesResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Results";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the Group parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^Group' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Group' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -140,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse, GetCONNAnalyticsDataAssociationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.ListGroupingStatusesResponse, GetRGGroupingStatusListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -149,15 +153,18 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Select = (response, cmdlet) => this.Group;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DataSetId = this.DataSetId;
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            if (this.Filter != null)
             {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                context.Filter = new List<Amazon.ResourceGroups.Model.ListGroupingStatusesFilter>(this.Filter);
+            }
+            context.Group = this.Group;
+            #if MODULAR
+            if (this.Group == null && ParameterWasBound(nameof(this.Group)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Group which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             context.MaxResult = this.MaxResult;
@@ -180,15 +187,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.ListAnalyticsDataAssociationsRequest();
+            var request = new Amazon.ResourceGroups.Model.ListGroupingStatusesRequest();
             
-            if (cmdletContext.DataSetId != null)
+            if (cmdletContext.Filter != null)
             {
-                request.DataSetId = cmdletContext.DataSetId;
+                request.Filters = cmdletContext.Filter;
             }
-            if (cmdletContext.InstanceId != null)
+            if (cmdletContext.Group != null)
             {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.Group = cmdletContext.Group;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -251,15 +258,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListAnalyticsDataAssociationsRequest request)
+        private Amazon.ResourceGroups.Model.ListGroupingStatusesResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.ListGroupingStatusesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListAnalyticsDataAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "ListGroupingStatuses");
             try
             {
                 #if DESKTOP
-                return client.ListAnalyticsDataAssociations(request);
+                return client.ListGroupingStatuses(request);
                 #elif CORECLR
-                return client.ListAnalyticsDataAssociationsAsync(request).GetAwaiter().GetResult();
+                return client.ListGroupingStatusesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -279,12 +286,12 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DataSetId { get; set; }
-            public System.String InstanceId { get; set; }
+            public List<Amazon.ResourceGroups.Model.ListGroupingStatusesFilter> Filter { get; set; }
+            public System.String Group { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse, GetCONNAnalyticsDataAssociationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Results;
+            public System.Func<Amazon.ResourceGroups.Model.ListGroupingStatusesResponse, GetRGGroupingStatusListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }

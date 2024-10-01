@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the resource group with the configuration that you want to update.</para>
+        /// <para>The name or Amazon resource name (ARN) of the resource group with the configuration
+        /// that you want to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

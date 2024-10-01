@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// Amazon Cognito user pool: <c>Namespace::[Entity type]::[User pool ID]|[user principal
     /// attribute]</c>, for example <c>MyCorp::User::us-east-1_EXAMPLE|a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</c>.
     /// </para></li><li><para>
-    /// OpenID Connect (OIDC) provider: <c>Namespace::[Entity type]::[principalIdClaim]|[user
+    /// OpenID Connect (OIDC) provider: <c>Namespace::[Entity type]::[entityIdPrefix]|[user
     /// principal attribute]</c>, for example <c>MyCorp::User::MyOIDCProvider|a1b2c3d4-5678-90ab-cdef-EXAMPLE22222</c>.
     /// </para></li></ul></note><note><para>
     /// Verified Permissions is <i><a href="https://wikipedia.org/wiki/Eventual_consistency">eventually

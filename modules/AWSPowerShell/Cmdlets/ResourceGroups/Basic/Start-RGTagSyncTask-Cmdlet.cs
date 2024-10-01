@@ -28,23 +28,23 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Removes the specified resources from the specified group. This operation works only
-    /// with static groups that you populated using the <a>GroupResources</a> operation. It
-    /// doesn't work with any resource groups that are automatically populated by tag-based
-    /// or CloudFormation stack-based queries.
+    /// Creates a new tag-sync task to onboard and sync resources tagged with a specific tag
+    /// key-value pair to an application. 
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><c>resource-groups:UngroupResources</c></para></li></ul>
+    /// </para><ul><li><para><c>resource-groups:StartTagSyncTask</c> on the application group
+    /// </para></li><li><para><c>resource-groups:CreateGroup</c></para></li><li><para><c>iam:PassRole</c> on the role provided in the request 
+    /// </para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "RGResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.ResourceGroups.Model.UngroupResourcesResponse")]
-    [AWSCmdlet("Calls the AWS Resource Groups UngroupResources API operation.", Operation = new[] {"UngroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UngroupResourcesResponse))]
-    [AWSCmdletOutput("Amazon.ResourceGroups.Model.UngroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.UngroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "RGTagSyncTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ResourceGroups.Model.StartTagSyncTaskResponse")]
+    [AWSCmdlet("Calls the AWS Resource Groups StartTagSyncTask API operation.", Operation = new[] {"StartTagSyncTask"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.StartTagSyncTaskResponse))]
+    [AWSCmdletOutput("Amazon.ResourceGroups.Model.StartTagSyncTaskResponse",
+        "This cmdlet returns an Amazon.ResourceGroups.Model.StartTagSyncTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
+    public partial class StartRGTagSyncTaskCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the Amazon resource name (ARN) of the resource group from which to remove
-        /// the resources.</para>
+        /// <para>The Amazon resource name (ARN) or name of the application group for which you want
+        /// to create a tag-sync task. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -67,29 +67,67 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public System.String Group { get; set; }
         #endregion
         
-        #region Parameter ResourceArn
+        #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource names (ARNs) of the resources to be removed from the group.</para>
+        /// <para>The Amazon resource name (ARN) of the role assumed by the service to tag and untag
+        /// resources on your behalf.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ResourceArns")]
-        public System.String[] ResourceArn { get; set; }
+        public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag key. Resources tagged with this tag key-value pair will be added to the application.
+        /// If a resource with this tag is later untagged, the tag-sync task removes the resource
+        /// from the application. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TagKey { get; set; }
+        #endregion
+        
+        #region Parameter TagValue
+        /// <summary>
+        /// <para>
+        /// <para>The tag value. Resources tagged with this tag key-value pair will be added to the
+        /// application. If a resource with this tag is later untagged, the tag-sync task removes
+        /// the resource from the application. </para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String TagValue { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.UngroupResourcesResponse).
-        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.UngroupResourcesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.StartTagSyncTaskResponse).
+        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.StartTagSyncTaskResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -121,8 +159,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Group), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RGResource (UngroupResources)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.RoleArn), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-RGTagSyncTask (StartTagSyncTask)"))
             {
                 return;
             }
@@ -135,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.UngroupResourcesResponse, RemoveRGResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.StartTagSyncTaskResponse, StartRGTagSyncTaskCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -154,14 +192,25 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 WriteWarning("You are passing $null as a value for parameter Group which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ResourceArn != null)
-            {
-                context.ResourceArn = new List<System.String>(this.ResourceArn);
-            }
+            context.RoleArn = this.RoleArn;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.RoleArn == null && ParameterWasBound(nameof(this.RoleArn)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter RoleArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TagKey = this.TagKey;
+            #if MODULAR
+            if (this.TagKey == null && ParameterWasBound(nameof(this.TagKey)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagKey which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.TagValue = this.TagValue;
+            #if MODULAR
+            if (this.TagValue == null && ParameterWasBound(nameof(this.TagValue)))
+            {
+                WriteWarning("You are passing $null as a value for parameter TagValue which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,15 +227,23 @@ namespace Amazon.PowerShell.Cmdlets.RG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResourceGroups.Model.UngroupResourcesRequest();
+            var request = new Amazon.ResourceGroups.Model.StartTagSyncTaskRequest();
             
             if (cmdletContext.Group != null)
             {
                 request.Group = cmdletContext.Group;
             }
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.RoleArn != null)
             {
-                request.ResourceArns = cmdletContext.ResourceArn;
+                request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.TagKey != null)
+            {
+                request.TagKey = cmdletContext.TagKey;
+            }
+            if (cmdletContext.TagValue != null)
+            {
+                request.TagValue = cmdletContext.TagValue;
             }
             
             CmdletOutput output;
@@ -221,15 +278,15 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         #region AWS Service Operation Call
         
-        private Amazon.ResourceGroups.Model.UngroupResourcesResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.UngroupResourcesRequest request)
+        private Amazon.ResourceGroups.Model.StartTagSyncTaskResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.StartTagSyncTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "UngroupResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "StartTagSyncTask");
             try
             {
                 #if DESKTOP
-                return client.UngroupResources(request);
+                return client.StartTagSyncTask(request);
                 #elif CORECLR
-                return client.UngroupResourcesAsync(request).GetAwaiter().GetResult();
+                return client.StartTagSyncTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -250,8 +307,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Group { get; set; }
-            public List<System.String> ResourceArn { get; set; }
-            public System.Func<Amazon.ResourceGroups.Model.UngroupResourcesResponse, RemoveRGResourceCmdlet, object> Select { get; set; } =
+            public System.String RoleArn { get; set; }
+            public System.String TagKey { get; set; }
+            public System.String TagValue { get; set; }
+            public System.Func<Amazon.ResourceGroups.Model.StartTagSyncTaskResponse, StartRGTagSyncTaskCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

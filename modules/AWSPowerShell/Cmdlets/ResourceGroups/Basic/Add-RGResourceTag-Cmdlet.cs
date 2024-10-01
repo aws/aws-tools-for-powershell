@@ -28,8 +28,9 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Adds tags to a resource group with the specified ARN. Existing tags on a resource
-    /// group are not changed if they are not specified in the request parameters.
+    /// Adds tags to a resource group with the specified Amazon resource name (ARN). Existing
+    /// tags on a resource group are not changed if they are not specified in the request
+    /// parameters.
     /// 
     ///  <important><para>
     /// Do not store personally identifiable information (PII) or other confidential or sensitive
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource group to which to add tags.</para>
+        /// <para>The Amazon resource name (ARN) of the resource group to which to add tags.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

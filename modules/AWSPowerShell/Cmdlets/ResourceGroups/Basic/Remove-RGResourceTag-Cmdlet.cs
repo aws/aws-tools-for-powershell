@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource group from which to remove tags. The command removed both
-        /// the specified keys and any values associated with those keys.</para>
+        /// <para>The Amazon resource name (ARN) of the resource group from which to remove tags. The
+        /// command removed both the specified keys and any values associated with those keys.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

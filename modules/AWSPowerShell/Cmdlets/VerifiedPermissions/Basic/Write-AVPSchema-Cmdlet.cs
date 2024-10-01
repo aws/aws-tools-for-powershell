@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.AVP
         /// <summary>
         /// <para>
         /// <para>A JSON string representation of the schema supported by applications that use this
-        /// policy store. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy
+        /// policy store. To delete the schema, run <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PutSchema.html">PutSchema</a>
+        /// with <c>{}</c> for this parameter. For more information, see <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/schema.html">Policy
         /// store schema</a> in the <i>Amazon Verified Permissions User Guide</i>.</para>
         /// </para>
         /// </summary>

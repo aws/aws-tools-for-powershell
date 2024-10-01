@@ -28,13 +28,8 @@ using Amazon.Connect.Model;
 namespace Amazon.PowerShell.Cmdlets.CONN
 {
     /// <summary>
-    /// This API is in preview release for Amazon Connect and is subject to change.
-    /// 
-    ///  
-    /// <para>
     /// Associates a list of analytics datasets for a given Amazon Connect instance to a target
     /// account. You can associate multiple datasets in a single call.
-    /// </para>
     /// </summary>
     [Cmdlet("Register", "CONNBatchAnalyticsDataSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Connect.Model.BatchAssociateAnalyticsDataSetResponse")]

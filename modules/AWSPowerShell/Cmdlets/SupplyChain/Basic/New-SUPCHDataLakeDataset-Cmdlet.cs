@@ -22,91 +22,69 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ResourceGroups;
-using Amazon.ResourceGroups.Model;
+using Amazon.SupplyChain;
+using Amazon.SupplyChain.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RG
+namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Creates a resource group with the specified name and description. You can optionally
-    /// include either a resource query or a service configuration. For more information about
-    /// constructing a resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/getting_started-query.html">Build
-    /// queries and groups in Resource Groups</a> in the <i>Resource Groups User Guide</i>.
-    /// For more information about service-linked groups and service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
-    /// configurations for Resource Groups</a>.
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><c>resource-groups:CreateGroup</c></para></li></ul>
+    /// Create a data lake dataset.
     /// </summary>
-    [Cmdlet("New", "RGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ResourceGroups.Model.CreateGroupResponse")]
-    [AWSCmdlet("Calls the AWS Resource Groups CreateGroup API operation.", Operation = new[] {"CreateGroup"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.CreateGroupResponse))]
-    [AWSCmdletOutput("Amazon.ResourceGroups.Model.CreateGroupResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.CreateGroupResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "SUPCHDataLakeDataset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SupplyChain.Model.DataLakeDataset")]
+    [AWSCmdlet("Calls the AWS Supply Chain CreateDataLakeDataset API operation.", Operation = new[] {"CreateDataLakeDataset"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse))]
+    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataLakeDataset or Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse",
+        "This cmdlet returns an Amazon.SupplyChain.Model.DataLakeDataset object.",
+        "The service call response (type Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewRGGroupCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
+    public partial class NewSUPCHDataLakeDatasetCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Configuration
-        /// <summary>
-        /// <para>
-        /// <para>A configuration associates the resource group with an Amazon Web Services service
-        /// and specifies how the service can interact with the resources in the group. A configuration
-        /// is an array of <a>GroupConfigurationItem</a> elements. For details about the syntax
-        /// of service configurations, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service
-        /// configurations for Resource Groups</a>.</para><note><para>A resource group can contain either a <c>Configuration</c> or a <c>ResourceQuery</c>,
-        /// but not both.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public Amazon.ResourceGroups.Model.GroupConfigurationItem[] Configuration { get; set; }
-        #endregion
-        
-        #region Parameter Criticality
-        /// <summary>
-        /// <para>
-        /// <para>The critical rank of the application group on a scale of 1 to 10, with a rank of 1
-        /// being the most critical, and a rank of 10 being least critical.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Criticality { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the resource group. Descriptions can consist of letters, numbers,
-        /// hyphens, underscores, periods, and spaces.</para>
+        /// <para>The description of the dataset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter DisplayName
+        #region Parameter Schema_Field
         /// <summary>
         /// <para>
-        /// <para>The name of the application group, which you can change at any time. </para>
+        /// <para>The list of field details of the dataset schema.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DisplayName { get; set; }
+        [Alias("Schema_Fields")]
+        public Amazon.SupplyChain.Model.DataLakeDatasetSchemaField[] Schema_Field { get; set; }
+        #endregion
+        
+        #region Parameter InstanceId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Web Services Supply Chain instance identifier.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String InstanceId { get; set; }
         #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the group, which is the identifier of the group in other operations. You
-        /// can't change the name of a resource group after you create it. A resource group name
-        /// can consist of letters, numbers, hyphens, periods, and underscores. The name cannot
-        /// start with <c>AWS</c>, <c>aws</c>, or any other possible capitalization; these are
-        /// reserved. A resource group name must be unique within each Amazon Web Services Region
-        /// in your Amazon Web Services account.</para>
+        /// <para>The name of the dataset. For <b>asc</b> name space, the name must be one of the supported
+        /// data entities under <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -120,23 +98,38 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ResourceQuery
+        #region Parameter Schema_Name
         /// <summary>
         /// <para>
-        /// <para>The resource query that determines which Amazon Web Services resources are members
-        /// of this group. For more information about resource queries, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#gettingstarted-query-cli-tag">Create
-        /// a tag-based group in Resource Groups</a>. </para><note><para>A resource group can contain either a <c>ResourceQuery</c> or a <c>Configuration</c>,
-        /// but not both.</para></note>
+        /// <para>The name of the dataset schema.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Schema_Name { get; set; }
+        #endregion
+        
+        #region Parameter Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The name space of the dataset.</para><ul><li><para><b>asc</b> - For information on the Amazon Web Services Supply Chain supported datasets
+        /// see <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html</a>.</para></li><li><para><b>default</b> - For datasets with custom user-defined schemas.</para></li></ul>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String Namespace { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to add to the group. A tag is key-value pair string.</para>
+        /// <para>The tags of the dataset.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -144,34 +137,23 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
-        #region Parameter Owner
-        /// <summary>
-        /// <para>
-        /// <para>A name, email address or other identifier for the person or group who is considered
-        /// as the owner of this application group within your organization. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Owner { get; set; }
-        #endregion
-        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.CreateGroupResponse).
-        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.CreateGroupResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Dataset'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse).
+        /// Specifying the name of a property of type Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Dataset";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ResourceQuery parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ResourceQuery' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ResourceQuery' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -192,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-RGGroup (CreateGroup)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SUPCHDataLakeDataset (CreateDataLakeDataset)"))
             {
                 return;
             }
@@ -205,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.CreateGroupResponse, NewRGGroupCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse, NewSUPCHDataLakeDatasetCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -214,16 +196,17 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ResourceQuery;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            if (this.Configuration != null)
-            {
-                context.Configuration = new List<Amazon.ResourceGroups.Model.GroupConfigurationItem>(this.Configuration);
-            }
-            context.Criticality = this.Criticality;
             context.Description = this.Description;
-            context.DisplayName = this.DisplayName;
+            context.InstanceId = this.InstanceId;
+            #if MODULAR
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.Name = this.Name;
             #if MODULAR
             if (this.Name == null && ParameterWasBound(nameof(this.Name)))
@@ -231,8 +214,18 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.Owner = this.Owner;
-            context.ResourceQuery = this.ResourceQuery;
+            context.Namespace = this.Namespace;
+            #if MODULAR
+            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
+            {
+                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            if (this.Schema_Field != null)
+            {
+                context.Schema_Field = new List<Amazon.SupplyChain.Model.DataLakeDatasetSchemaField>(this.Schema_Field);
+            }
+            context.Schema_Name = this.Schema_Name;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -255,35 +248,52 @@ namespace Amazon.PowerShell.Cmdlets.RG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResourceGroups.Model.CreateGroupRequest();
+            var request = new Amazon.SupplyChain.Model.CreateDataLakeDatasetRequest();
             
-            if (cmdletContext.Configuration != null)
-            {
-                request.Configuration = cmdletContext.Configuration;
-            }
-            if (cmdletContext.Criticality != null)
-            {
-                request.Criticality = cmdletContext.Criticality.Value;
-            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.DisplayName != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.DisplayName = cmdletContext.DisplayName;
+                request.InstanceId = cmdletContext.InstanceId;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Owner != null)
+            if (cmdletContext.Namespace != null)
             {
-                request.Owner = cmdletContext.Owner;
+                request.Namespace = cmdletContext.Namespace;
             }
-            if (cmdletContext.ResourceQuery != null)
+            
+             // populate Schema
+            var requestSchemaIsNull = true;
+            request.Schema = new Amazon.SupplyChain.Model.DataLakeDatasetSchema();
+            List<Amazon.SupplyChain.Model.DataLakeDatasetSchemaField> requestSchema_schema_Field = null;
+            if (cmdletContext.Schema_Field != null)
             {
-                request.ResourceQuery = cmdletContext.ResourceQuery;
+                requestSchema_schema_Field = cmdletContext.Schema_Field;
+            }
+            if (requestSchema_schema_Field != null)
+            {
+                request.Schema.Fields = requestSchema_schema_Field;
+                requestSchemaIsNull = false;
+            }
+            System.String requestSchema_schema_Name = null;
+            if (cmdletContext.Schema_Name != null)
+            {
+                requestSchema_schema_Name = cmdletContext.Schema_Name;
+            }
+            if (requestSchema_schema_Name != null)
+            {
+                request.Schema.Name = requestSchema_schema_Name;
+                requestSchemaIsNull = false;
+            }
+             // determine if request.Schema should be set to null
+            if (requestSchemaIsNull)
+            {
+                request.Schema = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -322,15 +332,15 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         #region AWS Service Operation Call
         
-        private Amazon.ResourceGroups.Model.CreateGroupResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.CreateGroupRequest request)
+        private Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.CreateDataLakeDatasetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "CreateGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "CreateDataLakeDataset");
             try
             {
                 #if DESKTOP
-                return client.CreateGroup(request);
+                return client.CreateDataLakeDataset(request);
                 #elif CORECLR
-                return client.CreateGroupAsync(request).GetAwaiter().GetResult();
+                return client.CreateDataLakeDatasetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -350,16 +360,15 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.ResourceGroups.Model.GroupConfigurationItem> Configuration { get; set; }
-            public System.Int32? Criticality { get; set; }
             public System.String Description { get; set; }
-            public System.String DisplayName { get; set; }
+            public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
-            public System.String Owner { get; set; }
-            public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }
+            public System.String Namespace { get; set; }
+            public List<Amazon.SupplyChain.Model.DataLakeDatasetSchemaField> Schema_Field { get; set; }
+            public System.String Schema_Name { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
-            public System.Func<Amazon.ResourceGroups.Model.CreateGroupResponse, NewRGGroupCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.Func<Amazon.SupplyChain.Model.CreateDataLakeDatasetResponse, NewSUPCHDataLakeDatasetCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Dataset;
         }
         
     }

@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.894.0",
+    "ProductVersion"    : "3.7.895.0",
     "CoreVersion"       : "3.7.400.26",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -724,7 +724,7 @@
             "InPreview"               : false
         },
         "CloudDirectory"                  : {
-            "Version" : "3.7.400.26",
+            "Version" : "3.7.400.27",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"
@@ -836,7 +836,7 @@
             "InPreview"               : false
         },
         "Pricing"                         : {
-            "Version" : "3.7.400.26",
+            "Version" : "3.7.400.27",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"
@@ -980,7 +980,7 @@
             "InPreview"               : false
         },
         "ResourceGroups"                  : {
-            "Version" : "3.7.400.26",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"
@@ -1036,7 +1036,7 @@
             "InPreview"               : false
         },
         "Connect"                         : {
-            "Version" : "3.7.404.11",
+            "Version" : "3.7.405.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"
@@ -2724,7 +2724,7 @@
             "InPreview"               : false
         },
         "VerifiedPermissions"                 : {
-            "Version" : "3.7.400.26",
+            "Version" : "3.7.400.27",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"
@@ -2788,7 +2788,7 @@
             "InPreview"               : false
         },
         "Bedrock"                             : {
-            "Version" : "3.7.406.3",
+            "Version" : "3.7.407.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"
@@ -2964,7 +2964,7 @@
             "InPreview"               : false
         },
         "SupplyChain"                         : {
-            "Version" : "3.7.400.27",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"
@@ -2988,7 +2988,7 @@
             "InPreview"               : false
         },
         "TimestreamInfluxDB"                  : {
-            "Version" : "3.7.401.13",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.26"

@@ -89,7 +89,13 @@ namespace Amazon.PowerShell.Cmdlets.SUPCH
         #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>An idempotency token.</para>
+        /// <para>An idempotency token ensures the API request is only completed no more than once.
+        /// This way, retrying the request will not trigger the operation multiple times. A client
+        /// token is a unique, case-sensitive string of 33 to 128 ASCII characters. To make an
+        /// idempotent API request, specify a client token in the request. You should not reuse
+        /// the same client token for other requests. If you retry a successful request with the
+        /// same client token, the request will succeed with no further actions being taken, and
+        /// you will receive the same API response as the original successful request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

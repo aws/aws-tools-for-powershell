@@ -107,6 +107,22 @@ $TIDB_Completers = {
             break
         }
 
+        # Amazon.TimestreamInfluxDB.DurationType
+        {
+            ($_ -eq "New-TIDBDbParameterGroup/HttpIdleTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/HttpReadHeaderTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/HttpReadTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/HttpWriteTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageCacheSnapshotWriteColdDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageCompactFullWriteColdDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageRetentionCheckInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageWalMaxWriteDelay_DurationType")
+        }
+        {
+            $v = "hours","milliseconds","minutes","seconds"
+            break
+        }
+
         # Amazon.TimestreamInfluxDB.LogLevel
         "New-TIDBDbParameterGroup/InfluxDBv2_LogLevel"
         {
@@ -133,8 +149,16 @@ $TIDB_map = @{
     "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "DbStorageType"=@("New-TIDBDbInstance")
     "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
+    "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
+    "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")
+    "HttpReadTimeout_DurationType"=@("New-TIDBDbParameterGroup")
+    "HttpWriteTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
+    "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "StorageWalMaxWriteDelay_DurationType"=@("New-TIDBDbParameterGroup")
 }
 
 _awsArgumentCompleterRegistration $TIDB_Completers $TIDB_map

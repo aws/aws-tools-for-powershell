@@ -282,6 +282,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-CONNContactMonitoring', 
         'Start-CONNContactRecording', 
         'Start-CONNContactStreaming', 
+        'Start-CONNOutboundChatContact', 
         'Start-CONNOutboundVoiceContact', 
         'Start-CONNTaskContact', 
         'Start-CONNWebRTCContact', 

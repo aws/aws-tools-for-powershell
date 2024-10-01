@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group for which you want to retrive the service
-        /// configuration.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group for which you want
+        /// to retrive the service configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

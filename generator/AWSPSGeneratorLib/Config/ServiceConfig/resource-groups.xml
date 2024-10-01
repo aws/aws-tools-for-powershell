@@ -19,6 +19,10 @@
     <ParamEmitters />
     <MetadataProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CancelTagSyncTask" Verb="Stop" Noun="TagSyncTask" ShouldProcessTarget="TaskArn" PipelineParameter="TaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateGroup" OutputProperty="*" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="ResourceQuery" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -53,7 +57,15 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetTagSyncTask" OutputProperty="*" Verb="Get" Noun="TagSyncTask" PipelineParameter="TaskArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GroupResources" OutputProperty="*" Verb="Add" Noun="Resource" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupingStatuses" OutputProperty="*" Verb="Get" Noun="GroupingStatusList" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -67,11 +79,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagSyncTasks" OutputProperty="TagSyncTasks" Verb="Get" Noun="TagSyncTaskList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutGroupConfiguration" Verb="Write" Noun="GroupConfiguration" ShouldProcessTarget="Group" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SearchResources" OutputProperty="*" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" LegacyPagination="DisablePagination">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartTagSyncTask" OutputProperty="*" Verb="Start" Noun="TagSyncTask" ShouldProcessTarget="RoleArn" PipelineParameter="Group" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

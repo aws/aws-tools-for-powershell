@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
     /// Adds the specified resources to the specified group.
     /// 
     ///  <important><para>
-    /// You can use this operation with only resource groups that are configured with the
-    /// following types:
-    /// </para><ul><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li></ul><para>
-    /// Other resource group type and resource types aren't currently supported by this operation.
+    /// You can only use this operation with the following groups:
+    /// </para><ul><li><para><c>AWS::EC2::HostManagement</c></para></li><li><para><c>AWS::EC2::CapacityReservationPool</c></para></li><li><para><c>AWS::ResourceGroups::ApplicationGroup</c></para></li></ul><para>
+    /// Other resource group types and resource types are not currently supported by this
+    /// operation.
     /// </para></important><para><b>Minimum permissions</b></para><para>
     /// To run this command, you must have the following permissions:
     /// </para><ul><li><para><c>resource-groups:GroupResources</c></para></li></ul>
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group to add resources to.</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group to add resources
+        /// to.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -70,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The list of ARNs of the resources to be added to the group. </para>
+        /// <para>The list of Amazon resource names (ARNs) of the resources to be added to the group.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

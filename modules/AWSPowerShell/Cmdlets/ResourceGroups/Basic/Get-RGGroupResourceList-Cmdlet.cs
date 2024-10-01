@@ -28,7 +28,8 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of ARNs of the resources that are members of a specified resource group.
+    /// Returns a list of Amazon resource names (ARNs) of the resources that are members of
+    /// a specified resource group.
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Group
         /// <summary>
         /// <para>
-        /// <para>The name or the ARN of the resource group</para>
+        /// <para>The name or the Amazon resource name (ARN) of the resource group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

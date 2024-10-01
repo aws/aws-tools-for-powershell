@@ -22,38 +22,29 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ResourceGroups;
-using Amazon.ResourceGroups.Model;
+using Amazon.SupplyChain;
+using Amazon.SupplyChain.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RG
+namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Removes the specified resources from the specified group. This operation works only
-    /// with static groups that you populated using the <a>GroupResources</a> operation. It
-    /// doesn't work with any resource groups that are automatically populated by tag-based
-    /// or CloudFormation stack-based queries.
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><c>resource-groups:UngroupResources</c></para></li></ul>
+    /// Delete the DataIntegrationFlow.
     /// </summary>
-    [Cmdlet("Remove", "RGResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.ResourceGroups.Model.UngroupResourcesResponse")]
-    [AWSCmdlet("Calls the AWS Resource Groups UngroupResources API operation.", Operation = new[] {"UngroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UngroupResourcesResponse))]
-    [AWSCmdletOutput("Amazon.ResourceGroups.Model.UngroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.UngroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SUPCHDataIntegrationFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse")]
+    [AWSCmdlet("Calls the AWS Supply Chain DeleteDataIntegrationFlow API operation.", Operation = new[] {"DeleteDataIntegrationFlow"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse))]
+    [AWSCmdletOutput("Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse",
+        "This cmdlet returns an Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
+    public partial class RemoveSUPCHDataIntegrationFlowCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Group
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The name or the Amazon resource name (ARN) of the resource group from which to remove
-        /// the resources.</para>
+        /// <para>The Amazon Web Services Supply Chain instance identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,32 +55,31 @@ namespace Amazon.PowerShell.Cmdlets.RG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Group { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter ResourceArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource names (ARNs) of the resources to be removed from the group.</para>
+        /// <para>The name of the DataIntegrationFlow to be deleted.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ResourceArns")]
-        public System.String[] ResourceArn { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.UngroupResourcesResponse).
-        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.UngroupResourcesResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse).
+        /// Specifying the name of a property of type Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Group parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Group' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Group' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -121,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Group), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RGResource (UngroupResources)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Name), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SUPCHDataIntegrationFlow (DeleteDataIntegrationFlow)"))
             {
                 return;
             }
@@ -135,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.UngroupResourcesResponse, RemoveRGResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse, RemoveSUPCHDataIntegrationFlowCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,24 +134,21 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Group;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Group = this.Group;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.Group == null && ParameterWasBound(nameof(this.Group)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Group which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ResourceArn != null)
-            {
-                context.ResourceArn = new List<System.String>(this.ResourceArn);
-            }
+            context.Name = this.Name;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.Name == null && ParameterWasBound(nameof(this.Name)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -178,15 +165,15 @@ namespace Amazon.PowerShell.Cmdlets.RG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResourceGroups.Model.UngroupResourcesRequest();
+            var request = new Amazon.SupplyChain.Model.DeleteDataIntegrationFlowRequest();
             
-            if (cmdletContext.Group != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.Group = cmdletContext.Group;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.Name != null)
             {
-                request.ResourceArns = cmdletContext.ResourceArn;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -221,15 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         #region AWS Service Operation Call
         
-        private Amazon.ResourceGroups.Model.UngroupResourcesResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.UngroupResourcesRequest request)
+        private Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.DeleteDataIntegrationFlowRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "UngroupResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "DeleteDataIntegrationFlow");
             try
             {
                 #if DESKTOP
-                return client.UngroupResources(request);
+                return client.DeleteDataIntegrationFlow(request);
                 #elif CORECLR
-                return client.UngroupResourcesAsync(request).GetAwaiter().GetResult();
+                return client.DeleteDataIntegrationFlowAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,9 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Group { get; set; }
-            public List<System.String> ResourceArn { get; set; }
-            public System.Func<Amazon.ResourceGroups.Model.UngroupResourcesResponse, RemoveRGResourceCmdlet, object> Select { get; set; } =
+            public System.String InstanceId { get; set; }
+            public System.String Name { get; set; }
+            public System.Func<Amazon.SupplyChain.Model.DeleteDataIntegrationFlowResponse, RemoveSUPCHDataIntegrationFlowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

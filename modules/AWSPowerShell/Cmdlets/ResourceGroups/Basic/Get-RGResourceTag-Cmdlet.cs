@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
     /// Returns a list of tags that are associated with a resource group, specified by an
-    /// ARN.
+    /// Amazon resource name (ARN).
     /// 
     ///  
     /// <para><b>Minimum permissions</b></para><para>
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource group whose tags you want to retrieve.</para>
+        /// <para>The Amazon resource name (ARN) of the resource group whose tags you want to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

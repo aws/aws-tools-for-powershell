@@ -22,58 +22,49 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Connect;
-using Amazon.Connect.Model;
+using Amazon.ResourceGroups;
+using Amazon.ResourceGroups.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CONN
+namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Lists the association status of requested dataset ID for a given Amazon Connect instance.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns a list of tag-sync tasks. 
+    /// 
+    ///  
+    /// <para><b>Minimum permissions</b></para><para>
+    /// To run this command, you must have the following permissions:
+    /// </para><ul><li><para><c>resource-groups:ListTagSyncTasks</c> with the group passed in the filters as the
+    /// resource or * if using no filters 
+    /// </para></li></ul><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
-    [Cmdlet("Get", "CONNAnalyticsDataAssociationList")]
-    [OutputType("Amazon.Connect.Model.AnalyticsDataAssociationResult")]
-    [AWSCmdlet("Calls the Amazon Connect Service ListAnalyticsDataAssociations API operation.", Operation = new[] {"ListAnalyticsDataAssociations"}, SelectReturnType = typeof(Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse))]
-    [AWSCmdletOutput("Amazon.Connect.Model.AnalyticsDataAssociationResult or Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse",
-        "This cmdlet returns a collection of Amazon.Connect.Model.AnalyticsDataAssociationResult objects.",
-        "The service call response (type Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "RGTagSyncTaskList")]
+    [OutputType("Amazon.ResourceGroups.Model.TagSyncTaskItem")]
+    [AWSCmdlet("Calls the AWS Resource Groups ListTagSyncTasks API operation.", Operation = new[] {"ListTagSyncTasks"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.ListTagSyncTasksResponse))]
+    [AWSCmdletOutput("Amazon.ResourceGroups.Model.TagSyncTaskItem or Amazon.ResourceGroups.Model.ListTagSyncTasksResponse",
+        "This cmdlet returns a collection of Amazon.ResourceGroups.Model.TagSyncTaskItem objects.",
+        "The service call response (type Amazon.ResourceGroups.Model.ListTagSyncTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetCONNAnalyticsDataAssociationListCmdlet : AmazonConnectClientCmdlet, IExecutor
+    public partial class GetRGTagSyncTaskListCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DataSetId
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The identifier of the dataset to get the association status.</para>
+        /// <para>The Amazon resource name (ARN) or name of the application group for which you want
+        /// to return a list of tag-sync tasks. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String DataSetId { get; set; }
-        #endregion
-        
-        #region Parameter InstanceId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find
-        /// the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</para>
-        /// </para>
-        /// </summary>
-        #if !MODULAR
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        #else
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String InstanceId { get; set; }
+        [Alias("Filters")]
+        public Amazon.ResourceGroups.Model.ListTagSyncTasksFilter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return per page.</para>
+        /// <para>The maximum number of results to be included in the response. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -84,8 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. Use the value returned in the previous response
-        /// in the next request to retrieve the next set of results.</para>
+        /// <para>The parameter for receiving additional results if you receive a <c>NextToken</c> response
+        /// in a previous request. A <c>NextToken</c> response indicates that more output is available.
+        /// Set this parameter to the value provided by a previous call's <c>NextToken</c> response
+        /// to indicate where the output should continue from. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -98,23 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'Results'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse).
-        /// Specifying the name of a property of type Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TagSyncTasks'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.ListTagSyncTasksResponse).
+        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.ListTagSyncTasksResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "Results";
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
-        /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter PassThru { get; set; }
+        public string Select { get; set; } = "TagSyncTasks";
         #endregion
         
         #region Parameter NoAutoIteration
@@ -137,29 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse, GetCONNAnalyticsDataAssociationListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.ListTagSyncTasksResponse, GetRGTagSyncTaskListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
-                if (this.PassThru.IsPresent)
-                {
-                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
-                }
             }
-            else if (this.PassThru.IsPresent)
+            if (this.Filter != null)
             {
-                context.Select = (response, cmdlet) => this.InstanceId;
+                context.Filter = new List<Amazon.ResourceGroups.Model.ListTagSyncTasksFilter>(this.Filter);
             }
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DataSetId = this.DataSetId;
-            context.InstanceId = this.InstanceId;
-            #if MODULAR
-            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
-            {
-                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
             
@@ -175,20 +144,14 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            var useParameterSelect = this.Select.StartsWith("^") || this.PassThru.IsPresent;
-            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            var useParameterSelect = this.Select.StartsWith("^");
             
             // create request and set iteration invariants
-            var request = new Amazon.Connect.Model.ListAnalyticsDataAssociationsRequest();
+            var request = new Amazon.ResourceGroups.Model.ListTagSyncTasksRequest();
             
-            if (cmdletContext.DataSetId != null)
+            if (cmdletContext.Filter != null)
             {
-                request.DataSetId = cmdletContext.DataSetId;
-            }
-            if (cmdletContext.InstanceId != null)
-            {
-                request.InstanceId = cmdletContext.InstanceId;
+                request.Filters = cmdletContext.Filter;
             }
             if (cmdletContext.MaxResult != null)
             {
@@ -251,15 +214,15 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         #region AWS Service Operation Call
         
-        private Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse CallAWSServiceOperation(IAmazonConnect client, Amazon.Connect.Model.ListAnalyticsDataAssociationsRequest request)
+        private Amazon.ResourceGroups.Model.ListTagSyncTasksResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.ListTagSyncTasksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Connect Service", "ListAnalyticsDataAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "ListTagSyncTasks");
             try
             {
                 #if DESKTOP
-                return client.ListAnalyticsDataAssociations(request);
+                return client.ListTagSyncTasks(request);
                 #elif CORECLR
-                return client.ListAnalyticsDataAssociationsAsync(request).GetAwaiter().GetResult();
+                return client.ListTagSyncTasksAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -279,12 +242,11 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DataSetId { get; set; }
-            public System.String InstanceId { get; set; }
+            public List<Amazon.ResourceGroups.Model.ListTagSyncTasksFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.Connect.Model.ListAnalyticsDataAssociationsResponse, GetCONNAnalyticsDataAssociationListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.Results;
+            public System.Func<Amazon.ResourceGroups.Model.ListTagSyncTasksResponse, GetRGTagSyncTaskListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.TagSyncTasks;
         }
         
     }

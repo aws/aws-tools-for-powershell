@@ -1,4 +1,35 @@
-﻿### 4.1.666 (2024-09-27 21:23Z)
+﻿### 4.1.667 (2024-10-01 00:25Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.895.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Connect Service
+    * Added cmdlet Start-CONNOutboundChatContact leveraging the StartOutboundChatContact service API.
+  * Amazon Resource Groups
+    * Added cmdlet Get-RGGroupingStatusList leveraging the ListGroupingStatuses service API.
+    * Added cmdlet Get-RGTagSyncTask leveraging the GetTagSyncTask service API.
+    * Added cmdlet Get-RGTagSyncTaskList leveraging the ListTagSyncTasks service API.
+    * Added cmdlet Start-RGTagSyncTask leveraging the StartTagSyncTask service API.
+    * Added cmdlet Stop-RGTagSyncTask leveraging the CancelTagSyncTask service API.
+    * Modified cmdlet New-RGGroup: added parameters Criticality, DisplayName and Owner.
+    * Modified cmdlet Update-RGGroup: added parameters Criticality, DisplayName and Owner.
+  * Amazon Supply Chain
+    * Added cmdlet Add-SUPCHResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-SUPCHDataIntegrationFlow leveraging the GetDataIntegrationFlow service API.
+    * Added cmdlet Get-SUPCHDataIntegrationFlowList leveraging the ListDataIntegrationFlows service API.
+    * Added cmdlet Get-SUPCHDataLakeDataset leveraging the GetDataLakeDataset service API.
+    * Added cmdlet Get-SUPCHDataLakeDatasetList leveraging the ListDataLakeDatasets service API.
+    * Added cmdlet Get-SUPCHResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet New-SUPCHDataIntegrationFlow leveraging the CreateDataIntegrationFlow service API.
+    * Added cmdlet New-SUPCHDataLakeDataset leveraging the CreateDataLakeDataset service API.
+    * Added cmdlet Remove-SUPCHDataIntegrationFlow leveraging the DeleteDataIntegrationFlow service API.
+    * Added cmdlet Remove-SUPCHDataLakeDataset leveraging the DeleteDataLakeDataset service API.
+    * Added cmdlet Remove-SUPCHResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Update-SUPCHDataIntegrationFlow leveraging the UpdateDataIntegrationFlow service API.
+    * Added cmdlet Update-SUPCHDataLakeDataset leveraging the UpdateDataLakeDataset service API.
+  * Amazon Timestream InfluxDB
+    * Modified cmdlet New-TIDBDbInstance: added parameter Port.
+    * Modified cmdlet New-TIDBDbParameterGroup: added parameters HttpIdleTimeout_DurationType, HttpIdleTimeout_Value, HttpReadHeaderTimeout_DurationType, HttpReadHeaderTimeout_Value, HttpReadTimeout_DurationType, HttpReadTimeout_Value, HttpWriteTimeout_DurationType, HttpWriteTimeout_Value, InfluxDBv2_InfluxqlMaxSelectBucket, InfluxDBv2_InfluxqlMaxSelectPoint, InfluxDBv2_InfluxqlMaxSelectSeries, InfluxDBv2_PprofDisabled, InfluxDBv2_QueryInitialMemoryByte, InfluxDBv2_QueryMaxMemoryByte, InfluxDBv2_QueryMemoryByte, InfluxDBv2_SessionLength, InfluxDBv2_SessionRenewDisabled, InfluxDBv2_StorageCacheMaxMemorySize, InfluxDBv2_StorageCacheSnapshotMemorySize, InfluxDBv2_StorageCompactThroughputBurst, InfluxDBv2_StorageMaxConcurrentCompaction, InfluxDBv2_StorageMaxIndexLogFileSize, InfluxDBv2_StorageNoValidateFieldSize, InfluxDBv2_StorageSeriesFileMaxConcurrentSnapshotCompaction, InfluxDBv2_StorageSeriesIdSetCacheSize, InfluxDBv2_StorageWalMaxConcurrentWrite, InfluxDBv2_UiDisabled, StorageCacheSnapshotWriteColdDuration_DurationType, StorageCacheSnapshotWriteColdDuration_Value, StorageCompactFullWriteColdDuration_DurationType, StorageCompactFullWriteColdDuration_Value, StorageRetentionCheckInterval_DurationType, StorageRetentionCheckInterval_Value, StorageWalMaxWriteDelay_DurationType and StorageWalMaxWriteDelay_Value.
+    * Modified cmdlet Update-TIDBDbInstance: added parameter Port.
+
+### 4.1.666 (2024-09-27 21:23Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.894.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * [Breaking Change] Removed support for Amazon WorkLink
   * Amazon Connect Customer Profiles

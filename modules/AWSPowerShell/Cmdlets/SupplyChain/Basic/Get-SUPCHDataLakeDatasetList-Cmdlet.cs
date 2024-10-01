@@ -22,38 +22,30 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ResourceGroups;
-using Amazon.ResourceGroups.Model;
+using Amazon.SupplyChain;
+using Amazon.SupplyChain.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RG
+namespace Amazon.PowerShell.Cmdlets.SUPCH
 {
     /// <summary>
-    /// Removes the specified resources from the specified group. This operation works only
-    /// with static groups that you populated using the <a>GroupResources</a> operation. It
-    /// doesn't work with any resource groups that are automatically populated by tag-based
-    /// or CloudFormation stack-based queries.
-    /// 
-    ///  
-    /// <para><b>Minimum permissions</b></para><para>
-    /// To run this command, you must have the following permissions:
-    /// </para><ul><li><para><c>resource-groups:UngroupResources</c></para></li></ul>
+    /// List the data lake datasets for a specific instance and name space.
     /// </summary>
-    [Cmdlet("Remove", "RGResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("Amazon.ResourceGroups.Model.UngroupResourcesResponse")]
-    [AWSCmdlet("Calls the AWS Resource Groups UngroupResources API operation.", Operation = new[] {"UngroupResources"}, SelectReturnType = typeof(Amazon.ResourceGroups.Model.UngroupResourcesResponse))]
-    [AWSCmdletOutput("Amazon.ResourceGroups.Model.UngroupResourcesResponse",
-        "This cmdlet returns an Amazon.ResourceGroups.Model.UngroupResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SUPCHDataLakeDatasetList")]
+    [OutputType("Amazon.SupplyChain.Model.DataLakeDataset")]
+    [AWSCmdlet("Calls the AWS Supply Chain ListDataLakeDatasets API operation.", Operation = new[] {"ListDataLakeDatasets"}, SelectReturnType = typeof(Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse))]
+    [AWSCmdletOutput("Amazon.SupplyChain.Model.DataLakeDataset or Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse",
+        "This cmdlet returns a collection of Amazon.SupplyChain.Model.DataLakeDataset objects.",
+        "The service call response (type Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
+    public partial class GetSUPCHDataLakeDatasetListCmdlet : AmazonSupplyChainClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter Group
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The name or the Amazon resource name (ARN) of the resource group from which to remove
-        /// the resources.</para>
+        /// <para>The Amazon Web Services Supply Chain instance identifier.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -64,68 +56,73 @@ namespace Amazon.PowerShell.Cmdlets.RG
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String Group { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter ResourceArn
+        #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The Amazon resource names (ARNs) of the resources to be removed from the group.</para>
+        /// <para>The namespace of the dataset. The available values are:</para><ul><li><para>asc: for <a href="https://docs.aws.amazon.com/aws-supply-chain/latest/userguide/data-model-asc.html">
+        /// AWS Supply Chain supported datasets </a>.</para></li><li><para>default: for datasets with custom user-defined schemas.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("ResourceArns")]
-        public System.String[] ResourceArn { get; set; }
+        public System.String Namespace { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The max number of datasets to fetch in this paginated request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The pagination token to fetch next page of datasets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.ResourceGroups.Model.UngroupResourcesResponse).
-        /// Specifying the name of a property of type Amazon.ResourceGroups.Model.UngroupResourcesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'Datasets'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse).
+        /// Specifying the name of a property of type Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "Datasets";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the Group parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^Group' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^Group' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.Group), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-RGResource (UngroupResources)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext();
             
@@ -135,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.ResourceGroups.Model.UngroupResourcesResponse, RemoveRGResourceCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse, GetSUPCHDataLakeDatasetListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -144,26 +141,25 @@ namespace Amazon.PowerShell.Cmdlets.RG
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.Group;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.Group = this.Group;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.Group == null && ParameterWasBound(nameof(this.Group)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter Group which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.ResourceArn != null)
-            {
-                context.ResourceArn = new List<System.String>(this.ResourceArn);
-            }
+            context.MaxResult = this.MaxResult;
+            context.Namespace = this.Namespace;
             #if MODULAR
-            if (this.ResourceArn == null && ParameterWasBound(nameof(this.ResourceArn)))
+            if (this.Namespace == null && ParameterWasBound(nameof(this.Namespace)))
             {
-                WriteWarning("You are passing $null as a value for parameter ResourceArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter Namespace which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,15 +174,23 @@ namespace Amazon.PowerShell.Cmdlets.RG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ResourceGroups.Model.UngroupResourcesRequest();
+            var request = new Amazon.SupplyChain.Model.ListDataLakeDatasetsRequest();
             
-            if (cmdletContext.Group != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.Group = cmdletContext.Group;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.ResourceArn != null)
+            if (cmdletContext.MaxResult != null)
             {
-                request.ResourceArns = cmdletContext.ResourceArn;
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Namespace != null)
+            {
+                request.Namespace = cmdletContext.Namespace;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -221,15 +225,15 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         #region AWS Service Operation Call
         
-        private Amazon.ResourceGroups.Model.UngroupResourcesResponse CallAWSServiceOperation(IAmazonResourceGroups client, Amazon.ResourceGroups.Model.UngroupResourcesRequest request)
+        private Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse CallAWSServiceOperation(IAmazonSupplyChain client, Amazon.SupplyChain.Model.ListDataLakeDatasetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Resource Groups", "UngroupResources");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Supply Chain", "ListDataLakeDatasets");
             try
             {
                 #if DESKTOP
-                return client.UngroupResources(request);
+                return client.ListDataLakeDatasets(request);
                 #elif CORECLR
-                return client.UngroupResourcesAsync(request).GetAwaiter().GetResult();
+                return client.ListDataLakeDatasetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -249,10 +253,12 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Group { get; set; }
-            public List<System.String> ResourceArn { get; set; }
-            public System.Func<Amazon.ResourceGroups.Model.UngroupResourcesResponse, RemoveRGResourceCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String InstanceId { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String Namespace { get; set; }
+            public System.String NextToken { get; set; }
+            public System.Func<Amazon.SupplyChain.Model.ListDataLakeDatasetsResponse, GetSUPCHDataLakeDatasetListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.Datasets;
         }
         
     }

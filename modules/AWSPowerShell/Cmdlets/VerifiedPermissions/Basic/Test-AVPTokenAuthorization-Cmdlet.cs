@@ -39,8 +39,6 @@ namespace Amazon.PowerShell.Cmdlets.AVP
     /// 
     ///  
     /// <para>
-    /// At this time, Verified Permissions accepts tokens from only Amazon Cognito.
-    /// </para><para>
     /// Verified Permissions validates each token that is specified in a request by checking
     /// its expiration date and its signature.
     /// </para><important><para>

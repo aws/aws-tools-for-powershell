@@ -16230,6 +16230,16 @@ $CONN_Completers = {
             break
         }
 
+        # Amazon.Connect.EndpointType
+        {
+            ($_ -eq "Start-CONNOutboundChatContact/DestinationEndpoint_Type") -Or
+            ($_ -eq "Start-CONNOutboundChatContact/SourceEndpoint_Type")
+        }
+        {
+            $v = "CONNECT_PHONENUMBER_ARN","CONTACT_FLOW","TELEPHONE_NUMBER","VOIP"
+            break
+        }
+
         # Amazon.Connect.EvaluationFormScoringMode
         {
             ($_ -eq "New-CONNEvaluationForm/ScoringStrategy_Mode") -Or
@@ -16589,6 +16599,7 @@ $CONN_map = @{
     "ContactFlowModuleState"=@("Get-CONNContactFlowModuleList")
     "ContactFlowState"=@("Update-CONNContactFlowMetadata")
     "Customer_Video"=@("Start-CONNWebRTCContact")
+    "DestinationEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "Event_Type"=@("Send-CONNChatIntegrationEvent")
     "EventSourceName"=@("Get-CONNRuleList")
     "FileUseCaseType"=@("Start-CONNAttachedFileUpload")
@@ -16619,6 +16630,7 @@ $CONN_map = @{
     "SearchFilter_UserAttributeFilter_HierarchyGroupCondition_HierarchyGroupMatchType"=@("Search-CONNUser")
     "Sort_FieldName"=@("Search-CONNContact")
     "Sort_Order"=@("Search-CONNContact")
+    "SourceEndpoint_Type"=@("Start-CONNOutboundChatContact")
     "SourceType"=@("New-CONNIntegrationAssociation")
     "State"=@("New-CONNAgentStatus","Search-CONNVocabulary","Update-CONNAgentStatus","Update-CONNContactFlowModuleMetadata")
     "Status"=@("Get-CONNTaskTemplateList","New-CONNContactFlow","New-CONNTaskTemplate","New-CONNView","Update-CONNQueueStatus","Update-CONNTaskTemplate","Update-CONNViewContent")
@@ -16882,6 +16894,7 @@ $CONN_SelectMap = @{
                "Start-CONNContactEvaluation",
                "Start-CONNContactRecording",
                "Start-CONNContactStreaming",
+               "Start-CONNOutboundChatContact",
                "Start-CONNOutboundVoiceContact",
                "Start-CONNTaskContact",
                "Start-CONNWebRTCContact",
@@ -57619,18 +57632,23 @@ $RG_SelectCompleters = {
 }
 
 $RG_SelectMap = @{
-    "Select"=@("New-RGGroup",
+    "Select"=@("Stop-RGTagSyncTask",
+               "New-RGGroup",
                "Remove-RGGroup",
                "Get-RGAccountSetting",
                "Get-RGGroup",
                "Get-RGGroupConfiguration",
                "Get-RGGroupQuery",
                "Get-RGResourceTag",
+               "Get-RGTagSyncTask",
                "Add-RGResource",
+               "Get-RGGroupingStatusList",
                "Get-RGGroupResourceList",
                "Get-RGGroupList",
+               "Get-RGTagSyncTaskList",
                "Write-RGGroupConfiguration",
                "Find-RGResource",
+               "Start-RGTagSyncTask",
                "Add-RGResourceTag",
                "Remove-RGResource",
                "Remove-RGResourceTag",
@@ -67434,6 +67452,46 @@ $SUPCH_Completers = {
             break
         }
 
+        # Amazon.SupplyChain.DataIntegrationFlowFileType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Options_FileType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Options_FileType")
+        }
+        {
+            $v = "CSV","JSON","PARQUET"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationFlowLoadType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Options_LoadType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Options_LoadType")
+        }
+        {
+            $v = "INCREMENTAL","REPLACE"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationFlowTargetType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Target_TargetType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Target_TargetType")
+        }
+        {
+            $v = "DATASET","S3"
+            break
+        }
+
+        # Amazon.SupplyChain.DataIntegrationFlowTransformationType
+        {
+            ($_ -eq "New-SUPCHDataIntegrationFlow/Transformation_TransformationType") -Or
+            ($_ -eq "Update-SUPCHDataIntegrationFlow/Transformation_TransformationType")
+        }
+        {
+            $v = "NONE","SQL"
+            break
+        }
+
 
     }
 
@@ -67444,6 +67502,10 @@ $SUPCH_Completers = {
 
 $SUPCH_map = @{
     "EventType"=@("Send-SUPCHDataIntegrationEvent")
+    "Options_FileType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
+    "Options_LoadType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
+    "Target_TargetType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
+    "Transformation_TransformationType"=@("New-SUPCHDataIntegrationFlow","Update-SUPCHDataIntegrationFlow")
 }
 
 _awsArgumentCompleterRegistration $SUPCH_Completers $SUPCH_map
@@ -67497,8 +67559,21 @@ $SUPCH_SelectCompleters = {
 
 $SUPCH_SelectMap = @{
     "Select"=@("New-SUPCHBillOfMaterialsImportJob",
+               "New-SUPCHDataIntegrationFlow",
+               "New-SUPCHDataLakeDataset",
+               "Remove-SUPCHDataIntegrationFlow",
+               "Remove-SUPCHDataLakeDataset",
                "Get-SUPCHBillOfMaterialsImportJob",
-               "Send-SUPCHDataIntegrationEvent")
+               "Get-SUPCHDataIntegrationFlow",
+               "Get-SUPCHDataLakeDataset",
+               "Get-SUPCHDataIntegrationFlowList",
+               "Get-SUPCHDataLakeDatasetList",
+               "Get-SUPCHResourceTag",
+               "Send-SUPCHDataIntegrationEvent",
+               "Add-SUPCHResourceTag",
+               "Remove-SUPCHResourceTag",
+               "Update-SUPCHDataIntegrationFlow",
+               "Update-SUPCHDataLakeDataset")
 }
 
 _awsArgumentCompleterRegistration $SUPCH_SelectCompleters $SUPCH_SelectMap
@@ -68243,6 +68318,22 @@ $TIDB_Completers = {
             break
         }
 
+        # Amazon.TimestreamInfluxDB.DurationType
+        {
+            ($_ -eq "New-TIDBDbParameterGroup/HttpIdleTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/HttpReadHeaderTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/HttpReadTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/HttpWriteTimeout_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageCacheSnapshotWriteColdDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageCompactFullWriteColdDuration_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageRetentionCheckInterval_DurationType") -Or
+            ($_ -eq "New-TIDBDbParameterGroup/StorageWalMaxWriteDelay_DurationType")
+        }
+        {
+            $v = "hours","milliseconds","minutes","seconds"
+            break
+        }
+
         # Amazon.TimestreamInfluxDB.LogLevel
         "New-TIDBDbParameterGroup/InfluxDBv2_LogLevel"
         {
@@ -68269,8 +68360,16 @@ $TIDB_map = @{
     "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "DbStorageType"=@("New-TIDBDbInstance")
     "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
+    "HttpIdleTimeout_DurationType"=@("New-TIDBDbParameterGroup")
+    "HttpReadHeaderTimeout_DurationType"=@("New-TIDBDbParameterGroup")
+    "HttpReadTimeout_DurationType"=@("New-TIDBDbParameterGroup")
+    "HttpWriteTimeout_DurationType"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
+    "StorageCacheSnapshotWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "StorageCompactFullWriteColdDuration_DurationType"=@("New-TIDBDbParameterGroup")
+    "StorageRetentionCheckInterval_DurationType"=@("New-TIDBDbParameterGroup")
+    "StorageWalMaxWriteDelay_DurationType"=@("New-TIDBDbParameterGroup")
 }
 
 _awsArgumentCompleterRegistration $TIDB_Completers $TIDB_map
