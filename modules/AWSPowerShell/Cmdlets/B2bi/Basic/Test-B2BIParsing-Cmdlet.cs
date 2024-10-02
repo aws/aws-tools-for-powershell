@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter X12Details_Version
         /// <summary>
         /// <para>
-        /// Amazon.B2bi.Model.X12Details.Version
+        /// <para>Returns the version to use for the specified X12 transaction set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

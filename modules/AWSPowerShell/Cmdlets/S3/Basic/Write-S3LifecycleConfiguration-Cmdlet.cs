@@ -36,17 +36,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// so if you want to retain any configuration details, they must be included in the new
     /// lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
     /// your storage lifecycle</a>.
-    /// </para><note><para>
-    /// Bucket lifecycle configuration now supports specifying a lifecycle rule using an object
+    /// </para><dl><dt>Rules</dt><dd><para>
+    /// You specify the lifecycle configuration in your request body. The lifecycle configuration
+    /// is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle configuration
+    /// can have up to 1,000 rules. This limit is not adjustable.
+    /// </para><para>
+    /// Bucket lifecycle configuration supports specifying a lifecycle rule using an object
     /// key name prefix, one or more object tags, object size, or any combination of these.
     /// Accordingly, this section describes the latest API. The previous version of the API
     /// supported filtering based only on an object key name prefix, which is supported for
     /// backward compatibility. For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.
-    /// </para></note><dl><dt>Rules</dt><dd><para>
-    /// You specify the lifecycle configuration in your request body. The lifecycle configuration
-    /// is specified as XML consisting of one or more rules. An Amazon S3 Lifecycle configuration
-    /// can have up to 1,000 rules. This limit is not adjustable. Each rule consists of the
-    /// following:
+    /// </para><para>
+    /// A lifecycle rule consists of the following:
     /// </para><ul><li><para>
     /// A filter identifying a subset of objects to which the rule applies. The filter can
     /// be based on a key name prefix, object tags, object size, or any combination of these.
@@ -82,11 +83,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// of Lifecycle Configuration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycleConfiguration.html">GetBucketLifecycleConfiguration</a></para></li><li><para><a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketLifecycle.html">DeleteBucketLifecycle</a></para></li></ul>
     /// </summary>
     [Cmdlet("Write", "S3LifecycleConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("Amazon.S3.TransitionDefaultMinimumObjectSize")]
     [AWSCmdlet("Calls the Amazon Simple Storage Service (S3) PutLifecycleConfiguration API operation.", Operation = new[] {"PutLifecycleConfiguration"}, SelectReturnType = typeof(Amazon.S3.Model.PutLifecycleConfigurationResponse))]
-    [AWSCmdletOutput("None or Amazon.S3.Model.PutLifecycleConfigurationResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.S3.TransitionDefaultMinimumObjectSize or Amazon.S3.Model.PutLifecycleConfigurationResponse",
+        "This cmdlet returns an Amazon.S3.TransitionDefaultMinimumObjectSize object.",
+        "The service call response (type Amazon.S3.Model.PutLifecycleConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class WriteS3LifecycleConfigurationCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -137,14 +138,32 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public Amazon.S3.Model.LifecycleRule[] Configuration_Rule { get; set; }
         #endregion
         
+        #region Parameter TransitionDefaultMinimumObjectSize
+        /// <summary>
+        /// <para>
+        /// <para>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</para><ul><li><para><c>all_storage_classes_128K</c> - Objects smaller than 128 KB will not transition
+        /// to any storage class by default. </para></li><li><para><c>varies_by_storage_class</c> - Objects smaller than 128 KB will transition to Glacier
+        /// Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other
+        /// storage classes will prevent transitions smaller than 128 KB. </para></li></ul><para>To customize the minimum object size for any transition you can add a filter that
+        /// specifies a custom <c>ObjectSizeGreaterThan</c> or <c>ObjectSizeLessThan</c> in the
+        /// body of your transition rule. Custom filters always take precedence over the default
+        /// transition behavior.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.TransitionDefaultMinimumObjectSize")]
+        public Amazon.S3.TransitionDefaultMinimumObjectSize TransitionDefaultMinimumObjectSize { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'TransitionDefaultMinimumObjectSize'.
         /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.S3.Model.PutLifecycleConfigurationResponse).
+        /// Specifying the name of a property of type Amazon.S3.Model.PutLifecycleConfigurationResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "*";
+        public string Select { get; set; } = "TransitionDefaultMinimumObjectSize";
         #endregion
         
         #region Parameter PassThru
@@ -205,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.Configuration_Rule = new List<Amazon.S3.Model.LifecycleRule>(this.Configuration_Rule);
             }
             context.ExpectedBucketOwner = this.ExpectedBucketOwner;
+            context.TransitionDefaultMinimumObjectSize = this.TransitionDefaultMinimumObjectSize;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -251,6 +271,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ExpectedBucketOwner != null)
             {
                 request.ExpectedBucketOwner = cmdletContext.ExpectedBucketOwner;
+            }
+            if (cmdletContext.TransitionDefaultMinimumObjectSize != null)
+            {
+                request.TransitionDefaultMinimumObjectSize = cmdletContext.TransitionDefaultMinimumObjectSize;
             }
             
             CmdletOutput output;
@@ -317,8 +341,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Amazon.S3.ChecksumAlgorithm ChecksumAlgorithm { get; set; }
             public List<Amazon.S3.Model.LifecycleRule> Configuration_Rule { get; set; }
             public System.String ExpectedBucketOwner { get; set; }
+            public Amazon.S3.TransitionDefaultMinimumObjectSize TransitionDefaultMinimumObjectSize { get; set; }
             public System.Func<Amazon.S3.Model.PutLifecycleConfigurationResponse, WriteS3LifecycleConfigurationCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+                (response, cmdlet) => response.TransitionDefaultMinimumObjectSize;
         }
         
     }

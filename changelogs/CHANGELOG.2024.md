@@ -1,4 +1,23 @@
-﻿### 4.1.668 (2024-10-01 21:21Z)
+﻿### 4.1.669 (2024-10-02 21:09Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.897.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon B2B Data Interchange
+    * Added cmdlet New-B2BIStarterMappingTemplate leveraging the CreateStarterMappingTemplate service API.
+    * Added cmdlet Test-B2BIConversion leveraging the TestConversion service API.
+    * Modified cmdlet New-B2BICapability: added parameter Edi_CapabilityDirection.
+    * Modified cmdlet New-B2BIPartnership: added parameters Common_ValidateEdi, Delimiters_ComponentSeparator, Delimiters_DataElementSeparator, Delimiters_SegmentTerminator, FunctionalGroupHeaders_ApplicationReceiverCode, FunctionalGroupHeaders_ApplicationSenderCode, FunctionalGroupHeaders_ResponsibleAgencyCode, InterchangeControlHeaders_AcknowledgmentRequestedCode, InterchangeControlHeaders_ReceiverId, InterchangeControlHeaders_ReceiverIdQualifier, InterchangeControlHeaders_RepetitionSeparator, InterchangeControlHeaders_SenderId, InterchangeControlHeaders_SenderIdQualifier and InterchangeControlHeaders_UsageIndicatorCode.
+    * Modified cmdlet New-B2BITransformer: added parameters InputConversion_FormatOptions_X12_TransactionSet, InputConversion_FormatOptions_X12_Version, InputConversion_FromFormat, Mapping_Template, Mapping_TemplateLanguage, OutputConversion_FormatOptions_X12_TransactionSet, OutputConversion_FormatOptions_X12_Version, OutputConversion_ToFormat, SampleDocuments_BucketName and SampleDocuments_Key.
+    * Modified cmdlet Update-B2BICapability: added parameter Edi_CapabilityDirection.
+    * Modified cmdlet Update-B2BIPartnership: added parameters Common_ValidateEdi, Delimiters_ComponentSeparator, Delimiters_DataElementSeparator, Delimiters_SegmentTerminator, FunctionalGroupHeaders_ApplicationReceiverCode, FunctionalGroupHeaders_ApplicationSenderCode, FunctionalGroupHeaders_ResponsibleAgencyCode, InterchangeControlHeaders_AcknowledgmentRequestedCode, InterchangeControlHeaders_ReceiverId, InterchangeControlHeaders_ReceiverIdQualifier, InterchangeControlHeaders_RepetitionSeparator, InterchangeControlHeaders_SenderId, InterchangeControlHeaders_SenderIdQualifier and InterchangeControlHeaders_UsageIndicatorCode.
+    * Modified cmdlet Update-B2BITransformer: added parameters InputConversion_FormatOptions_X12_TransactionSet, InputConversion_FormatOptions_X12_Version, InputConversion_FromFormat, Mapping_Template, Mapping_TemplateLanguage, OutputConversion_FormatOptions_X12_TransactionSet, OutputConversion_FormatOptions_X12_Version, OutputConversion_ToFormat, SampleDocuments_BucketName and SampleDocuments_Key.
+  * Amazon IoT Core Device Advisor
+    * Modified cmdlet New-IOTDASuiteDefinition: added parameter ClientToken.
+  * Amazon SageMaker Service
+    * Modified cmdlet New-SMDomain: added parameter JupyterLabAppSettings_BuiltInLifecycleConfigArn.
+    * Modified cmdlet Update-SMDomain: added parameter JupyterLabAppSettings_BuiltInLifecycleConfigArn.
+  * Amazon Simple Storage Service (S3)
+    * Modified cmdlet Write-S3LifecycleConfiguration: added parameter TransitionDefaultMinimumObjectSize.
+
+### 4.1.668 (2024-10-01 21:21Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.896.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Agents for Amazon Bedrock
     * Added cmdlet Stop-AABIngestionJob leveraging the StopIngestionJob service API.

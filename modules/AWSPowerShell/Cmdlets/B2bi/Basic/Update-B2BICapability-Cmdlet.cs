@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         public System.String OutputLocation_BucketName { get; set; }
         #endregion
         
+        #region Parameter Edi_CapabilityDirection
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether this is capability is for inbound or outbound transformations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Configuration_Edi_CapabilityDirection")]
+        [AWSConstantClassSource("Amazon.B2bi.CapabilityDirection")]
+        public Amazon.B2bi.CapabilityDirection Edi_CapabilityDirection { get; set; }
+        #endregion
+        
         #region Parameter CapabilityId
         /// <summary>
         /// <para>
@@ -154,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         #region Parameter X12Details_Version
         /// <summary>
         /// <para>
-        /// Amazon.B2bi.Model.X12Details.Version
+        /// <para>Returns the version to use for the specified X12 transaction set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -232,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
                 WriteWarning("You are passing $null as a value for parameter CapabilityId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.Edi_CapabilityDirection = this.Edi_CapabilityDirection;
             context.InputLocation_BucketName = this.InputLocation_BucketName;
             context.InputLocation_Key = this.InputLocation_Key;
             context.OutputLocation_BucketName = this.OutputLocation_BucketName;
@@ -273,6 +286,16 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
              // populate Edi
             var requestConfiguration_configuration_EdiIsNull = true;
             requestConfiguration_configuration_Edi = new Amazon.B2bi.Model.EdiConfiguration();
+            Amazon.B2bi.CapabilityDirection requestConfiguration_configuration_Edi_edi_CapabilityDirection = null;
+            if (cmdletContext.Edi_CapabilityDirection != null)
+            {
+                requestConfiguration_configuration_Edi_edi_CapabilityDirection = cmdletContext.Edi_CapabilityDirection;
+            }
+            if (requestConfiguration_configuration_Edi_edi_CapabilityDirection != null)
+            {
+                requestConfiguration_configuration_Edi.CapabilityDirection = requestConfiguration_configuration_Edi_edi_CapabilityDirection;
+                requestConfiguration_configuration_EdiIsNull = false;
+            }
             System.String requestConfiguration_configuration_Edi_edi_TransformerId = null;
             if (cmdletContext.Edi_TransformerId != null)
             {
@@ -488,6 +511,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CapabilityId { get; set; }
+            public Amazon.B2bi.CapabilityDirection Edi_CapabilityDirection { get; set; }
             public System.String InputLocation_BucketName { get; set; }
             public System.String InputLocation_Key { get; set; }
             public System.String OutputLocation_BucketName { get; set; }

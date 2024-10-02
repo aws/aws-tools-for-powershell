@@ -294,8 +294,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ExternalSourcesConfiguration_ModelArn
         /// <summary>
         /// <para>
-        /// <para>The modelArn used with the external source wrapper object in the retrieveAndGenerate
-        /// function.</para>
+        /// <para>The model Amazon Resource Name (ARN) for the external source wrapper object in the
+        /// <c>retrieveAndGenerate</c> function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -373,7 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter ExternalSourcesConfiguration_Source
         /// <summary>
         /// <para>
-        /// <para>The document used with the external source wrapper object in the retrieveAndGenerate
+        /// <para>The document for the external source wrapper object in the <c>retrieveAndGenerate</c>
         /// function.</para>
         /// </para>
         /// </summary>
@@ -527,7 +527,9 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter RetrieveAndGenerateConfiguration_Type
         /// <summary>
         /// <para>
-        /// <para>The type of resource that is queried by the request.</para>
+        /// <para>The type of resource that contains your data for retrieving information and generating
+        /// responses.</para><para>If you choose ot use <c>EXTERNAL_SOURCES</c>, then currently only Claude 3 Sonnet
+        /// models for knowledge bases are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

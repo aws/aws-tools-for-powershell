@@ -399,7 +399,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLifecycleConfiguration" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="PutLifecycleConfiguration" OutputProperty="TransitionDefaultMinimumObjectSize" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

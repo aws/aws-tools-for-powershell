@@ -1974,6 +1974,8 @@ Set-Alias -Name Create-B2BIPartnership -Value New-B2BIPartnership
 Set-Alias -Name B2BI-CreatePartnership -Value New-B2BIPartnership
 Set-Alias -Name Create-B2BIProfile -Value New-B2BIProfile
 Set-Alias -Name B2BI-CreateProfile -Value New-B2BIProfile
+Set-Alias -Name Create-B2BIStarterMappingTemplate -Value New-B2BIStarterMappingTemplate
+Set-Alias -Name B2BI-CreateStarterMappingTemplate -Value New-B2BIStarterMappingTemplate
 Set-Alias -Name Create-B2BITransformer -Value New-B2BITransformer
 Set-Alias -Name B2BI-CreateTransformer -Value New-B2BITransformer
 Set-Alias -Name Delete-B2BICapability -Value Remove-B2BICapability
@@ -2004,6 +2006,7 @@ Set-Alias -Name List-B2BITransformerList -Value Get-B2BITransformerList
 Set-Alias -Name B2BI-ListTransformers -Value Get-B2BITransformerList
 Set-Alias -Name B2BI-StartTransformerJob -Value Start-B2BITransformerJob
 Set-Alias -Name B2BI-TagResource -Value Add-B2BIResourceTag
+Set-Alias -Name B2BI-TestConversion -Value Test-B2BIConversion
 Set-Alias -Name B2BI-TestMapping -Value Test-B2BIMapping
 Set-Alias -Name B2BI-TestParsing -Value Test-B2BIParsing
 Set-Alias -Name B2BI-UntagResource -Value Remove-B2BIResourceTag

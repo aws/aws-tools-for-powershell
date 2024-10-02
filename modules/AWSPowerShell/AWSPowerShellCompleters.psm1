@@ -5379,10 +5379,34 @@ $B2BI_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.B2bi.CapabilityDirection
+        {
+            ($_ -eq "New-B2BICapability/Edi_CapabilityDirection") -Or
+            ($_ -eq "Update-B2BICapability/Edi_CapabilityDirection")
+        }
+        {
+            $v = "INBOUND","OUTBOUND"
+            break
+        }
+
         # Amazon.B2bi.CapabilityType
         "New-B2BICapability/Type"
         {
             $v = "edi"
+            break
+        }
+
+        # Amazon.B2bi.ConversionSourceFormat
+        "Test-B2BIConversion/Source_FileFormat"
+        {
+            $v = "JSON","XML"
+            break
+        }
+
+        # Amazon.B2bi.ConversionTargetFormat
+        "Test-B2BIConversion/Target_FileFormat"
+        {
+            $v = "X12"
             break
         }
 
@@ -5394,7 +5418,17 @@ $B2BI_Completers = {
             ($_ -eq "Update-B2BITransformer/FileFormat")
         }
         {
-            $v = "JSON","XML"
+            $v = "JSON","NOT_USED","XML"
+            break
+        }
+
+        # Amazon.B2bi.FromFormat
+        {
+            ($_ -eq "New-B2BITransformer/InputConversion_FromFormat") -Or
+            ($_ -eq "Update-B2BITransformer/InputConversion_FromFormat")
+        }
+        {
+            $v = "X12"
             break
         }
 
@@ -5402,6 +5436,33 @@ $B2BI_Completers = {
         "New-B2BIProfile/Logging"
         {
             $v = "DISABLED","ENABLED"
+            break
+        }
+
+        # Amazon.B2bi.MappingTemplateLanguage
+        {
+            ($_ -eq "New-B2BITransformer/Mapping_TemplateLanguage") -Or
+            ($_ -eq "Update-B2BITransformer/Mapping_TemplateLanguage")
+        }
+        {
+            $v = "JSONATA","XSLT"
+            break
+        }
+
+        # Amazon.B2bi.MappingType
+        "New-B2BIStarterMappingTemplate/MappingType"
+        {
+            $v = "JSONATA","XSLT"
+            break
+        }
+
+        # Amazon.B2bi.ToFormat
+        {
+            ($_ -eq "New-B2BITransformer/OutputConversion_ToFormat") -Or
+            ($_ -eq "Update-B2BITransformer/OutputConversion_ToFormat")
+        }
+        {
+            $v = "X12"
             break
         }
 
@@ -5414,6 +5475,12 @@ $B2BI_Completers = {
 
         # Amazon.B2bi.X12TransactionSet
         {
+            ($_ -eq "New-B2BITransformer/InputConversion_FormatOptions_X12_TransactionSet") -Or
+            ($_ -eq "Update-B2BITransformer/InputConversion_FormatOptions_X12_TransactionSet") -Or
+            ($_ -eq "New-B2BITransformer/OutputConversion_FormatOptions_X12_TransactionSet") -Or
+            ($_ -eq "Update-B2BITransformer/OutputConversion_FormatOptions_X12_TransactionSet") -Or
+            ($_ -eq "New-B2BIStarterMappingTemplate/X12_TransactionSet") -Or
+            ($_ -eq "Test-B2BIConversion/X12_TransactionSet") -Or
             ($_ -eq "New-B2BICapability/X12Details_TransactionSet") -Or
             ($_ -eq "New-B2BITransformer/X12Details_TransactionSet") -Or
             ($_ -eq "Test-B2BIParsing/X12Details_TransactionSet") -Or
@@ -5427,6 +5494,12 @@ $B2BI_Completers = {
 
         # Amazon.B2bi.X12Version
         {
+            ($_ -eq "New-B2BITransformer/InputConversion_FormatOptions_X12_Version") -Or
+            ($_ -eq "Update-B2BITransformer/InputConversion_FormatOptions_X12_Version") -Or
+            ($_ -eq "New-B2BITransformer/OutputConversion_FormatOptions_X12_Version") -Or
+            ($_ -eq "Update-B2BITransformer/OutputConversion_FormatOptions_X12_Version") -Or
+            ($_ -eq "New-B2BIStarterMappingTemplate/X12_Version") -Or
+            ($_ -eq "Test-B2BIConversion/X12_Version") -Or
             ($_ -eq "New-B2BICapability/X12Details_Version") -Or
             ($_ -eq "New-B2BITransformer/X12Details_Version") -Or
             ($_ -eq "Test-B2BIParsing/X12Details_Version") -Or
@@ -5447,10 +5520,23 @@ $B2BI_Completers = {
 }
 
 $B2BI_map = @{
+    "Edi_CapabilityDirection"=@("New-B2BICapability","Update-B2BICapability")
     "FileFormat"=@("New-B2BITransformer","Test-B2BIMapping","Test-B2BIParsing","Update-B2BITransformer")
+    "InputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
+    "InputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
+    "InputConversion_FromFormat"=@("New-B2BITransformer","Update-B2BITransformer")
     "Logging"=@("New-B2BIProfile")
+    "Mapping_TemplateLanguage"=@("New-B2BITransformer","Update-B2BITransformer")
+    "MappingType"=@("New-B2BIStarterMappingTemplate")
+    "OutputConversion_FormatOptions_X12_TransactionSet"=@("New-B2BITransformer","Update-B2BITransformer")
+    "OutputConversion_FormatOptions_X12_Version"=@("New-B2BITransformer","Update-B2BITransformer")
+    "OutputConversion_ToFormat"=@("New-B2BITransformer","Update-B2BITransformer")
+    "Source_FileFormat"=@("Test-B2BIConversion")
     "Status"=@("Update-B2BITransformer")
+    "Target_FileFormat"=@("Test-B2BIConversion")
     "Type"=@("New-B2BICapability")
+    "X12_TransactionSet"=@("New-B2BIStarterMappingTemplate","Test-B2BIConversion")
+    "X12_Version"=@("New-B2BIStarterMappingTemplate","Test-B2BIConversion")
     "X12Details_TransactionSet"=@("New-B2BICapability","New-B2BITransformer","Test-B2BIParsing","Update-B2BICapability","Update-B2BITransformer")
     "X12Details_Version"=@("New-B2BICapability","New-B2BITransformer","Test-B2BIParsing","Update-B2BICapability","Update-B2BITransformer")
 }
@@ -5508,6 +5594,7 @@ $B2BI_SelectMap = @{
     "Select"=@("New-B2BICapability",
                "New-B2BIPartnership",
                "New-B2BIProfile",
+               "New-B2BIStarterMappingTemplate",
                "New-B2BITransformer",
                "Remove-B2BICapability",
                "Remove-B2BIPartnership",
@@ -5525,6 +5612,7 @@ $B2BI_SelectMap = @{
                "Get-B2BITransformerList",
                "Start-B2BITransformerJob",
                "Add-B2BIResourceTag",
+               "Test-B2BIConversion",
                "Test-B2BIMapping",
                "Test-B2BIParsing",
                "Remove-B2BIResourceTag",
@@ -59658,6 +59746,13 @@ $S3_Completers = {
             break
         }
 
+        # Amazon.S3.TransitionDefaultMinimumObjectSize
+        "Write-S3LifecycleConfiguration/TransitionDefaultMinimumObjectSize"
+        {
+            $v = "all_storage_classes_128K","varies_by_storage_class"
+            break
+        }
+
         # Amazon.S3.VersionStatus
         "Write-S3BucketVersioning/VersioningConfig_Status"
         {
@@ -59710,6 +59805,7 @@ $S3_map = @{
     "SSECustomerAlgorithm"=@("Write-S3GetObjectResponse")
     "StorageClass"=@("Write-S3GetObjectResponse")
     "Tier"=@("Restore-S3Object")
+    "TransitionDefaultMinimumObjectSize"=@("Write-S3LifecycleConfiguration")
     "VersioningConfig_Status"=@("Write-S3BucketVersioning")
 }
 

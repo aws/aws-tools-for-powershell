@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.B2BI
 {
     /// <summary>
     /// Runs a job, using a transformer, to parse input EDI (electronic data interchange)
-    /// file into the output structures used by Amazon Web Services B2BI Data Interchange.
+    /// file into the output structures used by Amazon Web Services B2B Data Interchange.
     /// 
     ///  
     /// <para>
