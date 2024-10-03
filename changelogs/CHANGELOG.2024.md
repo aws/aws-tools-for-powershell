@@ -1,4 +1,18 @@
-﻿### 4.1.669 (2024-10-02 21:09Z)
+﻿### 4.1.670 (2024-10-03 21:11Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.898.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Edit-EC2InstanceCpuOption leveraging the ModifyInstanceCpuOptions service API.
+  * Amazon IoT
+    * Modified cmdlet New-IOTDomainConfiguration: added parameters ApplicationProtocol, AuthenticationType and ClientCertificateConfig_ClientCertificateCallbackArn.
+    * Modified cmdlet Update-IOTDomainConfiguration: added parameters ApplicationProtocol, AuthenticationType and ClientCertificateConfig_ClientCertificateCallbackArn.
+  * Amazon Marketplace Reporting Service. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MR and can be listed using the command 'Get-AWSCmdletName -Service MR'.
+  * Amazon QuickSight
+    * Modified cmdlet New-QSTopic: added parameter ConfigOptions_QBusinessInsightsEnabled.
+    * Modified cmdlet Start-QSAssetBundleExportJob: added parameters CloudFormationOverridePropertyConfiguration_Folder, IncludeFolderMember and IncludeFolderMembership.
+    * Modified cmdlet Start-QSAssetBundleImportJob: added parameters OverrideParameters_Folder, OverridePermissions_Folder and OverrideTags_Folder.
+    * Modified cmdlet Update-QSTopic: added parameter ConfigOptions_QBusinessInsightsEnabled.
+
+### 4.1.669 (2024-10-02 21:09Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.897.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon B2B Data Interchange
     * Added cmdlet New-B2BIStarterMappingTemplate leveraging the CreateStarterMappingTemplate service API.

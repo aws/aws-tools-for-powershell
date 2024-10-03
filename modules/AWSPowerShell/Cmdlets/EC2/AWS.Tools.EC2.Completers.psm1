@@ -1886,6 +1886,7 @@ $EC2_SelectMap = @{
                "Edit-EC2ImageAttribute",
                "Edit-EC2InstanceAttribute",
                "Edit-EC2InstanceCapacityReservationAttribute",
+               "Edit-EC2InstanceCpuOption",
                "Edit-EC2InstanceCreditSpecification",
                "Edit-EC2InstanceEventStartTime",
                "Edit-EC2InstanceEventWindow",

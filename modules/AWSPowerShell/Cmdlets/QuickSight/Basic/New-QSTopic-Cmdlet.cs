@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public System.String Topic_Name { get; set; }
         #endregion
         
+        #region Parameter ConfigOptions_QBusinessInsightsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables Amazon Q Business Insights for a <c>Topic</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Topic_ConfigOptions_QBusinessInsightsEnabled")]
+        public System.Boolean? ConfigOptions_QBusinessInsightsEnabled { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -205,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.Tag = new List<Amazon.QuickSight.Model.Tag>(this.Tag);
             }
+            context.ConfigOptions_QBusinessInsightsEnabled = this.ConfigOptions_QBusinessInsightsEnabled;
             if (this.Topic_DataSet != null)
             {
                 context.Topic_DataSet = new List<Amazon.QuickSight.Model.DatasetMetadata>(this.Topic_DataSet);
@@ -287,6 +299,31 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 request.Topic.UserExperienceVersion = requestTopic_topic_UserExperienceVersion;
                 requestTopicIsNull = false;
             }
+            Amazon.QuickSight.Model.TopicConfigOptions requestTopic_topic_ConfigOptions = null;
+            
+             // populate ConfigOptions
+            var requestTopic_topic_ConfigOptionsIsNull = true;
+            requestTopic_topic_ConfigOptions = new Amazon.QuickSight.Model.TopicConfigOptions();
+            System.Boolean? requestTopic_topic_ConfigOptions_configOptions_QBusinessInsightsEnabled = null;
+            if (cmdletContext.ConfigOptions_QBusinessInsightsEnabled != null)
+            {
+                requestTopic_topic_ConfigOptions_configOptions_QBusinessInsightsEnabled = cmdletContext.ConfigOptions_QBusinessInsightsEnabled.Value;
+            }
+            if (requestTopic_topic_ConfigOptions_configOptions_QBusinessInsightsEnabled != null)
+            {
+                requestTopic_topic_ConfigOptions.QBusinessInsightsEnabled = requestTopic_topic_ConfigOptions_configOptions_QBusinessInsightsEnabled.Value;
+                requestTopic_topic_ConfigOptionsIsNull = false;
+            }
+             // determine if requestTopic_topic_ConfigOptions should be set to null
+            if (requestTopic_topic_ConfigOptionsIsNull)
+            {
+                requestTopic_topic_ConfigOptions = null;
+            }
+            if (requestTopic_topic_ConfigOptions != null)
+            {
+                request.Topic.ConfigOptions = requestTopic_topic_ConfigOptions;
+                requestTopicIsNull = false;
+            }
              // determine if request.Topic should be set to null
             if (requestTopicIsNull)
             {
@@ -359,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         {
             public System.String AwsAccountId { get; set; }
             public List<Amazon.QuickSight.Model.Tag> Tag { get; set; }
+            public System.Boolean? ConfigOptions_QBusinessInsightsEnabled { get; set; }
             public List<Amazon.QuickSight.Model.DatasetMetadata> Topic_DataSet { get; set; }
             public System.String Topic_Description { get; set; }
             public System.String Topic_Name { get; set; }

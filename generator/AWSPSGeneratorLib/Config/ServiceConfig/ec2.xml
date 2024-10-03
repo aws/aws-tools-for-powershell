@@ -2193,6 +2193,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceCpuOptions" OutputProperty="*" Verb="Edit" Noun="InstanceCpuOption" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstanceCreditSpecification" OutputProperty="*" Verb="Edit" Noun="InstanceCreditSpecification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />

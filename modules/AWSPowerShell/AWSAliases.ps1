@@ -10039,6 +10039,9 @@ Set-Alias -Name EC2-ModifyInstanceAttribute -Value Edit-EC2InstanceAttribute
 Set-Alias -Name Modify-EC2InstanceCapacityReservationAttributes -Value Edit-EC2InstanceCapacityReservationAttribute
 Set-Alias -Name Modify-EC2InstanceCapacityReservationAttribute -Value Edit-EC2InstanceCapacityReservationAttribute
 Set-Alias -Name EC2-ModifyInstanceCapacityReservationAttributes -Value Edit-EC2InstanceCapacityReservationAttribute
+Set-Alias -Name Modify-EC2InstanceCpuOptions -Value Edit-EC2InstanceCpuOption
+Set-Alias -Name Modify-EC2InstanceCpuOption -Value Edit-EC2InstanceCpuOption
+Set-Alias -Name EC2-ModifyInstanceCpuOptions -Value Edit-EC2InstanceCpuOption
 Set-Alias -Name Modify-EC2InstanceCreditSpecification -Value Edit-EC2InstanceCreditSpecification
 Set-Alias -Name EC2-ModifyInstanceCreditSpecification -Value Edit-EC2InstanceCreditSpecification
 Set-Alias -Name Modify-EC2InstanceEventStartTime -Value Edit-EC2InstanceEventStartTime
@@ -18419,6 +18422,7 @@ Set-Alias -Name Put-MDDeploymentParameter -Value Write-MDDeploymentParameter
 Set-Alias -Name MD-PutDeploymentParameter -Value Write-MDDeploymentParameter
 Set-Alias -Name MD-TagResource -Value Add-MDResourceTag
 Set-Alias -Name MD-UntagResource -Value Remove-MDResourceTag
+Set-Alias -Name MR-GetBuyerDashboard -Value Get-MRBuyerDashboard
 Set-Alias -Name Add-EMCNBridgeOutputs -Value Add-EMCNBridgeOutput
 Set-Alias -Name EMCN-AddBridgeOutputs -Value Add-EMCNBridgeOutput
 Set-Alias -Name Add-EMCNBridgeSources -Value Add-EMCNBridgeSource

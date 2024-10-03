@@ -28,7 +28,10 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a billing group.
+    /// Creates a billing group. If this call is made multiple times using the same billing
+    /// group name and configuration, the call will succeed. If this call is made with the
+    /// same billing group name but different configuration a <c>ResourceAlreadyExistsException</c>
+    /// is thrown.
     /// 
     ///  
     /// <para>

@@ -24925,6 +24925,7 @@ $EC2_SelectMap = @{
                "Edit-EC2ImageAttribute",
                "Edit-EC2InstanceAttribute",
                "Edit-EC2InstanceCapacityReservationAttribute",
+               "Edit-EC2InstanceCpuOption",
                "Edit-EC2InstanceCreditSpecification",
                "Edit-EC2InstanceEventStartTime",
                "Edit-EC2InstanceEventWindow",
@@ -34718,6 +34719,16 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.ApplicationProtocol
+        {
+            ($_ -eq "New-IOTDomainConfiguration/ApplicationProtocol") -Or
+            ($_ -eq "Update-IOTDomainConfiguration/ApplicationProtocol")
+        }
+        {
+            $v = "DEFAULT","HTTPS","MQTT_WSS","SECURE_MQTT"
+            break
+        }
+
         # Amazon.IoT.AuditFrequency
         {
             ($_ -eq "New-IOTScheduledAudit/Frequency") -Or
@@ -34753,6 +34764,16 @@ $IOT_Completers = {
         "Get-IOTTaskList/TaskType"
         {
             $v = "ON_DEMAND_AUDIT_TASK","SCHEDULED_AUDIT_TASK"
+            break
+        }
+
+        # Amazon.IoT.AuthenticationType
+        {
+            ($_ -eq "New-IOTDomainConfiguration/AuthenticationType") -Or
+            ($_ -eq "Update-IOTDomainConfiguration/AuthenticationType")
+        }
+        {
+            $v = "AWS_SIGV4","AWS_X509","CUSTOM_AUTH","CUSTOM_AUTH_X509","DEFAULT"
             break
         }
 
@@ -35110,6 +35131,8 @@ $IOT_map = @{
     "ActionStatus"=@("Get-IOTAuditMitigationActionsExecutionList")
     "ActionType"=@("Get-IOTMitigationActionList")
     "AggregationType_Name"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
+    "ApplicationProtocol"=@("New-IOTDomainConfiguration","Update-IOTDomainConfiguration")
+    "AuthenticationType"=@("New-IOTDomainConfiguration","Update-IOTDomainConfiguration")
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
     "CertificateMode"=@("Register-IOTCACertificate")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")
@@ -43836,6 +43859,61 @@ $MD_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $MD_SelectCompleters $MD_SelectMap
+# Argument completions for service AWS Marketplace Reporting Service
+
+
+$MR_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.MR.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MR_SelectMap = @{
+    "Select"=@("Get-MRBuyerDashboard")
+}
+
+_awsArgumentCompleterRegistration $MR_SelectCompleters $MR_SelectMap
 # Argument completions for service AWS Elemental MediaConnect
 
 
@@ -55185,6 +55263,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.IncludeFolderMembers
+        "Start-QSAssetBundleExportJob/IncludeFolderMember"
+        {
+            $v = "NONE","ONE_LEVEL","RECURSE"
+            break
+        }
+
         # Amazon.QuickSight.IngestionType
         {
             ($_ -eq "New-QSIngestion/IngestionType") -Or
@@ -55455,6 +55540,7 @@ $QS_map = @{
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
+    "IncludeFolderMember"=@("Start-QSAssetBundleExportJob")
     "IngestionType"=@("New-QSIngestion")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")

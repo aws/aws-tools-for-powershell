@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The inline job document associated with a software package version used for a quick
-        /// job deployment via IoT Jobs.</para>
+        /// job deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

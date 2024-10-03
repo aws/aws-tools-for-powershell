@@ -283,6 +283,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.MarketplaceCatalog.dll',
         'AWSSDK.MarketplaceDeployment.dll',
         'AWSSDK.MarketplaceEntitlementService.dll',
+        'AWSSDK.MarketplaceReporting.dll',
         'AWSSDK.MediaConnect.dll',
         'AWSSDK.MediaConvert.dll',
         'AWSSDK.MediaLive.dll',

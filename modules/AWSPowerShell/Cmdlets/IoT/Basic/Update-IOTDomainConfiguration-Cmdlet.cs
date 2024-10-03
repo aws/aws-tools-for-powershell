@@ -59,6 +59,50 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Boolean? AuthorizerConfig_AllowAuthorizerOverride { get; set; }
         #endregion
         
+        #region Parameter ApplicationProtocol
+        /// <summary>
+        /// <para>
+        /// <para>An enumerated string that speciﬁes the application-layer protocol.</para><ul><li><para><c>SECURE_MQTT</c> - MQTT over TLS.</para></li></ul><ul><li><para><c>MQTT_WSS</c> - MQTT over WebSocket.</para></li></ul><ul><li><para><c>HTTPS</c> - HTTP over TLS.</para></li></ul><ul><li><para><c>DEFAULT</c> - Use a combination of port and Application Layer Protocol Negotiation
+        /// (ALPN) to specify application_layer protocol. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device
+        /// communication protocols</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.ApplicationProtocol")]
+        public Amazon.IoT.ApplicationProtocol ApplicationProtocol { get; set; }
+        #endregion
+        
+        #region Parameter AuthenticationType
+        /// <summary>
+        /// <para>
+        /// <para>An enumerated string that speciﬁes the authentication type.</para><ul><li><para><c>CUSTOM_AUTH_X509</c> - Use custom authentication and authorization with additional
+        /// details from the X.509 client certificate.</para></li></ul><ul><li><para><c>CUSTOM_AUTH</c> - Use custom authentication and authorization. For more information,
+        /// see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">Custom
+        /// authentication and authorization</a>.</para></li></ul><ul><li><para><c>AWS_X509</c> - Use X.509 client certificates without custom authentication and
+        /// authorization. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html">X.509
+        /// client certificates</a>.</para></li></ul><ul><li><para><c>AWS_SIGV4</c> - Use Amazon Web Services Signature Version 4. For more information,
+        /// see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/custom-authentication.html">IAM
+        /// users, groups, and roles</a>.</para></li></ul><ul><li><para><c>DEFAULT </c> - Use a combination of port and Application Layer Protocol Negotiation
+        /// (ALPN) to specify authentication type. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/protocols.html">Device
+        /// communication protocols</a>.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.IoT.AuthenticationType")]
+        public Amazon.IoT.AuthenticationType AuthenticationType { get; set; }
+        #endregion
+        
+        #region Parameter ClientCertificateConfig_ClientCertificateCallbackArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Lambda function that IoT invokes after mutual TLS authentication during
+        /// the connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientCertificateConfig_ClientCertificateCallbackArn { get; set; }
+        #endregion
+        
         #region Parameter AuthorizerConfig_DefaultAuthorizerName
         /// <summary>
         /// <para>
@@ -193,8 +237,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = (response, cmdlet) => this.DomainConfigurationName;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ApplicationProtocol = this.ApplicationProtocol;
+            context.AuthenticationType = this.AuthenticationType;
             context.AuthorizerConfig_AllowAuthorizerOverride = this.AuthorizerConfig_AllowAuthorizerOverride;
             context.AuthorizerConfig_DefaultAuthorizerName = this.AuthorizerConfig_DefaultAuthorizerName;
+            context.ClientCertificateConfig_ClientCertificateCallbackArn = this.ClientCertificateConfig_ClientCertificateCallbackArn;
             context.DomainConfigurationName = this.DomainConfigurationName;
             #if MODULAR
             if (this.DomainConfigurationName == null && ParameterWasBound(nameof(this.DomainConfigurationName)))
@@ -222,6 +269,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.UpdateDomainConfigurationRequest();
             
+            if (cmdletContext.ApplicationProtocol != null)
+            {
+                request.ApplicationProtocol = cmdletContext.ApplicationProtocol;
+            }
+            if (cmdletContext.AuthenticationType != null)
+            {
+                request.AuthenticationType = cmdletContext.AuthenticationType;
+            }
             
              // populate AuthorizerConfig
             var requestAuthorizerConfigIsNull = true;
@@ -250,6 +305,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestAuthorizerConfigIsNull)
             {
                 request.AuthorizerConfig = null;
+            }
+            
+             // populate ClientCertificateConfig
+            var requestClientCertificateConfigIsNull = true;
+            request.ClientCertificateConfig = new Amazon.IoT.Model.ClientCertificateConfig();
+            System.String requestClientCertificateConfig_clientCertificateConfig_ClientCertificateCallbackArn = null;
+            if (cmdletContext.ClientCertificateConfig_ClientCertificateCallbackArn != null)
+            {
+                requestClientCertificateConfig_clientCertificateConfig_ClientCertificateCallbackArn = cmdletContext.ClientCertificateConfig_ClientCertificateCallbackArn;
+            }
+            if (requestClientCertificateConfig_clientCertificateConfig_ClientCertificateCallbackArn != null)
+            {
+                request.ClientCertificateConfig.ClientCertificateCallbackArn = requestClientCertificateConfig_clientCertificateConfig_ClientCertificateCallbackArn;
+                requestClientCertificateConfigIsNull = false;
+            }
+             // determine if request.ClientCertificateConfig should be set to null
+            if (requestClientCertificateConfigIsNull)
+            {
+                request.ClientCertificateConfig = null;
             }
             if (cmdletContext.DomainConfigurationName != null)
             {
@@ -362,8 +436,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.IoT.ApplicationProtocol ApplicationProtocol { get; set; }
+            public Amazon.IoT.AuthenticationType AuthenticationType { get; set; }
             public System.Boolean? AuthorizerConfig_AllowAuthorizerOverride { get; set; }
             public System.String AuthorizerConfig_DefaultAuthorizerName { get; set; }
+            public System.String ClientCertificateConfig_ClientCertificateCallbackArn { get; set; }
             public System.String DomainConfigurationName { get; set; }
             public Amazon.IoT.DomainConfigurationStatus DomainConfigurationStatus { get; set; }
             public System.Boolean? RemoveAuthorizerConfig { get; set; }

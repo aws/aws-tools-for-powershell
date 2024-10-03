@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
-        /// more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules
-        /// for bucket naming</a> in the <i>Amazon S3 Developer Guide</i>.</para>
+        /// more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html">Bucket
+        /// naming rules</a> in the <i>Amazon S3 User Guide</i>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

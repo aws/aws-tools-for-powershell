@@ -745,6 +745,9 @@
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MarketplaceReporting">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MarketplaceReporting.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MediaConnect">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.MediaConnect.dll</HintPath>
     </Reference>
@@ -1883,6 +1886,9 @@
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceEntitlementService.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.MarketplaceReporting">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MarketplaceReporting.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MediaConnect">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.MediaConnect.dll</HintPath>

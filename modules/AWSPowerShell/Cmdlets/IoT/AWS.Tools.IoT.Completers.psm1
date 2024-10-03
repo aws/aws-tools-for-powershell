@@ -90,6 +90,16 @@ $IOT_Completers = {
             break
         }
 
+        # Amazon.IoT.ApplicationProtocol
+        {
+            ($_ -eq "New-IOTDomainConfiguration/ApplicationProtocol") -Or
+            ($_ -eq "Update-IOTDomainConfiguration/ApplicationProtocol")
+        }
+        {
+            $v = "DEFAULT","HTTPS","MQTT_WSS","SECURE_MQTT"
+            break
+        }
+
         # Amazon.IoT.AuditFrequency
         {
             ($_ -eq "New-IOTScheduledAudit/Frequency") -Or
@@ -125,6 +135,16 @@ $IOT_Completers = {
         "Get-IOTTaskList/TaskType"
         {
             $v = "ON_DEMAND_AUDIT_TASK","SCHEDULED_AUDIT_TASK"
+            break
+        }
+
+        # Amazon.IoT.AuthenticationType
+        {
+            ($_ -eq "New-IOTDomainConfiguration/AuthenticationType") -Or
+            ($_ -eq "Update-IOTDomainConfiguration/AuthenticationType")
+        }
+        {
+            $v = "AWS_SIGV4","AWS_X509","CUSTOM_AUTH","CUSTOM_AUTH_X509","DEFAULT"
             break
         }
 
@@ -482,6 +502,8 @@ $IOT_map = @{
     "ActionStatus"=@("Get-IOTAuditMitigationActionsExecutionList")
     "ActionType"=@("Get-IOTMitigationActionList")
     "AggregationType_Name"=@("New-IOTFleetMetric","Update-IOTFleetMetric")
+    "ApplicationProtocol"=@("New-IOTDomainConfiguration","Update-IOTDomainConfiguration")
+    "AuthenticationType"=@("New-IOTDomainConfiguration","Update-IOTDomainConfiguration")
     "BehaviorCriteriaType"=@("Get-IOTActiveViolationList","Get-IOTViolationEventList")
     "CertificateMode"=@("Register-IOTCACertificate")
     "DayOfWeek"=@("New-IOTScheduledAudit","Update-IOTScheduledAudit")

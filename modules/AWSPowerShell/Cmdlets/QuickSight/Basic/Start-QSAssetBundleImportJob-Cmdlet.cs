@@ -262,6 +262,41 @@ namespace Amazon.PowerShell.Cmdlets.QS
         public Amazon.QuickSight.AssetBundleImportFailureAction FailureAction { get; set; }
         #endregion
         
+        #region Parameter OverrideParameters_Folder
+        /// <summary>
+        /// <para>
+        /// <para>A list of overrides for any <c>Folder</c> resources that are present in the asset
+        /// bundle that is imported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideParameters_Folders")]
+        public Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideParameters[] OverrideParameters_Folder { get; set; }
+        #endregion
+        
+        #region Parameter OverridePermissions_Folder
+        /// <summary>
+        /// <para>
+        /// <para>A list of permissions for the folders that you want to apply overrides to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverridePermissions_Folders")]
+        public Amazon.QuickSight.Model.AssetBundleImportJobFolderOverridePermissions[] OverridePermissions_Folder { get; set; }
+        #endregion
+        
+        #region Parameter OverrideTags_Folder
+        /// <summary>
+        /// <para>
+        /// <para>A list of tag overrides for any <c>Folder</c> resources that are present in the asset
+        /// bundle that is imported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("OverrideTags_Folders")]
+        public Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideTags[] OverrideTags_Folder { get; set; }
+        #endregion
+        
         #region Parameter ResourceIdOverrideConfiguration_PrefixForAllResource
         /// <summary>
         /// <para>
@@ -466,6 +501,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.OverrideParameters_DataSource = new List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverrideParameters>(this.OverrideParameters_DataSource);
             }
+            if (this.OverrideParameters_Folder != null)
+            {
+                context.OverrideParameters_Folder = new List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideParameters>(this.OverrideParameters_Folder);
+            }
             if (this.OverrideParameters_RefreshSchedule != null)
             {
                 context.OverrideParameters_RefreshSchedule = new List<Amazon.QuickSight.Model.AssetBundleImportJobRefreshScheduleOverrideParameters>(this.OverrideParameters_RefreshSchedule);
@@ -495,6 +534,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 context.OverridePermissions_DataSource = new List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverridePermissions>(this.OverridePermissions_DataSource);
             }
+            if (this.OverridePermissions_Folder != null)
+            {
+                context.OverridePermissions_Folder = new List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverridePermissions>(this.OverridePermissions_Folder);
+            }
             if (this.OverridePermissions_Theme != null)
             {
                 context.OverridePermissions_Theme = new List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverridePermissions>(this.OverridePermissions_Theme);
@@ -514,6 +557,10 @@ namespace Amazon.PowerShell.Cmdlets.QS
             if (this.OverrideTags_DataSource != null)
             {
                 context.OverrideTags_DataSource = new List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverrideTags>(this.OverrideTags_DataSource);
+            }
+            if (this.OverrideTags_Folder != null)
+            {
+                context.OverrideTags_Folder = new List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideTags>(this.OverrideTags_Folder);
             }
             if (this.OverrideTags_Theme != null)
             {
@@ -630,6 +677,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     request.OverrideParameters.DataSources = requestOverrideParameters_overrideParameters_DataSource;
                     requestOverrideParametersIsNull = false;
                 }
+                List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideParameters> requestOverrideParameters_overrideParameters_Folder = null;
+                if (cmdletContext.OverrideParameters_Folder != null)
+                {
+                    requestOverrideParameters_overrideParameters_Folder = cmdletContext.OverrideParameters_Folder;
+                }
+                if (requestOverrideParameters_overrideParameters_Folder != null)
+                {
+                    request.OverrideParameters.Folders = requestOverrideParameters_overrideParameters_Folder;
+                    requestOverrideParametersIsNull = false;
+                }
                 List<Amazon.QuickSight.Model.AssetBundleImportJobRefreshScheduleOverrideParameters> requestOverrideParameters_overrideParameters_RefreshSchedule = null;
                 if (cmdletContext.OverrideParameters_RefreshSchedule != null)
                 {
@@ -734,6 +791,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                     request.OverridePermissions.DataSources = requestOverridePermissions_overridePermissions_DataSource;
                     requestOverridePermissionsIsNull = false;
                 }
+                List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverridePermissions> requestOverridePermissions_overridePermissions_Folder = null;
+                if (cmdletContext.OverridePermissions_Folder != null)
+                {
+                    requestOverridePermissions_overridePermissions_Folder = cmdletContext.OverridePermissions_Folder;
+                }
+                if (requestOverridePermissions_overridePermissions_Folder != null)
+                {
+                    request.OverridePermissions.Folders = requestOverridePermissions_overridePermissions_Folder;
+                    requestOverridePermissionsIsNull = false;
+                }
                 List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverridePermissions> requestOverridePermissions_overridePermissions_Theme = null;
                 if (cmdletContext.OverridePermissions_Theme != null)
                 {
@@ -791,6 +858,16 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 if (requestOverrideTags_overrideTags_DataSource != null)
                 {
                     request.OverrideTags.DataSources = requestOverrideTags_overrideTags_DataSource;
+                    requestOverrideTagsIsNull = false;
+                }
+                List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideTags> requestOverrideTags_overrideTags_Folder = null;
+                if (cmdletContext.OverrideTags_Folder != null)
+                {
+                    requestOverrideTags_overrideTags_Folder = cmdletContext.OverrideTags_Folder;
+                }
+                if (requestOverrideTags_overrideTags_Folder != null)
+                {
+                    request.OverrideTags.Folders = requestOverrideTags_overrideTags_Folder;
                     requestOverrideTagsIsNull = false;
                 }
                 List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideTags> requestOverrideTags_overrideTags_Theme = null;
@@ -915,6 +992,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDashboardOverrideParameters> OverrideParameters_Dashboard { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSetOverrideParameters> OverrideParameters_DataSet { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverrideParameters> OverrideParameters_DataSource { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideParameters> OverrideParameters_Folder { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobRefreshScheduleOverrideParameters> OverrideParameters_RefreshSchedule { get; set; }
             public System.String ResourceIdOverrideConfiguration_PrefixForAllResource { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideParameters> OverrideParameters_Theme { get; set; }
@@ -923,11 +1001,13 @@ namespace Amazon.PowerShell.Cmdlets.QS
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDashboardOverridePermissions> OverridePermissions_Dashboard { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSetOverridePermissions> OverridePermissions_DataSet { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverridePermissions> OverridePermissions_DataSource { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverridePermissions> OverridePermissions_Folder { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverridePermissions> OverridePermissions_Theme { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobAnalysisOverrideTags> OverrideTags_Analyses { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDashboardOverrideTags> OverrideTags_Dashboard { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSetOverrideTags> OverrideTags_DataSet { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobDataSourceOverrideTags> OverrideTags_DataSource { get; set; }
+            public List<Amazon.QuickSight.Model.AssetBundleImportJobFolderOverrideTags> OverrideTags_Folder { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobThemeOverrideTags> OverrideTags_Theme { get; set; }
             public List<Amazon.QuickSight.Model.AssetBundleImportJobVPCConnectionOverrideTags> OverrideTags_VPCConnection { get; set; }
             public System.Boolean? OverrideValidationStrategy_StrictModeForAllResource { get; set; }

@@ -28,7 +28,8 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Associates a software bill of materials (SBOM) with a specific software package version.
+    /// Associates the selected software bill of materials (SBOM) with a specific software
+    /// package version.
     /// 
     ///  
     /// <para>

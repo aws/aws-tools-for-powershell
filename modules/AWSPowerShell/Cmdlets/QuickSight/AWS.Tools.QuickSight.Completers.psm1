@@ -226,6 +226,13 @@ $QS_Completers = {
             break
         }
 
+        # Amazon.QuickSight.IncludeFolderMembers
+        "Start-QSAssetBundleExportJob/IncludeFolderMember"
+        {
+            $v = "NONE","ONE_LEVEL","RECURSE"
+            break
+        }
+
         # Amazon.QuickSight.IngestionType
         {
             ($_ -eq "New-QSIngestion/IngestionType") -Or
@@ -496,6 +503,7 @@ $QS_map = @{
     "IdentityStore"=@("New-QSNamespace")
     "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
     "ImportMode"=@("New-QSDataSet","Update-QSDataSet")
+    "IncludeFolderMember"=@("Start-QSAssetBundleExportJob")
     "IngestionType"=@("New-QSIngestion")
     "LookbackWindow_SizeUnit"=@("Write-QSDataSetRefreshProperty")
     "MemberType"=@("New-QSFolderMembership","Remove-QSFolderMembership")

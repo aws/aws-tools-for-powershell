@@ -22,54 +22,58 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.EC2;
+using Amazon.EC2.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Disassociates the selected software bill of materials (SBOM) from a specific software
-    /// package version.
+    /// By default, all vCPUs for the instance type are active when you launch an instance.
+    /// When you configure the number of active vCPUs for the instance, it can help you save
+    /// on licensing costs and optimize performance. The base cost of the instance remains
+    /// unchanged.
     /// 
     ///  
     /// <para>
-    /// Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DisassociateSbomWithPackageVersion</a>
-    /// action.
-    /// </para>
+    /// The number of active vCPUs equals the number of threads per CPU core multiplied by
+    /// the number of cores.
+    /// </para><note><para>
+    /// Some instance type options do not support this capability. For more information, see
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">Supported
+    /// CPU options</a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para></note>
     /// </summary>
-    [Cmdlet("Remove", "IOTSbomFromPackageVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the AWS IoT DisassociateSbomFromPackageVersion API operation.", Operation = new[] {"DisassociateSbomFromPackageVersion"}, SelectReturnType = typeof(Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse))]
-    [AWSCmdletOutput("None or Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse",
-        "This cmdlet does not generate any output." +
-        "The service response (type Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Edit", "EC2InstanceCpuOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud (EC2) ModifyInstanceCpuOptions API operation.", Operation = new[] {"ModifyInstanceCpuOptions"}, SelectReturnType = typeof(Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse))]
+    [AWSCmdletOutput("Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse",
+        "This cmdlet returns an Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveIOTSbomFromPackageVersionCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class EditEC2InstanceCpuOptionCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter PackageName
+        #region Parameter CoreCount
         /// <summary>
         /// <para>
-        /// <para>The name of the new software package.</para>
+        /// <para>The number of CPU cores to activate for the specified instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String PackageName { get; set; }
+        public System.Int32? CoreCount { get; set; }
         #endregion
         
-        #region Parameter VersionName
+        #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The name of the new package version.</para>
+        /// <para>The ID of the instance to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,24 +84,30 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String VersionName { get; set; }
+        public System.String InstanceId { get; set; }
         #endregion
         
-        #region Parameter ClientToken
+        #region Parameter ThreadsPerCore
         /// <summary>
         /// <para>
-        /// <para>A unique case-sensitive identifier that you can provide to ensure the idempotency
-        /// of the request. Don't reuse this client token if a new idempotent request is required.</para>
+        /// <para>The number of threads to run for each CPU core.</para>
         /// </para>
         /// </summary>
+        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientToken { get; set; }
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int32? ThreadsPerCore { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse).
+        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse).
+        /// Specifying the name of a property of type Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,10 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the VersionName parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^VersionName' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the InstanceId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^VersionName' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^InstanceId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -129,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.VersionName), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTSbomFromPackageVersion (DisassociateSbomFromPackageVersion)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.InstanceId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-EC2InstanceCpuOption (ModifyInstanceCpuOptions)"))
             {
                 return;
             }
@@ -143,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse, RemoveIOTSbomFromPackageVersionCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse, EditEC2InstanceCpuOptionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -152,22 +162,28 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.VersionName;
+                context.Select = (response, cmdlet) => this.InstanceId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.ClientToken = this.ClientToken;
-            context.PackageName = this.PackageName;
+            context.CoreCount = this.CoreCount;
             #if MODULAR
-            if (this.PackageName == null && ParameterWasBound(nameof(this.PackageName)))
+            if (this.CoreCount == null && ParameterWasBound(nameof(this.CoreCount)))
             {
-                WriteWarning("You are passing $null as a value for parameter PackageName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter CoreCount which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.VersionName = this.VersionName;
+            context.InstanceId = this.InstanceId;
             #if MODULAR
-            if (this.VersionName == null && ParameterWasBound(nameof(this.VersionName)))
+            if (this.InstanceId == null && ParameterWasBound(nameof(this.InstanceId)))
             {
-                WriteWarning("You are passing $null as a value for parameter VersionName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter InstanceId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.ThreadsPerCore = this.ThreadsPerCore;
+            #if MODULAR
+            if (this.ThreadsPerCore == null && ParameterWasBound(nameof(this.ThreadsPerCore)))
+            {
+                WriteWarning("You are passing $null as a value for parameter ThreadsPerCore which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -184,19 +200,19 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.DisassociateSbomFromPackageVersionRequest();
+            var request = new Amazon.EC2.Model.ModifyInstanceCpuOptionsRequest();
             
-            if (cmdletContext.ClientToken != null)
+            if (cmdletContext.CoreCount != null)
             {
-                request.ClientToken = cmdletContext.ClientToken;
+                request.CoreCount = cmdletContext.CoreCount.Value;
             }
-            if (cmdletContext.PackageName != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.PackageName = cmdletContext.PackageName;
+                request.InstanceId = cmdletContext.InstanceId;
             }
-            if (cmdletContext.VersionName != null)
+            if (cmdletContext.ThreadsPerCore != null)
             {
-                request.VersionName = cmdletContext.VersionName;
+                request.ThreadsPerCore = cmdletContext.ThreadsPerCore.Value;
             }
             
             CmdletOutput output;
@@ -231,15 +247,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DisassociateSbomFromPackageVersionRequest request)
+        private Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ModifyInstanceCpuOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DisassociateSbomFromPackageVersion");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud (EC2)", "ModifyInstanceCpuOptions");
             try
             {
                 #if DESKTOP
-                return client.DisassociateSbomFromPackageVersion(request);
+                return client.ModifyInstanceCpuOptions(request);
                 #elif CORECLR
-                return client.DisassociateSbomFromPackageVersionAsync(request).GetAwaiter().GetResult();
+                return client.ModifyInstanceCpuOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -259,11 +275,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
-            public System.String PackageName { get; set; }
-            public System.String VersionName { get; set; }
-            public System.Func<Amazon.IoT.Model.DisassociateSbomFromPackageVersionResponse, RemoveIOTSbomFromPackageVersionCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => null;
+            public System.Int32? CoreCount { get; set; }
+            public System.String InstanceId { get; set; }
+            public System.Int32? ThreadsPerCore { get; set; }
+            public System.Func<Amazon.EC2.Model.ModifyInstanceCpuOptionsResponse, EditEC2InstanceCpuOptionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response;
         }
         
     }
