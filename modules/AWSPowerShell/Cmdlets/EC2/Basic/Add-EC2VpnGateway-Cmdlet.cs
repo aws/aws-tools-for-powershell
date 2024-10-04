@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Attaches a virtual private gateway to a VPC. You can attach one virtual private gateway
-    /// to one VPC at a time.
+    /// Attaches an available virtual private gateway to a VPC. You can attach one virtual
+    /// private gateway to one VPC at a time.
     /// 
     ///  
     /// <para>

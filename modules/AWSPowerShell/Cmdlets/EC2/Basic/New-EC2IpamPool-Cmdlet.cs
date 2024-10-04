@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Local Zones</a>). This option is only available for IPAM IPv4 pools in the public
         /// scope.</para></li></ul><para>If you do not choose a locale, resources in Regions others than the IPAM's home region
         /// cannot use CIDRs from this pool.</para><para>Possible values: Any Amazon Web Services Region or supported Amazon Web Services Local
-        /// Zone.</para>
+        /// Zone. Default is <c>none</c> and means any locale.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

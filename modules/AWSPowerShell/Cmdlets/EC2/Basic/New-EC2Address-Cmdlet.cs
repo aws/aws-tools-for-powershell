@@ -101,7 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpamPoolId
         /// <summary>
         /// <para>
-        /// <para>The ID of an IPAM pool.</para>
+        /// <para>The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned
+        /// to it. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html">Allocate
+        /// sequential Elastic IP addresses from an IPAM pool</a> in the <i>Amazon VPC IPAM User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

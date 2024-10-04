@@ -32,8 +32,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// are associated with the VPC before you can delete it. For example, you must terminate
     /// all instances running in the VPC, delete all security groups associated with the VPC
     /// (except the default one), delete all route tables associated with the VPC (except
-    /// the default one), and so on. When you delete the VPC, it deletes the VPC's default
-    /// security group, network ACL, and route table.
+    /// the default one), and so on. When you delete the VPC, it deletes the default security
+    /// group, network ACL, and route table for the VPC.
+    /// 
+    ///  
+    /// <para>
+    /// If you created a flow log for the VPC that you are deleting, note that flow logs for
+    /// deleted VPCs are eventually automatically removed.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "EC2Vpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
