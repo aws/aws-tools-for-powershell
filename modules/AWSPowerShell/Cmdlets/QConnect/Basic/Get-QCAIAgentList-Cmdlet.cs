@@ -28,21 +28,50 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Lists the knowledge bases.
+    /// Lists AI Agents.
     /// </summary>
-    [Cmdlet("Get", "QCKnowledgeBasisList")]
-    [OutputType("Amazon.QConnect.Model.KnowledgeBaseSummary")]
-    [AWSCmdlet("Calls the Amazon Q Connect ListKnowledgeBases API operation.", Operation = new[] {"ListKnowledgeBases"}, SelectReturnType = typeof(Amazon.QConnect.Model.ListKnowledgeBasesResponse))]
-    [AWSCmdletOutput("Amazon.QConnect.Model.KnowledgeBaseSummary or Amazon.QConnect.Model.ListKnowledgeBasesResponse",
-        "This cmdlet returns a collection of Amazon.QConnect.Model.KnowledgeBaseSummary objects.",
-        "The service call response (type Amazon.QConnect.Model.ListKnowledgeBasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "QCAIAgentList")]
+    [OutputType("Amazon.QConnect.Model.AIAgentSummary")]
+    [AWSCmdlet("Calls the Amazon Q Connect ListAIAgents API operation.", Operation = new[] {"ListAIAgents"}, SelectReturnType = typeof(Amazon.QConnect.Model.ListAIAgentsResponse))]
+    [AWSCmdletOutput("Amazon.QConnect.Model.AIAgentSummary or Amazon.QConnect.Model.ListAIAgentsResponse",
+        "This cmdlet returns a collection of Amazon.QConnect.Model.AIAgentSummary objects.",
+        "The service call response (type Amazon.QConnect.Model.ListAIAgentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetQCKnowledgeBasisListCmdlet : AmazonQConnectClientCmdlet, IExecutor
+    public partial class GetQCAIAgentListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
-        protected override bool IsSensitiveResponse { get; set; } = true;
-        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
+        
+        #region Parameter AssistantId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        #else
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AssistantId { get; set; }
+        #endregion
+        
+        #region Parameter Origin
+        /// <summary>
+        /// <para>
+        /// <para>The origin of the AI Agents to be listed. <c>SYSTEM</c> for a default AI Agent created
+        /// by Q in Connect or <c>CUSTOMER</c> for an AI Agent created by calling AI Agent creation
+        /// APIs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QConnect.Origin")]
+        public Amazon.QConnect.Origin Origin { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -68,13 +97,23 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'KnowledgeBaseSummaries'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.ListKnowledgeBasesResponse).
-        /// Specifying the name of a property of type Amazon.QConnect.Model.ListKnowledgeBasesResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AiAgentSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.ListAIAgentsResponse).
+        /// Specifying the name of a property of type Amazon.QConnect.Model.ListAIAgentsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "KnowledgeBaseSummaries";
+        public string Select { get; set; } = "AiAgentSummaries";
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Changes the cmdlet behavior to return the value passed to the AssistantId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AssistantId' instead. This parameter will be removed in a future version.
+        /// </summary>
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssistantId' instead. This parameter will be removed in a future version.")]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -87,13 +126,31 @@ namespace Amazon.PowerShell.Cmdlets.QC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.ListKnowledgeBasesResponse, GetQCKnowledgeBasisListCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.ListAIAgentsResponse, GetQCAIAgentListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
+                if (this.PassThru.IsPresent)
+                {
+                    throw new System.ArgumentException("-PassThru cannot be used when -Select is specified.", nameof(this.Select));
+                }
             }
+            else if (this.PassThru.IsPresent)
+            {
+                context.Select = (response, cmdlet) => this.AssistantId;
+            }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AssistantId = this.AssistantId;
+            #if MODULAR
+            if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
+            {
+                WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Origin = this.Origin;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -108,8 +165,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QConnect.Model.ListKnowledgeBasesRequest();
+            var request = new Amazon.QConnect.Model.ListAIAgentsRequest();
             
+            if (cmdletContext.AssistantId != null)
+            {
+                request.AssistantId = cmdletContext.AssistantId;
+            }
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
@@ -117,6 +178,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Origin != null)
+            {
+                request.Origin = cmdletContext.Origin;
             }
             
             CmdletOutput output;
@@ -151,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         #region AWS Service Operation Call
         
-        private Amazon.QConnect.Model.ListKnowledgeBasesResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.ListKnowledgeBasesRequest request)
+        private Amazon.QConnect.Model.ListAIAgentsResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.ListAIAgentsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "ListKnowledgeBases");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "ListAIAgents");
             try
             {
                 #if DESKTOP
-                return client.ListKnowledgeBases(request);
+                return client.ListAIAgents(request);
                 #elif CORECLR
-                return client.ListKnowledgeBasesAsync(request).GetAwaiter().GetResult();
+                return client.ListAIAgentsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -179,10 +244,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssistantId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
-            public System.Func<Amazon.QConnect.Model.ListKnowledgeBasesResponse, GetQCKnowledgeBasisListCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.KnowledgeBaseSummaries;
+            public Amazon.QConnect.Origin Origin { get; set; }
+            public System.Func<Amazon.QConnect.Model.ListAIAgentsResponse, GetQCAIAgentListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AiAgentSummaries;
         }
         
     }

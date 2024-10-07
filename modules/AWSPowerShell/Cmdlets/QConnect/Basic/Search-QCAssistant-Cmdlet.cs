@@ -74,6 +74,30 @@ namespace Amazon.PowerShell.Cmdlets.QC
         public System.String AssistantId { get; set; }
         #endregion
         
+        #region Parameter IntentInputData_IntentId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the Amazon Q intent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryInputData_IntentInputData_IntentId")]
+        public System.String IntentInputData_IntentId { get; set; }
+        #endregion
+        
+        #region Parameter OverrideKnowledgeBaseSearchType
+        /// <summary>
+        /// <para>
+        /// <para>The search type to be used against the Knowledge Base for this request. The values
+        /// can be <c>SEMANTIC</c> which uses vector embeddings or <c>HYBRID</c> which use vector
+        /// embeddings and raw text.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QConnect.KnowledgeBaseSearchType")]
+        public Amazon.QConnect.KnowledgeBaseSearchType OverrideKnowledgeBaseSearchType { get; set; }
+        #endregion
+        
         #region Parameter QueryCondition
         /// <summary>
         /// <para>
@@ -90,14 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// <para>The text to search for.</para>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String QueryText { get; set; }
         #endregion
         
@@ -110,6 +127,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SessionId { get; set; }
+        #endregion
+        
+        #region Parameter QueryTextInputData_Text
+        /// <summary>
+        /// <para>
+        /// <para>The text to search for.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("QueryInputData_QueryTextInputData_Text")]
+        public System.String QueryTextInputData_Text { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -205,17 +233,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #endif
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.OverrideKnowledgeBaseSearchType = this.OverrideKnowledgeBaseSearchType;
             if (this.QueryCondition != null)
             {
                 context.QueryCondition = new List<Amazon.QConnect.Model.QueryCondition>(this.QueryCondition);
             }
+            context.IntentInputData_IntentId = this.IntentInputData_IntentId;
+            context.QueryTextInputData_Text = this.QueryTextInputData_Text;
             context.QueryText = this.QueryText;
-            #if MODULAR
-            if (this.QueryText == null && ParameterWasBound(nameof(this.QueryText)))
-            {
-                WriteWarning("You are passing $null as a value for parameter QueryText which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.SessionId = this.SessionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -245,9 +270,72 @@ namespace Amazon.PowerShell.Cmdlets.QC
             {
                 request.NextToken = cmdletContext.NextToken;
             }
+            if (cmdletContext.OverrideKnowledgeBaseSearchType != null)
+            {
+                request.OverrideKnowledgeBaseSearchType = cmdletContext.OverrideKnowledgeBaseSearchType;
+            }
             if (cmdletContext.QueryCondition != null)
             {
                 request.QueryCondition = cmdletContext.QueryCondition;
+            }
+            
+             // populate QueryInputData
+            var requestQueryInputDataIsNull = true;
+            request.QueryInputData = new Amazon.QConnect.Model.QueryInputData();
+            Amazon.QConnect.Model.IntentInputData requestQueryInputData_queryInputData_IntentInputData = null;
+            
+             // populate IntentInputData
+            var requestQueryInputData_queryInputData_IntentInputDataIsNull = true;
+            requestQueryInputData_queryInputData_IntentInputData = new Amazon.QConnect.Model.IntentInputData();
+            System.String requestQueryInputData_queryInputData_IntentInputData_intentInputData_IntentId = null;
+            if (cmdletContext.IntentInputData_IntentId != null)
+            {
+                requestQueryInputData_queryInputData_IntentInputData_intentInputData_IntentId = cmdletContext.IntentInputData_IntentId;
+            }
+            if (requestQueryInputData_queryInputData_IntentInputData_intentInputData_IntentId != null)
+            {
+                requestQueryInputData_queryInputData_IntentInputData.IntentId = requestQueryInputData_queryInputData_IntentInputData_intentInputData_IntentId;
+                requestQueryInputData_queryInputData_IntentInputDataIsNull = false;
+            }
+             // determine if requestQueryInputData_queryInputData_IntentInputData should be set to null
+            if (requestQueryInputData_queryInputData_IntentInputDataIsNull)
+            {
+                requestQueryInputData_queryInputData_IntentInputData = null;
+            }
+            if (requestQueryInputData_queryInputData_IntentInputData != null)
+            {
+                request.QueryInputData.IntentInputData = requestQueryInputData_queryInputData_IntentInputData;
+                requestQueryInputDataIsNull = false;
+            }
+            Amazon.QConnect.Model.QueryTextInputData requestQueryInputData_queryInputData_QueryTextInputData = null;
+            
+             // populate QueryTextInputData
+            var requestQueryInputData_queryInputData_QueryTextInputDataIsNull = true;
+            requestQueryInputData_queryInputData_QueryTextInputData = new Amazon.QConnect.Model.QueryTextInputData();
+            System.String requestQueryInputData_queryInputData_QueryTextInputData_queryTextInputData_Text = null;
+            if (cmdletContext.QueryTextInputData_Text != null)
+            {
+                requestQueryInputData_queryInputData_QueryTextInputData_queryTextInputData_Text = cmdletContext.QueryTextInputData_Text;
+            }
+            if (requestQueryInputData_queryInputData_QueryTextInputData_queryTextInputData_Text != null)
+            {
+                requestQueryInputData_queryInputData_QueryTextInputData.Text = requestQueryInputData_queryInputData_QueryTextInputData_queryTextInputData_Text;
+                requestQueryInputData_queryInputData_QueryTextInputDataIsNull = false;
+            }
+             // determine if requestQueryInputData_queryInputData_QueryTextInputData should be set to null
+            if (requestQueryInputData_queryInputData_QueryTextInputDataIsNull)
+            {
+                requestQueryInputData_queryInputData_QueryTextInputData = null;
+            }
+            if (requestQueryInputData_queryInputData_QueryTextInputData != null)
+            {
+                request.QueryInputData.QueryTextInputData = requestQueryInputData_queryInputData_QueryTextInputData;
+                requestQueryInputDataIsNull = false;
+            }
+             // determine if request.QueryInputData should be set to null
+            if (requestQueryInputDataIsNull)
+            {
+                request.QueryInputData = null;
             }
             if (cmdletContext.QueryText != null)
             {
@@ -321,7 +409,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             public System.String AssistantId { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.QConnect.KnowledgeBaseSearchType OverrideKnowledgeBaseSearchType { get; set; }
             public List<Amazon.QConnect.Model.QueryCondition> QueryCondition { get; set; }
+            public System.String IntentInputData_IntentId { get; set; }
+            public System.String QueryTextInputData_Text { get; set; }
             public System.String QueryText { get; set; }
             public System.String SessionId { get; set; }
             public System.Func<Amazon.QConnect.Model.QueryAssistantResponse, SearchQCAssistantCmdlet, object> Select { get; set; } =

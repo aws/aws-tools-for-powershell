@@ -44,6 +44,17 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AiAgentConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The configuration of the AI Agents (mapped by AI Agent Type to AI Agent version) that
+        /// should be used by Amazon Q in Connect for this Session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Collections.Hashtable AiAgentConfiguration { get; set; }
+        #endregion
+        
         #region Parameter TagFilter_AndCondition
         /// <summary>
         /// <para>
@@ -196,6 +207,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
                 context.Select = (response, cmdlet) => this.SessionId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AiAgentConfiguration != null)
+            {
+                context.AiAgentConfiguration = new Dictionary<System.String, Amazon.QConnect.Model.AIAgentConfigurationData>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AiAgentConfiguration.Keys)
+                {
+                    context.AiAgentConfiguration.Add((String)hashKey, (Amazon.QConnect.Model.AIAgentConfigurationData)(this.AiAgentConfiguration[hashKey]));
+                }
+            }
             context.AssistantId = this.AssistantId;
             #if MODULAR
             if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
@@ -237,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.QC
             // create request
             var request = new Amazon.QConnect.Model.UpdateSessionRequest();
             
+            if (cmdletContext.AiAgentConfiguration != null)
+            {
+                request.AiAgentConfiguration = cmdletContext.AiAgentConfiguration;
+            }
             if (cmdletContext.AssistantId != null)
             {
                 request.AssistantId = cmdletContext.AssistantId;
@@ -374,6 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, Amazon.QConnect.Model.AIAgentConfigurationData> AiAgentConfiguration { get; set; }
             public System.String AssistantId { get; set; }
             public System.String Description { get; set; }
             public System.String SessionId { get; set; }

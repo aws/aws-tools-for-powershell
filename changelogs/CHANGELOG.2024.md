@@ -1,4 +1,34 @@
-﻿### 4.1.671 (2024-10-04 21:05Z)
+﻿### 4.1.672 (2024-10-07 21:10Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.900.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon AWSDeadlineCloud
+    * Added cmdlet Get-ADCJobParameterDefinitionList leveraging the ListJobParameterDefinitions service API.
+    * Modified cmdlet New-ADCJob: added parameter SourceJobId.
+  * Amazon Q Connect
+    * Added cmdlet Get-QCAIAgent leveraging the GetAIAgent service API.
+    * Added cmdlet Get-QCAIAgentList leveraging the ListAIAgents service API.
+    * Added cmdlet Get-QCAIAgentVersionList leveraging the ListAIAgentVersions service API.
+    * Added cmdlet Get-QCAIPrompt leveraging the GetAIPrompt service API.
+    * Added cmdlet Get-QCAIPromptList leveraging the ListAIPrompts service API.
+    * Added cmdlet Get-QCAIPromptVersionList leveraging the ListAIPromptVersions service API.
+    * Added cmdlet New-QCAIAgent leveraging the CreateAIAgent service API.
+    * Added cmdlet New-QCAIAgentVersion leveraging the CreateAIAgentVersion service API.
+    * Added cmdlet New-QCAIPrompt leveraging the CreateAIPrompt service API.
+    * Added cmdlet New-QCAIPromptVersion leveraging the CreateAIPromptVersion service API.
+    * Added cmdlet Remove-QCAIAgent leveraging the DeleteAIAgent service API.
+    * Added cmdlet Remove-QCAIAgentVersion leveraging the DeleteAIAgentVersion service API.
+    * Added cmdlet Remove-QCAIPrompt leveraging the DeleteAIPrompt service API.
+    * Added cmdlet Remove-QCAIPromptVersion leveraging the DeleteAIPromptVersion service API.
+    * Added cmdlet Remove-QCAssistantAIAgent leveraging the RemoveAssistantAIAgent service API.
+    * Added cmdlet Update-QCAIAgent leveraging the UpdateAIAgent service API.
+    * Added cmdlet Update-QCAIPrompt leveraging the UpdateAIPrompt service API.
+    * Added cmdlet Update-QCAssistantAIAgent leveraging the UpdateAssistantAIAgent service API.
+    * Added cmdlet Update-QCSessionData leveraging the UpdateSessionData service API.
+    * Modified cmdlet New-QCKnowledgeBase: added parameters BedrockFoundationModelConfiguration_ModelArn, ChunkingConfiguration_ChunkingStrategy, CrawlerLimits_RateLimit, FixedSizeChunkingConfiguration_MaxToken, FixedSizeChunkingConfiguration_OverlapPercentage, HierarchicalChunkingConfiguration_LevelConfiguration, HierarchicalChunkingConfiguration_OverlapToken, ParsingConfiguration_ParsingStrategy, ParsingPrompt_ParsingPromptText, SemanticChunkingConfiguration_BreakpointPercentileThreshold, SemanticChunkingConfiguration_BufferSize, SemanticChunkingConfiguration_MaxToken, UrlConfiguration_SeedUrl, WebCrawlerConfiguration_ExclusionFilter, WebCrawlerConfiguration_InclusionFilter and WebCrawlerConfiguration_Scope.
+    * Modified cmdlet New-QCSession: added parameter AiAgentConfiguration.
+    * Modified cmdlet Search-QCAssistant: added parameters IntentInputData_IntentId, OverrideKnowledgeBaseSearchType and QueryTextInputData_Text.
+    * Modified cmdlet Update-QCSession: added parameter AiAgentConfiguration.
+
+### 4.1.671 (2024-10-04 21:05Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.899.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.670 (2024-10-03 21:11Z)

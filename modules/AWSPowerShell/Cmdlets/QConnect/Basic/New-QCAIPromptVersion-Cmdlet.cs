@@ -22,40 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Redshift;
-using Amazon.Redshift.Model;
+using Amazon.QConnect;
+using Amazon.QConnect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RS
+namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Starts logging information, such as queries and connection attempts, for the specified
-    /// Amazon Redshift cluster.
+    /// Creates an Amazon Q in Connect AI Prompt version.
     /// </summary>
-    [Cmdlet("Enable", "RSLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Redshift.Model.EnableLoggingResponse")]
-    [AWSCmdlet("Calls the Amazon Redshift EnableLogging API operation.", Operation = new[] {"EnableLogging"}, SelectReturnType = typeof(Amazon.Redshift.Model.EnableLoggingResponse))]
-    [AWSCmdletOutput("Amazon.Redshift.Model.EnableLoggingResponse",
-        "This cmdlet returns an Amazon.Redshift.Model.EnableLoggingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "QCAIPromptVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.QConnect.Model.CreateAIPromptVersionResponse")]
+    [AWSCmdlet("Calls the Amazon Q Connect CreateAIPromptVersion API operation.", Operation = new[] {"CreateAIPromptVersion"}, SelectReturnType = typeof(Amazon.QConnect.Model.CreateAIPromptVersionResponse))]
+    [AWSCmdletOutput("Amazon.QConnect.Model.CreateAIPromptVersionResponse",
+        "This cmdlet returns an Amazon.QConnect.Model.CreateAIPromptVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableRSLoggingCmdlet : AmazonRedshiftClientCmdlet, IExecutor
+    public partial class NewQCAIPromptVersionCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter BucketName
+        #region Parameter AiPromptId
         /// <summary>
         /// <para>
-        /// <para>The name of an existing S3 bucket where the log files are to be stored.</para><para>Constraints:</para><ul><li><para>Must be in the same region as the cluster</para></li><li><para>The cluster must have read bucket and put object permissions</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String BucketName { get; set; }
-        #endregion
-        
-        #region Parameter ClusterIdentifier
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the cluster on which logging is to be started.</para><para>Example: <c>examplecluster</c></para>
+        /// <para>The identifier of the Amazon Q in Connect AI prompt.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,50 +57,55 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String ClusterIdentifier { get; set; }
+        public System.String AiPromptId { get; set; }
         #endregion
         
-        #region Parameter LogDestinationType
+        #region Parameter AssistantId
         /// <summary>
         /// <para>
-        /// <para>The log destination type. An enum with possible values of <c>s3</c> and <c>cloudwatch</c>.</para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowEmptyString]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.String AssistantId { get; set; }
+        #endregion
+        
+        #region Parameter ModifiedTime
+        /// <summary>
+        /// <para>
+        /// <para>The time the AI Prompt was last modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [AWSConstantClassSource("Amazon.Redshift.LogDestinationType")]
-        public Amazon.Redshift.LogDestinationType LogDestinationType { get; set; }
+        public System.DateTime? ModifiedTime { get; set; }
         #endregion
         
-        #region Parameter LogExport
+        #region Parameter ClientToken
         /// <summary>
         /// <para>
-        /// <para>The collection of exported log types. Possible values are <c>connectionlog</c>, <c>useractivitylog</c>,
-        /// and <c>userlog</c>.</para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request. If not provided, the AWS SDK populates this field. For more information
+        /// about idempotency, see <a href="http://aws.amazon.com/https:/aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
+        /// retries safe with idempotent APIs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("LogExports")]
-        public System.String[] LogExport { get; set; }
-        #endregion
-        
-        #region Parameter S3KeyPrefix
-        /// <summary>
-        /// <para>
-        /// <para>The prefix applied to the log file names.</para><para>Valid characters are any letter from any language, any whitespace character, any numeric
-        /// character, and the following characters: underscore (<c>_</c>), period (<c>.</c>),
-        /// colon (<c>:</c>), slash (<c>/</c>), equal (<c>=</c>), plus (<c>+</c>), backslash (<c>\</c>),
-        /// hyphen (<c>-</c>), at symbol (<c>@</c>).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String S3KeyPrefix { get; set; }
+        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.Redshift.Model.EnableLoggingResponse).
-        /// Specifying the name of a property of type Amazon.Redshift.Model.EnableLoggingResponse will result in that property being returned.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.CreateAIPromptVersionResponse).
+        /// Specifying the name of a property of type Amazon.QConnect.Model.CreateAIPromptVersionResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,10 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the ClusterIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AiPromptId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AiPromptId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^ClusterIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AiPromptId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -141,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.ClusterIdentifier), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-RSLogging (EnableLogging)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AiPromptId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-QCAIPromptVersion (CreateAIPromptVersion)"))
             {
                 return;
             }
@@ -155,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.Redshift.Model.EnableLoggingResponse, EnableRSLoggingCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.CreateAIPromptVersionResponse, NewQCAIPromptVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -164,23 +160,25 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.ClusterIdentifier;
+                context.Select = (response, cmdlet) => this.AiPromptId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.BucketName = this.BucketName;
-            context.ClusterIdentifier = this.ClusterIdentifier;
+            context.AiPromptId = this.AiPromptId;
             #if MODULAR
-            if (this.ClusterIdentifier == null && ParameterWasBound(nameof(this.ClusterIdentifier)))
+            if (this.AiPromptId == null && ParameterWasBound(nameof(this.AiPromptId)))
             {
-                WriteWarning("You are passing $null as a value for parameter ClusterIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AiPromptId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.LogDestinationType = this.LogDestinationType;
-            if (this.LogExport != null)
+            context.AssistantId = this.AssistantId;
+            #if MODULAR
+            if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
             {
-                context.LogExport = new List<System.String>(this.LogExport);
+                WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
-            context.S3KeyPrefix = this.S3KeyPrefix;
+            #endif
+            context.ClientToken = this.ClientToken;
+            context.ModifiedTime = this.ModifiedTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,27 +193,23 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Redshift.Model.EnableLoggingRequest();
+            var request = new Amazon.QConnect.Model.CreateAIPromptVersionRequest();
             
-            if (cmdletContext.BucketName != null)
+            if (cmdletContext.AiPromptId != null)
             {
-                request.BucketName = cmdletContext.BucketName;
+                request.AiPromptId = cmdletContext.AiPromptId;
             }
-            if (cmdletContext.ClusterIdentifier != null)
+            if (cmdletContext.AssistantId != null)
             {
-                request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+                request.AssistantId = cmdletContext.AssistantId;
             }
-            if (cmdletContext.LogDestinationType != null)
+            if (cmdletContext.ClientToken != null)
             {
-                request.LogDestinationType = cmdletContext.LogDestinationType;
+                request.ClientToken = cmdletContext.ClientToken;
             }
-            if (cmdletContext.LogExport != null)
+            if (cmdletContext.ModifiedTime != null)
             {
-                request.LogExports = cmdletContext.LogExport;
-            }
-            if (cmdletContext.S3KeyPrefix != null)
-            {
-                request.S3KeyPrefix = cmdletContext.S3KeyPrefix;
+                request.ModifiedTime = cmdletContext.ModifiedTime.Value;
             }
             
             CmdletOutput output;
@@ -250,15 +244,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #region AWS Service Operation Call
         
-        private Amazon.Redshift.Model.EnableLoggingResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.EnableLoggingRequest request)
+        private Amazon.QConnect.Model.CreateAIPromptVersionResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.CreateAIPromptVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "EnableLogging");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "CreateAIPromptVersion");
             try
             {
                 #if DESKTOP
-                return client.EnableLogging(request);
+                return client.CreateAIPromptVersion(request);
                 #elif CORECLR
-                return client.EnableLoggingAsync(request).GetAwaiter().GetResult();
+                return client.CreateAIPromptVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -278,12 +272,11 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String BucketName { get; set; }
-            public System.String ClusterIdentifier { get; set; }
-            public Amazon.Redshift.LogDestinationType LogDestinationType { get; set; }
-            public List<System.String> LogExport { get; set; }
-            public System.String S3KeyPrefix { get; set; }
-            public System.Func<Amazon.Redshift.Model.EnableLoggingResponse, EnableRSLoggingCmdlet, object> Select { get; set; } =
+            public System.String AiPromptId { get; set; }
+            public System.String AssistantId { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.DateTime? ModifiedTime { get; set; }
+            public System.Func<Amazon.QConnect.Model.CreateAIPromptVersionResponse, NewQCAIPromptVersionCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;
         }
         

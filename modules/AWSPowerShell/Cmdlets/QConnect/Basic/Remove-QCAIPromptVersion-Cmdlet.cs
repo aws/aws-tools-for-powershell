@@ -28,31 +28,24 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Updates the template URI of a knowledge base. This is only supported for knowledge
-    /// bases of type EXTERNAL. Include a single variable in <c>${variable}</c> format; this
-    /// interpolated by Amazon Q in Connect using ingested content. For example, if you ingest
-    /// a Salesforce article, it has an <c>Id</c> value, and you can set the template URI
-    /// to <c>https://myInstanceName.lightning.force.com/lightning/r/Knowledge__kav/*${Id}*/view</c>.
+    /// Delete and Amazon Q in Connect AI Prompt version.
     /// </summary>
-    [Cmdlet("Update", "QCKnowledgeBaseTemplateUri", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QConnect.Model.KnowledgeBaseData")]
-    [AWSCmdlet("Calls the Amazon Q Connect UpdateKnowledgeBaseTemplateUri API operation.", Operation = new[] {"UpdateKnowledgeBaseTemplateUri"}, SelectReturnType = typeof(Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse))]
-    [AWSCmdletOutput("Amazon.QConnect.Model.KnowledgeBaseData or Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.KnowledgeBaseData object.",
-        "The service call response (type Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "QCAIPromptVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Q Connect DeleteAIPromptVersion API operation.", Operation = new[] {"DeleteAIPromptVersion"}, SelectReturnType = typeof(Amazon.QConnect.Model.DeleteAIPromptVersionResponse))]
+    [AWSCmdletOutput("None or Amazon.QConnect.Model.DeleteAIPromptVersionResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.QConnect.Model.DeleteAIPromptVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateQCKnowledgeBaseTemplateUriCmdlet : AmazonQConnectClientCmdlet, IExecutor
+    public partial class RemoveQCAIPromptVersionCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KnowledgeBaseId
+        #region Parameter AiPromptId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge
-        /// base. Can be either the ID or the ARN. URLs cannot contain the ARN.</para>
+        /// <para>The identifier of the Amazon Q in Connect AI prompt.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,13 +56,14 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KnowledgeBaseId { get; set; }
+        public System.String AiPromptId { get; set; }
         #endregion
         
-        #region Parameter TemplateUri
+        #region Parameter AssistantId
         /// <summary>
         /// <para>
-        /// <para>The template URI to update.</para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,26 +74,41 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String TemplateUri { get; set; }
+        public System.String AssistantId { get; set; }
+        #endregion
+        
+        #region Parameter VersionNumber
+        /// <summary>
+        /// <para>
+        /// <para>The version number of the AI Prompt version to be deleted.</para>
+        /// </para>
+        /// </summary>
+        #if !MODULAR
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        #else
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
+        [System.Management.Automation.AllowNull]
+        #endif
+        [Amazon.PowerShell.Common.AWSRequiredParameter]
+        public System.Int64? VersionNumber { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'KnowledgeBase'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse).
-        /// Specifying the name of a property of type Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.DeleteAIPromptVersionResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "KnowledgeBase";
+        public string Select { get; set; } = "*";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KnowledgeBaseId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KnowledgeBaseId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AiPromptId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AiPromptId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KnowledgeBaseId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AiPromptId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -119,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.QC
             this._AWSSignerType = "v4";
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.KnowledgeBaseId), MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-QCKnowledgeBaseTemplateUri (UpdateKnowledgeBaseTemplateUri)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AiPromptId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QCAIPromptVersion (DeleteAIPromptVersion)"))
             {
                 return;
             }
@@ -133,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse, UpdateQCKnowledgeBaseTemplateUriCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.DeleteAIPromptVersionResponse, RemoveQCAIPromptVersionCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -142,21 +151,28 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KnowledgeBaseId;
+                context.Select = (response, cmdlet) => this.AiPromptId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KnowledgeBaseId = this.KnowledgeBaseId;
+            context.AiPromptId = this.AiPromptId;
             #if MODULAR
-            if (this.KnowledgeBaseId == null && ParameterWasBound(nameof(this.KnowledgeBaseId)))
+            if (this.AiPromptId == null && ParameterWasBound(nameof(this.AiPromptId)))
             {
-                WriteWarning("You are passing $null as a value for parameter KnowledgeBaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AiPromptId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            context.TemplateUri = this.TemplateUri;
+            context.AssistantId = this.AssistantId;
             #if MODULAR
-            if (this.TemplateUri == null && ParameterWasBound(nameof(this.TemplateUri)))
+            if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
             {
-                WriteWarning("You are passing $null as a value for parameter TemplateUri which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+            }
+            #endif
+            context.VersionNumber = this.VersionNumber;
+            #if MODULAR
+            if (this.VersionNumber == null && ParameterWasBound(nameof(this.VersionNumber)))
+            {
+                WriteWarning("You are passing $null as a value for parameter VersionNumber which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -173,15 +189,19 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriRequest();
+            var request = new Amazon.QConnect.Model.DeleteAIPromptVersionRequest();
             
-            if (cmdletContext.KnowledgeBaseId != null)
+            if (cmdletContext.AiPromptId != null)
             {
-                request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
+                request.AiPromptId = cmdletContext.AiPromptId;
             }
-            if (cmdletContext.TemplateUri != null)
+            if (cmdletContext.AssistantId != null)
             {
-                request.TemplateUri = cmdletContext.TemplateUri;
+                request.AssistantId = cmdletContext.AssistantId;
+            }
+            if (cmdletContext.VersionNumber != null)
+            {
+                request.VersionNumber = cmdletContext.VersionNumber.Value;
             }
             
             CmdletOutput output;
@@ -216,15 +236,15 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         #region AWS Service Operation Call
         
-        private Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriRequest request)
+        private Amazon.QConnect.Model.DeleteAIPromptVersionResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.DeleteAIPromptVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "UpdateKnowledgeBaseTemplateUri");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "DeleteAIPromptVersion");
             try
             {
                 #if DESKTOP
-                return client.UpdateKnowledgeBaseTemplateUri(request);
+                return client.DeleteAIPromptVersion(request);
                 #elif CORECLR
-                return client.UpdateKnowledgeBaseTemplateUriAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAIPromptVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -244,10 +264,11 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KnowledgeBaseId { get; set; }
-            public System.String TemplateUri { get; set; }
-            public System.Func<Amazon.QConnect.Model.UpdateKnowledgeBaseTemplateUriResponse, UpdateQCKnowledgeBaseTemplateUriCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.KnowledgeBase;
+            public System.String AiPromptId { get; set; }
+            public System.String AssistantId { get; set; }
+            public System.Int64? VersionNumber { get; set; }
+            public System.Func<Amazon.QConnect.Model.DeleteAIPromptVersionResponse, RemoveQCAIPromptVersionCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

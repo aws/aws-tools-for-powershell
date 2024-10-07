@@ -22,43 +22,31 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.MarketplaceReporting;
-using Amazon.MarketplaceReporting.Model;
+using Amazon.QConnect;
+using Amazon.QConnect.Model;
 
-namespace Amazon.PowerShell.Cmdlets.MR
+namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Generates an embedding URL for an Amazon QuickSight dashboard for an anonymous user.
-    /// 
-    ///  <note><para>
-    /// This API is available only to Amazon Web Services Organization management accounts
-    /// or delegated administrators registered for the procurement insights (<c>procurement-insights.marketplace.amazonaws.com</c>)
-    /// feature.
-    /// </para></note><para>
-    /// The following rules apply to a generated URL:
-    /// </para><ul><li><para>
-    /// It contains a temporary bearer token, valid for 5 minutes after it is generated. Once
-    /// redeemed within that period, it cannot be re-used again.
-    /// </para></li><li><para>
-    /// It has a session lifetime of one hour. The 5-minute validity period runs separately
-    /// from the session lifetime.
-    /// </para></li></ul>
+    /// Deletes an Amazon Q in Connect AI Agent.
     /// </summary>
-    [Cmdlet("Get", "MRBuyerDashboard")]
-    [OutputType("Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse")]
-    [AWSCmdlet("Calls the AWS Marketplace Reporting Service GetBuyerDashboard API operation.", Operation = new[] {"GetBuyerDashboard"}, SelectReturnType = typeof(Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse))]
-    [AWSCmdletOutput("Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse",
-        "This cmdlet returns an Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "QCAIAgent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Calls the Amazon Q Connect DeleteAIAgent API operation.", Operation = new[] {"DeleteAIAgent"}, SelectReturnType = typeof(Amazon.QConnect.Model.DeleteAIAgentResponse))]
+    [AWSCmdletOutput("None or Amazon.QConnect.Model.DeleteAIAgentResponse",
+        "This cmdlet does not generate any output." +
+        "The service response (type Amazon.QConnect.Model.DeleteAIAgentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetMRBuyerDashboardCmdlet : AmazonMarketplaceReportingClientCmdlet, IExecutor
+    public partial class RemoveQCAIAgentCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter DashboardIdentifier
+        #region Parameter AiAgentId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the requested dashboard.</para>
+        /// <para>The identifier of the Amazon Q in Connect AI Agent. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,35 +57,31 @@ namespace Amazon.PowerShell.Cmdlets.MR
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String DashboardIdentifier { get; set; }
+        public System.String AiAgentId { get; set; }
         #endregion
         
-        #region Parameter EmbeddingDomain
+        #region Parameter AssistantId
         /// <summary>
         /// <para>
-        /// <para>Fully qualified domains that you add to the allow list for access to the generated
-        /// URL that is then embedded. You can list up to two domains or subdomains in each API
-        /// call. To include all subdomains under a specific domain, use <c>*</c>. For example,
-        /// <c>https://*.amazon.com</c> includes all subdomains under <c>https://aws.amazon.com</c>.</para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         #else
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyCollection]
+        [System.Management.Automation.AllowEmptyString]
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        [Alias("EmbeddingDomains")]
-        public System.String[] EmbeddingDomain { get; set; }
+        public System.String AssistantId { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse).
-        /// Specifying the name of a property of type Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The cmdlet doesn't have a return value by default.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.DeleteAIAgentResponse).
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,18 +90,34 @@ namespace Amazon.PowerShell.Cmdlets.MR
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the DashboardIdentifier parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^DashboardIdentifier' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AiAgentId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AiAgentId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^DashboardIdentifier' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AiAgentId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             this._AWSSignerType = "v4";
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(nameof(this.AiAgentId), MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-QCAIAgent (DeleteAIAgent)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext();
             
@@ -127,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.MR
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse, GetMRBuyerDashboardCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.DeleteAIAgentResponse, RemoveQCAIAgentCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -136,24 +136,21 @@ namespace Amazon.PowerShell.Cmdlets.MR
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.DashboardIdentifier;
+                context.Select = (response, cmdlet) => this.AiAgentId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.DashboardIdentifier = this.DashboardIdentifier;
+            context.AiAgentId = this.AiAgentId;
             #if MODULAR
-            if (this.DashboardIdentifier == null && ParameterWasBound(nameof(this.DashboardIdentifier)))
+            if (this.AiAgentId == null && ParameterWasBound(nameof(this.AiAgentId)))
             {
-                WriteWarning("You are passing $null as a value for parameter DashboardIdentifier which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AiAgentId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
-            if (this.EmbeddingDomain != null)
-            {
-                context.EmbeddingDomain = new List<System.String>(this.EmbeddingDomain);
-            }
+            context.AssistantId = this.AssistantId;
             #if MODULAR
-            if (this.EmbeddingDomain == null && ParameterWasBound(nameof(this.EmbeddingDomain)))
+            if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
             {
-                WriteWarning("You are passing $null as a value for parameter EmbeddingDomain which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
             
@@ -170,15 +167,15 @@ namespace Amazon.PowerShell.Cmdlets.MR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.MarketplaceReporting.Model.GetBuyerDashboardRequest();
+            var request = new Amazon.QConnect.Model.DeleteAIAgentRequest();
             
-            if (cmdletContext.DashboardIdentifier != null)
+            if (cmdletContext.AiAgentId != null)
             {
-                request.DashboardIdentifier = cmdletContext.DashboardIdentifier;
+                request.AiAgentId = cmdletContext.AiAgentId;
             }
-            if (cmdletContext.EmbeddingDomain != null)
+            if (cmdletContext.AssistantId != null)
             {
-                request.EmbeddingDomains = cmdletContext.EmbeddingDomain;
+                request.AssistantId = cmdletContext.AssistantId;
             }
             
             CmdletOutput output;
@@ -213,15 +210,15 @@ namespace Amazon.PowerShell.Cmdlets.MR
         
         #region AWS Service Operation Call
         
-        private Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse CallAWSServiceOperation(IAmazonMarketplaceReporting client, Amazon.MarketplaceReporting.Model.GetBuyerDashboardRequest request)
+        private Amazon.QConnect.Model.DeleteAIAgentResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.DeleteAIAgentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Marketplace Reporting Service", "GetBuyerDashboard");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "DeleteAIAgent");
             try
             {
                 #if DESKTOP
-                return client.GetBuyerDashboard(request);
+                return client.DeleteAIAgent(request);
                 #elif CORECLR
-                return client.GetBuyerDashboardAsync(request).GetAwaiter().GetResult();
+                return client.DeleteAIAgentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -241,10 +238,10 @@ namespace Amazon.PowerShell.Cmdlets.MR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DashboardIdentifier { get; set; }
-            public List<System.String> EmbeddingDomain { get; set; }
-            public System.Func<Amazon.MarketplaceReporting.Model.GetBuyerDashboardResponse, GetMRBuyerDashboardCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response;
+            public System.String AiAgentId { get; set; }
+            public System.String AssistantId { get; set; }
+            public System.Func<Amazon.QConnect.Model.DeleteAIAgentResponse, RemoveQCAIAgentCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => null;
         }
         
     }

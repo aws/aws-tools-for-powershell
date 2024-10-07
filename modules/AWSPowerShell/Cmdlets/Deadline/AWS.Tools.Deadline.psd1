@@ -107,6 +107,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-ADCJob', 
         'Get-ADCJobList', 
         'Get-ADCJobMemberList', 
+        'Get-ADCJobParameterDefinitionList', 
         'Get-ADCLicenseEndpoint', 
         'Get-ADCLicenseEndpointList', 
         'Get-ADCMeteredProductList', 

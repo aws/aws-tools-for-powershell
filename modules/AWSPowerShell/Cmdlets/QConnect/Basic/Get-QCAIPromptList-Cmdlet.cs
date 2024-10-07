@@ -28,27 +28,25 @@ using Amazon.QConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.QC
 {
     /// <summary>
-    /// Retrieves information about the knowledge base.
+    /// Lists the AI Prompts available on the Amazon Q in Connect assistant.
     /// </summary>
-    [Cmdlet("Get", "QCKnowledgeBase")]
-    [OutputType("Amazon.QConnect.Model.KnowledgeBaseData")]
-    [AWSCmdlet("Calls the Amazon Q Connect GetKnowledgeBase API operation.", Operation = new[] {"GetKnowledgeBase"}, SelectReturnType = typeof(Amazon.QConnect.Model.GetKnowledgeBaseResponse))]
-    [AWSCmdletOutput("Amazon.QConnect.Model.KnowledgeBaseData or Amazon.QConnect.Model.GetKnowledgeBaseResponse",
-        "This cmdlet returns an Amazon.QConnect.Model.KnowledgeBaseData object.",
-        "The service call response (type Amazon.QConnect.Model.GetKnowledgeBaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "QCAIPromptList")]
+    [OutputType("Amazon.QConnect.Model.AIPromptSummary")]
+    [AWSCmdlet("Calls the Amazon Q Connect ListAIPrompts API operation.", Operation = new[] {"ListAIPrompts"}, SelectReturnType = typeof(Amazon.QConnect.Model.ListAIPromptsResponse))]
+    [AWSCmdletOutput("Amazon.QConnect.Model.AIPromptSummary or Amazon.QConnect.Model.ListAIPromptsResponse",
+        "This cmdlet returns a collection of Amazon.QConnect.Model.AIPromptSummary objects.",
+        "The service call response (type Amazon.QConnect.Model.ListAIPromptsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetQCKnowledgeBaseCmdlet : AmazonQConnectClientCmdlet, IExecutor
+    public partial class GetQCAIPromptListCmdlet : AmazonQConnectClientCmdlet, IExecutor
     {
-        
-        protected override bool IsSensitiveResponse { get; set; } = true;
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
-        #region Parameter KnowledgeBaseId
+        #region Parameter AssistantId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot
-        /// contain the ARN.</para>
+        /// <para>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN.
+        /// URLs cannot contain the ARN.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -59,26 +57,61 @@ namespace Amazon.PowerShell.Cmdlets.QC
         [System.Management.Automation.AllowNull]
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
-        public System.String KnowledgeBaseId { get; set; }
+        public System.String AssistantId { get; set; }
+        #endregion
+        
+        #region Parameter Origin
+        /// <summary>
+        /// <para>
+        /// <para>The origin of the AI Prompts to be listed. <c>SYSTEM</c> for a default AI Agent created
+        /// by Q in Connect or <c>CUSTOMER</c> for an AI Agent created by calling AI Agent creation
+        /// APIs. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.QConnect.Origin")]
+        public Amazon.QConnect.Origin Origin { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return per page.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token for the next set of results. Use the value returned in the previous response
+        /// in the next request to retrieve the next set of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String NextToken { get; set; }
         #endregion
         
         #region Parameter Select
         /// <summary>
-        /// Use the -Select parameter to control the cmdlet output. The default value is 'KnowledgeBase'.
-        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.GetKnowledgeBaseResponse).
-        /// Specifying the name of a property of type Amazon.QConnect.Model.GetKnowledgeBaseResponse will result in that property being returned.
+        /// Use the -Select parameter to control the cmdlet output. The default value is 'AiPromptSummaries'.
+        /// Specifying -Select '*' will result in the cmdlet returning the whole service response (Amazon.QConnect.Model.ListAIPromptsResponse).
+        /// Specifying the name of a property of type Amazon.QConnect.Model.ListAIPromptsResponse will result in that property being returned.
         /// Specifying -Select '^ParameterName' will result in the cmdlet returning the selected cmdlet parameter value.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public string Select { get; set; } = "KnowledgeBase";
+        public string Select { get; set; } = "AiPromptSummaries";
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Changes the cmdlet behavior to return the value passed to the KnowledgeBaseId parameter.
-        /// The -PassThru parameter is deprecated, use -Select '^KnowledgeBaseId' instead. This parameter will be removed in a future version.
+        /// Changes the cmdlet behavior to return the value passed to the AssistantId parameter.
+        /// The -PassThru parameter is deprecated, use -Select '^AssistantId' instead. This parameter will be removed in a future version.
         /// </summary>
-        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^KnowledgeBaseId' instead. This parameter will be removed in a future version.")]
+        [System.Obsolete("The -PassThru parameter is deprecated, use -Select '^AssistantId' instead. This parameter will be removed in a future version.")]
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public SwitchParameter PassThru { get; set; }
         #endregion
@@ -96,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.QC
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound(nameof(this.Select)))
             {
-                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.GetKnowledgeBaseResponse, GetQCKnowledgeBaseCmdlet>(Select) ??
+                context.Select = CreateSelectDelegate<Amazon.QConnect.Model.ListAIPromptsResponse, GetQCAIPromptListCmdlet>(Select) ??
                     throw new System.ArgumentException("Invalid value for -Select parameter.", nameof(this.Select));
                 if (this.PassThru.IsPresent)
                 {
@@ -105,16 +138,19 @@ namespace Amazon.PowerShell.Cmdlets.QC
             }
             else if (this.PassThru.IsPresent)
             {
-                context.Select = (response, cmdlet) => this.KnowledgeBaseId;
+                context.Select = (response, cmdlet) => this.AssistantId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
-            context.KnowledgeBaseId = this.KnowledgeBaseId;
+            context.AssistantId = this.AssistantId;
             #if MODULAR
-            if (this.KnowledgeBaseId == null && ParameterWasBound(nameof(this.KnowledgeBaseId)))
+            if (this.AssistantId == null && ParameterWasBound(nameof(this.AssistantId)))
             {
-                WriteWarning("You are passing $null as a value for parameter KnowledgeBaseId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
+                WriteWarning("You are passing $null as a value for parameter AssistantId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.Origin = this.Origin;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,11 +165,23 @@ namespace Amazon.PowerShell.Cmdlets.QC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.QConnect.Model.GetKnowledgeBaseRequest();
+            var request = new Amazon.QConnect.Model.ListAIPromptsRequest();
             
-            if (cmdletContext.KnowledgeBaseId != null)
+            if (cmdletContext.AssistantId != null)
             {
-                request.KnowledgeBaseId = cmdletContext.KnowledgeBaseId;
+                request.AssistantId = cmdletContext.AssistantId;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.Origin != null)
+            {
+                request.Origin = cmdletContext.Origin;
             }
             
             CmdletOutput output;
@@ -168,15 +216,15 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         #region AWS Service Operation Call
         
-        private Amazon.QConnect.Model.GetKnowledgeBaseResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.GetKnowledgeBaseRequest request)
+        private Amazon.QConnect.Model.ListAIPromptsResponse CallAWSServiceOperation(IAmazonQConnect client, Amazon.QConnect.Model.ListAIPromptsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "GetKnowledgeBase");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Q Connect", "ListAIPrompts");
             try
             {
                 #if DESKTOP
-                return client.GetKnowledgeBase(request);
+                return client.ListAIPrompts(request);
                 #elif CORECLR
-                return client.GetKnowledgeBaseAsync(request).GetAwaiter().GetResult();
+                return client.ListAIPromptsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -196,9 +244,12 @@ namespace Amazon.PowerShell.Cmdlets.QC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String KnowledgeBaseId { get; set; }
-            public System.Func<Amazon.QConnect.Model.GetKnowledgeBaseResponse, GetQCKnowledgeBaseCmdlet, object> Select { get; set; } =
-                (response, cmdlet) => response.KnowledgeBase;
+            public System.String AssistantId { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.QConnect.Origin Origin { get; set; }
+            public System.Func<Amazon.QConnect.Model.ListAIPromptsResponse, GetQCAIPromptListCmdlet, object> Select { get; set; } =
+                (response, cmdlet) => response.AiPromptSummaries;
         }
         
     }
