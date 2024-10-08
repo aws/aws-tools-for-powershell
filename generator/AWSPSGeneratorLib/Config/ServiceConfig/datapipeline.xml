@@ -95,11 +95,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="SetStatus" Verb="Set" Noun="Status" ShouldProcessTarget="PipelineId" PositionalParameters="ObjectIds;Status" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>context.ObjectId</Expression>
-                <Type>System.String</Type>
-                <Documentation>Returns the object ids</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SetTaskStatus" Verb="Set" Noun="TaskStatus" ShouldProcessTarget="TaskId" PositionalParameters="TaskStatus;ErrorId;ErrorMessage;ErrorStackTrace" PipelineParameter="TaskId" NoPipelineParameter="false">

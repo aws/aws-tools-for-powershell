@@ -39,10 +39,6 @@
     <ServiceOperations>
         <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="LoadBalancerNames" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Add-ELBTags">
             <Params />
-            <PassThru>
-                <Expression>context.Tag</Expression>
-                <Documentation>Returns the collection of Tag objects that were added</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ApplySecurityGroupsToLoadBalancer" OutputProperty="SecurityGroups" Verb="Join" Noun="SecurityGroupToLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="SecurityGroups" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
@@ -71,10 +67,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLoadBalancerListeners" Verb="New" Noun="LoadBalancerListener" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Listeners" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>context.Listener</Expression>
-                <Documentation>Returns the collection of Listener objects that were created</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateLoadBalancerPolicy" Verb="New" Noun="LoadBalancerPolicy" ShouldProcessTarget="LoadBalancerName" PositionalParameters="PolicyName;PolicyTypeName;PolicyAttributes" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
@@ -147,10 +139,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Tags" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Remove-ELBTags">
             <Params />
-            <PassThru>
-                <Expression>context.Tag</Expression>
-                <Documentation>Returns the collection of tag keys that were removed</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SetLoadBalancerListenerSSLCertificate" Verb="Set" Noun="LoadBalancerListenerSSLCertificate" ShouldProcessTarget="LoadBalancerName" PositionalParameters="LoadBalancerPort;SSLCertificateId" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">

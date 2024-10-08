@@ -130,10 +130,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTagsFromStream" Verb="Remove" Noun="TagsFromStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>context.TagKey</Expression>
-                <Documentation>Returns the collection of tag keys that were removed</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="SplitShard" Verb="Split" Noun="Shard" ShouldProcessTarget="StreamName" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName" NoPipelineParameter="false">

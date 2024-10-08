@@ -917,13 +917,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public bool NoPipelineParameter;
 
         /// <summary>
-        /// Custom pass-thru expression override to use instead of automatically
-        /// emitted the parameter marked for pipeline input to the output, for
-        /// operations that have an output type of 'void'.
-        /// </summary>
-        public PassThruOverride PassThru;
-
-        /// <summary>
         /// Overrides the service level iteration settings for an operation, for
         /// services that use inconsistent markers etc across their apis
         /// </summary>
@@ -1410,47 +1403,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
             ParamName = paramName;
             EmitterType = emitterType;
         }
-    }
-
-    /// <summary>
-    /// Contains the custom code expression and documentation for the -PassThru parameter.
-    /// <para>
-    /// If not specified (the default) for a service operation that has an output type of
-    /// 'void', the value passed to the parameter declared as the PipelineParameter will 
-    /// be emitted (so long as the user sets the -PassThru switch). 
-    /// </para>
-    /// <para>
-    /// If this customization is specified, the assignment to the CmdletOutput's PipelineOutput
-    /// property in the cmdlet executor is done from the code expression supplied as
-    /// Expression. This can be a reference to a request object field (e.g. 'request.Tags') or 
-    /// a call to a custom method built as part of an extension class to the cmdlet.
-    /// </para>
-    /// </summary>
-    public class PassThruOverride
-    {
-        /// <summary>
-        /// The code expression that yields the output from the cmdlet. This can
-        /// be a reference to a member of the SDK request object, or a member of the 
-        /// cmdletContext instance or a call to a method implemented in an extension
-        /// class for the cmdlet.
-        /// </summary>
-        /// <example>context.Tags</example>
-        /// <example>GetTagOutputFromHere(context.Tags)</example>
-        public string Expression { get; set; }
-
-        /// <summary>
-        /// The type of the object that is output (for collections, this should 
-        /// be the collected object type). This is used to augment the OutputType
-        /// attribute on the cmdlet.
-        /// </summary>
-        public string Type { get; set; }
-
-        /// <summary>
-        /// 'One liner' documentation describing what is output. The generator will
-        /// automatically append a 'By default, this cmdlet does not generate any output.'
-        /// suffix to follow other cmdlet standards.
-        /// </summary>
-        public string Documentation { get; set; }
     }
 
     /// <summary>

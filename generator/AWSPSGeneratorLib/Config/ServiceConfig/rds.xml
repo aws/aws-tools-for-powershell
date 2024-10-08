@@ -58,10 +58,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="TagsToResource" ShouldProcessTarget="ResourceName" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>context.Tag</Expression>
-                <Documentation>Returns the collection of tags that were added</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ApplyPendingMaintenanceAction" OutputProperty="ResourcePendingMaintenanceActions" Verb="Submit" Noun="PendingMaintenanceAction" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
@@ -623,10 +619,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="TagFromResource" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>context.TagKey</Expression>
-                <Documentation>Returns the collection of tag keys that were removed</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetDBClusterParameterGroup" OutputProperty="DBClusterParameterGroupName" Verb="Reset" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PositionalParameters="Parameters" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">

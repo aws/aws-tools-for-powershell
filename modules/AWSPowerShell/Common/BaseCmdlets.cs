@@ -217,10 +217,7 @@ namespace Amazon.PowerShell.Common
 
         /// <summary>
         /// Inspects the bound parameters to return the first from the set that has a value.
-        /// Used when we are overriding the output for otherwise-void output cmdlets for -PassThru 
-        /// and the user had a choice of parameters to specify to mean the same underlying object
-        /// (eg Beanstalk's EnvironmentId or EnvironmentName). If no bound parameter is found, the 
-        /// routine yields null.
+        // If no bound parameter is found, the routine yields null.
         /// </summary>
         /// <param name="parameterNames"></param>
         /// <returns></returns>

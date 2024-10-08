@@ -41,10 +41,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="AddTags" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-EMRTag">
             <Params />
-            <PassThru>
-                <Expression>context.Tag</Expression>
-                <Documentation>Returns the collection of Tag objects that were added</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CancelSteps" OutputProperty="CancelStepsInfoList" Verb="Stop" Noun="Step" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false" LegacyAlias="Stop-EMRSteps">
@@ -213,10 +209,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveTags" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-EMRTag">
             <Params />
-            <PassThru>
-                <Expression>context.TagKey</Expression>
-                <Documentation>Returns the collection of Tag keys that were removed</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RunJobFlow" OutputProperty="JobFlowId" Verb="Start" Noun="JobFlow" ShouldProcessTarget="Name" PositionalParameters="LogUri" PipelineParameter="Name" NoPipelineParameter="false">

@@ -323,18 +323,6 @@
                               </xsd:sequence>
                             </xsd:complexType>
                           </xsd:element>
-                          <xsd:element minOccurs="0" name="PassThru">
-                            <xsd:annotation>
-                              <xsd:documentation>ADVANCED CONFIGURATION. This is a legacy configuration, the PassThru feature is deprecated (see https://github.com/aws/aws-tools-for-powershell/issues/67).</xsd:documentation>
-                            </xsd:annotation>
-                            <xsd:complexType>
-                              <xsd:sequence>
-                                <xsd:element name="Expression" type="xsd:string" />
-                                <xsd:element minOccurs="0" name="Type" type="xsd:string" />
-                                <xsd:element name="Documentation" type="xsd:string" />
-                              </xsd:sequence>
-                            </xsd:complexType>
-                          </xsd:element>
                           <xsd:element minOccurs="0" name="AutoIterate">
                             <xsd:annotation>
                               <xsd:documentation>ADVANCED CONFIGURATION. Parameters to use, if present, to perform auto-pagination for this operation. This overrides the service-level AutoIterate configuration. Adding an AutoIterate configuration to an operation is backward compatible. Removing or changing the AutoIterate configuration for an operation has backward compatibility concerns.</xsd:documentation>

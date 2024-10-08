@@ -96,11 +96,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEnvironmentConfiguration" Verb="Remove" Noun="EnvironmentConfiguration" ShouldProcessTarget="EnvironmentName" PositionalParameters="EnvironmentName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>context.EnvironmentName</Expression>
-                <Type>System.String</Type>
-                <Documentation>Returns the name of the environment that was updated</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePlatformVersion" OutputProperty="PlatformSummary" Verb="Remove" Noun="PlatformVersion" ShouldProcessTarget="PlatformArn" PipelineParameter="PlatformArn" NoPipelineParameter="false">
@@ -190,29 +185,14 @@
         </ServiceOperation>
         <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
-                <Type>System.String</Type>
-                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RequestEnvironmentInfo" Verb="Request" Noun="EnvironmentInfo" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName;InfoType" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
-                <Type>System.String</Type>
-                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RestartAppServer" Verb="Restart" Noun="AppServer" ShouldProcessTarget="EnvironmentId" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
-                <Type>System.String</Type>
-                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RetrieveEnvironmentInfo" OutputProperty="EnvironmentInfo" Verb="Get" Noun="EnvironmentInfo" PositionalParameters="EnvironmentName;InfoType" PipelineParameter="EnvironmentId" NoPipelineParameter="false">

@@ -147,7 +147,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
 
                     WriteSelectParam(writer);
-                    WritePassThruSwitchParam(writer);
                     WriteAnonymousCredentialsProperty(writer);
                     WriteForceSwitchParam(writer);
                     WriteNoAutoIterationSwitchParam(writer);
@@ -610,46 +609,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         }
 
         /// <summary>
-        /// For cmdlets that have no output but can have a value piped to them,
-        /// adds a -PassThru switch so that the pipelined object gets echoed to the
-        /// output. This allows pipelines to be constructed that don't abruptly
-        /// terminate because a cmdlet lacks output.
-        /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="passThruParameterName"/>
-        public void WritePassThruSwitchParam(IndentedTextWriter writer)
-        {
-            if (!MethodAnalysis.RequiresPassThruGeneration)
-            {
-                return;
-            }
-
-
-            // wrap the parameter in a region so that if we need to parse the raw source
-            // file we can easily find them
-            writer.WriteLine();
-            writer.WriteLine("#region Parameter PassThru");
-            writer.WriteLine("/// <summary>");
-            if (!string.IsNullOrEmpty(Operation.PassThru?.Documentation))
-            {
-                writer.WriteLine($"/// {Operation.PassThru.Documentation}");
-                writer.WriteLine("/// The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in future");
-                writer.WriteLine("/// </summary>");
-                writer.WriteLine($"[System.Obsolete(\"The -PassThru parameter is deprecated, use -Select instead. This parameter will be removed in a future version.\")]");
-            }
-            else
-            {
-                writer.WriteLine($"/// Changes the cmdlet behavior to return the value passed to the {MethodAnalysis.AcceptsValueFromPipelineParameter.CmdletParameterName} parameter.");
-                writer.WriteLine($"/// The -PassThru parameter is deprecated, use -Select '^{MethodAnalysis.AcceptsValueFromPipelineParameter.CmdletParameterName}' instead. This parameter will be removed in a future version.");
-                writer.WriteLine("/// </summary>");
-                writer.WriteLine($"[System.Obsolete(\"The -PassThru parameter is deprecated, use -Select '^{MethodAnalysis.AcceptsValueFromPipelineParameter.CmdletParameterName}' instead. This parameter will be removed in a future version.\")]");
-            }
-            writer.WriteLine("[System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]");
-            writer.WriteLine("public SwitchParameter PassThru { get; set; }");
-            writer.WriteLine("#endregion");
-        }
-
-        /// <summary>
         /// Adds a "UseAnonymousCredentials" parameter to cmdlets which support
         /// anonymous calls.
         /// </summary>
@@ -872,10 +831,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("// allow for manipulation of parameters prior to loading into context");
             writer.WriteLine("PreExecutionContextLoad(context);");
             writer.WriteLine();
-            if (MethodAnalysis.RequiresPassThruGeneration)
-            {
-                writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-            }
             writer.WriteLine("if (ParameterWasBound(nameof(this.Select)))");
             writer.OpenRegion();
             {
@@ -883,27 +838,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.IncreaseIndent();
                 writer.WriteLine("throw new System.ArgumentException(\"Invalid value for -Select parameter.\", nameof(this.Select));");
                 writer.DecreaseIndent();
-                if (MethodAnalysis.RequiresPassThruGeneration)
-                {
-                    writer.WriteLine("if (this.PassThru.IsPresent)");
-                    writer.OpenRegion();
-                    {
-                        writer.WriteLine("throw new System.ArgumentException(\"-PassThru cannot be used when -Select is specified.\", nameof(this.Select));");
-                    }
-                    writer.CloseRegion();
-                }
             }
             writer.CloseRegion();
-            if (MethodAnalysis.RequiresPassThruGeneration)
-            {
-                writer.WriteLine("else if (this.PassThru.IsPresent)");
-                writer.OpenRegion();
-                {
-                    writer.WriteLine($"context.Select = (response, cmdlet) => {Operation.PassThru?.Expression ?? ("this." + MethodAnalysis.AcceptsValueFromPipelineParameter.CmdletParameterName)};");
-                }
-                writer.CloseRegion();
-                writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-            }
 
             foreach (var property in allProperties)
             {
@@ -1449,16 +1385,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.OpenRegion();
             {
                 writer.WriteLine("var cmdletContext = context as CmdletContext;");
-                if (MethodAnalysis.RequiresPassThruGeneration)
-                {
-                    writer.WriteLine("#pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-                    writer.WriteLine($"var useParameterSelect = this.Select.StartsWith(\"^\") || this.PassThru.IsPresent;");
-                    writer.WriteLine("#pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute");
-                }
-                else
-                {
-                    writer.WriteLine("var useParameterSelect = this.Select.StartsWith(\"^\");");
-                }
+                writer.WriteLine("var useParameterSelect = this.Select.StartsWith(\"^\");");
                 writer.WriteLine();
 
                 writer.WriteLine("// create request and set iteration invariants");
@@ -1559,7 +1486,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.OpenRegion();
             {
                 writer.WriteLine("var cmdletContext = context as CmdletContext;");
-                writer.WriteLine($"var useParameterSelect = this.Select.StartsWith(\"^\"){(MethodAnalysis.RequiresPassThruGeneration ? " || this.PassThru.IsPresent" : "")};");
+                writer.WriteLine("var useParameterSelect = this.Select.StartsWith(\"^\");");
                 writer.WriteLine();
 
                 writer.WriteLine("// create request and set iteration invariants");

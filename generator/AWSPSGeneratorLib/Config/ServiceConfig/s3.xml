@@ -406,10 +406,6 @@
             <Params>
                 <Param Name="TagSet" Alias="TagSets" />
             </Params>
-            <PassThru>
-                <Expression>context.TagSet</Expression>
-                <Documentation>Returns the collection of Tag objects that were added</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="PutBucketVersioning" Verb="Write" Noun="BucketVersioning" ShouldProcessTarget="BucketName" PipelineParameter="BucketName" NoPipelineParameter="false">

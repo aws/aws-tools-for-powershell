@@ -534,10 +534,6 @@
             <Params>
                 <Param Name="Resources" NewName="Resource" Alias="ResourceId" />
             </Params>
-            <PassThru>
-                <Expression>context.Tag</Expression>
-                <Documentation>Returns the collection of Tag objects that were created</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTrafficMirrorFilter" OutputProperty="TrafficMirrorFilter" Verb="New" Noun="TrafficMirrorFilter" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
@@ -844,10 +840,6 @@
             <Params>
                 <Param Name="Resources" NewName="Resource" Alias="ResourceId" />
             </Params>
-            <PassThru>
-                <Expression>context.Tag</Expression>
-                <Documentation>Returns the collection of Tag objects that were deleted</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteTrafficMirrorFilter" OutputProperty="TrafficMirrorFilterId" Verb="Remove" Noun="TrafficMirrorFilter" ShouldProcessTarget="TrafficMirrorFilterId" PipelineParameter="TrafficMirrorFilterId" NoPipelineParameter="false">
@@ -2701,10 +2693,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UnassignPrivateIpAddresses" Verb="Unregister" Noun="PrivateIpAddress" ShouldProcessTarget="NetworkInterfaceId" PositionalParameters="PrivateIpAddresses" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false">
             <Params />
-            <PassThru>
-                <Expression>context.PrivateIpAddress</Expression>
-                <Documentation>Returns the secondary private IP addresses</Documentation>
-            </PassThru>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UnassignPrivateNatGatewayAddress" OutputProperty="*" Verb="Unregister" Noun="PrivateNatGatewayAddress" ShouldProcessTarget="NatGatewayId" PipelineParameter="NatGatewayId" NoPipelineParameter="false">

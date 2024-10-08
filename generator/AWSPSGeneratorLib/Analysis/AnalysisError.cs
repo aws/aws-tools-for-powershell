@@ -71,16 +71,6 @@ namespace AWSPowerShellGenerator.Analysis
             new AnalysisError(service, operation, $"The specified 'OutputProperty=\"{operation.OutputProperty}\"' doesn't exist in the class returned by the service operation.");
         }
 
-        public static void InvalidPassThruConfiguration(ConfigModel service, ServiceOperation operation)
-        {
-            new AnalysisError(service, operation, $"Invalid 'PassThru' configuration.");
-        }
-
-        public static void InvalidPassThruType(ConfigModel service, ServiceOperation operation, SimplePropertyInfo.PropertyCollectionType type)
-        {
-            new AnalysisError(service, operation, $"Cannot configure a {type} parameter as 'PassThru'.");
-        }
-
         public static void MissingOutputWrapperProperty(ConfigModel service, ServiceOperation operation, string propertyName)
         {
             new AnalysisError(service, operation, $"The response type of the operation doesn't contain a property named '{propertyName}', the 'OutputWrapper' configuration is invalid.");
@@ -180,11 +170,6 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 new AnalysisError(service, operation, "This cmdlet doesn't require confirmation and 'ShouldProcessTarget' must be removed.");
             }
-        }
-
-        public static void NonConfiguredPassThru(ConfigModel service, ServiceOperation operation)
-        {
-            new AnalysisError(service, operation, "'PassThru' must have valid 'Expression' and 'Documentation' configurations.");
         }
 
         internal static void StreamParametersNotSupportedForPaginatedCmdlets(ConfigModel service, ServiceOperation operation, IEnumerable<SimplePropertyInfo> streamParameters)

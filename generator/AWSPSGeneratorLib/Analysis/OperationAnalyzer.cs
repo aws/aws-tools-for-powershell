@@ -42,7 +42,7 @@ namespace AWSPowerShellGenerator.Analysis
                 //From AnonymousServiceCmdlet
                 "EndpointUrl",
                 //Common Powershell parameters
-                "PassThru", "Force",
+                "Force",
                 //https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_commonparameters
                 "Debug", "db", "ErrorAction", "ea", "ErrorVariable", "ev", "InformationAction", "infa", "InformationVariable", "iv", "OutVariable", "ov", "OutBuffer", "ob",
                 "PipelineVariable", "pv", "Verbose", "vb", "WarningAction", "wa", "WarningVariable", "wv", "WhatIf", "wi", "Confirm", "cf",
@@ -197,18 +197,6 @@ namespace AWSPowerShellGenerator.Analysis
         /// The results of the analysis of the output type for the cmdlet
         /// </summary>
         public AnalyzedResult AnalyzedResult { get; private set; }
-
-        /// <summary>
-        /// True if the cmdlet has no output but has a parameter that can be piped in; this
-        /// can be echoed to the pipeline if the user supplies the -PassThru switch.
-        /// </summary>
-        public bool RequiresPassThruGeneration
-        {
-            get
-            {
-                return CurrentOperation.PassThru != null || AcceptsValueFromPipelineParameter != null;
-            }                
-        }
 
         public static string FormatTypeName(Type type)
         {
@@ -421,8 +409,6 @@ namespace AWSPowerShellGenerator.Analysis
             DeterminePipelineParameter(generator);
             DetermineSupportsShouldProcessRequirement(generator);
             DetermineResult(generator);
-            DeterminePassThruRequirement(generator);
-
             if (!string.IsNullOrEmpty(CurrentOperation.LegacyAlias))
             {
                 generator.AddLegacyAlias($"{CurrentOperation.SelectedVerb}-{CurrentOperation.SelectedNoun}", CurrentOperation.LegacyAlias);
@@ -1379,24 +1365,6 @@ namespace AWSPowerShellGenerator.Analysis
             }
 
             return singleResultProperty;
-        }
-
-        /// <summary>
-        /// Phase 4 of the analysis: if the output from the cmdlet is void but an object can 
-        /// be piped in, record that we should add the -PassThru switch parameter and if set
-        /// by the user, echo the input object to the pipeline.
-        /// </summary>
-        /// <remarks>This inspection must be performed after the result has been analyzed.</remarks>
-        /// <param name="generator"></param>
-        private void DeterminePassThruRequirement(CmdletGenerator generator)
-        {
-            if (CurrentOperation.PassThru != null)
-            {
-                if (string.IsNullOrEmpty(CurrentOperation.PassThru.Expression) || string.IsNullOrEmpty(CurrentOperation.PassThru.Documentation))
-                {
-                    AnalysisError.NonConfiguredPassThru(CurrentModel, CurrentOperation);
-                }
-            }
         }
 
         private string AssignVerb(string verb)
