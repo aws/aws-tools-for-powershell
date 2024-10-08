@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// this operation.
     /// 
     ///  <note><para>
-    /// This operation is valid for Redis OSS only.
+    /// This operation is valid for Valkey or Redis OSS only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

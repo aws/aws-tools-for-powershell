@@ -28,7 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Lists all available node types that you can scale your Redis OSS cluster's or replication
+    /// Lists all available node types that you can scale with your cluster's replication
     /// group's current node type.
     /// 
     ///  

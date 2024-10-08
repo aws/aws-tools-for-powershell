@@ -80,6 +80,17 @@ namespace Amazon.PowerShell.Cmdlets.MDB
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>The name of the engine to be used for the nodes in this cluster. The value must be
+        /// set to either Redis or Valkey.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -271,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             }
             #endif
             context.Description = this.Description;
+            context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.MaintenanceWindow = this.MaintenanceWindow;
             context.NodeType = this.NodeType;
@@ -312,6 +324,10 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -451,6 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.MDB
             public System.String ACLName { get; set; }
             public System.String ClusterName { get; set; }
             public System.String Description { get; set; }
+            public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String MaintenanceWindow { get; set; }
             public System.String NodeType { get; set; }

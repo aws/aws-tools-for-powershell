@@ -28,10 +28,10 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Global Datastore for Redis OSS offers fully managed, fast, reliable and secure cross-region
-    /// replication. Using Global Datastore for Redis OSS, you can create cross-region read
-    /// replica clusters for ElastiCache (Redis OSS) to enable low-latency reads and disaster
-    /// recovery across regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication
+    /// Global Datastore offers fully managed, fast, reliable and secure cross-region replication.
+    /// Using Global Datastore with Valkey or Redis OSS, you can create cross-region read
+    /// replica clusters for ElastiCache to enable low-latency reads and disaster recovery
+    /// across regions. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html">Replication
     /// Across Regions Using Global Datastore</a>. 
     /// 
     ///  <ul><li><para>

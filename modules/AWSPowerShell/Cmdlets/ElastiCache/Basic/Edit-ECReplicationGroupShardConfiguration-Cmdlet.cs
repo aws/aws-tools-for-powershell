@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>If the value of <c>NodeGroupCount</c> is less than the current number of node groups
         /// (shards), then either <c>NodeGroupsToRemove</c> or <c>NodeGroupsToRetain</c> is required.
-        /// <c>NodeGroupsToRemove</c> is a list of <c>NodeGroupId</c>s to remove from the cluster.</para><para>ElastiCache (Redis OSS) will attempt to remove all node groups listed by <c>NodeGroupsToRemove</c>
+        /// <c>NodeGroupsToRemove</c> is a list of <c>NodeGroupId</c>s to remove from the cluster.</para><para>ElastiCache will attempt to remove all node groups listed by <c>NodeGroupsToRemove</c>
         /// from the cluster.</para>
         /// </para>
         /// </summary>
@@ -95,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>If the value of <c>NodeGroupCount</c> is less than the current number of node groups
         /// (shards), then either <c>NodeGroupsToRemove</c> or <c>NodeGroupsToRetain</c> is required.
-        /// <c>NodeGroupsToRetain</c> is a list of <c>NodeGroupId</c>s to retain in the cluster.</para><para>ElastiCache (Redis OSS) will attempt to remove all node groups except those listed
-        /// by <c>NodeGroupsToRetain</c> from the cluster.</para>
+        /// <c>NodeGroupsToRetain</c> is a list of <c>NodeGroupId</c>s to retain in the cluster.</para><para>ElastiCache will attempt to remove all node groups except those listed by <c>NodeGroupsToRetain</c>
+        /// from the cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ReplicationGroupId
         /// <summary>
         /// <para>
-        /// <para>The name of the Redis OSS (cluster mode enabled) cluster (replication group) on which
-        /// the shards are to be configured.</para>
+        /// <para>The name of the Valkey or Redis OSS (cluster mode enabled) cluster (replication group)
+        /// on which the shards are to be configured.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

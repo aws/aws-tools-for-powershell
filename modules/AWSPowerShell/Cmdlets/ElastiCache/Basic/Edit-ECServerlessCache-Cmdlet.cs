@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The daily time during which Elasticache begins taking a daily snapshot of the serverless
-        /// cache. Available for Redis OSS and Serverless Memcached only. The default is NULL,
-        /// i.e. the existing snapshot time configured for the cluster is not removed.</para>
+        /// cache. Available for Valkey, Redis OSS and Serverless Memcached only. The default
+        /// is NULL, i.e. the existing snapshot time configured for the cluster is not removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,6 +63,27 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>Modifies the engine listed in a serverless cache request. The options are redis, memcached
+        /// or valkey.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
+        #endregion
+        
+        #region Parameter MajorEngineVersion
+        /// <summary>
+        /// <para>
+        /// <para>Modifies the engine vesion listed in a serverless cache request. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MajorEngineVersion { get; set; }
         #endregion
         
         #region Parameter DataStorage_Maximum
@@ -113,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter RemoveUserGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the UserGroup to be removed from association with the Redis OSS
-        /// serverless cache. Available for Redis OSS only. Default is NULL.</para>
+        /// <para>The identifier of the UserGroup to be removed from association with the Valkey and
+        /// Redis OSS serverless cache. Available for Valkey and Redis OSS only. Default is NULL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The number of days for which Elasticache retains automatic snapshots before deleting
-        /// them. Available for Redis OSS and Serverless Memcached only. Default = NULL, i.e.
-        /// the existing snapshot-retention-limit will not be removed or modified. The maximum
+        /// them. Available for Valkey, Redis OSS and Serverless Memcached only. Default = NULL,
+        /// i.e. the existing snapshot-retention-limit will not be removed or modified. The maximum
         /// value allowed is 35 days.</para>
         /// </para>
         /// </summary>
@@ -181,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The identifier of the UserGroup to be associated with the serverless cache. Available
-        /// for Redis OSS only. Default is NULL - the existing UserGroup is not removed.</para>
+        /// for Valkey and Redis OSS only. Default is NULL - the existing UserGroup is not removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -257,6 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             context.ECPUPerSecond_Minimum = this.ECPUPerSecond_Minimum;
             context.DailySnapshotTime = this.DailySnapshotTime;
             context.Description = this.Description;
+            context.Engine = this.Engine;
+            context.MajorEngineVersion = this.MajorEngineVersion;
             context.RemoveUserGroup = this.RemoveUserGroup;
             if (this.SecurityGroupId != null)
             {
@@ -384,6 +407,14 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
+            }
+            if (cmdletContext.MajorEngineVersion != null)
+            {
+                request.MajorEngineVersion = cmdletContext.MajorEngineVersion;
+            }
             if (cmdletContext.RemoveUserGroup != null)
             {
                 request.RemoveUserGroup = cmdletContext.RemoveUserGroup.Value;
@@ -472,6 +503,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.Int32? ECPUPerSecond_Minimum { get; set; }
             public System.String DailySnapshotTime { get; set; }
             public System.String Description { get; set; }
+            public System.String Engine { get; set; }
+            public System.String MajorEngineVersion { get; set; }
             public System.Boolean? RemoveUserGroup { get; set; }
             public List<System.String> SecurityGroupId { get; set; }
             public System.String ServerlessCacheName { get; set; }

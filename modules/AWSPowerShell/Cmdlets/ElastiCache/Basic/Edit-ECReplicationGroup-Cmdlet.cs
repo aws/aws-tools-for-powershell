@@ -28,16 +28,15 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Modifies the settings for a replication group. This is limited to Redis OSS 7 and
-    /// newer.
+    /// Modifies the settings for a replication group. This is limited to Valkey and Redis
+    /// OSS 7 and above.
     /// 
     ///  <ul><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling
-    /// for Amazon ElastiCache (Redis OSS) (cluster mode enabled)</a> in the ElastiCache User
-    /// Guide
+    /// for Valkey or Redis OSS (cluster mode enabled)</a> in the ElastiCache User Guide
     /// </para></li><li><para><a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroupShardConfiguration.html">ModifyReplicationGroupShardConfiguration</a>
     /// in the ElastiCache API Reference
     /// </para></li></ul><note><para>
-    /// This operation is valid for Redis OSS only.
+    /// This operation is valid for Valkey or Redis OSS only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -82,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>Specifies the strategy to use to update the AUTH token. This parameter must be specified
         /// with the <c>auth-token</c> parameter. Possible values:</para><ul><li><para>ROTATE - default, if no update strategy is provided</para></li><li><para>SET - allowed only after ROTATE</para></li><li><para>DELETE - allowed only when transitioning to RBAC</para></li></ul><para> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating
-        /// Users with Redis OSS AUTH</a></para>
+        /// Users with AUTH</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,9 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes
-        /// if you want to opt-in to the next auto minor version upgrade campaign. This parameter
-        /// is disabled for previous versions.  </para>
+        /// <para> If you are running Valkey or Redis OSS engine version 6.0 or later, set this parameter
+        /// to yes if you want to opt-in to the next auto minor version upgrade campaign. This
+        /// parameter is disabled for previous versions.  </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -152,15 +151,26 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
-        /// set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients
-        /// to connect using both cluster mode enabled and cluster mode disabled. After you migrate
-        /// all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode
-        /// configuration and set the cluster mode to Enabled.</para>
+        /// set the cluster mode to Compatible. Compatible mode allows your Valkey or Redis OSS
+        /// clients to connect using both cluster mode enabled and cluster mode disabled. After
+        /// you migrate all Valkey or Redis OSS clients to use cluster mode enabled, you can then
+        /// complete cluster mode configuration and set the cluster mode to Enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.ElastiCache.ClusterMode")]
         public Amazon.ElastiCache.ClusterMode ClusterMode { get; set; }
+        #endregion
+        
+        #region Parameter Engine
+        /// <summary>
+        /// <para>
+        /// <para>Modifies the engine listed in a replication group message. The options are redis,
+        /// memcached or valkey.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Engine { get; set; }
         #endregion
         
         #region Parameter EngineVersion
@@ -181,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The network type you choose when modifying a cluster, either <c>ipv4</c> | <c>ipv6</c>.
-        /// IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached
-        /// engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
-        /// system</a>.</para>
+        /// IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS engine version
+        /// 6.2 and above or Memcached engine version 1.6.6 and above on all instances built on
+        /// the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -326,7 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The cluster ID that is used as the daily snapshot source for the replication group.
-        /// This parameter cannot be set for Redis OSS (cluster mode enabled) replication groups.</para>
+        /// This parameter cannot be set for Valkey or Redis OSS (cluster mode enabled) replication
+        /// groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -364,8 +375,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// no downtime.</para><para>You must set <c>TransitEncryptionEnabled</c> to <c>true</c>, for your existing cluster,
         /// and set <c>TransitEncryptionMode</c> to <c>preferred</c> in the same request to allow
         /// both encrypted and unencrypted connections at the same time. Once you migrate all
-        /// your Redis OSS clients to use encrypted connections you can set the value to <c>required</c>
-        /// to allow encrypted connections only.</para><para>Setting <c>TransitEncryptionMode</c> to <c>required</c> is a two-step process that
+        /// your Valkey or Redis OSS clients to use encrypted connections you can set the value
+        /// to <c>required</c> to allow encrypted connections only.</para><para>Setting <c>TransitEncryptionMode</c> to <c>required</c> is a two-step process that
         /// requires you to first set the <c>TransitEncryptionMode</c> to <c>preferred</c>, after
         /// that you can set <c>TransitEncryptionMode</c> to <c>required</c>. </para>
         /// </para>
@@ -482,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 context.CacheSecurityGroupName = new List<System.String>(this.CacheSecurityGroupName);
             }
             context.ClusterMode = this.ClusterMode;
+            context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             context.IpDiscovery = this.IpDiscovery;
             if (this.LogDeliveryConfiguration != null)
@@ -573,6 +585,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
             if (cmdletContext.ClusterMode != null)
             {
                 request.ClusterMode = cmdletContext.ClusterMode;
+            }
+            if (cmdletContext.Engine != null)
+            {
+                request.Engine = cmdletContext.Engine;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -726,6 +742,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             public System.String CacheParameterGroupName { get; set; }
             public List<System.String> CacheSecurityGroupName { get; set; }
             public Amazon.ElastiCache.ClusterMode ClusterMode { get; set; }
+            public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public Amazon.ElastiCache.IpDiscovery IpDiscovery { get; set; }
             public List<Amazon.ElastiCache.Model.LogDeliveryConfigurationRequest> LogDeliveryConfiguration { get; set; }

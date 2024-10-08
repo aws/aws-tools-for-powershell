@@ -29,10 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.MDB
 {
     /// <summary>
     /// Deletes a cluster. It also deletes all associated nodes and node endpoints
-    /// 
-    ///  <note><para><c>CreateSnapshot</c> permission is required to create a final snapshot. Without
-    /// this permission, the API call will fail with an <c>Access Denied</c> exception.
-    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "MDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.MemoryDB.Model.Cluster")]

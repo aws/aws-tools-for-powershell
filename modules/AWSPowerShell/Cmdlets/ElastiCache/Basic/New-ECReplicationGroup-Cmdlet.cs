@@ -28,26 +28,26 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Creates a Redis OSS (cluster mode disabled) or a Redis OSS (cluster mode enabled)
-    /// replication group.
+    /// Creates a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster
+    /// mode enabled) replication group.
     /// 
     ///  
     /// <para>
     /// This API can be used to create a standalone regional replication group or a secondary
     /// replication group associated with a Global datastore.
     /// </para><para>
-    /// A Redis OSS (cluster mode disabled) replication group is a collection of nodes, where
-    /// one of the nodes is a read/write primary and the others are read-only replicas. Writes
-    /// to the primary are asynchronously propagated to the replicas.
+    /// A Valkey or Redis OSS (cluster mode disabled) replication group is a collection of
+    /// nodes, where one of the nodes is a read/write primary and the others are read-only
+    /// replicas. Writes to the primary are asynchronously propagated to the replicas.
     /// </para><para>
-    /// A Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
-    /// node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
-    /// configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas,
-    /// which is the maximum number or replicas allowed. 
+    /// A Valkey or Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards
+    /// (API/CLI: node groups). Each shard has a primary node and up to 5 read-only replica
+    /// nodes. The configuration can range from 90 shards and 0 replicas to 15 shards and
+    /// 5 replicas, which is the maximum number or replicas allowed. 
     /// </para><para>
-    /// The node or shard limit can be increased to a maximum of 500 per cluster if the Redis
-    /// OSS engine version is 5.0.6 or higher. For example, you can choose to configure a
-    /// 500 node cluster that ranges between 83 shards (one primary and 5 replicas per shard)
+    /// The node or shard limit can be increased to a maximum of 500 per cluster if the Valkey
+    /// or Redis OSS engine version is 5.0.6 or higher. For example, you can choose to configure
+    /// a 500 node cluster that ranges between 83 shards (one primary and 5 replicas per shard)
     /// and 500 shards (single primary and no replicas). Make sure there are enough available
     /// IP addresses to accommodate the increase. Common pitfalls include the subnets in the
     /// subnet group have too small a CIDR range or the subnets are shared and heavily used
@@ -58,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Service Limits</a> and choose the limit type <b>Nodes per cluster per instance type</b>.
     /// 
     /// </para><para>
-    /// When a Redis OSS (cluster mode disabled) replication group has been successfully created,
-    /// you can add one or more read replicas to it, up to a total of 5 read replicas. If
-    /// you need to increase or decrease the number of node groups (console: shards), you
-    /// can use ElastiCache (Redis OSS) scaling. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling
-    /// ElastiCache (Redis OSS) Clusters</a> in the <i>ElastiCache User Guide</i>.
+    /// When a Valkey or Redis OSS (cluster mode disabled) replication group has been successfully
+    /// created, you can add one or more read replicas to it, up to a total of 5 read replicas.
+    /// If you need to increase or decrease the number of node groups (console: shards), you
+    /// can use scaling. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling
+    /// self-designed clusters</a> in the <i>ElastiCache User Guide</i>.
     /// </para><note><para>
-    /// This operation is valid for Redis OSS only.
+    /// This operation is valid for Valkey and Redis OSS only.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -111,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies whether a read-only replica is automatically promoted to read/write primary
-        /// if the existing primary fails.</para><para><c>AutomaticFailoverEnabled</c> must be enabled for Redis OSS (cluster mode enabled)
-        /// replication groups.</para><para>Default: false</para>
+        /// if the existing primary fails.</para><para><c>AutomaticFailoverEnabled</c> must be enabled for Valkey or Redis OSS (cluster
+        /// mode enabled) replication groups.</para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -122,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> If you are running Redis OSS engine version 6.0 or later, set this parameter to yes
-        /// if you want to opt-in to the next auto minor version upgrade campaign. This parameter
-        /// is disabled for previous versions.  </para>
+        /// <para> If you are running Valkey 7.2 and above or Redis OSS engine version 6.0 and above,
+        /// set this parameter to yes to opt-in to the next auto minor version upgrade campaign.
+        /// This parameter is disabled for previous versions.  </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,8 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <c>cache.r5.4xlarge</c>, <c>cache.r5.12xlarge</c>, <c>cache.r5.24xlarge</c></para><para><b>R4 node types:</b><c>cache.r4.large</c>, <c>cache.r4.xlarge</c>, <c>cache.r4.2xlarge</c>,
         /// <c>cache.r4.4xlarge</c>, <c>cache.r4.8xlarge</c>, <c>cache.r4.16xlarge</c></para></li><li><para>Previous generation: (not recommended. Existing clusters are still supported but creation
         /// of new clusters is not supported for these types.)</para><para><b>M2 node types:</b><c>cache.m2.xlarge</c>, <c>cache.m2.2xlarge</c>, <c>cache.m2.4xlarge</c></para><para><b>R3 node types:</b><c>cache.r3.large</c>, <c>cache.r3.xlarge</c>, <c>cache.r3.2xlarge</c>,
-        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Redis OSS Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>Redis OSS configuration variables <c>appendonly</c> and <c>appendfsync</c> are not
-        /// supported on Redis OSS version 2.8.22 and later.</para></li></ul>
+        /// <c>cache.r3.4xlarge</c>, <c>cache.r3.8xlarge</c></para></li></ul></li></ul><para><b>Additional node type info</b></para><ul><li><para>All current generation instance types are created in Amazon VPC by default.</para></li><li><para>Valkey or Redis OSS append-only files (AOF) are not supported for T1 or T2 instances.</para></li><li><para>Valkey or Redis OSS Multi-AZ with automatic failover is not supported on T1 instances.</para></li><li><para>The configuration variables <c>appendonly</c> and <c>appendfsync</c> are not supported
+        /// on Valkey, or on Redis OSS version 2.8.22 and later.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -171,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The name of the parameter group to associate with this replication group. If this
         /// argument is omitted, the default cache parameter group for the specified engine is
-        /// used.</para><para>If you are running Redis OSS version 3.2.4 or later, only one node group (shard),
-        /// and want to use a default parameter group, we recommend that you specify the parameter
-        /// group by name. </para><ul><li><para>To create a Redis OSS (cluster mode disabled) replication group, use <c>CacheParameterGroupName=default.redis3.2</c>.</para></li><li><para>To create a Redis OSS (cluster mode enabled) replication group, use <c>CacheParameterGroupName=default.redis3.2.cluster.on</c>.</para></li></ul>
+        /// used.</para><para>If you are running Valkey or Redis OSS version 3.2.4 or later, only one node group
+        /// (shard), and want to use a default parameter group, we recommend that you specify
+        /// the parameter group by name. </para><ul><li><para>To create a Valkey or Redis OSS (cluster mode disabled) replication group, use <c>CacheParameterGroupName=default.redis3.2</c>.</para></li><li><para>To create a Valkey or Redis OSS (cluster mode enabled) replication group, use <c>CacheParameterGroupName=default.redis3.2.cluster.on</c>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -207,10 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Enabled or Disabled. To modify cluster mode from Disabled to Enabled, you must first
-        /// set the cluster mode to Compatible. Compatible mode allows your Redis OSS clients
-        /// to connect using both cluster mode enabled and cluster mode disabled. After you migrate
-        /// all Redis OSS clients to use cluster mode enabled, you can then complete cluster mode
-        /// configuration and set the cluster mode to Enabled.</para>
+        /// set the cluster mode to Compatible. Compatible mode allows your Valkey or Redis OSS
+        /// clients to connect using both cluster mode enabled and cluster mode disabled. After
+        /// you migrate all Valkey or Redis OSS clients to use cluster mode enabled, you can then
+        /// complete cluster mode configuration and set the cluster mode to Enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -272,9 +272,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The network type you choose when creating a replication group, either <c>ipv4</c>
-        /// | <c>ipv6</c>. IPv6 is supported for workloads using Redis OSS engine version 6.2
-        /// onward or Memcached engine version 1.6.6 on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
-        /// system</a>.</para>
+        /// | <c>ipv6</c>. IPv6 is supported for workloads using Valkey 7.2 and above, Redis OSS
+        /// engine version 6.2 and above or Memcached engine version 1.6.6 and above on all instances
+        /// built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -319,8 +319,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Must be either <c>ipv4</c> | <c>ipv6</c> | <c>dual_stack</c>. IPv6 is supported for
-        /// workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6
-        /// on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro system</a>.</para>
+        /// workloads using Valkey 7.2 and above, Redis OSS engine version 6.2 and above or Memcached
+        /// engine version 1.6.6 and above on all instances built on the <a href="http://aws.amazon.com/ec2/nitro/">Nitro
+        /// system</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -333,12 +334,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>A list of node group (shard) configuration options. Each node group (shard) configuration
         /// has the following members: <c>PrimaryAvailabilityZone</c>, <c>ReplicaAvailabilityZones</c>,
-        /// <c>ReplicaCount</c>, and <c>Slots</c>.</para><para>If you're creating a Redis OSS (cluster mode disabled) or a Redis OSS (cluster mode
-        /// enabled) replication group, you can use this parameter to individually configure each
-        /// node group (shard), or you can omit this parameter. However, it is required when seeding
-        /// a Redis OSS (cluster mode enabled) cluster from a S3 rdb file. You must configure
-        /// each node group (shard) using this parameter because you must specify the slots for
-        /// each node group.</para>
+        /// <c>ReplicaCount</c>, and <c>Slots</c>.</para><para>If you're creating a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis
+        /// OSS (cluster mode enabled) replication group, you can use this parameter to individually
+        /// configure each node group (shard), or you can omit this parameter. However, it is
+        /// required when seeding a Valkey or Redis OSS (cluster mode enabled) cluster from a
+        /// S3 rdb file. You must configure each node group (shard) using this parameter because
+        /// you must specify the slots for each node group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -374,9 +375,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NumNodeGroup
         /// <summary>
         /// <para>
-        /// <para>An optional parameter that specifies the number of node groups (shards) for this Redis
-        /// OSS (cluster mode enabled) replication group. For Redis OSS (cluster mode disabled)
-        /// either omit this parameter or set it to 1.</para><para>Default: 1</para>
+        /// <para>An optional parameter that specifies the number of node groups (shards) for this Valkey
+        /// or Redis OSS (cluster mode enabled) replication group. For Valkey or Redis OSS (cluster
+        /// mode disabled) either omit this parameter or set it to 1.</para><para>Default: 1</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -493,8 +494,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter ServerlessCacheSnapshotName
         /// <summary>
         /// <para>
-        /// <para>The name of the snapshot used to create a replication group. Available for Redis OSS
-        /// only.</para>
+        /// <para>The name of the snapshot used to create a replication group. Available for Valkey,
+        /// Redis OSS only.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -504,11 +505,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotArn
         /// <summary>
         /// <para>
-        /// <para>A list of Amazon Resource Names (ARN) that uniquely identify the Redis OSS RDB snapshot
-        /// files stored in Amazon S3. The snapshot files are used to populate the new replication
-        /// group. The Amazon S3 object name in the ARN cannot contain any commas. The new replication
-        /// group will have the number of node groups (console: shards) specified by the parameter
-        /// <i>NumNodeGroups</i> or the number of node groups configured by <i>NodeGroupConfiguration</i>
+        /// <para>A list of Amazon Resource Names (ARN) that uniquely identify the Valkey or Redis OSS
+        /// RDB snapshot files stored in Amazon S3. The snapshot files are used to populate the
+        /// new replication group. The Amazon S3 object name in the ARN cannot contain any commas.
+        /// The new replication group will have the number of node groups (console: shards) specified
+        /// by the parameter <i>NumNodeGroups</i> or the number of node groups configured by <i>NodeGroupConfiguration</i>
         /// regardless of the number of ARNs specified here.</para><para>Example of an Amazon S3 ARN: <c>arn:aws:s3:::my_bucket/snapshot1.rdb</c></para>
         /// </para>
         /// </summary>
@@ -588,8 +589,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>A setting that allows you to migrate your clients to use in-transit encryption, with
         /// no downtime.</para><para>When setting <c>TransitEncryptionEnabled</c> to <c>true</c>, you can set your <c>TransitEncryptionMode</c>
         /// to <c>preferred</c> in the same request, to allow both encrypted and unencrypted connections
-        /// at the same time. Once you migrate all your Redis OSS clients to use encrypted connections
-        /// you can modify the value to <c>required</c> to allow encrypted connections only.</para><para>Setting <c>TransitEncryptionMode</c> to <c>required</c> is a two-step process that
+        /// at the same time. Once you migrate all your Valkey or Redis OSS clients to use encrypted
+        /// connections you can modify the value to <c>required</c> to allow encrypted connections
+        /// only.</para><para>Setting <c>TransitEncryptionMode</c> to <c>required</c> is a two-step process that
         /// requires you to first set the <c>TransitEncryptionMode</c> to <c>preferred</c>, after
         /// that you can set <c>TransitEncryptionMode</c> to <c>required</c>.</para><para>This process will not trigger the replacement of the replication group.</para>
         /// </para>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// <c>DescribeReplicationGroups</c> returns information about all replication groups.
     /// 
     ///  <note><para>
-    /// This operation is valid for Redis OSS only.
+    /// This operation is valid for Valkey or Redis OSS only.
     /// </para></note><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "ECReplicationGroup")]

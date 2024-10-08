@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CustomerNodeEndpointList
         /// <summary>
         /// <para>
-        /// <para>List of endpoints from which data should be migrated. For Redis OSS (cluster mode
-        /// disabled), list should have only one element.</para>
+        /// <para>List of endpoints from which data should be migrated. For Valkey or Redis OSS (cluster
+        /// mode disabled), the list should have only one element.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

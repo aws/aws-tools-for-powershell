@@ -1,4 +1,16 @@
-﻿### 4.1.672 (2024-10-07 21:10Z)
+﻿### 4.1.673 (2024-10-08 21:06Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.901.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon ElastiCache
+    * Modified cmdlet Edit-ECCacheCluster: added parameter Engine.
+    * Modified cmdlet Edit-ECGlobalReplicationGroup: added parameter Engine.
+    * Modified cmdlet Edit-ECReplicationGroup: added parameter Engine.
+    * Modified cmdlet Edit-ECServerlessCache: added parameters Engine and MajorEngineVersion.
+  * Amazon MemoryDB
+    * Modified cmdlet Get-MDBEngineVersion: added parameter Engine.
+    * Modified cmdlet New-MDBCluster: added parameter Engine.
+    * Modified cmdlet Update-MDBCluster: added parameter Engine.
+
+### 4.1.672 (2024-10-07 21:10Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.900.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon AWSDeadlineCloud
     * Added cmdlet Get-ADCJobParameterDefinitionList leveraging the ListJobParameterDefinitions service API.
