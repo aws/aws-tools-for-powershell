@@ -1,4 +1,7 @@
-﻿### 4.1.673 (2024-10-08 21:06Z)
+﻿### 4.1.674 (2024-10-09 20:58Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.902.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+
+### 4.1.673 (2024-10-08 21:06Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.901.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon ElastiCache
     * Modified cmdlet Edit-ECCacheCluster: added parameter Engine.

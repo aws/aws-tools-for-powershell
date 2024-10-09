@@ -14191,7 +14191,7 @@ $CP_Completers = {
             ($_ -eq "Update-CPActionType/Id_Category")
         }
         {
-            $v = "Approval","Build","Deploy","Invoke","Source","Test"
+            $v = "Approval","Build","Compute","Deploy","Invoke","Source","Test"
             break
         }
 
