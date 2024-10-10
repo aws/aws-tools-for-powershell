@@ -50,6 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.IFW
     public partial class NewIFWCampaignCmdlet : AmazonIoTFleetWiseClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter Compression
@@ -205,18 +207,6 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         public System.Int64? PostTriggerCollectionDuration { get; set; }
         #endregion
         
-        #region Parameter Priority
-        /// <summary>
-        /// <para>
-        /// <para>(Optional) A number indicating the priority of one campaign over another campaign
-        /// for a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
-        /// before any other campaigns. If it's not specified, <c>0</c> is used. </para><para>Default: <c>0</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int32? Priority { get; set; }
-        #endregion
-        
         #region Parameter SignalCatalogArn
         /// <summary>
         /// <para>
@@ -314,6 +304,20 @@ namespace Amazon.PowerShell.Cmdlets.IFW
         public Amazon.IoTFleetWise.TriggerMode ConditionBasedCollectionScheme_TriggerMode { get; set; }
         #endregion
         
+        #region Parameter Priority
+        /// <summary>
+        /// <para>
+        /// <para>(Optional) A number indicating the priority of one campaign over another campaign
+        /// for a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
+        /// before any other campaigns. If it's not specified, <c>0</c> is used. </para><para>Default: <c>0</c></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("priority is no longer used or needed as input")]
+        public System.Int32? Priority { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is '*'.
@@ -401,7 +405,9 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             }
             #endif
             context.PostTriggerCollectionDuration = this.PostTriggerCollectionDuration;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.Priority = this.Priority;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SignalCatalogArn = this.SignalCatalogArn;
             #if MODULAR
             if (this.SignalCatalogArn == null && ParameterWasBound(nameof(this.SignalCatalogArn)))
@@ -563,10 +569,12 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             {
                 request.PostTriggerCollectionDuration = cmdletContext.PostTriggerCollectionDuration.Value;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Priority != null)
             {
                 request.Priority = cmdletContext.Priority.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.SignalCatalogArn != null)
             {
                 request.SignalCatalogArn = cmdletContext.SignalCatalogArn;
@@ -665,6 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.IFW
             public System.DateTime? ExpiryTime { get; set; }
             public System.String Name { get; set; }
             public System.Int64? PostTriggerCollectionDuration { get; set; }
+            [System.ObsoleteAttribute]
             public System.Int32? Priority { get; set; }
             public System.String SignalCatalogArn { get; set; }
             public List<Amazon.IoTFleetWise.Model.SignalInformation> SignalsToCollect { get; set; }

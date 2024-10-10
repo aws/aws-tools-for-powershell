@@ -117,11 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU
         /// as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16,
         /// 32, 64, 128, 192, 256, and 384. So, the minimum DCU value that you can specify for
-        /// DMS Serverless is 1. You don't have to specify a value for the <c>MinCapacityUnits</c>
-        /// parameter. If you don't set this value, DMS scans the current activity of available
-        /// source tables to identify an optimum setting for this parameter. If there is no current
-        /// source activity or DMS can't otherwise identify a more appropriate value, it sets
-        /// this parameter to the minimum DCU value allowed, 1.</para>
+        /// DMS Serverless is 1. If you don't set this value, DMS sets this parameter to the minimum
+        /// DCU value allowed, 1. If there is no current source activity, DMS scales down your
+        /// replication until it reaches the value specified in <c>MinCapacityUnits</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationSubnetGroupIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name for the replication subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, spaces,
-        /// underscores, or hyphens. Must not be "default".</para><para>Example: <c>mySubnetgroup</c></para>
+        /// <para>The name for the replication subnet group. This value is stored as a lowercase string.</para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
+        /// or hyphens. Must not be "default".</para><para>Example: <c>mySubnetgroup</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

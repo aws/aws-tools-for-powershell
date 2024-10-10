@@ -36,7 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// The number of active vCPUs equals the number of threads per CPU core multiplied by
-    /// the number of cores.
+    /// the number of cores. The instance must be in a <c>Stopped</c> state before you make
+    /// changes.
     /// </para><note><para>
     /// Some instance type options do not support this capability. For more information, see
     /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cpu-options-supported-instances-values.html">Supported

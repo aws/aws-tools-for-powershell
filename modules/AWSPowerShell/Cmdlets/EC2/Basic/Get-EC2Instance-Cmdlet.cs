@@ -92,8 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// applicable.</para></li><li><para><c>hypervisor</c> - The hypervisor type of the instance (<c>ovm</c> | <c>xen</c>).
         /// The value <c>xen</c> is used for both Xen and Nitro hypervisors.</para></li><li><para><c>iam-instance-profile.arn</c> - The instance profile associated with the instance.
         /// Specified as an ARN.</para></li><li><para><c>iam-instance-profile.id</c> - The instance profile associated with the instance.
-        /// Specified as an ID.</para></li><li><para><c>iam-instance-profile.name</c> - The instance profile associated with the instance.
-        /// Specified as an name.</para></li><li><para><c>image-id</c> - The ID of the image used to launch the instance.</para></li><li><para><c>instance-id</c> - The ID of the instance.</para></li><li><para><c>instance-lifecycle</c> - Indicates whether this is a Spot Instance, a Scheduled
+        /// Specified as an ID.</para></li><li><para><c>image-id</c> - The ID of the image used to launch the instance.</para></li><li><para><c>instance-id</c> - The ID of the instance.</para></li><li><para><c>instance-lifecycle</c> - Indicates whether this is a Spot Instance, a Scheduled
         /// Instance, or a Capacity Block (<c>spot</c> | <c>scheduled</c> | <c>capacity-block</c>).</para></li><li><para><c>instance-state-code</c> - The state of the instance, as a 16-bit unsigned integer.
         /// The high byte is used for internal purposes and should be ignored. The low byte is
         /// set based on the state represented. The valid values are: 0 (pending), 16 (running),

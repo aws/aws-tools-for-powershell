@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FileVersion>0</FileVersion>
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>socialmessaging</C2jFilename>
+    <AssemblyName>SocialMessaging</AssemblyName>
+    <ServiceNounPrefix>SOCIAL</ServiceNounPrefix>
+    <ServiceName>AWS End User Messaging Social</ServiceName>
+    <ServiceClientInterface>IAmazonSocialMessaging</ServiceClientInterface>
+    <ServiceClient>AmazonSocialMessagingClient</ServiceClient>
+    <ServiceModuleGuid>da5f15ee-8fac-4456-8d92-289320c240fb</ServiceModuleGuid>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateWhatsAppBusinessAccount" OutputProperty="*" Verb="Connect" Noun="WhatsAppBusinessAccount" ShouldProcessTarget="SetupFinalization_Waba_Id" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWhatsAppMessageMedia" OutputProperty="Success" Verb="Remove" Noun="WhatsAppMessageMedia" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWhatsAppBusinessAccount" Verb="Disconnect" Noun="WhatsAppBusinessAccount" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLinkedWhatsAppBusinessAccount" OutputProperty="Account" Verb="Get" Noun="LinkedWhatsAppBusinessAccount" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLinkedWhatsAppBusinessAccountPhoneNumber" OutputProperty="*" Verb="Get" Noun="LinkedWhatsAppBusinessAccountPhoneNumber" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWhatsAppMessageMedia" OutputProperty="*" Verb="Get" Noun="WhatsAppMessageMedia" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLinkedWhatsAppBusinessAccounts" OutputProperty="LinkedAccounts" Verb="Get" Noun="LinkedWhatsAppBusinessAccountList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" OutputProperty="*" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostWhatsAppMessageMedia" OutputProperty="MediaId" Verb="Send" Noun="WhatsAppMessageMedia" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutWhatsAppBusinessAccountEventDestinations" Verb="Write" Noun="WhatsAppBusinessAccountEventDestination" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendWhatsAppMessage" OutputProperty="MessageId" Verb="Send" Noun="WhatsAppMessage" ShouldProcessTarget="OriginationPhoneNumberId" PipelineParameter="OriginationPhoneNumberId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" OutputProperty="StatusCode" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" OutputProperty="StatusCode" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+    </ServiceOperations>
+    <TypesNotToFlatten />
+</ConfigModel>

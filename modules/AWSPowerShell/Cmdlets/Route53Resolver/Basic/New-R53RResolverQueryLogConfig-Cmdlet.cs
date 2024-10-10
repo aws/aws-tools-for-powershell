@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para>
         /// <para>The ARN of the resource that you want Resolver to send query logs. You can send query
         /// logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery
-        /// stream. Examples of valid values include the following:</para><ul><li><para><b>S3 bucket</b>: </para><para><c>arn:aws:s3:::examplebucket</c></para><para>You can optionally append a file prefix to the end of the ARN.</para><para><c>arn:aws:s3:::examplebucket/development/</c></para></li><li><para><b>CloudWatch Logs log group</b>: </para><para><c>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</c></para></li><li><para><b>Kinesis Data Firehose delivery stream</b>:</para><para><c>arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name</c></para></li></ul>
+        /// stream. Examples of valid values include the following:</para><ul><li><para><b>S3 bucket</b>: </para><para><c>arn:aws:s3:::amzn-s3-demo-bucket</c></para><para>You can optionally append a file prefix to the end of the ARN.</para><para><c>arn:aws:s3:::amzn-s3-demo-bucket/development/</c></para></li><li><para><b>CloudWatch Logs log group</b>: </para><para><c>arn:aws:logs:us-west-1:123456789012:log-group:/mystack-testgroup-12ABC1AB12A1:*</c></para></li><li><para><b>Kinesis Data Firehose delivery stream</b>:</para><para><c>arn:aws:kinesis:us-east-2:0123456789:stream/my_stream_name</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

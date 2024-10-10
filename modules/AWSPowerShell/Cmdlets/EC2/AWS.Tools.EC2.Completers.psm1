@@ -185,6 +185,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.CallerRole
+        "Get-EC2CapacityReservationBillingRequest/Role"
+        {
+            $v = "odcr-owner","unused-reservation-billing-owner"
+            break
+        }
+
         # Amazon.EC2.CapacityReservationInstancePlatform
         {
             ($_ -eq "Add-EC2CapacityReservation/InstancePlatform") -Or
@@ -1300,6 +1307,7 @@ $EC2_map = @{
     "PublicIpSource"=@("New-EC2IpamPool")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
+    "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
@@ -1386,6 +1394,7 @@ $EC2_SelectCompleters = {
 
 $EC2_SelectMap = @{
     "Select"=@("Approve-EC2AddressTransfer",
+               "Approve-EC2CapacityReservationBillingOwnership",
                "Approve-EC2ReservedInstancesExchangeQuote",
                "Approve-EC2TransitGatewayMulticastDomainAssociation",
                "Approve-EC2TransitGatewayPeeringAttachment",
@@ -1401,6 +1410,7 @@ $EC2_SelectMap = @{
                "Register-EC2PrivateIpAddress",
                "Register-EC2PrivateNatGatewayAddress",
                "Register-EC2Address",
+               "Register-EC2CapacityReservationBillingOwner",
                "Register-EC2ClientVpnTargetNetwork",
                "Register-EC2DhcpOption",
                "Register-EC2EnclaveCertificateIamRole",
@@ -1616,6 +1626,7 @@ $EC2_SelectMap = @{
                "Get-EC2BundleTask",
                "Get-EC2ByoipCidr",
                "Get-EC2CapacityBlockOffering",
+               "Get-EC2CapacityReservationBillingRequest",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",
                "Get-EC2CarrierGateway",
@@ -1780,6 +1791,7 @@ $EC2_SelectMap = @{
                "Disable-EC2VpcClassicLink",
                "Disable-EC2VpcClassicLinkDnsSupport",
                "Unregister-EC2Address",
+               "Unregister-EC2CapacityReservationBillingOwner",
                "Unregister-EC2ClientVpnTargetNetwork",
                "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
@@ -1954,6 +1966,7 @@ $EC2_SelectMap = @{
                "Register-EC2InstanceEventNotificationAttribute",
                "Register-EC2TransitGatewayMulticastGroupMember",
                "Register-EC2TransitGatewayMulticastGroupSource",
+               "Deny-EC2CapacityReservationBillingOwnership",
                "Deny-EC2TransitGatewayMulticastDomainAssociation",
                "Deny-EC2TransitGatewayPeeringAttachment",
                "Deny-EC2TransitGatewayVpcAttachment",

@@ -29,9 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// <note><para>
-    /// Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that
-    /// require graphics acceleration, we recommend that you use Amazon EC2 G4, G5, or G6
-    /// instances.
+    /// Amazon Elastic Graphics reached end of life on January 8, 2024.
     /// </para></note><para>
     /// Describes the Elastic Graphics accelerator associated with your instances.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.

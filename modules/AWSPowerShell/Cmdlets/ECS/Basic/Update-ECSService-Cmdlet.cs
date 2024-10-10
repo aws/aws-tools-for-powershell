@@ -456,10 +456,68 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LogConfiguration_Option
         /// <summary>
         /// <para>
-        /// <para>The configuration options to send to the log driver. This parameter requires version
-        /// 1.19 of the Docker Remote API or greater on your container instance. To check the
-        /// Docker Remote API version on your container instance, log in to your container instance
-        /// and run the following command: <c>sudo docker version --format '{{.Server.APIVersion}}'</c></para>
+        /// <para>The configuration options to send to the log driver.</para><para>The options you can specify depend on the log driver. Some of the options you can
+        /// specify when you use the <c>awslogs</c> log driver to route logs to Amazon CloudWatch
+        /// include the following:</para><dl><dt>awslogs-create-group</dt><dd><para>Required: No</para><para>Specify whether you want the log group to be created automatically. If this option
+        /// isn't specified, it defaults to <c>false</c>.</para><note><para>Your IAM policy must include the <c>logs:CreateLogGroup</c> permission before you
+        /// attempt to use <c>awslogs-create-group</c>.</para></note></dd><dt>awslogs-region</dt><dd><para>Required: Yes</para><para>Specify the Amazon Web Services Region that the <c>awslogs</c> log driver is to send
+        /// your Docker logs to. You can choose to send all of your logs from clusters in different
+        /// Regions to a single region in CloudWatch Logs. This is so that they're all visible
+        /// in one location. Otherwise, you can separate them by Region for more granularity.
+        /// Make sure that the specified log group exists in the Region that you specify with
+        /// this option.</para></dd><dt>awslogs-group</dt><dd><para>Required: Yes</para><para>Make sure to specify a log group that the <c>awslogs</c> log driver sends its log
+        /// streams to.</para></dd><dt>awslogs-stream-prefix</dt><dd><para>Required: Yes, when using the Fargate launch type.Optional for the EC2 launch type,
+        /// required for the Fargate launch type.</para><para>Use the <c>awslogs-stream-prefix</c> option to associate a log stream with the specified
+        /// prefix, the container name, and the ID of the Amazon ECS task that the container belongs
+        /// to. If you specify a prefix with this option, then the log stream takes the format
+        /// <c>prefix-name/container-name/ecs-task-id</c>.</para><para>If you don't specify a prefix with this option, then the log stream is named after
+        /// the container ID that's assigned by the Docker daemon on the container instance. Because
+        /// it's difficult to trace logs back to the container that sent them with just the Docker
+        /// container ID (which is only available on the container instance), we recommend that
+        /// you specify a prefix with this option.</para><para>For Amazon ECS services, you can use the service name as the prefix. Doing so, you
+        /// can trace log streams to the service that the container belongs to, the name of the
+        /// container that sent them, and the ID of the task that the container belongs to.</para><para>You must specify a stream-prefix for your logs to have your logs appear in the Log
+        /// pane when using the Amazon ECS console.</para></dd><dt>awslogs-datetime-format</dt><dd><para>Required: No</para><para>This option defines a multiline start pattern in Python <c>strftime</c> format. A
+        /// log message consists of a line that matches the pattern and any following lines that
+        /// don’t match the pattern. The matched line is the delimiter between log messages.</para><para>One example of a use case for using this format is for parsing output such as a stack
+        /// dump, which might otherwise be logged in multiple entries. The correct pattern allows
+        /// it to be captured in a single entry.</para><para>For more information, see <a href="https://docs.docker.com/config/containers/logging/awslogs/#awslogs-datetime-format">awslogs-datetime-format</a>.</para><para>You cannot configure both the <c>awslogs-datetime-format</c> and <c>awslogs-multiline-pattern</c>
+        /// options.</para><note><para>Multiline logging performs regular expression parsing and matching of all log messages.
+        /// This might have a negative impact on logging performance.</para></note></dd><dt>awslogs-multiline-pattern</dt><dd><para>Required: No</para><para>This option defines a multiline start pattern that uses a regular expression. A log
+        /// message consists of a line that matches the pattern and any following lines that don’t
+        /// match the pattern. The matched line is the delimiter between log messages.</para><para>For more information, see <a href="https://docs.docker.com/config/containers/logging/awslogs/#awslogs-multiline-pattern">awslogs-multiline-pattern</a>.</para><para>This option is ignored if <c>awslogs-datetime-format</c> is also configured.</para><para>You cannot configure both the <c>awslogs-datetime-format</c> and <c>awslogs-multiline-pattern</c>
+        /// options.</para><note><para>Multiline logging performs regular expression parsing and matching of all log messages.
+        /// This might have a negative impact on logging performance.</para></note></dd><dt>mode</dt><dd><para>Required: No</para><para>Valid values: <c>non-blocking</c> | <c>blocking</c></para><para>This option defines the delivery mode of log messages from the container to CloudWatch
+        /// Logs. The delivery mode you choose affects application availability when the flow
+        /// of logs from container to CloudWatch is interrupted.</para><para>If you use the <c>blocking</c> mode and the flow of logs to CloudWatch is interrupted,
+        /// calls from container code to write to the <c>stdout</c> and <c>stderr</c> streams
+        /// will block. The logging thread of the application will block as a result. This may
+        /// cause the application to become unresponsive and lead to container healthcheck failure.
+        /// </para><para>If you use the <c>non-blocking</c> mode, the container's logs are instead stored in
+        /// an in-memory intermediate buffer configured with the <c>max-buffer-size</c> option.
+        /// This prevents the application from becoming unresponsive when logs cannot be sent
+        /// to CloudWatch. We recommend using this mode if you want to ensure service availability
+        /// and are okay with some log loss. For more information, see <a href="http://aws.amazon.com/blogs/containers/preventing-log-loss-with-non-blocking-mode-in-the-awslogs-container-log-driver/">Preventing
+        /// log loss with non-blocking mode in the <c>awslogs</c> container log driver</a>.</para></dd><dt>max-buffer-size</dt><dd><para>Required: No</para><para>Default value: <c>1m</c></para><para>When <c>non-blocking</c> mode is used, the <c>max-buffer-size</c> log option controls
+        /// the size of the buffer that's used for intermediate message storage. Make sure to
+        /// specify an adequate buffer size based on your application. When the buffer fills up,
+        /// further logs cannot be stored. Logs that cannot be stored are lost. </para></dd></dl><para>To route logs using the <c>splunk</c> log router, you need to specify a <c>splunk-token</c>
+        /// and a <c>splunk-url</c>.</para><para>When you use the <c>awsfirelens</c> log router to route logs to an Amazon Web Services
+        /// Service or Amazon Web Services Partner Network destination for log storage and analytics,
+        /// you can set the <c>log-driver-buffer-limit</c> option to limit the number of events
+        /// that are buffered in memory, before being sent to the log router container. It can
+        /// help to resolve potential log loss issue because high throughput might result in memory
+        /// running out for the buffer inside of Docker.</para><para>Other options you can specify when using <c>awsfirelens</c> to route logs depend on
+        /// the destination. When you export logs to Amazon Data Firehose, you can specify the
+        /// Amazon Web Services Region with <c>region</c> and a name for the log stream with <c>delivery_stream</c>.</para><para>When you export logs to Amazon Kinesis Data Streams, you can specify an Amazon Web
+        /// Services Region with <c>region</c> and a data stream name with <c>stream</c>.</para><para> When you export logs to Amazon OpenSearch Service, you can specify options like <c>Name</c>,
+        /// <c>Host</c> (OpenSearch Service endpoint without protocol), <c>Port</c>, <c>Index</c>,
+        /// <c>Type</c>, <c>Aws_auth</c>, <c>Aws_region</c>, <c>Suppress_Type_Name</c>, and <c>tls</c>.</para><para>When you export logs to Amazon S3, you can specify the bucket using the <c>bucket</c>
+        /// option. You can also specify <c>region</c>, <c>total_file_size</c>, <c>upload_timeout</c>,
+        /// and <c>use_put_object</c> as options.</para><para>This parameter requires version 1.19 of the Docker Remote API or greater on your container
+        /// instance. To check the Docker Remote API version on your container instance, log in
+        /// to your container instance and run the following command: <c>sudo docker version --format
+        /// '{{.Server.APIVersion}}'</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -73,6 +73,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AcceptCapacityReservationBillingOwnership" OutputProperty="Return" Verb="Approve" Noun="CapacityReservationBillingOwnership" ShouldProcessTarget="CapacityReservationId" PipelineParameter="CapacityReservationId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" OutputProperty="ExchangeId" Verb="Approve" Noun="ReservedInstancesExchangeQuote" ShouldProcessTarget="ReservedInstanceIds" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false" LegacyAlias="Confirm-EC2ReservedInstancesExchangeQuote">
             <Params />
             <TypesNotToFlatten />
@@ -130,6 +134,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AssociateAddress" OutputProperty="AssociationId" Verb="Register" Noun="Address" ShouldProcessTarget="InstanceId" PositionalParameters="PublicIp;AllocationId;NetworkInterfaceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateCapacityReservationBillingOwner" OutputProperty="Return" Verb="Register" Noun="CapacityReservationBillingOwner" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1036,6 +1044,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCapacityReservationBillingRequests" OutputProperty="CapacityReservationBillingRequests" Verb="Get" Noun="CapacityReservationBillingRequest" PipelineParameter="Role" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeCapacityReservationFleets" OutputProperty="CapacityReservationFleets" Verb="Get" Noun="CapacityReservationFleet" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -1738,6 +1750,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DisassociateAddress" Verb="Unregister" Noun="Address" ShouldProcessTarget="AssociationId" PositionalParameters="AssociationId" PipelineParameter="PublicIp" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCapacityReservationBillingOwner" OutputProperty="Return" Verb="Unregister" Noun="CapacityReservationBillingOwner" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -2470,6 +2486,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterTransitGatewayMulticastGroupSources" OutputProperty="RegisteredMulticastGroupSources" Verb="Register" Noun="TransitGatewayMulticastGroupSource" ShouldProcessTarget="TransitGatewayMulticastDomainId" PipelineParameter="TransitGatewayMulticastDomainId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectCapacityReservationBillingOwnership" OutputProperty="Return" Verb="Deny" Noun="CapacityReservationBillingOwnership" ShouldProcessTarget="CapacityReservationId" PipelineParameter="CapacityReservationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

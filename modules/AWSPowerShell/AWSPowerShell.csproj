@@ -1084,6 +1084,9 @@
     <Reference Include="AWSSDK.SnowDeviceManagement">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SnowDeviceManagement.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SocialMessaging">
+      <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SocialMessaging.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>../../Include/sdk/assemblies/net45/AWSSDK.SQS.dll</HintPath>
     </Reference>
@@ -2225,6 +2228,9 @@
     </Reference>
     <Reference Include="AWSSDK.SnowDeviceManagement">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SnowDeviceManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SocialMessaging">
+      <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SocialMessaging.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS">
       <HintPath>../../Include/sdk/assemblies/netstandard2.0/AWSSDK.SQS.dll</HintPath>

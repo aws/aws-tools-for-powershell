@@ -100,8 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
         /// <para>
         /// <para>Specifies the format of S3 data to be imported. Valid values are <c>CSV</c>, which
         /// identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html">Gremlin
-        /// CSV format</a> or <c>OPENCYPHER</c>, which identies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
-        /// load format</a>.</para>
+        /// CSV format</a>, <c>OPEN_CYPHER</c>, which identifies the <a href="https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html">openCypher
+        /// load format</a>, or <c>ntriples</c>, which identifies the <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html">RDF
+        /// n-triples</a> format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

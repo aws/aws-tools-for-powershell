@@ -1,7 +1,7 @@
 
 {
     "NewServiceVersion" : "3.7.400.0",
-    "ProductVersion"    : "3.7.902.0",
+    "ProductVersion"    : "3.7.903.0",
     "CoreVersion"       : "3.7.400.33",
     "OverrideCoreVersion" : "3.3",
     "DefaultToPreview"    : false,
@@ -154,7 +154,7 @@
             "InPreview"               : false
         },
         "EC2"               : {
-            "Version" : "3.7.408.3",
+            "Version" : "3.7.409.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -162,7 +162,7 @@
             "InPreview"               : false
         },
         "ECS"               : {
-            "Version" : "3.7.402.28",
+            "Version" : "3.7.402.29",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -524,7 +524,7 @@
             "InPreview"               : false
         },
         "DatabaseMigrationService"        : {
-            "Version" : "3.7.400.33",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -1060,7 +1060,7 @@
             "InPreview"               : false
         },
         "ACMPCA"                          : {
-            "Version" : "3.7.400.33",
+            "Version" : "3.7.400.34",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -1180,7 +1180,7 @@
             "InPreview"               : false
         },
         "Route53Resolver"                 : {
-            "Version" : "3.7.400.33",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -1596,7 +1596,7 @@
             "InPreview"               : false
         },
         "ElasticInference"                : {
-            "Version" : "3.7.400.33",
+            "Version" : "3.7.400.34",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -1676,7 +1676,7 @@
             "InPreview"               : false
         },
         "Outposts"                        : {
-            "Version" : "3.7.401.33",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -2468,7 +2468,7 @@
             "InPreview"               : false
         },
         "IoTFleetWise"                        : {
-            "Version" : "3.7.400.33",
+            "Version" : "3.7.401.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -2948,7 +2948,7 @@
             "InPreview"               : false
         },
         "NeptuneGraph"                        : {
-            "Version" : "3.7.401.28",
+            "Version" : "3.7.402.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -2988,7 +2988,7 @@
             "InPreview"               : false
         },
         "TimestreamInfluxDB"                  : {
-            "Version" : "3.7.402.7",
+            "Version" : "3.7.403.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"
@@ -3101,6 +3101,14 @@
         },
         "MarketplaceReporting"                : {
             "Version" : "3.7.400.4",
+            "AssemblyVersionOverride" : "3.3",
+            "Dependencies"            : {
+                "Core" : "3.7.400.33"
+            },
+            "InPreview"               : false
+        },
+        "SocialMessaging"                     : {
+            "Version" : "3.7.400.0",
             "AssemblyVersionOverride" : "3.3",
             "Dependencies"            : {
                 "Core" : "3.7.400.33"

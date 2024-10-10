@@ -396,6 +396,7 @@ This product provides support for all AWS services in a single module. As an alt
         'AWSSDK.SimSpaceWeaver.dll',
         'AWSSDK.Snowball.dll',
         'AWSSDK.SnowDeviceManagement.dll',
+        'AWSSDK.SocialMessaging.dll',
         'AWSSDK.SQS.dll',
         'AWSSDK.SSMContacts.dll',
         'AWSSDK.SSMIncidents.dll',

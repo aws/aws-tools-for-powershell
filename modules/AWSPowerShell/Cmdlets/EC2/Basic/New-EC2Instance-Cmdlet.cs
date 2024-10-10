@@ -287,9 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ElasticInferenceAccelerator
         /// <summary>
         /// <para>
-        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference (EI) is no longer available to new customers. For more information,
-        /// see <a href="http://aws.amazon.com/machine-learning/elastic-inference/faqs/">Amazon
-        /// Elastic Inference FAQs</a>.</para></note>
+        /// <para>An elastic inference accelerator to associate with the instance.</para><note><para>Amazon Elastic Inference is no longer available.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

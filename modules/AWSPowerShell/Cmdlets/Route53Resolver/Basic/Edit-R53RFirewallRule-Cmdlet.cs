@@ -187,7 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.R53R
         /// <para> The DNS query type you want the rule to evaluate. Allowed values are; </para><ul><li><para> A: Returns an IPv4 address.</para></li><li><para>AAAA: Returns an Ipv6 address.</para></li><li><para>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</para></li><li><para>CNAME: Returns another domain name.</para></li><li><para>DS: Record that identifies the DNSSEC signing key of a delegated zone.</para></li><li><para>MX: Specifies mail servers.</para></li><li><para>NAPTR: Regular-expression-based rewriting of domain names.</para></li><li><para>NS: Authoritative name servers.</para></li><li><para>PTR: Maps an IP address to a domain name.</para></li><li><para>SOA: Start of authority record for the zone.</para></li><li><para>SPF: Lists the servers authorized to send emails from a domain.</para></li><li><para>SRV: Application specific values that identify servers.</para></li><li><para>TXT: Verifies email senders and application-specific values.</para></li><li><para>A query type you define by using the DNS type ID, for example 28 for AAAA. The values
         /// must be defined as TYPENUMBER, where the NUMBER can be 1-65334, for example, TYPE28.
         /// For more information, see <a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types">List
-        /// of DNS record types</a>.</para></li></ul>
+        /// of DNS record types</a>.</para><note><para>If you set up a firewall BLOCK rule with action NXDOMAIN on query type equals AAAA,
+        /// this action will not be applied to synthetic IPv6 addresses generated when DNS64 is
+        /// enabled. </para></note></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -8223,6 +8223,8 @@ Set-Alias -Name Batch-DMSBatchRecommendation -Value Start-DMSBatchRecommendation
 Set-Alias -Name DMS-BatchStartRecommendations -Value Start-DMSBatchRecommendation
 Set-Alias -Name Cancel-DMSReplicationTaskAssessmentRun -Value Stop-DMSReplicationTaskAssessmentRun
 Set-Alias -Name DMS-CancelReplicationTaskAssessmentRun -Value Stop-DMSReplicationTaskAssessmentRun
+Set-Alias -Name Create-DMSDataMigration -Value New-DMSDataMigration
+Set-Alias -Name DMS-CreateDataMigration -Value New-DMSDataMigration
 Set-Alias -Name Create-DMSDataProvider -Value New-DMSDataProvider
 Set-Alias -Name DMS-CreateDataProvider -Value New-DMSDataProvider
 Set-Alias -Name Create-DMSEndpoint -Value New-DMSEndpoint
@@ -8247,6 +8249,8 @@ Set-Alias -Name Delete-DMSCertificate -Value Remove-DMSCertificate
 Set-Alias -Name DMS-DeleteCertificate -Value Remove-DMSCertificate
 Set-Alias -Name Delete-DMSConnection -Value Remove-DMSConnection
 Set-Alias -Name DMS-DeleteConnection -Value Remove-DMSConnection
+Set-Alias -Name Delete-DMSDataMigration -Value Remove-DMSDataMigration
+Set-Alias -Name DMS-DeleteDataMigration -Value Remove-DMSDataMigration
 Set-Alias -Name Delete-DMSDataProvider -Value Remove-DMSDataProvider
 Set-Alias -Name DMS-DeleteDataProvider -Value Remove-DMSDataProvider
 Set-Alias -Name Delete-DMSEndpoint -Value Remove-DMSEndpoint
@@ -8286,6 +8290,9 @@ Set-Alias -Name Describe-DMSConnection -Value Get-DMSConnection
 Set-Alias -Name DMS-DescribeConnections -Value Get-DMSConnection
 Set-Alias -Name Describe-DMSConversionConfiguration -Value Get-DMSConversionConfiguration
 Set-Alias -Name DMS-DescribeConversionConfiguration -Value Get-DMSConversionConfiguration
+Set-Alias -Name Describe-DMSDataMigrations -Value Get-DMSDataMigration
+Set-Alias -Name Describe-DMSDataMigration -Value Get-DMSDataMigration
+Set-Alias -Name DMS-DescribeDataMigrations -Value Get-DMSDataMigration
 Set-Alias -Name Describe-DMSDataProviders -Value Get-DMSDataProvider
 Set-Alias -Name Describe-DMSDataProvider -Value Get-DMSDataProvider
 Set-Alias -Name DMS-DescribeDataProviders -Value Get-DMSDataProvider
@@ -8400,6 +8407,8 @@ Set-Alias -Name DMS-ImportCertificate -Value Import-DMSCertificate
 Set-Alias -Name DMS-ListTagsForResource -Value Get-DMSResourceTag
 Set-Alias -Name Modify-DMSConversionConfiguration -Value Edit-DMSConversionConfiguration
 Set-Alias -Name DMS-ModifyConversionConfiguration -Value Edit-DMSConversionConfiguration
+Set-Alias -Name Modify-DMSDataMigration -Value Edit-DMSDataMigration
+Set-Alias -Name DMS-ModifyDataMigration -Value Edit-DMSDataMigration
 Set-Alias -Name Modify-DMSDataProvider -Value Edit-DMSDataProvider
 Set-Alias -Name DMS-ModifyDataProvider -Value Edit-DMSDataProvider
 Set-Alias -Name Modify-DMSEndpoint -Value Edit-DMSEndpoint
@@ -8434,6 +8443,7 @@ Set-Alias -Name Remove-DMSTagsFromResource -Value Remove-DMSResourceTag
 Set-Alias -Name DMS-RemoveTagsFromResource -Value Remove-DMSResourceTag
 Set-Alias -Name Run-DMSFleetAdvisorLsaAnalysis -Value Start-DMSFleetAdvisorLsaAnalysis
 Set-Alias -Name DMS-RunFleetAdvisorLsaAnalysis -Value Start-DMSFleetAdvisorLsaAnalysis
+Set-Alias -Name DMS-StartDataMigration -Value Start-DMSDataMigration
 Set-Alias -Name DMS-StartExtensionPackAssociation -Value Start-DMSExtensionPackAssociation
 Set-Alias -Name DMS-StartMetadataModelAssessment -Value Start-DMSMetadataModelAssessment
 Set-Alias -Name DMS-StartMetadataModelConversion -Value Start-DMSMetadataModelConversion
@@ -8446,6 +8456,7 @@ Set-Alias -Name DMS-StartReplication -Value Start-DMSReplication
 Set-Alias -Name DMS-StartReplicationTaskAssessment -Value Start-DMSReplicationTaskAssessment
 Set-Alias -Name DMS-StartReplicationTaskAssessmentRun -Value Start-DMSReplicationTaskAssessmentRun
 Set-Alias -Name DMS-StartReplicationTask -Value Start-DMSReplicationTask
+Set-Alias -Name DMS-StopDataMigration -Value Stop-DMSDataMigration
 Set-Alias -Name DMS-StopReplication -Value Stop-DMSReplication
 Set-Alias -Name DMS-StopReplicationTask -Value Stop-DMSReplicationTask
 Set-Alias -Name DMS-TestConnection -Value Test-DMSConnection
@@ -8952,6 +8963,8 @@ Set-Alias -Name EBS-PutSnapshotBlock -Value Write-EBSSnapshotBlock
 Set-Alias -Name EBS-StartSnapshot -Value Start-EBSSnapshot
 Set-Alias -Name Accept-EC2AddressTransfer -Value Approve-EC2AddressTransfer
 Set-Alias -Name EC2-AcceptAddressTransfer -Value Approve-EC2AddressTransfer
+Set-Alias -Name Accept-EC2CapacityReservationBillingOwnership -Value Approve-EC2CapacityReservationBillingOwnership
+Set-Alias -Name EC2-AcceptCapacityReservationBillingOwnership -Value Approve-EC2CapacityReservationBillingOwnership
 Set-Alias -Name Accept-EC2ReservedInstancesExchangeQuote -Value Approve-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name EC2-AcceptReservedInstancesExchangeQuote -Value Approve-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name Accept-EC2TransitGatewayMulticastDomainAssociations -Value Approve-EC2TransitGatewayMulticastDomainAssociation
@@ -8989,6 +9002,8 @@ Set-Alias -Name Assign-EC2PrivateNatGatewayAddress -Value Register-EC2PrivateNat
 Set-Alias -Name EC2-AssignPrivateNatGatewayAddress -Value Register-EC2PrivateNatGatewayAddress
 Set-Alias -Name Associate-EC2Address -Value Register-EC2Address
 Set-Alias -Name EC2-AssociateAddress -Value Register-EC2Address
+Set-Alias -Name Associate-EC2CapacityReservationBillingOwner -Value Register-EC2CapacityReservationBillingOwner
+Set-Alias -Name EC2-AssociateCapacityReservationBillingOwner -Value Register-EC2CapacityReservationBillingOwner
 Set-Alias -Name Associate-EC2ClientVpnTargetNetwork -Value Register-EC2ClientVpnTargetNetwork
 Set-Alias -Name EC2-AssociateClientVpnTargetNetwork -Value Register-EC2ClientVpnTargetNetwork
 Set-Alias -Name Associate-EC2DhcpOptions -Value Register-EC2DhcpOption
@@ -9444,6 +9459,9 @@ Set-Alias -Name EC2-DescribeByoipCidrs -Value Get-EC2ByoipCidr
 Set-Alias -Name Describe-EC2CapacityBlockOfferings -Value Get-EC2CapacityBlockOffering
 Set-Alias -Name Describe-EC2CapacityBlockOffering -Value Get-EC2CapacityBlockOffering
 Set-Alias -Name EC2-DescribeCapacityBlockOfferings -Value Get-EC2CapacityBlockOffering
+Set-Alias -Name Describe-EC2CapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
+Set-Alias -Name Describe-EC2CapacityReservationBillingRequest -Value Get-EC2CapacityReservationBillingRequest
+Set-Alias -Name EC2-DescribeCapacityReservationBillingRequests -Value Get-EC2CapacityReservationBillingRequest
 Set-Alias -Name Describe-EC2CapacityReservationFleets -Value Get-EC2CapacityReservationFleet
 Set-Alias -Name Describe-EC2CapacityReservationFleet -Value Get-EC2CapacityReservationFleet
 Set-Alias -Name EC2-DescribeCapacityReservationFleets -Value Get-EC2CapacityReservationFleet
@@ -9876,6 +9894,8 @@ Set-Alias -Name EC2-DisableVpcClassicLink -Value Disable-EC2VpcClassicLink
 Set-Alias -Name EC2-DisableVpcClassicLinkDnsSupport -Value Disable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Disassociate-EC2Address -Value Unregister-EC2Address
 Set-Alias -Name EC2-DisassociateAddress -Value Unregister-EC2Address
+Set-Alias -Name Disassociate-EC2CapacityReservationBillingOwner -Value Unregister-EC2CapacityReservationBillingOwner
+Set-Alias -Name EC2-DisassociateCapacityReservationBillingOwner -Value Unregister-EC2CapacityReservationBillingOwner
 Set-Alias -Name Disassociate-EC2ClientVpnTargetNetwork -Value Unregister-EC2ClientVpnTargetNetwork
 Set-Alias -Name EC2-DisassociateClientVpnTargetNetwork -Value Unregister-EC2ClientVpnTargetNetwork
 Set-Alias -Name Disassociate-EC2EnclaveCertificateIamRole -Value Unregister-EC2EnclaveCertificateIamRole
@@ -10192,6 +10212,8 @@ Set-Alias -Name Register-EC2TransitGatewayMulticastGroupMembers -Value Register-
 Set-Alias -Name EC2-RegisterTransitGatewayMulticastGroupMembers -Value Register-EC2TransitGatewayMulticastGroupMember
 Set-Alias -Name Register-EC2TransitGatewayMulticastGroupSources -Value Register-EC2TransitGatewayMulticastGroupSource
 Set-Alias -Name EC2-RegisterTransitGatewayMulticastGroupSources -Value Register-EC2TransitGatewayMulticastGroupSource
+Set-Alias -Name Reject-EC2CapacityReservationBillingOwnership -Value Deny-EC2CapacityReservationBillingOwnership
+Set-Alias -Name EC2-RejectCapacityReservationBillingOwnership -Value Deny-EC2CapacityReservationBillingOwnership
 Set-Alias -Name Reject-EC2TransitGatewayMulticastDomainAssociations -Value Deny-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name Reject-EC2TransitGatewayMulticastDomainAssociation -Value Deny-EC2TransitGatewayMulticastDomainAssociation
 Set-Alias -Name EC2-RejectTransitGatewayMulticastDomainAssociations -Value Deny-EC2TransitGatewayMulticastDomainAssociation
@@ -27201,6 +27223,27 @@ Set-Alias -Name SNS-Unsubscribe -Value Disconnect-SNSNotification
 Set-Alias -Name SNS-UntagResource -Value Remove-SNSResourceTag
 Set-Alias -Name Verify-SNSSMSSandboxPhoneNumber -Value Confirm-SNSSMSSandboxPhoneNumber
 Set-Alias -Name SNS-VerifySMSSandboxPhoneNumber -Value Confirm-SNSSMSSandboxPhoneNumber
+Set-Alias -Name Associate-SOCIALWhatsAppBusinessAccount -Value Connect-SOCIALWhatsAppBusinessAccount
+Set-Alias -Name SOCIAL-AssociateWhatsAppBusinessAccount -Value Connect-SOCIALWhatsAppBusinessAccount
+Set-Alias -Name Delete-SOCIALWhatsAppMessageMedia -Value Remove-SOCIALWhatsAppMessageMedia
+Set-Alias -Name SOCIAL-DeleteWhatsAppMessageMedia -Value Remove-SOCIALWhatsAppMessageMedia
+Set-Alias -Name Disassociate-SOCIALWhatsAppBusinessAccount -Value Disconnect-SOCIALWhatsAppBusinessAccount
+Set-Alias -Name SOCIAL-DisassociateWhatsAppBusinessAccount -Value Disconnect-SOCIALWhatsAppBusinessAccount
+Set-Alias -Name SOCIAL-GetLinkedWhatsAppBusinessAccount -Value Get-SOCIALLinkedWhatsAppBusinessAccount
+Set-Alias -Name SOCIAL-GetLinkedWhatsAppBusinessAccountPhoneNumber -Value Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber
+Set-Alias -Name SOCIAL-GetWhatsAppMessageMedia -Value Get-SOCIALWhatsAppMessageMedia
+Set-Alias -Name List-SOCIALLinkedWhatsAppBusinessAccounts -Value Get-SOCIALLinkedWhatsAppBusinessAccountList
+Set-Alias -Name List-SOCIALLinkedWhatsAppBusinessAccountList -Value Get-SOCIALLinkedWhatsAppBusinessAccountList
+Set-Alias -Name SOCIAL-ListLinkedWhatsAppBusinessAccounts -Value Get-SOCIALLinkedWhatsAppBusinessAccountList
+Set-Alias -Name SOCIAL-ListTagsForResource -Value Get-SOCIALResourceTag
+Set-Alias -Name Post-SOCIALWhatsAppMessageMedia -Value Send-SOCIALWhatsAppMessageMedia
+Set-Alias -Name SOCIAL-PostWhatsAppMessageMedia -Value Send-SOCIALWhatsAppMessageMedia
+Set-Alias -Name Put-SOCIALWhatsAppBusinessAccountEventDestinations -Value Write-SOCIALWhatsAppBusinessAccountEventDestination
+Set-Alias -Name Put-SOCIALWhatsAppBusinessAccountEventDestination -Value Write-SOCIALWhatsAppBusinessAccountEventDestination
+Set-Alias -Name SOCIAL-PutWhatsAppBusinessAccountEventDestinations -Value Write-SOCIALWhatsAppBusinessAccountEventDestination
+Set-Alias -Name SOCIAL-SendWhatsAppMessage -Value Send-SOCIALWhatsAppMessage
+Set-Alias -Name SOCIAL-TagResource -Value Add-SOCIALResourceTag
+Set-Alias -Name SOCIAL-UntagResource -Value Remove-SOCIALResourceTag
 Set-Alias -Name SQS-AddPermission -Value Add-SQSPermission
 Set-Alias -Name Cancel-SQSMessageMoveTask -Value Stop-SQSMessageMoveTask
 Set-Alias -Name SQS-CancelMessageMoveTask -Value Stop-SQSMessageMoveTask

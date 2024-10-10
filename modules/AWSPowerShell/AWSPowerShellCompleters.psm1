@@ -21462,6 +21462,8 @@ $DMS_Completers = {
 
         # Amazon.DatabaseMigrationService.MigrationTypeValue
         {
+            ($_ -eq "Edit-DMSDataMigration/DataMigrationType") -Or
+            ($_ -eq "New-DMSDataMigration/DataMigrationType") -Or
             ($_ -eq "Edit-DMSReplicationTask/MigrationType") -Or
             ($_ -eq "Get-DMSApplicableIndividualAssessment/MigrationType") -Or
             ($_ -eq "New-DMSReplicationTask/MigrationType") -Or
@@ -21572,6 +21574,13 @@ $DMS_Completers = {
             break
         }
 
+        # Amazon.DatabaseMigrationService.StartReplicationMigrationTypeValue
+        "Start-DMSDataMigration/StartType"
+        {
+            $v = "reload-target","resume-processing","start-replication"
+            break
+        }
+
         # Amazon.DatabaseMigrationService.StartReplicationTaskTypeValue
         "Start-DMSReplicationTask/StartReplicationTaskType"
         {
@@ -21610,6 +21619,7 @@ $DMS_Completers = {
 }
 
 $DMS_map = @{
+    "DataMigrationType"=@("Edit-DMSDataMigration","New-DMSDataMigration")
     "DocDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "DocDbSettings_SslMode"=@("Edit-DMSDataProvider","New-DMSDataProvider")
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
@@ -21653,6 +21663,7 @@ $DMS_map = @{
     "SourceType"=@("Get-DMSEvent")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
+    "StartType"=@("Start-DMSDataMigration")
 }
 
 _awsArgumentCompleterRegistration $DMS_Completers $DMS_map
@@ -21709,6 +21720,7 @@ $DMS_SelectMap = @{
                "Complete-DMSPendingMaintenanceAction",
                "Start-DMSBatchRecommendation",
                "Stop-DMSReplicationTaskAssessmentRun",
+               "New-DMSDataMigration",
                "New-DMSDataProvider",
                "New-DMSEndpoint",
                "New-DMSEventSubscription",
@@ -21721,6 +21733,7 @@ $DMS_SelectMap = @{
                "New-DMSReplicationTask",
                "Remove-DMSCertificate",
                "Remove-DMSConnection",
+               "Remove-DMSDataMigration",
                "Remove-DMSDataProvider",
                "Remove-DMSEndpoint",
                "Remove-DMSEventSubscription",
@@ -21738,6 +21751,7 @@ $DMS_SelectMap = @{
                "Get-DMSCertificate",
                "Get-DMSConnection",
                "Get-DMSConversionConfiguration",
+               "Get-DMSDataMigration",
                "Get-DMSDataProvider",
                "Get-DMSEndpoint",
                "Get-DMSEndpointSetting",
@@ -21780,6 +21794,7 @@ $DMS_SelectMap = @{
                "Import-DMSCertificate",
                "Get-DMSResourceTag",
                "Edit-DMSConversionConfiguration",
+               "Edit-DMSDataMigration",
                "Edit-DMSDataProvider",
                "Edit-DMSEndpoint",
                "Edit-DMSEventSubscription",
@@ -21796,6 +21811,7 @@ $DMS_SelectMap = @{
                "Restore-DMSTable",
                "Remove-DMSResourceTag",
                "Start-DMSFleetAdvisorLsaAnalysis",
+               "Start-DMSDataMigration",
                "Start-DMSExtensionPackAssociation",
                "Start-DMSMetadataModelAssessment",
                "Start-DMSMetadataModelConversion",
@@ -21807,6 +21823,7 @@ $DMS_SelectMap = @{
                "Start-DMSReplicationTask",
                "Start-DMSReplicationTaskAssessment",
                "Start-DMSReplicationTaskAssessmentRun",
+               "Stop-DMSDataMigration",
                "Stop-DMSReplication",
                "Stop-DMSReplicationTask",
                "Test-DMSConnection",
@@ -23225,6 +23242,13 @@ $EC2_Completers = {
             break
         }
 
+        # Amazon.EC2.CallerRole
+        "Get-EC2CapacityReservationBillingRequest/Role"
+        {
+            $v = "odcr-owner","unused-reservation-billing-owner"
+            break
+        }
+
         # Amazon.EC2.CapacityReservationInstancePlatform
         {
             ($_ -eq "Add-EC2CapacityReservation/InstancePlatform") -Or
@@ -24340,6 +24364,7 @@ $EC2_map = @{
     "PublicIpSource"=@("New-EC2IpamPool")
     "ReservationType"=@("New-EC2SubnetCidrReservation")
     "ResourceType"=@("Get-EC2IpamResourceCidr","New-EC2FlowLog")
+    "Role"=@("Get-EC2CapacityReservationBillingRequest")
     "RuleAction"=@("Edit-EC2TrafficMirrorFilterRule","New-EC2NetworkAclEntry","New-EC2TrafficMirrorFilterRule","Set-EC2NetworkAclEntry")
     "SelfServicePortal"=@("Edit-EC2ClientVpnEndpoint","New-EC2ClientVpnEndpoint")
     "SourceResource_ResourceType"=@("New-EC2IpamPool")
@@ -24426,6 +24451,7 @@ $EC2_SelectCompleters = {
 
 $EC2_SelectMap = @{
     "Select"=@("Approve-EC2AddressTransfer",
+               "Approve-EC2CapacityReservationBillingOwnership",
                "Approve-EC2ReservedInstancesExchangeQuote",
                "Approve-EC2TransitGatewayMulticastDomainAssociation",
                "Approve-EC2TransitGatewayPeeringAttachment",
@@ -24441,6 +24467,7 @@ $EC2_SelectMap = @{
                "Register-EC2PrivateIpAddress",
                "Register-EC2PrivateNatGatewayAddress",
                "Register-EC2Address",
+               "Register-EC2CapacityReservationBillingOwner",
                "Register-EC2ClientVpnTargetNetwork",
                "Register-EC2DhcpOption",
                "Register-EC2EnclaveCertificateIamRole",
@@ -24656,6 +24683,7 @@ $EC2_SelectMap = @{
                "Get-EC2BundleTask",
                "Get-EC2ByoipCidr",
                "Get-EC2CapacityBlockOffering",
+               "Get-EC2CapacityReservationBillingRequest",
                "Get-EC2CapacityReservationFleet",
                "Get-EC2CapacityReservation",
                "Get-EC2CarrierGateway",
@@ -24820,6 +24848,7 @@ $EC2_SelectMap = @{
                "Disable-EC2VpcClassicLink",
                "Disable-EC2VpcClassicLinkDnsSupport",
                "Unregister-EC2Address",
+               "Unregister-EC2CapacityReservationBillingOwner",
                "Unregister-EC2ClientVpnTargetNetwork",
                "Unregister-EC2EnclaveCertificateIamRole",
                "Unregister-EC2IamInstanceProfile",
@@ -24994,6 +25023,7 @@ $EC2_SelectMap = @{
                "Register-EC2InstanceEventNotificationAttribute",
                "Register-EC2TransitGatewayMulticastGroupMember",
                "Register-EC2TransitGatewayMulticastGroupSource",
+               "Deny-EC2CapacityReservationBillingOwnership",
                "Deny-EC2TransitGatewayMulticastDomainAssociation",
                "Deny-EC2TransitGatewayPeeringAttachment",
                "Deny-EC2TransitGatewayVpcAttachment",
@@ -65828,6 +65858,73 @@ $SNS_SelectMap = @{
 }
 
 _awsArgumentCompleterRegistration $SNS_SelectCompleters $SNS_SelectMap
+# Argument completions for service AWS End User Messaging Social
+
+
+$SOCIAL_SelectCompleters = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+
+    $cmdletType = Invoke-Expression "[Amazon.PowerShell.Cmdlets.SOCIAL.$($commandName.Replace('-', ''))Cmdlet]"
+    if (-not $cmdletType) {
+        return
+    }
+    $awsCmdletAttribute = $cmdletType.GetCustomAttributes([Amazon.PowerShell.Common.AWSCmdletAttribute], $false)
+    if (-not $awsCmdletAttribute) {
+        return
+    }
+    $type = $awsCmdletAttribute.SelectReturnType
+    if (-not $type) {
+        return
+    }
+
+    $splitSelect = $wordToComplete -Split '\.'
+    $splitSelect | Select-Object -First ($splitSelect.Length - 1) | ForEach-Object {
+        $propertyName = $_
+        $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')) | Where-Object { $_.Name -ieq $propertyName }
+        if ($properties.Length -ne 1) {
+            break
+        }
+        $type = $properties.PropertyType
+        $prefix += "$($properties.Name)."
+
+        $asEnumerableType = $type.GetInterface('System.Collections.Generic.IEnumerable`1')
+        if ($asEnumerableType -and $type -ne [System.String]) {
+            $type =  $asEnumerableType.GetGenericArguments()[0]
+        }
+    }
+
+    $v = @( '*' )
+    $properties = $type.GetProperties(('Instance', 'Public', 'DeclaredOnly')).Name | Sort-Object
+    if ($properties) {
+        $v += ($properties | ForEach-Object { $prefix + $_ })
+    }
+    $parameters = $cmdletType.GetProperties(('Instance', 'Public')) | Where-Object { $_.GetCustomAttributes([System.Management.Automation.ParameterAttribute], $true) } | Select-Object -ExpandProperty Name | Sort-Object
+    if ($parameters) {
+        $v += ($parameters | ForEach-Object { "^$_" })
+    }
+
+    $v |
+        Where-Object { $_ -match "^$([System.Text.RegularExpressions.Regex]::Escape($wordToComplete)).*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SOCIAL_SelectMap = @{
+    "Select"=@("Connect-SOCIALWhatsAppBusinessAccount",
+               "Remove-SOCIALWhatsAppMessageMedia",
+               "Disconnect-SOCIALWhatsAppBusinessAccount",
+               "Get-SOCIALLinkedWhatsAppBusinessAccount",
+               "Get-SOCIALLinkedWhatsAppBusinessAccountPhoneNumber",
+               "Get-SOCIALWhatsAppMessageMedia",
+               "Get-SOCIALLinkedWhatsAppBusinessAccountList",
+               "Get-SOCIALResourceTag",
+               "Send-SOCIALWhatsAppMessageMedia",
+               "Write-SOCIALWhatsAppBusinessAccountEventDestination",
+               "Send-SOCIALWhatsAppMessage",
+               "Add-SOCIALResourceTag",
+               "Remove-SOCIALResourceTag")
+}
+
+_awsArgumentCompleterRegistration $SOCIAL_SelectCompleters $SOCIAL_SelectMap
 # Argument completions for service Amazon Simple Queue Service (SQS)
 
 

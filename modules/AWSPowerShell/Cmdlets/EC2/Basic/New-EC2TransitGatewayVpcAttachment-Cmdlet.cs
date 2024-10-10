@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Enables you to reference a security group across VPCs attached to a transit gateway
-        /// to simplify security group management.</para><para>This option is enabled by default. However, security group referencing is disabled
-        /// by default at the transit gateway level.</para><para>For more information about security group referencing, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security
+        /// to simplify security group management.</para><para>This option is set to <c>enable</c> by default. However, at the transit gateway level
+        /// the default is set to <c>disable</c>.</para><para>For more information about security group referencing, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security
         /// group referencing </a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</para>
         /// </para>
         /// </summary>

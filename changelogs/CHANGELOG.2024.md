@@ -1,4 +1,21 @@
-﻿### 4.1.674 (2024-10-09 20:58Z)
+﻿### 4.1.675 (2024-10-10 21:07Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.903.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Database Migration Service
+    * Added cmdlet Edit-DMSDataMigration leveraging the ModifyDataMigration service API.
+    * Added cmdlet Get-DMSDataMigration leveraging the DescribeDataMigrations service API.
+    * Added cmdlet New-DMSDataMigration leveraging the CreateDataMigration service API.
+    * Added cmdlet Remove-DMSDataMigration leveraging the DeleteDataMigration service API.
+    * Added cmdlet Start-DMSDataMigration leveraging the StartDataMigration service API.
+    * Added cmdlet Stop-DMSDataMigration leveraging the StopDataMigration service API.
+  * Amazon Elastic Compute Cloud (EC2)
+    * Added cmdlet Approve-EC2CapacityReservationBillingOwnership leveraging the AcceptCapacityReservationBillingOwnership service API.
+    * Added cmdlet Deny-EC2CapacityReservationBillingOwnership leveraging the RejectCapacityReservationBillingOwnership service API.
+    * Added cmdlet Get-EC2CapacityReservationBillingRequest leveraging the DescribeCapacityReservationBillingRequests service API.
+    * Added cmdlet Register-EC2CapacityReservationBillingOwner leveraging the AssociateCapacityReservationBillingOwner service API.
+    * Added cmdlet Unregister-EC2CapacityReservationBillingOwner leveraging the DisassociateCapacityReservationBillingOwner service API.
+  * Amazon End User Messaging Social. Added cmdlets to support the service. Cmdlets for the service have the noun prefix SOCIAL and can be listed using the command 'Get-AWSCmdletName -Service SOCIAL'.
+
+### 4.1.674 (2024-10-09 20:58Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.902.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
 
 ### 4.1.673 (2024-10-08 21:06Z)
