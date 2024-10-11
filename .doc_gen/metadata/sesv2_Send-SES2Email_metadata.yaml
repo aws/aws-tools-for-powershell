@@ -1,0 +1,20 @@
+---
+sesv2_SendSES2Email:
+  title: Use Send-SES2Email
+  title_abbrev: Send-SES2Email
+  synopsis: use Send-SES2Email
+  languages:
+    PowerShell:
+      versions:
+      - sdk_version: 4
+        sdk_action: Send-SES2Email
+        excerpts:
+        - snippet_files: []
+          description: '<emphasis role="bold">Example 1: This example shows how to send a standard email message.</emphasis>'
+        - snippet_files:
+          - .doc_gen/snippet_files/sesv2_Send-SES2Email.1.1.ps1
+          description:
+  services:
+    sesv2:
+      SendEmail:
+
