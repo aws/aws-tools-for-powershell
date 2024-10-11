@@ -1,4 +1,10 @@
-﻿### 4.1.675 (2024-10-10 21:07Z)
+﻿### 4.1.676 (2024-10-11 21:13Z)
+  * AWS Tools for PowerShell now use AWS .NET SDK 3.7.904.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
+  * Amazon Elastic MapReduce
+    * Modified cmdlet Add-EMRInstanceFleet: added parameter InstanceFleet_Context.
+    * Modified cmdlet Edit-EMRInstanceFleet: added parameter InstanceFleet_Context.
+
+### 4.1.675 (2024-10-10 21:07Z)
   * AWS Tools for PowerShell now use AWS .NET SDK 3.7.903.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/main/changelogs/SDK.CHANGELOG.ALL.md.
   * Amazon Database Migration Service
     * Added cmdlet Edit-DMSDataMigration leveraging the ModifyDataMigration service API.

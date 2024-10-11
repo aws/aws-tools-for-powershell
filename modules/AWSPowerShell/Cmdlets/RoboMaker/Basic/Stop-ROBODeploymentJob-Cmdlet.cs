@@ -28,12 +28,13 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
+    /// <important><para>
+    /// This API is no longer supported. For more information, see the May 2, 2022 update
+    /// in the <a href="https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-may2022">Support
+    /// policy</a> page.
+    /// </para></important><para>
     /// Cancels the specified deployment job.
-    /// 
-    ///  <important><para>
-    /// This API will no longer be supported as of May 2, 2022. Use it to remove resources
-    /// that were created for Deployment Service.
-    /// </para></important><br/><br/>This operation is deprecated.
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Stop", "ROBODeploymentJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

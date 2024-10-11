@@ -118,6 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String ClusterId { get; set; }
         #endregion
         
+        #region Parameter InstanceFleet_Context
+        /// <summary>
+        /// <para>
+        /// <para>Reserved.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceFleet_Context { get; set; }
+        #endregion
+        
         #region Parameter InstanceFleet_InstanceFleetId
         /// <summary>
         /// <para>
@@ -289,6 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 WriteWarning("You are passing $null as a value for parameter ClusterId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.InstanceFleet_Context = this.InstanceFleet_Context;
             context.InstanceFleet_InstanceFleetId = this.InstanceFleet_InstanceFleetId;
             #if MODULAR
             if (this.InstanceFleet_InstanceFleetId == null && ParameterWasBound(nameof(this.InstanceFleet_InstanceFleetId)))
@@ -333,6 +344,16 @@ namespace Amazon.PowerShell.Cmdlets.EMR
              // populate InstanceFleet
             var requestInstanceFleetIsNull = true;
             request.InstanceFleet = new Amazon.ElasticMapReduce.Model.InstanceFleetModifyConfig();
+            System.String requestInstanceFleet_instanceFleet_Context = null;
+            if (cmdletContext.InstanceFleet_Context != null)
+            {
+                requestInstanceFleet_instanceFleet_Context = cmdletContext.InstanceFleet_Context;
+            }
+            if (requestInstanceFleet_instanceFleet_Context != null)
+            {
+                request.InstanceFleet.Context = requestInstanceFleet_instanceFleet_Context;
+                requestInstanceFleetIsNull = false;
+            }
             System.String requestInstanceFleet_instanceFleet_InstanceFleetId = null;
             if (cmdletContext.InstanceFleet_InstanceFleetId != null)
             {
@@ -570,6 +591,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterId { get; set; }
+            public System.String InstanceFleet_Context { get; set; }
             public System.String InstanceFleet_InstanceFleetId { get; set; }
             public List<Amazon.ElasticMapReduce.Model.InstanceTypeConfig> InstanceFleet_InstanceTypeConfig { get; set; }
             public Amazon.ElasticMapReduce.OnDemandProvisioningAllocationStrategy OnDemandResizeSpecification_AllocationStrategy { get; set; }

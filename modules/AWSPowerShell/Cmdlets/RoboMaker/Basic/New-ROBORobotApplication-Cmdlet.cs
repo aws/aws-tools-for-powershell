@@ -28,7 +28,16 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
-    /// Creates a robot application.
+    /// <important><para>
+    /// End of support notice: On September 10, 2025, Amazon Web Services will discontinue
+    /// support for Amazon Web Services RoboMaker. After September 10, 2025, you will no longer
+    /// be able to access the Amazon Web Services RoboMaker console or Amazon Web Services
+    /// RoboMaker resources. For more information on transitioning to Batch to help run containerized
+    /// simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+    /// 
+    /// </para></important><para>
+    /// Creates a robot application. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ROBORobotApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RoboMaker.Model.CreateRobotApplicationResponse")]
@@ -61,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter RobotSoftwareSuite
         /// <summary>
         /// <para>
-        /// <para>The robot software suite (ROS distribuition) used by the robot application.</para>
+        /// <para>The robot software suite used by the robot application.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
