@@ -28,7 +28,7 @@ using Amazon.QApps.Model;
 namespace Amazon.PowerShell.Cmdlets.qapps
 {
     /// <summary>
-    /// Updates the metadata and status of a library item for an Amazon Q App.
+    /// Updates the library item for an Amazon Q App.
     /// </summary>
     [Cmdlet("Update", "qappsLibraryItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QApps.Model.UpdateLibraryItemResponse")]

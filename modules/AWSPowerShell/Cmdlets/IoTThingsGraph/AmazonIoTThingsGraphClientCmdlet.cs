@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTTG
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonIoTThingsGraphConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

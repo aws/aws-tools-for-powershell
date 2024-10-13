@@ -1,1 +1,1 @@
-Get-S3Object -BucketName test-files -KeyPrefix sample
+Get-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix sample

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCognitoIdentityProviderConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -93,6 +100,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             client.BeforeRequestEvent += RequestEventHandler;
             client.AfterResponseEvent += ResponseEventHandler;
             return client;
+        }
+        
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCognitoIdentityProviderConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
         }
         
         protected override void ProcessRecord()

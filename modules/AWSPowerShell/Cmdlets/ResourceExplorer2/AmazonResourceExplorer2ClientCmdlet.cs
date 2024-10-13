@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.AREX
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonResourceExplorer2Config.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

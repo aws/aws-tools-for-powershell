@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonFSxConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

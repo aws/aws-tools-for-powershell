@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonGlueConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

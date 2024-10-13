@@ -28,12 +28,15 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Used to enable finding aggregation. Must be called from the aggregation Region.
+    /// <note><para>
+    /// The <i>aggregation Region</i> is now called the <i>home Region</i>.
+    /// </para></note><para>
+    /// Used to enable cross-Region aggregation. This operation can be invoked from the home
+    /// Region only.
+    /// </para><para>
+    /// For information about how cross-Region aggregation works, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Understanding
+    /// cross-Region aggregation in Security Hub</a> in the <i>Security Hub User Guide</i>.
     /// 
-    ///  
-    /// <para>
-    /// For more details about cross-Region replication, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-aggregation.html">Configuring
-    /// finding aggregation</a> in the <i>Security Hub User Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "SHUBFindingAggregator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,9 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>If <c>RegionLinkingMode</c> is <c>ALL_REGIONS_EXCEPT_SPECIFIED</c>, then this is a
-        /// space-separated list of Regions that do not aggregate findings to the aggregation
+        /// space-separated list of Regions that don't replicate and send findings to the home
         /// Region.</para><para>If <c>RegionLinkingMode</c> is <c>SPECIFIED_REGIONS</c>, then this is a space-separated
-        /// list of Regions that do aggregate findings to the aggregation Region. </para><para>An <c>InvalidInputException</c> error results if you populate this field while <c>RegionLinkingMode</c>
+        /// list of Regions that do replicate and send findings to the home Region. </para><para>An <c>InvalidInputException</c> error results if you populate this field while <c>RegionLinkingMode</c>
         /// is <c>NO_REGIONS</c>.</para>
         /// </para>
         /// </summary>

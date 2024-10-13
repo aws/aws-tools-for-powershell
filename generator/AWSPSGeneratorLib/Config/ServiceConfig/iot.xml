@@ -46,6 +46,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSbomWithPackageVersion" OutputProperty="*" Verb="Add" Noun="SbomWithPackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateTargetsWithJob" OutputProperty="*" Verb="Add" Noun="TargetsWithJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -533,6 +537,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSbomFromPackageVersion" Verb="Remove" Noun="SbomFromPackageVersion" ShouldProcessTarget="VersionName" PipelineParameter="VersionName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="EnableTopicRule" Verb="Enable" Noun="TopicRule" ShouldProcessTarget="RuleName" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -800,6 +808,10 @@
         <ServiceOperation MethodName="ListRoleAliases" OutputProperty="RoleAliases" Verb="Get" Noun="RoleAliasList" PipelineParameter="" NoPipelineParameter="true" LegacyPagination="UseEmitLimit">
             <Params />
             <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSbomValidationResults" OutputProperty="ValidationResultSummaries" Verb="Get" Noun="SbomValidationResultList" PipelineParameter="VersionName" NoPipelineParameter="false">
+            <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListScheduledAudits" OutputProperty="ScheduledAudits" Verb="Get" Noun="ScheduledAuditList" PipelineParameter="NextToken" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">

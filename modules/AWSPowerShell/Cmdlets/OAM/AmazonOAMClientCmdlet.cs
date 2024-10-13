@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CWOAM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonOAMConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

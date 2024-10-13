@@ -1,1 +1,1 @@
-Get-S3CORSConfiguration -BucketName 's3testbucket' -Select Configuration.Rules
+Get-S3CORSConfiguration -BucketName 'amzn-s3-demo-bucket' -Select Configuration.Rules

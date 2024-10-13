@@ -34,13 +34,13 @@ $dashBody = @"
                       "AWS/S3",
                       "BucketSizeBytes",
                       "BucketName",
-                      "MyBucketName"
+                      "amzn-s3-demo-bucket"
                    ]
                 ],
                 "period":86400,
                 "stat":"Maximum",
                 "region":"us-east-1",
-                "title":"MyBucketName bytes"
+                "title":"amzn-s3-demo-bucket bytes"
             }
         }
     ]

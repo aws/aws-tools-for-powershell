@@ -100,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The maximum number of targets allowed to run this task in parallel. You can specify
-        /// a number, such as 10, or a percentage, such as 10%. The default value is <c>10</c>.</para>
+        /// a number, such as 10, or a percentage, such as 10%. The default value is <c>10</c>.</para><para>If both this parameter and the <c>TargetLocation:TargetsMaxConcurrency</c> are supplied,
+        /// <c>TargetLocation:TargetsMaxConcurrency</c> takes precedence.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -120,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// when the sixth error is received.</para><para>Executions that are already running an automation when max-errors is reached are allowed
         /// to complete, but some of these executions may fail as well. If you need to ensure
         /// that there won't be more than max-errors failed executions, set max-concurrency to
-        /// 1 so the executions proceed one at a time.</para>
+        /// 1 so the executions proceed one at a time.</para><para>If this parameter and the <c>TargetLocation:TargetsMaxErrors</c> parameter are both
+        /// supplied, <c>TargetLocation:TargetsMaxErrors</c> takes precedence.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -174,13 +176,24 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// accounts where you want to run the automation. Use this operation to start an automation
         /// in multiple Amazon Web Services Regions and multiple Amazon Web Services accounts.
         /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running
-        /// Automation workflows in multiple Amazon Web Services Regions and Amazon Web Services
-        /// accounts</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </para>
+        /// automations in multiple Amazon Web Services Regions and accounts</a> in the <i>Amazon
+        /// Web Services Systems Manager User Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("TargetLocations")]
         public Amazon.SimpleSystemsManagement.Model.TargetLocation[] TargetLocation { get; set; }
+        #endregion
+        
+        #region Parameter TargetLocationsURL
+        /// <summary>
+        /// <para>
+        /// <para>Specify a publicly accessible URL for a file that contains the <c>TargetLocations</c>
+        /// body. Currently, only files in presigned Amazon S3 buckets are supported. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String TargetLocationsURL { get; set; }
         #endregion
         
         #region Parameter TargetMap
@@ -209,7 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>A key-value mapping to target resources. Required if you specify TargetParameterName.</para>
+        /// <para>A key-value mapping to target resources. Required if you specify TargetParameterName.</para><para>If both this parameter and the <c>TargetLocation:Targets</c> parameter are supplied,
+        /// <c>TargetLocation:Targets</c> takes precedence.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -335,6 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.TargetLocation = new List<Amazon.SimpleSystemsManagement.Model.TargetLocation>(this.TargetLocation);
             }
+            context.TargetLocationsURL = this.TargetLocationsURL;
             if (this.TargetMap != null)
             {
                 context.TargetMap = new List<Dictionary<System.String, List<System.String>>>();
@@ -446,6 +461,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.TargetLocations = cmdletContext.TargetLocation;
             }
+            if (cmdletContext.TargetLocationsURL != null)
+            {
+                request.TargetLocationsURL = cmdletContext.TargetLocationsURL;
+            }
             if (cmdletContext.TargetMap != null)
             {
                 request.TargetMaps = cmdletContext.TargetMap;
@@ -530,6 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public Dictionary<System.String, List<System.String>> Parameter { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Tag> Tag { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.TargetLocation> TargetLocation { get; set; }
+            public System.String TargetLocationsURL { get; set; }
             public List<Dictionary<System.String, List<System.String>>> TargetMap { get; set; }
             public System.String TargetParameterName { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Target { get; set; }

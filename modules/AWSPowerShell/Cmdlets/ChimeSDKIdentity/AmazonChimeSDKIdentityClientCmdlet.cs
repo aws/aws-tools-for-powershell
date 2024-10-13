@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CHMID
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonChimeSDKIdentityConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -144,6 +144,13 @@ $SFN_Completers = {
             break
         }
 
+        # Amazon.StepFunctions.ValidateStateMachineDefinitionSeverity
+        "Test-SFNStateMachineDefinitionValidation/Severity"
+        {
+            $v = "ERROR","WARNING"
+            break
+        }
+
 
     }
 
@@ -158,6 +165,7 @@ $SFN_map = @{
     "InspectionLevel"=@("Test-SFNState")
     "LoggingConfiguration_Level"=@("New-SFNStateMachine","Update-SFNStateMachine")
     "RedriveFilter"=@("Get-SFNExecutionList")
+    "Severity"=@("Test-SFNStateMachineDefinitionValidation")
     "StatusFilter"=@("Get-SFNExecutionList")
     "Type"=@("New-SFNStateMachine","Test-SFNStateMachineDefinitionValidation")
 }

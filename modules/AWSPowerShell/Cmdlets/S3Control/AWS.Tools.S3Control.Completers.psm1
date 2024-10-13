@@ -418,6 +418,7 @@ $S3C_SelectMap = @{
                "Get-S3CAccessGrantsLocationList",
                "Get-S3CAccessPointList",
                "Get-S3CAccessPointsForObjectLambdaList",
+               "Get-S3CCallerAccessGrantList",
                "Get-S3CJobList",
                "Get-S3CMultiRegionAccessPointList",
                "Get-S3CRegionalBucketList",

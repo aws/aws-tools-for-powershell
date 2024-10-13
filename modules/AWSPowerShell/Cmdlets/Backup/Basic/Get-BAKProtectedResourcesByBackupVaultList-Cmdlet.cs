@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupVaultAccountId
         /// <summary>
         /// <para>
-        /// <para>This is the list of protected resources by backup vault within the vault(s) you specify
-        /// by account ID.</para>
+        /// <para>The list of protected resources by backup vault within the vault(s) you specify by
+        /// account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupVaultName
         /// <summary>
         /// <para>
-        /// <para>This is the list of protected resources by backup vault within the vault(s) you specify
-        /// by name.</para>
+        /// <para>The list of protected resources by backup vault within the vault(s) you specify by
+        /// name.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

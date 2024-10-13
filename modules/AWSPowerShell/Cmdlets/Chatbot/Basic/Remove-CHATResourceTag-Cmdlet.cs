@@ -28,7 +28,8 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Removes the supplied tags from a configuration
+    /// Detaches a key-value pair from a resource, as identified by its Amazon Resource Name
+    /// (ARN). Resources are users, servers, roles, and other entities.
     /// </summary>
     [Cmdlet("Remove", "CHATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// The ARN of the configuration.
+        /// <para>The value of the resource that will have the tag removed. An Amazon Resource Name
+        /// (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// A list of tag keys to remove from the configuration.
+        /// <para>TagKeys are key-value pairs assigned to ARNs that can be used to group and search
+        /// for resources by type. This metadata can be attached to resources for any purpose.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

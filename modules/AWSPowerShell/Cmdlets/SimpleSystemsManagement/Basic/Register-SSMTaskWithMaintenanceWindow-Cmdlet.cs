@@ -426,7 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// policy and custom service role for running your maintenance window tasks. The policy
         /// can be crafted to provide only the permissions needed for your particular maintenance
         /// window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting
-        /// up maintenance windows</a> in the in the <i>Amazon Web Services Systems Manager User
+        /// up Maintenance Windows</a> in the in the <i>Amazon Web Services Systems Manager User
         /// Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -445,7 +445,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// policy and custom service role for running your maintenance window tasks. The policy
         /// can be crafted to provide only the permissions needed for your particular maintenance
         /// window tasks. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html">Setting
-        /// up maintenance windows</a> in the in the <i>Amazon Web Services Systems Manager User
+        /// up Maintenance Windows</a> in the in the <i>Amazon Web Services Systems Manager User
         /// Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingSelection_RestoreTestingSelectionName
         /// <summary>
         /// <para>
-        /// <para>This is the unique name of the restore testing selection that belongs to the related
-        /// restore testing plan.</para>
+        /// <para>The unique name of the restore testing selection that belongs to the related restore
+        /// testing plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

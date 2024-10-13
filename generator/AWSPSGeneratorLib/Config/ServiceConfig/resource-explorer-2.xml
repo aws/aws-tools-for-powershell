@@ -72,6 +72,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListResources" OutputProperty="*" Verb="Get" Noun="ResourceList" PipelineParameter="ViewArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListSupportedResourceTypes" OutputProperty="ResourceTypes" Verb="Get" Noun="SupportedResourceTypeList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

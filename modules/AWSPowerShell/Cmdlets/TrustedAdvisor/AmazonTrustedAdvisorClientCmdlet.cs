@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.TA
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonTrustedAdvisorConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

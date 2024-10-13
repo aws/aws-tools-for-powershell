@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.MCA
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonAWSMarketplaceCommerceAnalyticsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

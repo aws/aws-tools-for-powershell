@@ -1,1 +1,1 @@
-Remove-S3CORSConfiguration -BucketName 's3testbucket'
+Remove-S3CORSConfiguration -BucketName 'amzn-s3-demo-bucket'

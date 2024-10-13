@@ -420,7 +420,7 @@ $CB_Completers = {
         # Amazon.CodeBuild.WebhookScopeType
         "New-CBWebhook/ScopeConfiguration_Scope"
         {
-            $v = "GITHUB_GLOBAL","GITHUB_ORGANIZATION"
+            $v = "GITHUB_GLOBAL","GITHUB_ORGANIZATION","GITLAB_GROUP"
             break
         }
 

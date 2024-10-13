@@ -28,7 +28,9 @@ using Amazon.IVSRealTime.Model;
 namespace Amazon.PowerShell.Cmdlets.IVSRT
 {
     /// <summary>
-    /// Shuts down and deletes the specified stage (disconnecting all participants).
+    /// Shuts down and deletes the specified stage (disconnecting all participants). This
+    /// operation also removes the <c>stageArn</c> from the associated <a>IngestConfiguration</a>,
+    /// if there are participants using the IngestConfiguration to publish to the stage.
     /// </summary>
     [Cmdlet("Remove", "IVSRTStage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

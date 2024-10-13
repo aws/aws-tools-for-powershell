@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.RSD
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonRedshiftDataAPIServiceConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

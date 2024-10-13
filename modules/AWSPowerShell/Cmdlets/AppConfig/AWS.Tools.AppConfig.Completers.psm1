@@ -80,6 +80,16 @@ $APPC_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AppConfig.DeletionProtectionCheck
+        {
+            ($_ -eq "Remove-APPCConfigurationProfile/DeletionProtectionCheck") -Or
+            ($_ -eq "Remove-APPCEnvironment/DeletionProtectionCheck")
+        }
+        {
+            $v = "ACCOUNT_DEFAULT","APPLY","BYPASS"
+            break
+        }
+
         # Amazon.AppConfig.GrowthType
         {
             ($_ -eq "New-APPCDeploymentStrategy/GrowthType") -Or
@@ -106,6 +116,7 @@ $APPC_Completers = {
 }
 
 $APPC_map = @{
+    "DeletionProtectionCheck"=@("Remove-APPCConfigurationProfile","Remove-APPCEnvironment")
     "GrowthType"=@("New-APPCDeploymentStrategy","Update-APPCDeploymentStrategy")
     "ReplicateTo"=@("New-APPCDeploymentStrategy")
 }
@@ -174,6 +185,7 @@ $APPC_SelectMap = @{
                "Remove-APPCExtension",
                "Remove-APPCExtensionAssociation",
                "Remove-APPCHostedConfigurationVersion",
+               "Get-APPCAccountSetting",
                "Get-APPCApplication",
                "Get-APPCConfiguration",
                "Get-APPCConfigurationProfile",
@@ -196,6 +208,7 @@ $APPC_SelectMap = @{
                "Stop-APPCDeployment",
                "Add-APPCResourceTag",
                "Remove-APPCResourceTag",
+               "Update-APPCAccountSetting",
                "Update-APPCApplication",
                "Update-APPCConfigurationProfile",
                "Update-APPCDeploymentStrategy",

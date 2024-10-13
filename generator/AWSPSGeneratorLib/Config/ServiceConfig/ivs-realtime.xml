@@ -23,6 +23,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateIngestConfiguration" OutputProperty="IngestConfiguration" Verb="New" Noun="IngestConfiguration" ShouldProcessTarget="" PipelineParameter="IngestProtocol" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateParticipantToken" OutputProperty="ParticipantToken" Verb="New" Noun="ParticipantToken" ShouldProcessTarget="StageArn" PipelineParameter="StageArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -37,6 +41,12 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteEncoderConfiguration" Verb="Remove" Noun="EncoderConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIngestConfiguration" Verb="Remove" Noun="IngestConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="ForceDelete" AutoApplyAlias="false" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeletePublicKey" Verb="Remove" Noun="PublicKey" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
@@ -60,6 +70,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEncoderConfiguration" OutputProperty="EncoderConfiguration" Verb="Get" Noun="EncoderConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIngestConfiguration" OutputProperty="IngestConfiguration" Verb="Get" Noun="IngestConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -92,6 +106,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEncoderConfigurations" OutputProperty="EncoderConfigurations" Verb="Get" Noun="EncoderConfigurationList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIngestConfigurations" OutputProperty="IngestConfigurations" Verb="Get" Noun="IngestConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -136,6 +154,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIngestConfiguration" OutputProperty="IngestConfiguration" Verb="Update" Noun="IngestConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

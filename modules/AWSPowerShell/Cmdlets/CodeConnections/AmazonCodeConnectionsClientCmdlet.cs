@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CCON
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCodeConnectionsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

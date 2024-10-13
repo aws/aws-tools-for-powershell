@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.PROM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonPrometheusServiceConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

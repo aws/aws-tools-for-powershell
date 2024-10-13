@@ -51,11 +51,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateChannelPlacementGroup" OutputProperty="*" Verb="New" Noun="ChannelPlacementGroup" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudWatchAlarmTemplate" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="New" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCluster" OutputProperty="*" Verb="New" Noun="Cluster" ShouldProcessTarget="InstanceRoleArn" PipelineParameter="InstanceRoleArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -83,6 +91,18 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetwork" OutputProperty="*" Verb="New" Noun="Network" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNode" OutputProperty="*" Verb="New" Noun="Node" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNodeRegistrationScript" OutputProperty="NodeRegistrationScript" Verb="New" Noun="NodeRegistrationScript" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePartnerInput" OutputProperty="Input" Verb="New" Noun="PartnerInput" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -99,11 +119,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannelPlacementGroup" OutputProperty="*" Verb="Remove" Noun="ChannelPlacementGroup" ShouldProcessTarget="ChannelPlacementGroupId" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplate" Verb="Remove" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteCloudWatchAlarmTemplateGroup" Verb="Remove" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCluster" OutputProperty="*" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -131,6 +159,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetwork" OutputProperty="*" Verb="Remove" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNode" OutputProperty="*" Verb="Remove" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteReservation" OutputProperty="*" Verb="Remove" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -155,6 +191,14 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannelPlacementGroup" OutputProperty="*" Verb="Get" Noun="ChannelPlacementGroup" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCluster" OutputProperty="*" Verb="Get" Noun="Cluster" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeInput" OutputProperty="*" Verb="Get" Noun="Input" PipelineParameter="InputId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -176,6 +220,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMultiplexProgram" OutputProperty="*" Verb="Get" Noun="MultiplexProgram" PipelineParameter="ProgramName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetwork" OutputProperty="*" Verb="Get" Noun="Network" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNode" OutputProperty="*" Verb="Get" Noun="Node" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -215,6 +267,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListChannelPlacementGroups" OutputProperty="ChannelPlacementGroups" Verb="Get" Noun="ChannelPlacementGroupList" PipelineParameter="ClusterId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListChannels" OutputProperty="Channels" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -224,6 +280,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCloudWatchAlarmTemplates" OutputProperty="CloudWatchAlarmTemplates" Verb="Get" Noun="CloudWatchAlarmTemplateList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListClusters" OutputProperty="Clusters" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -256,6 +316,14 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMultiplexPrograms" OutputProperty="MultiplexPrograms" Verb="Get" Noun="MultiplexProgramList" PipelineParameter="MultiplexId" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNetworks" OutputProperty="Networks" Verb="Get" Noun="NetworkList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNodes" OutputProperty="Nodes" Verb="Get" Noun="NodeList" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -349,11 +417,19 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannelPlacementGroup" OutputProperty="*" Verb="Update" Noun="ChannelPlacementGroup" ShouldProcessTarget="ChannelPlacementGroupId" PipelineParameter="ChannelPlacementGroupId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplate" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplate" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateCloudWatchAlarmTemplateGroup" OutputProperty="*" Verb="Update" Noun="CloudWatchAlarmTemplateGroup" ShouldProcessTarget="Identifier" PipelineParameter="Identifier" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCluster" OutputProperty="*" Verb="Update" Noun="Cluster" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -391,6 +467,18 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateMultiplexProgram" OutputProperty="MultiplexProgram" Verb="Update" Noun="MultiplexProgram" ShouldProcessTarget="ProgramName" PipelineParameter="ProgramName" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNetwork" OutputProperty="*" Verb="Update" Noun="Network" ShouldProcessTarget="NetworkId" PipelineParameter="NetworkId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNode" OutputProperty="*" Verb="Update" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNodeState" OutputProperty="*" Verb="Update" Noun="NodeState" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

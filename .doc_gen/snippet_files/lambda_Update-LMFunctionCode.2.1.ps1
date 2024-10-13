@@ -1,1 +1,1 @@
-Update-LMFunctionCode -FunctionName MyFunction -BucketName mybucket -Key UpdatedCode.zip
+Update-LMFunctionCode -FunctionName MyFunction -BucketName amzn-s3-demo-bucket -Key UpdatedCode.zip

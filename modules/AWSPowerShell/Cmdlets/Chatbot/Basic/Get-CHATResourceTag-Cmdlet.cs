@@ -28,7 +28,8 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Retrieves the list of tags applied to a configuration.
+    /// Lists all of the tags associated with the Amazon Resource Name (ARN) that you specify.
+    /// The resource can be a user, server, or role.
     /// </summary>
     [Cmdlet("Get", "CHATResourceTag")]
     [OutputType("Amazon.Chatbot.Model.Tag")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// The ARN of the configuration.
+        /// <para>The ARN you specified to list the tags of.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -564,7 +564,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>If provided, the generated manifest includes objects where the specified string appears
-        /// at the start of the object key string.</para>
+        /// at the start of the object key string. Each KeyNameConstraint filter accepts an array
+        /// of strings with a length of 1 string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -588,7 +589,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>If provided, the generated manifest includes objects where the specified string appears
-        /// anywhere within the object key string.</para>
+        /// anywhere within the object key string. Each KeyNameConstraint filter accepts an array
+        /// of strings with a length of 1 string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -600,7 +602,8 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         /// <summary>
         /// <para>
         /// <para>If provided, the generated manifest includes objects where the specified string appears
-        /// at the end of the object key string.</para>
+        /// at the end of the object key string. Each KeyNameConstraint filter accepts an array
+        /// of strings with a length of 1 string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -886,7 +889,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter S3JobManifestGenerator_SourceBucket
         /// <summary>
         /// <para>
-        /// <para>The source bucket used by the ManifestGenerator.</para><note><para><b>Directory buckets</b> - Directory buckets aren't supported as the source buckets
+        /// <para>The ARN of the source bucket used by the ManifestGenerator.</para><note><para><b>Directory buckets</b> - Directory buckets aren't supported as the source buckets
         /// used by <c>S3JobManifestGenerator</c> to generate the job manifest.</para></note>
         /// </para>
         /// </summary>

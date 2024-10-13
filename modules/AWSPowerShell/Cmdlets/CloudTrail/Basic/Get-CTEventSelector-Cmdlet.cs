@@ -33,18 +33,22 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// 
     ///  <ul><li><para>
     /// If your event selector includes read-only events, write-only events, or all events.
-    /// This applies to both management events and data events.
+    /// This applies to management events, data events, and network activity events.
     /// </para></li><li><para>
     /// If your event selector includes management events.
+    /// </para></li><li><para>
+    /// If your event selector includes network activity events, the event sources for which
+    /// you are logging network activity events.
     /// </para></li><li><para>
     /// If your event selector includes data events, the resources on which you are logging
     /// data events.
     /// </para></li></ul><para>
-    /// For more information about logging management and data events, see the following topics
-    /// in the <i>CloudTrail User Guide</i>:
+    /// For more information about logging management, data, and network activity events,
+    /// see the following topics in the <i>CloudTrail User Guide</i>:
     /// </para><ul><li><para><a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging
     /// management events</a></para></li><li><para><a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging
-    /// data events</a></para></li></ul>
+    /// data events</a></para></li><li><para><a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging
+    /// network activity events</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "CTEventSelector")]
     [OutputType("Amazon.CloudTrail.Model.GetEventSelectorsResponse")]

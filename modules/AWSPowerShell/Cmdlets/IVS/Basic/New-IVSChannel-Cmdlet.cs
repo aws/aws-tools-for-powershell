@@ -125,10 +125,11 @@ namespace Amazon.PowerShell.Cmdlets.IVS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Array of 1-50 maps, each of the form <c>string:string (key:value)</c>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// Amazon Web Services Resources</a> for more information, including restrictions that
-        /// apply to tags and "Tag naming limits and requirements"; Amazon IVS has no service-specific
-        /// constraints beyond what is documented there.</para>
+        /// <para>Array of 1-50 maps, each of the form <c>string:string (key:value)</c>. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
+        /// practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i>
+        /// for details, including restrictions that apply to tags and "Tag naming limits and
+        /// requirements"; Amazon IVS has no service-specific constraints beyond what is documented
+        /// there.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

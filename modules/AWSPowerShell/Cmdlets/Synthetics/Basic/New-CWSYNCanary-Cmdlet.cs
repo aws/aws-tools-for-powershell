@@ -260,6 +260,19 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter ResourcesToReplicateTag
+        /// <summary>
+        /// <para>
+        /// <para>To have the tags that you apply to this canary also be applied to the Lambda function
+        /// that the canary uses, specify this parameter with the value <c>lambda-function</c>.</para><para>If you specify this parameter and don't specify any tags in the <c>Tags</c> parameter,
+        /// the canary creation fails.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("ResourcesToReplicateTags")]
+        public System.String[] ResourcesToReplicateTag { get; set; }
+        #endregion
+        
         #region Parameter RuntimeVersion
         /// <summary>
         /// <para>
@@ -351,7 +364,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <para>A list of key-value pairs to associate with the canary. You can associate as many
         /// as 50 tags with a canary.</para><para>Tags can help you organize and categorize your resources. You can also use them to
         /// scope user permissions, by granting a user permission to access or change only the
-        /// resources that have certain tag values.</para>
+        /// resources that have certain tag values.</para><para>To have the tags that you apply to this canary also be applied to the Lambda function
+        /// that the canary uses, specify this parameter with the value <c>lambda-function</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -484,6 +498,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 WriteWarning("You are passing $null as a value for parameter Name which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            if (this.ResourcesToReplicateTag != null)
+            {
+                context.ResourcesToReplicateTag = new List<System.String>(this.ResourcesToReplicateTag);
+            }
             context.RunConfig_ActiveTracing = this.RunConfig_ActiveTracing;
             if (this.RunConfig_EnvironmentVariable != null)
             {
@@ -666,6 +684,10 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
                 if (cmdletContext.Name != null)
                 {
                     request.Name = cmdletContext.Name;
+                }
+                if (cmdletContext.ResourcesToReplicateTag != null)
+                {
+                    request.ResourcesToReplicateTags = cmdletContext.ResourcesToReplicateTag;
                 }
                 
                  // populate RunConfig
@@ -866,6 +888,7 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
             public System.String ExecutionRoleArn { get; set; }
             public System.Int32? FailureRetentionPeriodInDay { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> ResourcesToReplicateTag { get; set; }
             public System.Boolean? RunConfig_ActiveTracing { get; set; }
             public Dictionary<System.String, System.String> RunConfig_EnvironmentVariable { get; set; }
             public System.Int32? RunConfig_MemoryInMB { get; set; }

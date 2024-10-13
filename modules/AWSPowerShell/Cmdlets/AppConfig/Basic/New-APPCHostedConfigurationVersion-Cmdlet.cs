@@ -28,7 +28,10 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Creates a new configuration in the AppConfig hosted configuration store.
+    /// Creates a new configuration in the AppConfig hosted configuration store. If you're
+    /// creating a feature flag, we recommend you familiarize yourself with the JSON schema
+    /// for feature flag data. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags">Type
+    /// reference for AWS.AppConfig.FeatureFlags</a> in the <i>AppConfig User Guide</i>.
     /// </summary>
     [Cmdlet("New", "APPCHostedConfigurationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppConfig.Model.CreateHostedConfigurationVersionResponse")]
@@ -82,7 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The content of the configuration or the configuration data.</para>
+        /// <para>The configuration data, as bytes.</para><note><para>AppConfig accepts any type of data, including text formats like JSON or TOML, or binary
+        /// formats like protocol buffers or compressed data.</para></note>
         /// </para>
         /// <para>The cmdlet will automatically convert the supplied parameter of type string, string[], System.IO.FileInfo or System.IO.Stream to byte[] before supplying it to the service.</para>
         /// </summary>

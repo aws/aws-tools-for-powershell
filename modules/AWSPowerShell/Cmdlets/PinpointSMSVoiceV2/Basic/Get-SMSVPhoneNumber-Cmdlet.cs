@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The unique identifier of phone numbers to find information about. This is an array
-        /// of strings that can be either the PhoneNumberId or PhoneNumberArn.</para>
+        /// of strings that can be either the PhoneNumberId or PhoneNumberArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -99,6 +100,19 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>Use <c>SELF</c> to filter the list of phone numbers to ones your account owns or use
+        /// <c>SHARED</c> to filter on phone numbers shared with your account. The <c>Owner</c>
+        /// and <c>PhoneNumberIds</c> parameters can't be used at the same time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PinpointSMSVoiceV2.Owner")]
+        public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -143,6 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Owner = this.Owner;
             if (this.PhoneNumberId != null)
             {
                 context.PhoneNumberId = new List<System.String>(this.PhoneNumberId);
@@ -172,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
             }
             if (cmdletContext.PhoneNumberId != null)
             {
@@ -265,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public List<Amazon.PinpointSMSVoiceV2.Model.PhoneNumberFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
             public List<System.String> PhoneNumberId { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.DescribePhoneNumbersResponse, GetSMSVPhoneNumberCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

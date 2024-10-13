@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Lists MS Teams Channel Configurations optionally filtered by TeamId
+    /// Lists all AWS Chatbot Microsoft Teams channel configurations in an AWS account.
     /// </summary>
     [Cmdlet("Get", "CHATMicrosoftTeamsChannelConfigurationList")]
     [OutputType("Amazon.Chatbot.Model.TeamsChannelConfiguration")]
@@ -40,16 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     public partial class GetCHATMicrosoftTeamsChannelConfigurationListCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter TeamId
         /// <summary>
         /// <para>
-        /// The ID of the Microsoft Team authorized with AWS
-        /// Chatbot. To get the team ID, you must perform the initial authorization flow with
-        /// Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID
-        /// from the console. For more details, see steps 1-4 in Get started with Microsoft Teams
-        /// in the AWS Chatbot Administrator Guide.
+        /// <para> The ID of the Microsoft Teams authorized with AWS Chatbot.</para><para>To get the team ID, you must perform the initial authorization flow with Microsoft
+        /// Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the
+        /// console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step
+        /// 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -59,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The maximum number of results to include in
-        /// the response. If more results exist than the specified MaxResults value, a token is
-        /// included in the response so that the remaining results can be retrieved.
+        /// <para>The maximum number of results to include in the response. If more results exist than
+        /// the specified MaxResults value, a token is included in the response so that the remaining
+        /// results can be retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -72,10 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// An optional token returned from a prior request.
-        /// Use this token for pagination of results from this action. If this parameter is specified,
-        /// the response includes only results beyond the token, up to the value specified by
-        /// MaxResults.
+        /// <para>An optional token returned from a prior request. Use this token for pagination of
+        /// results from this action. If this parameter is specified, the response includes only
+        /// results beyond the token, up to the value specified by MaxResults.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

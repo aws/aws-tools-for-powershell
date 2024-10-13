@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter AggregationPeriod
         /// <summary>
         /// <para>
-        /// <para>This is the period that sets the boundaries for returned results.</para><para>Acceptable values include</para><ul><li><para><c>ONE_DAY</c> for daily job count for the prior 14 days.</para></li><li><para><c>SEVEN_DAYS</c> for the aggregated job count for the prior 7 days.</para></li><li><para><c>FOURTEEN_DAYS</c> for aggregated job count for prior 14 days.</para></li></ul>
+        /// <para>The period for the returned results.</para><ul><li><para><c>ONE_DAY</c> - The daily job count for the prior 14 days.</para></li><li><para><c>SEVEN_DAYS</c> - The aggregated job count for the prior 7 days.</para></li><li><para><c>FOURTEEN_DAYS</c> - The aggregated job count for prior 14 days.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

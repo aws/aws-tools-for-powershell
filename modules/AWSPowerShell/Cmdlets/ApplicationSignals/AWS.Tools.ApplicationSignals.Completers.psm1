@@ -88,12 +88,14 @@ $CWAS_Completers = {
             ($_ -eq "Update-CWASServiceLevelObjective/RollingInterval_DurationUnit")
         }
         {
-            $v = "DAY","MONTH"
+            $v = "DAY","HOUR","MINUTE","MONTH"
             break
         }
 
         # Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator
         {
+            ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliConfig_ComparisonOperator") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/RequestBasedSliConfig_ComparisonOperator") -Or
             ($_ -eq "New-CWASServiceLevelObjective/SliConfig_ComparisonOperator") -Or
             ($_ -eq "Update-CWASServiceLevelObjective/SliConfig_ComparisonOperator")
         }
@@ -104,6 +106,8 @@ $CWAS_Completers = {
 
         # Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType
         {
+            ($_ -eq "New-CWASServiceLevelObjective/RequestBasedSliMetricConfig_MetricType") -Or
+            ($_ -eq "Update-CWASServiceLevelObjective/RequestBasedSliMetricConfig_MetricType") -Or
             ($_ -eq "New-CWASServiceLevelObjective/SliMetricConfig_MetricType") -Or
             ($_ -eq "Update-CWASServiceLevelObjective/SliMetricConfig_MetricType")
         }
@@ -122,6 +126,8 @@ $CWAS_Completers = {
 
 $CWAS_map = @{
     "CalendarInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "RequestBasedSliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
+    "RequestBasedSliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "RollingInterval_DurationUnit"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliConfig_ComparisonOperator"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")
     "SliMetricConfig_MetricType"=@("New-CWASServiceLevelObjective","Update-CWASServiceLevelObjective")

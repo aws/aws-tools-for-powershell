@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// 
     ///  
     /// <para>
-    /// Updates from <c>BatchUpdateFindings</c> do not affect the value of <c>UpdatedAt</c>
+    /// Updates from <c>BatchUpdateFindings</c> don't affect the value of <c>UpdatedAt</c>
     /// for a finding.
     /// </para><para>
     /// Administrator and member accounts can use <c>BatchUpdateFindings</c> to update the
@@ -118,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>The normalized severity for the finding. This attribute is to be deprecated in favor
-        /// of <c>Label</c>.</para><para>If you provide <c>Normalized</c> and do not provide <c>Label</c>, <c>Label</c> is
-        /// set automatically as follows.</para><ul><li><para>0 - <c>INFORMATIONAL</c></para></li><li><para>1–39 - <c>LOW</c></para></li><li><para>40–69 - <c>MEDIUM</c></para></li><li><para>70–89 - <c>HIGH</c></para></li><li><para>90–100 - <c>CRITICAL</c></para></li></ul>
+        /// of <c>Label</c>.</para><para>If you provide <c>Normalized</c> and don't provide <c>Label</c>, <c>Label</c> is set
+        /// automatically as follows.</para><ul><li><para>0 - <c>INFORMATIONAL</c></para></li><li><para>1–39 - <c>LOW</c></para></li><li><para>40–69 - <c>MEDIUM</c></para></li><li><para>70–89 - <c>HIGH</c></para></li><li><para>90–100 - <c>CRITICAL</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// to <c>NEW</c> in the following cases:</para><ul><li><para>The record state changes from <c>ARCHIVED</c> to <c>ACTIVE</c>.</para></li><li><para>The compliance status changes from <c>PASSED</c> to either <c>WARNING</c>, <c>FAILED</c>,
         /// or <c>NOT_AVAILABLE</c>.</para></li></ul></li><li><para><c>NOTIFIED</c> - Indicates that you notified the resource owner about the security
         /// issue. Used when the initial reviewer is not the resource owner, and needs intervention
-        /// from the resource owner.</para></li><li><para><c>RESOLVED</c> - The finding was reviewed and remediated and is now considered resolved.</para></li><li><para><c>SUPPRESSED</c> - Indicates that you reviewed the finding and do not believe that
+        /// from the resource owner.</para></li><li><para><c>RESOLVED</c> - The finding was reviewed and remediated and is now considered resolved.</para></li><li><para><c>SUPPRESSED</c> - Indicates that you reviewed the finding and don't believe that
         /// any action is needed. The finding is no longer updated.</para></li></ul>
         /// </para>
         /// </summary>

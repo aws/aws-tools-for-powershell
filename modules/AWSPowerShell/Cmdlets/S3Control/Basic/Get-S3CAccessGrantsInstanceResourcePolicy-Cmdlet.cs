@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that is making this request.</para>
+        /// <para>The Amazon Web Services account ID of the S3 Access Grants instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

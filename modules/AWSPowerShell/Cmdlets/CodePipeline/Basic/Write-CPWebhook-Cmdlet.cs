@@ -35,6 +35,18 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// and filtering requirements supplied when defining the webhook. RegisterWebhookWithThirdParty
     /// and DeregisterWebhookWithThirdParty APIs can be used to automatically configure supported
     /// third parties to call the generated webhook URL.
+    /// 
+    ///  <important><para>
+    /// When creating CodePipeline webhooks, do not use your own credentials or reuse the
+    /// same secret token across multiple webhooks. For optimal security, generate a unique
+    /// secret token for each webhook you create. The secret token is an arbitrary string
+    /// that you provide, which GitHub uses to compute and sign the webhook payloads sent
+    /// to CodePipeline, for protecting the integrity and authenticity of the webhook payloads.
+    /// Using your own credentials or reusing the same token across multiple webhooks can
+    /// lead to security vulnerabilities.
+    /// </para></important><note><para>
+    /// If a secret token was provided, it will be redacted in the response.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Write", "CPWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodePipeline.Model.ListWebhookItem")]
@@ -64,7 +76,13 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Webhook_Authentication
         /// <summary>
         /// <para>
-        /// <para>Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.</para><ul><li><para>For information about the authentication scheme implemented by GITHUB_HMAC, see <a href="https://developer.github.com/webhooks/securing/">Securing your webhooks</a>
+        /// <para>Supported options are GITHUB_HMAC, IP, and UNAUTHENTICATED.</para><important><para>When creating CodePipeline webhooks, do not use your own credentials or reuse the
+        /// same secret token across multiple webhooks. For optimal security, generate a unique
+        /// secret token for each webhook you create. The secret token is an arbitrary string
+        /// that you provide, which GitHub uses to compute and sign the webhook payloads sent
+        /// to CodePipeline, for protecting the integrity and authenticity of the webhook payloads.
+        /// Using your own credentials or reusing the same token across multiple webhooks can
+        /// lead to security vulnerabilities.</para></important><note><para>If a secret token was provided, it will be redacted in the response.</para></note><ul><li><para>For information about the authentication scheme implemented by GITHUB_HMAC, see <a href="https://developer.github.com/webhooks/securing/">Securing your webhooks</a>
         /// on the GitHub Developer website.</para></li><li><para> IP rejects webhooks trigger requests unless they originate from an IP address in
         /// the IP range whitelisted in the authentication configuration.</para></li><li><para> UNAUTHENTICATED accepts all webhook trigger requests regardless of origin.</para></li></ul>
         /// </para>
@@ -120,7 +138,13 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// <summary>
         /// <para>
         /// <para>The property used to configure GitHub authentication. For GITHUB_HMAC, only the <c>SecretToken</c>
-        /// property must be set.</para>
+        /// property must be set.</para><important><para>When creating CodePipeline webhooks, do not use your own credentials or reuse the
+        /// same secret token across multiple webhooks. For optimal security, generate a unique
+        /// secret token for each webhook you create. The secret token is an arbitrary string
+        /// that you provide, which GitHub uses to compute and sign the webhook payloads sent
+        /// to CodePipeline, for protecting the integrity and authenticity of the webhook payloads.
+        /// Using your own credentials or reusing the same token across multiple webhooks can
+        /// lead to security vulnerabilities.</para></important><note><para>If a secret token was provided, it will be redacted in the response.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

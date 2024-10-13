@@ -130,6 +130,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="ExpireSession" Verb="Revoke" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="PortalId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetBrowserSettings" OutputProperty="BrowserSettings" Verb="Get" Noun="BrowserSetting" PipelineParameter="BrowserSettingsArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -151,6 +155,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPortalServiceProviderMetadata" OutputProperty="*" Verb="Get" Noun="PortalServiceProviderMetadata" PipelineParameter="PortalArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSession" OutputProperty="Session" Verb="Get" Noun="Session" PipelineParameter="PortalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -187,6 +195,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPortals" OutputProperty="Portals" Verb="Get" Noun="PortalList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSessions" OutputProperty="Sessions" Verb="Get" Noun="SessionList" PipelineParameter="PortalId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

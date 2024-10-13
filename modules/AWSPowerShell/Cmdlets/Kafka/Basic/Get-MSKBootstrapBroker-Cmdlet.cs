@@ -28,7 +28,11 @@ using Amazon.Kafka.Model;
 namespace Amazon.PowerShell.Cmdlets.MSK
 {
     /// <summary>
-    /// A list of brokers that a client application can use to bootstrap.
+    /// A list of brokers that a client application can use to bootstrap. This list doesn't
+    /// necessarily include all of the brokers in the cluster. The following Python 3.6 example
+    /// shows how you can use the Amazon Resource Name (ARN) of a cluster to get its bootstrap
+    /// brokers. If you don't know the ARN of your cluster, you can use the <c>ListClusters</c>
+    /// operation to get the ARNs of all the clusters in this account and Region.
     /// </summary>
     [Cmdlet("Get", "MSKBootstrapBroker")]
     [OutputType("System.String")]

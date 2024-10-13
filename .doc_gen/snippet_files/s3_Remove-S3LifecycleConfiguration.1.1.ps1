@@ -1,1 +1,1 @@
-Remove-S3LifecycleConfiguration -BucketName 's3testbucket'
+Remove-S3LifecycleConfiguration -BucketName 'amzn-s3-demo-bucket'

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.LOM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonLookoutMetricsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

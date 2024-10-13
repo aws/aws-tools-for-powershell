@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.TSW
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonTimestreamWriteConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

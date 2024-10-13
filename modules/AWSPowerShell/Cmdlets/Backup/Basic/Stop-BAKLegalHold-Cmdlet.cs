@@ -28,8 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// This action removes the specified legal hold on a recovery point. This action can
-    /// only be performed by a user with sufficient permissions.
+    /// Removes the specified legal hold on a recovery point. This action can only be performed
+    /// by a user with sufficient permissions.
     /// </summary>
     [Cmdlet("Stop", "BAKLegalHold", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter CancelDescription
         /// <summary>
         /// <para>
-        /// <para>String describing the reason for removing the legal hold.</para>
+        /// <para>A string the describes the reason for removing the legal hold.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter LegalHoldId
         /// <summary>
         /// <para>
-        /// <para>Legal hold ID required to remove the specified legal hold on a recovery point.</para>
+        /// <para>The ID of the legal hold.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -80,8 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RetainRecordInDay
         /// <summary>
         /// <para>
-        /// <para>The integer amount in days specifying amount of days after this API operation to remove
-        /// legal hold.</para>
+        /// <para>The integer amount, in days, after which to remove legal hold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

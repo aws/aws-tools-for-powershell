@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Creates Slack Channel Configuration
+    /// Creates an AWS Chatbot confugration for Slack.
     /// </summary>
     [Cmdlet("New", "CHATSlackChannelConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chatbot.Model.SlackChannelConfiguration")]
@@ -40,12 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     public partial class NewCHATSlackChannelConfigurationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ConfigurationName
         /// <summary>
         /// <para>
-        /// The name of the configuration.
+        /// <para>The name of the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter GuardrailPolicyArn
         /// <summary>
         /// <para>
-        /// The list of IAM policy ARNs that are
-        /// applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied
-        /// by default if this is not set.
+        /// <para>The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed
+        /// <c>AdministratorAccess</c> policy is applied by default if this is not set. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,9 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// The ARN of the IAM role that defines the permissions
-        /// for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is
-        /// not the service-linked role. For more information, see IAM Policies for AWS Chatbot.
+        /// <para>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</para><para>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM
+        /// policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter LoggingLevel
         /// <summary>
         /// <para>
-        /// Logging levels include ERROR, INFO, or NONE.
+        /// <para>Logging levels include <c>ERROR</c>, <c>INFO</c>, or <c>NONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -104,10 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SlackChannelId
         /// <summary>
         /// <para>
-        /// The ID of the Slack channel. To get the
-        /// ID, open Slack, right click on the channel name in the left pane, then choose Copy
-        /// Link. The channel ID is the 9-character string at the end of the URL. For example,
-        /// ABCBBLZZZ.
+        /// <para>The ID of the Slack channel.</para><para>To get this ID, open Slack, right click on the channel name in the left pane, then
+        /// choose Copy Link. The channel ID is the 9-character string at the end of the URL.
+        /// For example, ABCBBLZZZ. </para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -124,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SlackChannelName
         /// <summary>
         /// <para>
-        /// The name of the Slack Channel.
+        /// <para>The name of the Slack channel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -134,8 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SlackTeamId
         /// <summary>
         /// <para>
-        /// The ID of the Slack workspace authorized with
-        /// AWS Chatbot.
+        /// <para>The ID of the Slack workspace authorized with AWS Chatbot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -152,8 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// The ARNs of the SNS topics that deliver notifications
-        /// to AWS Chatbot.
+        /// <para>The Amazon Resource Names (ARNs) of the SNS topics that deliver notifications to AWS
+        /// Chatbot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -164,7 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// A list of tags to apply to the configuration.
+        /// <para>A map of tags assigned to a resource. A tag is a string-to-string map of key-value
+        /// pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -175,8 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter UserAuthorizationRequired
         /// <summary>
         /// <para>
-        /// Enables use of a user role requirement
-        /// in your chat configuration.
+        /// <para>Enables use of a user role requirement in your chat configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

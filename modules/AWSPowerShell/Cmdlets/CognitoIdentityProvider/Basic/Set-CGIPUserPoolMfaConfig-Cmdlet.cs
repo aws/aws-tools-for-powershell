@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// their accounts, or sign in.
     /// </para><para>
     /// If you have never used SMS text messages with Amazon Cognito or any other Amazon Web
-    /// Services service, Amazon Simple Notification Service might place your account in the
+    /// Servicesservice, Amazon Simple Notification Service might place your account in the
     /// SMS sandbox. In <i><a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
     /// mode</a></i>, you can send messages only to verified phone numbers. After you test
     /// your app while in the sandbox environment, you can move out of the sandbox and into
@@ -60,6 +60,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EmailMfaConfiguration_Message
+        /// <summary>
+        /// <para>
+        /// <para>The template for the email message that your user pool sends to users with an MFA
+        /// code. The message must contain the <c>{####}</c> placeholder. In the message, Amazon
+        /// Cognito replaces this placeholder with the code. If you don't provide this parameter,
+        /// Amazon Cognito sends messages in the default format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EmailMfaConfiguration_Message { get; set; }
+        #endregion
+        
         #region Parameter MfaConfiguration
         /// <summary>
         /// <para>
@@ -77,7 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SmsMfaConfiguration
         /// <summary>
         /// <para>
-        /// <para>The SMS text message MFA configuration.</para>
+        /// <para>Configures user pool SMS messages for MFA. Sets the message template and the SMS message
+        /// sending configuration for Amazon SNS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -87,11 +101,22 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SoftwareTokenMfaConfiguration
         /// <summary>
         /// <para>
-        /// <para>The software token MFA configuration.</para>
+        /// <para>Configures a user pool for time-based one-time password (TOTP) MFA. Enables or disables
+        /// TOTP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaConfigType SoftwareTokenMfaConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter EmailMfaConfiguration_Subject
+        /// <summary>
+        /// <para>
+        /// <para>The subject of the email message that your user pool sends to users with an MFA code.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String EmailMfaConfiguration_Subject { get; set; }
         #endregion
         
         #region Parameter UserPoolId
@@ -173,6 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Select = (response, cmdlet) => this.UserPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EmailMfaConfiguration_Message = this.EmailMfaConfiguration_Message;
+            context.EmailMfaConfiguration_Subject = this.EmailMfaConfiguration_Subject;
             context.MfaConfiguration = this.MfaConfiguration;
             context.SmsMfaConfiguration = this.SmsMfaConfiguration;
             context.SoftwareTokenMfaConfiguration = this.SoftwareTokenMfaConfiguration;
@@ -199,6 +226,35 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.SetUserPoolMfaConfigRequest();
             
+            
+             // populate EmailMfaConfiguration
+            var requestEmailMfaConfigurationIsNull = true;
+            request.EmailMfaConfiguration = new Amazon.CognitoIdentityProvider.Model.EmailMfaConfigType();
+            System.String requestEmailMfaConfiguration_emailMfaConfiguration_Message = null;
+            if (cmdletContext.EmailMfaConfiguration_Message != null)
+            {
+                requestEmailMfaConfiguration_emailMfaConfiguration_Message = cmdletContext.EmailMfaConfiguration_Message;
+            }
+            if (requestEmailMfaConfiguration_emailMfaConfiguration_Message != null)
+            {
+                request.EmailMfaConfiguration.Message = requestEmailMfaConfiguration_emailMfaConfiguration_Message;
+                requestEmailMfaConfigurationIsNull = false;
+            }
+            System.String requestEmailMfaConfiguration_emailMfaConfiguration_Subject = null;
+            if (cmdletContext.EmailMfaConfiguration_Subject != null)
+            {
+                requestEmailMfaConfiguration_emailMfaConfiguration_Subject = cmdletContext.EmailMfaConfiguration_Subject;
+            }
+            if (requestEmailMfaConfiguration_emailMfaConfiguration_Subject != null)
+            {
+                request.EmailMfaConfiguration.Subject = requestEmailMfaConfiguration_emailMfaConfiguration_Subject;
+                requestEmailMfaConfigurationIsNull = false;
+            }
+             // determine if request.EmailMfaConfiguration should be set to null
+            if (requestEmailMfaConfigurationIsNull)
+            {
+                request.EmailMfaConfiguration = null;
+            }
             if (cmdletContext.MfaConfiguration != null)
             {
                 request.MfaConfiguration = cmdletContext.MfaConfiguration;
@@ -276,6 +332,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EmailMfaConfiguration_Message { get; set; }
+            public System.String EmailMfaConfiguration_Subject { get; set; }
             public Amazon.CognitoIdentityProvider.UserPoolMfaType MfaConfiguration { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SmsMfaConfigType SmsMfaConfiguration { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaConfigType SoftwareTokenMfaConfiguration { get; set; }

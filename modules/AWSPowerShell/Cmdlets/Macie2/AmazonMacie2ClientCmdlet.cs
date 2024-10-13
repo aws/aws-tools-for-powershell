@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.MAC2
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonMacie2Config.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

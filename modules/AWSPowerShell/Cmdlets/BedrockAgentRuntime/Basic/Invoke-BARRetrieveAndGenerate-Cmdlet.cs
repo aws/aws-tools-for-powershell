@@ -28,8 +28,9 @@ using Amazon.BedrockAgentRuntime.Model;
 namespace Amazon.PowerShell.Cmdlets.BAR
 {
     /// <summary>
-    /// Queries a knowledge base and generates responses based on the retrieved results. The
-    /// response only cites sources that are relevant to the query.
+    /// Queries a knowledge base and generates responses based on the retrieved results and
+    /// using the specified foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference
+    /// profile</a>. The response only cites sources that are relevant to the query.
     /// </summary>
     [Cmdlet("Invoke", "BARRetrieveAndGenerate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.BedrockAgentRuntime.Model.RetrieveAndGenerateResponse")]
@@ -257,8 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter KnowledgeBaseConfiguration_KnowledgeBaseId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the knowledge base that is queried and the foundation model
-        /// used for generation.</para>
+        /// <para>The unique identifier of the knowledge base that is queried.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -306,7 +306,8 @@ namespace Amazon.PowerShell.Cmdlets.BAR
         #region Parameter KnowledgeBaseConfiguration_ModelArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the foundation model used to generate a response.</para>
+        /// <para>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference
+        /// profile</a> used to generate a response.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

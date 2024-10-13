@@ -1,1 +1,1 @@
-Get-S3BucketInventoryConfiguration -BucketName 's3testbucket' -InventoryId 'testinventory'
+Get-S3BucketInventoryConfiguration -BucketName 'amzn-s3-demo-bucket' -InventoryId 'testinventory'

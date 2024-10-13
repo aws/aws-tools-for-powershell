@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.AMPUI
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonAmplifyUIBuilderConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

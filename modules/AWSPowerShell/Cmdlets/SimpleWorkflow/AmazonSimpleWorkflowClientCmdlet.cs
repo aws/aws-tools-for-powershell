@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.SWF
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonSimpleWorkflowConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

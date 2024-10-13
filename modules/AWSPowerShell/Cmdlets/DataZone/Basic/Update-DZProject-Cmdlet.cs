@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         #region Parameter DomainIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon DataZone domain in which a project is to be updated.</para>
+        /// <para>The ID of the Amazon DataZone domain where a project is being updated.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -28,8 +28,8 @@ using Amazon.GuardDuty.Model;
 namespace Amazon.PowerShell.Cmdlets.GD
 {
     /// <summary>
-    /// Creates a publishing destination to export findings to. The resource to export findings
-    /// to must exist before you use this operation.
+    /// Creates a publishing destination where you can export your GuardDuty findings. Before
+    /// you start exporting the findings, the destination resource must exist.
     /// </summary>
     [Cmdlet("New", "GDPublishingDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTTM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonIoTTwinMakerConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

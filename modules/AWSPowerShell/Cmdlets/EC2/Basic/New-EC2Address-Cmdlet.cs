@@ -98,6 +98,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.DomainType Domain { get; set; }
         #endregion
         
+        #region Parameter IpamPoolId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of an IPAM pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String IpamPoolId { get; set; }
+        #endregion
+        
         #region Parameter NetworkBorderGroup
         /// <summary>
         /// <para>
@@ -178,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Address = this.Address;
             context.CustomerOwnedIpv4Pool = this.CustomerOwnedIpv4Pool;
             context.Domain = this.Domain;
+            context.IpamPoolId = this.IpamPoolId;
             context.NetworkBorderGroup = this.NetworkBorderGroup;
             context.PublicIpv4Pool = this.PublicIpv4Pool;
             if (this.TagSpecification != null)
@@ -211,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.IpamPoolId != null)
+            {
+                request.IpamPoolId = cmdletContext.IpamPoolId;
             }
             if (cmdletContext.NetworkBorderGroup != null)
             {
@@ -288,6 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Address { get; set; }
             public System.String CustomerOwnedIpv4Pool { get; set; }
             public Amazon.EC2.DomainType Domain { get; set; }
+            public System.String IpamPoolId { get; set; }
             public System.String NetworkBorderGroup { get; set; }
             public System.String PublicIpv4Pool { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecification { get; set; }

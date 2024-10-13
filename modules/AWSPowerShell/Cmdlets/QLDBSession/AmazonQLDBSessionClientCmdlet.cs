@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.QLDBS
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonQLDBSessionConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

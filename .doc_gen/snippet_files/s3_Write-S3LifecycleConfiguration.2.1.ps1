@@ -58,4 +58,4 @@ $ExpireRule = [Amazon.S3.Model.LifecycleRule] @{
 		)
 	}
 
-	Write-S3LifecycleConfiguration -BucketName my-review-scrap -Configuration_Rule $ExpireRule,$ArchiveRule
+	Write-S3LifecycleConfiguration -BucketName amzn-s3-demo-bucket -Configuration_Rule $ExpireRule,$ArchiveRule

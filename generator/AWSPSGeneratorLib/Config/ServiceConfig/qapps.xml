@@ -102,6 +102,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLibraryItemMetadata" Verb="Update" Noun="LibraryItemMetadata" ShouldProcessTarget="LibraryItemId" PipelineParameter="LibraryItemId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateQApp" OutputProperty="*" Verb="Update" Noun="QApp" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

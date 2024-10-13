@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Deletes Slack Channel Configuration
+    /// Deletes a Slack channel configuration for AWS Chatbot
     /// </summary>
     [Cmdlet("Remove", "CHATSlackChannelConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// The ARN of the SlackChannelConfiguration
-        /// to delete.
+        /// <para>The Amazon Resource Name (ARN) of the SlackChannelConfiguration to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

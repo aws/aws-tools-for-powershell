@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.
-    /// You can also view tags with <a>GetFunction</a>.
+    /// Returns a function, event source mapping, or code signing configuration's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>.
+    /// You can also view function tags with <a>GetFunction</a>.
     /// </summary>
     [Cmdlet("Get", "LMResourceTag")]
     [OutputType("System.String")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The function's Amazon Resource Name (ARN). Note: Lambda does not support adding tags
-        /// to aliases or versions.</para>
+        /// <para>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags
+        /// to function aliases or versions.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

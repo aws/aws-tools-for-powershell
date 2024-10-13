@@ -99,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty account that you want to invite members
-        /// with.</para>
+        /// <para>The unique ID of the detector of the GuardDuty account with which you want to invite
+        /// members.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

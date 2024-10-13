@@ -29,6 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
     /// Resets the password for any user in your Managed Microsoft AD or Simple AD directory.
+    /// Disabled users will become enabled and can be authenticated following the API call.
     /// 
     ///  
     /// <para>

@@ -150,6 +150,16 @@ $SES2_Completers = {
             break
         }
 
+        # Amazon.SimpleEmailV2.HttpsPolicy
+        {
+            ($_ -eq "Write-SES2ConfigurationSetTrackingOption/HttpsPolicy") -Or
+            ($_ -eq "New-SES2ConfigurationSet/TrackingOptions_HttpsPolicy")
+        }
+        {
+            $v = "OPTIONAL","REQUIRE","REQUIRE_OPEN_ONLY"
+            break
+        }
+
         # Amazon.SimpleEmailV2.ImportDestinationType
         "Get-SES2ImportJobList/ImportDestinationType"
         {
@@ -240,6 +250,7 @@ $SES2_map = @{
     "Filter_FilteredStatus"=@("Get-SES2ContactCollection")
     "GuardianAttributes_OptimizedSharedDelivery"=@("Write-SES2AccountVdmAttribute")
     "GuardianOptions_OptimizedSharedDelivery"=@("New-SES2ConfigurationSet","Write-SES2ConfigurationSetVdmOption")
+    "HttpsPolicy"=@("Write-SES2ConfigurationSetTrackingOption")
     "ImportDataSource_DataFormat"=@("New-SES2ImportJob")
     "ImportDestinationType"=@("Get-SES2ImportJobList")
     "JobStatus"=@("Get-SES2ExportJobList")
@@ -251,6 +262,7 @@ $SES2_map = @{
     "SigningAttributesOrigin"=@("Write-SES2EmailIdentityDkimSigningAttribute")
     "SuppressionListDestination_SuppressionListImportAction"=@("New-SES2ImportJob")
     "TlsPolicy"=@("Write-SES2ConfigurationSetDeliveryOption")
+    "TrackingOptions_HttpsPolicy"=@("New-SES2ConfigurationSet")
     "VdmAttributes_VdmEnabled"=@("Write-SES2AccountVdmAttribute")
 }
 

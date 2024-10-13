@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// You can register up to 20 consumers per stream. A given consumer can only be registered
     /// with one stream at a time.
     /// </para><para>
-    /// For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced
+    /// For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced
     /// Fan-Out Using the Kinesis Data Streams API</a>.
     /// </para><para>
     /// The use of this operation has a limit of five transactions per second per account.

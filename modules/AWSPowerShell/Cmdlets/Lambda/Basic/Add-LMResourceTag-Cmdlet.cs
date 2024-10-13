@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Adds <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>
-    /// to a function.
+    /// to a function, event source mapping, or code signing configuration.
     /// </summary>
     [Cmdlet("Add", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The function's Amazon Resource Name (ARN).</para>
+        /// <para>The resource's Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of tags to apply to the function.</para>
+        /// <para>A list of tags to apply to the resource.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

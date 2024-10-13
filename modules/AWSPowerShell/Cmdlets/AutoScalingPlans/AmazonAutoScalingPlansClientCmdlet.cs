@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.ASP
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonAutoScalingPlansConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -36,16 +36,19 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     /// when it expires. Backup transitions and expires backups automatically according to
     /// the lifecycle that you define.
     /// </para><para>
+    /// Resource types that can transition to cold storage are listed in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature
+    /// availability by resource</a> table. Backup ignores this expression for other resource
+    /// types.
+    /// </para><para>
     /// Backups transitioned to cold storage must be stored in cold storage for a minimum
     /// of 90 days. Therefore, the “retention” setting must be 90 days greater than the “transition
     /// to cold after days” setting. The “transition to cold after days” setting cannot be
     /// changed after a backup has been transitioned to cold.
-    /// </para><para>
-    /// Resource types that are able to be transitioned to cold storage are listed in the
-    /// "Lifecycle to cold storage" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-    /// Feature availability by resource</a> table. Backup ignores this expression for other
-    /// resource types.
-    /// </para><para>
+    /// </para><important><para>
+    /// If your lifecycle currently uses the parameters <c>DeleteAfterDays</c> and <c>MoveToColdStorageAfterDays</c>,
+    /// include these parameters and their values when you call this operation. Not including
+    /// them may result in your plan updating with null values.
+    /// </para></important><para>
     /// This operation does not support continuous backups.
     /// </para>
     /// </summary>
@@ -65,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>The name of a logical container where backups are stored. Backup vaults are identified
         /// by names that are unique to the account used to create them and the Amazon Web Services
-        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
+        /// Region where they are created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -82,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Lifecycle_DeleteAfterDay
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of days after creation that a recovery point is deleted. Must
-        /// be greater than 90 days plus <c>MoveToColdStorageAfterDays</c>.</para>
+        /// <para>The number of days after creation that a recovery point is deleted. This value must
+        /// be at least 90 days after the number of days specified in <c>MoveToColdStorageAfterDays</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,8 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Lifecycle_MoveToColdStorageAfterDay
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of days after creation that a recovery point is moved to cold
-        /// storage.</para>
+        /// <para>The number of days after creation that a recovery point is moved to cold storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,9 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Lifecycle_OptInToArchiveForSupportedResource
         /// <summary>
         /// <para>
-        /// <para>Optional Boolean. If this is true, this setting will instruct your backup plan to
-        /// transition supported resources to archive (cold) storage tier in accordance with your
-        /// lifecycle settings.</para>
+        /// <para>If the value is true, your backup plan transitions supported resources to archive
+        /// (cold) storage tier in accordance with your lifecycle settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

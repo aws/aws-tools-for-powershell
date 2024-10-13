@@ -543,6 +543,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String IfNoneMatch { get; set; }
         #endregion
 
+        #region Parameter RequestPayer
+        /// <summary>
+        /// <para>
+        /// <para>Confirms that the requester knows that they will be charged for the request. 
+        /// Bucket owners need not specify this parameter in their requests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.S3.RequestPayer")]
+        public Amazon.S3.RequestPayer RequestPayer { get; set; }
+        #endregion
+
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -589,7 +601,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Metadata = this.Metadata,
                 Headers = this.HeaderCollection,
 
-                IfNoneMatch = this.IfNoneMatch
+                IfNoneMatch = this.IfNoneMatch,
+                RequestPayer = this.RequestPayer
             };
 
             // this makes things simpler later
@@ -686,7 +699,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return CopyS3ObjectsToLocalFolder(context);
             
             // S3 requires multi-part operation for objects > 5GB
-            var objectSize = GetSourceObjectData(cmdletContext.SourceBucket, cmdletContext.SourceKey).ContentLength;
+            var objectSize = GetSourceObjectData(cmdletContext).ContentLength;
             return objectSize > FiveGigabytes ? MultipartCopyS3ObjectToS3(context, objectSize) : CopyS3ObjectToS3(context);
         }
 
@@ -696,8 +709,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         }
 
         #endregion
-        private GetObjectMetadataResponse GetSourceObjectData(string bucketName, string objectKey)
+        private GetObjectMetadataResponse GetSourceObjectData(CmdletContext cmdletContext)
         {
+            string bucketName = cmdletContext.SourceBucket;
+            string objectKey = cmdletContext.SourceKey;
+
             var copySourceRegionArgs = new StandaloneRegionArguments
             {
                 Region = this.SourceRegion,
@@ -706,12 +722,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
             copySourceRegionArgs.TryGetRegion(true, out var region, out var regionSource, SessionState);
             var sourceRegionClient = CreateClient(_CurrentCredentials, region);
 
-
             var request = new GetObjectMetadataRequest
             {
                 BucketName = bucketName,
                 Key = objectKey.TrimStart('/')
             };
+
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
+
             base.UserAgentAddition = AmazonS3Helper.GetCleanKeyUserAgentAdditionString(objectKey, request.Key);
 
             var response = CallAWSServiceOperation(sourceRegionClient, request);
@@ -719,7 +740,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         }
 
-        private S3Object GetObjectData(IAmazonS3 s3Client, string bucketName, string objectKey)
+        private S3Object GetObjectData(IAmazonS3 s3Client, string bucketName, string objectKey, RequestPayer requestPayer)
         {
             // The underlying S3 api does not like listing with prefixes starting with / so strip
             // (eg Copy-S3Object -BucketName test-bucket -Key /data/sample.txt -DestinationKey /data/sample-copy.txt)
@@ -730,6 +751,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 BucketName = bucketName,
                 Prefix = key
             };
+            
+            if (requestPayer != null)
+            {
+                request.RequestPayer = requestPayer;
+            }
+
             try
             {
                 var response = CallAWSServiceOperation(s3Client, request);
@@ -826,6 +853,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.TagSet.AddRange(cmdletContext.TagSet);
             }
 
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
+
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
             // issue call
@@ -840,7 +872,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                     var objectData = GetObjectData(Client,
                                                    request.DestinationBucket,
                                                    string.IsNullOrEmpty(cmdletContext.DestinationKey)
-                                                    ? cmdletContext.SourceKey : cmdletContext.DestinationKey);
+                                                    ? cmdletContext.SourceKey : cmdletContext.DestinationKey,
+                                                   cmdletContext.RequestPayer);
                     output = new CmdletOutput
                     {
                         PipelineOutput = objectData,
@@ -918,6 +951,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 if (!string.IsNullOrEmpty(cmdletContext.IfNoneMatch))
                     completeRequest.IfNoneMatch = cmdletContext.IfNoneMatch;
 
+                if (cmdletContext.RequestPayer != null)
+                {
+                    completeRequest.RequestPayer = cmdletContext.RequestPayer;
+                }
+
                 CallAWSServiceOperation(Client, completeRequest);
                 uploadId = null;
             }
@@ -927,7 +965,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 {
                     WriteProgressCompleteRecord(activity, "Copy object completed");
 
-                    var objectData = GetObjectData(Client, cmdletContext.DestinationBucket, cmdletContext.DestinationKey);
+                    var objectData = GetObjectData(Client, cmdletContext.DestinationBucket, cmdletContext.DestinationKey, cmdletContext.RequestPayer);
                     output = new CmdletOutput
                     {
                         PipelineOutput = objectData
@@ -941,6 +979,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                         BucketName = cmdletContext.DestinationBucket,
                         Key = cmdletContext.DestinationKey
                     };
+
+                    if (cmdletContext.RequestPayer != null)
+                    {
+                        abortRequest.RequestPayer = cmdletContext.RequestPayer;
+                    }
+
                     CallAWSServiceOperation(Client, abortRequest);
                     WriteProgressCompleteRecord(activity, "Operation failed");
                 }
@@ -977,6 +1021,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (cmdletContext.TagSet != null)
                 request.TagSet.AddRange(cmdletContext.TagSet);
+
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
 
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
         }
@@ -1027,6 +1076,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             request.ChecksumMode = cmdletContext.ChecksumMode;
 
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
+
             CmdletOutput output;
             using (var tu = new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint)))
             {
@@ -1076,6 +1130,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
             }
 #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+
+            if (cmdletContext.RequestPayer != null)
+            {
+                request.RequestPayer = cmdletContext.RequestPayer;
+            }
 
             CmdletOutput output;
             using (var tu = new TransferUtility(Client ?? CreateClient(_CurrentCredentials, _RegionEndpoint)))
@@ -1288,6 +1347,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public ChecksumMode ChecksumMode { get; set; }
 
             public String IfNoneMatch { get; set; }
+
+            public RequestPayer RequestPayer { get; set; }
         }
 
         internal class MultiPartObjectCopyController
@@ -1541,6 +1602,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ServerSideEncryptionCustomerMethod = _context.ServerSideEncryptionCustomerMethod;
                 request.ServerSideEncryptionCustomerProvidedKey = _context.ServerSideEncryptionCustomerProvidedKey;
                 request.ServerSideEncryptionCustomerProvidedKeyMD5 = _context.ServerSideEncryptionCustomerProvidedKeyMD5;
+
+                if (_context.RequestPayer != null)
+                {
+                    request.RequestPayer = _context.RequestPayer;
+                }
             }
 
             private void PartitionIntoParts()

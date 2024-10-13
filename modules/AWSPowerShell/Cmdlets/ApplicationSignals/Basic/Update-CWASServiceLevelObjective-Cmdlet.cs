@@ -29,7 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
 {
     /// <summary>
     /// Updates an existing service level objective (SLO). If you omit parameters, the previous
-    /// values of those parameters are retained.
+    /// values of those parameters are retained. 
+    /// 
+    ///  
+    /// <para>
+    /// You cannot change from a period-based SLO to a request-based SLO, or change from a
+    /// request-based SLO to a period-based SLO.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "CWASServiceLevelObjective", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ApplicationSignals.Model.ServiceLevelObjective")]
@@ -46,14 +52,39 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #region Parameter Goal_AttainmentGoal
         /// <summary>
         /// <para>
-        /// <para>The threshold that determines if the goal is being met. An <i>attainment goal</i>
-        /// is the ratio of good periods that meet the threshold requirements to the total periods
-        /// within the interval. For example, an attainment goal of 99.9% means that within your
-        /// interval, you are targeting 99.9% of the periods to be in healthy state.</para><para>If you omit this parameter, 99 is used to represent 99% as the attainment goal.</para>
+        /// <para>The threshold that determines if the goal is being met.</para><para>If this is a period-based SLO, the attainment goal is the percentage of good periods
+        /// that meet the threshold requirements to the total periods within the interval. For
+        /// example, an attainment goal of 99.9% means that within your interval, you are targeting
+        /// 99.9% of the periods to be in healthy state.</para><para>If this is a request-based SLO, the attainment goal is the percentage of requests
+        /// that must be successful to meet the attainment goal.</para><para>If you omit this parameter, 99 is used to represent 99% as the attainment goal.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Double? Goal_AttainmentGoal { get; set; }
+        #endregion
+        
+        #region Parameter MonitoredRequestCountMetric_BadCountMetric
+        /// <summary>
+        /// <para>
+        /// <para>If you want to count "bad requests" to determine the percentage of successful requests
+        /// for this request-based SLO, specify the metric to use as "bad requests" in this structure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_BadCountMetric")]
+        public Amazon.ApplicationSignals.Model.MetricDataQuery[] MonitoredRequestCountMetric_BadCountMetric { get; set; }
+        #endregion
+        
+        #region Parameter RequestBasedSliConfig_ComparisonOperator
+        /// <summary>
+        /// <para>
+        /// <para>The arithmetic operation to use when comparing the specified metric to the threshold.
+        /// This parameter is required if this SLO is tracking the <c>Latency</c> metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator")]
+        public Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator RequestBasedSliConfig_ComparisonOperator { get; set; }
         #endregion
         
         #region Parameter SliConfig_ComparisonOperator
@@ -126,6 +157,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public Amazon.ApplicationSignals.DurationUnit RollingInterval_DurationUnit { get; set; }
         #endregion
         
+        #region Parameter MonitoredRequestCountMetric_GoodCountMetric
+        /// <summary>
+        /// <para>
+        /// <para>If you want to count "good requests" to determine the percentage of successful requests
+        /// for this request-based SLO, specify the metric to use as "good requests" in this structure.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_GoodCountMetric")]
+        public Amazon.ApplicationSignals.Model.MetricDataQuery[] MonitoredRequestCountMetric_GoodCountMetric { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -142,6 +185,23 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter RequestBasedSliMetricConfig_KeyAttribute
+        /// <summary>
+        /// <para>
+        /// <para>If this SLO is related to a metric collected by Application Signals, you must use
+        /// this field to specify which service the SLO metric is related to. To do so, you must
+        /// specify at least the <c>Type</c>, <c>Name</c>, and <c>Environment</c> attributes.</para><para>This is a string-to-string map. It can include the following fields.</para><ul><li><para><c>Type</c> designates the type of object this is.</para></li><li><para><c>ResourceType</c> specifies the type of the resource. This field is used only when
+        /// the value of the <c>Type</c> field is <c>Resource</c> or <c>AWS::Resource</c>.</para></li><li><para><c>Name</c> specifies the name of the object. This is used only if the value of the
+        /// <c>Type</c> field is <c>Service</c>, <c>RemoteService</c>, or <c>AWS::Service</c>.</para></li><li><para><c>Identifier</c> identifies the resource objects of this resource. This is used
+        /// only if the value of the <c>Type</c> field is <c>Resource</c> or <c>AWS::Resource</c>.</para></li><li><para><c>Environment</c> specifies the location where this object is hosted, or what it
+        /// belongs to.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_KeyAttributes")]
+        public System.Collections.Hashtable RequestBasedSliMetricConfig_KeyAttribute { get; set; }
         #endregion
         
         #region Parameter SliMetricConfig_KeyAttribute
@@ -173,14 +233,41 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         public Amazon.ApplicationSignals.Model.MetricDataQuery[] SliMetricConfig_MetricDataQuery { get; set; }
         #endregion
         
+        #region Parameter RequestBasedSliConfig_MetricThreshold
+        /// <summary>
+        /// <para>
+        /// <para>The value that the SLI metric is compared to. This parameter is required if this SLO
+        /// is tracking the <c>Latency</c> metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Double? RequestBasedSliConfig_MetricThreshold { get; set; }
+        #endregion
+        
         #region Parameter SliConfig_MetricThreshold
         /// <summary>
         /// <para>
-        /// <para>The value that the SLI metric is compared to.</para>
+        /// <para>This parameter is used only when a request-based SLO tracks the <c>Latency</c> metric.
+        /// Specify the threshold value that the observed <c>Latency</c> metric values are to
+        /// be compared to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Double? SliConfig_MetricThreshold { get; set; }
+        #endregion
+        
+        #region Parameter RequestBasedSliMetricConfig_MetricType
+        /// <summary>
+        /// <para>
+        /// <para>If the SLO is to monitor either the <c>LATENCY</c> or <c>AVAILABILITY</c> metric that
+        /// Application Signals collects, use this field to specify which of those metrics is
+        /// used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_MetricType")]
+        [AWSConstantClassSource("Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType")]
+        public Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType RequestBasedSliMetricConfig_MetricType { get; set; }
         #endregion
         
         #region Parameter SliMetricConfig_MetricType
@@ -195,6 +282,18 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         [Alias("SliConfig_SliMetricConfig_MetricType")]
         [AWSConstantClassSource("Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType")]
         public Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType SliMetricConfig_MetricType { get; set; }
+        #endregion
+        
+        #region Parameter RequestBasedSliMetricConfig_OperationName
+        /// <summary>
+        /// <para>
+        /// <para>If the SLO is to monitor a specific operation of the service, use this field to specify
+        /// the name of that operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_OperationName")]
+        public System.String RequestBasedSliMetricConfig_OperationName { get; set; }
         #endregion
         
         #region Parameter SliMetricConfig_OperationName
@@ -248,6 +347,19 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("SliConfig_SliMetricConfig_Statistic")]
         public System.String SliMetricConfig_Statistic { get; set; }
+        #endregion
+        
+        #region Parameter RequestBasedSliMetricConfig_TotalRequestCountMetric
+        /// <summary>
+        /// <para>
+        /// <para>Use this structure to define the metric that you want to use as the "total requests"
+        /// number for a request-based SLO. This result will be divided by the "good request"
+        /// or "bad request" value defined in <c>MonitoredRequestCountMetric</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RequestBasedSliConfig_RequestBasedSliMetricConfig_TotalRequestCountMetric")]
+        public Amazon.ApplicationSignals.Model.MetricDataQuery[] RequestBasedSliMetricConfig_TotalRequestCountMetric { get; set; }
         #endregion
         
         #region Parameter Goal_WarningThreshold
@@ -338,6 +450,30 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
                 WriteWarning("You are passing $null as a value for parameter Id which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.RequestBasedSliConfig_ComparisonOperator = this.RequestBasedSliConfig_ComparisonOperator;
+            context.RequestBasedSliConfig_MetricThreshold = this.RequestBasedSliConfig_MetricThreshold;
+            if (this.RequestBasedSliMetricConfig_KeyAttribute != null)
+            {
+                context.RequestBasedSliMetricConfig_KeyAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RequestBasedSliMetricConfig_KeyAttribute.Keys)
+                {
+                    context.RequestBasedSliMetricConfig_KeyAttribute.Add((String)hashKey, (System.String)(this.RequestBasedSliMetricConfig_KeyAttribute[hashKey]));
+                }
+            }
+            context.RequestBasedSliMetricConfig_MetricType = this.RequestBasedSliMetricConfig_MetricType;
+            if (this.MonitoredRequestCountMetric_BadCountMetric != null)
+            {
+                context.MonitoredRequestCountMetric_BadCountMetric = new List<Amazon.ApplicationSignals.Model.MetricDataQuery>(this.MonitoredRequestCountMetric_BadCountMetric);
+            }
+            if (this.MonitoredRequestCountMetric_GoodCountMetric != null)
+            {
+                context.MonitoredRequestCountMetric_GoodCountMetric = new List<Amazon.ApplicationSignals.Model.MetricDataQuery>(this.MonitoredRequestCountMetric_GoodCountMetric);
+            }
+            context.RequestBasedSliMetricConfig_OperationName = this.RequestBasedSliMetricConfig_OperationName;
+            if (this.RequestBasedSliMetricConfig_TotalRequestCountMetric != null)
+            {
+                context.RequestBasedSliMetricConfig_TotalRequestCountMetric = new List<Amazon.ApplicationSignals.Model.MetricDataQuery>(this.RequestBasedSliMetricConfig_TotalRequestCountMetric);
+            }
             context.SliConfig_ComparisonOperator = this.SliConfig_ComparisonOperator;
             context.SliConfig_MetricThreshold = this.SliConfig_MetricThreshold;
             if (this.SliMetricConfig_KeyAttribute != null)
@@ -503,6 +639,125 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             if (cmdletContext.Id != null)
             {
                 request.Id = cmdletContext.Id;
+            }
+            
+             // populate RequestBasedSliConfig
+            var requestRequestBasedSliConfigIsNull = true;
+            request.RequestBasedSliConfig = new Amazon.ApplicationSignals.Model.RequestBasedServiceLevelIndicatorConfig();
+            Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator requestRequestBasedSliConfig_requestBasedSliConfig_ComparisonOperator = null;
+            if (cmdletContext.RequestBasedSliConfig_ComparisonOperator != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_ComparisonOperator = cmdletContext.RequestBasedSliConfig_ComparisonOperator;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_ComparisonOperator != null)
+            {
+                request.RequestBasedSliConfig.ComparisonOperator = requestRequestBasedSliConfig_requestBasedSliConfig_ComparisonOperator;
+                requestRequestBasedSliConfigIsNull = false;
+            }
+            System.Double? requestRequestBasedSliConfig_requestBasedSliConfig_MetricThreshold = null;
+            if (cmdletContext.RequestBasedSliConfig_MetricThreshold != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_MetricThreshold = cmdletContext.RequestBasedSliConfig_MetricThreshold.Value;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_MetricThreshold != null)
+            {
+                request.RequestBasedSliConfig.MetricThreshold = requestRequestBasedSliConfig_requestBasedSliConfig_MetricThreshold.Value;
+                requestRequestBasedSliConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.Model.RequestBasedServiceLevelIndicatorMetricConfig requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig = null;
+            
+             // populate RequestBasedSliMetricConfig
+            var requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = true;
+            requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig = new Amazon.ApplicationSignals.Model.RequestBasedServiceLevelIndicatorMetricConfig();
+            Dictionary<System.String, System.String> requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_KeyAttribute = null;
+            if (cmdletContext.RequestBasedSliMetricConfig_KeyAttribute != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_KeyAttribute = cmdletContext.RequestBasedSliMetricConfig_KeyAttribute;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_KeyAttribute != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig.KeyAttributes = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_KeyAttribute;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_MetricType = null;
+            if (cmdletContext.RequestBasedSliMetricConfig_MetricType != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_MetricType = cmdletContext.RequestBasedSliMetricConfig_MetricType;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_MetricType != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig.MetricType = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_MetricType;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = false;
+            }
+            System.String requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_OperationName = null;
+            if (cmdletContext.RequestBasedSliMetricConfig_OperationName != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_OperationName = cmdletContext.RequestBasedSliMetricConfig_OperationName;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_OperationName != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig.OperationName = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_OperationName;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = false;
+            }
+            List<Amazon.ApplicationSignals.Model.MetricDataQuery> requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_TotalRequestCountMetric = null;
+            if (cmdletContext.RequestBasedSliMetricConfig_TotalRequestCountMetric != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_TotalRequestCountMetric = cmdletContext.RequestBasedSliMetricConfig_TotalRequestCountMetric;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_TotalRequestCountMetric != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig.TotalRequestCountMetric = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliMetricConfig_TotalRequestCountMetric;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = false;
+            }
+            Amazon.ApplicationSignals.Model.MonitoredRequestCountMetricDataQueries requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric = null;
+            
+             // populate MonitoredRequestCountMetric
+            var requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetricIsNull = true;
+            requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric = new Amazon.ApplicationSignals.Model.MonitoredRequestCountMetricDataQueries();
+            List<Amazon.ApplicationSignals.Model.MetricDataQuery> requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_BadCountMetric = null;
+            if (cmdletContext.MonitoredRequestCountMetric_BadCountMetric != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_BadCountMetric = cmdletContext.MonitoredRequestCountMetric_BadCountMetric;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_BadCountMetric != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric.BadCountMetric = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_BadCountMetric;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetricIsNull = false;
+            }
+            List<Amazon.ApplicationSignals.Model.MetricDataQuery> requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_GoodCountMetric = null;
+            if (cmdletContext.MonitoredRequestCountMetric_GoodCountMetric != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_GoodCountMetric = cmdletContext.MonitoredRequestCountMetric_GoodCountMetric;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_GoodCountMetric != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric.GoodCountMetric = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric_monitoredRequestCountMetric_GoodCountMetric;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetricIsNull = false;
+            }
+             // determine if requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric should be set to null
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetricIsNull)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric = null;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric != null)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig.MonitoredRequestCountMetric = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_requestBasedSliConfig_RequestBasedSliMetricConfig_MonitoredRequestCountMetric;
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull = false;
+            }
+             // determine if requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig should be set to null
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfigIsNull)
+            {
+                requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig = null;
+            }
+            if (requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig != null)
+            {
+                request.RequestBasedSliConfig.RequestBasedSliMetricConfig = requestRequestBasedSliConfig_requestBasedSliConfig_RequestBasedSliMetricConfig;
+                requestRequestBasedSliConfigIsNull = false;
+            }
+             // determine if request.RequestBasedSliConfig should be set to null
+            if (requestRequestBasedSliConfigIsNull)
+            {
+                request.RequestBasedSliConfig = null;
             }
             
              // populate SliConfig
@@ -678,6 +933,14 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
             public Amazon.ApplicationSignals.DurationUnit RollingInterval_DurationUnit { get; set; }
             public System.Double? Goal_WarningThreshold { get; set; }
             public System.String Id { get; set; }
+            public Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator RequestBasedSliConfig_ComparisonOperator { get; set; }
+            public System.Double? RequestBasedSliConfig_MetricThreshold { get; set; }
+            public Dictionary<System.String, System.String> RequestBasedSliMetricConfig_KeyAttribute { get; set; }
+            public Amazon.ApplicationSignals.ServiceLevelIndicatorMetricType RequestBasedSliMetricConfig_MetricType { get; set; }
+            public List<Amazon.ApplicationSignals.Model.MetricDataQuery> MonitoredRequestCountMetric_BadCountMetric { get; set; }
+            public List<Amazon.ApplicationSignals.Model.MetricDataQuery> MonitoredRequestCountMetric_GoodCountMetric { get; set; }
+            public System.String RequestBasedSliMetricConfig_OperationName { get; set; }
+            public List<Amazon.ApplicationSignals.Model.MetricDataQuery> RequestBasedSliMetricConfig_TotalRequestCountMetric { get; set; }
             public Amazon.ApplicationSignals.ServiceLevelIndicatorComparisonOperator SliConfig_ComparisonOperator { get; set; }
             public System.Double? SliConfig_MetricThreshold { get; set; }
             public Dictionary<System.String, System.String> SliMetricConfig_KeyAttribute { get; set; }

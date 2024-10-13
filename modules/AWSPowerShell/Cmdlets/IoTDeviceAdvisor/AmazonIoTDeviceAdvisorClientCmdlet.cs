@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTDA
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonIoTDeviceAdvisorConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

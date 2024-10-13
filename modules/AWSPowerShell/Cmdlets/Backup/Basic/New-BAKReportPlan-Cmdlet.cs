@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportSetting_Account
         /// <summary>
         /// <para>
-        /// <para>These are the accounts to be included in the report.</para>
+        /// <para>These are the accounts to be included in the report.</para><para>Use string value of <c>ROOT</c> to include all organizational units.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportDeliveryChannel_Format
         /// <summary>
         /// <para>
-        /// <para>A list of the format of your reports: <c>CSV</c>, <c>JSON</c>, or both. If not specified,
-        /// the default format is <c>CSV</c>.</para>
+        /// <para>The format of your reports: <c>CSV</c>, <c>JSON</c>, or both. If not specified, the
+        /// default format is <c>CSV</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportSetting_Region
         /// <summary>
         /// <para>
-        /// <para>These are the Regions to be included in the report.</para>
+        /// <para>These are the Regions to be included in the report.</para><para>Use the wildcard as the string value to include all Regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -159,8 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter ReportPlanTag
         /// <summary>
         /// <para>
-        /// <para>Metadata that you can assign to help organize the report plans that you create. Each
-        /// tag is a key-value pair.</para>
+        /// <para>The tags to assign to the report plan.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

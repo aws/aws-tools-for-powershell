@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.LFV
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonLookoutforVisionConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -42,6 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter ComputeRedundancy
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to create standby DB shard groups for the DB shard group. Valid
+        /// values are the following:</para><ul><li><para>0 - Creates a DB shard group without a standby DB shard group. This is the default
+        /// value.</para></li><li><para>1 - Creates a DB shard group with a standby DB shard group in a different Availability
+        /// Zone (AZ).</para></li><li><para>2 - Creates a DB shard group with two standby DB shard groups in two different AZs.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int32? ComputeRedundancy { get; set; }
+        #endregion
+        
         #region Parameter DBShardGroupIdentifier
         /// <summary>
         /// <para>
@@ -141,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Select = (response, cmdlet) => this.DBShardGroupIdentifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.ComputeRedundancy = this.ComputeRedundancy;
             context.DBShardGroupIdentifier = this.DBShardGroupIdentifier;
             #if MODULAR
             if (this.DBShardGroupIdentifier == null && ParameterWasBound(nameof(this.DBShardGroupIdentifier)))
@@ -166,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // create request
             var request = new Amazon.RDS.Model.ModifyDBShardGroupRequest();
             
+            if (cmdletContext.ComputeRedundancy != null)
+            {
+                request.ComputeRedundancy = cmdletContext.ComputeRedundancy.Value;
+            }
             if (cmdletContext.DBShardGroupIdentifier != null)
             {
                 request.DBShardGroupIdentifier = cmdletContext.DBShardGroupIdentifier;
@@ -239,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ComputeRedundancy { get; set; }
             public System.String DBShardGroupIdentifier { get; set; }
             public System.Double? MaxACU { get; set; }
             public System.Double? MinACU { get; set; }

@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty account that you want to create a threatIntelSet
-        /// for.</para>
+        /// <para>The unique ID of the detector of the GuardDuty account for which you want to create
+        /// a <c>ThreatIntelSet</c>.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

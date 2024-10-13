@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.AMM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonMainframeModernizationConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

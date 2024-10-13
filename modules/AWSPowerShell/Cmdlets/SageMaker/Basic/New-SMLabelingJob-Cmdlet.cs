@@ -138,14 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// tool.</para><ul><li><para><c>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudSemanticSegmentation</c></para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         [Alias("HumanTaskConfig_AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn")]
         public System.String AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn { get; set; }
         #endregion
@@ -450,14 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// masks in a 3D point cloud. </para><ul><li><para><c>arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li><li><para><c>arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation</c></para></li></ul>
         /// </para>
         /// </summary>
-        #if !MODULAR
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        #else
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true)]
-        [System.Management.Automation.AllowEmptyString]
-        [System.Management.Automation.AllowNull]
-        #endif
-        [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String HumanTaskConfig_PreHumanTaskLambdaArn { get; set; }
         #endregion
         
@@ -771,12 +757,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn = this.AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn;
-            #if MODULAR
-            if (this.AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn == null && ParameterWasBound(nameof(this.AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter AnnotationConsolidationConfig_AnnotationConsolidationLambdaArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.HumanTaskConfig_MaxConcurrentTaskCount = this.HumanTaskConfig_MaxConcurrentTaskCount;
             context.HumanTaskConfig_NumberOfHumanWorkersPerDataObject = this.HumanTaskConfig_NumberOfHumanWorkersPerDataObject;
             #if MODULAR
@@ -786,12 +766,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             #endif
             context.HumanTaskConfig_PreHumanTaskLambdaArn = this.HumanTaskConfig_PreHumanTaskLambdaArn;
-            #if MODULAR
-            if (this.HumanTaskConfig_PreHumanTaskLambdaArn == null && ParameterWasBound(nameof(this.HumanTaskConfig_PreHumanTaskLambdaArn)))
-            {
-                WriteWarning("You are passing $null as a value for parameter HumanTaskConfig_PreHumanTaskLambdaArn which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
-            }
-            #endif
             context.AmountInUsd_Cent = this.AmountInUsd_Cent;
             context.AmountInUsd_Dollar = this.AmountInUsd_Dollar;
             context.AmountInUsd_TenthFractionsOfACent = this.AmountInUsd_TenthFractionsOfACent;

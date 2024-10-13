@@ -37,8 +37,11 @@ namespace Amazon.PowerShell.Cmdlets.BAK
     ///  <note><para>
     /// Backup Vault Lock has been assessed by Cohasset Associates for use in environments
     /// that are subject to SEC 17a-4, CFTC, and FINRA regulations. For more information about
-    /// how Backup Vault Lock relates to these regulations, see the <a href="samples/cohassetreport.zip">Cohasset
-    /// Associates Compliance Assessment.</a></para></note>
+    /// how Backup Vault Lock relates to these regulations, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/samples/cohassetreport.zip">Cohasset
+    /// Associates Compliance Assessment.</a></para></note><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html">Backup
+    /// Vault Lock</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "BAKBackupVaultLockConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -117,8 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>The Backup Vault Lock configuration that specifies the minimum retention period that
         /// the vault retains its recovery points. This setting can be useful if, for example,
         /// your organization's policies require you to retain certain data for at least seven
-        /// years (2555 days).</para><para>If this parameter is not specified, Vault Lock will not enforce a minimum retention
-        /// period.</para><para>If this parameter is specified, any backup or copy job to the vault must have a lifecycle
+        /// years (2555 days).</para><para>This parameter is required when a vault lock is created through CloudFormation; otherwise,
+        /// this parameter is optional. If this parameter is not specified, Vault Lock will not
+        /// enforce a minimum retention period.</para><para>If this parameter is specified, any backup or copy job to the vault must have a lifecycle
         /// policy with a retention period equal to or longer than the minimum retention period.
         /// If the job's retention period is shorter than that minimum retention period, then
         /// the vault fails that backup or copy job, and you should either modify your lifecycle

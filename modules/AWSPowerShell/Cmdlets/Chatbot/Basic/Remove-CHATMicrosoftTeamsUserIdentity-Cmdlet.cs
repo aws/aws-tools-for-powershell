@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Deletes a Teams user identity
+    /// Identifes a user level permission for a channel configuration.
     /// </summary>
     [Cmdlet("Remove", "CHATMicrosoftTeamsUserIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// The ARN of the MicrosoftTeamsChannelConfiguration
-        /// associated with the user identity to delete.
+        /// <para>The ARN of the MicrosoftTeamsChannelConfiguration associated with the user identity
+        /// to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// Id from Microsoft Teams for user.
+        /// <para>The Microsoft Teams user ID.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

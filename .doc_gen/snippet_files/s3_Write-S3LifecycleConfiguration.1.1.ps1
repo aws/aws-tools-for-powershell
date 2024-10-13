@@ -24,4 +24,4 @@ $NewRule = [Amazon.S3.Model.LifecycleRule] @{
 		}
 	}
     
-	Write-S3LifecycleConfiguration -BucketName my-review-scrap -Configuration_Rule $NewRule
+	Write-S3LifecycleConfiguration -BucketName amzn-s3-demo-bucket -Configuration_Rule $NewRule

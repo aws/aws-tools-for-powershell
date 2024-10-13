@@ -226,8 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// <para>The OpsItem status. Status can be <c>Open</c>, <c>In Progress</c>, or <c>Resolved</c>.
-        /// For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing
+        /// <para>The OpsItem status. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing
         /// OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>

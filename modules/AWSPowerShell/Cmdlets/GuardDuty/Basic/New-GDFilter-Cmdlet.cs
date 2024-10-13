@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector belonging to the GuardDuty account that you want to create
-        /// a filter for.</para>
+        /// <para>The detector ID associated with the GuardDuty account for which you want to create
+        /// a filter.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

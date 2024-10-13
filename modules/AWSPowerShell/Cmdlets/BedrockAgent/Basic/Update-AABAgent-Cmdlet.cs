@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         /// in parts of the agent sequence. If you specify this field, at least one of the <c>promptConfigurations</c>
         /// must contain a <c>parserMode</c> value that is set to <c>OVERRIDDEN</c>. For more
         /// information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser
-        /// Lambda function in Agents for Amazon Bedrock</a>.</para>
+        /// Lambda function in Amazon Bedrock Agents</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

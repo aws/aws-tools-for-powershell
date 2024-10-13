@@ -28,7 +28,13 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Returns the current finding aggregation configuration.
+    /// <note><para>
+    /// The <i>aggregation Region</i> is now called the <i>home Region</i>.
+    /// </para></note><para>
+    /// Returns the current configuration in the calling account for cross-Region aggregation.
+    /// A finding aggregator is a resource that establishes the home Region and any linked
+    /// Regions.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SHUBFindingAggregator")]
     [OutputType("Amazon.SecurityHub.Model.GetFindingAggregatorResponse")]

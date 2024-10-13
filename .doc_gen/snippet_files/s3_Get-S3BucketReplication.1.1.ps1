@@ -1,1 +1,1 @@
-Get-S3BucketReplication -BucketName mybucket
+Get-S3BucketReplication -BucketName amzn-s3-demo-bucket

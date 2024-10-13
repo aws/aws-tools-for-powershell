@@ -276,6 +276,17 @@ namespace Amazon.PowerShell.Cmdlets.CPF
         public System.Collections.Hashtable ObjectTypeNames { get; set; }
         #endregion
         
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the IAM role. The Integration uses this role to
+        /// make Customer Profiles requests on your behalf.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
         #region Parameter Scheduled_ScheduleEndTime
         /// <summary>
         /// <para>
@@ -483,6 +494,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
                     context.ObjectTypeNames.Add((String)hashKey, (System.String)(this.ObjectTypeNames[hashKey]));
                 }
             }
+            context.RoleArn = this.RoleArn;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -924,6 +936,10 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             {
                 request.ObjectTypeNames = cmdletContext.ObjectTypeNames;
             }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1019,6 +1035,7 @@ namespace Amazon.PowerShell.Cmdlets.CPF
             public Amazon.CustomerProfiles.TriggerType TriggerConfig_TriggerType { get; set; }
             public System.String ObjectTypeName { get; set; }
             public Dictionary<System.String, System.String> ObjectTypeNames { get; set; }
+            public System.String RoleArn { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Uri { get; set; }
             public System.Func<Amazon.CustomerProfiles.Model.PutIntegrationResponse, WriteCPFIntegrationCmdlet, object> Select { get; set; } =

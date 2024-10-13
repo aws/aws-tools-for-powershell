@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Revokes function-use permission from an Amazon Web Servicesservice or another Amazon
+    /// Revokes function-use permission from an Amazon Web Services service or another Amazon
     /// Web Services account. You can get the ID of the statement from the output of <a>GetPolicy</a>.
     /// </summary>
     [Cmdlet("Remove", "LMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

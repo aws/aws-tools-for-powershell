@@ -104,6 +104,13 @@ $FIS_Completers = {
             break
         }
 
+        # Amazon.FIS.SafetyLeverStatusInput
+        "Update-FISSafetyLeverState/State_Status"
+        {
+            $v = "disengaged","engaged"
+            break
+        }
+
 
     }
 
@@ -116,6 +123,7 @@ $FIS_map = @{
     "ExperimentOptions_AccountTargeting"=@("New-FISExperimentTemplate")
     "ExperimentOptions_ActionsMode"=@("Start-FISExperiment")
     "ExperimentOptions_EmptyTargetResolutionMode"=@("New-FISExperimentTemplate","Update-FISExperimentTemplate")
+    "State_Status"=@("Update-FISSafetyLeverState")
 }
 
 _awsArgumentCompleterRegistration $FIS_Completers $FIS_map
@@ -176,6 +184,7 @@ $FIS_SelectMap = @{
                "Get-FISExperiment",
                "Get-FISExperimentTargetAccountConfiguration",
                "Get-FISExperimentTemplate",
+               "Get-FISSafetyLever",
                "Get-FISTargetAccountConfiguration",
                "Get-FISTargetResourceType",
                "Get-FISActionList",
@@ -191,6 +200,7 @@ $FIS_SelectMap = @{
                "Add-FISResourceTag",
                "Remove-FISResourceTag",
                "Update-FISExperimentTemplate",
+               "Update-FISSafetyLeverState",
                "Update-FISTargetAccountConfiguration")
 }
 

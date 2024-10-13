@@ -1,1 +1,1 @@
-Test-S3Bucket -BucketName test-files
+Test-S3Bucket -BucketName amzn-s3-demo-bucket

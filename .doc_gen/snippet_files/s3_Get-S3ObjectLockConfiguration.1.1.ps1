@@ -1,1 +1,1 @@
-Get-S3ObjectLockConfiguration -BucketName 's3buckettesting' -Select ObjectLockConfiguration.ObjectLockEnabled
+Get-S3ObjectLockConfiguration -BucketName 'amzn-s3-demo-bucket' -Select ObjectLockConfiguration.ObjectLockEnabled

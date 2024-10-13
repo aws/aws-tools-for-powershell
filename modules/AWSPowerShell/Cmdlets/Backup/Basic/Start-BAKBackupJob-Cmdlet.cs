@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupOption
         /// <summary>
         /// <para>
-        /// <para>Specifies the backup option for a selected resource. This option is only available
-        /// for Windows Volume Shadow Copy Service (VSS) backup jobs.</para><para>Valid values: Set to <c>"WindowsVSS":"enabled"</c> to enable the <c>WindowsVSS</c>
+        /// <para>The backup option for a selected resource. This option is only available for Windows
+        /// Volume Shadow Copy Service (VSS) backup jobs.</para><para>Valid values: Set to <c>"WindowsVSS":"enabled"</c> to enable the <c>WindowsVSS</c>
         /// backup option and create a Windows VSS backup. Set to <c>"WindowsVSS""disabled"</c>
         /// to create a regular backup. The <c>WindowsVSS</c> option is not enabled by default.</para>
         /// </para>
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>The name of a logical container where backups are stored. Backup vaults are identified
         /// by names that are unique to the account used to create them and the Amazon Web Services
-        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
+        /// Region where they are created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -94,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Lifecycle_DeleteAfterDay
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of days after creation that a recovery point is deleted. Must
-        /// be greater than 90 days plus <c>MoveToColdStorageAfterDays</c>.</para>
+        /// <para>The number of days after creation that a recovery point is deleted. This value must
+        /// be at least 90 days after the number of days specified in <c>MoveToColdStorageAfterDays</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -136,8 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Lifecycle_MoveToColdStorageAfterDay
         /// <summary>
         /// <para>
-        /// <para>Specifies the number of days after creation that a recovery point is moved to cold
-        /// storage.</para>
+        /// <para>The number of days after creation that a recovery point is moved to cold storage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -148,9 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Lifecycle_OptInToArchiveForSupportedResource
         /// <summary>
         /// <para>
-        /// <para>Optional Boolean. If this is true, this setting will instruct your backup plan to
-        /// transition supported resources to archive (cold) storage tier in accordance with your
-        /// lifecycle settings.</para>
+        /// <para>If the value is true, your backup plan transitions supported resources to archive
+        /// (cold) storage tier in accordance with your lifecycle settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,8 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RecoveryPointTag
         /// <summary>
         /// <para>
-        /// <para>To help organize your resources, you can assign your own metadata to the resources
-        /// that you create. Each tag is a key-value pair.</para>
+        /// <para>The tags to assign to the resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

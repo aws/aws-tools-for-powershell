@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonEMRServerlessConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

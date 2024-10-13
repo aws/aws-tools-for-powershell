@@ -189,6 +189,16 @@ $EMCN_Completers = {
             break
         }
 
+        # Amazon.MediaConnect.ThumbnailState
+        {
+            ($_ -eq "New-EMCNFlow/SourceMonitoringConfig_ThumbnailState") -Or
+            ($_ -eq "Update-EMCNFlow/SourceMonitoringConfig_ThumbnailState")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
 
     }
 
@@ -213,6 +223,7 @@ $EMCN_map = @{
     "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
     "SourceFailoverConfig_FailoverMode"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
     "SourceFailoverConfig_State"=@("New-EMCNBridge","New-EMCNFlow","Update-EMCNBridge","Update-EMCNFlow")
+    "SourceMonitoringConfig_ThumbnailState"=@("New-EMCNFlow","Update-EMCNFlow")
 }
 
 _awsArgumentCompleterRegistration $EMCN_Completers $EMCN_map
@@ -281,6 +292,7 @@ $EMCN_SelectMap = @{
                "Get-EMCNBridge",
                "Get-EMCNFlow",
                "Get-EMCNFlowSourceMetadata",
+               "Get-EMCNFlowSourceThumbnail",
                "Get-EMCNGateway",
                "Get-EMCNGatewayInstance",
                "Get-EMCNOffering",

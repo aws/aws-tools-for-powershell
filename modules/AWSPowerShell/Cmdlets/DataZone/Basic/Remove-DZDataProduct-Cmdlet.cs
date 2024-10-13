@@ -28,7 +28,7 @@ using Amazon.DataZone.Model;
 namespace Amazon.PowerShell.Cmdlets.DZ
 {
     /// <summary>
-    /// Deletes an data product in Amazon DataZone.
+    /// Deletes a data product in Amazon DataZone.
     /// </summary>
     [Cmdlet("Remove", "DZDataProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

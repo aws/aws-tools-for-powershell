@@ -139,6 +139,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 }
                 writer.CloseRegion();
                 writer.WriteLine();
+                writer.WriteLine("protected override void BeginProcessing()");
+                writer.OpenRegion();
+                {
+                    writer.WriteLine("base.AWSServiceId = {0}.ServiceId.ToString();", serviceConfig.ServiceClientConfig);
+                    writer.WriteLine();
+                    writer.WriteLine("base.BeginProcessing();");
+                }
+                writer.CloseRegion();
+                writer.WriteLine();
                 writer.WriteLine("protected override void ProcessRecord()");
                 writer.OpenRegion();
                 {

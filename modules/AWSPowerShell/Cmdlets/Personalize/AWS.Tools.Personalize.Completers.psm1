@@ -270,7 +270,8 @@ $PERS_SelectMap = @{
                "Update-PERSCampaign",
                "Update-PERSDataset",
                "Update-PERSMetricAttribution",
-               "Update-PERSRecommender")
+               "Update-PERSRecommender",
+               "Update-PERSSolution")
 }
 
 _awsArgumentCompleterRegistration $PERS_SelectCompleters $PERS_SelectMap

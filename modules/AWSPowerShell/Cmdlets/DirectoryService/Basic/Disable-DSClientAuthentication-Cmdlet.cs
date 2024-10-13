@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of client authentication to disable. Currently, only the parameter, <c>SmartCard</c>
+        /// <para>The type of client authentication to disable. Currently the only parameter <c>"SmartCard"</c>
         /// is supported.</para>
         /// </para>
         /// </summary>

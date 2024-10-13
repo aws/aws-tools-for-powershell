@@ -1,1 +1,1 @@
-Write-S3Object -BucketName test-files -Key "sample.txt" -Content "object contents"
+Write-S3Object -BucketName amzn-s3-demo-bucket -Key "sample.txt" -Content "object contents"

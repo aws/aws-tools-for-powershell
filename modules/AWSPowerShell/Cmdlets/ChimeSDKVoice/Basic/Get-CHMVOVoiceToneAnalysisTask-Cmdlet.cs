@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter VoiceToneAnalysisTaskId
         /// <summary>
         /// <para>
-        /// <para>The ID of the voice tone anlysis task.</para>
+        /// <para>The ID of the voice tone analysis task.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

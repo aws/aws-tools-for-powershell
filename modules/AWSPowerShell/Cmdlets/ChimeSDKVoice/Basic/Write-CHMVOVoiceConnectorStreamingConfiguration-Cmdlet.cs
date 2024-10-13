@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CHMVO
         #region Parameter MediaInsightsConfiguration_Disabled
         /// <summary>
         /// <para>
-        /// <para>Denotes the configration as enabled or disabled.</para>
+        /// <para>Denotes the configuration as enabled or disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

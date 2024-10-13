@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupPlanId
         /// <summary>
         /// <para>
-        /// <para>Uniquely identifies the backup plan to be associated with the selection of resources.</para>
+        /// <para>The ID of the backup plan.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -92,11 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_ListOfTag
         /// <summary>
         /// <para>
-        /// <para>A list of conditions that you define to assign resources to your backup plans using
-        /// tags. For example, <c>"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value":
-        /// "true" },</c>. Condition operators are case sensitive.</para><para><c>ListOfTags</c> differs from <c>Conditions</c> as follows:</para><ul><li><para>When you specify more than one condition, you assign all resources that match AT LEAST
-        /// ONE condition (using OR logic).</para></li><li><para><c>ListOfTags</c> only supports <c>StringEquals</c>. <c>Conditions</c> supports <c>StringEquals</c>,
-        /// <c>StringLike</c>, <c>StringNotEquals</c>, and <c>StringNotLike</c>. </para></li></ul>
+        /// <para>The conditions that you define to assign resources to your backup plans using tags.
+        /// For example, <c>"StringEquals": { "ConditionKey": "backup", "ConditionValue": "daily"}</c>.</para><para><c>ListOfTags</c> supports only <c>StringEquals</c>. Condition operators are case
+        /// sensitive.</para><para>If you specify multiple conditions, the resources much match any of the conditions
+        /// (OR logic).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -107,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_NotResource
         /// <summary>
         /// <para>
-        /// <para>A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum
-        /// number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to exclude many resources from a backup plan, consider a different resource
+        /// <para>The Amazon Resource Names (ARNs) of the resources to exclude from a backup plan. The
+        /// maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to exclude many resources from a backup plan, consider a different resource
         /// selection strategy, such as assigning only one or a few resource types or refining
         /// your resource selection using tags.</para>
         /// </para>
@@ -121,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupSelection_Resource
         /// <summary>
         /// <para>
-        /// <para>A list of Amazon Resource Names (ARNs) to assign to a backup plan. The maximum number
-        /// of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to assign many resources to a backup plan, consider a different resource
+        /// <para>The Amazon Resource Names (ARNs) of the resources to assign to a backup plan. The
+        /// maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.</para><para>If you need to assign many resources to a backup plan, consider a different resource
         /// selection strategy, such as assigning all resources of a resource type or refining
-        /// your resource selection using tags.</para>
+        /// your resource selection using tags.</para><para>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

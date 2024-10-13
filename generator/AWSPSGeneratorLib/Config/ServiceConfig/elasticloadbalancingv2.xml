@@ -92,6 +92,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeListenerAttributes" OutputProperty="Attributes" Verb="Get" Noun="ListenerAttribute" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeListenerCertificates" OutputProperty="Certificates" Verb="Get" Noun="ListenerCertificate" PipelineParameter="ListenerArn" NoPipelineParameter="false" LegacyPagination="UseEmitLimit">
             <Params />
             <TypesNotToFlatten />
@@ -157,6 +161,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyListener" OutputProperty="Listeners" Verb="Edit" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyListenerAttributes" OutputProperty="Attributes" Verb="Edit" Noun="ListenerAttribute" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

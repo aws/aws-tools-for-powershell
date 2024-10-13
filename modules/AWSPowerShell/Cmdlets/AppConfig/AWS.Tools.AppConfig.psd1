@@ -87,6 +87,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     # Cmdlets to export from this module
     CmdletsToExport = @(
         'Add-APPCResourceTag', 
+        'Get-APPCAccountSetting', 
         'Get-APPCApplication', 
         'Get-APPCApplicationList', 
         'Get-APPCConfiguration', 
@@ -123,6 +124,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-APPCDeployment', 
         'Stop-APPCDeployment', 
         'Test-APPCConfigurationValidity', 
+        'Update-APPCAccountSetting', 
         'Update-APPCApplication', 
         'Update-APPCConfigurationProfile', 
         'Update-APPCDeploymentStrategy', 

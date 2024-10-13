@@ -1,1 +1,1 @@
-Copy-S3Object -BucketName test-files -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket backup-files
+Copy-S3Object -BucketName amzn-s3-demo-source-bucket -Key sample.txt -DestinationKey sample-copy.txt -DestinationBucket amzn-s3-demo-destination-bucket

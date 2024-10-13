@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>A DB subnet group to associate with this DB instance.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB subnet group.</para></li><li><para>Must not be <c>default</c>.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
+        /// <para>A DB subnet group to associate with this DB instance.</para><para>Constraints:</para><ul><li><para>Must match the name of an existing DB subnet group.</para></li></ul><para>Example: <c>mydbsubnetgroup</c></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -452,7 +452,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The database engine to use for this DB instance.</para><para>Not every database engine is available in every Amazon Web Services Region.</para><para>Valid Values:</para><ul><li><para><c>aurora-mysql</c> (for Aurora MySQL DB instances)</para></li><li><para><c>aurora-postgresql</c> (for Aurora PostgreSQL DB instances)</para></li><li><para><c>custom-oracle-ee</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-ee-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-sqlserver-ee</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-se</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-web</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>db2-ae</c></para></li><li><para><c>db2-se</c></para></li><li><para><c>mariadb</c></para></li><li><para><c>mysql</c></para></li><li><para><c>oracle-ee</c></para></li><li><para><c>oracle-ee-cdb</c></para></li><li><para><c>oracle-se2</c></para></li><li><para><c>oracle-se2-cdb</c></para></li><li><para><c>postgres</c></para></li><li><para><c>sqlserver-ee</c></para></li><li><para><c>sqlserver-se</c></para></li><li><para><c>sqlserver-ex</c></para></li><li><para><c>sqlserver-web</c></para></li></ul>
+        /// <para>The database engine to use for this DB instance.</para><para>Not every database engine is available in every Amazon Web Services Region.</para><para>Valid Values:</para><ul><li><para><c>aurora-mysql</c> (for Aurora MySQL DB instances)</para></li><li><para><c>aurora-postgresql</c> (for Aurora PostgreSQL DB instances)</para></li><li><para><c>custom-oracle-ee</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-ee-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-oracle-se2-cdb</c> (for RDS Custom for Oracle DB instances)</para></li><li><para><c>custom-sqlserver-ee</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-se</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-web</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>custom-sqlserver-dev</c> (for RDS Custom for SQL Server DB instances)</para></li><li><para><c>db2-ae</c></para></li><li><para><c>db2-se</c></para></li><li><para><c>mariadb</c></para></li><li><para><c>mysql</c></para></li><li><para><c>oracle-ee</c></para></li><li><para><c>oracle-ee-cdb</c></para></li><li><para><c>oracle-se2</c></para></li><li><para><c>oracle-se2-cdb</c></para></li><li><para><c>postgres</c></para></li><li><para><c>sqlserver-ee</c></para></li><li><para><c>sqlserver-se</c></para></li><li><para><c>sqlserver-ex</c></para></li><li><para><c>sqlserver-web</c></para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -546,10 +546,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The license model information for this DB instance.</para><note><para>License models for RDS for Db2 require additional configuration. The Bring Your Own
-        /// License (BYOL) model requires a custom parameter group. The Db2 license through Amazon
-        /// Web Services Marketplace model requires an Amazon Web Services Marketplace subscription.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">RDS
-        /// for Db2 licensing options</a> in the <i>Amazon RDS User Guide</i>.</para><para>The default for RDS for Db2 is <c>bring-your-own-license</c>.</para></note><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para>RDS for Db2 - <c>bring-your-own-license | marketplace-license</c></para></li><li><para>RDS for MariaDB - <c>general-public-license</c></para></li><li><para>RDS for Microsoft SQL Server - <c>license-included</c></para></li><li><para>RDS for MySQL - <c>general-public-license</c></para></li><li><para>RDS for Oracle - <c>bring-your-own-license | license-included</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql-license</c></para></li></ul>
+        /// License (BYOL) model requires a custom parameter group and an Amazon Web Services
+        /// License Manager self-managed license. The Db2 license through Amazon Web Services
+        /// Marketplace model requires an Amazon Web Services Marketplace subscription. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon
+        /// RDS for Db2 licensing options</a> in the <i>Amazon RDS User Guide</i>.</para><para>The default for RDS for Db2 is <c>bring-your-own-license</c>.</para></note><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para>RDS for Db2 - <c>bring-your-own-license | marketplace-license</c></para></li><li><para>RDS for MariaDB - <c>general-public-license</c></para></li><li><para>RDS for Microsoft SQL Server - <c>license-included</c></para></li><li><para>RDS for MySQL - <c>general-public-license</c></para></li><li><para>RDS for Oracle - <c>bring-your-own-license | license-included</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql-license</c></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

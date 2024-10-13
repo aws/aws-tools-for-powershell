@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTFH
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonIoTFleetHubConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

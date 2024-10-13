@@ -129,7 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.BDRR
         /// more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-thru-use.html">Run
         /// inference using a Provisioned Throughput</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use a custom model, first purchase Provisioned Throughput for it. Then specify
         /// the ARN of the resulting provisioned model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-use.html">Use
-        /// a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</para></li></ul>
+        /// a custom model in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</para></li><li><para>If you use an <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-import-model.html">imported
+        /// model</a>, specify the ARN of the imported model. You can get the model ARN from a
+        /// successful call to <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateModelImportJob.html">CreateModelImportJob</a>
+        /// or from the Imported models page in the Amazon Bedrock console.</para></li></ul>
         /// </para>
         /// </summary>
         #if !MODULAR

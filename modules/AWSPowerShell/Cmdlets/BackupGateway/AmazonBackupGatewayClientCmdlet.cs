@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.BUGW
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonBackupGatewayConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

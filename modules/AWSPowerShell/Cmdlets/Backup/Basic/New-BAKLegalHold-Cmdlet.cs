@@ -28,10 +28,10 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// This action creates a legal hold on a recovery point (backup). A legal hold is a restraint
-    /// on altering or deleting a backup until an authorized user cancels the legal hold.
-    /// Any actions to delete or disassociate a recovery point will fail with an error if
-    /// one or more active legal holds are on the recovery point.
+    /// Creates a legal hold on a recovery point (backup). A legal hold is a restraint on
+    /// altering or deleting a backup until an authorized user cancels the legal hold. Any
+    /// actions to delete or disassociate a recovery point will fail with an error if one
+    /// or more active legal holds are on the recovery point.
     /// </summary>
     [Cmdlet("New", "BAKLegalHold", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Backup.Model.CreateLegalHoldResponse")]
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>This is the string description of the legal hold.</para>
+        /// <para>The description of the legal hold.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter Title
         /// <summary>
         /// <para>
-        /// <para>This is the string title of the legal hold.</para>
+        /// <para>The title of the legal hold.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

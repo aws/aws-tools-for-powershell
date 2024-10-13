@@ -1,1 +1,1 @@
-Read-S3Object -BucketName test-files -KeyPrefix DIR -Folder Local-DIR
+Read-S3Object -BucketName amzn-s3-demo-bucket -KeyPrefix DIR -Folder Local-DIR

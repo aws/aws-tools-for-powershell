@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.S3C
     ///  <dl><dt>Permissions</dt><dd><para>
     /// You must have the <c>s3:GetAccessGrantsInstance</c> permission to use this operation.
     /// 
-    /// </para></dd></dl>
+    /// </para></dd></dl><note><para><c>GetAccessGrantsInstance</c> is not supported for cross-account access. You can
+    /// only call the API from the account that owns the S3 Access Grants instance.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "S3CAccessGrantsInstance")]
     [OutputType("Amazon.S3Control.Model.GetAccessGrantsInstanceResponse")]
@@ -49,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.S3C
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Web Services account that is making this request.</para>
+        /// <para>The Amazon Web Services account ID of the S3 Access Grants instance.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

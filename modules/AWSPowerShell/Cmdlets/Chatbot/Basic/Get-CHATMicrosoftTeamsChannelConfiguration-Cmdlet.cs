@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Get a single MS Teams Channel Configurations
+    /// Returns a Microsoft Teams channel configuration in an AWS account.
     /// </summary>
     [Cmdlet("Get", "CHATMicrosoftTeamsChannelConfiguration")]
     [OutputType("Amazon.Chatbot.Model.TeamsChannelConfiguration")]
@@ -40,13 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     public partial class GetCHATMicrosoftTeamsChannelConfigurationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// The ARN of the MicrosoftTeamsChannelConfiguration
-        /// to retrieve.
+        /// <para>The Amazon Resource Number (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

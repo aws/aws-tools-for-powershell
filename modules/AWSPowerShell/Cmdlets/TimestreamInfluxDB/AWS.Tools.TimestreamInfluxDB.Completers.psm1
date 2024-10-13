@@ -81,7 +81,10 @@ $TIDB_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.TimestreamInfluxDB.DbInstanceType
-        "New-TIDBDbInstance/DbInstanceType"
+        {
+            ($_ -eq "New-TIDBDbInstance/DbInstanceType") -Or
+            ($_ -eq "Update-TIDBDbInstance/DbInstanceType")
+        }
         {
             $v = "db.influx.12xlarge","db.influx.16xlarge","db.influx.2xlarge","db.influx.4xlarge","db.influx.8xlarge","db.influx.large","db.influx.medium","db.influx.xlarge"
             break
@@ -95,7 +98,10 @@ $TIDB_Completers = {
         }
 
         # Amazon.TimestreamInfluxDB.DeploymentType
-        "New-TIDBDbInstance/DeploymentType"
+        {
+            ($_ -eq "New-TIDBDbInstance/DeploymentType") -Or
+            ($_ -eq "Update-TIDBDbInstance/DeploymentType")
+        }
         {
             $v = "SINGLE_AZ","WITH_MULTIAZ_STANDBY"
             break
@@ -124,9 +130,9 @@ $TIDB_Completers = {
 }
 
 $TIDB_map = @{
-    "DbInstanceType"=@("New-TIDBDbInstance")
+    "DbInstanceType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "DbStorageType"=@("New-TIDBDbInstance")
-    "DeploymentType"=@("New-TIDBDbInstance")
+    "DeploymentType"=@("New-TIDBDbInstance","Update-TIDBDbInstance")
     "InfluxDBv2_LogLevel"=@("New-TIDBDbParameterGroup")
     "InfluxDBv2_TracingType"=@("New-TIDBDbParameterGroup")
 }

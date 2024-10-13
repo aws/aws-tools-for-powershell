@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.LRSV2
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonLexRuntimeV2Config.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

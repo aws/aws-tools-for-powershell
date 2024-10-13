@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.R53P
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonRoute53ProfilesConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

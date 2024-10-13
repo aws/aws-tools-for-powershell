@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.GACL
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonGlobalAcceleratorConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

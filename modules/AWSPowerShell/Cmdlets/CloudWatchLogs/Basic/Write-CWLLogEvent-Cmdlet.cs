@@ -79,6 +79,28 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter Entity_Attribute
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for internal use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Entity_Attributes")]
+        public System.Collections.Hashtable Entity_Attribute { get; set; }
+        #endregion
+        
+        #region Parameter Entity_KeyAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for internal use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Entity_KeyAttributes")]
+        public System.Collections.Hashtable Entity_KeyAttribute { get; set; }
+        #endregion
+        
         #region Parameter LogEvent
         /// <summary>
         /// <para>
@@ -206,6 +228,22 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 context.Select = (response, cmdlet) => this.SequenceToken;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.Entity_Attribute != null)
+            {
+                context.Entity_Attribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Entity_Attribute.Keys)
+                {
+                    context.Entity_Attribute.Add((String)hashKey, (System.String)(this.Entity_Attribute[hashKey]));
+                }
+            }
+            if (this.Entity_KeyAttribute != null)
+            {
+                context.Entity_KeyAttribute = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Entity_KeyAttribute.Keys)
+                {
+                    context.Entity_KeyAttribute.Add((String)hashKey, (System.String)(this.Entity_KeyAttribute[hashKey]));
+                }
+            }
             if (this.LogEvent != null)
             {
                 context.LogEvent = new List<Amazon.CloudWatchLogs.Model.InputLogEvent>(this.LogEvent);
@@ -247,6 +285,35 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.PutLogEventsRequest();
             
+            
+             // populate Entity
+            var requestEntityIsNull = true;
+            request.Entity = new Amazon.CloudWatchLogs.Model.Entity();
+            Dictionary<System.String, System.String> requestEntity_entity_Attribute = null;
+            if (cmdletContext.Entity_Attribute != null)
+            {
+                requestEntity_entity_Attribute = cmdletContext.Entity_Attribute;
+            }
+            if (requestEntity_entity_Attribute != null)
+            {
+                request.Entity.Attributes = requestEntity_entity_Attribute;
+                requestEntityIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestEntity_entity_KeyAttribute = null;
+            if (cmdletContext.Entity_KeyAttribute != null)
+            {
+                requestEntity_entity_KeyAttribute = cmdletContext.Entity_KeyAttribute;
+            }
+            if (requestEntity_entity_KeyAttribute != null)
+            {
+                request.Entity.KeyAttributes = requestEntity_entity_KeyAttribute;
+                requestEntityIsNull = false;
+            }
+             // determine if request.Entity should be set to null
+            if (requestEntityIsNull)
+            {
+                request.Entity = null;
+            }
             if (cmdletContext.LogEvent != null)
             {
                 request.LogEvents = cmdletContext.LogEvent;
@@ -324,6 +391,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> Entity_Attribute { get; set; }
+            public Dictionary<System.String, System.String> Entity_KeyAttribute { get; set; }
             public List<Amazon.CloudWatchLogs.Model.InputLogEvent> LogEvent { get; set; }
             public System.String LogGroupName { get; set; }
             public System.String LogStreamName { get; set; }

@@ -28,13 +28,16 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
-    /// Lists all Security Hub membership invitations that were sent to the current Amazon
-    /// Web Services account.
-    /// 
-    ///  
-    /// <para>
-    /// This operation is only used by accounts that are managed by invitation. Accounts that
-    /// are managed using the integration with Organizations do not receive invitations.
+    /// <note><para>
+    /// We recommend using Organizations instead of Security Hub invitations to manage your
+    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
+    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
+    /// Hub User Guide</i>.
+    /// </para></note><para>
+    /// Lists all Security Hub membership invitations that were sent to the calling account.
+    /// </para><para>
+    /// Only accounts that are managed by invitation can use this operation. Accounts that
+    /// are managed using the integration with Organizations don't receive invitations.
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "SHUBInvitationList")]

@@ -28,8 +28,14 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Deletes an environment. Deleting an environment does not delete a configuration from
-    /// a host.
+    /// Deletes an environment.
+    /// 
+    ///  
+    /// <para>
+    /// To prevent users from unintentionally deleting actively-used environments, enable
+    /// <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html">deletion
+    /// protection</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "APPCEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -58,6 +64,25 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         #endif
         [Amazon.PowerShell.Common.AWSRequiredParameter]
         public System.String ApplicationId { get; set; }
+        #endregion
+        
+        #region Parameter DeletionProtectionCheck
+        /// <summary>
+        /// <para>
+        /// <para>A parameter to configure deletion protection. If enabled, deletion protection prevents
+        /// a user from deleting an environment if your application called either <a href="https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html">GetLatestConfiguration</a>
+        /// or in the environment during the specified interval. </para><para>This parameter supports the following values:</para><ul><li><para><c>BYPASS</c>: Instructs AppConfig to bypass the deletion protection check and delete
+        /// a configuration profile even if deletion protection would have otherwise prevented
+        /// it. </para></li><li><para><c>APPLY</c>: Instructs the deletion protection check to run, even if deletion protection
+        /// is disabled at the account level. <c>APPLY</c> also forces the deletion protection
+        /// check to run against resources created in the past hour, which are normally excluded
+        /// from deletion protection checks. </para></li><li><para><c>ACCOUNT_DEFAULT</c>: The default setting, which instructs AppConfig to implement
+        /// the deletion protection value specified in the <c>UpdateAccountSettings</c> API.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.AppConfig.DeletionProtectionCheck")]
+        public Amazon.AppConfig.DeletionProtectionCheck DeletionProtectionCheck { get; set; }
         #endregion
         
         #region Parameter EnvironmentId
@@ -145,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
                 WriteWarning("You are passing $null as a value for parameter ApplicationId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.DeletionProtectionCheck = this.DeletionProtectionCheck;
             context.EnvironmentId = this.EnvironmentId;
             #if MODULAR
             if (this.EnvironmentId == null && ParameterWasBound(nameof(this.EnvironmentId)))
@@ -171,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.APPC
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            if (cmdletContext.DeletionProtectionCheck != null)
+            {
+                request.DeletionProtectionCheck = cmdletContext.DeletionProtectionCheck;
             }
             if (cmdletContext.EnvironmentId != null)
             {
@@ -238,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.APPC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public Amazon.AppConfig.DeletionProtectionCheck DeletionProtectionCheck { get; set; }
             public System.String EnvironmentId { get; set; }
             public System.Func<Amazon.AppConfig.Model.DeleteEnvironmentResponse, RemoveAPPCEnvironmentCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => null;

@@ -135,6 +135,13 @@ $GD_Completers = {
             break
         }
 
+        # Amazon.GuardDuty.GroupByType
+        "Get-GDFindingStatistic/GroupBy"
+        {
+            $v = "ACCOUNT","DATE","FINDING_TYPE","RESOURCE","SEVERITY"
+            break
+        }
+
         # Amazon.GuardDuty.IpSetFormat
         "New-GDIPSet/Format"
         {
@@ -153,7 +160,10 @@ $GD_Completers = {
         }
 
         # Amazon.GuardDuty.OrderBy
-        "Get-GDCoverageList/SortCriteria_OrderBy"
+        {
+            ($_ -eq "Get-GDFindingStatistic/OrderBy") -Or
+            ($_ -eq "Get-GDCoverageList/SortCriteria_OrderBy")
+        }
         {
             $v = "ASC","DESC"
             break
@@ -189,6 +199,8 @@ $GD_map = @{
     "Feedback"=@("Update-GDFindingFeedback")
     "FindingPublishingFrequency"=@("New-GDDetector","Update-GDDetector")
     "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
+    "GroupBy"=@("Get-GDFindingStatistic")
+    "OrderBy"=@("Get-GDFindingStatistic")
     "SortCriteria_AttributeName"=@("Get-GDCoverageList")
     "SortCriteria_OrderBy"=@("Get-GDCoverageList")
     "Tagging_Status"=@("New-GDMalwareProtectionPlan","Update-GDMalwareProtectionPlan")

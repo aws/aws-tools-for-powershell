@@ -28,7 +28,8 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Applies the supplied tags to a configuration.
+    /// Attaches a key-value pair to a resource, as identified by its Amazon Resource Name
+    /// (ARN). Resources are users, servers, roles, and other entities.
     /// </summary>
     [Cmdlet("Add", "CHATResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -45,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// The ARN of the configuration.
+        /// <para>The ARN of the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// A list of tags to apply to the configuration.
+        /// <para>A list of tags to apply to the configuration.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

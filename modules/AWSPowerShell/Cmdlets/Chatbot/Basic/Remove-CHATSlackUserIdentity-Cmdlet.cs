@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Deletes a Slack user identity
+    /// Deletes a user level permission for a Slack channel configuration.
     /// </summary>
     [Cmdlet("Remove", "CHATSlackUserIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// The ARN of the SlackChannelConfiguration
-        /// associated with the user identity to delete.
+        /// <para>The ARN of the SlackChannelConfiguration associated with the user identity to delete.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SlackTeamId
         /// <summary>
         /// <para>
-        /// The ID of the Slack workspace authorized with
-        /// AWS Chatbot.
+        /// <para>The ID of the Slack workspace authorized with AWS Chatbot.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -81,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SlackUserId
         /// <summary>
         /// <para>
-        /// The ID of the user in Slack.
+        /// <para>The ID of the user in Slack</para>
         /// </para>
         /// </summary>
         #if !MODULAR

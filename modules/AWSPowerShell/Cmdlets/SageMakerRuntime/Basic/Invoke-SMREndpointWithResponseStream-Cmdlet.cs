@@ -177,6 +177,20 @@ namespace Amazon.PowerShell.Cmdlets.SMR
         public System.String InferenceId { get; set; }
         #endregion
         
+        #region Parameter SessionId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a stateful session to handle your request.</para><para>You can't create a stateful session by using the <c>InvokeEndpointWithResponseStream</c>
+        /// action. Instead, you can create one by using the <c><a>InvokeEndpoint</a></c> action.
+        /// In your request, you specify <c>NEW_SESSION</c> for the <c>SessionId</c> request parameter.
+        /// The response to that request provides the session ID for the <c>NewSessionId</c> response
+        /// parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String SessionId { get; set; }
+        #endregion
+        
         #region Parameter TargetContainerHostname
         /// <summary>
         /// <para>
@@ -283,6 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             #endif
             context.InferenceComponentName = this.InferenceComponentName;
             context.InferenceId = this.InferenceId;
+            context.SessionId = this.SessionId;
             context.TargetContainerHostname = this.TargetContainerHostname;
             context.TargetVariant = this.TargetVariant;
             
@@ -333,6 +348,10 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 if (cmdletContext.InferenceId != null)
                 {
                     request.InferenceId = cmdletContext.InferenceId;
+                }
+                if (cmdletContext.SessionId != null)
+                {
+                    request.SessionId = cmdletContext.SessionId;
                 }
                 if (cmdletContext.TargetContainerHostname != null)
                 {
@@ -418,6 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
             public System.String EndpointName { get; set; }
             public System.String InferenceComponentName { get; set; }
             public System.String InferenceId { get; set; }
+            public System.String SessionId { get; set; }
             public System.String TargetContainerHostname { get; set; }
             public System.String TargetVariant { get; set; }
             public System.Func<Amazon.SageMakerRuntime.Model.InvokeEndpointWithResponseStreamResponse, InvokeSMREndpointWithResponseStreamCmdlet, object> Select { get; set; } =

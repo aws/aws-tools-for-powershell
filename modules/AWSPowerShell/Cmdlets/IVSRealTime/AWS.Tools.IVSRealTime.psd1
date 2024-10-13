@@ -92,6 +92,8 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IVSRTCompositionList', 
         'Get-IVSRTEncoderConfiguration', 
         'Get-IVSRTEncoderConfigurationList', 
+        'Get-IVSRTIngestConfiguration', 
+        'Get-IVSRTIngestConfigurationList', 
         'Get-IVSRTParticipant', 
         'Get-IVSRTParticipantEventList', 
         'Get-IVSRTParticipantList', 
@@ -106,16 +108,19 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-IVSRTStorageConfigurationList', 
         'Import-IVSRTPublicKey', 
         'New-IVSRTEncoderConfiguration', 
+        'New-IVSRTIngestConfiguration', 
         'New-IVSRTParticipantToken', 
         'New-IVSRTStage', 
         'New-IVSRTStorageConfiguration', 
         'Remove-IVSRTEncoderConfiguration', 
+        'Remove-IVSRTIngestConfiguration', 
         'Remove-IVSRTPublicKey', 
         'Remove-IVSRTResourceTag', 
         'Remove-IVSRTStage', 
         'Remove-IVSRTStorageConfiguration', 
         'Start-IVSRTComposition', 
         'Stop-IVSRTComposition', 
+        'Update-IVSRTIngestConfiguration', 
         'Update-IVSRTStage')
 
     # Variables to export from this module

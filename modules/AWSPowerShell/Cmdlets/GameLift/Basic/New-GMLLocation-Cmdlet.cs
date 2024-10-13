@@ -62,11 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of labels to assign to the new matchmaking configuration resource. Tags are
-        /// developer-defined key-value pairs. Tagging Amazon Web Services resources are useful
-        /// for resource management, access management and cost allocation. For more information,
-        /// see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"> Tagging
-        /// Amazon Web Services Resources</a> in the <i>Amazon Web Services General Rareference</i>.</para>
+        /// <para>A list of labels to assign to the new resource. Tags are developer-defined key-value
+        /// pairs. Tagging Amazon Web Services resources are useful for resource management, access
+        /// management, and cost allocation. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">
+        /// Tagging Amazon Web Services Resources</a> in the <i>Amazon Web Services General Rareference</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

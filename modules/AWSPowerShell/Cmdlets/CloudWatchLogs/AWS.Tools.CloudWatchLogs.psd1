@@ -88,6 +88,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
     CmdletsToExport = @(
         'Add-CWLLogGroupTag', 
         'Add-CWLResourceTag', 
+        'Find-CWLConfigurationTemplate', 
         'Find-CWLDelivery', 
         'Find-CWLDeliveryDestination', 
         'Find-CWLDeliverySource', 
@@ -146,6 +147,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Test-CWLMetricFilter', 
         'Unregister-CWLKmsKey', 
         'Update-CWLAnomaly', 
+        'Update-CWLDeliveryConfiguration', 
         'Update-CWLLogAnomalyDetector', 
         'Write-CWLAccountPolicy', 
         'Write-CWLDataProtectionPolicy', 

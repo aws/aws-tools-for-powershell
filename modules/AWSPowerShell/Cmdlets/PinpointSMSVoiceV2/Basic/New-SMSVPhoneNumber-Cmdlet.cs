@@ -128,7 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The name of the OptOutList to associate with the phone number. You can use the OptOutListName
-        /// or OptOutListArn.</para>
+        /// or OptOutListArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -138,7 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter PoolId
         /// <summary>
         /// <para>
-        /// <para>The pool to associated with the phone number. You can use the PoolId or PoolArn. </para>
+        /// <para>The pool to associated with the phone number. You can use the PoolId or PoolArn. </para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

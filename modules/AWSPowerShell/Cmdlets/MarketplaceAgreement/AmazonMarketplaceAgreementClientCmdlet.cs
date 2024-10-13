@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.MAS
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonMarketplaceAgreementConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

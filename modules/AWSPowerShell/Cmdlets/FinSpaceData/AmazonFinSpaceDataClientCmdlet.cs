@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.FNSP
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonFinSpaceDataConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

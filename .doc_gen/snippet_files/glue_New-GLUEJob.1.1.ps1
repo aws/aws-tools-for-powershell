@@ -1,6 +1,6 @@
 $Command = New-Object Amazon.Glue.Model.JobCommand
 $Command.Name = 'glueetl'
-$Command.ScriptLocation = 's3://aws-glue-scripts-000000000000-us-west-2/admin/MyTestGlueJob.py'
+$Command.ScriptLocation = 's3://amzn-s3-demo-source-bucket/admin/MyTestGlueJob.py'
 $Command
 
 $Source = "source_test_table"
@@ -8,7 +8,7 @@ $Target = "target_test_table"
 $Connections = $Source, $Target
 
 $DefArgs = @{
-     '--TempDir' = 's3://aws-glue-temporary-000000000000-us-west-2/admin'
+     '--TempDir' = 's3://amzn-s3-demo-bucket/admin'
      '--job-bookmark-option' = 'job-bookmark-disable'
      '--job-language' = 'python'
      }

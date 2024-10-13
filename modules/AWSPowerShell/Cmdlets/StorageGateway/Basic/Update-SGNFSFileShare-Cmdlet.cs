@@ -118,6 +118,22 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String NFSFileShareDefaults_DirectoryMode { get; set; }
         #endregion
         
+        #region Parameter EncryptionType
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies the type of server-side encryption that the file share will
+        /// use for the data that it stores in Amazon S3.</para><note><para>We recommend using <c>EncryptionType</c> instead of <c>KMSEncrypted</c> to set the
+        /// file share encryption method. You do not need to provide values for both parameters.</para><para>If values for both parameters exist in the same request, then the specified encryption
+        /// methods must not conflict. For example, if <c>EncryptionType</c> is <c>SseS3</c>,
+        /// then <c>KMSEncrypted</c> must be <c>false</c>. If <c>EncryptionType</c> is <c>SseKms</c>
+        /// or <c>DsseKms</c>, then <c>KMSEncrypted</c> must be <c>true</c>.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StorageGateway.EncryptionType")]
+        public Amazon.StorageGateway.EncryptionType EncryptionType { get; set; }
+        #endregion
+        
         #region Parameter NFSFileShareDefaults_FileMode
         /// <summary>
         /// <para>
@@ -180,23 +196,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.Boolean? GuessMIMETypeEnabled { get; set; }
         #endregion
         
-        #region Parameter KMSEncrypted
-        /// <summary>
-        /// <para>
-        /// <para>Set to <c>true</c> to use Amazon S3 server-side encryption with your own KMS key,
-        /// or <c>false</c> to use a key managed by Amazon S3. Optional.</para><para>Valid Values: <c>true</c> | <c>false</c></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Boolean? KMSEncrypted { get; set; }
-        #endregion
-        
         #region Parameter KMSKey
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon
-        /// S3 server-side encryption. Storage Gateway does not support asymmetric CMKs. This
-        /// value can only be set when <c>KMSEncrypted</c> is <c>true</c>. Optional.</para>
+        /// <para>Optional. The Amazon Resource Name (ARN) of a symmetric customer master key (CMK)
+        /// used for Amazon S3 server-side encryption. Storage Gateway does not support asymmetric
+        /// CMKs. This value must be set if <c>KMSEncrypted</c> is <c>true</c>, or if <c>EncryptionType</c>
+        /// is <c>SseKms</c> or <c>DsseKms</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -211,7 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// generating an <c>ObjectUploaded</c> notification. Because clients can make many small
         /// writes to files, it's best to set this parameter for as long as possible to avoid
         /// generating multiple notifications for the same file in a small time period.</para><note><para><c>SettlingTimeInSeconds</c> has no effect on the timing of the object uploading
-        /// to Amazon S3, only the timing of the notification.</para></note><para>The following example sets <c>NotificationPolicy</c> on with <c>SettlingTimeInSeconds</c>
+        /// to Amazon S3, only the timing of the notification.</para><para>This setting is not meant to specify an exact time at which the notification will
+        /// be sent. In some cases, the gateway might require more than the specified delay time
+        /// to generate and send notifications.</para></note><para>The following example sets <c>NotificationPolicy</c> on with <c>SettlingTimeInSeconds</c>
         /// set to 60.</para><para><c>{\"Upload\": {\"SettlingTimeInSeconds\": 60}}</c></para><para>The following example sets <c>NotificationPolicy</c> off.</para><para><c>{}</c></para>
         /// </para>
         /// </summary>
@@ -277,6 +285,24 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Squash { get; set; }
+        #endregion
+        
+        #region Parameter KMSEncrypted
+        /// <summary>
+        /// <para>
+        /// <para>Optional. Set to <c>true</c> to use Amazon S3 server-side encryption with your own
+        /// KMS key (SSE-KMS), or <c>false</c> to use a key managed by Amazon S3 (SSE-S3). To
+        /// use dual-layer encryption (DSSE-KMS), set the <c>EncryptionType</c> parameter instead.</para><note><para>We recommend using <c>EncryptionType</c> instead of <c>KMSEncrypted</c> to set the
+        /// file share encryption method. You do not need to provide values for both parameters.</para><para>If values for both parameters exist in the same request, then the specified encryption
+        /// methods must not conflict. For example, if <c>EncryptionType</c> is <c>SseS3</c>,
+        /// then <c>KMSEncrypted</c> must be <c>false</c>. If <c>EncryptionType</c> is <c>SseKms</c>
+        /// or <c>DsseKms</c>, then <c>KMSEncrypted</c> must be <c>true</c>.</para></note><para>Valid Values: <c>true</c> | <c>false</c></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.ObsoleteAttribute("KMSEncrypted is deprecated, use EncryptionType instead.")]
+        public System.Boolean? KMSEncrypted { get; set; }
         #endregion
         
         #region Parameter Select
@@ -348,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.ClientList = new List<System.String>(this.ClientList);
             }
             context.DefaultStorageClass = this.DefaultStorageClass;
+            context.EncryptionType = this.EncryptionType;
             context.FileShareARN = this.FileShareARN;
             #if MODULAR
             if (this.FileShareARN == null && ParameterWasBound(nameof(this.FileShareARN)))
@@ -357,7 +384,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
             #endif
             context.FileShareName = this.FileShareName;
             context.GuessMIMETypeEnabled = this.GuessMIMETypeEnabled;
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.KMSEncrypted = this.KMSEncrypted;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.KMSKey = this.KMSKey;
             context.NFSFileShareDefaults_DirectoryMode = this.NFSFileShareDefaults_DirectoryMode;
             context.NFSFileShareDefaults_FileMode = this.NFSFileShareDefaults_FileMode;
@@ -415,6 +444,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.DefaultStorageClass = cmdletContext.DefaultStorageClass;
             }
+            if (cmdletContext.EncryptionType != null)
+            {
+                request.EncryptionType = cmdletContext.EncryptionType;
+            }
             if (cmdletContext.FileShareARN != null)
             {
                 request.FileShareARN = cmdletContext.FileShareARN;
@@ -427,10 +460,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.GuessMIMETypeEnabled = cmdletContext.GuessMIMETypeEnabled.Value;
             }
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.KMSEncrypted != null)
             {
                 request.KMSEncrypted = cmdletContext.KMSEncrypted.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.KMSKey != null)
             {
                 request.KMSKey = cmdletContext.KMSKey;
@@ -569,9 +604,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.Int32? CacheAttributes_CacheStaleTimeoutInSecond { get; set; }
             public List<System.String> ClientList { get; set; }
             public System.String DefaultStorageClass { get; set; }
+            public Amazon.StorageGateway.EncryptionType EncryptionType { get; set; }
             public System.String FileShareARN { get; set; }
             public System.String FileShareName { get; set; }
             public System.Boolean? GuessMIMETypeEnabled { get; set; }
+            [System.ObsoleteAttribute]
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }
             public System.String NFSFileShareDefaults_DirectoryMode { get; set; }

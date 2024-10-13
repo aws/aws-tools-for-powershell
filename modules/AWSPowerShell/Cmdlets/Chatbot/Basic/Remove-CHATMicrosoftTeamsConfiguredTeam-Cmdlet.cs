@@ -47,11 +47,11 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter TeamId
         /// <summary>
         /// <para>
-        /// The ID of the Microsoft Team authorized with AWS
-        /// Chatbot. To get the team ID, you must perform the initial authorization flow with
-        /// Microsoft Teams in the AWS Chatbot console. Then you can copy and paste the team ID
-        /// from the console. For more details, see steps 1-4 in Get started with Microsoft Teams
-        /// in the AWS Chatbot Administrator Guide.
+        /// <para>The ID of the Microsoft Teams team authorized with AWS Chatbot.</para><para>To get the team ID, you must perform the initial authorization flow with Microsoft
+        /// Teams in the AWS Chatbot console. Then you can copy and paste the team ID from the
+        /// console. For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html#teams-client-setup">Step
+        /// 1: Configure a Microsoft Teams client</a> in the <i> AWS Chatbot Administrator Guide</i>.
+        /// </para>
         /// </para>
         /// </summary>
         #if !MODULAR

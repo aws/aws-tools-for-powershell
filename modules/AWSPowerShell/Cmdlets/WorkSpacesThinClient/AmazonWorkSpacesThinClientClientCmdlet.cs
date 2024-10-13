@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.WSTC
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonWorkSpacesThinClientConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

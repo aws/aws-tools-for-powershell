@@ -405,7 +405,8 @@ namespace Amazon.PowerShell.Cmdlets.AAB
         #region Parameter BedrockFoundationModelConfiguration_ModelArn
         /// <summary>
         /// <para>
-        /// <para>The model's ARN.</para>
+        /// <para>The ARN of the foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference
+        /// profile</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

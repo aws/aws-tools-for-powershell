@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.NEPTG
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonNeptuneGraphConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

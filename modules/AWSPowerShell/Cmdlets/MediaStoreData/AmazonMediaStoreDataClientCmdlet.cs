@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonMediaStoreDataConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

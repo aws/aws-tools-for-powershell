@@ -28,7 +28,7 @@ using Amazon.Chatbot.Model;
 namespace Amazon.PowerShell.Cmdlets.CHAT
 {
     /// <summary>
-    /// Updates a Chime Webhook Configuration
+    /// Updates a Amazon Chime webhook configuration.
     /// </summary>
     [Cmdlet("Update", "CHATChimeWebhookConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Chatbot.Model.ChimeWebhookConfiguration")]
@@ -40,13 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
     public partial class UpdateCHATChimeWebhookConfigurationCmdlet : AmazonChatbotClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
+        protected override bool IsSensitiveResponse { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter ChatConfigurationArn
         /// <summary>
         /// <para>
-        /// The ARN of the ChimeWebhookConfiguration
-        /// to update.
+        /// <para>The Amazon Resource Number (ARN) of the ChimeWebhookConfiguration to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter IamRoleArn
         /// <summary>
         /// <para>
-        /// The ARN of the IAM role that defines the permissions
-        /// for AWS Chatbot. This is a user-defined role that AWS Chatbot will assume. This is
-        /// not the service-linked role. For more information, see IAM Policies for AWS Chatbot.
+        /// <para>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</para><para>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html">IAM
+        /// policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -75,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter LoggingLevel
         /// <summary>
         /// <para>
-        /// Logging levels include ERROR, INFO, or NONE.
+        /// <para>Logging levels include <c>ERROR</c>, <c>INFO</c>, or <c>NONE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -85,8 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter SnsTopicArn
         /// <summary>
         /// <para>
-        /// The ARNs of the SNS topics that deliver notifications
-        /// to AWS Chatbot.
+        /// <para>The ARNs of the SNS topics that deliver notifications to AWS Chatbot.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -97,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter WebhookDescription
         /// <summary>
         /// <para>
-        /// Description of the webhook. Recommend
-        /// using the convention `RoomName/WebhookName`. See Chime setup tutorial for more details:
-        /// https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html.
+        /// <para>A description of the webhook. We recommend using the convention <c>RoomName/WebhookName</c>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html">Tutorial:
+        /// Get started with Amazon Chime</a> in the <i> AWS Chatbot Administrator Guide</i>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -109,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.CHAT
         #region Parameter WebhookUrl
         /// <summary>
         /// <para>
-        /// URL for the Chime webhook.
+        /// <para>The URL for the Amazon Chime webhook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

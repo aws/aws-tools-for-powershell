@@ -130,6 +130,20 @@ $WSW_Completers = {
             break
         }
 
+        # Amazon.WorkSpacesWeb.SessionSortBy
+        "Get-WSWSessionList/SortBy"
+        {
+            $v = "StartTimeAscending","StartTimeDescending"
+            break
+        }
+
+        # Amazon.WorkSpacesWeb.SessionStatus
+        "Get-WSWSessionList/Status"
+        {
+            $v = "Active","Terminated"
+            break
+        }
+
 
     }
 
@@ -147,6 +161,8 @@ $WSW_map = @{
     "InstanceType"=@("New-WSWPortal","Update-WSWPortal")
     "PasteAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
     "PrintAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
+    "SortBy"=@("Get-WSWSessionList")
+    "Status"=@("Get-WSWSessionList")
     "UploadAllowed"=@("New-WSWUserSetting","Update-WSWUserSetting")
 }
 
@@ -228,12 +244,14 @@ $WSW_SelectMap = @{
                "Unregister-WSWTrustStore",
                "Unregister-WSWUserAccessLoggingSetting",
                "Unregister-WSWUserSetting",
+               "Revoke-WSWSession",
                "Get-WSWBrowserSetting",
                "Get-WSWIdentityProvider",
                "Get-WSWIpAccessSetting",
                "Get-WSWNetworkSetting",
                "Get-WSWPortal",
                "Get-WSWPortalServiceProviderMetadata",
+               "Get-WSWSession",
                "Get-WSWTrustStore",
                "Get-WSWTrustStoreCertificate",
                "Get-WSWUserAccessLoggingSetting",
@@ -243,6 +261,7 @@ $WSW_SelectMap = @{
                "Get-WSWIpAccessSettingList",
                "Get-WSWNetworkSettingList",
                "Get-WSWPortalList",
+               "Get-WSWSessionList",
                "Get-WSWResourceTag",
                "Get-WSWTrustStoreCertificateList",
                "Get-WSWTrustStoreList",

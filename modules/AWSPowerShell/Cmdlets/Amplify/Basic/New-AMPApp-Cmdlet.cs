@@ -320,7 +320,12 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <para>The platform for the Amplify app. For a static app, set the platform type to <c>WEB</c>.
         /// For a dynamic server-side rendered (SSR) app, set the platform type to <c>WEB_COMPUTE</c>.
         /// For an app requiring Amplify Hosting's original SSR support only, set the platform
-        /// type to <c>WEB_DYNAMIC</c>.</para>
+        /// type to <c>WEB_DYNAMIC</c>.</para><para>If you are deploying an SSG only app with Next.js version 14 or later, you must set
+        /// the platform type to <c>WEB_COMPUTE</c> and set the artifacts <c>baseDirectory</c>
+        /// to <c>.next</c> in the application's build settings. For an example of the build specification
+        /// settings, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14">Amplify
+        /// build settings for a Next.js 14 SSG application</a> in the <i>Amplify Hosting User
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

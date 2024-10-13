@@ -28,13 +28,14 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Most elements except the <c>RestoreTestingSelectionName</c> can be updated with this
-    /// request.
+    /// Updates the specified restore testing selection.
     /// 
     ///  
-    /// <para><c>RestoreTestingSelection</c> can use either protected resource ARNs or conditions,
-    /// but not both. That is, if your selection has <c>ProtectedResourceArns</c>, requesting
-    /// an update with the parameter <c>ProtectedResourceConditions</c> will be unsuccessful.
+    /// <para>
+    /// Most elements except the <c>RestoreTestingSelectionName</c> can be updated with this
+    /// request.
+    /// </para><para>
+    /// You can use either protected resource ARNs or conditions, but not both.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "BAKRestoreTestingSelection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -107,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RestoreTestingSelectionName
         /// <summary>
         /// <para>
-        /// <para>This is the required restore testing selection name of the restore testing selection
-        /// you wish to update.</para>
+        /// <para>The required restore testing selection name of the restore testing selection you wish
+        /// to update.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String CatalogId { get; set; }
         #endregion
         
+        #region Parameter IcebergConfiguration_CleanExpiredFile
+        /// <summary>
+        /// <para>
+        /// <para>If set to false, snapshots are only deleted from table metadata, and the underlying
+        /// data and metadata files are not deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_CleanExpiredFiles")]
+        public System.Boolean? IcebergConfiguration_CleanExpiredFile { get; set; }
+        #endregion
+        
         #region Parameter DatabaseName
         /// <summary>
         /// <para>
@@ -80,11 +92,48 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter TableOptimizerConfiguration_Enabled
         /// <summary>
         /// <para>
-        /// <para>Whether table optimization is enabled. </para>
+        /// <para>Whether table optimization is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.Boolean? TableOptimizerConfiguration_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter IcebergConfiguration_Location
+        /// <summary>
+        /// <para>
+        /// <para>Specifies a directory in which to look for files (defaults to the table's location).
+        /// You may choose a sub-directory rather than the top-level table location.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_Location")]
+        public System.String IcebergConfiguration_Location { get; set; }
+        #endregion
+        
+        #region Parameter IcebergConfiguration_NumberOfSnapshotsToRetain
+        /// <summary>
+        /// <para>
+        /// <para>The number of Iceberg snapshots to retain within the retention period. If an input
+        /// is not provided, the corresponding Iceberg table configuration field will be used
+        /// or if not present, the default value 1 will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_NumberOfSnapshotsToRetain")]
+        public System.Int32? IcebergConfiguration_NumberOfSnapshotsToRetain { get; set; }
+        #endregion
+        
+        #region Parameter IcebergConfiguration_OrphanFileRetentionPeriodInDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days that orphan files should be retained before file deletion. If an
+        /// input is not provided, the default value 3 will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_OrphanFileRetentionPeriodInDays")]
+        public System.Int32? IcebergConfiguration_OrphanFileRetentionPeriodInDay { get; set; }
         #endregion
         
         #region Parameter TableOptimizerConfiguration_RoleArn
@@ -96,6 +145,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TableOptimizerConfiguration_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IcebergConfiguration_SnapshotRetentionPeriodInDay
+        /// <summary>
+        /// <para>
+        /// <para>The number of days to retain the Iceberg snapshots. If an input is not provided, the
+        /// corresponding Iceberg table configuration field will be used or if not present, the
+        /// default value 5 will be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("TableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_SnapshotRetentionPeriodInDays")]
+        public System.Int32? IcebergConfiguration_SnapshotRetentionPeriodInDay { get; set; }
         #endregion
         
         #region Parameter TableName
@@ -195,6 +257,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             #endif
             context.TableOptimizerConfiguration_Enabled = this.TableOptimizerConfiguration_Enabled;
+            context.IcebergConfiguration_Location = this.IcebergConfiguration_Location;
+            context.IcebergConfiguration_OrphanFileRetentionPeriodInDay = this.IcebergConfiguration_OrphanFileRetentionPeriodInDay;
+            context.IcebergConfiguration_CleanExpiredFile = this.IcebergConfiguration_CleanExpiredFile;
+            context.IcebergConfiguration_NumberOfSnapshotsToRetain = this.IcebergConfiguration_NumberOfSnapshotsToRetain;
+            context.IcebergConfiguration_SnapshotRetentionPeriodInDay = this.IcebergConfiguration_SnapshotRetentionPeriodInDay;
             context.TableOptimizerConfiguration_RoleArn = this.TableOptimizerConfiguration_RoleArn;
             context.Type = this.Type;
             #if MODULAR
@@ -253,6 +320,116 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RoleArn != null)
             {
                 request.TableOptimizerConfiguration.RoleArn = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RoleArn;
+                requestTableOptimizerConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.OrphanFileDeletionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration = null;
+            
+             // populate OrphanFileDeletionConfiguration
+            var requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfigurationIsNull = true;
+            requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration = new Amazon.Glue.Model.OrphanFileDeletionConfiguration();
+            Amazon.Glue.Model.IcebergOrphanFileDeletionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration = null;
+            
+             // populate IcebergConfiguration
+            var requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfigurationIsNull = true;
+            requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration = new Amazon.Glue.Model.IcebergOrphanFileDeletionConfiguration();
+            System.String requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_Location = null;
+            if (cmdletContext.IcebergConfiguration_Location != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_Location = cmdletContext.IcebergConfiguration_Location;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_Location != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration.Location = requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_Location;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfigurationIsNull = false;
+            }
+            System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_OrphanFileRetentionPeriodInDay = null;
+            if (cmdletContext.IcebergConfiguration_OrphanFileRetentionPeriodInDay != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_OrphanFileRetentionPeriodInDay = cmdletContext.IcebergConfiguration_OrphanFileRetentionPeriodInDay.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_OrphanFileRetentionPeriodInDay != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration.OrphanFileRetentionPeriodInDays = requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration_icebergConfiguration_OrphanFileRetentionPeriodInDay.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfigurationIsNull = false;
+            }
+             // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration should be set to null
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfigurationIsNull)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration = null;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration.IcebergConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration_IcebergConfiguration;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfigurationIsNull = false;
+            }
+             // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration should be set to null
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfigurationIsNull)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration = null;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration != null)
+            {
+                request.TableOptimizerConfiguration.OrphanFileDeletionConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_OrphanFileDeletionConfiguration;
+                requestTableOptimizerConfigurationIsNull = false;
+            }
+            Amazon.Glue.Model.RetentionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration = null;
+            
+             // populate RetentionConfiguration
+            var requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfigurationIsNull = true;
+            requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration = new Amazon.Glue.Model.RetentionConfiguration();
+            Amazon.Glue.Model.IcebergRetentionConfiguration requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration = null;
+            
+             // populate IcebergConfiguration
+            var requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfigurationIsNull = true;
+            requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration = new Amazon.Glue.Model.IcebergRetentionConfiguration();
+            System.Boolean? requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_CleanExpiredFile = null;
+            if (cmdletContext.IcebergConfiguration_CleanExpiredFile != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_CleanExpiredFile = cmdletContext.IcebergConfiguration_CleanExpiredFile.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_CleanExpiredFile != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration.CleanExpiredFiles = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_CleanExpiredFile.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfigurationIsNull = false;
+            }
+            System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_NumberOfSnapshotsToRetain = null;
+            if (cmdletContext.IcebergConfiguration_NumberOfSnapshotsToRetain != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_NumberOfSnapshotsToRetain = cmdletContext.IcebergConfiguration_NumberOfSnapshotsToRetain.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_NumberOfSnapshotsToRetain != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration.NumberOfSnapshotsToRetain = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_NumberOfSnapshotsToRetain.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfigurationIsNull = false;
+            }
+            System.Int32? requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_SnapshotRetentionPeriodInDay = null;
+            if (cmdletContext.IcebergConfiguration_SnapshotRetentionPeriodInDay != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_SnapshotRetentionPeriodInDay = cmdletContext.IcebergConfiguration_SnapshotRetentionPeriodInDay.Value;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_SnapshotRetentionPeriodInDay != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration.SnapshotRetentionPeriodInDays = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration_icebergConfiguration_SnapshotRetentionPeriodInDay.Value;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfigurationIsNull = false;
+            }
+             // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration should be set to null
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfigurationIsNull)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration = null;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration != null)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration.IcebergConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration_tableOptimizerConfiguration_RetentionConfiguration_IcebergConfiguration;
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfigurationIsNull = false;
+            }
+             // determine if requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration should be set to null
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfigurationIsNull)
+            {
+                requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration = null;
+            }
+            if (requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration != null)
+            {
+                request.TableOptimizerConfiguration.RetentionConfiguration = requestTableOptimizerConfiguration_tableOptimizerConfiguration_RetentionConfiguration;
                 requestTableOptimizerConfigurationIsNull = false;
             }
              // determine if request.TableOptimizerConfiguration should be set to null
@@ -329,6 +506,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String DatabaseName { get; set; }
             public System.String TableName { get; set; }
             public System.Boolean? TableOptimizerConfiguration_Enabled { get; set; }
+            public System.String IcebergConfiguration_Location { get; set; }
+            public System.Int32? IcebergConfiguration_OrphanFileRetentionPeriodInDay { get; set; }
+            public System.Boolean? IcebergConfiguration_CleanExpiredFile { get; set; }
+            public System.Int32? IcebergConfiguration_NumberOfSnapshotsToRetain { get; set; }
+            public System.Int32? IcebergConfiguration_SnapshotRetentionPeriodInDay { get; set; }
             public System.String TableOptimizerConfiguration_RoleArn { get; set; }
             public Amazon.Glue.TableOptimizerType Type { get; set; }
             public System.Func<Amazon.Glue.Model.CreateTableOptimizerResponse, NewGLUETableOptimizerCmdlet, object> Select { get; set; } =

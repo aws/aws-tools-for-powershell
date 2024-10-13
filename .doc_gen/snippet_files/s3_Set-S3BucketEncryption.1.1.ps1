@@ -1,2 +1,2 @@
 $Encryptionconfig = @{ServerSideEncryptionByDefault = @{ServerSideEncryptionAlgorithm = "AES256"}}
-Set-S3BucketEncryption -BucketName 's3testbucket' -ServerSideEncryptionConfiguration_ServerSideEncryptionRule $Encryptionconfig
+Set-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket' -ServerSideEncryptionConfiguration_ServerSideEncryptionRule $Encryptionconfig

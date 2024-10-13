@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector the member is associated with.</para>
+        /// <para>The unique ID of the detector that is associated with the member.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
