@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupVaultAccountId
         /// <summary>
         /// <para>
-        /// <para>This is the account ID of the specified backup vault.</para>
+        /// <para>The account ID of the specified backup vault.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// on the file system's linked S3 data repository. An absolute path that defines where
         /// the completion report will be stored in the destination location. The <c>Path</c>
         /// you provide must be located within the file system’s ExportPath. An example <c>Path</c>
-        /// value is "s3://myBucket/myExportPath/optionalPrefix". The report provides the following
-        /// information for each file in the report: FilePath, FileStatus, and ErrorCode.</para>
+        /// value is "s3://amzn-s3-demo-bucket/myExportPath/optionalPrefix". The report provides
+        /// the following information for each file in the report: FilePath, FileStatus, and ErrorCode.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -162,8 +162,8 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         /// directory or file on the file system you want to export, then the path to provide
         /// is <c>path1</c>.</para></li><li><para>For import tasks, the list contains paths in the Amazon S3 bucket from which POSIX
         /// metadata changes are imported to the FSx for Lustre file system. The path can be an
-        /// S3 bucket or prefix in the format <c>s3://myBucket/myPrefix</c> (where <c>myPrefix</c>
-        /// is optional). </para></li><li><para>For release tasks, the list contains directory or file paths on the FSx for Lustre
+        /// S3 bucket or prefix in the format <c>s3://bucket-name/prefix</c> (where <c>prefix</c>
+        /// is optional).</para></li><li><para>For release tasks, the list contains directory or file paths on the FSx for Lustre
         /// file system from which to release exported files. If a directory is specified, files
         /// within the directory are released. If a file path is specified, only that file is
         /// released. To release all exported files in the file system, specify a forward slash

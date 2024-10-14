@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <summary>
         /// <para>
         /// <para>Whether to enable the security standards that Security Hub has designated as automatically
-        /// enabled. If you do not provide a value for <c>EnableDefaultStandards</c>, it is set
+        /// enabled. If you don't provide a value for <c>EnableDefaultStandards</c>, it is set
         /// to <c>true</c>. To not enable the automatically enabled standards, set <c>EnableDefaultStandards</c>
         /// to <c>false</c>.</para>
         /// </para>

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCloudWatchLogsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

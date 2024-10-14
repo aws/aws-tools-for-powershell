@@ -93,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// for cross-account delivery. Kinesis Data Streams and Firehose are supported as logical
     /// destinations.
     /// </para></li></ul><para>
-    /// Each account can have one account-level subscription filter policy. If you are updating
-    /// an existing filter, you must specify the correct name in <c>PolicyName</c>. To perform
-    /// a <c>PutAccountPolicy</c> subscription filter operation for any destination except
-    /// a Lambda function, you must also have the <c>iam:PassRole</c> permission.
+    /// Each account can have one account-level subscription filter policy per Region. If
+    /// you are updating an existing filter, you must specify the correct name in <c>PolicyName</c>.
+    /// To perform a <c>PutAccountPolicy</c> subscription filter operation for any destination
+    /// except a Lambda function, you must also have the <c>iam:PassRole</c> permission.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLAccountPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// destinations.</para></li></ul></li><li><para><b>RoleArn</b> The ARN of an IAM role that grants CloudWatch Logs permissions to
         /// deliver ingested log events to the destination stream. You don't need to provide the
         /// ARN when you are working with a logical destination for cross-account delivery.</para></li><li><para><b>FilterPattern</b> A filter pattern for subscribing to a filtered stream of log
-        /// events.</para></li><li><para><b>Distribution</b>The method used to distribute log data to the destination. By
+        /// events.</para></li><li><para><b>Distribution</b> The method used to distribute log data to the destination. By
         /// default, log data is grouped by log stream, but the grouping can be set to <c>Random</c>
         /// for a more even distribution. This property is only applicable when the destination
         /// is an Kinesis Data Streams data stream.</para></li></ul>

@@ -48,8 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// with the container.
     /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
     /// connect to fleet instances</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug
-    /// fleet issues</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/containers-remote-access.html">
-    /// Remotely connect to a container fleet</a></para></li></ul>
+    /// fleet issues</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLComputeAccess")]
     [OutputType("Amazon.GameLift.Model.GetComputeAccessResponse")]

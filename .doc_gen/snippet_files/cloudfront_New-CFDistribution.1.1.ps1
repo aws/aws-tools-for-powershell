@@ -1,5 +1,5 @@
 $origin = New-Object Amazon.CloudFront.Model.Origin
-$origin.DomainName = "ps-cmdlet-sample.s3.amazonaws.com"
+$origin.DomainName = "amzn-s3-demo-bucket.s3.amazonaws.com"
 $origin.Id = "UniqueOrigin1"
 $origin.S3OriginConfig = New-Object Amazon.CloudFront.Model.S3OriginConfig
 $origin.S3OriginConfig.OriginAccessIdentity = ""
@@ -10,7 +10,7 @@ New-CFDistribution `
       -Origins_Quantity 1 `
       -Logging_Enabled $true `
       -Logging_IncludeCookie $true `
-      -Logging_Bucket ps-cmdlet-sample-logging.s3.amazonaws.com `
+      -Logging_Bucket amzn-s3-demo-logging-bucket.s3.amazonaws.com `
       -Logging_Prefix "help/" `
       -DistributionConfig_CallerReference Client1 `
       -DistributionConfig_DefaultRootObject index.html `

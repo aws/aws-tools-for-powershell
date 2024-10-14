@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ClusterInstanceGroupSpecification[] InstanceGroup { get; set; }
         #endregion
         
+        #region Parameter NodeRecovery
+        /// <summary>
+        /// <para>
+        /// <para>The node recovery mode to be applied to the SageMaker HyperPod cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.ClusterNodeRecovery")]
+        public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'ClusterArn'.
@@ -156,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter InstanceGroup which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.NodeRecovery = this.NodeRecovery;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.InstanceGroup != null)
             {
                 request.InstanceGroups = cmdletContext.InstanceGroup;
+            }
+            if (cmdletContext.NodeRecovery != null)
+            {
+                request.NodeRecovery = cmdletContext.NodeRecovery;
             }
             
             CmdletOutput output;
@@ -243,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         {
             public System.String ClusterName { get; set; }
             public List<Amazon.SageMaker.Model.ClusterInstanceGroupSpecification> InstanceGroup { get; set; }
+            public Amazon.SageMaker.ClusterNodeRecovery NodeRecovery { get; set; }
             public System.Func<Amazon.SageMaker.Model.UpdateClusterResponse, UpdateSMClusterCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.ClusterArn;
         }

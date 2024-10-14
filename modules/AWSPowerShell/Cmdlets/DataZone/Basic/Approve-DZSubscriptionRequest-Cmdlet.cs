@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter AssetScope
+        /// <summary>
+        /// <para>
+        /// <para>The asset scopes of the accept subscription request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("AssetScopes")]
+        public Amazon.DataZone.Model.AcceptedAssetScope[] AssetScope { get; set; }
+        #endregion
+        
         #region Parameter DecisionComment
         /// <summary>
         /// <para>
@@ -151,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
                 context.Select = (response, cmdlet) => this.Identifier;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            if (this.AssetScope != null)
+            {
+                context.AssetScope = new List<Amazon.DataZone.Model.AcceptedAssetScope>(this.AssetScope);
+            }
             context.DecisionComment = this.DecisionComment;
             context.DomainIdentifier = this.DomainIdentifier;
             #if MODULAR
@@ -182,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.DZ
             // create request
             var request = new Amazon.DataZone.Model.AcceptSubscriptionRequestRequest();
             
+            if (cmdletContext.AssetScope != null)
+            {
+                request.AssetScopes = cmdletContext.AssetScope;
+            }
             if (cmdletContext.DecisionComment != null)
             {
                 request.DecisionComment = cmdletContext.DecisionComment;
@@ -255,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.DZ
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DataZone.Model.AcceptedAssetScope> AssetScope { get; set; }
             public System.String DecisionComment { get; set; }
             public System.String DomainIdentifier { get; set; }
             public System.String Identifier { get; set; }

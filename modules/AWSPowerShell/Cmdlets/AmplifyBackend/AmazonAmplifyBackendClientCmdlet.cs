@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.AMPB
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonAmplifyBackendConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

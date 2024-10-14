@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server
-        /// certificate check is enabled or not.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-domain-ocsp-config.html">Configuring
+        /// certificate check is enabled or not.</para><para>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-endpoints-cert-config.html">Configuring
         /// OCSP server-certificate stapling in domain configuration</a> from Amazon Web Services
         /// IoT Core Developer Guide.</para>
         /// </para>

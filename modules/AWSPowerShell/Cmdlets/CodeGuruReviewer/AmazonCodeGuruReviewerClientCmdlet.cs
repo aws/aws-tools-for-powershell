@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CGR
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCodeGuruReviewerConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

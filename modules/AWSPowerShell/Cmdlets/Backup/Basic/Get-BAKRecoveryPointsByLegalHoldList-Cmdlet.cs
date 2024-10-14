@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter LegalHoldId
         /// <summary>
         /// <para>
-        /// <para>This is the ID of the legal hold.</para>
+        /// <para>The ID of the legal hold.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>This is the maximum number of resource list items to be returned.</para>
+        /// <para>The maximum number of resource list items to be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -74,10 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>This is the next item following a partial list of returned resources. For example,
-        /// if a request is made to return <c>MaxResults</c> number of resources, <c>NextToken</c>
-        /// allows you to return more items in your list starting at the location pointed to by
-        /// the next token.</para>
+        /// <para>The next item following a partial list of returned resources. For example, if a request
+        /// is made to return <c>MaxResults</c> number of resources, <c>NextToken</c> allows you
+        /// to return more items in your list starting at the location pointed to by the next
+        /// token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

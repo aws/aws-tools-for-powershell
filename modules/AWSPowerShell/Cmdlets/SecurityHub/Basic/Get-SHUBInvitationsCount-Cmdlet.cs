@@ -28,8 +28,15 @@ using Amazon.SecurityHub.Model;
 namespace Amazon.PowerShell.Cmdlets.SHUB
 {
     /// <summary>
+    /// <note><para>
+    /// We recommend using Organizations instead of Security Hub invitations to manage your
+    /// member accounts. For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing
+    /// Security Hub administrator and member accounts with Organizations</a> in the <i>Security
+    /// Hub User Guide</i>.
+    /// </para></note><para>
     /// Returns the count of all Security Hub membership invitations that were sent to the
-    /// current member account, not including the currently accepted invitation.
+    /// calling member account, not including the currently accepted invitation. 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SHUBInvitationsCount")]
     [OutputType("System.Int32")]

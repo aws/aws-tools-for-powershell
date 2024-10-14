@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.WSW
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonWorkSpacesWebConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

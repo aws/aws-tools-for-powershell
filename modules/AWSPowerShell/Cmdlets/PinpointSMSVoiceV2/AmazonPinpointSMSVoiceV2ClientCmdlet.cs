@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonPinpointSMSVoiceV2Config.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

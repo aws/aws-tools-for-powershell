@@ -113,6 +113,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationTemplates" OutputProperty="ConfigurationTemplates" Verb="Find" Noun="ConfigurationTemplate" PipelineParameter="Service" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeDeliveries" OutputProperty="Deliveries" Verb="Find" Noun="Delivery" PipelineParameter="" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -314,6 +318,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAnomaly" Verb="Update" Noun="Anomaly" ShouldProcessTarget="AnomalyDetectorArn" PipelineParameter="AnomalyDetectorArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeliveryConfiguration" Verb="Update" Noun="DeliveryConfiguration" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

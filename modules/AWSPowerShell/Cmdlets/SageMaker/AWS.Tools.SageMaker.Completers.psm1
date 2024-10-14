@@ -132,7 +132,7 @@ $SM_Completers = {
             ($_ -eq "Update-SMSpace/SpaceSettings_KernelGatewayAppSettings_DefaultResourceSpec_InstanceType")
         }
         {
-            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
+            $v = "ml.c5.12xlarge","ml.c5.18xlarge","ml.c5.24xlarge","ml.c5.2xlarge","ml.c5.4xlarge","ml.c5.9xlarge","ml.c5.large","ml.c5.xlarge","ml.c6i.12xlarge","ml.c6i.16xlarge","ml.c6i.24xlarge","ml.c6i.2xlarge","ml.c6i.32xlarge","ml.c6i.4xlarge","ml.c6i.8xlarge","ml.c6i.large","ml.c6i.xlarge","ml.c6id.12xlarge","ml.c6id.16xlarge","ml.c6id.24xlarge","ml.c6id.2xlarge","ml.c6id.32xlarge","ml.c6id.4xlarge","ml.c6id.8xlarge","ml.c6id.large","ml.c6id.xlarge","ml.c7i.12xlarge","ml.c7i.16xlarge","ml.c7i.24xlarge","ml.c7i.2xlarge","ml.c7i.48xlarge","ml.c7i.4xlarge","ml.c7i.8xlarge","ml.c7i.large","ml.c7i.xlarge","ml.g4dn.12xlarge","ml.g4dn.16xlarge","ml.g4dn.2xlarge","ml.g4dn.4xlarge","ml.g4dn.8xlarge","ml.g4dn.xlarge","ml.g5.12xlarge","ml.g5.16xlarge","ml.g5.24xlarge","ml.g5.2xlarge","ml.g5.48xlarge","ml.g5.4xlarge","ml.g5.8xlarge","ml.g5.xlarge","ml.g6.12xlarge","ml.g6.16xlarge","ml.g6.24xlarge","ml.g6.2xlarge","ml.g6.48xlarge","ml.g6.4xlarge","ml.g6.8xlarge","ml.g6.xlarge","ml.g6e.12xlarge","ml.g6e.16xlarge","ml.g6e.24xlarge","ml.g6e.2xlarge","ml.g6e.48xlarge","ml.g6e.4xlarge","ml.g6e.8xlarge","ml.g6e.xlarge","ml.geospatial.interactive","ml.m5.12xlarge","ml.m5.16xlarge","ml.m5.24xlarge","ml.m5.2xlarge","ml.m5.4xlarge","ml.m5.8xlarge","ml.m5.large","ml.m5.xlarge","ml.m5d.12xlarge","ml.m5d.16xlarge","ml.m5d.24xlarge","ml.m5d.2xlarge","ml.m5d.4xlarge","ml.m5d.8xlarge","ml.m5d.large","ml.m5d.xlarge","ml.m6i.12xlarge","ml.m6i.16xlarge","ml.m6i.24xlarge","ml.m6i.2xlarge","ml.m6i.32xlarge","ml.m6i.4xlarge","ml.m6i.8xlarge","ml.m6i.large","ml.m6i.xlarge","ml.m6id.12xlarge","ml.m6id.16xlarge","ml.m6id.24xlarge","ml.m6id.2xlarge","ml.m6id.32xlarge","ml.m6id.4xlarge","ml.m6id.8xlarge","ml.m6id.large","ml.m6id.xlarge","ml.m7i.12xlarge","ml.m7i.16xlarge","ml.m7i.24xlarge","ml.m7i.2xlarge","ml.m7i.48xlarge","ml.m7i.4xlarge","ml.m7i.8xlarge","ml.m7i.large","ml.m7i.xlarge","ml.p3.16xlarge","ml.p3.2xlarge","ml.p3.8xlarge","ml.p3dn.24xlarge","ml.p4d.24xlarge","ml.p4de.24xlarge","ml.p5.48xlarge","ml.r5.12xlarge","ml.r5.16xlarge","ml.r5.24xlarge","ml.r5.2xlarge","ml.r5.4xlarge","ml.r5.8xlarge","ml.r5.large","ml.r5.xlarge","ml.r6i.12xlarge","ml.r6i.16xlarge","ml.r6i.24xlarge","ml.r6i.2xlarge","ml.r6i.32xlarge","ml.r6i.4xlarge","ml.r6i.8xlarge","ml.r6i.large","ml.r6i.xlarge","ml.r6id.12xlarge","ml.r6id.16xlarge","ml.r6id.24xlarge","ml.r6id.2xlarge","ml.r6id.32xlarge","ml.r6id.4xlarge","ml.r6id.8xlarge","ml.r6id.large","ml.r6id.xlarge","ml.r7i.12xlarge","ml.r7i.16xlarge","ml.r7i.24xlarge","ml.r7i.2xlarge","ml.r7i.48xlarge","ml.r7i.4xlarge","ml.r7i.8xlarge","ml.r7i.large","ml.r7i.xlarge","ml.t3.2xlarge","ml.t3.large","ml.t3.medium","ml.t3.micro","ml.t3.small","ml.t3.xlarge","ml.trn1.2xlarge","ml.trn1.32xlarge","ml.trn1n.32xlarge","system"
             break
         }
 
@@ -313,6 +313,16 @@ $SM_Completers = {
         "New-SMEndpointConfig/TextConfig_Language"
         {
             $v = "af","ar","bg","bn","ca","cs","da","de","el","en","es","et","eu","fa","fi","fr","ga","gu","he","hi","hr","hu","hy","id","is","it","kn","ky","lb","lij","lt","lv","mk","ml","mr","nb","ne","nl","pl","pt","ro","ru","sa","si","sk","sl","sq","sr","sv","ta","te","tl","tn","tr","tt","uk","ur","xx","yo","zh"
+            break
+        }
+
+        # Amazon.SageMaker.ClusterNodeRecovery
+        {
+            ($_ -eq "New-SMCluster/NodeRecovery") -Or
+            ($_ -eq "Update-SMCluster/NodeRecovery")
+        }
+        {
+            $v = "Automatic","None"
             break
         }
 
@@ -683,6 +693,16 @@ $SM_Completers = {
         "Get-SMLabelingJobList/StatusEqual"
         {
             $v = "Completed","Failed","Initializing","InProgress","Stopped","Stopping"
+            break
+        }
+
+        # Amazon.SageMaker.LifecycleManagement
+        {
+            ($_ -eq "New-SMDomain/IdleSettings_LifecycleManagement") -Or
+            ($_ -eq "Update-SMDomain/IdleSettings_LifecycleManagement")
+        }
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
 
@@ -1364,6 +1384,16 @@ $SM_Completers = {
             break
         }
 
+        # Amazon.SageMaker.TagPropagation
+        {
+            ($_ -eq "New-SMDomain/TagPropagation") -Or
+            ($_ -eq "Update-SMDomain/TagPropagation")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.SageMaker.TargetDevice
         "New-SMCompilationJob/OutputConfig_TargetDevice"
         {
@@ -1586,6 +1616,7 @@ $SM_map = @{
     "HyperParameterTuningResourceConfig_InstanceType"=@("New-SMHyperParameterTuningJob")
     "IamPolicyConstraints_SourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
     "IamPolicyConstraints_VpcSourceIp"=@("New-SMWorkteam","Update-SMWorkteam")
+    "IdleSettings_LifecycleManagement"=@("New-SMDomain","Update-SMDomain")
     "InferenceExecutionConfig_Mode"=@("New-SMModel")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
@@ -1598,6 +1629,7 @@ $SM_map = @{
     "ModelPackageType"=@("Get-SMModelPackageList")
     "ModelQualityAppSpecification_ProblemType"=@("New-SMModelQualityJobDefinition")
     "MonitoringTypeEqual"=@("Get-SMMonitoringExecutionList","Get-SMMonitoringScheduleList")
+    "NodeRecovery"=@("New-SMCluster","Update-SMCluster")
     "OfflineStoreConfig_TableFormat"=@("New-SMFeatureGroup")
     "OfflineStoreStatusEqual"=@("Get-SMFeatureGroupList")
     "OnlineStoreConfig_StorageType"=@("New-SMFeatureGroup")
@@ -1629,6 +1661,7 @@ $SM_map = @{
     "StudioLifecycleConfigAppType"=@("New-SMStudioLifecycleConfig")
     "TabularJobConfig_Mode"=@("New-SMAutoMLJobV2")
     "TabularJobConfig_ProblemType"=@("New-SMAutoMLJobV2")
+    "TagPropagation"=@("New-SMDomain","Update-SMDomain")
     "TargetPlatform_Accelerator"=@("New-SMCompilationJob")
     "TargetPlatform_Arch"=@("New-SMCompilationJob")
     "TargetPlatform_Os"=@("New-SMCompilationJob")

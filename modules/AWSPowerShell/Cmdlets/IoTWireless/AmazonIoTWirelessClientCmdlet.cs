@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IOTW
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonIoTWirelessConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Stops the ingestion of live events on an event data store specified as either an ARN
     /// or the ID portion of the ARN. To stop ingestion, the event data store <c>Status</c>
     /// must be <c>ENABLED</c> and the <c>eventCategory</c> must be <c>Management</c>, <c>Data</c>,
-    /// or <c>ConfigurationItem</c>.
+    /// <c>NetworkActivity</c>, or <c>ConfigurationItem</c>.
     /// </summary>
     [Cmdlet("Stop", "CTEventDataStoreIngestion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

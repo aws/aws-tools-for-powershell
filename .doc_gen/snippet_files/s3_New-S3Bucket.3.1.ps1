@@ -1,1 +1,1 @@
-New-S3Bucket -BucketName sample-bucket -PublicReadOnly
+New-S3Bucket -BucketName amzn-s3-demo-bucket -PublicReadOnly

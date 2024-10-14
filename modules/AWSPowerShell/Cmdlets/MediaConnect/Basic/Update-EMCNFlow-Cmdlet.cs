@@ -141,6 +141,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.State SourceFailoverConfig_State { get; set; }
         #endregion
         
+        #region Parameter SourceMonitoringConfig_ThumbnailState
+        /// <summary>
+        /// <para>
+        /// The state of thumbnail monitoring.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaConnect.ThumbnailState")]
+        public Amazon.MediaConnect.ThumbnailState SourceMonitoringConfig_ThumbnailState { get; set; }
+        #endregion
+        
         #region Parameter Select
         /// <summary>
         /// Use the -Select parameter to control the cmdlet output. The default value is 'Flow'.
@@ -217,6 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             context.SourceFailoverConfig_RecoveryWindow = this.SourceFailoverConfig_RecoveryWindow;
             context.SourcePriority_PrimarySource = this.SourcePriority_PrimarySource;
             context.SourceFailoverConfig_State = this.SourceFailoverConfig_State;
+            context.SourceMonitoringConfig_ThumbnailState = this.SourceMonitoringConfig_ThumbnailState;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -341,6 +353,25 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 request.SourceFailoverConfig = null;
             }
             
+             // populate SourceMonitoringConfig
+            var requestSourceMonitoringConfigIsNull = true;
+            request.SourceMonitoringConfig = new Amazon.MediaConnect.Model.MonitoringConfig();
+            Amazon.MediaConnect.ThumbnailState requestSourceMonitoringConfig_sourceMonitoringConfig_ThumbnailState = null;
+            if (cmdletContext.SourceMonitoringConfig_ThumbnailState != null)
+            {
+                requestSourceMonitoringConfig_sourceMonitoringConfig_ThumbnailState = cmdletContext.SourceMonitoringConfig_ThumbnailState;
+            }
+            if (requestSourceMonitoringConfig_sourceMonitoringConfig_ThumbnailState != null)
+            {
+                request.SourceMonitoringConfig.ThumbnailState = requestSourceMonitoringConfig_sourceMonitoringConfig_ThumbnailState;
+                requestSourceMonitoringConfigIsNull = false;
+            }
+             // determine if request.SourceMonitoringConfig should be set to null
+            if (requestSourceMonitoringConfigIsNull)
+            {
+                request.SourceMonitoringConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -409,6 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
             public System.Int32? SourceFailoverConfig_RecoveryWindow { get; set; }
             public System.String SourcePriority_PrimarySource { get; set; }
             public Amazon.MediaConnect.State SourceFailoverConfig_State { get; set; }
+            public Amazon.MediaConnect.ThumbnailState SourceMonitoringConfig_ThumbnailState { get; set; }
             public System.Func<Amazon.MediaConnect.Model.UpdateFlowResponse, UpdateEMCNFlowCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Flow;
         }

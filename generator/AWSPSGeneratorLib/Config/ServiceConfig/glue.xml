@@ -69,7 +69,7 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizerBatch" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="BatchGetTableOptimizer" OutputProperty="*" Verb="Get" Noun="TableOptimizerBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -826,6 +826,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestConnection" Verb="Test" Noun="Connection" PipelineParameter="ConnectionName" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

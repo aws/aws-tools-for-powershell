@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// version.
     /// </para><para>
     /// To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke
-    /// permissions to an Amazon Web Services account or Amazon Web Servicesservice, use <a>AddPermission</a>.
+    /// permissions to an Amazon Web Services account or Amazon Web Services service, use
+    /// <a>AddPermission</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMFunctionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

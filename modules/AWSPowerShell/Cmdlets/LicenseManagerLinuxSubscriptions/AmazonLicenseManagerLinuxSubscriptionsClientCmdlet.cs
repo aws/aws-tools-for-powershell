@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.LLMS
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonLicenseManagerLinuxSubscriptionsConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

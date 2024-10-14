@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CWRUM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCloudWatchRUMConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

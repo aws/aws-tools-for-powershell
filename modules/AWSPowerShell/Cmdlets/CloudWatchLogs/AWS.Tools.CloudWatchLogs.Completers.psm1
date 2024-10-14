@@ -270,6 +270,7 @@ $CWL_SelectMap = @{
                "Remove-CWLRetentionPolicy",
                "Remove-CWLSubscriptionFilter",
                "Get-CWLAccountPolicy",
+               "Find-CWLConfigurationTemplate",
                "Find-CWLDelivery",
                "Find-CWLDeliveryDestination",
                "Find-CWLDeliverySource",
@@ -320,6 +321,7 @@ $CWL_SelectMap = @{
                "Remove-CWLLogGroupTag",
                "Remove-CWLResourceTag",
                "Update-CWLAnomaly",
+               "Update-CWLDeliveryConfiguration",
                "Update-CWLLogAnomalyDetector")
 }
 

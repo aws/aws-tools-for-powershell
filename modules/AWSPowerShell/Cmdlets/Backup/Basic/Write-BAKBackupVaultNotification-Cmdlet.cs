@@ -47,9 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>An array of events that indicate the status of jobs to back up resources to the backup
         /// vault.</para><para>For common use cases and code samples, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html">Using
-        /// Amazon SNS to track Backup events</a>.</para><para>The following events are supported:</para><ul><li><para><c>BACKUP_JOB_STARTED</c> | <c>BACKUP_JOB_COMPLETED</c></para></li><li><para><c>COPY_JOB_STARTED</c> | <c>COPY_JOB_SUCCESSFUL</c> | <c>COPY_JOB_FAILED</c></para></li><li><para><c>RESTORE_JOB_STARTED</c> | <c>RESTORE_JOB_COMPLETED</c> | <c>RECOVERY_POINT_MODIFIED</c></para></li><li><para><c>S3_BACKUP_OBJECT_FAILED</c> | <c>S3_RESTORE_OBJECT_FAILED</c></para></li></ul><note><para>The list below shows items that are deprecated events (for reference) and are no longer
-        /// in use. They are no longer supported and will not return statuses or notifications.
-        /// Refer to the list above for current supported events.</para></note>
+        /// Amazon SNS to track Backup events</a>.</para><para>The following events are supported:</para><ul><li><para><c>BACKUP_JOB_STARTED</c> | <c>BACKUP_JOB_COMPLETED</c></para></li><li><para><c>COPY_JOB_STARTED</c> | <c>COPY_JOB_SUCCESSFUL</c> | <c>COPY_JOB_FAILED</c></para></li><li><para><c>RESTORE_JOB_STARTED</c> | <c>RESTORE_JOB_COMPLETED</c> | <c>RECOVERY_POINT_MODIFIED</c></para></li><li><para><c>S3_BACKUP_OBJECT_FAILED</c> | <c>S3_RESTORE_OBJECT_FAILED</c></para></li></ul><note><para>The list below includes both supported events and deprecated events that are no longer
+        /// in use (for reference). Deprecated events do not return statuses or notifications.
+        /// Refer to the list above for the supported events.</para></note>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         /// <para>
         /// <para>The name of a logical container where backups are stored. Backup vaults are identified
         /// by names that are unique to the account used to create them and the Amazon Web Services
-        /// Region where they are created. They consist of lowercase letters, numbers, and hyphens.</para>
+        /// Region where they are created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

@@ -80,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.FINSP
         /// <summary>
         /// <para>
         /// <para> The memory and CPU capabilities of the scaling group host on which FinSpace Managed
-        /// kdb clusters will be placed.</para><para>You can add one of the following values:</para><ul><li><para><c>kx.sg.4xlarge</c> – The host type with a configuration of 108 GiB memory and 16
+        /// kdb clusters will be placed.</para><para>You can add one of the following values:</para><ul><li><para><c>kx.sg.large</c> – The host type with a configuration of 16 GiB memory and 2 vCPUs.</para></li><li><para><c>kx.sg.xlarge</c> – The host type with a configuration of 32 GiB memory and 4 vCPUs.</para></li><li><para><c>kx.sg.2xlarge</c> – The host type with a configuration of 64 GiB memory and 8
+        /// vCPUs.</para></li><li><para><c>kx.sg.4xlarge</c> – The host type with a configuration of 108 GiB memory and 16
         /// vCPUs.</para></li><li><para><c>kx.sg.8xlarge</c> – The host type with a configuration of 216 GiB memory and 32
         /// vCPUs.</para></li><li><para><c>kx.sg.16xlarge</c> – The host type with a configuration of 432 GiB memory and
         /// 64 vCPUs.</para></li><li><para><c>kx.sg.32xlarge</c> – The host type with a configuration of 864 GiB memory and

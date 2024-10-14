@@ -81,8 +81,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ScopeConfiguration_Domain
         /// <summary>
         /// <para>
-        /// <para>The domain of the GitHub Enterprise organization. Note that this parameter is only
-        /// required if your project's source type is GITHUB_ENTERPRISE</para>
+        /// <para>The domain of the GitHub Enterprise organization or the GitLab Self Managed group.
+        /// Note that this parameter is only required if your project's source type is GITHUB_ENTERPRISE
+        /// or GITLAB_SELF_MANAGED.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -119,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ScopeConfiguration_Name
         /// <summary>
         /// <para>
-        /// <para>The name of either the enterprise or organization that will send webhook events to
-        /// CodeBuild, depending on if the webhook is a global or organization webhook respectively.</para>
+        /// <para>The name of either the group, enterprise, or organization that will send webhook events
+        /// to CodeBuild, depending on the type of webhook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -147,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ScopeConfiguration_Scope
         /// <summary>
         /// <para>
-        /// <para>The type of scope for a GitHub webhook.</para>
+        /// <para>The type of scope for a GitHub or GitLab webhook.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

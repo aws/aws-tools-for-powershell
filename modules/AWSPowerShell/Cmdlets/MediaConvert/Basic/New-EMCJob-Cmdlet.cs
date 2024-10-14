@@ -86,6 +86,20 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public Amazon.MediaConvert.Model.HopDestination[] HopDestination { get; set; }
         #endregion
         
+        #region Parameter JobEngineVersion
+        /// <summary>
+        /// <para>
+        /// Use Job engine versions to run jobs for
+        /// your production workflow on one version, while you test and validate the latest version.
+        /// To specify a Job engine version: Enter a date in a YYYY-MM-DD format. For a list of
+        /// valid Job engine versions, submit a ListVersions request. To not specify a Job engine
+        /// version: Leave blank.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String JobEngineVersion { get; set; }
+        #endregion
+        
         #region Parameter JobTemplate
         /// <summary>
         /// <para>
@@ -298,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             {
                 context.HopDestination = new List<Amazon.MediaConvert.Model.HopDestination>(this.HopDestination);
             }
+            context.JobEngineVersion = this.JobEngineVersion;
             context.JobTemplate = this.JobTemplate;
             context.Priority = this.Priority;
             context.Queue = this.Queue;
@@ -379,6 +394,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             if (cmdletContext.HopDestination != null)
             {
                 request.HopDestinations = cmdletContext.HopDestination;
+            }
+            if (cmdletContext.JobEngineVersion != null)
+            {
+                request.JobEngineVersion = cmdletContext.JobEngineVersion;
             }
             if (cmdletContext.JobTemplate != null)
             {
@@ -481,6 +500,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             public Amazon.MediaConvert.BillingTagsSource BillingTagsSource { get; set; }
             public System.String ClientRequestToken { get; set; }
             public List<Amazon.MediaConvert.Model.HopDestination> HopDestination { get; set; }
+            public System.String JobEngineVersion { get; set; }
             public System.String JobTemplate { get; set; }
             public System.Int32? Priority { get; set; }
             public System.String Queue { get; set; }

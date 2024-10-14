@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonSimpleSystemsManagementConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

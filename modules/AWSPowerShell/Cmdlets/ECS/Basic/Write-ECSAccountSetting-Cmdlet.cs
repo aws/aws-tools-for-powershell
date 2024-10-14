@@ -83,8 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// more information on using IPv6 with tasks launched on Amazon EC2 instances, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking-awsvpc.html#task-networking-vpc-dual-stack">Using
         /// a VPC in dual-stack mode</a>. For more information on using IPv6 with tasks launched
         /// on Fargate, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-networking.html#fargate-task-networking-vpc-dual-stack">Using
-        /// a VPC in dual-stack mode</a>.</para></li><li><para><c>fargateFIPSMode</c> - If you specify <c>fargateFIPSMode</c>, Fargate FIPS 140
-        /// compliance is affected.</para></li><li><para><c>fargateTaskRetirementWaitPeriod</c> - When Amazon Web Services determines that
+        /// a VPC in dual-stack mode</a>.</para></li><li><para><c>fargateTaskRetirementWaitPeriod</c> - When Amazon Web Services determines that
         /// a security or infrastructure update is needed for an Amazon ECS task hosted on Fargate,
         /// the tasks need to be stopped and new tasks launched to replace them. Use <c>fargateTaskRetirementWaitPeriod</c>
         /// to configure the wait time to retire a Fargate task. For information about the Fargate

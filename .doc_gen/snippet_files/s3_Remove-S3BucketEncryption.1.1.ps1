@@ -1,1 +1,1 @@
-Remove-S3BucketEncryption -BucketName 's3casetestbucket'
+Remove-S3BucketEncryption -BucketName 'amzn-s3-demo-bucket'

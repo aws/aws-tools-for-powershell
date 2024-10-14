@@ -47,6 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </para><para>
     /// If you are restoring from a shared manual DB snapshot, the <c>DBSnapshotIdentifier</c>
     /// must be the ARN of the shared DB snapshot.
+    /// </para><para>
+    /// To restore from a DB snapshot with an unsupported engine version, you must first upgrade
+    /// the engine version of the snapshot. For more information about upgrading a RDS for
+    /// MySQL DB snapshot engine version, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql-upgrade-snapshot.html">Upgrading
+    /// a MySQL DB snapshot engine version</a>. For more information about upgrading a RDS
+    /// for PostgreSQL DB snapshot engine version, <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBSnapshot.PostgreSQL.html">Upgrading
+    /// a PostgreSQL DB snapshot engine version</a>.
     /// </para><note><para>
     /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
     /// <c>RestoreDBClusterFromSnapshot</c>.
@@ -421,10 +428,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>License model information for the restored DB instance.</para><note><para>License models for RDS for Db2 require additional configuration. The Bring Your Own
-        /// License (BYOL) model requires a custom parameter group. The Db2 license through Amazon
-        /// Web Services Marketplace model requires an Amazon Web Services Marketplace subscription.
-        /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">RDS
-        /// for Db2 licensing options</a> in the <i>Amazon RDS User Guide</i>.</para></note><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para>RDS for Db2 - <c>bring-your-own-license | marketplace-license</c></para></li><li><para>RDS for MariaDB - <c>general-public-license</c></para></li><li><para>RDS for Microsoft SQL Server - <c>license-included</c></para></li><li><para>RDS for MySQL - <c>general-public-license</c></para></li><li><para>RDS for Oracle - <c>bring-your-own-license | license-included</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql-license</c></para></li></ul><para>Default: Same as the source.</para>
+        /// License (BYOL) model requires a custom parameter group and an Amazon Web Services
+        /// License Manager self-managed license. The Db2 license through Amazon Web Services
+        /// Marketplace model requires an Amazon Web Services Marketplace subscription. For more
+        /// information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-licensing.html">Amazon
+        /// RDS for Db2 licensing options</a> in the <i>Amazon RDS User Guide</i>.</para></note><para>This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.</para><para>Valid Values:</para><ul><li><para>RDS for Db2 - <c>bring-your-own-license | marketplace-license</c></para></li><li><para>RDS for MariaDB - <c>general-public-license</c></para></li><li><para>RDS for Microsoft SQL Server - <c>license-included</c></para></li><li><para>RDS for MySQL - <c>general-public-license</c></para></li><li><para>RDS for Oracle - <c>bring-your-own-license | license-included</c></para></li><li><para>RDS for PostgreSQL - <c>postgresql-license</c></para></li></ul><para>Default: Same as the source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

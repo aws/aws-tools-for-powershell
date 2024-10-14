@@ -28,8 +28,7 @@ using Amazon.AppConfig.Model;
 namespace Amazon.PowerShell.Cmdlets.APPC
 {
     /// <summary>
-    /// Deletes a deployment strategy. Deleting a deployment strategy does not delete a configuration
-    /// from a host.
+    /// Deletes a deployment strategy.
     /// </summary>
     [Cmdlet("Remove", "APPCDeploymentStrategy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

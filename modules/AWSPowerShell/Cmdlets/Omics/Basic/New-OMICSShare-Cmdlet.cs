@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.OMICS
     /// <para>
     /// The following resources support cross-account sharing:
     /// </para><ul><li><para>
-    /// Healthomics variant stores
+    /// HealthOmics variant stores
     /// </para></li><li><para>
-    /// Healthomics annotation stores
+    /// HealthOmics annotation stores
     /// </para></li><li><para>
     /// Private workflows
     /// </para></li></ul>

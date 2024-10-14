@@ -33,8 +33,17 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// cost allocation tracking. You can call TagResource up to five times per second, per
     /// account. 
     /// 
-    ///  
-    /// <para>
+    ///  <ul><li><para><c>TagResource</c> is an asynchronous operation. If you issue a <a>ListTagsOfResource</a>
+    /// request immediately after a <c>TagResource</c> request, DynamoDB might return your
+    /// previous tag set, if there was one, or an empty tag set. This is because <c>ListTagsOfResource</c>
+    /// uses an eventually consistent query, and the metadata for your tags or table might
+    /// not be available at that moment. Wait for a few seconds, and then try the <c>ListTagsOfResource</c>
+    /// request again.
+    /// </para></li><li><para>
+    /// The application or removal of tags using <c>TagResource</c> and <c>UntagResource</c>
+    /// APIs is eventually consistent. <c>ListTagsOfResource</c> API will only reflect the
+    /// changes after a few seconds.
+    /// </para></li></ul><para>
     /// For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging
     /// for DynamoDB</a> in the <i>Amazon DynamoDB Developer Guide</i>.
     /// </para>

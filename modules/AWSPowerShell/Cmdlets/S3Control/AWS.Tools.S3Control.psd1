@@ -114,6 +114,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-S3CBucketReplication', 
         'Get-S3CBucketTagging', 
         'Get-S3CBucketVersioning', 
+        'Get-S3CCallerAccessGrantList', 
         'Get-S3CDataAccess', 
         'Get-S3CJob', 
         'Get-S3CJobList', 

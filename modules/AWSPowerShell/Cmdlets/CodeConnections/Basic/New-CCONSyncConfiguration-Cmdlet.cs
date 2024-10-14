@@ -90,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.CCON
         public Amazon.CodeConnections.PublishDeploymentStatus PublishDeploymentStatus { get; set; }
         #endregion
         
+        #region Parameter PullRequestComment
+        /// <summary>
+        /// <para>
+        /// <para>A toggle that specifies whether to enable or disable pull request comments for the
+        /// sync configuration to be created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.CodeConnections.PullRequestComment")]
+        public Amazon.CodeConnections.PullRequestComment PullRequestComment { get; set; }
+        #endregion
+        
         #region Parameter RepositoryLinkId
         /// <summary>
         /// <para>
@@ -229,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
             }
             #endif
             context.PublishDeploymentStatus = this.PublishDeploymentStatus;
+            context.PullRequestComment = this.PullRequestComment;
             context.RepositoryLinkId = this.RepositoryLinkId;
             #if MODULAR
             if (this.RepositoryLinkId == null && ParameterWasBound(nameof(this.RepositoryLinkId)))
@@ -285,6 +298,10 @@ namespace Amazon.PowerShell.Cmdlets.CCON
             if (cmdletContext.PublishDeploymentStatus != null)
             {
                 request.PublishDeploymentStatus = cmdletContext.PublishDeploymentStatus;
+            }
+            if (cmdletContext.PullRequestComment != null)
+            {
+                request.PullRequestComment = cmdletContext.PullRequestComment;
             }
             if (cmdletContext.RepositoryLinkId != null)
             {
@@ -370,6 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.CCON
             public System.String Branch { get; set; }
             public System.String ConfigFile { get; set; }
             public Amazon.CodeConnections.PublishDeploymentStatus PublishDeploymentStatus { get; set; }
+            public Amazon.CodeConnections.PullRequestComment PullRequestComment { get; set; }
             public System.String RepositoryLinkId { get; set; }
             public System.String ResourceName { get; set; }
             public System.String RoleArn { get; set; }

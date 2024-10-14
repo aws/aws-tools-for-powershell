@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.IAMAA
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonAccessAnalyzerConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -71,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupVaultTag
         /// <summary>
         /// <para>
-        /// <para>Metadata that you can assign to help organize the resources that you create. Each
-        /// tag is a key-value pair.</para>
+        /// <para>The tags to assign to the backup vault.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

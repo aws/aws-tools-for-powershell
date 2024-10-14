@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.MHO
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonMigrationHubOrchestratorConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

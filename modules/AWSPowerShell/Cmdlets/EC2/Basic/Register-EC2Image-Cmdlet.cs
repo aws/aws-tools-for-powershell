@@ -30,8 +30,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Registers an AMI. When you're creating an instance-store backed AMI, registering the
     /// AMI is the final step in the creation process. For more information about creating
-    /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create
-    /// your own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// AMIs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create
+    /// an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html">Create
+    /// an instance-store backed AMI</a> in the <i>Amazon EC2 User Guide</i>.
     /// 
     ///  <note><para>
     /// For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
@@ -49,25 +50,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// instance launched from the AMI is encrypted.
     /// </para><para>
     /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create
-    /// a Linux AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use
-    /// encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon Elastic Compute Cloud
-    /// User Guide</i>.
+    /// an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use
+    /// encryption with Amazon EBS-backed AMIs</a> in the <i>Amazon EC2 User Guide</i>.
     /// </para><para><b>Amazon Web Services Marketplace product codes</b></para><para>
     /// If any snapshots have Amazon Web Services Marketplace product codes, they are copied
     /// to the new AMI.
     /// </para><para>
-    /// Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and
-    /// SUSE Linux Enterprise Server (SLES), use the Amazon EC2 billing product code associated
-    /// with an AMI to verify the subscription status for package updates. To create a new
-    /// AMI for operating systems that require a billing product code, instead of registering
-    /// the AMI, do the following to preserve the billing product code association:
-    /// </para><ol><li><para>
-    /// Launch an instance from an existing AMI with that billing product code.
-    /// </para></li><li><para>
-    /// Customize the instance.
-    /// </para></li><li><para>
-    /// Create an AMI from the instance using <a>CreateImage</a>.
-    /// </para></li></ol><para>
+    /// In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct licensing
+    /// information to be present on the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
+    /// AMI billing information</a> in the <i>Amazon EC2 User Guide</i>. When creating an
+    /// AMI from a snapshot, the <c>RegisterImage</c> operation derives the correct billing
+    /// information from the snapshot's metadata, but this requires the appropriate metadata
+    /// to be present. To verify if the correct billing information was applied, check the
+    /// <c>PlatformDetails</c> field on the new AMI. If the field is empty or doesn't match
+    /// the expected operating system code (for example, Windows, RedHat, SUSE, or SQL), the
+    /// AMI creation was unsuccessful, and you should discard the AMI and instead create the
+    /// AMI from an instance using <a>CreateImage</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami">Create
+    /// an AMI from an instance </a> in the <i>Amazon EC2 User Guide</i>.
+    /// </para><para>
     /// If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched
     /// from an AMI with a billing product code, make sure that the Reserved Instance has
     /// the matching billing product code. If you purchase a Reserved Instance without the

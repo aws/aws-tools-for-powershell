@@ -1,1 +1,1 @@
-Write-S3BucketRequestPayment -BucketName mybucket -RequestPaymentConfiguration_Payer Requester
+Write-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket -RequestPaymentConfiguration_Payer Requester

@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
     ///  
     /// <para>
     /// For event data stores for CloudTrail events, <c>AdvancedEventSelectors</c> includes
-    /// or excludes management or data events in your event data store. For more information
-    /// about <c>AdvancedEventSelectors</c>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.
+    /// or excludes management, data, or network activity events in your event data store.
+    /// For more information about <c>AdvancedEventSelectors</c>, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>.
     /// </para><para>
     ///  For event data stores for CloudTrail Insights events, Config configuration items,
     /// Audit Manager evidence, or non-Amazon Web Services events, <c>AdvancedEventSelectors</c>

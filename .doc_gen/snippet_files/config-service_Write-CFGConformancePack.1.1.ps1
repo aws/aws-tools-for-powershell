@@ -1,1 +1,1 @@
-Write-CFGConformancePack -ConformancePackName dono -DeliveryS3Bucket kt-ps-examples -TemplateBody (Get-Content C:\windows\temp\template.yaml -Raw)
+Write-CFGConformancePack -ConformancePackName dono -DeliveryS3Bucket amzn-s3-demo-bucket -TemplateBody (Get-Content C:\windows\temp\template.yaml -Raw)

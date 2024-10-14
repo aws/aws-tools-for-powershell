@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
     /// You can optionally provide an integration ARN. If you provide an integration ARN,
     /// then the results only include that integration.
     /// </para><para>
-    /// If you do not provide an integration ARN, then the results include all of the available
+    /// If you don't provide an integration ARN, then the results include all of the available
     /// product integrations. 
     /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>

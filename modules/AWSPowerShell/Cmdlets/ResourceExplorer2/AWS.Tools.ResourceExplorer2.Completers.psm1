@@ -165,6 +165,7 @@ $AREX_SelectMap = @{
                "Get-AREXView",
                "Get-AREXIndexList",
                "Get-AREXIndexesForMemberList",
+               "Get-AREXResourceList",
                "Get-AREXSupportedResourceTypeList",
                "Get-AREXResourceTag",
                "Get-AREXViewArnList",

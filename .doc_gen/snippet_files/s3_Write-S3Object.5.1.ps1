@@ -1,1 +1,1 @@
-Write-S3Object -BucketName test-files -Folder .\Scripts -KeyPrefix SampleScripts\ -SearchPattern *.ps1
+Write-S3Object -BucketName amzn-s3-demo-bucket -Folder .\Scripts -KeyPrefix SampleScripts\ -SearchPattern *.ps1

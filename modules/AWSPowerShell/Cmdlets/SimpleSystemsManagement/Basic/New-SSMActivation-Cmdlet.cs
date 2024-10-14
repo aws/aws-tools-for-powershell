@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Registering these machines with Systems Manager makes it possible to manage them using
     /// Systems Manager capabilities. You use the activation code and ID when installing SSM
     /// Agent on machines in your hybrid environment. For more information about requirements
-    /// for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting
-    /// up Amazon Web Services Systems Manager for hybrid and multicloud environments</a>
-    /// in the <i>Amazon Web Services Systems Manager User Guide</i>. 
+    /// for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-hybrid-multicloud.html">Using
+    /// Amazon Web Services Systems Manager in hybrid and multicloud environments</a> in the
+    /// <i>Amazon Web Services Systems Manager User Guide</i>. 
     /// 
     ///  <note><para>
     /// Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The date by which this activation request should expire, in timestamp format, such
-        /// as "2021-07-07T00:00:00". You can specify a date up to 30 days in advance. If you
+        /// as "2024-07-07T00:00:00". You can specify a date up to 30 days in advance. If you
         /// don't provide an expiration date, the activation code expires in 24 hours.</para>
         /// </para>
         /// </summary>
@@ -95,9 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The name of the Identity and Access Management (IAM) role that you want to assign
         /// to the managed node. This IAM role must provide AssumeRole permissions for the Amazon
         /// Web Services Systems Manager service principal <c>ssm.amazonaws.com</c>. For more
-        /// information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create
-        /// an IAM service role for a hybrid and multicloud environment</a> in the <i>Amazon Web
-        /// Services Systems Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
+        /// information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-service-role.html">Create
+        /// the IAM service role required for Systems Manager in a hybrid and multicloud environments</a>
+        /// in the <i>Amazon Web Services Systems Manager User Guide</i>.</para><note><para>You can't specify an IAM service-linked role for this parameter. You must create a
         /// unique role.</para></note>
         /// </para>
         /// </summary>

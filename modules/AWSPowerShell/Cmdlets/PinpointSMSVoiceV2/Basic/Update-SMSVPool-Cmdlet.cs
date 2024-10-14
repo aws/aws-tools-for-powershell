@@ -58,7 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The OptOutList to associate with the pool. Valid values are either OptOutListName
-        /// or OptOutListArn.</para>
+        /// or OptOutListArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -69,7 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// <summary>
         /// <para>
         /// <para>The unique identifier of the pool to update. Valid values are either the PoolId or
-        /// PoolArn.</para>
+        /// PoolArn.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         #if !MODULAR

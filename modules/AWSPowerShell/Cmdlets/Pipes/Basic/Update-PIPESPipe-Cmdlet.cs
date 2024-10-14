@@ -659,6 +659,22 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         public System.String BatchJobParameters_JobName { get; set; }
         #endregion
         
+        #region Parameter KmsKeyIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the KMS customer managed key for EventBridge to use, if you choose
+        /// to use a customer managed key to encrypt pipe data. The identifier can be the key
+        /// Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</para><para>To update a pipe that is using the default Amazon Web Services owned key to use a
+        /// customer managed key instead, or update a pipe that is using a customer managed key
+        /// to use a different customer managed key, specify a customer managed key identifier.</para><para>To update a pipe that is using a customer managed key to use the default Amazon Web
+        /// Services owned key, specify an empty string.</para><para>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html">Managing
+        /// keys</a> in the <i>Key Management Service Developer Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String KmsKeyIdentifier { get; set; }
+        #endregion
+        
         #region Parameter EcsTaskParameters_LaunchType
         /// <summary>
         /// <para>
@@ -935,8 +951,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         #region Parameter S3LogDestination_OutputFormat
         /// <summary>
         /// <para>
-        /// <para>How EventBridge should format the log records.</para><ul><li><para><c>json</c>: JSON </para></li><li><para><c>plain</c>: Plain text</para></li><li><para><c>w3c</c>: <a href="https://www.w3.org/TR/WD-logfile">W3C extended logging file
-        /// format</a></para></li></ul>
+        /// <para>How EventBridge should format the log records.</para><para>EventBridge currently only supports <c>json</c> formatting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1230,8 +1245,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
         /// <summary>
         /// <para>
         /// <para>Specifies the security groups associated with the stream. These security groups must
-        /// all be in the same VPC. You can specify as many as five security groups. If you do
-        /// not specify a security group, the default security group for the VPC is used.</para>
+        /// all be in the same VPC. You can specify as many as five security groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -1590,6 +1604,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
                 }
             }
             context.EnrichmentParameters_InputTemplate = this.EnrichmentParameters_InputTemplate;
+            context.KmsKeyIdentifier = this.KmsKeyIdentifier;
             context.CloudwatchLogsLogDestination_LogGroupArn = this.CloudwatchLogsLogDestination_LogGroupArn;
             context.FirehoseLogDestination_DeliveryStreamArn = this.FirehoseLogDestination_DeliveryStreamArn;
             if (this.LogConfiguration_IncludeExecutionData != null)
@@ -1894,6 +1909,10 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             if (requestEnrichmentParametersIsNull)
             {
                 request.EnrichmentParameters = null;
+            }
+            if (cmdletContext.KmsKeyIdentifier != null)
+            {
+                request.KmsKeyIdentifier = cmdletContext.KmsKeyIdentifier;
             }
             
              // populate LogConfiguration
@@ -3637,6 +3656,7 @@ namespace Amazon.PowerShell.Cmdlets.PIPES
             public List<System.String> EnrichmentParameters_HttpParameters_PathParameterValues { get; set; }
             public Dictionary<System.String, System.String> EnrichmentParameters_HttpParameters_QueryStringParameters { get; set; }
             public System.String EnrichmentParameters_InputTemplate { get; set; }
+            public System.String KmsKeyIdentifier { get; set; }
             public System.String CloudwatchLogsLogDestination_LogGroupArn { get; set; }
             public System.String FirehoseLogDestination_DeliveryStreamArn { get; set; }
             public List<System.String> LogConfiguration_IncludeExecutionData { get; set; }

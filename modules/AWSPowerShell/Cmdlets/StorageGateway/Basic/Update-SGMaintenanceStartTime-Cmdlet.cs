@@ -61,7 +61,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter SoftwareUpdatePreferences_AutomaticUpdatePolicy
         /// <summary>
         /// <para>
-        /// <para>Indicates the automatic update policy for a gateway.</para><para><c>ALL_VERSIONS</c> - Enables regular gateway maintenance updates.</para><para><c>EMERGENCY_VERSIONS_ONLY</c> - Disables regular gateway maintenance updates.</para>
+        /// <para>Indicates the automatic update policy for a gateway.</para><para><c>ALL_VERSIONS</c> - Enables regular gateway maintenance updates.</para><para><c>EMERGENCY_VERSIONS_ONLY</c> - Disables regular gateway maintenance updates. The
+        /// gateway will still receive emergency version updates on rare occasions if necessary
+        /// to remedy highly critical security or durability issues. You will be notified before
+        /// an emergency version update is applied. These updates are applied during your gateway's
+        /// scheduled maintenance window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

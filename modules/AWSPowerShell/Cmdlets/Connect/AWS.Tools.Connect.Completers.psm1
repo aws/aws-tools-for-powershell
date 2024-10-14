@@ -492,7 +492,7 @@ $CONN_Completers = {
             ($_ -eq "Search-CONNVocabulary/LanguageCode")
         }
         {
-            $v = "ar-AE","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fr-CA","fr-FR","hi-IN","it-IT","ja-JP","ko-KR","pt-BR","pt-PT","zh-CN"
+            $v = "ar-AE","ca-ES","da-DK","de-CH","de-DE","en-AB","en-AU","en-GB","en-IE","en-IN","en-NZ","en-US","en-WL","en-ZA","es-ES","es-US","fi-FI","fr-CA","fr-FR","hi-IN","id-ID","it-IT","ja-JP","ko-KR","ms-MY","nl-NL","no-NO","pl-PL","pt-BR","pt-PT","sv-SE","tl-PH","zh-CN"
             break
         }
 

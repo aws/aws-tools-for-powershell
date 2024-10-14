@@ -1,1 +1,1 @@
-Remove-S3BucketPolicy -BucketName 's3testbucket'
+Remove-S3BucketPolicy -BucketName 'amzn-s3-demo-bucket'

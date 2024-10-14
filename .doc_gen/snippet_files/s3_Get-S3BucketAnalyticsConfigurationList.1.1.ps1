@@ -1,1 +1,1 @@
-Get-S3BucketAnalyticsConfigurationList -BucketName 's3casetestbucket'
+Get-S3BucketAnalyticsConfigurationList -BucketName 'amzn-s3-demo-bucket'

@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CWSYN
         /// <summary>
         /// <para>
         /// <para>Specify this parameter to limit how many canaries are returned each time you use the
-        /// <c>DescribeCanaries</c> operation. If you omit this parameter, the default of 100
-        /// is used.</para>
+        /// <c>DescribeCanaries</c> operation. If you omit this parameter, the default of 20 is
+        /// used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

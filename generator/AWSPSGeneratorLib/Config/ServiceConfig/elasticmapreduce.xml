@@ -28,7 +28,14 @@
     <MetadataProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="AddInstanceFleet" OutputProperty="*" Verb="Add" Noun="InstanceFleet" ShouldProcessTarget="ClusterId" PipelineParameter="ClusterId" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn" NewName="CapacityReservationOptions_CapacityReservationResourceGroupArn" />
+                <Param Name="InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_UsageStrategy" NewName="CapacityReservationOptions_UsageStrategy" />
+                <Param Name="InstanceFleet_LaunchSpecifications_OnDemandSpecification_CapacityReservationOptions_CapacityReservationPreference" NewName="CapacityReservationOptions_CapacityReservationPreference" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn" NewName="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationResourceGroupArn" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy" NewName="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_UsageStrategy" />
+                <Param Name="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference" NewName="InstanceFleet_ResizeSpecifications_OnDemandResizeSpecification_CapacityReservationOptions_CapacityReservationPreference" />
+            </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="AddInstanceGroups" OutputProperty="*" Verb="Add" Noun="InstanceGroup" ShouldProcessTarget="JobFlowId" PositionalParameters="InstanceGroups" PipelineParameter="JobFlowId" NoPipelineParameter="false">

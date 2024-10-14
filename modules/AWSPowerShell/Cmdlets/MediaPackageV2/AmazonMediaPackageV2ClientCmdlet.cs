@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.MPV2
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonMediaPackageV2Config.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -327,7 +327,8 @@ namespace Amazon.PowerShell.Cmdlets.AMP
         /// <para>The platform for the Amplify app. For a static app, set the platform type to <c>WEB</c>.
         /// For a dynamic server-side rendered (SSR) app, set the platform type to <c>WEB_COMPUTE</c>.
         /// For an app requiring Amplify Hosting's original SSR support only, set the platform
-        /// type to <c>WEB_DYNAMIC</c>.</para>
+        /// type to <c>WEB_DYNAMIC</c>.</para><para>If you are deploying an SSG only app with Next.js version 14 or later, you must set
+        /// the platform type to <c>WEB_COMPUTE</c>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

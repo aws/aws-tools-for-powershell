@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.ISCAN
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonInspectorScanConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.EKSAU
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonEKSAuthConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -1,1 +1,1 @@
-New-S3Bucket -BucketName sample-bucket -PublicReadWrite
+New-S3Bucket -BucketName amzn-s3-demo-bucket -PublicReadWrite

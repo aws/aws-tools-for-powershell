@@ -380,9 +380,9 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         /// <para>
         /// <para> The identifier for the given resource type. For Amazon Web Services resources that
         /// are identified by Amazon Resource Names (ARNs), this is the ARN. For Amazon Web Services
-        /// resources that lack ARNs, this is the identifier as defined by the Amazon Web Servicesservice
-        /// that created the resource. For non-Amazon Web Services resources, this is a unique
-        /// identifier that is associated with the resource. </para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
+        /// resources that lack ARNs, this is the identifier as defined by the Amazon Web Services
+        /// service that created the resource. For non-Amazon Web Services resources, this is
+        /// a unique identifier that is associated with the resource. </para><para> Array Members: Minimum number of 1 item. Maximum number of 100 items. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

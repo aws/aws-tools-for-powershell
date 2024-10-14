@@ -129,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter MulticastSettings_Source
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MulticastSettings_Sources")]
+        public Amazon.MediaLive.Model.MulticastSourceUpdateRequest[] MulticastSettings_Source { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
@@ -238,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.MediaConnectFlow = new List<Amazon.MediaLive.Model.MediaConnectFlowRequest>(this.MediaConnectFlow);
             }
+            if (this.MulticastSettings_Source != null)
+            {
+                context.MulticastSettings_Source = new List<Amazon.MediaLive.Model.MulticastSourceUpdateRequest>(this.MulticastSettings_Source);
+            }
             context.Name = this.Name;
             context.RoleArn = this.RoleArn;
             if (this.Source != null)
@@ -283,6 +298,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.MediaConnectFlow != null)
             {
                 request.MediaConnectFlows = cmdletContext.MediaConnectFlow;
+            }
+            
+             // populate MulticastSettings
+            var requestMulticastSettingsIsNull = true;
+            request.MulticastSettings = new Amazon.MediaLive.Model.MulticastSettingsUpdateRequest();
+            List<Amazon.MediaLive.Model.MulticastSourceUpdateRequest> requestMulticastSettings_multicastSettings_Source = null;
+            if (cmdletContext.MulticastSettings_Source != null)
+            {
+                requestMulticastSettings_multicastSettings_Source = cmdletContext.MulticastSettings_Source;
+            }
+            if (requestMulticastSettings_multicastSettings_Source != null)
+            {
+                request.MulticastSettings.Sources = requestMulticastSettings_multicastSettings_Source;
+                requestMulticastSettingsIsNull = false;
+            }
+             // determine if request.MulticastSettings should be set to null
+            if (requestMulticastSettingsIsNull)
+            {
+                request.MulticastSettings = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -381,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String InputId { get; set; }
             public List<System.String> InputSecurityGroup { get; set; }
             public List<Amazon.MediaLive.Model.MediaConnectFlowRequest> MediaConnectFlow { get; set; }
+            public List<Amazon.MediaLive.Model.MulticastSourceUpdateRequest> MulticastSettings_Source { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Source { get; set; }

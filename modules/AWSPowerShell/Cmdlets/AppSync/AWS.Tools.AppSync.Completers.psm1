@@ -180,7 +180,7 @@ $ASYN_Completers = {
             ($_ -eq "Update-ASYNGraphqlApi/LogConfig_FieldLogLevel")
         }
         {
-            $v = "ALL","ERROR","NONE"
+            $v = "ALL","DEBUG","ERROR","INFO","NONE"
             break
         }
 

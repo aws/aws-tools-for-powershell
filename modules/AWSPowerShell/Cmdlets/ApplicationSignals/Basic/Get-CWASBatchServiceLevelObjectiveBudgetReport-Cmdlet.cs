@@ -33,11 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.CWAS
     /// 
     ///  
     /// <para>
-    /// An <i>error budget</i> is the amount of time in unhealthy periods that your service
-    /// can accumulate during an interval before your overall SLO budget health is breached
-    /// and the SLO is considered to be unmet. For example, an SLO with a threshold of 99.95%
-    /// and a monthly interval translates to an error budget of 21.9 minutes of downtime in
-    /// a 30-day month.
+    /// An <i>error budget</i> is the amount of time or requests in an unhealthy state that
+    /// your service can accumulate during an interval before your overall SLO budget health
+    /// is breached and the SLO is considered to be unmet. For example, an SLO with a threshold
+    /// of 99.95% and a monthly interval translates to an error budget of 21.9 minutes of
+    /// downtime in a 30-day month.
     /// </para><para>
     /// Budget reports include a health indicator, the attainment value, and remaining budget.
     /// </para><para>

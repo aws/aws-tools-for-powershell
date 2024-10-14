@@ -343,17 +343,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ReadAttribute
         /// <summary>
         /// <para>
-        /// <para>The list of user attributes that you want your app client to have read-only access
-        /// to. After your user authenticates in your app, their access token authorizes them
-        /// to read their own attribute value for any attribute in this list. An example of this
-        /// kind of activity is when your user selects a link to view their profile information.
-        /// Your app makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a>
+        /// <para>The list of user attributes that you want your app client to have read access to.
+        /// After your user authenticates in your app, their access token authorizes them to read
+        /// their own attribute value for any attribute in this list. An example of this kind
+        /// of activity is when your user selects a link to view their profile information. Your
+        /// app makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a>
         /// API request to retrieve and display your user's profile data.</para><para>When you don't specify the <c>ReadAttributes</c> for your app client, your app can
         /// read the values of <c>email_verified</c>, <c>phone_number_verified</c>, and the Standard
-        /// attributes of your user pool. When your user pool has read access to these default
-        /// attributes, <c>ReadAttributes</c> doesn't return any information. Amazon Cognito only
-        /// populates <c>ReadAttributes</c> in the API response if you have specified your own
-        /// custom set of read attributes.</para>
+        /// attributes of your user pool. When your user pool app client has read access to these
+        /// default attributes, <c>ReadAttributes</c> doesn't return any information. Amazon Cognito
+        /// only populates <c>ReadAttributes</c> in the API response if you have specified your
+        /// own custom set of read attributes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

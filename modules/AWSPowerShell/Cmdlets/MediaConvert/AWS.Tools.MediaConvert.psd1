@@ -98,6 +98,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-EMCQueue', 
         'Get-EMCQueueList', 
         'Get-EMCResourceTag', 
+        'Get-EMCVersionList', 
         'New-EMCJob', 
         'New-EMCJobTemplate', 
         'New-EMCPreset', 

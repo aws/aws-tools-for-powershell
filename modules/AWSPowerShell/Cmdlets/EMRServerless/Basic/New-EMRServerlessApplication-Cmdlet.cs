@@ -247,6 +247,18 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         public System.String S3MonitoringConfiguration_LogUri { get; set; }
         #endregion
         
+        #region Parameter SchedulerConfiguration_MaxConcurrentRun
+        /// <summary>
+        /// <para>
+        /// <para>The maximum concurrent job runs on this application. If scheduler configuration is
+        /// enabled on your application, the default value is 15. The valid range is 1 to 1000.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SchedulerConfiguration_MaxConcurrentRuns")]
+        public System.Int32? SchedulerConfiguration_MaxConcurrentRun { get; set; }
+        #endregion
+        
         #region Parameter MaximumCapacity_Memory
         /// <summary>
         /// <para>
@@ -265,6 +277,19 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter SchedulerConfiguration_QueueTimeoutMinute
+        /// <summary>
+        /// <para>
+        /// <para>The maximum duration in minutes for the job in QUEUED state. If scheduler configuration
+        /// is enabled on your application, the default value is 360 minutes (6 hours). The valid
+        /// range is from 15 to 720.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("SchedulerConfiguration_QueueTimeoutMinutes")]
+        public System.Int32? SchedulerConfiguration_QueueTimeoutMinute { get; set; }
         #endregion
         
         #region Parameter ReleaseLabel
@@ -527,6 +552,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 context.RuntimeConfiguration = new List<Amazon.EMRServerless.Model.Configuration>(this.RuntimeConfiguration);
             }
+            context.SchedulerConfiguration_MaxConcurrentRun = this.SchedulerConfiguration_MaxConcurrentRun;
+            context.SchedulerConfiguration_QueueTimeoutMinute = this.SchedulerConfiguration_QueueTimeoutMinute;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -923,6 +950,35 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             {
                 request.RuntimeConfiguration = cmdletContext.RuntimeConfiguration;
             }
+            
+             // populate SchedulerConfiguration
+            var requestSchedulerConfigurationIsNull = true;
+            request.SchedulerConfiguration = new Amazon.EMRServerless.Model.SchedulerConfiguration();
+            System.Int32? requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentRun = null;
+            if (cmdletContext.SchedulerConfiguration_MaxConcurrentRun != null)
+            {
+                requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentRun = cmdletContext.SchedulerConfiguration_MaxConcurrentRun.Value;
+            }
+            if (requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentRun != null)
+            {
+                request.SchedulerConfiguration.MaxConcurrentRuns = requestSchedulerConfiguration_schedulerConfiguration_MaxConcurrentRun.Value;
+                requestSchedulerConfigurationIsNull = false;
+            }
+            System.Int32? requestSchedulerConfiguration_schedulerConfiguration_QueueTimeoutMinute = null;
+            if (cmdletContext.SchedulerConfiguration_QueueTimeoutMinute != null)
+            {
+                requestSchedulerConfiguration_schedulerConfiguration_QueueTimeoutMinute = cmdletContext.SchedulerConfiguration_QueueTimeoutMinute.Value;
+            }
+            if (requestSchedulerConfiguration_schedulerConfiguration_QueueTimeoutMinute != null)
+            {
+                request.SchedulerConfiguration.QueueTimeoutMinutes = requestSchedulerConfiguration_schedulerConfiguration_QueueTimeoutMinute.Value;
+                requestSchedulerConfigurationIsNull = false;
+            }
+             // determine if request.SchedulerConfiguration should be set to null
+            if (requestSchedulerConfigurationIsNull)
+            {
+                request.SchedulerConfiguration = null;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1023,6 +1079,8 @@ namespace Amazon.PowerShell.Cmdlets.EMRServerless
             public List<System.String> NetworkConfiguration_SubnetId { get; set; }
             public System.String ReleaseLabel { get; set; }
             public List<Amazon.EMRServerless.Model.Configuration> RuntimeConfiguration { get; set; }
+            public System.Int32? SchedulerConfiguration_MaxConcurrentRun { get; set; }
+            public System.Int32? SchedulerConfiguration_QueueTimeoutMinute { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.String Type { get; set; }
             public Dictionary<System.String, Amazon.EMRServerless.Model.WorkerTypeSpecificationInput> WorkerTypeSpecification { get; set; }

@@ -4,8 +4,8 @@ $bucketConfiguration = @{
           Type = 'Directory'
       }
       Location = @{
-          Name = 'use1-az5'
+          Name = 'usw2-az1'
           Type = 'AvailabilityZone'
       }
     }
-New-S3Bucket -BucketName samplebucket--use1-az5--x-s3 -BucketConfiguration $bucketConfiguration -Region us-east-1
+New-S3Bucket -BucketName amzn-s3-demo-bucket--usw2-az1--x-s3 -BucketConfiguration $bucketConfiguration -Region us-west-2

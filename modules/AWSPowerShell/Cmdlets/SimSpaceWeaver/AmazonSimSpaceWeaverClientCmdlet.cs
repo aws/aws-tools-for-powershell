@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.SSW
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonSimSpaceWeaverConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

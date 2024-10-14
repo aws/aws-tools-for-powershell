@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.PAYCD
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonPaymentCryptographyDataConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonCostAndUsageReportConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

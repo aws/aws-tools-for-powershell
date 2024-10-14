@@ -97,6 +97,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Get-FISExperimentTemplate', 
         'Get-FISExperimentTemplateList', 
         'Get-FISResourceTag', 
+        'Get-FISSafetyLever', 
         'Get-FISTargetAccountConfiguration', 
         'Get-FISTargetAccountConfigurationList', 
         'Get-FISTargetResourceType', 
@@ -109,6 +110,7 @@ This version of AWS Tools for PowerShell is compatible with Windows PowerShell 5
         'Start-FISExperiment', 
         'Stop-FISExperiment', 
         'Update-FISExperimentTemplate', 
+        'Update-FISSafetyLeverState', 
         'Update-FISTargetAccountConfiguration')
 
     # Variables to export from this module

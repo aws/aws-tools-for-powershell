@@ -1,1 +1,1 @@
-Get-S3BucketRequestPayment -BucketName mybucket
+Get-S3BucketRequestPayment -BucketName amzn-s3-demo-bucket

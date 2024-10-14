@@ -83,6 +83,19 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         public System.String Definition { get; set; }
         #endregion
         
+        #region Parameter Severity
+        /// <summary>
+        /// <para>
+        /// <para>Minimum level of diagnostics to return. <c>ERROR</c> returns only <c>ERROR</c> diagnostics,
+        /// whereas <c>WARNING</c> returns both <c>WARNING</c> and <c>ERROR</c> diagnostics. The
+        /// default is <c>ERROR</c>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.StepFunctions.ValidateStateMachineDefinitionSeverity")]
+        public Amazon.StepFunctions.ValidateStateMachineDefinitionSeverity Severity { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -92,6 +105,19 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.StepFunctions.StateMachineType")]
         public Amazon.StepFunctions.StateMachineType Type { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of diagnostics that are returned per call. The default and maximum
+        /// value is 100. Setting the value to 0 will also use the default of 100.</para><para>If the number of diagnostics returned in the response exceeds <c>maxResults</c>, the
+        /// value of the <c>truncated</c> field in the response will be set to <c>true</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MaxResults")]
+        public System.Int32? MaxResult { get; set; }
         #endregion
         
         #region Parameter Select
@@ -147,6 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 WriteWarning("You are passing $null as a value for parameter Definition which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.MaxResult = this.MaxResult;
+            context.Severity = this.Severity;
             context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
@@ -167,6 +195,14 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.Definition != null)
             {
                 request.Definition = cmdletContext.Definition;
+            }
+            if (cmdletContext.MaxResult != null)
+            {
+                request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Severity != null)
+            {
+                request.Severity = cmdletContext.Severity;
             }
             if (cmdletContext.Type != null)
             {
@@ -234,6 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Definition { get; set; }
+            public System.Int32? MaxResult { get; set; }
+            public Amazon.StepFunctions.ValidateStateMachineDefinitionSeverity Severity { get; set; }
             public Amazon.StepFunctions.StateMachineType Type { get; set; }
             public System.Func<Amazon.StepFunctions.Model.ValidateStateMachineDefinitionResponse, TestSFNStateMachineDefinitionValidationCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

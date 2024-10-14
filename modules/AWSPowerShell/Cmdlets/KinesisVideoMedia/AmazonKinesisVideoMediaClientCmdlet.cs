@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.KVM
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonKinesisVideoMediaConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

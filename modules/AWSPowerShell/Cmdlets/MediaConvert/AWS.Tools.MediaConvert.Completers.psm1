@@ -312,6 +312,7 @@ $EMC_SelectMap = @{
                "Get-EMCPresetList",
                "Get-EMCQueueList",
                "Get-EMCResourceTag",
+               "Get-EMCVersionList",
                "Write-EMCPolicy",
                "Search-EMCJob",
                "Add-EMCResourceTag",

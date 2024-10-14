@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter BeforeSubstitution
+        /// <summary>
+        /// <para>
+        /// <para>A flag that provides a view of the job document before and after the substitution
+        /// parameters have been resolved with their exact values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? BeforeSubstitution { get; set; }
+        #endregion
+        
         #region Parameter JobId
         /// <summary>
         /// <para>
@@ -110,6 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 context.Select = (response, cmdlet) => this.JobId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.BeforeSubstitution = this.BeforeSubstitution;
             context.JobId = this.JobId;
             #if MODULAR
             if (this.JobId == null && ParameterWasBound(nameof(this.JobId)))
@@ -133,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.DescribeJobRequest();
             
+            if (cmdletContext.BeforeSubstitution != null)
+            {
+                request.BeforeSubstitution = cmdletContext.BeforeSubstitution.Value;
+            }
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
@@ -198,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? BeforeSubstitution { get; set; }
             public System.String JobId { get; set; }
             public System.Func<Amazon.IoT.Model.DescribeJobResponse, GetIOTJobCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

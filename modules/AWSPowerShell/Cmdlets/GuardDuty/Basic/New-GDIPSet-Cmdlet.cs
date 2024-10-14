@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the detector of the GuardDuty account that you want to create an
-        /// IPSet for.</para>
+        /// <para>The unique ID of the detector of the GuardDuty account for which you want to create
+        /// an IPSet.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

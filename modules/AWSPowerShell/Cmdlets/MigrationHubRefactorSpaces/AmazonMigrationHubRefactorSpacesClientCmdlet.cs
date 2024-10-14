@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.MHRS
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonMigrationHubRefactorSpacesConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

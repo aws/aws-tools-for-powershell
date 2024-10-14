@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         #region Parameter SenderId
         /// <summary>
         /// <para>
-        /// <para>An array of SenderIdAndCountry objects to search for.</para>
+        /// <para>An array of SenderIdAndCountry objects to search for.</para><important><para>If you are using a shared AWS End User Messaging SMS and Voice resource then you must
+        /// use the full Amazon Resource Name(ARN).</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -98,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter Owner
+        /// <summary>
+        /// <para>
+        /// <para>Use <c>SELF</c> to filter the list of Sender Ids to ones your account owns or use
+        /// <c>SHARED</c> to filter on Sender Ids shared with your account. The <c>Owner</c> and
+        /// <c>SenderIds</c> parameters can't be used at the same time. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.PinpointSMSVoiceV2.Owner")]
+        public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
         #endregion
         
         #region Parameter Select
@@ -142,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             }
             context.MaxResult = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.Owner = this.Owner;
             if (this.SenderId != null)
             {
                 context.SenderId = new List<Amazon.PinpointSMSVoiceV2.Model.SenderIdAndCountry>(this.SenderId);
@@ -171,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             if (cmdletContext.MaxResult != null)
             {
                 request.MaxResults = cmdletContext.MaxResult.Value;
+            }
+            if (cmdletContext.Owner != null)
+            {
+                request.Owner = cmdletContext.Owner;
             }
             if (cmdletContext.SenderId != null)
             {
@@ -264,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SMSV
             public List<Amazon.PinpointSMSVoiceV2.Model.SenderIdFilter> Filter { get; set; }
             public System.Int32? MaxResult { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.PinpointSMSVoiceV2.Owner Owner { get; set; }
             public List<Amazon.PinpointSMSVoiceV2.Model.SenderIdAndCountry> SenderId { get; set; }
             public System.Func<Amazon.PinpointSMSVoiceV2.Model.DescribeSenderIdsResponse, GetSMSVSenderIdCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response;

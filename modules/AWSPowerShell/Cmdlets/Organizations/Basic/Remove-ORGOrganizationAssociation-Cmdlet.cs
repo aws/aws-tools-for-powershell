@@ -75,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// organization do not support tags.
     /// </para></li><li><para>
     /// A newly created account has a waiting period before it can be removed from its organization.
-    /// If you get an error that indicates that a wait period is required, then try again
-    /// in a few days.
+    /// You must wait until at least seven days after the account was created. Invited accounts
+    /// aren't subject to this waiting period.
     /// </para></li><li><para>
     /// If you are using an organization principal to call <c>LeaveOrganization</c> across
     /// multiple accounts, you can only do this up to 5 accounts per second in a single organization.

@@ -381,12 +381,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// stopping the four older tasks (provided that the cluster resources required to do
         /// this are available). The default <c>maximumPercent</c> value for a service using the
         /// <c>REPLICA</c> service scheduler is 200%.</para><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
-        /// deployment types and tasks that use the EC2 launch type, the <b>maximum percent</b>
-        /// value is set to the default value and is used to define the upper limit on the number
-        /// of the tasks in the service that remain in the <c>RUNNING</c> state while the container
-        /// instances are in the <c>DRAINING</c> state. If the tasks in the service use the Fargate
-        /// launch type, the maximum percent value is not used, although it is returned when describing
-        /// your service.</para>
+        /// deployment types, and tasks in the service use the EC2 launch type, the <b>maximum
+        /// percent</b> value is set to the default value. The <b>maximum percent</b> value is
+        /// used to define the upper limit on the number of the tasks in the service that remain
+        /// in the <c>RUNNING</c> state while the container instances are in the <c>DRAINING</c>
+        /// state.</para><note><para>You can't specify a custom <c>maximumPercent</c> value for a service that uses either
+        /// the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c> deployment types and has tasks
+        /// that use the EC2 launch type.</para></note><para>If the tasks in the service use the Fargate launch type, the maximum percent value
+        /// is not used, although it is returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -423,12 +425,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// multiplied by the <c>minimumHealthyPercent</c>/100, rounded up to the nearest integer
         /// value.</para><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
         /// deployment types and is running tasks that use the EC2 launch type, the <b>minimum
-        /// healthy percent</b> value is set to the default value and is used to define the lower
-        /// limit on the number of the tasks in the service that remain in the <c>RUNNING</c>
-        /// state while the container instances are in the <c>DRAINING</c> state. If a service
-        /// is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c> deployment
-        /// types and is running tasks that use the Fargate launch type, the minimum healthy percent
-        /// value is not used, although it is returned when describing your service.</para>
+        /// healthy percent</b> value is set to the default value. The <b>minimum healthy percent</b>
+        /// value is used to define the lower limit on the number of the tasks in the service
+        /// that remain in the <c>RUNNING</c> state while the container instances are in the <c>DRAINING</c>
+        /// state.</para><note><para>You can't specify a custom <c>minimumHealthyPercent</c> value for a service that uses
+        /// either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c> deployment types and
+        /// has tasks that use the EC2 launch type.</para></note><para>If a service is using either the blue/green (<c>CODE_DEPLOY</c>) or <c>EXTERNAL</c>
+        /// deployment types and is running tasks that use the Fargate launch type, the minimum
+        /// healthy percent value is not used, although it is returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

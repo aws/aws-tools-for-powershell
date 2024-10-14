@@ -109,6 +109,53 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         public System.String DeliverySourceName { get; set; }
         #endregion
         
+        #region Parameter S3DeliveryConfiguration_EnableHiveCompatiblePath
+        /// <summary>
+        /// <para>
+        /// <para>This parameter causes the S3 objects that contain delivered logs to use a prefix structure
+        /// that allows for integration with Apache Hive.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? S3DeliveryConfiguration_EnableHiveCompatiblePath { get; set; }
+        #endregion
+        
+        #region Parameter FieldDelimiter
+        /// <summary>
+        /// <para>
+        /// <para>The field delimiter to use between record fields when the final output format of a
+        /// delivery is in <c>Plain</c>, <c>W3C</c>, or <c>Raw</c> format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FieldDelimiter { get; set; }
+        #endregion
+        
+        #region Parameter RecordField
+        /// <summary>
+        /// <para>
+        /// <para>The list of record fields to be delivered to the destination, in order. If the delivery’s
+        /// log source has mandatory fields, they must be included in this list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("RecordFields")]
+        public System.String[] RecordField { get; set; }
+        #endregion
+        
+        #region Parameter S3DeliveryConfiguration_SuffixPath
+        /// <summary>
+        /// <para>
+        /// <para>This string allows re-configuring the S3 object prefix to contain either static or
+        /// variable sections. The valid variables to use in the suffix path will vary by each
+        /// log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what
+        /// values are supported in the suffix path for each log source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String S3DeliveryConfiguration_SuffixPath { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -177,6 +224,13 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 WriteWarning("You are passing $null as a value for parameter DeliverySourceName which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.FieldDelimiter = this.FieldDelimiter;
+            if (this.RecordField != null)
+            {
+                context.RecordField = new List<System.String>(this.RecordField);
+            }
+            context.S3DeliveryConfiguration_EnableHiveCompatiblePath = this.S3DeliveryConfiguration_EnableHiveCompatiblePath;
+            context.S3DeliveryConfiguration_SuffixPath = this.S3DeliveryConfiguration_SuffixPath;
             if (this.Tag != null)
             {
                 context.Tag = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -208,6 +262,43 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             if (cmdletContext.DeliverySourceName != null)
             {
                 request.DeliverySourceName = cmdletContext.DeliverySourceName;
+            }
+            if (cmdletContext.FieldDelimiter != null)
+            {
+                request.FieldDelimiter = cmdletContext.FieldDelimiter;
+            }
+            if (cmdletContext.RecordField != null)
+            {
+                request.RecordFields = cmdletContext.RecordField;
+            }
+            
+             // populate S3DeliveryConfiguration
+            var requestS3DeliveryConfigurationIsNull = true;
+            request.S3DeliveryConfiguration = new Amazon.CloudWatchLogs.Model.S3DeliveryConfiguration();
+            System.Boolean? requestS3DeliveryConfiguration_s3DeliveryConfiguration_EnableHiveCompatiblePath = null;
+            if (cmdletContext.S3DeliveryConfiguration_EnableHiveCompatiblePath != null)
+            {
+                requestS3DeliveryConfiguration_s3DeliveryConfiguration_EnableHiveCompatiblePath = cmdletContext.S3DeliveryConfiguration_EnableHiveCompatiblePath.Value;
+            }
+            if (requestS3DeliveryConfiguration_s3DeliveryConfiguration_EnableHiveCompatiblePath != null)
+            {
+                request.S3DeliveryConfiguration.EnableHiveCompatiblePath = requestS3DeliveryConfiguration_s3DeliveryConfiguration_EnableHiveCompatiblePath.Value;
+                requestS3DeliveryConfigurationIsNull = false;
+            }
+            System.String requestS3DeliveryConfiguration_s3DeliveryConfiguration_SuffixPath = null;
+            if (cmdletContext.S3DeliveryConfiguration_SuffixPath != null)
+            {
+                requestS3DeliveryConfiguration_s3DeliveryConfiguration_SuffixPath = cmdletContext.S3DeliveryConfiguration_SuffixPath;
+            }
+            if (requestS3DeliveryConfiguration_s3DeliveryConfiguration_SuffixPath != null)
+            {
+                request.S3DeliveryConfiguration.SuffixPath = requestS3DeliveryConfiguration_s3DeliveryConfiguration_SuffixPath;
+                requestS3DeliveryConfigurationIsNull = false;
+            }
+             // determine if request.S3DeliveryConfiguration should be set to null
+            if (requestS3DeliveryConfigurationIsNull)
+            {
+                request.S3DeliveryConfiguration = null;
             }
             if (cmdletContext.Tag != null)
             {
@@ -276,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         {
             public System.String DeliveryDestinationArn { get; set; }
             public System.String DeliverySourceName { get; set; }
+            public System.String FieldDelimiter { get; set; }
+            public List<System.String> RecordField { get; set; }
+            public System.Boolean? S3DeliveryConfiguration_EnableHiveCompatiblePath { get; set; }
+            public System.String S3DeliveryConfiguration_SuffixPath { get; set; }
             public Dictionary<System.String, System.String> Tag { get; set; }
             public System.Func<Amazon.CloudWatchLogs.Model.CreateDeliveryResponse, NewCWLDeliveryCmdlet, object> Select { get; set; } =
                 (response, cmdlet) => response.Delivery;

@@ -54,6 +54,27 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.ChannelClass ChannelClass { get; set; }
         #endregion
         
+        #region Parameter AnywhereSettings_ChannelPlacementGroupId
+        /// <summary>
+        /// <para>
+        /// The ID of the channel placement
+        /// group for the channel.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnywhereSettings_ChannelPlacementGroupId { get; set; }
+        #endregion
+        
+        #region Parameter AnywhereSettings_ClusterId
+        /// <summary>
+        /// <para>
+        /// The ID of the cluster for the channel.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String AnywhereSettings_ClusterId { get; set; }
+        #endregion
+        
         #region Parameter InputSpecification_Codec
         /// <summary>
         /// <para>
@@ -321,6 +342,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 context.Select = (response, cmdlet) => this.Name;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.AnywhereSettings_ChannelPlacementGroupId = this.AnywhereSettings_ChannelPlacementGroupId;
+            context.AnywhereSettings_ClusterId = this.AnywhereSettings_ClusterId;
             context.CdiInputSpecification_Resolution = this.CdiInputSpecification_Resolution;
             context.ChannelClass = this.ChannelClass;
             if (this.Destination != null)
@@ -380,6 +403,35 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // create request
             var request = new Amazon.MediaLive.Model.CreateChannelRequest();
             
+            
+             // populate AnywhereSettings
+            var requestAnywhereSettingsIsNull = true;
+            request.AnywhereSettings = new Amazon.MediaLive.Model.AnywhereSettings();
+            System.String requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId = null;
+            if (cmdletContext.AnywhereSettings_ChannelPlacementGroupId != null)
+            {
+                requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId = cmdletContext.AnywhereSettings_ChannelPlacementGroupId;
+            }
+            if (requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId != null)
+            {
+                request.AnywhereSettings.ChannelPlacementGroupId = requestAnywhereSettings_anywhereSettings_ChannelPlacementGroupId;
+                requestAnywhereSettingsIsNull = false;
+            }
+            System.String requestAnywhereSettings_anywhereSettings_ClusterId = null;
+            if (cmdletContext.AnywhereSettings_ClusterId != null)
+            {
+                requestAnywhereSettings_anywhereSettings_ClusterId = cmdletContext.AnywhereSettings_ClusterId;
+            }
+            if (requestAnywhereSettings_anywhereSettings_ClusterId != null)
+            {
+                request.AnywhereSettings.ClusterId = requestAnywhereSettings_anywhereSettings_ClusterId;
+                requestAnywhereSettingsIsNull = false;
+            }
+             // determine if request.AnywhereSettings should be set to null
+            if (requestAnywhereSettingsIsNull)
+            {
+                request.AnywhereSettings = null;
+            }
             
              // populate CdiInputSpecification
             var requestCdiInputSpecificationIsNull = true;
@@ -609,6 +661,8 @@ namespace Amazon.PowerShell.Cmdlets.EML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnywhereSettings_ChannelPlacementGroupId { get; set; }
+            public System.String AnywhereSettings_ClusterId { get; set; }
             public Amazon.MediaLive.CdiInputResolution CdiInputSpecification_Resolution { get; set; }
             public Amazon.MediaLive.ChannelClass ChannelClass { get; set; }
             public List<Amazon.MediaLive.Model.OutputDestination> Destination { get; set; }

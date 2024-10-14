@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID of the member account.</para>
+        /// <para>A list of member account IDs.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

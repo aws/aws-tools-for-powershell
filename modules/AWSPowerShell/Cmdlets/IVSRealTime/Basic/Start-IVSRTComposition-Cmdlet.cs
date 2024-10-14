@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
     /// 
     ///  
     /// <para>
-    /// A Composition is an ephemeral resource that exists after this endpoint returns successfully.
+    /// A Composition is an ephemeral resource that exists after this operation returns successfully.
     /// Composition stops and the resource is deleted:
     /// </para><ul><li><para>
     /// When <a>StopComposition</a> is called.
@@ -256,10 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.IVSRT
         /// <summary>
         /// <para>
         /// <para>Tags attached to the resource. Array of maps, each of the form <c>string:string (key:value)</c>.
-        /// See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging
-        /// AWS Resources</a> for details, including restrictions that apply to tags and "Tag
-        /// naming limits and requirements"; Amazon IVS has no constraints on tags beyond what
-        /// is documented there.</para>
+        /// See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best
+        /// practices and strategies</a> in <i>Tagging AWS Resources and Tag Editor</i> for details,
+        /// including restrictions that apply to tags and "Tag naming limits and requirements";
+        /// Amazon IVS has no constraints on tags beyond what is documented there.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

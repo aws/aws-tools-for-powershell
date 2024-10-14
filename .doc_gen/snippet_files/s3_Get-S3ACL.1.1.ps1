@@ -1,1 +1,1 @@
-Get-S3ACL -BucketName 's3casetestbucket' -key 'initialize.ps1' -Select AccessControlList.Owner
+Get-S3ACL -BucketName 'amzn-s3-demo-bucket' -key 'initialize.ps1' -Select AccessControlList.Owner

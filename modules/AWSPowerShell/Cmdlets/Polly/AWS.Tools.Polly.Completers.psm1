@@ -98,7 +98,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/LanguageCode")
         }
         {
-            $v = "ar-AE","arb","ca-ES","cmn-CN","cy-GB","da-DK","de-AT","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-BE","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-BE","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
+            $v = "ar-AE","arb","ca-ES","cmn-CN","cs-CZ","cy-GB","da-DK","de-AT","de-CH","de-DE","en-AU","en-GB","en-GB-WLS","en-IE","en-IN","en-NZ","en-US","en-ZA","es-ES","es-MX","es-US","fi-FI","fr-BE","fr-CA","fr-FR","hi-IN","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-BE","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR","yue-CN"
             break
         }
 
@@ -135,7 +135,7 @@ $POL_Completers = {
             ($_ -eq "Start-POLSpeechSynthesisTask/VoiceId")
         }
         {
-            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Burcu","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
+            $v = "Aditi","Adriano","Amy","Andres","Aria","Arlet","Arthur","Astrid","Ayanda","Bianca","Brian","Burcu","Camila","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Daniel","Danielle","Dora","Elin","Emma","Enrique","Ewa","Filiz","Gabrielle","Geraint","Giorgio","Gregory","Gwyneth","Hala","Hannah","Hans","Hiujin","Ida","Ines","Isabelle","Ivy","Jacek","Jan","Jitka","Joanna","Joey","Justin","Kajal","Karl","Kazuha","Kendra","Kevin","Kimberly","Laura","Lea","Liam","Lisa","Liv","Lotte","Lucia","Lupe","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Mia","Miguel","Mizuki","Naja","Niamh","Nicole","Ola","Olivia","Pedro","Penelope","Raveena","Remi","Ricardo","Ruben","Russell","Ruth","Sabrina","Salli","Seoyeon","Sergio","Sofie","Stephen","Suvi","Takumi","Tatyana","Thiago","Tomoko","Vicki","Vitoria","Zayd","Zeina","Zhiyu"
             break
         }
 

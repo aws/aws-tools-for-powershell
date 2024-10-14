@@ -1,1 +1,1 @@
-Write-S3Object -BucketName test-files -Key "prefix/to/sample.txt" -File .\local-sample.txt
+Write-S3Object -BucketName amzn-s3-demo-bucket -Key "prefix/to/sample.txt" -File .\local-sample.txt

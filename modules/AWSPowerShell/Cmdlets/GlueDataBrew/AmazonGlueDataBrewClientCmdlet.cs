@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.GDB
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonGlueDataBrewConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

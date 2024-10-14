@@ -90,6 +90,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowSourceThumbnail" OutputProperty="ThumbnailDetails" Verb="Get" Noun="FlowSourceThumbnail" PipelineParameter="FlowArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGateway" OutputProperty="Gateway" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />

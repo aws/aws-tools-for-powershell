@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.OSS
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonOpenSearchServerlessConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

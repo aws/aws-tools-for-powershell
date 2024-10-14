@@ -97,6 +97,18 @@ $SG_Completers = {
             break
         }
 
+        # Amazon.StorageGateway.EncryptionType
+        {
+            ($_ -eq "New-SGNFSFileShare/EncryptionType") -Or
+            ($_ -eq "New-SGSMBFileShare/EncryptionType") -Or
+            ($_ -eq "Update-SGNFSFileShare/EncryptionType") -Or
+            ($_ -eq "Update-SGSMBFileShare/EncryptionType")
+        }
+        {
+            $v = "DsseKms","SseKms","SseS3"
+            break
+        }
+
         # Amazon.StorageGateway.GatewayCapacity
         "Update-SGGatewayInformation/GatewayCapacity"
         {
@@ -147,6 +159,7 @@ $SG_Completers = {
 
 $SG_map = @{
     "CaseSensitivity"=@("New-SGSMBFileShare","Update-SGSMBFileShare")
+    "EncryptionType"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "GatewayCapacity"=@("Update-SGGatewayInformation")
     "ObjectACL"=@("New-SGNFSFileShare","New-SGSMBFileShare","Update-SGNFSFileShare","Update-SGSMBFileShare")
     "RetentionLockType"=@("New-SGTapePool")

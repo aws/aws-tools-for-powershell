@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <c>DescribeInstancePatches</c>include the following:</para><ul><li><para><b><c>Classification</c></b></para><para>Sample values: <c>Security</c> | <c>SecurityUpdates</c></para></li><li><para><b><c>KBId</c></b></para><para>Sample values: <c>KB4480056</c> | <c>java-1.7.0-openjdk.x86_64</c></para></li><li><para><b><c>Severity</c></b></para><para>Sample values: <c>Important</c> | <c>Medium</c> | <c>Low</c></para></li><li><para><b><c>State</c></b></para><para>Sample values: <c>Installed</c> | <c>InstalledOther</c> | <c>InstalledPendingReboot</c></para><para>For lists of all <c>State</c> values, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html">Understanding
-        /// patch compliance state values</a> in the <i>Amazon Web Services Systems Manager User
-        /// Guide</i>.</para></li></ul>
+        /// <para>Each element in the array is a structure containing a key-value pair.</para><para>Supported keys for <c>DescribeInstancePatches</c>include the following:</para><ul><li><para><b><c>Classification</c></b></para><para>Sample values: <c>Security</c> | <c>SecurityUpdates</c></para></li><li><para><b><c>KBId</c></b></para><para>Sample values: <c>KB4480056</c> | <c>java-1.7.0-openjdk.x86_64</c></para></li><li><para><b><c>Severity</c></b></para><para>Sample values: <c>Important</c> | <c>Medium</c> | <c>Low</c></para></li><li><para><b><c>State</c></b></para><para>Sample values: <c>Installed</c> | <c>InstalledOther</c> | <c>InstalledPendingReboot</c></para><para>For lists of all <c>State</c> values, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-compliance-states.html">Patch
+        /// compliance state values</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

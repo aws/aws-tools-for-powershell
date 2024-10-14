@@ -317,6 +317,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.Int64? CustomPosixUserConfig_Gid { get; set; }
         #endregion
         
+        #region Parameter IdleSettings_IdleTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The time that SageMaker waits after the application becomes idle before shutting it
+        /// down.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes")]
+        public System.Int32? IdleSettings_IdleTimeoutInMinute { get; set; }
+        #endregion
+        
         #region Parameter DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType
         /// <summary>
         /// <para>
@@ -458,6 +470,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] KernelGatewayAppSettings_LifecycleConfigArn { get; set; }
         #endregion
         
+        #region Parameter IdleSettings_LifecycleManagement
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether idle shutdown is activated for the application type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_LifecycleManagement")]
+        [AWSConstantClassSource("Amazon.SageMaker.LifecycleManagement")]
+        public Amazon.SageMaker.LifecycleManagement IdleSettings_LifecycleManagement { get; set; }
+        #endregion
+        
+        #region Parameter IdleSettings_MaxIdleTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The maximum value in minutes that custom idle shutdown can be set to by the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_MaxIdleTimeoutInMinutes")]
+        public System.Int32? IdleSettings_MaxIdleTimeoutInMinute { get; set; }
+        #endregion
+        
         #region Parameter DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb
         /// <summary>
         /// <para>
@@ -467,6 +502,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("DefaultSpaceSettings_SpaceStorageSettings_DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb")]
         public System.Int32? DefaultEbsStorageSettings_MaximumEbsVolumeSizeInGb { get; set; }
+        #endregion
+        
+        #region Parameter IdleSettings_MinIdleTimeoutInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The minimum value in minutes that custom idle shutdown can be set to by the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("DefaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_MinIdleTimeoutInMinutes")]
+        public System.Int32? IdleSettings_MinIdleTimeoutInMinute { get; set; }
         #endregion
         
         #region Parameter AmazonQSettings_QProfileArn
@@ -682,6 +728,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter TagPropagation
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether custom tag propagation is supported for the domain. Defaults to
+        /// <c>DISABLED</c>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SageMaker.TagPropagation")]
+        public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -825,6 +883,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.CustomPosixUserConfig_Gid = this.CustomPosixUserConfig_Gid;
             context.CustomPosixUserConfig_Uid = this.CustomPosixUserConfig_Uid;
             context.DefaultSpaceSettings_ExecutionRole = this.DefaultSpaceSettings_ExecutionRole;
+            context.IdleSettings_IdleTimeoutInMinute = this.IdleSettings_IdleTimeoutInMinute;
+            context.IdleSettings_LifecycleManagement = this.IdleSettings_LifecycleManagement;
+            context.IdleSettings_MaxIdleTimeoutInMinute = this.IdleSettings_MaxIdleTimeoutInMinute;
+            context.IdleSettings_MinIdleTimeoutInMinute = this.IdleSettings_MinIdleTimeoutInMinute;
             if (this.JupyterLabAppSettings_CodeRepository != null)
             {
                 context.JupyterLabAppSettings_CodeRepository = new List<Amazon.SageMaker.Model.CodeRepository>(this.JupyterLabAppSettings_CodeRepository);
@@ -930,6 +992,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 WriteWarning("You are passing $null as a value for parameter SubnetId which is marked as required. In case you believe this parameter was incorrectly marked as required, report this by opening an issue at https://github.com/aws/aws-tools-for-powershell/issues.");
             }
             #endif
+            context.TagPropagation = this.TagPropagation;
             if (this.Tag != null)
             {
                 context.Tag = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -1323,6 +1386,76 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings.LifecycleConfigArns = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_jupyterLabAppSettings_LifecycleConfigArn;
                 requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettingsIsNull = false;
             }
+            Amazon.SageMaker.Model.AppLifecycleManagement requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement = null;
+            
+             // populate AppLifecycleManagement
+            var requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagementIsNull = true;
+            requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement = new Amazon.SageMaker.Model.AppLifecycleManagement();
+            Amazon.SageMaker.Model.IdleSettings requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings = null;
+            
+             // populate IdleSettings
+            var requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettingsIsNull = true;
+            requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings = new Amazon.SageMaker.Model.IdleSettings();
+            System.Int32? requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_IdleTimeoutInMinute = null;
+            if (cmdletContext.IdleSettings_IdleTimeoutInMinute != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_IdleTimeoutInMinute = cmdletContext.IdleSettings_IdleTimeoutInMinute.Value;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_IdleTimeoutInMinute != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings.IdleTimeoutInMinutes = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_IdleTimeoutInMinute.Value;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettingsIsNull = false;
+            }
+            Amazon.SageMaker.LifecycleManagement requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_LifecycleManagement = null;
+            if (cmdletContext.IdleSettings_LifecycleManagement != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_LifecycleManagement = cmdletContext.IdleSettings_LifecycleManagement;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_LifecycleManagement != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings.LifecycleManagement = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_LifecycleManagement;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettingsIsNull = false;
+            }
+            System.Int32? requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MaxIdleTimeoutInMinute = null;
+            if (cmdletContext.IdleSettings_MaxIdleTimeoutInMinute != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MaxIdleTimeoutInMinute = cmdletContext.IdleSettings_MaxIdleTimeoutInMinute.Value;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MaxIdleTimeoutInMinute != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings.MaxIdleTimeoutInMinutes = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MaxIdleTimeoutInMinute.Value;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettingsIsNull = false;
+            }
+            System.Int32? requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MinIdleTimeoutInMinute = null;
+            if (cmdletContext.IdleSettings_MinIdleTimeoutInMinute != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MinIdleTimeoutInMinute = cmdletContext.IdleSettings_MinIdleTimeoutInMinute.Value;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MinIdleTimeoutInMinute != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings.MinIdleTimeoutInMinutes = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_idleSettings_MinIdleTimeoutInMinute.Value;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettingsIsNull = false;
+            }
+             // determine if requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings should be set to null
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettingsIsNull)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings = null;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement.IdleSettings = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagementIsNull = false;
+            }
+             // determine if requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement should be set to null
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagementIsNull)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement = null;
+            }
+            if (requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement != null)
+            {
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings.AppLifecycleManagement = requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_AppLifecycleManagement;
+                requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettingsIsNull = false;
+            }
             Amazon.SageMaker.Model.EmrSettings requestDefaultSpaceSettings_defaultSpaceSettings_JupyterLabAppSettings_defaultSpaceSettings_JupyterLabAppSettings_EmrSettings = null;
             
              // populate EmrSettings
@@ -1669,6 +1802,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.SubnetIds = cmdletContext.SubnetId;
             }
+            if (cmdletContext.TagPropagation != null)
+            {
+                request.TagPropagation = cmdletContext.TagPropagation;
+            }
             if (cmdletContext.Tag != null)
             {
                 request.Tags = cmdletContext.Tag;
@@ -1745,6 +1882,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int64? CustomPosixUserConfig_Gid { get; set; }
             public System.Int64? CustomPosixUserConfig_Uid { get; set; }
             public System.String DefaultSpaceSettings_ExecutionRole { get; set; }
+            public System.Int32? IdleSettings_IdleTimeoutInMinute { get; set; }
+            public Amazon.SageMaker.LifecycleManagement IdleSettings_LifecycleManagement { get; set; }
+            public System.Int32? IdleSettings_MaxIdleTimeoutInMinute { get; set; }
+            public System.Int32? IdleSettings_MinIdleTimeoutInMinute { get; set; }
             public List<Amazon.SageMaker.Model.CodeRepository> JupyterLabAppSettings_CodeRepository { get; set; }
             public List<Amazon.SageMaker.Model.CustomImage> JupyterLabAppSettings_CustomImage { get; set; }
             public Amazon.SageMaker.AppInstanceType DefaultSpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_InstanceType { get; set; }
@@ -1792,6 +1933,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String HomeEfsFileSystemKmsKeyId { get; set; }
             public System.String KmsKeyId { get; set; }
             public List<System.String> SubnetId { get; set; }
+            public Amazon.SageMaker.TagPropagation TagPropagation { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tag { get; set; }
             public System.String VpcId { get; set; }
             public System.Func<Amazon.SageMaker.Model.CreateDomainResponse, NewSMDomainCmdlet, object> Select { get; set; } =

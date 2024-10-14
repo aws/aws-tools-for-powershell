@@ -1,2 +1,2 @@
-$revision = Get-CDApplicationRevision -ApplicationName CodeDeployDemoApplication -S3Location_Bucket MyBucket -Revision_RevisionType S3 -S3Location_Key 5xd27EX.zip -S3Location_BundleType zip -S3Location_ETag 4565c1ac97187f190c1a90265EXAMPLE
+$revision = Get-CDApplicationRevision -ApplicationName CodeDeployDemoApplication -S3Location_Bucket amzn-s3-demo-bucket -Revision_RevisionType S3 -S3Location_Key 5xd27EX.zip -S3Location_BundleType zip -S3Location_ETag 4565c1ac97187f190c1a90265EXAMPLE
 Write-Output ("Description = " + $revision.RevisionInfo.Description + ", RegisterTime = " + $revision.RevisionInfo.RegisterTime)

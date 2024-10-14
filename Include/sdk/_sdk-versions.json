@@ -5,7 +5,7 @@
     "CoreVersion"       : "4.0.0.0",
     "OverrideCoreVersion" : "4.0",
     "DefaultToPreview"    : true,
-    "PreviewLabel"        : "preview.2",
+    "PreviewLabel"        : "preview.4",
     "ServiceVersions"     : {
         "CloudHSM" : {
             "Version" : "4.0.0.0",
@@ -1332,14 +1332,6 @@
             "InPreview"               : false
         },
         "Backup"                          : {
-            "Version" : "4.0.0.0",
-            "AssemblyVersionOverride" : "4.0",
-            "Dependencies"            : {
-                "Core" : "4.0.0.0"
-            },
-            "InPreview"               : false
-        },
-        "WorkLink"                        : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {
@@ -3084,6 +3076,30 @@
             "InPreview"               : false
         },
         "SSMQuickSetup"                       : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "PCS"                                 : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "DirectoryServiceData"                : {
+            "Version" : "4.0.0.0",
+            "AssemblyVersionOverride" : "4.0",
+            "Dependencies"            : {
+                "Core" : "4.0.0.0"
+            },
+            "InPreview"               : false
+        },
+        "DynamoDBStreams"                     : {
             "Version" : "4.0.0.0",
             "AssemblyVersionOverride" : "4.0",
             "Dependencies"            : {

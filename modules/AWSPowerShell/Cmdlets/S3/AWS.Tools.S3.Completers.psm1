@@ -242,6 +242,7 @@ $S3_Completers = {
 
         # Amazon.S3.RequestPayer
         {
+            ($_ -eq "Copy-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3BucketAccelerateConfiguration/RequestPayer") -Or
             ($_ -eq "Get-S3Object/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectAttribute/RequestPayer") -Or
@@ -251,7 +252,9 @@ $S3_Completers = {
             ($_ -eq "Get-S3ObjectTagSet/RequestPayer") -Or
             ($_ -eq "Get-S3ObjectV2/RequestPayer") -Or
             ($_ -eq "Get-S3Version/RequestPayer") -Or
+            ($_ -eq "Remove-S3Object/RequestPayer") -Or
             ($_ -eq "Restore-S3Object/RequestPayer") -Or
+            ($_ -eq "Write-S3Object/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLegalHold/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectLockConfiguration/RequestPayer") -Or
             ($_ -eq "Write-S3ObjectRetention/RequestPayer") -Or
@@ -312,6 +315,7 @@ $S3_Completers = {
         {
             ($_ -eq "Restore-S3Object/Encryption_EncryptionType") -Or
             ($_ -eq "Copy-S3Object/ServerSideEncryption") -Or
+            ($_ -eq "New-S3Session/ServerSideEncryption") -Or
             ($_ -eq "Write-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionMethod") -Or
             ($_ -eq "Write-S3GetObjectResponse/ServerSideEncryptionMethod")
@@ -371,7 +375,7 @@ $S3_map = @{
     "PartitionedPrefix_PartitionDateSource"=@("Write-S3BucketLogging")
     "ReplicationStatus"=@("Write-S3GetObjectResponse")
     "RequestCharged"=@("Write-S3GetObjectResponse")
-    "RequestPayer"=@("Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Restore-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
+    "RequestPayer"=@("Copy-S3Object","Get-S3BucketAccelerateConfiguration","Get-S3Object","Get-S3ObjectAttribute","Get-S3ObjectLegalHold","Get-S3ObjectMetadata","Get-S3ObjectRetention","Get-S3ObjectTagSet","Get-S3ObjectV2","Get-S3Version","Remove-S3Object","Restore-S3Object","Write-S3Object","Write-S3ObjectLegalHold","Write-S3ObjectLockConfiguration","Write-S3ObjectRetention","Write-S3ObjectTagSet")
     "RestoreRequestType"=@("Restore-S3Object")
     "Retention_Mode"=@("Write-S3ObjectRetention")
     "RetrievalTier"=@("Restore-S3Object")
@@ -380,7 +384,7 @@ $S3_map = @{
     "S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
     "Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
     "ServerSideCustomerEncryptionMethod"=@("Select-S3ObjectContent")
-    "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
+    "ServerSideEncryption"=@("Copy-S3Object","New-S3Session","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL","Write-S3GetObjectResponse")
     "SessionMode"=@("New-S3Session")

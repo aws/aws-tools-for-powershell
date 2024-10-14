@@ -28,8 +28,8 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// The user's multi-factor authentication (MFA) preference, including which MFA options
-    /// are activated, and if any are preferred. Only one factor can be set as preferred.
+    /// Sets the user's multi-factor authentication (MFA) preference, including which MFA
+    /// options are activated, and if any are preferred. Only one factor can be set as preferred.
     /// The preferred MFA factor will be used to authenticate a user if multiple factors are
     /// activated. If multiple options are activated and no preference is set, a challenge
     /// to choose an MFA option will be returned during sign-in.
@@ -56,10 +56,33 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
+        #region Parameter EmailMfaSettings_Enabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether email message MFA is active for a user. When the value of this parameter
+        /// is <c>Enabled</c>, the user will be prompted for MFA during all sign-in attempts,
+        /// unless device tracking is turned on and the device has been trusted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EmailMfaSettings_Enabled { get; set; }
+        #endregion
+        
+        #region Parameter EmailMfaSettings_PreferredMfa
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether email message MFA is the user's preferred method.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Boolean? EmailMfaSettings_PreferredMfa { get; set; }
+        #endregion
+        
         #region Parameter SMSMfaSetting
         /// <summary>
         /// <para>
-        /// <para>The SMS text message MFA settings.</para>
+        /// <para>User preferences for SMS message MFA. Activates or deactivates SMS MFA and sets it
+        /// as the preferred MFA method when multiple methods are available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -70,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SoftwareTokenMfaSetting
         /// <summary>
         /// <para>
-        /// <para>The time-based one-time password software token MFA settings.</para>
+        /// <para>User preferences for time-based one-time password (TOTP) MFA. Activates or deactivates
+        /// TOTP MFA and sets it as the preferred MFA method when multiple methods are available.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -101,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID.</para>
+        /// <para>The ID of the user pool where you want to set a user's MFA preferences.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -176,6 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 context.Select = (response, cmdlet) => this.UserPoolId;
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
+            context.EmailMfaSettings_Enabled = this.EmailMfaSettings_Enabled;
+            context.EmailMfaSettings_PreferredMfa = this.EmailMfaSettings_PreferredMfa;
             context.SMSMfaSetting = this.SMSMfaSetting;
             context.SoftwareTokenMfaSetting = this.SoftwareTokenMfaSetting;
             context.Username = this.Username;
@@ -208,6 +234,35 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.AdminSetUserMFAPreferenceRequest();
             
+            
+             // populate EmailMfaSettings
+            var requestEmailMfaSettingsIsNull = true;
+            request.EmailMfaSettings = new Amazon.CognitoIdentityProvider.Model.EmailMfaSettingsType();
+            System.Boolean? requestEmailMfaSettings_emailMfaSettings_Enabled = null;
+            if (cmdletContext.EmailMfaSettings_Enabled != null)
+            {
+                requestEmailMfaSettings_emailMfaSettings_Enabled = cmdletContext.EmailMfaSettings_Enabled.Value;
+            }
+            if (requestEmailMfaSettings_emailMfaSettings_Enabled != null)
+            {
+                request.EmailMfaSettings.Enabled = requestEmailMfaSettings_emailMfaSettings_Enabled.Value;
+                requestEmailMfaSettingsIsNull = false;
+            }
+            System.Boolean? requestEmailMfaSettings_emailMfaSettings_PreferredMfa = null;
+            if (cmdletContext.EmailMfaSettings_PreferredMfa != null)
+            {
+                requestEmailMfaSettings_emailMfaSettings_PreferredMfa = cmdletContext.EmailMfaSettings_PreferredMfa.Value;
+            }
+            if (requestEmailMfaSettings_emailMfaSettings_PreferredMfa != null)
+            {
+                request.EmailMfaSettings.PreferredMfa = requestEmailMfaSettings_emailMfaSettings_PreferredMfa.Value;
+                requestEmailMfaSettingsIsNull = false;
+            }
+             // determine if request.EmailMfaSettings should be set to null
+            if (requestEmailMfaSettingsIsNull)
+            {
+                request.EmailMfaSettings = null;
+            }
             if (cmdletContext.SMSMfaSetting != null)
             {
                 request.SMSMfaSettings = cmdletContext.SMSMfaSetting;
@@ -285,6 +340,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? EmailMfaSettings_Enabled { get; set; }
+            public System.Boolean? EmailMfaSettings_PreferredMfa { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType SMSMfaSetting { get; set; }
             public Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType SoftwareTokenMfaSetting { get; set; }
             public System.String Username { get; set; }

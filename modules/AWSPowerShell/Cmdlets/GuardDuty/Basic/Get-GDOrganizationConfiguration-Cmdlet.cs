@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector to retrieve information about the delegated administrator from.</para>
+        /// <para>The detector ID of the delegated administrator for which you need to retrieve the
+        /// information.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

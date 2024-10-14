@@ -46,10 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter BackupVaultName
         /// <summary>
         /// <para>
-        /// <para>This is the name of a logical container where the child (nested) recovery point is
-        /// stored. Backup vaults are identified by names that are unique to the account used
-        /// to create them and the Amazon Web Services Region where they are created. They consist
-        /// of lowercase letters, numbers, and hyphens.</para>
+        /// <para>The name of a logical container where the child (nested) recovery point is stored.
+        /// Backup vaults are identified by names that are unique to the account used to create
+        /// them and the Amazon Web Services Region where they are created.</para>
         /// </para>
         /// </summary>
         #if !MODULAR
@@ -66,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.BAK
         #region Parameter RecoveryPointArn
         /// <summary>
         /// <para>
-        /// <para>This is the Amazon Resource Name (ARN) that uniquely identifies the child (nested)
-        /// recovery point; for example, <c>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</c></para>
+        /// <para>The Amazon Resource Name (ARN) that uniquely identifies the child (nested) recovery
+        /// point; for example, <c>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45.</c></para>
         /// </para>
         /// </summary>
         #if !MODULAR

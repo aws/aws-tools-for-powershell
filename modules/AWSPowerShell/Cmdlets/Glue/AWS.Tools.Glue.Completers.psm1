@@ -80,6 +80,13 @@ $GLUE_Completers = {
 
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Glue.AuthenticationType
+        "Test-GLUEConnection/AuthenticationConfiguration_AuthenticationType"
+        {
+            $v = "BASIC","CUSTOM","OAUTH2"
+            break
+        }
+
         # Amazon.Glue.CatalogEncryptionMode
         "Set-GLUEDataCatalogEncryptionSetting/EncryptionAtRest_CatalogEncryptionMode"
         {
@@ -101,6 +108,13 @@ $GLUE_Completers = {
         }
         {
             $v = "BACKWARD","BACKWARD_ALL","DISABLED","FORWARD","FORWARD_ALL","FULL","FULL_ALL","NONE"
+            break
+        }
+
+        # Amazon.Glue.ConnectionType
+        "Test-GLUEConnection/TestConnectionInput_ConnectionType"
+        {
+            $v = "CUSTOM","JDBC","KAFKA","MARKETPLACE","MONGODB","NETWORK","SALESFORCE","SFTP","VIEW_VALIDATION_ATHENA","VIEW_VALIDATION_REDSHIFT"
             break
         }
 
@@ -220,6 +234,13 @@ $GLUE_Completers = {
             break
         }
 
+        # Amazon.Glue.OAuth2GrantType
+        "Test-GLUEConnection/OAuth2Properties_OAuth2GrantType"
+        {
+            $v = "AUTHORIZATION_CODE","CLIENT_CREDENTIALS","JWT_BEARER"
+            break
+        }
+
         # Amazon.Glue.RecrawlBehavior
         {
             ($_ -eq "New-GLUECrawler/RecrawlPolicy_RecrawlBehavior") -Or
@@ -289,7 +310,7 @@ $GLUE_Completers = {
             ($_ -eq "Update-GLUETableOptimizer/Type")
         }
         {
-            $v = "compaction"
+            $v = "compaction","orphan_file_deletion","retention"
             break
         }
 
@@ -391,6 +412,7 @@ $GLUE_Completers = {
 
 $GLUE_map = @{
     "AdditionalRunOptions_CompositeRuleEvaluationMethod"=@("Start-GLUEDataQualityRulesetEvaluationRun")
+    "AuthenticationConfiguration_AuthenticationType"=@("Test-GLUEConnection")
     "AuthStrategy"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
     "CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
     "Compatibility"=@("New-GLUESchema","Update-GLUESchema")
@@ -410,6 +432,7 @@ $GLUE_map = @{
     "Language"=@("Get-GLUEPlan","New-GLUEScript")
     "LineageConfiguration_CrawlerLineageSetting"=@("New-GLUECrawler","Update-GLUECrawler")
     "MlUserDataEncryption_MlUserDataEncryptionMode"=@("New-GLUEMLTransform")
+    "OAuth2Properties_OAuth2GrantType"=@("Test-GLUEConnection")
     "Parameters_TransformType"=@("New-GLUEMLTransform","Update-GLUEMLTransform")
     "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
     "Provider"=@("Update-GLUEJobFromSourceControl","Update-GLUESourceControlFromJob")
@@ -421,6 +444,7 @@ $GLUE_map = @{
     "SourceControlDetails_AuthStrategy"=@("New-GLUEJob")
     "SourceControlDetails_Provider"=@("New-GLUEJob")
     "SupportedDialect_Dialect"=@("Get-GLUEUnfilteredTableMetadata")
+    "TestConnectionInput_ConnectionType"=@("Test-GLUEConnection")
     "Type"=@("Get-GLUETableOptimizer","Get-GLUETableOptimizerRunList","New-GLUETableOptimizer","New-GLUETrigger","Remove-GLUETableOptimizer","Update-GLUETableOptimizer")
     "ViewUpdateAction"=@("Update-GLUETable")
     "WorkerType"=@("New-GLUEDevEndpoint","New-GLUEJob","New-GLUEMLTransform","New-GLUESession","Start-GLUEJobRun","Update-GLUEMLTransform")
@@ -676,6 +700,7 @@ $GLUE_SelectMap = @{
                "Stop-GLUETrigger",
                "Stop-GLUEWorkflowRun",
                "Add-GLUEResourceTag",
+               "Test-GLUEConnection",
                "Remove-GLUEResourceTag",
                "Update-GLUEBlueprint",
                "Update-GLUEClassifier",

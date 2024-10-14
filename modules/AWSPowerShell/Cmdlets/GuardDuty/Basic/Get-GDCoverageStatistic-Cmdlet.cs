@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of the GuardDuty detector associated to the coverage statistics.</para>
+        /// <para>The unique ID of the GuardDuty detector.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

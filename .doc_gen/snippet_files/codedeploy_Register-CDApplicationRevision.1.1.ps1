@@ -1,1 +1,1 @@
-Register-CDApplicationRevision -ApplicationName MyNewApplication -S3Location_Bucket MyBucket -S3Location_BundleType zip -S3Location_Key aws-codedeploy_linux-master.zip -Revision_RevisionType S3
+Register-CDApplicationRevision -ApplicationName MyNewApplication -S3Location_Bucket amzn-s3-demo-bucket -S3Location_BundleType zip -S3Location_Key aws-codedeploy_linux-master.zip -Revision_RevisionType S3

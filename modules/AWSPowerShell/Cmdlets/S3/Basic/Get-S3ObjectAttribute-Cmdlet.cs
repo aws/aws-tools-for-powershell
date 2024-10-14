@@ -41,8 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// and Zonal endpoints</a> in the <i>Amazon S3 User Guide</i>.
     /// </para></note><dl><dt>Permissions</dt><dd><ul><li><para><b>General purpose bucket permissions</b> - To use <c>GetObjectAttributes</c>, you
     /// must have READ access to the object. The permissions that you need to use this operation
-    /// with depend on whether the bucket is versioned. If the bucket is versioned, you need
-    /// both the <c>s3:GetObjectVersion</c> and <c>s3:GetObjectVersionAttributes</c> permissions
+    /// depend on whether the bucket is versioned. If the bucket is versioned, you need both
+    /// the <c>s3:GetObjectVersion</c> and <c>s3:GetObjectVersionAttributes</c> permissions
     /// for this operation. If the bucket is not versioned, you need the <c>s3:GetObject</c>
     /// and <c>s3:GetObjectAttributes</c> permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
     /// Permissions in a Policy</a> in the <i>Amazon S3 User Guide</i>. If the object that
@@ -64,6 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// use. Amazon Web Services CLI or SDKs create session and refresh the session token
     /// automatically to avoid service interruptions when a session expires. For more information
     /// about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html"><c>CreateSession</c></a>.
+    /// </para><para>
+    /// If the object is encrypted with SSE-KMS, you must also have the <c>kms:GenerateDataKey</c>
+    /// and <c>kms:Decrypt</c> permissions in IAM identity-based policies and KMS key policies
+    /// for the KMS key.
     /// </para></li></ul></dd><dt>Encryption</dt><dd><note><para>
     /// Encryption request headers, like <c>x-amz-server-side-encryption</c>, should not be
     /// sent for <c>HEAD</c> requests if your object uses server-side encryption with Key
@@ -83,8 +87,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
     /// Encryption (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3 User
     /// Guide</i>.
-    /// </para><note><para><b>Directory bucket permissions</b> - For directory buckets, only server-side encryption
-    /// with Amazon S3 managed keys (SSE-S3) (<c>AES256</c>) is supported.
+    /// </para><note><para><b>Directory bucket permissions</b> - For directory buckets, there are only two supported
+    /// options for server-side encryption: server-side encryption with Amazon S3 managed
+    /// keys (SSE-S3) (<c>AES256</c>) and server-side encryption with KMS keys (SSE-KMS) (<c>aws:kms</c>).
+    /// We recommend that the bucket's default encryption uses the desired encryption configuration
+    /// and you don't override the bucket default encryption in your <c>CreateSession</c>
+    /// requests or <c>PUT</c> object requests. Then, new objects are automatically encrypted
+    /// with the desired encryption settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting
+    /// data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more
+    /// information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying
+    /// server-side encryption with KMS for new object uploads</a>.
     /// </para></note></dd><dt>Versioning</dt><dd><para><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory
     /// buckets. For this API operation, only the <c>null</c> value of the version ID is supported
     /// by directory buckets. You can only specify <c>null</c> to the <c>versionId</c> query

@@ -4,4 +4,4 @@ $topic =  [Amazon.S3.Model.TopicConfiguration] @{
   Event = [Amazon.S3.EventType]::ObjectRemovedDelete
 }
 
-Write-S3BucketNotification -BucketName kt-tools -TopicConfiguration $topic
+Write-S3BucketNotification -BucketName amzn-s3-demo-bucket -TopicConfiguration $topic

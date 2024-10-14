@@ -75,6 +75,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountSettings" OutputProperty="DeletionProtection" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetApplication" OutputProperty="*" Verb="Get" Noun="Application" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -160,6 +164,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountSettings" OutputProperty="DeletionProtection" Verb="Update" Noun="AccountSetting" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>

@@ -125,10 +125,31 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.DataZoneEntityType
+        {
+            ($_ -eq "Add-DZEntityOwner/EntityType") -Or
+            ($_ -eq "Get-DZEntityOwnerList/EntityType") -Or
+            ($_ -eq "Remove-DZEntityOwner/EntityType")
+        }
+        {
+            $v = "DOMAIN_UNIT"
+            break
+        }
+
         # Amazon.DataZone.DomainStatus
         "Get-DZDomainList/Status"
         {
             $v = "AVAILABLE","CREATING","CREATION_FAILED","DELETED","DELETING","DELETION_FAILED"
+            break
+        }
+
+        # Amazon.DataZone.DomainUnitDesignation
+        {
+            ($_ -eq "Add-DZPolicyGrant/DomainUnit_DomainUnitDesignation") -Or
+            ($_ -eq "Remove-DZPolicyGrant/DomainUnit_DomainUnitDesignation")
+        }
+        {
+            $v = "OWNER"
             break
         }
 
@@ -218,6 +239,17 @@ $DZ_Completers = {
             break
         }
 
+        # Amazon.DataZone.ManagedPolicyType
+        {
+            ($_ -eq "Add-DZPolicyGrant/PolicyType") -Or
+            ($_ -eq "Get-DZPolicyGrantList/PolicyType") -Or
+            ($_ -eq "Remove-DZPolicyGrant/PolicyType")
+        }
+        {
+            $v = "ADD_TO_PROJECT_MEMBER_POOL","CREATE_ASSET_TYPE","CREATE_DOMAIN_UNIT","CREATE_ENVIRONMENT","CREATE_ENVIRONMENT_PROFILE","CREATE_FORM_TYPE","CREATE_GLOSSARY","CREATE_PROJECT","DELEGATE_CREATE_ENVIRONMENT_PROFILE","OVERRIDE_DOMAIN_UNIT_OWNERS","OVERRIDE_PROJECT_OWNERS"
+            break
+        }
+
         # Amazon.DataZone.MetadataGenerationRunStatus
         "Get-DZMetadataGenerationRunList/Status"
         {
@@ -246,6 +278,16 @@ $DZ_Completers = {
         "Get-DZNotificationList/Type"
         {
             $v = "EVENT","TASK"
+            break
+        }
+
+        # Amazon.DataZone.ProjectDesignation
+        {
+            ($_ -eq "Add-DZPolicyGrant/Project_ProjectDesignation") -Or
+            ($_ -eq "Remove-DZPolicyGrant/Project_ProjectDesignation")
+        }
+        {
+            $v = "CONTRIBUTOR","OWNER"
             break
         }
 
@@ -310,6 +352,17 @@ $DZ_Completers = {
         "Get-DZSubscriptionList/Status"
         {
             $v = "APPROVED","CANCELLED","REVOKED"
+            break
+        }
+
+        # Amazon.DataZone.TargetEntityType
+        {
+            ($_ -eq "Add-DZPolicyGrant/EntityType") -Or
+            ($_ -eq "Get-DZPolicyGrantList/EntityType") -Or
+            ($_ -eq "Remove-DZPolicyGrant/EntityType")
+        }
+        {
+            $v = "DOMAIN_UNIT","ENVIRONMENT_BLUEPRINT_CONFIGURATION","ENVIRONMENT_PROFILE"
             break
         }
 
@@ -410,9 +463,12 @@ $DZ_map = @{
     "Action"=@("New-DZListingChangeSet")
     "Designation"=@("New-DZProjectMembership")
     "Direction"=@("Get-DZLineageNodeHistoryList")
+    "DomainUnit_DomainUnitDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "EnableSetting"=@("New-DZDataSource","Update-DZDataSource")
-    "EntityType"=@("Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZTimeSeriesDataPoint")
+    "EntityType"=@("Add-DZEntityOwner","Add-DZPolicyGrant","Get-DZEntityOwnerList","Get-DZPolicyGrantList","Get-DZTimeSeriesDataPoint","Get-DZTimeSeriesDataPointList","New-DZListingChangeSet","New-DZTimeSeriesDataPoint","Remove-DZEntityOwner","Remove-DZPolicyGrant","Remove-DZTimeSeriesDataPoint")
     "GroupType"=@("Search-DZGroupProfile")
+    "PolicyType"=@("Add-DZPolicyGrant","Get-DZPolicyGrantList","Remove-DZPolicyGrant")
+    "Project_ProjectDesignation"=@("Add-DZPolicyGrant","Remove-DZPolicyGrant")
     "RejectRule_Rule"=@("Deny-DZPrediction")
     "Schedule_Timezone"=@("New-DZDataSource","Update-DZDataSource")
     "SearchScope"=@("Search-DZResource","Search-DZType")
@@ -480,6 +536,8 @@ $DZ_SelectCompleters = {
 $DZ_SelectMap = @{
     "Select"=@("Approve-DZPrediction",
                "Approve-DZSubscriptionRequest",
+               "Add-DZEntityOwner",
+               "Add-DZPolicyGrant",
                "Set-DZEnvironmentRole",
                "Stop-DZMetadataGenerationRun",
                "Stop-DZSubscription",
@@ -491,6 +549,7 @@ $DZ_SelectMap = @{
                "New-DZDataProductRevision",
                "New-DZDataSource",
                "New-DZDomain",
+               "New-DZDomainUnit",
                "New-DZEnvironment",
                "New-DZEnvironmentAction",
                "New-DZEnvironmentProfile",
@@ -511,6 +570,7 @@ $DZ_SelectMap = @{
                "Remove-DZDataProduct",
                "Remove-DZDataSource",
                "Remove-DZDomain",
+               "Remove-DZDomainUnit",
                "Remove-DZEnvironment",
                "Remove-DZEnvironmentAction",
                "Remove-DZEnvironmentBlueprintConfiguration",
@@ -533,6 +593,7 @@ $DZ_SelectMap = @{
                "Get-DZDataSource",
                "Get-DZDataSourceRun",
                "Get-DZDomain",
+               "Get-DZDomainUnit",
                "Get-DZEnvironment",
                "Get-DZEnvironmentAction",
                "Get-DZEnvironmentBlueprint",
@@ -561,6 +622,8 @@ $DZ_SelectMap = @{
                "Get-DZDataSourceRunList",
                "Get-DZDataSourceList",
                "Get-DZDomainList",
+               "Get-DZDomainUnitsForParentList",
+               "Get-DZEntityOwnerList",
                "Get-DZEnvironmentActionList",
                "Get-DZEnvironmentBlueprintConfigurationList",
                "Get-DZEnvironmentBlueprintList",
@@ -569,6 +632,7 @@ $DZ_SelectMap = @{
                "Get-DZLineageNodeHistoryList",
                "Get-DZMetadataGenerationRunList",
                "Get-DZNotificationList",
+               "Get-DZPolicyGrantList",
                "Get-DZProjectMembershipList",
                "Get-DZProjectList",
                "Get-DZSubscriptionGrantList",
@@ -582,6 +646,8 @@ $DZ_SelectMap = @{
                "Write-DZEnvironmentBlueprintConfiguration",
                "Deny-DZPrediction",
                "Deny-DZSubscriptionRequest",
+               "Remove-DZEntityOwner",
+               "Remove-DZPolicyGrant",
                "Revoke-DZSubscription",
                "Search-DZResource",
                "Search-DZGroupProfile",
@@ -595,6 +661,7 @@ $DZ_SelectMap = @{
                "Update-DZAssetFilter",
                "Update-DZDataSource",
                "Update-DZDomain",
+               "Update-DZDomainUnit",
                "Update-DZEnvironment",
                "Update-DZEnvironmentAction",
                "Update-DZEnvironmentProfile",

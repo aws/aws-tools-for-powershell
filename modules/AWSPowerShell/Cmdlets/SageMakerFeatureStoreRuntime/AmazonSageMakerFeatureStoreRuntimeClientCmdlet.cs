@@ -57,6 +57,13 @@ namespace Amazon.PowerShell.Cmdlets.SMFS
             return client;
         }
         
+        protected override void BeginProcessing()
+        {
+            base.AWSServiceId = AmazonSageMakerFeatureStoreRuntimeConfig.ServiceId.ToString();
+            
+            base.BeginProcessing();
+        }
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();

@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
     /// A transaction times out if no calls use its transaction ID in three minutes. If a
     /// transaction times out before it's committed, it's rolled back automatically.
     /// </para><para>
-    /// DDL statements inside a transaction cause an implicit commit. We recommend that you
-    /// run each DDL statement in a separate <c>ExecuteStatement</c> call with <c>continueAfterTimeout</c>
-    /// enabled.
+    /// For Aurora MySQL, DDL statements inside a transaction cause an implicit commit. We
+    /// recommend that you run each MySQL DDL statement in a separate <c>ExecuteStatement</c>
+    /// call with <c>continueAfterTimeout</c> enabled.
     /// </para></note>
     /// </summary>
     [Cmdlet("Start", "RDSDTransaction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

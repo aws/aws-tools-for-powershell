@@ -342,6 +342,8 @@
                 <Param Name="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" Alias="JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
                 <Param Name="SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" Alias="AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
+                <Param Name="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -1481,6 +1483,8 @@
                 <Param Name="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" NewName="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" Alias="JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionAlias" />
                 <Param Name="SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="CodeEditorAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
                 <Param Name="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" NewName="SpaceSettings_JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" Alias="JupyterLabAppSettings_DefaultResourceSpec_SageMakerImageVersionArn" />
+                <Param Name="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_CodeEditorAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" Alias="AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
+                <Param Name="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" NewName="SpaceSettings_JupyterLabAppSettings_AppLifecycleManagement_IdleSettings_IdleTimeoutInMinutes" />
             </Params>
             <TypesNotToFlatten />
         </ServiceOperation>

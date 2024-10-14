@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.GD
         #region Parameter DetectorId
         /// <summary>
         /// <para>
-        /// <para>The ID of the detector associated with the findings to update feedback for.</para>
+        /// <para>The ID of the detector that is associated with the findings for which you want to
+        /// update the feedback.</para>
         /// </para>
         /// </summary>
         #if !MODULAR

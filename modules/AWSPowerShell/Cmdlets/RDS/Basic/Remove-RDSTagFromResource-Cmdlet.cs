@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// For an overview on tagging an Amazon RDS resource, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging
-    /// Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i></para>
+    /// For an overview on tagging an Amazon RDS resource, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging
+    /// Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i> or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging
+    /// Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "RDSTagFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

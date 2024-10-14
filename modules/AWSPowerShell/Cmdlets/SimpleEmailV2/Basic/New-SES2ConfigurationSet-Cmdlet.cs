@@ -87,6 +87,17 @@ namespace Amazon.PowerShell.Cmdlets.SES2
         public Amazon.SimpleEmailV2.FeatureStatus DashboardOptions_EngagementMetric { get; set; }
         #endregion
         
+        #region Parameter TrackingOptions_HttpsPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The https policy to use for tracking open and click events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.SimpleEmailV2.HttpsPolicy")]
+        public Amazon.SimpleEmailV2.HttpsPolicy TrackingOptions_HttpsPolicy { get; set; }
+        #endregion
+        
         #region Parameter ReputationOptions_LastFreshStart
         /// <summary>
         /// <para>
@@ -268,6 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 context.Tag = new List<Amazon.SimpleEmailV2.Model.Tag>(this.Tag);
             }
             context.TrackingOptions_CustomRedirectDomain = this.TrackingOptions_CustomRedirectDomain;
+            context.TrackingOptions_HttpsPolicy = this.TrackingOptions_HttpsPolicy;
             context.DashboardOptions_EngagementMetric = this.DashboardOptions_EngagementMetric;
             context.GuardianOptions_OptimizedSharedDelivery = this.GuardianOptions_OptimizedSharedDelivery;
             
@@ -404,6 +416,16 @@ namespace Amazon.PowerShell.Cmdlets.SES2
                 request.TrackingOptions.CustomRedirectDomain = requestTrackingOptions_trackingOptions_CustomRedirectDomain;
                 requestTrackingOptionsIsNull = false;
             }
+            Amazon.SimpleEmailV2.HttpsPolicy requestTrackingOptions_trackingOptions_HttpsPolicy = null;
+            if (cmdletContext.TrackingOptions_HttpsPolicy != null)
+            {
+                requestTrackingOptions_trackingOptions_HttpsPolicy = cmdletContext.TrackingOptions_HttpsPolicy;
+            }
+            if (requestTrackingOptions_trackingOptions_HttpsPolicy != null)
+            {
+                request.TrackingOptions.HttpsPolicy = requestTrackingOptions_trackingOptions_HttpsPolicy;
+                requestTrackingOptionsIsNull = false;
+            }
              // determine if request.TrackingOptions should be set to null
             if (requestTrackingOptionsIsNull)
             {
@@ -538,6 +560,7 @@ namespace Amazon.PowerShell.Cmdlets.SES2
             public List<System.String> SuppressionOptions_SuppressedReason { get; set; }
             public List<Amazon.SimpleEmailV2.Model.Tag> Tag { get; set; }
             public System.String TrackingOptions_CustomRedirectDomain { get; set; }
+            public Amazon.SimpleEmailV2.HttpsPolicy TrackingOptions_HttpsPolicy { get; set; }
             public Amazon.SimpleEmailV2.FeatureStatus DashboardOptions_EngagementMetric { get; set; }
             public Amazon.SimpleEmailV2.FeatureStatus GuardianOptions_OptimizedSharedDelivery { get; set; }
             public System.Func<Amazon.SimpleEmailV2.Model.CreateConfigurationSetResponse, NewSES2ConfigurationSetCmdlet, object> Select { get; set; } =

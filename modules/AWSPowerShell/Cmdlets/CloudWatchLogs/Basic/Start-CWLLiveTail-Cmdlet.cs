@@ -58,10 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// Logs buffers up to 10 <c>LiveTailSessionUpdate</c> events or 5000 log events, after
     /// which it starts dropping the oldest events.
     /// </para></li><li><para>
-    /// A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionStreamingException.html">SessionStreamingException</a>
+    /// A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionStreamingException">SessionStreamingException</a>
     /// object is returned if an unknown error occurs on the server side.
     /// </para></li><li><para>
-    /// A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionTimeoutException.html">SessionTimeoutException</a>
+    /// A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionTimeoutException">SessionTimeoutException</a>
     /// object is returned when the session times out, after it has been kept open for three
     /// hours.
     /// </para></li></ul><important><para>

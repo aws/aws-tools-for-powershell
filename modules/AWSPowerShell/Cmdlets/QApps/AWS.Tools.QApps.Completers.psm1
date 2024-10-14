@@ -178,6 +178,7 @@ $qapps_SelectMap = @{
                "Add-qappsResourceTag",
                "Remove-qappsResourceTag",
                "Update-qappsLibraryItem",
+               "Update-qappsLibraryItemMetadata",
                "Update-qappsQApp",
                "Update-qappsQAppSession")
 }

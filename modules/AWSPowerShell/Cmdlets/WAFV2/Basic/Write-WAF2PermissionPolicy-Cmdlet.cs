@@ -28,12 +28,12 @@ using Amazon.WAFV2.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF2
 {
     /// <summary>
-    /// Attaches an IAM policy to the specified resource. Use this to share a rule group across
-    /// accounts.
+    /// Use this to share a rule group with other accounts.
     /// 
     ///  
     /// <para>
-    /// You must be the owner of the rule group to perform this operation.
+    /// This action attaches an IAM policy to the specified resource. You must be the owner
+    /// of the rule group to perform this operation.
     /// </para><para>
     /// This action is subject to the following restrictions:
     /// </para><ul><li><para>
@@ -43,7 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.WAF2
     /// must exist in the same Region.
     /// </para></li><li><para>
     /// The user making the request must be the owner of the rule group.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// If a rule group has been shared with your account, you can access it through the call
+    /// <c>GetRuleGroup</c>, and you can reference it in <c>CreateWebACL</c> and <c>UpdateWebACL</c>.
+    /// Rule groups that are shared with you don't appear in your WAF console rule groups
+    /// listing. 
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "WAF2PermissionPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]

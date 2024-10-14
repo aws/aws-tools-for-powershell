@@ -347,6 +347,10 @@
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Get" Noun="QPersonalizationConfiguration" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRefreshSchedule" OutputProperty="*" Verb="Get" Noun="RefreshSchedule" PipelineParameter="ScheduleId" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
@@ -415,9 +419,9 @@
             <Params>
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_Bookmarks_Enabled" />
                 <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_StatePersistence_Enabled" />
-                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Bookmarks_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_Bookmarks_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_StatePersistence_Enabled" />
+                <Param Name="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_Dashboard_FeatureConfigurations_SharedView_Enabled" />
                 <Param Name="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" NewName="ExperienceConfiguration_QuickSightConsole_FeatureConfigurations_SharedView_Enabled" />
             </Params>
             <TypesNotToFlatten />
@@ -463,6 +467,10 @@
             <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFolders" OutputProperty="FolderSummaryList" Verb="Get" Noun="FolderList" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFoldersForResource" OutputProperty="Folders" Verb="Get" Noun="FoldersForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
             <TypesNotToFlatten />
         </ServiceOperation>
@@ -698,6 +706,10 @@
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsRequest</Type>
                 <Type>Amazon.QuickSight.Model.UpdatePublicSharingSettingsResponse</Type>
             </TypesNotToFlatten>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQPersonalizationConfiguration" OutputProperty="PersonalizationMode" Verb="Update" Noun="QPersonalizationConfiguration" ShouldProcessTarget="AwsAccountId" PipelineParameter="AwsAccountId" NoPipelineParameter="false">
+            <Params />
+            <TypesNotToFlatten />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRefreshSchedule" OutputProperty="*" Verb="Update" Noun="RefreshSchedule" ShouldProcessTarget="Schedule_ScheduleId" PipelineParameter="Schedule_ScheduleId" NoPipelineParameter="false">
             <Params />

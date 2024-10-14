@@ -1,1 +1,1 @@
-Get-S3BucketTagging -BucketName 's3casetestbucket'
+Get-S3BucketTagging -BucketName 'amzn-s3-demo-bucket'

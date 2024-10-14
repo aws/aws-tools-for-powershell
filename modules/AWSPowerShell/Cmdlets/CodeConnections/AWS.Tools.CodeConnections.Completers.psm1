@@ -101,6 +101,16 @@ $CCON_Completers = {
             break
         }
 
+        # Amazon.CodeConnections.PullRequestComment
+        {
+            ($_ -eq "New-CCONSyncConfiguration/PullRequestComment") -Or
+            ($_ -eq "Update-CCONSyncConfiguration/PullRequestComment")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+
         # Amazon.CodeConnections.SyncConfigurationType
         {
             ($_ -eq "Get-CCONRepositorySyncDefinitionList/SyncType") -Or
@@ -141,6 +151,7 @@ $CCON_map = @{
     "ProviderType"=@("New-CCONConnection","New-CCONHost")
     "ProviderTypeFilter"=@("Get-CCONConnectionList")
     "PublishDeploymentStatus"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
+    "PullRequestComment"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
     "SyncType"=@("Get-CCONRepositorySyncDefinitionList","Get-CCONRepositorySyncStatus","Get-CCONResourceSyncStatus","Get-CCONSyncBlockerSummary","Get-CCONSyncConfiguration","Get-CCONSyncConfigurationList","New-CCONSyncConfiguration","Remove-CCONSyncConfiguration","Update-CCONSyncBlocker","Update-CCONSyncConfiguration")
     "TriggerResourceUpdateOn"=@("New-CCONSyncConfiguration","Update-CCONSyncConfiguration")
 }

@@ -28,15 +28,8 @@ using Amazon.Backup.Model;
 namespace Amazon.PowerShell.Cmdlets.BAK
 {
     /// <summary>
-    /// Returns a list of key-value pairs assigned to a target recovery point, backup plan,
-    /// or backup vault.
-    /// 
-    ///  
-    /// <para><c>ListTags</c> only works for resource types that support full Backup management
-    /// of their backups. Those resource types are listed in the "Full Backup management"
-    /// section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource">
-    /// Feature availability by resource</a> table.
-    /// </para><br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
+    /// Returns the tags assigned to the resource, such as a target recovery point, backup
+    /// plan, or backup vault.<br/><br/>This cmdlet automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output. To disable autopagination, use -NoAutoIteration.
     /// </summary>
     [Cmdlet("Get", "BAKResourceTag")]
     [OutputType("System.String")]

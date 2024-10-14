@@ -1,1 +1,1 @@
-Remove-S3Bucket -BucketName test-files -DeleteBucketContent
+Remove-S3Bucket -BucketName amzn-s3-demo-bucket -DeleteBucketContent

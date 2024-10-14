@@ -64,6 +64,18 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public Amazon.MediaLive.Model.InputDeviceSettings[] InputDevice { get; set; }
         #endregion
         
+        #region Parameter InputNetworkLocation
+        /// <summary>
+        /// <para>
+        /// The location of this input. AWS,
+        /// for an input existing in the AWS Cloud, On-Prem foran input in a customer network.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [AWSConstantClassSource("Amazon.MediaLive.InputNetworkLocation")]
+        public Amazon.MediaLive.InputNetworkLocation InputNetworkLocation { get; set; }
+        #endregion
+        
         #region Parameter InputSecurityGroup
         /// <summary>
         /// <para>
@@ -134,6 +146,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [Alias("Vpc_SecurityGroupIds")]
         public System.String[] Vpc_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter MulticastSettings_Source
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("MulticastSettings_Sources")]
+        public Amazon.MediaLive.Model.MulticastSourceCreateRequest[] MulticastSettings_Source { get; set; }
         #endregion
         
         #region Parameter Source
@@ -264,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.InputDevice = new List<Amazon.MediaLive.Model.InputDeviceSettings>(this.InputDevice);
             }
+            context.InputNetworkLocation = this.InputNetworkLocation;
             if (this.InputSecurityGroup != null)
             {
                 context.InputSecurityGroup = new List<System.String>(this.InputSecurityGroup);
@@ -271,6 +295,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (this.MediaConnectFlow != null)
             {
                 context.MediaConnectFlow = new List<Amazon.MediaLive.Model.MediaConnectFlowRequest>(this.MediaConnectFlow);
+            }
+            if (this.MulticastSettings_Source != null)
+            {
+                context.MulticastSettings_Source = new List<Amazon.MediaLive.Model.MulticastSourceCreateRequest>(this.MulticastSettings_Source);
             }
             context.Name = this.Name;
             context.RequestId = this.RequestId;
@@ -324,6 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.InputDevices = cmdletContext.InputDevice;
             }
+            if (cmdletContext.InputNetworkLocation != null)
+            {
+                request.InputNetworkLocation = cmdletContext.InputNetworkLocation;
+            }
             if (cmdletContext.InputSecurityGroup != null)
             {
                 request.InputSecurityGroups = cmdletContext.InputSecurityGroup;
@@ -331,6 +363,25 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.MediaConnectFlow != null)
             {
                 request.MediaConnectFlows = cmdletContext.MediaConnectFlow;
+            }
+            
+             // populate MulticastSettings
+            var requestMulticastSettingsIsNull = true;
+            request.MulticastSettings = new Amazon.MediaLive.Model.MulticastSettingsCreateRequest();
+            List<Amazon.MediaLive.Model.MulticastSourceCreateRequest> requestMulticastSettings_multicastSettings_Source = null;
+            if (cmdletContext.MulticastSettings_Source != null)
+            {
+                requestMulticastSettings_multicastSettings_Source = cmdletContext.MulticastSettings_Source;
+            }
+            if (requestMulticastSettings_multicastSettings_Source != null)
+            {
+                request.MulticastSettings.Sources = requestMulticastSettings_multicastSettings_Source;
+                requestMulticastSettingsIsNull = false;
+            }
+             // determine if request.MulticastSettings should be set to null
+            if (requestMulticastSettingsIsNull)
+            {
+                request.MulticastSettings = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -467,8 +518,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
         {
             public List<Amazon.MediaLive.Model.InputDestinationRequest> Destination { get; set; }
             public List<Amazon.MediaLive.Model.InputDeviceSettings> InputDevice { get; set; }
+            public Amazon.MediaLive.InputNetworkLocation InputNetworkLocation { get; set; }
             public List<System.String> InputSecurityGroup { get; set; }
             public List<Amazon.MediaLive.Model.MediaConnectFlowRequest> MediaConnectFlow { get; set; }
+            public List<Amazon.MediaLive.Model.MulticastSourceCreateRequest> MulticastSettings_Source { get; set; }
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
             public System.String RoleArn { get; set; }

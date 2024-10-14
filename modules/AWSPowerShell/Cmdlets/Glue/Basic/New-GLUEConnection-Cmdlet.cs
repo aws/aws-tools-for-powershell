@@ -45,6 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEConnectionCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        protected override bool IsSensitiveRequest { get; set; } = true;
+        
         protected override bool IsGeneratedCmdlet { get; set; } = true;
         
         #region Parameter CatalogId

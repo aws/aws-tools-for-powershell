@@ -124,7 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.CWIM
         /// and round-trip times, at 5 minute intervals.</para></li><li><para><c>TOP_LOCATIONS</c>: Provides availability score, performance score, total traffic,
         /// and time to first byte (TTFB) information, for the top location and ASN combinations
         /// that you're monitoring, by traffic volume.</para></li><li><para><c>TOP_LOCATION_DETAILS</c>: Provides TTFB for Amazon CloudFront, your current configuration,
-        /// and the best performing EC2 configuration, at 1 hour intervals.</para></li></ul><para>For lists of the fields returned with each query type and more information about how
+        /// and the best performing EC2 configuration, at 1 hour intervals.</para></li><li><para><c>OVERALL_TRAFFIC_SUGGESTIONS</c>: Provides TTFB, using a 30-day weighted average,
+        /// for all traffic in each Amazon Web Services location that is monitored.</para></li><li><para><c>OVERALL_TRAFFIC_SUGGESTIONS_DETAILS</c>: Provides TTFB, using a 30-day weighted
+        /// average, for each top location, for a proposed Amazon Web Services location. Must
+        /// provide a Amazon Web Services location to search.</para></li></ul><para>For lists of the fields returned with each query type and more information about how
         /// each type of query is performed, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">
         /// Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch
         /// Internet Monitor User Guide.</para>
